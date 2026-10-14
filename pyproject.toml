@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "drama3-b300"
+version = "0.1.0"
+description = "Single-B300 Drama 3 inference and reproducible streaming evaluation"
+requires-python = ">=3.12"
+dependencies = ["aiohttp>=3.11", "numpy>=2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.11", "pre-commit>=4"]
+
+[project.scripts]
+drama3-bench = "drama3.benchmark:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

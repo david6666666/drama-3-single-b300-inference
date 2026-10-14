@@ -1,0 +1,21 @@
+Built with Fish Audio.
+
+These Fish Audio Materials are licensed under the Fish Audio Community License,
+Version 1.0. Copyright © 39 AI, INC. All Rights Reserved.
+
+The Drama 3 model execution in src/drama3/model.py adapts the Fish Speech Drama 3
+architecture to persistent request slots, independent scheduling, packed
+projections and FlashInfer operators. The model loader, tokenizer, prompt
+construction, codec and reference sampler are imported from Fish Speech.
+The upstream source itself is not modified. Its license is included in
+third_party_licenses/Fish-Audio-Community-License.txt.
+
+FlashInfer and PyTorch provide GPU operators. The Gated DeltaNet implementation
+is imported from SGLang's FLA kernel modules; SGLang's engine, scheduler and
+Omni serving pipeline are not used by the candidate runtime. Their respective
+licenses remain applicable to those dependencies.
+
+The offline accuracy script imports Seed-TTS WER and speaker-verification
+implementations from the pinned SGLang-Omni benchmark repository (Apache-2.0).
+Model weights and evaluation audio are downloaded separately and are not
+included in this repository.

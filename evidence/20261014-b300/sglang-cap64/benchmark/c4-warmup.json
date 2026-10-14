@@ -1,0 +1,336 @@
+[
+  {
+    "request_id": "c4-warmup-00000",
+    "sample_id": "common_voice_en_10119832-common_voice_en_10119840",
+    "success": true,
+    "dispatch_s": 695832.558407556,
+    "http_status": 200,
+    "audio_headers": {
+      "X-Request-ID": "speech-19889d76-a66c-4886-9506-bed52897ff48",
+      "x-sample-rate": "44100",
+      "x-channels": "1",
+      "x-bit-depth": "16",
+      "x-sglang-omni-speech-id": "speech-19889d76-a66c-4886-9506-bed52897ff48"
+    },
+    "ttfa_s": 0.11989016097504646,
+    "last_audio_s": 0.3786423219135031,
+    "completion_s": 0.37886288797017187,
+    "audio_samples": 90112,
+    "acoustic_frames": 44.0,
+    "audio_duration_s": 2.043356009070295,
+    "rtf": 0.1853041370337523,
+    "transport_chunks": 4,
+    "chunk_arrivals_s": [
+      0.11989016097504646,
+      0.19552763097453862,
+      0.28248889499809593,
+      0.3786423219135031
+    ],
+    "chunk_bytes": [
+      40960,
+      40960,
+      49152,
+      49152
+    ],
+    "audio_sha256": "33167c47ffc33710220d76f75b99915e0a380e1acfb411ad1da94da1f6a08c40",
+    "rms": 0.07262021913464446,
+    "peak": 0.586883544921875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c4-warmup-00003",
+    "sample_id": "common_voice_en_103675-common_voice_en_103677",
+    "success": true,
+    "dispatch_s": 695832.560623644,
+    "http_status": 200,
+    "audio_headers": {
+      "X-Request-ID": "speech-fb068971-5cfc-4c17-aca5-a3aaea5a6a9c",
+      "x-sample-rate": "44100",
+      "x-channels": "1",
+      "x-bit-depth": "16",
+      "x-sglang-omni-speech-id": "speech-fb068971-5cfc-4c17-aca5-a3aaea5a6a9c"
+    },
+    "ttfa_s": 0.15532407199498266,
+    "last_audio_s": 0.47698165592737496,
+    "completion_s": 0.47725121991243213,
+    "audio_samples": 104448,
+    "acoustic_frames": 51.0,
+    "audio_duration_s": 2.36843537414966,
+    "rtf": 0.20139103694084362,
+    "transport_chunks": 5,
+    "chunk_arrivals_s": [
+      0.15532407199498266,
+      0.15534581197425723,
+      0.23140430392231792,
+      0.3184430549154058,
+      0.47698165592737496
+    ],
+    "chunk_bytes": [
+      32762,
+      8198,
+      40960,
+      49152,
+      77824
+    ],
+    "audio_sha256": "efc7cef235811a012443fbb8e0e55b036ec71e92bbec0ef5b073ac86b189bd2b",
+    "rms": 0.020061146796911334,
+    "peak": 0.091583251953125,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c4-warmup-00001",
+    "sample_id": "common_voice_en_10119832-common_voice_en_10119847",
+    "success": true,
+    "dispatch_s": 695832.559576883,
+    "http_status": 200,
+    "audio_headers": {
+      "X-Request-ID": "speech-3b2e592c-9bc9-496f-bed3-52d5ad16817c",
+      "x-sample-rate": "44100",
+      "x-channels": "1",
+      "x-bit-depth": "16",
+      "x-sglang-omni-speech-id": "speech-3b2e592c-9bc9-496f-bed3-52d5ad16817c"
+    },
+    "ttfa_s": 0.1521523540141061,
+    "last_audio_s": 0.5721864419756457,
+    "completion_s": 0.5724589260062203,
+    "audio_samples": 124928,
+    "acoustic_frames": 61.0,
+    "audio_duration_s": 2.8328344671201813,
+    "rtf": 0.2019837193513542,
+    "transport_chunks": 4,
+    "chunk_arrivals_s": [
+      0.1521523540141061,
+      0.2294130619848147,
+      0.3166524199768901,
+      0.5721864419756457
+    ],
+    "chunk_bytes": [
+      40960,
+      40960,
+      49152,
+      118784
+    ],
+    "audio_sha256": "f2e46da44e1198786d183bf8e7a9168a4791ef9d407828e8978429cda4941fe9",
+    "rms": 0.0622527613677005,
+    "peak": 0.519500732421875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c4-warmup-00005",
+    "sample_id": "common_voice_en_10933823-common_voice_en_10933825",
+    "success": true,
+    "dispatch_s": 695833.038164339,
+    "http_status": 200,
+    "audio_headers": {
+      "X-Request-ID": "speech-175f443d-e36b-4618-967b-3279e5737c7e",
+      "x-sample-rate": "44100",
+      "x-channels": "1",
+      "x-bit-depth": "16",
+      "x-sglang-omni-speech-id": "speech-175f443d-e36b-4618-967b-3279e5737c7e"
+    },
+    "ttfa_s": 0.09712584794033319,
+    "last_audio_s": 0.48429449601098895,
+    "completion_s": 0.4844584430102259,
+    "audio_samples": 124928,
+    "acoustic_frames": 61.0,
+    "audio_duration_s": 2.8328344671201813,
+    "rtf": 0.17095756975285456,
+    "transport_chunks": 4,
+    "chunk_arrivals_s": [
+      0.09712584794033319,
+      0.19038017001003027,
+      0.2783721329178661,
+      0.48429449601098895
+    ],
+    "chunk_bytes": [
+      40960,
+      40960,
+      49152,
+      118784
+    ],
+    "audio_sha256": "1fc2ee54207fdd1739915dc3bae8fadd67c5064420b06b464b40f06f492001fb",
+    "rms": 0.016767072270100263,
+    "peak": 0.109771728515625,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c4-warmup-00004",
+    "sample_id": "common_voice_en_10933823-common_voice_en_10933822",
+    "success": true,
+    "dispatch_s": 695832.937583937,
+    "http_status": 200,
+    "audio_headers": {
+      "X-Request-ID": "speech-7ea8f478-ad75-4061-ac5c-8bd415a159e7",
+      "x-sample-rate": "44100",
+      "x-channels": "1",
+      "x-bit-depth": "16",
+      "x-sglang-omni-speech-id": "speech-7ea8f478-ad75-4061-ac5c-8bd415a159e7"
+    },
+    "ttfa_s": 0.09207690507173538,
+    "last_audio_s": 0.6617997840512544,
+    "completion_s": 0.661808373988606,
+    "audio_samples": 163840,
+    "acoustic_frames": 80.0,
+    "audio_duration_s": 3.7151927437641725,
+    "rtf": 0.17813336472570995,
+    "transport_chunks": 5,
+    "chunk_arrivals_s": [
+      0.09207690507173538,
+      0.18634717806708068,
+      0.30363921902608126,
+      0.5199578630272299,
+      0.6617997840512544
+    ],
+    "chunk_bytes": [
+      40960,
+      40960,
+      49152,
+      131072,
+      65536
+    ],
+    "audio_sha256": "86165d6d3ae31ade8572fda7372ad2f7311d2e4d767206d12fd80a3f23484962",
+    "rms": 0.019170481321673847,
+    "peak": 0.134490966796875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c4-warmup-00002",
+    "sample_id": "common_voice_en_103675-common_voice_en_103676",
+    "success": true,
+    "dispatch_s": 695832.559957946,
+    "http_status": 200,
+    "audio_headers": {
+      "X-Request-ID": "speech-c5e4c65b-2cbe-45cb-9959-6f7648003dce",
+      "x-sample-rate": "44100",
+      "x-channels": "1",
+      "x-bit-depth": "16",
+      "x-sglang-omni-speech-id": "speech-c5e4c65b-2cbe-45cb-9959-6f7648003dce"
+    },
+    "ttfa_s": 0.14752179302740842,
+    "last_audio_s": 1.1271497730631381,
+    "completion_s": 1.1272963701048866,
+    "audio_samples": 272384,
+    "acoustic_frames": 133.0,
+    "audio_duration_s": 6.176507936507937,
+    "rtf": 0.1824898121478662,
+    "transport_chunks": 11,
+    "chunk_arrivals_s": [
+      0.14752179302740842,
+      0.22255678300280124,
+      0.30923442204948515,
+      0.30926509108394384,
+      0.5851137840654701,
+      0.5851248441031203,
+      1.0836673070443794,
+      1.083692766027525,
+      1.0837093660375103,
+      1.0837346060434356,
+      1.1271497730631381
+    ],
+    "chunk_bytes": [
+      40960,
+      40960,
+      43578,
+      5574,
+      121721,
+      9351,
+      65476,
+      65483,
+      65483,
+      65702,
+      20480
+    ],
+    "audio_sha256": "77e5c9e05bfc0be618578742e059732f4e6e4ddf0dae5e6442450634cd2dcab7",
+    "rms": 0.022082687886825547,
+    "peak": 0.122039794921875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c4-warmup-00007",
+    "sample_id": "common_voice_en_120405-common_voice_en_120406",
+    "success": true,
+    "dispatch_s": 695833.522885967,
+    "http_status": 200,
+    "audio_headers": {
+      "X-Request-ID": "speech-ac5b18f0-c931-4574-84e1-8c82772b9021",
+      "x-sample-rate": "44100",
+      "x-channels": "1",
+      "x-bit-depth": "16",
+      "x-sglang-omni-speech-id": "speech-ac5b18f0-c931-4574-84e1-8c82772b9021"
+    },
+    "ttfa_s": 0.09444374998565763,
+    "last_audio_s": 0.6944761879276484,
+    "completion_s": 0.6944963959977031,
+    "audio_samples": 212992,
+    "acoustic_frames": 104.0,
+    "audio_duration_s": 4.829750566893424,
+    "rtf": 0.14379131557809352,
+    "transport_chunks": 5,
+    "chunk_arrivals_s": [
+      0.09444374998565763,
+      0.17702571593690664,
+      0.2502331929281354,
+      0.44063849397934973,
+      0.6944761879276484
+    ],
+    "chunk_bytes": [
+      40960,
+      40960,
+      49152,
+      131072,
+      163840
+    ],
+    "audio_sha256": "1fbfdbf0f8780765faea1ae2a9e043ac84b5b0c525ac34e1044aac3d9dddc173",
+    "rms": 0.15336118220762832,
+    "peak": 0.849578857421875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c4-warmup-00006",
+    "sample_id": "common_voice_en_120405-common_voice_en_120402",
+    "success": true,
+    "dispatch_s": 695833.132341423,
+    "http_status": 200,
+    "audio_headers": {
+      "X-Request-ID": "speech-37ef28f9-b6b0-4894-95eb-1f61155aabc7",
+      "x-sample-rate": "44100",
+      "x-channels": "1",
+      "x-bit-depth": "16",
+      "x-sglang-omni-speech-id": "speech-37ef28f9-b6b0-4894-95eb-1f61155aabc7"
+    },
+    "ttfa_s": 0.10070768999867141,
+    "last_audio_s": 1.3045444330200553,
+    "completion_s": 1.3045618620235473,
+    "audio_samples": 401408,
+    "acoustic_frames": 196.0,
+    "audio_duration_s": 9.102222222222222,
+    "rtf": 0.14332153194800412,
+    "transport_chunks": 9,
+    "chunk_arrivals_s": [
+      0.10070768999867141,
+      0.16832464409526438,
+      0.2509842690778896,
+      0.4971799600170925,
+      0.9031703370856121,
+      0.9031821460230276,
+      1.276256405049935,
+      1.2762803540099412,
+      1.3045444330200553
+    ],
+    "chunk_bytes": [
+      40960,
+      40960,
+      49152,
+      131072,
+      262137,
+      7,
+      262137,
+      7,
+      16384
+    ],
+    "audio_sha256": "14009684e12b18045f4c0672ed5722d55f72ab336b8accb4a79efb70cbb245e7",
+    "rms": 0.1080331137443873,
+    "peak": 0.650848388671875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  }
+]
