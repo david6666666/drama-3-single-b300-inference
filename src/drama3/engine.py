@@ -281,6 +281,10 @@ class Engine:
                 "Async codec requires DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM=1 "
                 "to isolate model and codec BLAS workspaces"
             )
+        self.defer_codec_submit = os.environ.get("DRAMA3_DEFER_CODEC_SUBMIT") == "1"
+        if self.defer_codec_submit and not self.async_codec:
+            raise ValueError("Deferred codec submission requires DRAMA3_ASYNC_CODEC=1")
+        self.codec_submissions = []
         self.audio_delivery_thread = os.environ.get("DRAMA3_AUDIO_DELIVERY_THREAD") == "1"
         if self.audio_delivery_thread and not self.async_codec:
             raise ValueError("A PCM delivery thread requires DRAMA3_ASYNC_CODEC=1")
@@ -396,6 +400,8 @@ class Engine:
             free = list(range(self.slots))
             while not self.stopping.is_set():
                 if self.audio_queue is not None:
+                    if not active:
+                        self.flush_codec_submissions()
                     self.audio_queue.drain(block=not active)
                 mixed_hidden = None
                 if self.mixed_backbone:
@@ -460,6 +466,7 @@ class Engine:
                                     mixed_hidden, hidden = mixed_graph.run(
                                         active, prompts, [r.slot for r in arriving]
                                     )
+                                self.flush_codec_submissions()
                                 batch = next(
                                     size for size in self.first_graphs if size >= len(arriving)
                                 )
@@ -490,6 +497,8 @@ class Engine:
                             else:
                                 active.append(request)
                 if mixed_hidden is not None or not active:
+                    if not active:
+                        self.flush_codec_submissions()
                     continue
                 live = []
                 for request in active:
@@ -499,6 +508,7 @@ class Engine:
                         live.append(request)
                 active = live
                 if not active:
+                    self.flush_codec_submissions()
                     continue
                 size = next(size for size in self.graphs if size >= len(active))
                 graph = self.graphs[size]
@@ -516,6 +526,7 @@ class Engine:
                     graph = self.multistep_graphs.get((size, steps), graph)
                 with self.measure("decode", len(active)):
                     frames = graph.run(active)
+                self.flush_codec_submissions()
                 active = self.complete_decode(active, frames, free)
         except Exception as error:
             self.failure = error
@@ -524,12 +535,20 @@ class Engine:
             if self.audio_queue is not None:
                 try:
                     if self.failure is None:
+                        self.flush_codec_submissions()
                         self.audio_queue.close()
                     else:
                         self.audio_queue.abort(self.failure)
                 except Exception as error:
                     self.failure = self.failure or error
                     self.audio_queue.abort(self.failure)
+                finally:
+                    # Submitted batches are failed above before their deferred
+                    # successors. Keep callbacks and input ownership until then.
+                    for _, _, callbacks, _ in self.codec_submissions:
+                        for callback, _ in callbacks:
+                            callback(self.failure or RuntimeError("Engine stopped"))
+                    self.codec_submissions.clear()
             if self.profiler is not None:
                 self.profiler.save()
             for request in active:
@@ -659,7 +678,9 @@ class Engine:
             self.finish_prefill(requests, hidden, batch)
 
     def finish_prefill(self, requests, hidden, batch):
-        first = self.first_graphs[batch].run(requests, hidden)[:, 0].cpu().tolist()
+        output = self.first_graphs[batch].run(requests, hidden)
+        self.flush_codec_submissions()
+        first = output[:, 0].cpu().tolist()
         for request, main in zip(requests, first, strict=True):
             if main != self.model.config.eos_token_id:
                 request.frame_count = 1
@@ -729,7 +750,12 @@ class Engine:
                         callbacks.append(
                             (partial(self.audio_ready, request), (count - left) * 2048)
                         )
-                    self.audio_queue.submit(codes, rows, callbacks)
+                    if getattr(self, "defer_codec_submit", False):
+                        ready = torch.cuda.Event()
+                        ready.record()
+                        self.codec_submissions.append((codes, rows, callbacks, ready))
+                    else:
+                        self.audio_queue.submit(codes, rows, callbacks)
                 else:
                     with torch.autocast("cuda", dtype=self.codec_graphs.decoder.dtype):
                         waveform = self.codec_graphs(codes, rows=rows)
@@ -744,6 +770,14 @@ class Engine:
                     request.next_emit = count + (
                         ramp[request.chunk_index] if request.chunk_index < len(ramp) else 64
                     )
+
+    def flush_codec_submissions(self):
+        """Enqueue prior audio after a real model launch, using its original dependency."""
+        submissions = getattr(self, "codec_submissions", None)
+        while submissions:
+            codes, rows, callbacks, ready = submissions[0]
+            self.audio_queue.submit(codes, rows, callbacks, ready=ready)
+            submissions.pop(0)
 
     def submit(self, request: Request) -> None:
         if not self.ready.is_set() or self.failure is not None or self.stopping.is_set():

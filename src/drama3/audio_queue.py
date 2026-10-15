@@ -73,15 +73,19 @@ class AudioQueue:
             )
             callback(data)
 
-    def submit(self, codes, rows, callbacks):
+    def submit(self, codes, rows, callbacks, *, ready=None):
         if self.closed or self.failure is not None:
             raise self.failure or RuntimeError("Audio queue is closed")
         # The model stream gathers a private codes tensor before its slot can
         # be reused. Preserve it and rows until this stream's copy has finished.
         while not self.threaded and len(self.pending) >= self.max_pending:
             self.drain(block=True)
-        ready = torch.cuda.Event()
-        ready.record()
+        # Deferred host submission supplies the event recorded immediately
+        # after gather, before the next model graph is enqueued. Recording here
+        # instead would incorrectly make codec wait for that later model step.
+        if ready is None:
+            ready = torch.cuda.Event()
+            ready.record()
         self.stream.wait_event(ready)
         codes.record_stream(self.stream)
         rows.record_stream(self.stream)
