@@ -60,8 +60,8 @@ preserve the failure evidence and address its cause before continuing.
 
 Non-goals for the first version: training, multiple GPUs, broad model support,
 altered model sampling or shorter output limits. The default path retains native
-precision; dense FP8 is now a separate opt-in feasibility experiment. Its isolated
-variable is quantizing dense projections, with unchanged corpus, sampling and
+precision; dense FP8 was evaluated separately and rejected for serving. Its isolated
+variable was quantizing dense projections, with unchanged corpus, sampling and
 FP32 recurrent state. Reject promotion if full WER/SIM coverage fails the quality
 gate or the complete serving comparison does not improve. Kernel timings alone
 cannot promote this path.
