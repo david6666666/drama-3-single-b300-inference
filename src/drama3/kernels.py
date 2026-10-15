@@ -459,16 +459,19 @@ def combine_experts_add_norm_kernel(
 ):
     row = tl.program_id(0)
     col = tl.arange(0, WIDTH)
-    routed = tl.load(ROUTED + row * WIDTH + col).to(tl.float32)
-    shared = tl.load(SHARED + row * WIDTH + col).to(tl.float32)
-    gate = (
-        tl.sigmoid(tl.load(GATE + row * STRIDE).to(tl.float32))
-        .to(SHARED.dtype.element_ty)
-        .to(tl.float32)
-    )
-    # Preserve combine_experts' weighted and combined BF16 boundaries.
-    weighted = (shared * gate).to(SHARED.dtype.element_ty).to(tl.float32)
-    combined = (routed + weighted).to(ROUTED.dtype.element_ty).to(tl.float32)
+    routed = tl.load(ROUTED + row * WIDTH + col)
+    shared = tl.load(SHARED + row * WIDTH + col)
+    gate = tl.sigmoid(tl.load(GATE + row * STRIDE).to(tl.float32)).to(SHARED.dtype.element_ty)
+    # The existing combine kernel contracts its BF16 multiply/add to this
+    # instruction. Keep that native result while disabling fusion for RMSNorm.
+    combined = tl.inline_asm_elementwise(
+        "fma.rn.bf16 $0, $1, $2, $3;",
+        constraints="=h,h,h,h",
+        args=[shared, gate, routed],
+        dtype=tl.bfloat16,
+        is_pure=True,
+        pack=1,
+    ).to(tl.float32)
     value = combined + tl.load(RESIDUAL + row * WIDTH + col).to(tl.float32)
     value = value.to(ROUTED.dtype.element_ty).to(tl.float32)
     tl.store(RESIDUAL + row * WIDTH + col, value)
