@@ -200,9 +200,13 @@ class BatchedPrefillGraph:
         for index, prompt in enumerate(prompts):
             self.frames[index, : len(prompt)].copy_(prompt)
         padding = self.batch - count
-        self.slots.copy_(
-            torch.tensor(slots + list(range(self.model.slots - padding, self.model.slots)))
-        )
+        # Padding needs its own primary slot AND its own suffix scratch slot.
+        # An upper-half primary would map its suffix back into active requests.
+        padding_end = self.model.slots // 2
+        padding_slots = list(range(padding_end - padding, padding_end))
+        if set(slots).intersection(padding_slots):
+            raise ValueError("Prefill padding requires reserved primary state slots")
+        self.slots.copy_(torch.tensor(slots + padding_slots))
         self.lengths.copy_(torch.tensor(lengths + [3] * padding))
         self.graph.replay()
         return self.output.clone()
@@ -246,7 +250,11 @@ class Engine:
         try:
             torch.cuda.set_device(0)
             self.model = DramaModel(
-                str(self.checkpoint), slots=2 * self.slots, max_length=self.max_length
+                str(self.checkpoint),
+                # Reserve a full prefill batch in the primary half. The second
+                # half mirrors every primary slot for padded GDN suffixes.
+                slots=2 * (self.slots + min(self.slots, 8)),
+                max_length=self.max_length,
             )
             self.codec = load_codec(self.checkpoint, self.fish_source)
             self.device_requests = DeviceRequests(

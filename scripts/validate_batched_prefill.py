@@ -24,7 +24,7 @@ def main():
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    model = DramaModel(args.checkpoint, slots=12, max_length=512)
+    model = DramaModel(args.checkpoint, slots=32, max_length=512)
     torch.manual_seed(42)
     lengths = torch.tensor([33, 91, 128, 3], device="cuda")
     slots = torch.arange(4, device="cuda").repeat_interleave(128)
@@ -114,6 +114,29 @@ def main():
         )
     assert all(error < 0.03 for _, error in errors), errors
     results.append({"check": "batched_graph_vs_eager", "errors": errors, "pass": True})
+    # A partially filled prefill must not touch unrelated live requests. GDN
+    # creates an independent suffix sequence for each padded row, so both the
+    # row and its suffix need reserved slots, including for dummy requests.
+    partial_graph = BatchedPrefillGraph(model, 8, 128)
+    for count in (5, 6, 7):
+        untouched = {
+            index: (conv[count:8].clone(), state[count:8].clone())
+            for index, (conv, state) in model.states.items()
+        }
+        untouched_kv = {
+            index: (key[count:8].clone(), value[count:8].clone())
+            for index, (key, value) in model.kv.items()
+        }
+        partial_graph.run([prompts[i % 4] for i in range(count)], list(range(count)))
+        for index, (conv, state) in model.states.items():
+            assert torch.equal(conv[count:8], untouched[index][0]), (count, index, "conv")
+            assert torch.equal(state[count:8], untouched[index][1]), (count, index, "state")
+        for index, (key, value) in model.kv.items():
+            assert torch.equal(key[count:8], untouched_kv[index][0]), (count, index, "key")
+            assert torch.equal(value[count:8], untouched_kv[index][1]), (count, index, "value")
+        results.append(
+            {"check": "partial_batch_preserves_other_requests", "count": count, "pass": True}
+        )
     args.output.write_text(json.dumps(results, indent=2) + "\n")
     print("Batched prefill graph validation passed", flush=True)
 
