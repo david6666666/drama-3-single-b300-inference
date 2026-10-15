@@ -1,0 +1,18 @@
+{
+  "status": "PREDECLARED",
+  "source_sha": "463d837cd51fb62196378835a33731cb659a66c8",
+  "driver_sha256": "4d2763649fa0e9a18c22d5544622897416d59de031dadfdc9b19268c454e4043",
+  "hypothesis": "In B64 partial batches, copying the first real router logits only into explicitly reserved dummy slots removes dummy-exclusive experts without altering any real native model computation.",
+  "scope": "Frozen production source flag only, no model-method/kernel monkeypatch. Control/candidate graphs captured with reserved_padding_router false/true. Explicit row_slots through all native MoE methods.",
+  "controls": "GPU2, native BF16 dense/state, unchanged top8/expert precision; short-padding-context1, fused input1, fused residual1, shared overlap0. Immutable clean detached source.",
+  "cases": [
+    "B64 active58",
+    "B64 active63",
+    "B64 active64",
+    "B8 active5",
+    "mixed D58 + P6 / D64P1280 span256"
+  ],
+  "quality_gates": "All40 saved per-layer x/router inputs at partial58/63: activation FP8 bytes/scales exact for every row, real logits exact and dummy logits exactly first-real logits. Eight-step trajectory real outputs/all real states/sampling scalar exact; every nonparticipating slot unchanged; allow/log differences only in participating reserved dummy states. Candidate eager/graph all slots exact. Mixed decode hidden, six real prompt last hiddens, all real/nonparticipating states and sampler exact; source candidate eager/graph all states exact.",
+  "timing": "Only after gates: 8 alternating fixed-state single-replay timing pairs per case; exclude full-state restore/validation. No service success claim.",
+  "stop": "Stop on any unexpected real/nonparticipating/RNG/quantization/eager graph mismatch. No source promotion without root review."
+}

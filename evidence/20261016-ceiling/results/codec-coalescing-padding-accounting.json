@@ -1,0 +1,28 @@
+{
+  "control": {
+    "valid_frames": 101601,
+    "rows": 6728,
+    "calls": 2265,
+    "actual_row_frame_slots": 105530,
+    "padded_row_frame_slots": 119072,
+    "estimated_cost_ms": 3393.764207045241
+  },
+  "coalesced": {
+    "valid_frames": 101601,
+    "rows": 6728,
+    "calls": 1969,
+    "actual_row_frame_slots": 109982,
+    "padded_row_frame_slots": 122364,
+    "estimated_cost_ms": 3214.260636568077
+  },
+  "percent": {
+    "valid_frames": 0.0,
+    "rows": 0.0,
+    "calls": -13.068432671081675,
+    "actual_row_frame_slots": 4.2187055813512675,
+    "padded_row_frame_slots": 2.7647137866164906,
+    "estimated_cost_ms": -5.289217503812605
+  },
+  "cuda_initialized": false,
+  "scope": "Offline accounting only, fixed archived DP cost table; raw row*frame slots are not FLOPs or GPU time. Cost estimates are capture calibration, not measured concurrent service."
+}

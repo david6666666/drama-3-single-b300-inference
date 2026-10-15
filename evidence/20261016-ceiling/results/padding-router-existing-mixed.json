@@ -1,0 +1,31 @@
+{
+  "source_sha": "9247e4bf87d6865a53315bc398b4933284d7660c",
+  "scope": "Existing actual FI routing IDs, real decode58 plus real prefill1121; six decode and159 prefill padding rows excluded. No new GPU run.",
+  "layers": [
+    {
+      "layer": 0,
+      "all_experts": 256,
+      "real_experts": 256,
+      "padding_only_experts": [],
+      "fraction_logical_weight_bytes_from_padding": 0.0
+    },
+    {
+      "layer": 19,
+      "all_experts": 238,
+      "real_experts": 238,
+      "padding_only_experts": [],
+      "fraction_logical_weight_bytes_from_padding": 0.0
+    },
+    {
+      "layer": 39,
+      "all_experts": 229,
+      "real_experts": 226,
+      "padding_only_experts": [
+        32,
+        185,
+        200
+      ],
+      "fraction_logical_weight_bytes_from_padding": 0.013100436681222707
+    }
+  ]
+}

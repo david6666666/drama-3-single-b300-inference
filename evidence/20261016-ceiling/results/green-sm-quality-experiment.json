@@ -1,0 +1,58 @@
+{
+  "source_sha": "69d636ef11875add6e4edf7c9bb028b9574143a3",
+  "source_script_sha256": "61a6852eebd515285600c54909bac0c1833ed583b9592746920ffce1c25320ba",
+  "upstream_sha": "e9e016b83e1a5d92b4232f90427a44afac8d84b6",
+  "upstream_status": "",
+  "assets_sha256": "6d9d3026a131e4760f9e2a6e74d34a96d5bae6a02f47c1bcb0e2204af5c59e12",
+  "gpu": 0,
+  "gpu_uuid": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "batch_size": 8,
+  "labels": [
+    "c64-r0"
+  ],
+  "all_samples": 1088,
+  "before_gpu": "",
+  "quality_limits": {
+    "wer_corpus_max": 0.02950933601272712,
+    "sim_min": 61.88158934120563
+  },
+  "stop": "Preserve every sample. Any missing score or failure remains incomplete; no filtering or threshold adjustment.",
+  "commands": [
+    [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-sm-69d636e/scripts/evaluate_audio.py",
+      "--upstream",
+      "/home/zjy/code/hsliu/drama3-sources/sglang-omni",
+      "--assets",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-models.json",
+      "--corpus",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+      "--benchmark",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/green-sm-control-gpu0/benchmark",
+      "--labels",
+      "c64-r0",
+      "--output",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/green-sm-control-quality.json",
+      "--batch-size",
+      "8"
+    ],
+    [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-sm-69d636e/scripts/evaluate_audio.py",
+      "--upstream",
+      "/home/zjy/code/hsliu/drama3-sources/sglang-omni",
+      "--assets",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-models.json",
+      "--corpus",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+      "--benchmark",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/green-sm-candidate-gpu0/benchmark",
+      "--labels",
+      "c64-r0",
+      "--output",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/green-sm-candidate-quality.json",
+      "--batch-size",
+      "8"
+    ]
+  ]
+}

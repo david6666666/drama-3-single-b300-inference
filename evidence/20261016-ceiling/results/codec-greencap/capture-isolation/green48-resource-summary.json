@@ -1,0 +1,18 @@
+{
+  "status": "PASS_NATIVE_GRAPH_RESOURCES",
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "profile_shape": [
+    4,
+    8,
+    0
+  ],
+  "profiled_native_kernel_nodes": 284,
+  "green_context_ids": [
+    "2"
+  ],
+  "launch_sm_counts": {
+    "48": 284
+  },
+  "csv_sha256": "0bf4a4fc6f86f120926ed8e999bc30c53ef472d833a6787fdd259d32a9bfced3",
+  "limits": "Launch SM allocation proof, not per-SM utilization or performance. All native nodes included."
+}

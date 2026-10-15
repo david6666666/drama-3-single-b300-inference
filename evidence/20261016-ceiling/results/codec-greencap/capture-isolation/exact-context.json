@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "mode": "context",
+  "sms": 32,
+  "driver_sha256": "52c4ffb290742d1b937ac6b24a59251cc4d267f9adedf3ca34debb0ff76d9fb5",
+  "torch": "2.13.0+cu130",
+  "cudnn": 92000,
+  "tensor_sha256": "90037789f19b7066a5fd976d4b8a588e4ecb3ce803c123509ab154beff1cb18b",
+  "controls": {
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false
+  },
+  "stage": "complete",
+  "shape": [
+    4,
+    96,
+    1,
+    16390
+  ],
+  "stride": [
+    1573440,
+    1,
+    1573440,
+    96
+  ],
+  "weight_shape": [
+    96,
+    96,
+    1,
+    7
+  ],
+  "weight_stride": [
+    672,
+    1,
+    672,
+    96
+  ],
+  "dtype": "torch.bfloat16",
+  "normal_graph_exact": true,
+  "actual_sms": 32,
+  "green_handle": 1188974656,
+  "green_stream": 1094529776,
+  "green_eager_exact": true,
+  "green_graph_exact": true
+}

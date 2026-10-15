@@ -1,0 +1,67 @@
+{
+  "primary": null,
+  "green": 699876480,
+  "operations": [
+    {
+      "operation": "torch.cuda.current_stream",
+      "before": 699876480,
+      "after": 699876480,
+      "preserved": true
+    },
+    {
+      "operation": "stream context enter",
+      "before": 699876480,
+      "after": 699876480,
+      "preserved": true
+    },
+    {
+      "operation": "torch.zeros cuda unindexed",
+      "before": 699876480,
+      "after": 699876480,
+      "preserved": true
+    },
+    {
+      "operation": "torch.zeros cuda indexed",
+      "before": 699876480,
+      "after": 699876480,
+      "preserved": true
+    },
+    {
+      "operation": "torch.tensor device",
+      "before": 699876480,
+      "after": 699876480,
+      "preserved": true
+    },
+    {
+      "operation": "expand contiguous",
+      "before": 699876480,
+      "after": 699876480,
+      "preserved": true
+    },
+    {
+      "operation": "clone",
+      "before": 699876480,
+      "after": 699876480,
+      "preserved": true
+    },
+    {
+      "operation": "graph pool handle",
+      "before": 699876480,
+      "after": 699876480,
+      "preserved": true
+    },
+    {
+      "operation": "accelerator synchronize",
+      "before": 699876480,
+      "after": 699876480,
+      "preserved": true
+    },
+    {
+      "operation": "cuda synchronize",
+      "before": 699876480,
+      "after": 699876480,
+      "preserved": true
+    }
+  ],
+  "limits": "Tiny allocation/API isolation, no timing claim or runtime edits"
+}

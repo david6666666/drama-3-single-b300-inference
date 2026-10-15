@@ -1,0 +1,20 @@
+{
+  "source": "artifact prototype against frozen da91321 baseline",
+  "hypothesis": "Explicit fma.rn.bf16 restores the actual baseline contracted shared multiplication/routed addition while leaving residual/RMS contraction disabled.",
+  "cases": [
+    {
+      "rows": 1,
+      "output_exact": true,
+      "residual_exact": true,
+      "output_differences": 0,
+      "residual_differences": 0
+    },
+    {
+      "rows": 64,
+      "output_exact": true,
+      "residual_exact": true,
+      "output_differences": 0,
+      "residual_differences": 0
+    }
+  ]
+}

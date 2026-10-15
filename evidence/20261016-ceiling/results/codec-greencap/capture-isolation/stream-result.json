@@ -1,0 +1,83 @@
+{
+  "status": "CAPTURE_FAIL",
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "driver_sha256": "6c3aa67df96861edcb411128dbf998499d5ef0524dbcb22ecf8b457cbf924d19",
+  "torch": "2.13.0+cu130",
+  "cudnn": 92000,
+  "gpu_uuid": "bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "requested_sms": 32,
+  "current_green": false,
+  "precision": "Same native BF16 autocast as existing codec",
+  "controls": {
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false
+  },
+  "limits": "Codec-only reproduction; no model, MPS daemon, clock or algorithm changes; no service timing claim.",
+  "normal_capture_complete": true,
+  "normal_context": {
+    "current_context": 352342800,
+    "current_stream": 0,
+    "stream_green_context": null,
+    "capturing": false
+  },
+  "actual_sms": 32,
+  "green_stream": 2033141024,
+  "green_handle": 1605519104,
+  "before_capture_context": {
+    "current_context": 352342800,
+    "current_stream": 0,
+    "stream_green_context": null,
+    "capturing": false
+  },
+  "failed_conv": {
+    "call": 93,
+    "input_shape": [
+      4,
+      96,
+      1,
+      16390
+    ],
+    "input_stride": [
+      1573440,
+      1,
+      1573440,
+      96
+    ],
+    "input_dtype": "torch.bfloat16",
+    "input_storage_offset": 0,
+    "weight_shape": [
+      96,
+      96,
+      1,
+      7
+    ],
+    "weight_stride": [
+      672,
+      1,
+      672,
+      96
+    ],
+    "weight_dtype": "torch.bfloat16",
+    "weight_storage_offset": 0,
+    "groups": 1,
+    "args": [
+      null
+    ],
+    "kwargs": {
+      "groups": 1
+    },
+    "context": {
+      "current_context": 352342800,
+      "current_stream": 2033141024,
+      "stream_green_context": 1605519104,
+      "capturing": true
+    },
+    "exception": "RuntimeError('cuDNN error: CUDNN_STATUS_NOT_SUPPORTED. This error may appear if you passed in a non-contiguous input.')"
+  },
+  "exception": "RuntimeError('cuDNN error: CUDNN_STATUS_NOT_SUPPORTED. This error may appear if you passed in a non-contiguous input.')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-greencap/capture-isolation/driver.py\", line 47, in main\n    with torch.autocast('cuda',dtype=codec.decoder.dtype):cap.capture(torch.device('cuda'),capture_stream=stream)\n                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 1147, in capture\n    out = self.decoder(static, trim)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 1002, in __call__\n    return self._run(self.codec.decoder.model, self.latent(indices, trim)).transpose(1, 2)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 401, in _run\n    hidden, pending = self._stream(modules, hidden, None)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 440, in _stream\n    hidden, pending = self._stream(\n                      ^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 423, in _stream\n    hidden, pending = self._residual_unit(module, hidden, pending)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 480, in _residual_unit\n    h = self._padded_conv(conv7, padded, frames)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 501, in _padded_conv\n    out = F.conv2d(\n          ^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-greencap/capture-isolation/driver.py\", line 39, in observed_conv\n    try:return native_conv(x,w,*a,**kw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: cuDNN error: CUDNN_STATUS_NOT_SUPPORTED. This error may appear if you passed in a non-contiguous input.\n",
+  "observed_conv_calls": 93,
+  "failed_tensors": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-greencap/capture-isolation/stream-result.pt"
+}

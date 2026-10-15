@@ -1,0 +1,57 @@
+{
+  "source_sha": "ab2d9015d6b0115530e675f25bbf5f188b1d65b1",
+  "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+  "match_request_index_distance": {
+    "1": 422
+  },
+  "cache_entries": 16,
+  "cases": [
+    {
+      "group_size": 1,
+      "hit_requests": 422,
+      "reused_rows": 51584,
+      "fraction_prompt_rows": 0.2788233895116915
+    },
+    {
+      "group_size": 2,
+      "hit_requests": 190,
+      "reused_rows": 22912,
+      "fraction_prompt_rows": 0.12384463206598705
+    },
+    {
+      "group_size": 4,
+      "hit_requests": 98,
+      "reused_rows": 11712,
+      "fraction_prompt_rows": 0.06330605493875874
+    },
+    {
+      "group_size": 6,
+      "hit_requests": 63,
+      "reused_rows": 7360,
+      "fraction_prompt_rows": 0.03978249354075003
+    },
+    {
+      "group_size": 8,
+      "hit_requests": 53,
+      "reused_rows": 6464,
+      "fraction_prompt_rows": 0.034939407370571766
+    },
+    {
+      "group_size": 16,
+      "hit_requests": 27,
+      "reused_rows": 3456,
+      "fraction_prompt_rows": 0.018680475227830447
+    },
+    {
+      "group_size": 64,
+      "hit_requests": 6,
+      "reused_rows": 896,
+      "fraction_prompt_rows": 0.004843086170178265
+    }
+  ],
+  "limitations": [
+    "Batch grouping is synthetic, not measured admission membership. Prefix states enter cache only after each batch.",
+    "This intentionally exposes overestimation from treating adjacent concurrently-prefilled requests as causal ready hits.",
+    "Within-batch shared-prefix prefill would require separate computation and may cost more weight traffic than it saves."
+  ]
+}

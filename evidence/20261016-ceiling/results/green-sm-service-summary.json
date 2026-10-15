@@ -1,0 +1,187 @@
+{
+  "source_sha": "69d636ef11875add6e4edf7c9bb028b9574143a3",
+  "concurrency": 64,
+  "requests_per_arm": 1088,
+  "repeats_per_arm": 1,
+  "profile_enabled": false,
+  "limits": {
+    "wer_corpus_max": 0.02950933601272712,
+    "sim_min": 61.88158934120563
+  },
+  "arms": {
+    "control": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 23.469172358047217,
+        "valid": true,
+        "throughput_frames_s": 4412.554410530426,
+        "ttfa_p50_ms": 140.95604803878814,
+        "ttfa_p95_ms": 265.62145812785354,
+        "rtf_mean": 0.2933739763829904
+      },
+      "output": {
+        "acoustic_frames": 103559.0,
+        "audio_samples": 212088832,
+        "audio_duration_s": 4809.270566893424,
+        "at_or_above_500_frames": 6,
+        "rms_below_1e_3": 0,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.01909068073348405,
+          "wer_per_sample_mean": 0.018017173073529496,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.08301843735226325,
+          "wer_per_sample_p95": 0.09090909090909091,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.012243519378535845,
+          "wer_below_50_per_sample_mean": 0.01199339579091041,
+          "n_above_50_pct_wer": 8,
+          "pct_above_50_pct_wer": 0.7352941176470588,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 63.902017660000745,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true
+      },
+      "quality_gate_pass": true,
+      "server_pid": 368721,
+      "startup_to_readiness_s": 68.03087392100133,
+      "warmup_requests": 64,
+      "warmup_success": true
+    },
+    "candidate": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 22.77981787302997,
+        "valid": true,
+        "throughput_frames_s": 4470.316688552834,
+        "ttfa_p50_ms": 141.41220157034695,
+        "ttfa_p95_ms": 269.89185722194907,
+        "rtf_mean": 0.28990720109448487
+      },
+      "output": {
+        "acoustic_frames": 101833.0,
+        "audio_samples": 208553984,
+        "audio_duration_s": 4729.115283446712,
+        "at_or_above_500_frames": 4,
+        "rms_below_1e_3": 0,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.015657707443690865,
+          "wer_per_sample_mean": 0.01523580028985892,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.06734357207681525,
+          "wer_per_sample_p95": 0.09090909090909091,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.01136842105263158,
+          "wer_below_50_per_sample_mean": 0.011049604061448597,
+          "n_above_50_pct_wer": 6,
+          "pct_above_50_pct_wer": 0.5514705882352942,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 64.24491864179863,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true
+      },
+      "quality_gate_pass": true,
+      "server_pid": 371963,
+      "startup_to_readiness_s": 52.033491832902655,
+      "warmup_requests": 64,
+      "warmup_success": true
+    }
+  },
+  "qualification": "One feasibility pair, no replicated or fixed-output speedup claim. The full dynamic codec PCM/model/state gate passed before service. Native DP policy uses each arm measured capture-time costs; actual partitions are not held fixed. Both arms require complete unfiltered1088 WER/SIM.",
+  "artifacts": {
+    "service_protocol": "green-sm-service-experiment.json",
+    "quality_protocol": "green-sm-quality-experiment.json",
+    "dynamic": "codec-sm-dynamic-fixed/result.json",
+    "native_micro": "codec-greencap/guarded-summary.json"
+  },
+  "comparison": {
+    "throughput_relative_change": 0.01309043983334468,
+    "makespan_relative_change": -0.02937276502555819,
+    "output_frames_relative_change": -0.01666682760551952,
+    "ttfa_p50_delta_ms": 0.45615353155881166,
+    "ttfa_p95_delta_ms": 4.270399094095524,
+    "wer_delta_percentage_points": -0.3432973289793185,
+    "sim_delta": 0.3429009817978894,
+    "same_audio_sha256": 2,
+    "same_output_frame_count": 36
+  },
+  "service_process_audit": {
+    "path": "green-sm-process-audit.jsonl",
+    "samples": 155,
+    "sampling_interval_s": 1,
+    "observed_gpu0_pids": [
+      368721,
+      371963
+    ],
+    "maximum_simultaneous_gpu0_processes": 1,
+    "sampling_limitation": "One-second polling cannot exclude shorter unobserved interference.",
+    "expected_server_pids": [
+      368721,
+      371963
+    ],
+    "foreign_process_observed": false
+  },
+  "quality_process_audit": {
+    "path": "green-sm-quality-process-audit.jsonl",
+    "samples": 148,
+    "sampling_interval_s": 1,
+    "observed_gpu0_pids": [
+      403798,
+      406744
+    ],
+    "maximum_simultaneous_gpu0_processes": 1,
+    "sampling_limitation": "One-second polling cannot exclude shorter unobserved interference."
+  },
+  "target": {
+    "vllm_c64_baseline_frames_s": 4510.271508809941,
+    "required_ratio": 1.5,
+    "target_frames_s": 6765.407263214912,
+    "observed_candidate_vs_vllm": 0.9911413713832831,
+    "achieved": false
+  },
+  "post_run_gpu0_empty": true,
+  "interpretation": "Same-source native48SM codec feasibility; output lengths and the unchanged DP policy's measured-cost feedback can change. One pair does not establish repeated or fixed-work speedup. Keep the option default off until full service evidence supports promotion. All outputs, complete quality and tail are retained; no1.5x goal claim."
+}

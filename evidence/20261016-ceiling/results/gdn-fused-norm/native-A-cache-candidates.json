@@ -1,0 +1,13 @@
+[
+  {
+    "path": "/home/zjy/.cache/sglang/triton/CQDENQWSEDQTNYTAIWIE53J62KJ3WXAEKTFVVNLQO2GLNSJIZHWQ/fused_recurrent_gated_delta_rule_packed_decode_kernel.ttgir",
+    "sha256": "78d85cd1e039797b976971266444ed77f4080903307e02f5d544ab7b8bbcb956",
+    "hash": "140646c2d220e136e26045904eed3ed293bb5c0454cb5ab570768cb6c928c9ed",
+    "layouts": [
+      "#blocked = #ttg.blocked<{sizePerThread = [1], threadsPerWarp = [32], warpsPerCTA = [1], order = [0]}>",
+      "#blocked1 = #ttg.blocked<{sizePerThread = [4], threadsPerWarp = [32], warpsPerCTA = [1], order = [0]}>",
+      "#blocked2 = #ttg.blocked<{sizePerThread = [1, 8], threadsPerWarp = [2, 16], warpsPerCTA = [1, 1], order = [1, 0]}>",
+      "#loc = loc(\"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/fused_recurrent.py\":187:0)"
+    ]
+  }
+]

@@ -1,0 +1,608 @@
+{
+  "status": "DIAGNOSTIC_PASS",
+  "source_sha": "a5d8610071fe82bbaa40d5e5ee11f216d0e437dd",
+  "source": "/home/zjy/code/hsliu/drama3-codec-coalescing-frozen-20261016",
+  "saved_model_trace_source_sha": "8ccefd063a90991cc45b31caa6457fae256720d0",
+  "coalescing_trace_matches_saved_prefix_control": true,
+  "prefix_replay": "prefix-replay.json",
+  "prefix_replay_matches_original": true,
+  "script_sha256": "1463581c3a67fdc3fb62f71c52aa222eb4da0524c1e8b3b7963235b26bc01203",
+  "hypothesis": "Control and adjacent-frame coalescing BF16 outputs have bounded error relative to native FP32 full-prefix eager decoding for all twelve actual PCM mismatches.",
+  "controls": "Immutable coalescing/control PCM, full codes recovered by an exact 414-step/80-output DP replay, original FP32 checkpoint, each request decoded in batch1. TF32/autocast off, SDPA math, indices cloned before native in-place clamp.",
+  "gate": "Diagnostic bound: equal lengths, finite values and full-output RRMS<0.03 for both partitions on every request. Not an exactness or WER/SIM promotion gate.",
+  "stop": "Retain any mismatch or bound failure; coalescing and original minlaunch exact FAIL unchanged.",
+  "gpu": 7,
+  "before_gpu": "",
+  "requests": [
+    {
+      "request_id": "8",
+      "frames": 49,
+      "first_different_sample": 0,
+      "last_different_sample": 23842,
+      "first_changed_frame": 0,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0007421352739979917,
+            "reference_rms": 0.08436848257780005,
+            "rrms": 0.008796356783039623,
+            "snr_db": 41.11394327662305,
+            "max_abs": 0.006534575755702321,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0007421352739979917,
+            "reference_rms": 0.08436848257780005,
+            "rrms": 0.008796356783039623,
+            "snr_db": 41.11394327662305,
+            "max_abs": 0.006534575755702321,
+            "different_samples": 100352
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0007363436030612974,
+            "reference_rms": 0.08436848257780005,
+            "rrms": 0.008727709454561793,
+            "snr_db": 41.181994396838,
+            "max_abs": 0.006534575755702321,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0007363436030612974,
+            "reference_rms": 0.08436848257780005,
+            "rrms": 0.008727709454561793,
+            "snr_db": 41.181994396838,
+            "max_abs": 0.006534575755702321,
+            "different_samples": 100352
+          }
+        }
+      }
+    },
+    {
+      "request_id": "9",
+      "frames": 49,
+      "first_different_sample": 1,
+      "last_different_sample": 23827,
+      "first_changed_frame": 0,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0008456709255076077,
+            "reference_rms": 0.08523629560273452,
+            "rrms": 0.009921488487123755,
+            "snr_db": 40.06846334471868,
+            "max_abs": 0.009099519925687291,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0008456709255076077,
+            "reference_rms": 0.08523629560273452,
+            "rrms": 0.009921488487123755,
+            "snr_db": 40.06846334471868,
+            "max_abs": 0.009099519925687291,
+            "different_samples": 100352
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0008603464210498886,
+            "reference_rms": 0.08523629560273452,
+            "rrms": 0.010093662740339543,
+            "snr_db": 39.919024208921,
+            "max_abs": 0.010861485510738011,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0008603464210498886,
+            "reference_rms": 0.08523629560273452,
+            "rrms": 0.010093662740339543,
+            "snr_db": 39.919024208921,
+            "max_abs": 0.010861485510738011,
+            "different_samples": 100352
+          }
+        }
+      }
+    },
+    {
+      "request_id": "10",
+      "frames": 49,
+      "first_different_sample": 1024,
+      "last_different_sample": 12579,
+      "first_changed_frame": 0,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.00028245986434133016,
+            "reference_rms": 0.02035093787300987,
+            "rrms": 0.013879451949776644,
+            "snr_db": 37.15255364576007,
+            "max_abs": 0.004259885171474992,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.00028245986434133016,
+            "reference_rms": 0.02035093787300987,
+            "rrms": 0.013879451949776644,
+            "snr_db": 37.15255364576007,
+            "max_abs": 0.004259885171474992,
+            "different_samples": 100352
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0002777152962510414,
+            "reference_rms": 0.02035093787300987,
+            "rrms": 0.013646314385311805,
+            "snr_db": 37.299692552323584,
+            "max_abs": 0.003564841217186962,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0002777152962510414,
+            "reference_rms": 0.02035093787300987,
+            "rrms": 0.013646314385311805,
+            "snr_db": 37.299692552323584,
+            "max_abs": 0.003564841217186962,
+            "different_samples": 100352
+          }
+        }
+      }
+    },
+    {
+      "request_id": "11",
+      "frames": 49,
+      "first_different_sample": 5121,
+      "last_different_sample": 21797,
+      "first_changed_frame": 2,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.000377040803384228,
+            "reference_rms": 0.02479977466475674,
+            "rrms": 0.015203396340533902,
+            "snr_db": 36.36118765270166,
+            "max_abs": 0.004948244318281919,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 96256,
+            "rms": 0.00038365181134991785,
+            "reference_rms": 0.025173913048507423,
+            "rrms": 0.015240054679249193,
+            "snr_db": 36.3402694960785,
+            "max_abs": 0.004948244318281919,
+            "different_samples": 96256
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0003772561393097846,
+            "reference_rms": 0.02479977466475674,
+            "rrms": 0.015212079319652362,
+            "snr_db": 36.35622837465228,
+            "max_abs": 0.004663900333095244,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 96256,
+            "rms": 0.0003838724415471975,
+            "reference_rms": 0.025173913048507423,
+            "rrms": 0.015248818918517619,
+            "snr_db": 36.33527585688092,
+            "max_abs": 0.004663900333095244,
+            "different_samples": 96256
+          }
+        }
+      }
+    },
+    {
+      "request_id": "12",
+      "frames": 49,
+      "first_different_sample": 8192,
+      "last_different_sample": 23847,
+      "first_changed_frame": 4,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0007911972716214689,
+            "reference_rms": 0.05727528153566674,
+            "rrms": 0.013813939458835672,
+            "snr_db": 37.19364903341547,
+            "max_abs": 0.012077867548200949,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 92160,
+            "rms": 0.0008126568640772655,
+            "reference_rms": 0.059481117713200096,
+            "rrms": 0.013662434320680561,
+            "snr_db": 37.28943825635745,
+            "max_abs": 0.012077867548200949,
+            "different_samples": 92160
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0007701928073204464,
+            "reference_rms": 0.05727528153566674,
+            "rrms": 0.0134472111994915,
+            "snr_db": 37.42735548238217,
+            "max_abs": 0.012077867548200949,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 92160,
+            "rms": 0.0007903795304430661,
+            "reference_rms": 0.059481117713200096,
+            "rrms": 0.013287906495873808,
+            "snr_db": 37.53086873164636,
+            "max_abs": 0.012077867548200949,
+            "different_samples": 92160
+          }
+        }
+      }
+    },
+    {
+      "request_id": "13",
+      "frames": 49,
+      "first_different_sample": 9217,
+      "last_different_sample": 22820,
+      "first_changed_frame": 4,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0005251280141529199,
+            "reference_rms": 0.04969872377868347,
+            "rrms": 0.010566227344013916,
+            "snr_db": 39.52160098449296,
+            "max_abs": 0.008614898300965457,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 92160,
+            "rms": 0.0005043057104254562,
+            "reference_rms": 0.04944220375885526,
+            "rrms": 0.010199903565890981,
+            "snr_db": 39.8280786843683,
+            "max_abs": 0.005203843815273501,
+            "different_samples": 92160
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0005167826308261257,
+            "reference_rms": 0.04969872377868347,
+            "rrms": 0.010398307874613504,
+            "snr_db": 39.660746561156465,
+            "max_abs": 0.008614898300965457,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 92160,
+            "rms": 0.0004948294697961068,
+            "reference_rms": 0.04944220375885526,
+            "rrms": 0.010008240575390638,
+            "snr_db": 39.992845274708216,
+            "max_abs": 0.005203843815273501,
+            "different_samples": 92160
+          }
+        }
+      }
+    },
+    {
+      "request_id": "14",
+      "frames": 49,
+      "first_different_sample": 0,
+      "last_different_sample": 13602,
+      "first_changed_frame": 0,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0003662558887612215,
+            "reference_rms": 0.03397898960962169,
+            "rrms": 0.010778892867888877,
+            "snr_db": 39.34851689070183,
+            "max_abs": 0.004426389268681052,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0003662558887612215,
+            "reference_rms": 0.03397898960962169,
+            "rrms": 0.010778892867888877,
+            "snr_db": 39.34851689070183,
+            "max_abs": 0.004426389268681052,
+            "different_samples": 100352
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.00036395189621340026,
+            "reference_rms": 0.03397898960962169,
+            "rrms": 0.010711086480050647,
+            "snr_db": 39.40332948465384,
+            "max_abs": 0.004426389268681052,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.00036395189621340026,
+            "reference_rms": 0.03397898960962169,
+            "rrms": 0.010711086480050647,
+            "snr_db": 39.40332948465384,
+            "max_abs": 0.004426389268681052,
+            "different_samples": 100352
+          }
+        }
+      }
+    },
+    {
+      "request_id": "15",
+      "frames": 49,
+      "first_different_sample": 1,
+      "last_different_sample": 22823,
+      "first_changed_frame": 0,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.001018831784325803,
+            "reference_rms": 0.09059823348731225,
+            "rrms": 0.011245603198968383,
+            "snr_db": 38.98034489268155,
+            "max_abs": 0.008600621698838906,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.001018831784325803,
+            "reference_rms": 0.09059823348731225,
+            "rrms": 0.011245603198968383,
+            "snr_db": 38.98034489268155,
+            "max_abs": 0.008600621698838906,
+            "different_samples": 100352
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0010185799902028964,
+            "reference_rms": 0.09059823348731225,
+            "rrms": 0.01124282396019943,
+            "snr_db": 38.98249178905425,
+            "max_abs": 0.008600621698838906,
+            "different_samples": 100352
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 100352,
+            "rms": 0.0010185799902028964,
+            "reference_rms": 0.09059823348731225,
+            "rrms": 0.01124282396019943,
+            "snr_db": 38.98249178905425,
+            "max_abs": 0.008600621698838906,
+            "different_samples": 100352
+          }
+        }
+      }
+    },
+    {
+      "request_id": "22",
+      "frames": 121,
+      "first_different_sample": 200832,
+      "last_different_sample": 247807,
+      "first_changed_frame": 98,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 247808,
+            "rms": 0.0003903015741070037,
+            "reference_rms": 0.02095442957916845,
+            "rrms": 0.018626208488873232,
+            "snr_db": 34.597510803246955,
+            "max_abs": 0.008498857726607335,
+            "different_samples": 247808
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 47104,
+            "rms": 0.0003431040704720519,
+            "reference_rms": 0.019079732066774012,
+            "rrms": 0.01798264615411152,
+            "snr_db": 34.90292802561379,
+            "max_abs": 0.007093542250572533,
+            "different_samples": 47104
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 247808,
+            "rms": 0.00038767227826265574,
+            "reference_rms": 0.02095442957916845,
+            "rrms": 0.01850073163757484,
+            "snr_db": 34.65622192936831,
+            "max_abs": 0.008498857726607335,
+            "different_samples": 247808
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 47104,
+            "rms": 0.00032704613020919385,
+            "reference_rms": 0.019079732066774012,
+            "rrms": 0.017141023210630997,
+            "snr_db": 35.3192651401264,
+            "max_abs": 0.006568982310655204,
+            "different_samples": 47104
+          }
+        }
+      }
+    },
+    {
+      "request_id": "39",
+      "frames": 65,
+      "first_different_sample": 86083,
+      "last_different_sample": 133119,
+      "first_changed_frame": 42,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 133120,
+            "rms": 0.0005919031638058801,
+            "reference_rms": 0.0679275469556917,
+            "rrms": 0.008713742661603416,
+            "snr_db": 41.19590540004543,
+            "max_abs": 0.0075564525568311,
+            "different_samples": 133120
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 47104,
+            "rms": 0.000501417584298896,
+            "reference_rms": 0.05603138738855573,
+            "rrms": 0.00894886969015708,
+            "snr_db": 40.96463631787775,
+            "max_abs": 0.0044315465138662635,
+            "different_samples": 47104
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 133120,
+            "rms": 0.0005870452979009662,
+            "reference_rms": 0.0679275469556917,
+            "rrms": 0.008642227258462441,
+            "snr_db": 41.26748635087182,
+            "max_abs": 0.0075564525568311,
+            "different_samples": 133120
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 47104,
+            "rms": 0.000485009384875124,
+            "reference_rms": 0.05603138738855573,
+            "rrms": 0.008656030262320185,
+            "snr_db": 41.253624677985584,
+            "max_abs": 0.004325396435406734,
+            "different_samples": 47104
+          }
+        }
+      }
+    },
+    {
+      "request_id": "49",
+      "frames": 57,
+      "first_different_sample": 86016,
+      "last_different_sample": 116735,
+      "first_changed_frame": 42,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0025218954425093613,
+            "reference_rms": 0.1437539653776032,
+            "rrms": 0.017543136538077517,
+            "snr_db": 35.11785513000404,
+            "max_abs": 0.058521358340358556,
+            "different_samples": 116736
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.003566631861969108,
+            "reference_rms": 0.05435140893231222,
+            "rrms": 0.0656217001920023,
+            "snr_db": 23.659050433452546,
+            "max_abs": 0.058521358340358556,
+            "different_samples": 30720
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.002514386869322839,
+            "reference_rms": 0.1437539653776032,
+            "rrms": 0.017490904426310728,
+            "snr_db": 35.14375466554292,
+            "max_abs": 0.05730061796131867,
+            "different_samples": 116736
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.003546429855555157,
+            "reference_rms": 0.05435140893231222,
+            "rrms": 0.0652500077775681,
+            "snr_db": 23.708388644466517,
+            "max_abs": 0.05730061796131867,
+            "different_samples": 30720
+          }
+        }
+      }
+    },
+    {
+      "request_id": "73",
+      "frames": 81,
+      "first_different_sample": 135236,
+      "last_different_sample": 165887,
+      "first_changed_frame": 66,
+      "policies": {
+        "control": {
+          "full_vs_fp32": {
+            "samples": 165888,
+            "rms": 0.0008049219473298703,
+            "reference_rms": 0.07586499093279014,
+            "rrms": 0.010609926099417343,
+            "snr_db": 39.48575282098738,
+            "max_abs": 0.007106930628670405,
+            "different_samples": 165888
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.00042724444113878725,
+            "reference_rms": 0.048463064483425626,
+            "rrms": 0.008815877528440342,
+            "snr_db": 41.09468903475506,
+            "max_abs": 0.0031369634489480935,
+            "different_samples": 30720
+          }
+        },
+        "coalesced": {
+          "full_vs_fp32": {
+            "samples": 165888,
+            "rms": 0.0008067839718499318,
+            "reference_rms": 0.07586499093279014,
+            "rrms": 0.010634470022736483,
+            "snr_db": 39.46568297265098,
+            "max_abs": 0.007106930628670405,
+            "different_samples": 165888
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.0004458064676106197,
+            "reference_rms": 0.048463064483425626,
+            "rrms": 0.009198891410655337,
+            "snr_db": 40.72529015579488,
+            "max_abs": 0.003100679135993434,
+            "different_samples": 30720
+          }
+        }
+      }
+    }
+  ],
+  "diagnostic_bound_pass": true,
+  "original_exact_gate": "FAIL remains unchanged."
+}

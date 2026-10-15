@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "cuda_initialized": false,
+  "adjacent_pair_count_cases": 14336,
+  "real_ledger_emits": 1289,
+  "replanned_calls_before": 2265,
+  "replanned_calls_after": 1969,
+  "collapsed_groups": 260,
+  "callback_control_batches": 13,
+  "callback_candidate_batches": 8,
+  "callback_bytes_lengths_completion_owner_and_ramp_equal": true,
+  "observed_ledger_calls": 2265,
+  "limitation": "Accounting uses archived numeric DP cost table, not the rich trace capture calibration. No GPU timing, numerical waveform or real model-state claim."
+}

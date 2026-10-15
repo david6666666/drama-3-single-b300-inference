@@ -1,0 +1,16 @@
+{
+  "status": "PREDECLARED",
+  "source_sha": "6ff8d8067fb6e96804f49fd4f0c9020fd315e1fc",
+  "driver_sha256": "acc597e72223e056b20940208a3fa9d7f253a26c6fb35ff3a766d3d4e1a6643e",
+  "hypothesis": "In B64 partial batches, copying the first real router logits only into explicitly reserved dummy slots removes dummy-exclusive experts without altering any real native model computation.",
+  "scope": "Artifact-only prepare_moe_input variant: router row source changes iff slots[row]>=model.slots//2. Activation FP8 bytes/scales remain original for every row; real logits and all top8 unchanged. Production source unchanged.",
+  "controls": "GPU2, source-moe-residual-6ff8d80, same environment as prior padding-router-probe except device. BF16 dense/state, existing native FP8 expert path, short-padding-context1, shared overlap0, fused residual0.",
+  "cases": [
+    58,
+    63,
+    64
+  ],
+  "quality_gates": "All40 saved per-layer x/router inputs at partial58/63: activation FP8 bytes/scales exact for every row, real logits exact and dummy logits exactly first-real logits. Eight-step trajectory real outputs/all real states/sampling scalar exact; every nonparticipating slot unchanged; allow/log differences only in participating reserved dummy states. Candidate eager/graph all slots exact.",
+  "timing": "Only after gates: 8 alternating fixed-state single-replay timing pairs per case; exclude full-state restore/validation. No service success claim.",
+  "stop": "Stop on any unexpected real/nonparticipating/RNG/quantization/eager graph mismatch. No source promotion without root review."
+}

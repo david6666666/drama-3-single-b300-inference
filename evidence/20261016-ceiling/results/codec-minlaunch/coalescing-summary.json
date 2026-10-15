@@ -1,0 +1,78 @@
+{
+  "source_sha": "a5d8610071fe82bbaa40d5e5ee11f216d0e437dd",
+  "artifacts": {
+    "dynamic": "coalescing-result.json",
+    "experiment": "coalescing-experiment.json",
+    "audit": "coalescing-process-audit.jsonl",
+    "fp32": "fp32-coalescing-requests.json",
+    "cpu": "../codec-coalescing-cpu.json",
+    "padding_accounting": "../codec-coalescing-padding-accounting.json"
+  },
+  "status": "DIAGNOSTIC_ONLY_NO_SERVICE_PROMOTION",
+  "strict_exact_gate": false,
+  "structural_and_numeric_gate": true,
+  "control_matches_original": true,
+  "requests": 80,
+  "trace_entries": 414,
+  "trace_sha256": "2f59327b44b4903129e670c27a24cdd60724ecd04274478f44ba603bd50dc23d",
+  "emit_count": 75,
+  "codec_calls": {
+    "control": 99,
+    "coalesced": 96
+  },
+  "exact_checks": {
+    "model_state": true,
+    "native_model_trace": true,
+    "callback_chunk_lengths_and_completion": true,
+    "emit_schedule_and_count": true,
+    "nonparticipating_real_codec_slots_each_emit": true
+  },
+  "numeric_differences": {
+    "pcm_request_ids": [
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "22",
+      "39",
+      "49",
+      "73"
+    ],
+    "pcm_max_rrms": 0.005885471269766813,
+    "participating_state_max_slot_rrms": 0.026321981102228165,
+    "participating_state_differing_emits": [
+      1,
+      30,
+      63
+    ],
+    "final_real_conv_slots": [
+      9,
+      22,
+      39,
+      49
+    ]
+  },
+  "fp32": {
+    "status": "DIAGNOSTIC_PASS",
+    "full_output_max_rrms": {
+      "control": 0.018626208488873232,
+      "coalesced": 0.01850073163757484
+    },
+    "suffix_max_rrms": {
+      "control": 0.0656217001920023,
+      "coalesced": 0.0652500077775681
+    },
+    "bound_applies_to": "full-output only; request49 suffix exceeds3% for both control and candidate"
+  },
+  "limitations": [
+    "Serial per-emit state snapshots intentionally synchronize; does not validate overlap timing or service throughput.",
+    "Participating codec states and12 PCM streams are not bitwise exact; original and coalescing exact FAIL remain unchanged.",
+    "3% diagnostic numeric bound does not replace full1088 WER/SIM acceptance.",
+    "Call reductions and capture-cost estimates do not establish GPU speedup; padded row-frame work can increase.",
+    "No new fullservice has been launched."
+  ]
+}

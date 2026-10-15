@@ -1,0 +1,42 @@
+{
+  "diagnostic_only": true,
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "timeline_sha256": "3bf967c2536023f38799033e3fc9b6cb2e19913ae95b1a8f21dc098f36610933",
+  "ledger_sha256": "10c89be8af4f6a6210cc93a37bea02e7ad07610c0c56d74bb57314050fd0618f",
+  "driver_sha256": "a004c3dd5a237f26d4f8201138bb4c1e9171acd1037300925069dadb6aa0da72",
+  "benchmark_window": [
+    830816.228124626,
+    830839.459907548
+  ],
+  "matching_failures": 0,
+  "chunk_ramp_failures": 0,
+  "observed_full_scheduled_chunks": 5673,
+  "observed_partial_final_chunks": 1055,
+  "results": [
+    {
+      "capacity": "all",
+      "ordinary_decode_calls": 1622,
+      "scheduled_audio_blocked": 797,
+      "audio_or_max_frames_blocked": 798,
+      "not_proven_blocked": 824,
+      "fraction_upper_bound": 0.5080147965474723
+    },
+    {
+      "capacity": ">=16",
+      "ordinary_decode_calls": 1507,
+      "scheduled_audio_blocked": 790,
+      "audio_or_max_frames_blocked": 790,
+      "not_proven_blocked": 717,
+      "fraction_upper_bound": 0.4757796947577969
+    },
+    {
+      "capacity": "64",
+      "ordinary_decode_calls": 1427,
+      "scheduled_audio_blocked": 762,
+      "audio_or_max_frames_blocked": 762,
+      "not_proven_blocked": 665,
+      "fraction_upper_bound": 0.4660126138752628
+    }
+  ],
+  "interpretation": "This maps actual full audio chunks to the immediately preceding model call. For ordinary steps=1 calls a scheduled full chunk proves the current one-frame horizon would block a pair. The remainder is ONLY an upper bound: pending/waiting, cancellation and the full active roster were not logged. Pairing changes future scheduling; this is not actual pair coverage. Requests have correlated chunk phases, invalidating independent-row estimates."
+}

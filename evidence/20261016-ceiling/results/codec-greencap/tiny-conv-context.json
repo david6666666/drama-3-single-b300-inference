@@ -1,0 +1,20 @@
+{
+  "mode": "context",
+  "status": "PASS",
+  "dtype": "bfloat16",
+  "shape": [
+    8,
+    768,
+    1,
+    262
+  ],
+  "weight": [
+    768,
+    768,
+    1,
+    7
+  ],
+  "cudnn": 92000,
+  "eager_exact": true,
+  "graph_exact": true
+}

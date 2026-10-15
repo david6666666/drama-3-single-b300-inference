@@ -1,0 +1,2844 @@
+{
+  "status": "CAPTURE_FAIL",
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "driver_sha256": "35a4c96d1be4cdd7efcb5d76f791aee88fcbe038089bf73775a535a04269743a",
+  "torch": "2.13.0+cu130",
+  "cudnn": 92000,
+  "gpu_uuid": "bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "requested_sms": 32,
+  "current_green": true,
+  "warmup_green_stream": true,
+  "precision": "Same native BF16 autocast as existing codec",
+  "controls": {
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false
+  },
+  "limits": "Codec-only reproduction; no model, MPS daemon, clock or algorithm changes; no service timing claim.",
+  "normal_capture_complete": true,
+  "normal_context": {
+    "current_context": 874699008,
+    "current_stream": 0,
+    "stream_green_context": null,
+    "capturing": false
+  },
+  "actual_sms": 32,
+  "green_stream": 2564164624,
+  "green_handle": 1853940608,
+  "conv_calls": [
+    {
+      "call": 1,
+      "input_shape": [
+        8,
+        1024,
+        1,
+        22
+      ],
+      "input_stride": [
+        22528,
+        1,
+        22528,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1024,
+        1,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7,
+        7,
+        7,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1024,
+      "args": [
+        {
+          "shape": [
+            1024
+          ],
+          "stride": [
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "storage_offset": 0
+        }
+      ],
+      "kwargs": {
+        "groups": 1024
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 2,
+      "input_shape": [
+        8,
+        1024,
+        1,
+        38
+      ],
+      "input_stride": [
+        38912,
+        1,
+        38912,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1024,
+        1,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7,
+        7,
+        7,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1024,
+      "args": [
+        {
+          "shape": [
+            1024
+          ],
+          "stride": [
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "storage_offset": 0
+        }
+      ],
+      "kwargs": {
+        "groups": 1024
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 3,
+      "input_shape": [
+        8,
+        1024,
+        1,
+        38
+      ],
+      "input_stride": [
+        38912,
+        1,
+        38912,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1536,
+        1024,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7168,
+        1,
+        7168,
+        1024
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 4,
+      "input_shape": [
+        8,
+        768,
+        1,
+        262
+      ],
+      "input_stride": [
+        201216,
+        1,
+        201216,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        1,
+        7
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        5376,
+        768
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 5,
+      "input_shape": [
+        8,
+        768,
+        92,
+        3
+      ],
+      "input_stride": [
+        211968,
+        1,
+        2304,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        7,
+        1
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        768,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 6,
+      "input_shape": [
+        8,
+        768,
+        35,
+        9
+      ],
+      "input_stride": [
+        241920,
+        1,
+        6912,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        7,
+        1
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        768,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 7,
+      "input_shape": [
+        8,
+        384,
+        1,
+        2054
+      ],
+      "input_stride": [
+        788736,
+        1,
+        788736,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        1,
+        7
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        2688,
+        384
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 8,
+      "input_shape": [
+        8,
+        384,
+        689,
+        3
+      ],
+      "input_stride": [
+        793728,
+        1,
+        1152,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        7,
+        1
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        384,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 9,
+      "input_shape": [
+        8,
+        384,
+        234,
+        9
+      ],
+      "input_stride": [
+        808704,
+        1,
+        3456,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        7,
+        1
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        384,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 10,
+      "input_shape": [
+        8,
+        192,
+        1,
+        8198
+      ],
+      "input_stride": [
+        1574016,
+        1,
+        1574016,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        1,
+        7
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        1344,
+        192
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 11,
+      "input_shape": [
+        8,
+        192,
+        2737,
+        3
+      ],
+      "input_stride": [
+        1576512,
+        1,
+        576,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        7,
+        1
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        192,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 12,
+      "input_shape": [
+        8,
+        192,
+        917,
+        9
+      ],
+      "input_stride": [
+        1584576,
+        1,
+        1728,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        7,
+        1
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        192,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 13,
+      "input_shape": [
+        8,
+        96,
+        1,
+        16390
+      ],
+      "input_stride": [
+        1573440,
+        1,
+        1573440,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        96,
+        96,
+        1,
+        7
+      ],
+      "weight_stride": [
+        672,
+        1,
+        672,
+        96
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 14,
+      "input_shape": [
+        8,
+        96,
+        5468,
+        3
+      ],
+      "input_stride": [
+        1574784,
+        1,
+        288,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        96,
+        96,
+        7,
+        1
+      ],
+      "weight_stride": [
+        672,
+        1,
+        96,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 15,
+      "input_shape": [
+        8,
+        96,
+        1827,
+        9
+      ],
+      "input_stride": [
+        1578528,
+        1,
+        864,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        96,
+        96,
+        7,
+        1
+      ],
+      "weight_stride": [
+        672,
+        1,
+        96,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 16,
+      "input_shape": [
+        8,
+        96,
+        1,
+        16390
+      ],
+      "input_stride": [
+        1573440,
+        1,
+        1573440,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1,
+        96,
+        1,
+        7
+      ],
+      "weight_stride": [
+        672,
+        1,
+        672,
+        96
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 17,
+      "input_shape": [
+        8,
+        1024,
+        1,
+        22
+      ],
+      "input_stride": [
+        22528,
+        1,
+        22528,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1024,
+        1,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7,
+        7,
+        7,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1024,
+      "args": [
+        {
+          "shape": [
+            1024
+          ],
+          "stride": [
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "storage_offset": 0
+        }
+      ],
+      "kwargs": {
+        "groups": 1024
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 18,
+      "input_shape": [
+        8,
+        1024,
+        1,
+        38
+      ],
+      "input_stride": [
+        38912,
+        1,
+        38912,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1024,
+        1,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7,
+        7,
+        7,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1024,
+      "args": [
+        {
+          "shape": [
+            1024
+          ],
+          "stride": [
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "storage_offset": 0
+        }
+      ],
+      "kwargs": {
+        "groups": 1024
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 19,
+      "input_shape": [
+        8,
+        1024,
+        1,
+        38
+      ],
+      "input_stride": [
+        38912,
+        1,
+        38912,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1536,
+        1024,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7168,
+        1,
+        7168,
+        1024
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 20,
+      "input_shape": [
+        8,
+        768,
+        1,
+        262
+      ],
+      "input_stride": [
+        201216,
+        1,
+        201216,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        1,
+        7
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        5376,
+        768
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 21,
+      "input_shape": [
+        8,
+        768,
+        92,
+        3
+      ],
+      "input_stride": [
+        211968,
+        1,
+        2304,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        7,
+        1
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        768,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 22,
+      "input_shape": [
+        8,
+        768,
+        35,
+        9
+      ],
+      "input_stride": [
+        241920,
+        1,
+        6912,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        7,
+        1
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        768,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 23,
+      "input_shape": [
+        8,
+        384,
+        1,
+        2054
+      ],
+      "input_stride": [
+        788736,
+        1,
+        788736,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        1,
+        7
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        2688,
+        384
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 24,
+      "input_shape": [
+        8,
+        384,
+        689,
+        3
+      ],
+      "input_stride": [
+        793728,
+        1,
+        1152,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        7,
+        1
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        384,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 25,
+      "input_shape": [
+        8,
+        384,
+        234,
+        9
+      ],
+      "input_stride": [
+        808704,
+        1,
+        3456,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        7,
+        1
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        384,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 26,
+      "input_shape": [
+        8,
+        192,
+        1,
+        8198
+      ],
+      "input_stride": [
+        1574016,
+        1,
+        1574016,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        1,
+        7
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        1344,
+        192
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 27,
+      "input_shape": [
+        8,
+        192,
+        2737,
+        3
+      ],
+      "input_stride": [
+        1576512,
+        1,
+        576,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        7,
+        1
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        192,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 28,
+      "input_shape": [
+        8,
+        192,
+        917,
+        9
+      ],
+      "input_stride": [
+        1584576,
+        1,
+        1728,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        7,
+        1
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        192,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 29,
+      "input_shape": [
+        8,
+        96,
+        1,
+        16390
+      ],
+      "input_stride": [
+        1573440,
+        1,
+        1573440,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        96,
+        96,
+        1,
+        7
+      ],
+      "weight_stride": [
+        672,
+        1,
+        672,
+        96
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 30,
+      "input_shape": [
+        8,
+        96,
+        5468,
+        3
+      ],
+      "input_stride": [
+        1574784,
+        1,
+        288,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        96,
+        96,
+        7,
+        1
+      ],
+      "weight_stride": [
+        672,
+        1,
+        96,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 31,
+      "input_shape": [
+        8,
+        96,
+        1827,
+        9
+      ],
+      "input_stride": [
+        1578528,
+        1,
+        864,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        96,
+        96,
+        7,
+        1
+      ],
+      "weight_stride": [
+        672,
+        1,
+        96,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 32,
+      "input_shape": [
+        8,
+        96,
+        1,
+        16390
+      ],
+      "input_stride": [
+        1573440,
+        1,
+        1573440,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1,
+        96,
+        1,
+        7
+      ],
+      "weight_stride": [
+        672,
+        1,
+        672,
+        96
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 33,
+      "input_shape": [
+        8,
+        1024,
+        1,
+        22
+      ],
+      "input_stride": [
+        22528,
+        1,
+        22528,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1024,
+        1,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7,
+        7,
+        7,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1024,
+      "args": [
+        {
+          "shape": [
+            1024
+          ],
+          "stride": [
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "storage_offset": 0
+        }
+      ],
+      "kwargs": {
+        "groups": 1024
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 34,
+      "input_shape": [
+        8,
+        1024,
+        1,
+        38
+      ],
+      "input_stride": [
+        38912,
+        1,
+        38912,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1024,
+        1,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7,
+        7,
+        7,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1024,
+      "args": [
+        {
+          "shape": [
+            1024
+          ],
+          "stride": [
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "storage_offset": 0
+        }
+      ],
+      "kwargs": {
+        "groups": 1024
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 35,
+      "input_shape": [
+        8,
+        1024,
+        1,
+        38
+      ],
+      "input_stride": [
+        38912,
+        1,
+        38912,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1536,
+        1024,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7168,
+        1,
+        7168,
+        1024
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 36,
+      "input_shape": [
+        8,
+        768,
+        1,
+        262
+      ],
+      "input_stride": [
+        201216,
+        1,
+        201216,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        1,
+        7
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        5376,
+        768
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 37,
+      "input_shape": [
+        8,
+        768,
+        92,
+        3
+      ],
+      "input_stride": [
+        211968,
+        1,
+        2304,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        7,
+        1
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        768,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 38,
+      "input_shape": [
+        8,
+        768,
+        35,
+        9
+      ],
+      "input_stride": [
+        241920,
+        1,
+        6912,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        7,
+        1
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        768,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 39,
+      "input_shape": [
+        8,
+        384,
+        1,
+        2054
+      ],
+      "input_stride": [
+        788736,
+        1,
+        788736,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        1,
+        7
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        2688,
+        384
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 40,
+      "input_shape": [
+        8,
+        384,
+        689,
+        3
+      ],
+      "input_stride": [
+        793728,
+        1,
+        1152,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        7,
+        1
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        384,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 41,
+      "input_shape": [
+        8,
+        384,
+        234,
+        9
+      ],
+      "input_stride": [
+        808704,
+        1,
+        3456,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        7,
+        1
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        384,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 42,
+      "input_shape": [
+        8,
+        192,
+        1,
+        8198
+      ],
+      "input_stride": [
+        1574016,
+        1,
+        1574016,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        1,
+        7
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        1344,
+        192
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 43,
+      "input_shape": [
+        8,
+        192,
+        2737,
+        3
+      ],
+      "input_stride": [
+        1576512,
+        1,
+        576,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        7,
+        1
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        192,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 44,
+      "input_shape": [
+        8,
+        192,
+        917,
+        9
+      ],
+      "input_stride": [
+        1584576,
+        1,
+        1728,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        7,
+        1
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        192,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 45,
+      "input_shape": [
+        8,
+        96,
+        1,
+        16390
+      ],
+      "input_stride": [
+        1573440,
+        1,
+        1573440,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        96,
+        96,
+        1,
+        7
+      ],
+      "weight_stride": [
+        672,
+        1,
+        672,
+        96
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 46,
+      "input_shape": [
+        8,
+        96,
+        5468,
+        3
+      ],
+      "input_stride": [
+        1574784,
+        1,
+        288,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        96,
+        96,
+        7,
+        1
+      ],
+      "weight_stride": [
+        672,
+        1,
+        96,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 47,
+      "input_shape": [
+        8,
+        96,
+        1827,
+        9
+      ],
+      "input_stride": [
+        1578528,
+        1,
+        864,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        96,
+        96,
+        7,
+        1
+      ],
+      "weight_stride": [
+        672,
+        1,
+        96,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 48,
+      "input_shape": [
+        8,
+        96,
+        1,
+        16390
+      ],
+      "input_stride": [
+        1573440,
+        1,
+        1573440,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1,
+        96,
+        1,
+        7
+      ],
+      "weight_stride": [
+        672,
+        1,
+        672,
+        96
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": true
+      }
+    },
+    {
+      "call": 49,
+      "input_shape": [
+        4,
+        1024,
+        1,
+        22
+      ],
+      "input_stride": [
+        22528,
+        1,
+        22528,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1024,
+        1,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7,
+        7,
+        7,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1024,
+      "args": [
+        {
+          "shape": [
+            1024
+          ],
+          "stride": [
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "storage_offset": 0
+        }
+      ],
+      "kwargs": {
+        "groups": 1024
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 50,
+      "input_shape": [
+        4,
+        1024,
+        1,
+        38
+      ],
+      "input_stride": [
+        38912,
+        1,
+        38912,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1024,
+        1,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7,
+        7,
+        7,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1024,
+      "args": [
+        {
+          "shape": [
+            1024
+          ],
+          "stride": [
+            1
+          ],
+          "dtype": "torch.bfloat16",
+          "storage_offset": 0
+        }
+      ],
+      "kwargs": {
+        "groups": 1024
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 51,
+      "input_shape": [
+        4,
+        1024,
+        1,
+        38
+      ],
+      "input_stride": [
+        38912,
+        1,
+        38912,
+        1024
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        1536,
+        1024,
+        1,
+        7
+      ],
+      "weight_stride": [
+        7168,
+        1,
+        7168,
+        1024
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 52,
+      "input_shape": [
+        4,
+        768,
+        1,
+        262
+      ],
+      "input_stride": [
+        201216,
+        1,
+        201216,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        1,
+        7
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        5376,
+        768
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 53,
+      "input_shape": [
+        4,
+        768,
+        92,
+        3
+      ],
+      "input_stride": [
+        211968,
+        1,
+        2304,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        7,
+        1
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        768,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 54,
+      "input_shape": [
+        4,
+        768,
+        35,
+        9
+      ],
+      "input_stride": [
+        241920,
+        1,
+        6912,
+        768
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        768,
+        768,
+        7,
+        1
+      ],
+      "weight_stride": [
+        5376,
+        1,
+        768,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 55,
+      "input_shape": [
+        4,
+        384,
+        1,
+        2054
+      ],
+      "input_stride": [
+        788736,
+        1,
+        788736,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        1,
+        7
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        2688,
+        384
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 56,
+      "input_shape": [
+        4,
+        384,
+        689,
+        3
+      ],
+      "input_stride": [
+        793728,
+        1,
+        1152,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        7,
+        1
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        384,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 57,
+      "input_shape": [
+        4,
+        384,
+        234,
+        9
+      ],
+      "input_stride": [
+        808704,
+        1,
+        3456,
+        384
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        384,
+        384,
+        7,
+        1
+      ],
+      "weight_stride": [
+        2688,
+        1,
+        384,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 58,
+      "input_shape": [
+        4,
+        192,
+        1,
+        8198
+      ],
+      "input_stride": [
+        1574016,
+        1,
+        1574016,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        1,
+        7
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        1344,
+        192
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 59,
+      "input_shape": [
+        4,
+        192,
+        2737,
+        3
+      ],
+      "input_stride": [
+        1576512,
+        1,
+        576,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        7,
+        1
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        192,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 60,
+      "input_shape": [
+        4,
+        192,
+        917,
+        9
+      ],
+      "input_stride": [
+        1584576,
+        1,
+        1728,
+        192
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        192,
+        192,
+        7,
+        1
+      ],
+      "weight_stride": [
+        1344,
+        1,
+        192,
+        1
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      }
+    },
+    {
+      "call": 61,
+      "input_shape": [
+        4,
+        96,
+        1,
+        16390
+      ],
+      "input_stride": [
+        1573440,
+        1,
+        1573440,
+        96
+      ],
+      "input_dtype": "torch.bfloat16",
+      "input_storage_offset": 0,
+      "weight_shape": [
+        96,
+        96,
+        1,
+        7
+      ],
+      "weight_stride": [
+        672,
+        1,
+        672,
+        96
+      ],
+      "weight_dtype": "torch.bfloat16",
+      "weight_storage_offset": 0,
+      "groups": 1,
+      "args": [
+        null
+      ],
+      "kwargs": {
+        "groups": 1
+      },
+      "context": {
+        "current_context": 874699008,
+        "current_stream": 2564164624,
+        "stream_green_context": 1853940608,
+        "capturing": false
+      },
+      "exception": "RuntimeError('cuDNN error: CUDNN_STATUS_NOT_SUPPORTED. This error may appear if you passed in a non-contiguous input.')"
+    }
+  ],
+  "before_capture_context": {
+    "current_context": 1853940608,
+    "current_stream": 0,
+    "stream_green_context": 1853940608,
+    "capturing": false
+  },
+  "failed_conv": {
+    "call": 61,
+    "input_shape": [
+      4,
+      96,
+      1,
+      16390
+    ],
+    "input_stride": [
+      1573440,
+      1,
+      1573440,
+      96
+    ],
+    "input_dtype": "torch.bfloat16",
+    "input_storage_offset": 0,
+    "weight_shape": [
+      96,
+      96,
+      1,
+      7
+    ],
+    "weight_stride": [
+      672,
+      1,
+      672,
+      96
+    ],
+    "weight_dtype": "torch.bfloat16",
+    "weight_storage_offset": 0,
+    "groups": 1,
+    "args": [
+      null
+    ],
+    "kwargs": {
+      "groups": 1
+    },
+    "context": {
+      "current_context": 874699008,
+      "current_stream": 2564164624,
+      "stream_green_context": 1853940608,
+      "capturing": false
+    },
+    "exception": "RuntimeError('cuDNN error: CUDNN_STATUS_NOT_SUPPORTED. This error may appear if you passed in a non-contiguous input.')"
+  },
+  "exception": "RuntimeError('cuDNN error: CUDNN_STATUS_NOT_SUPPORTED. This error may appear if you passed in a non-contiguous input.')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-greencap/capture-isolation/driver.py\", line 50, in main\n    with torch.autocast('cuda',dtype=codec.decoder.dtype):cap.capture(torch.device('cuda'),capture_stream=stream)\n                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 1143, in capture\n    self.decoder(static, trim)\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 1002, in __call__\n    return self._run(self.codec.decoder.model, self.latent(indices, trim)).transpose(1, 2)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 401, in _run\n    hidden, pending = self._stream(modules, hidden, None)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 440, in _stream\n    hidden, pending = self._stream(\n                      ^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 423, in _stream\n    hidden, pending = self._residual_unit(module, hidden, pending)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 480, in _residual_unit\n    h = self._padded_conv(conv7, padded, frames)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 501, in _padded_conv\n    out = F.conv2d(\n          ^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-greencap/capture-isolation/driver.py\", line 41, in observed_conv\n    try:return native_conv(x,w,*a,**kw)\n               ^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: cuDNN error: CUDNN_STATUS_NOT_SUPPORTED. This error may appear if you passed in a non-contiguous input.\n",
+  "cleanup_exception": "RuntimeError('popped == context_ INTERNAL ASSERT FAILED at \"/__w/pytorch/pytorch/aten/src/ATen/cuda/CUDAGreenContext.cpp\":263, please report a bug to PyTorch. expected popped context to be the current ctx')",
+  "observed_conv_calls": 61,
+  "failed_tensors": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-greencap/capture-isolation/context-stream-result.pt"
+}

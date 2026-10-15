@@ -1,0 +1,11 @@
+{
+  "status": "PREDECLARED",
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "driver_sha256": "25aa88844e138e5693a4abd020ee5036ed9ab6476b290d248ab5824daeff8f22",
+  "hypothesis": "Codec-only 32/48 SM green capture can reduce full-device model interference. Model retains all 148 SMs; partitions are not disjoint.",
+  "controls": "GPU2, original native top8/BF16 computations and full captured graph/state. Same real 8-frame AR codec inputs and restored model/codec/RNG state before every arm. Restore CUcontext around unchanged compiled transformer during capture only. No MPS or global GPU changes.",
+  "arms": "Normal/32/48 codec serial, codec-only and concurrent; unchanged model-only. Three codec F8 jobs at B1/B4/B8 versus four B64 model steps, three alternating repeats; 90 trials.",
+  "gate": "Each capped serial arm must exactly match normal serial PCM, all codec conv/KV tensors, all model recurrent/KV/request tensors and sampling counters. Stop on first mismatch; no performance promotion.",
+  "resource_proof": "Prior native B4/F8 graph has all 284 kernel nodes attributed to green_context_id2 and 32 SM by Nsight Compute, CSV capture-isolation/green32-ncu.csv. Query actual 32/48 stream resources and graph flags for this run. 48 native-node attribution still requires separate proof.",
+  "limits": "Uninstrumented diagnostic microbench, not service or full quality acceptance; unchanged source. Historical capture and diagnostic failures preserved."
+}

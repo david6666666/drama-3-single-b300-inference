@@ -1,0 +1,59 @@
+{
+  "source_sha": "ab2d9015d6b0115530e675f25bbf5f188b1d65b1",
+  "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+  "requests": 1088,
+  "prompt_rows": 185006,
+  "common_prefix_rows": 25,
+  "simulation": [
+    {
+      "cache_entries": 16,
+      "hit_requests": 422,
+      "reused_rows": 51584,
+      "fraction_prompt_rows": 0.2788233895116915
+    },
+    {
+      "cache_entries": 64,
+      "hit_requests": 422,
+      "reused_rows": 51584,
+      "fraction_prompt_rows": 0.2788233895116915
+    },
+    {
+      "cache_entries": 128,
+      "hit_requests": 422,
+      "reused_rows": 51584,
+      "fraction_prompt_rows": 0.2788233895116915
+    },
+    {
+      "cache_entries": 256,
+      "hit_requests": 422,
+      "reused_rows": 51584,
+      "fraction_prompt_rows": 0.2788233895116915
+    },
+    {
+      "cache_entries": 512,
+      "hit_requests": 422,
+      "reused_rows": 51584,
+      "fraction_prompt_rows": 0.2788233895116915
+    },
+    {
+      "cache_entries": 1024,
+      "hit_requests": 422,
+      "reused_rows": 51584,
+      "fraction_prompt_rows": 0.2788233895116915
+    },
+    {
+      "cache_entries": 4096,
+      "hit_requests": 422,
+      "reused_rows": 51584,
+      "fraction_prompt_rows": 0.2788233895116915
+    }
+  ],
+  "limitations": [
+    "CPU-only request-order upper approximation: a later request may arrive before the earlier prefix state is ready at C64.",
+    "Cache starts empty; no corpus-derived prefix is loaded into the runtime. Warmup duplicates excluded.",
+    "A teacher-tower prefix of n rows requires matching n+1 input rows because labels are shifted.",
+    "Actual continuation requires GDN and convolution state plus prefix KV for every backbone/tower attention layer; the current packed prefill starts from zero and attends only current tokens.",
+    "Reusing reference audio codes alone cannot skip model prefill.",
+    "GEMM shapes and recurrent chunk boundaries may affect rounding; complete native-state and quality comparisons are required before service."
+  ]
+}

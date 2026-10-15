@@ -1,0 +1,11 @@
+{
+  "status": "INIT_FAIL_CUDNN_NOT_SUPPORTED",
+  "trials": 0,
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "driver_sha256": "1586705c1f569e942b0356bb1c3d93f5c828f10991d2d99f43870ee8c287d11f",
+  "stage": "32SM DAC graph capture after explicitGreenContext.set_context and eagerwarmup",
+  "error": "CUDNN_STATUS_NOT_SUPPORTED at dac_channels_last.py501 F.conv2d",
+  "cleanup_error": "GreenContext.pop_context expected popped context to be current; process exited and CUDA released",
+  "raw_log": "current-context-stdout.log",
+  "scope": "No performance trial or quality comparison completed; no runtime algorithm or precision changed."
+}

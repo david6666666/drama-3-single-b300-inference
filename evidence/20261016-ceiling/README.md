@@ -75,12 +75,72 @@ scratch slot. Five of80 PCM outputs differ (RRMS0.317–0.572%, SNR44.86–49.97
 This does not pass the original exact gate or establish WER/SIM; it remains an
 unpromoted numerical investigation, with every original failure retained.
 
-A separate default-off native MoE residual fusion failed its first static exact
-check. The original failure is retained; no graph speed or service result is
-claimed for it. Native codec SM limiting is also under investigation: tiny
-GreenContext captures obey their SM cap, but replaying a graph captured in the
-primary context does not. Whole DAC capture has hit cuDNN initialization errors;
-there is no qualified resource-cap performance result yet.
+The original MoE residual fusion failed its first exact check. The cause was
+native BF16 FMA contraction: the reference compiler fused shared×gate+routed,
+while the first candidate used separate rounded operations. Commit `6ff8d80`
+restores that native FMA explicitly and passes 2374 exact checks, including all
+40 live boundaries, full model/request/RNG state and shared-stream compatibility.
+Its isolated B64 reduction is 0.041 ms and mixed reduction 0.293 ms; these are
+local observations, not a service speedup. The original failure is retained in
+[the causal record](results/moe-residual-fma-fix.md).
+
+`DRAMA3_RESERVED_PADDING_ROUTER=1` copies real row0 router logits only into
+explicitly reserved decode padding rows. Real full top-8 routing, native FP8
+activation/scales and generic callers are unchanged. Production source `463d837`
+passes 2574 exact checks, including fused-residual compatibility, mixed and small
+batches. Fixed-state active58/B64 improves 2.52%, active63 improves 0.77%; full64
+and mixed have no material gain. This remains opt-in without a separate service
+claim. See [production gate](results/padding-router-production-summary.json).
+
+The actual checkpoint's `vq_backbone_codebooks=1` allows the next backbone after
+current semantic/code1 sampling, while eight remaining tower layers continue.
+The native two-frame prototype passes 1792 exact checks and reduces measured
+B64 two-frame latency 14.904→14.517 ms. Production `DRAMA3_FRAME_PIPELINE=1`
+uses dedicated streams/workspaces and skips pairs crossing scheduled audio or
+admission boundaries; production `a7118fb` passes a separate 3689-check exact gate, including slot
+reuse, all captured capacities, max_frames and a clearly labeled synthetic
+first-EOS case. This is about
+0.194 ms per frame in an eligible pair, not a service gain. Actual ledger evidence
+leaves at most47.58% of supported ordinary calls unblocked by known audio
+boundaries; this is not observed pair coverage. Correlated chunk phases invalidate
+independent-row estimates. See [prototype](results/frame-pipeline-results.md) and
+[eligibility audit](results/pair-eligibility-ledger.json).
+
+The first production capture hit a device assert because a callback-local frame
+buffer was allocated on the main stream and consumed on the auxiliary stream
+after its reference could expire. A one-variable lifetime diagnostic passes335
+exact checks; retaining that buffer is the three-line source fix. A later
+validator compared a Python attribute rebound by eager execution instead of the
+captured hidden buffer. Its failure is retained; the final validator pins both
+captured buffers and records their addresses. No numerical gate was relaxed.
+Full service evaluation remains separate from these exact model-state gates.
+
+Native codec resource limiting required recapturing graph nodes in GreenContext;
+changing only the replay stream is ineffective. Inductor's device guard resets
+the current CUDA context, so capture restores it before unchanged cuDNN calls.
+NCU verifies all284 native B4/F8 nodes use actual32/48-SM assignments. Corrected
+production `69d636e` passes a fixed dynamic80-request gate: all414 trace entries,
+80 full PCM outputs and complete model/codec states are exact across normal,
+capped-sync, capped-poll and capped-thread modes, covering46 captures and28 actual
+input shapes. Original capture and capability-check failures remain retained.
+See [dynamic gate](results/green-sm-dynamic-prerequisite-summary.json).
+
+The complete native48-SM service pair onGPU0 observes4412.554→4470.317 frames/s
+(+1.309%), makespan−2.937%, output frames−1.667%. TTFA p50/p95 changes
+140.956/265.621→141.412/269.892 ms; meanRTF0.293374→0.289907. Both arms
+score all1088 outputs: WER1.909068%/1.565771%, SIM63.902018/64.244919,
+passing the frozen bounds. The candidate remains below the vLLM baseline and
+6765 target. Production DP uses each arm's measured codec costs, so partitions
+are not held fixed. This one pair does not establish a repeated or fixed-work
+gain. See [complete SM-limit result](results/green-sm-service-summary.json).
+
+Adjacent-bucket codec coalescing reduces graph calls but does not pass the original
+bit-exact PCM gate. A separately declared native FP32 diagnostic permits a full
+service quality check. The complete same-source `69d636e` feasibility pair onGPU7
+observes **4513.299→4414.243 frames/s** (−2.195%), makespan+0.701%, frames−1.509%.
+Both arms score all1088 outputs: control WER1.858829%/SIM64.022896; candidate
+WER1.515532%/SIM64.251073. Both meet quality bounds, but no performance promotion
+follows. See [complete coalescing result](results/coalescing-native-service-summary.json).
 
 Source SHAs, experiment hypotheses, commands, raw per-request summaries,
 complete quality records and failures are indexed by [files.json](results/files.json).

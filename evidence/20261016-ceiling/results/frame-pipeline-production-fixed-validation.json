@@ -1,0 +1,2853 @@
+{
+  "metadata": {
+    "source_sha": "a7118fb7eb748d08c3b774fa6c9189b6eab0d9cc",
+    "source_status": "",
+    "driver_sha256": "e2a8cd8f70e9f56ac7daae7e7175663459b52098d6d1fa71048d15a0c12e1396",
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+    "gpu_uuid": "619f7fdc-5f98-8c37-fe89-0465d6130baf",
+    "environment": {
+      "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+      "DRAMA3_PACKED_MOE_PROJECTION": "1",
+      "DRAMA3_PREFILL_CONV": "triton",
+      "DRAMA3_PREFILL_MOE": "flashinfer",
+      "DRAMA3_PREFILL_MOE_TUNED": "0",
+      "DRAMA3_FUSED_MOE_INPUT": "1",
+      "DRAMA3_MOE_LAYOUT": "major_k",
+      "DRAMA3_PREFILL_GDN": "fla",
+      "DRAMA3_COMPACT_GDN": "1",
+      "DRAMA3_FUSED_MIXED_LAYOUT": "1",
+      "DRAMA3_PACKED_CONV_GUARD": "1",
+      "DRAMA3_SHORT_PADDING_CONTEXT": "1",
+      "DRAMA3_MOE_SHARED_OVERLAP": "0",
+      "DRAMA3_FUSED_MOE_RESIDUAL": "1",
+      "DRAMA3_RESERVED_PADDING_ROUTER": "1",
+      "DRAMA3_FRAME_PIPELINE": "1"
+    },
+    "experiment": {
+      "created_utc": "2026-10-15T23:34:06.586424+00:00",
+      "hypothesis": "Production code1 callback and two-frame graph retain exact native steps=2 outputs and full state while overlapping next backbone with current tower tail.",
+      "source_sha": "a7118fb7eb748d08c3b774fa6c9189b6eab0d9cc",
+      "driver_sha256": "e2a8cd8f70e9f56ac7daae7e7175663459b52098d6d1fa71048d15a0c12e1396",
+      "isolated_variable": "Serial DecodeGraph(steps=2) versus production FramePipelineGraph, same frozen source, roster, native math and fully restored input/model/request/RNG state.",
+      "controls": "GPU6; native fulltop8/checkpoint FP8 expert scales; BF16 dense/GDN; reserved router=1 plus fused residual/compact/layout/conv guard/short padding=1 in both arms; existing FI major_k and FLA; same warm caches, no flush/clock control.",
+      "real_gate": "Full B64, partial58, reversed reused slots, max_frames boundary, B32 and all additional production capacities16/24/40/48/56. Exact full frames, all conv/GDN/KV/request/RNG state, untouched slots, eager/capture hidden2 and full states. Capture precedes real initialization.",
+      "synthetic_eos_gate": "Separate explicitly synthetic captures: native semantic sampler still runs, then row0 stream0 result replaced by EOS candidate only at initial sampling_step+1. Second step unforced; all native model operators and codebook samples run. Require first EOS, sticky done, unchanged request row last/history/codes/count/position and exact serial-vs-production frames/fullstates/RNG. Not a quality trajectory or timing graph.",
+      "timing": "Only after every exact case passes; normal unmodified real B64/partial58/B32 captures; one warmup and five alternating CUDA-event samples with fullstate restore outside events. Report two-frame latencies only.",
+      "stop": "Preserve first exact/state/ownership/capture failure and stop before timing. No service or quality claim. Source remains unchanged.",
+      "prior_failure": "Original a251689 production FAIL retained; lifetime-only artifact fix PASS335 exact checks. This full rerun changes only source lifetime fix and artifact filenames/source metadata; gate semantics unchanged."
+    }
+  },
+  "cases": [
+    {
+      "case": "real-b64",
+      "batch_size": 64,
+      "actual_requests": 64,
+      "max_frames_boundary": false,
+      "reversed_reused_slots": false,
+      "synthetic_first_eos": false,
+      "passed": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "real-b64/frames",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/conv/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/conv/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/gdn/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/gdn/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/key/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/key/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/value/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/value/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/request_last",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/request_last",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/request_history",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/request_history",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/request_metadata",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/request_metadata",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/request_codes",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/untouched/request_codes",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/state/sampling_step",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/eager_frames",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/eager_hidden2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/conv/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/gdn/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/key/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/value/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/request_last",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/request_history",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/request_metadata",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/request_codes",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-b64/capture_eager_state/sampling_step",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/frames",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/conv/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/conv/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/gdn/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/gdn/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/key/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/key/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/value/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/value/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/request_last",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/request_last",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/request_history",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/request_history",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/request_metadata",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/request_metadata",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/request_codes",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/untouched/request_codes",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/state/sampling_step",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/eager_frames",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "real-partial58/eager_hidden2",
+      "exact": true,
+      "passed": false
+    }
+  ],
+  "status": "FAIL",
+  "failure": {
+    "type": "AssertionError",
+    "message": "{'name': 'real-partial58/eager_hidden2', 'exact': True, 'passed': False}"
+  }
+}

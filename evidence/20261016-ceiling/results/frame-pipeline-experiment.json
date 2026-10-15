@@ -1,0 +1,13 @@
+{
+  "hypothesis": "Native next-frame backbone depends only on current semantic token and code1. After current tower shared4 plus residual0/sample2, overlap next backbone with remaining8 tower layers, then join before next tower sampling increment.",
+  "source_sha": "6ff8d8067fb6e96804f49fd4f0c9020fd315e1fc",
+  "scope": "Artifact-only two-frame graph, no production source edits or speculative prediction.",
+  "isolated_variable": "Explicit auxiliary-stream next backbone overlapped with current tower tail versus serial same two-frame operations.",
+  "fixed_controls": "GPU6; same native fulltop8 FP8 expert scales, BF16 dense/GDN, all native flags same in both arms including fused residual; same inputs/states/config/graph sizes, no clock/cache control.",
+  "reference": "Existing DecodeGraph(steps=2): unconditional local frame/history/position transition between its two model calls, DeviceRequests.save masks appends after EOS/max_frames. Not two independent single-step replays after EOS. No rows filtered.",
+  "correctness": "Dedicated serial graph must first equal native steps2 frames+all states. Pipeline full2frames/backbone2hidden, all conv/GDN/KV/request/RNG state and untouched slots exact; captured/eager exact. FullB64 first, then partial58 and a max_frames boundary row, then B32.",
+  "resources": "Distinct AttentionBatch/workspace/page_indices/lengths and p/p+1 buffers; each graph has dedicated capture stream; auxiliary fork after code1 and join after tower1 tail, before sampling_step2.",
+  "timing": "Only after each case exact gates pass: one warmup each, five alternating CUDA-event graph samples with identical full-state restore outside events. Report two-frame time, not single-frame latency or serving speedup.",
+  "stop": "Retain first exact/ownership/capture failure and stop. No timing substitution for correctness. No fullservice before local evidence and user quality gate.",
+  "driver_sha256": "18f4cf79828bf76b4fb1125f327c2a7c3531bd3af42c60742e6c1f683aae6846"
+}

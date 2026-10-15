@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "checks": 1676,
+  "source_sha": "6ff8d8067fb6e96804f49fd4f0c9020fd315e1fc",
+  "driver_sha256": "acc597e72223e056b20940208a3fa9d7f253a26c6fb35ff3a766d3d4e1a6643e",
+  "cases": [
+    {
+      "real_rows": 58,
+      "batch_rows": 64,
+      "padding_slots": [
+        130,
+        131,
+        132,
+        133,
+        134,
+        135
+      ],
+      "completed_real_slots": [],
+      "quantization_checks": 40,
+      "timings": {
+        "control": {
+          "raw_ms": [
+            8.431615829467773,
+            8.421440124511719,
+            8.427519798278809,
+            8.427519798278809,
+            8.425472259521484,
+            8.425536155700684,
+            8.425472259521484,
+            8.423423767089844
+          ],
+          "mean_ms": 8.425999999046326,
+          "median_ms": 8.425504207611084,
+          "min_ms": 8.421440124511719,
+          "max_ms": 8.431615829467773
+        },
+        "candidate": {
+          "raw_ms": [
+            8.218527793884277,
+            8.214624404907227,
+            8.212479591369629,
+            8.216575622558594,
+            8.20633602142334,
+            8.220671653747559,
+            8.214367866516113,
+            8.220671653747559
+          ],
+          "mean_ms": 8.215531826019287,
+          "median_ms": 8.21560001373291,
+          "min_ms": 8.20633602142334,
+          "max_ms": 8.220671653747559
+        }
+      },
+      "latency_gain_fraction": 0.02497842072761214,
+      "participating_dummy_state_differences": 109
+    },
+    {
+      "real_rows": 63,
+      "batch_rows": 64,
+      "padding_slots": [
+        135
+      ],
+      "completed_real_slots": [],
+      "quantization_checks": 40,
+      "timings": {
+        "control": {
+          "raw_ms": [
+            8.286208152770996,
+            8.286208152770996,
+            8.29644775390625,
+            8.294431686401367,
+            8.300543785095215,
+            8.29644775390625,
+            8.282112121582031,
+            8.290304183959961
+          ],
+          "mean_ms": 8.291587948799133,
+          "median_ms": 8.292367935180664,
+          "min_ms": 8.282112121582031,
+          "max_ms": 8.300543785095215
+        },
+        "candidate": {
+          "raw_ms": [
+            8.230912208557129,
+            8.226847648620605,
+            8.2227201461792,
+            8.2227201461792,
+            8.23084831237793,
+            8.216575622558594,
+            8.220671653747559,
+            8.22275161743164
+          ],
+          "mean_ms": 8.224255919456482,
+          "median_ms": 8.22273588180542,
+          "min_ms": 8.216575622558594,
+          "max_ms": 8.230912208557129
+        }
+      },
+      "latency_gain_fraction": 0.008120522842961941,
+      "participating_dummy_state_differences": 109
+    },
+    {
+      "real_rows": 64,
+      "batch_rows": 64,
+      "padding_slots": [],
+      "completed_real_slots": [],
+      "quantization_checks": 0,
+      "timings": {
+        "control": {
+          "raw_ms": [
+            8.271807670593262,
+            8.265727996826172,
+            8.267775535583496,
+            8.273920059204102,
+            8.269824028015137,
+            8.271871566772461,
+            8.269824028015137,
+            8.263680458068848
+          ],
+          "mean_ms": 8.269303917884827,
+          "median_ms": 8.269824028015137,
+          "min_ms": 8.263680458068848,
+          "max_ms": 8.273920059204102
+        },
+        "candidate": {
+          "raw_ms": [
+            8.263615608215332,
+            8.269856452941895,
+            8.273920059204102,
+            8.28006362915039,
+            8.280096054077148,
+            8.273920059204102,
+            8.278143882751465,
+            8.278016090393066
+          ],
+          "mean_ms": 8.274703979492188,
+          "median_ms": 8.275968074798584,
+          "min_ms": 8.263615608215332,
+          "max_ms": 8.280096054077148
+        }
+      },
+      "latency_gain_fraction": -0.0006530249294238732,
+      "participating_dummy_state_differences": 0
+    }
+  ],
+  "limits": [
+    "Reserved padding rows only; native real-row router, top8, activation quantization and state exact.",
+    "Fixed partial/full B64 inputs and eight-step exact trajectories, not service/full quality acceptance.",
+    "Participating dummy state/output differences are intentional and logged; every real and nonparticipating slot must match."
+  ]
+}

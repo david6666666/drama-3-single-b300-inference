@@ -1,0 +1,23 @@
+{
+  "status": "PASS_NATIVE_GRAPH_RESOURCES",
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "profile_shape": [
+    4,
+    8,
+    0
+  ],
+  "profiled_native_kernel_nodes": 284,
+  "all_green": true,
+  "all_launch_sms_32": true,
+  "green_context_ids": [
+    "2"
+  ],
+  "kernel_family_counts_by_name": {
+    "other native/pointwise": 197,
+    "GEMM": 75,
+    "slot attention": 8,
+    "cuDNN convolution": 4
+  },
+  "csv_sha256": "fedb90be2a9d68df771264eec507b69fe6c6c94a3c4ca1b94f9e3fad810844fc",
+  "limits": "Nsight launch attribution proves resource cap on every captured node. It is not per-SM utilization and yields no timing claim. Model remains full device, not a disjoint partition."
+}

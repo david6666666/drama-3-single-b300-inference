@@ -1,0 +1,360 @@
+{
+  "status": "DIAGNOSTIC_PASS",
+  "source_sha": "a607dff26c3ca5423746f7eebec4f5f5a88cd4c0",
+  "saved_trace_source_sha": "8ccefd063a90991cc45b31caa6457fae256720d0",
+  "source": "/home/zjy/code/hsliu/drama3-short-padding-frozen-20261016",
+  "fish_sha": "541566932abbaebcb0a40e562a1f846738383f38",
+  "script_sha256": "75de807156424a3e1374861a41a35fa4edabb7c9798d6cad7460ea2fae1d8f38",
+  "native_loader_sha256": "8db579a69f50511d1f5a3d630e1156c3965cdb0be4d0e49c2bc9997a04e8f477",
+  "hypothesis": "Both native BF16 batch partitions should have bounded rounding error against an independent FP32 native full-prefix decoder; this does not erase their original exact comparison failure.",
+  "controls": "Same saved full code prefixes, original native checkpoint and causal decoder; batch1 full-prefix eager, FP32 weights/activations, autocast/TF32 off and SDPA math. Clone indices because native quantizer clamps in place.",
+  "gate": "Diagnostic bound only: finite equal-length outputs and both policies tail PCM-vs-FP32 RRMS<0.03; no exact or service-quality promotion. Preserve all five requests.",
+  "stop": "Any bad code/PCM mapping, missing sample, nonfinite output, or diagnostic bound failure stays explicit.",
+  "gpu": 7,
+  "gpu_uuid": "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442",
+  "before_gpu": "",
+  "storage": {
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2": "/dev/vda4 ext4   /",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python": "/dev/vda4 ext4   /"
+  },
+  "requests": [
+    {
+      "request_id": "1",
+      "position": 42,
+      "valid_frames": 15,
+      "full_frames": 57,
+      "reference_dtype": "float32",
+      "policies": {
+        "dp": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0009745517654926004,
+            "reference_rms": 0.07631426166830711,
+            "rrms": 0.012770244305427466,
+            "snr_db": 37.876015884827005,
+            "max_abs": 0.01417383608533701,
+            "different_samples": 116736
+          },
+          "tail_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.0007373994059069686,
+            "reference_rms": 0.060366990090545844,
+            "rrms": 0.01221527534834727,
+            "snr_db": 38.26193478024554,
+            "max_abs": 0.008578614212662844,
+            "different_samples": 30720
+          },
+          "tail_vs_fp32_pcm": {
+            "samples": 30720,
+            "rms": 24.15821803647605,
+            "reference_rms": 1977.7600552969325,
+            "rrms": 0.012214938799969361,
+            "snr_db": 38.26217409227537,
+            "max_abs": 281.0,
+            "different_samples": 29184
+          }
+        },
+        "min_launches": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0009762301567017021,
+            "reference_rms": 0.07631426166830711,
+            "rrms": 0.012792237458114922,
+            "snr_db": 37.86106975041493,
+            "max_abs": 0.01417383608533701,
+            "different_samples": 116736
+          },
+          "tail_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.0007457880058719603,
+            "reference_rms": 0.060366990090545844,
+            "rrms": 0.012354235398407899,
+            "snr_db": 38.16368255688147,
+            "max_abs": 0.0077139891737035005,
+            "different_samples": 30720
+          },
+          "tail_vs_fp32_pcm": {
+            "samples": 30720,
+            "rms": 24.433067186405733,
+            "reference_rms": 1977.7600552969325,
+            "rrms": 0.012353908716564435,
+            "snr_db": 38.16391224005201,
+            "max_abs": 252.0,
+            "different_samples": 29326
+          }
+        }
+      }
+    },
+    {
+      "request_id": "2",
+      "position": 42,
+      "valid_frames": 15,
+      "full_frames": 57,
+      "reference_dtype": "float32",
+      "policies": {
+        "dp": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0004162041672987172,
+            "reference_rms": 0.054605415027827994,
+            "rrms": 0.007622031021769752,
+            "snr_db": 42.35858575951632,
+            "max_abs": 0.003822339411925799,
+            "different_samples": 116736
+          },
+          "tail_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.0003201237950139282,
+            "reference_rms": 0.04683193474795609,
+            "rrms": 0.006835587654808549,
+            "snr_db": 43.30448286473258,
+            "max_abs": 0.0021908254907702512,
+            "different_samples": 30720
+          },
+          "tail_vs_fp32_pcm": {
+            "samples": 30720,
+            "rms": 10.45335466239985,
+            "reference_rms": 1534.210857129526,
+            "rrms": 0.0068135058579612984,
+            "snr_db": 43.332587327139834,
+            "max_abs": 71.0,
+            "different_samples": 29015
+          }
+        },
+        "min_launches": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0004162041672987172,
+            "reference_rms": 0.054605415027827994,
+            "rrms": 0.007622031021769752,
+            "snr_db": 42.35858575951632,
+            "max_abs": 0.003822339411925799,
+            "different_samples": 116736
+          },
+          "tail_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.0003201237950139282,
+            "reference_rms": 0.04683193474795609,
+            "rrms": 0.006835587654808549,
+            "snr_db": 43.30448286473258,
+            "max_abs": 0.0021908254907702512,
+            "different_samples": 30720
+          },
+          "tail_vs_fp32_pcm": {
+            "samples": 30720,
+            "rms": 10.45335466239985,
+            "reference_rms": 1534.210857129526,
+            "rrms": 0.0068135058579612984,
+            "snr_db": 43.332587327139834,
+            "max_abs": 71.0,
+            "different_samples": 29015
+          }
+        }
+      }
+    },
+    {
+      "request_id": "4",
+      "position": 42,
+      "valid_frames": 15,
+      "full_frames": 57,
+      "reference_dtype": "float32",
+      "policies": {
+        "dp": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.00024253176242362352,
+            "reference_rms": 0.013499287488542218,
+            "rrms": 0.01796626396981893,
+            "snr_db": 34.9108444744939,
+            "max_abs": 0.0021129837462871663,
+            "different_samples": 116736
+          },
+          "tail_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.0002476322139054305,
+            "reference_rms": 0.014950722434768854,
+            "rrms": 0.016563227294591868,
+            "snr_db": 35.617100766873655,
+            "max_abs": 0.0015466082996629417,
+            "different_samples": 30720
+          },
+          "tail_vs_fp32_pcm": {
+            "samples": 30720,
+            "rms": 8.081703551335366,
+            "reference_rms": 489.5599182676404,
+            "rrms": 0.016508098906326582,
+            "snr_db": 35.64605875525373,
+            "max_abs": 51.0,
+            "different_samples": 28968
+          }
+        },
+        "min_launches": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.00024253176242362352,
+            "reference_rms": 0.013499287488542218,
+            "rrms": 0.01796626396981893,
+            "snr_db": 34.9108444744939,
+            "max_abs": 0.0021129837462871663,
+            "different_samples": 116736
+          },
+          "tail_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.0002476322139054305,
+            "reference_rms": 0.014950722434768854,
+            "rrms": 0.016563227294591868,
+            "snr_db": 35.617100766873655,
+            "max_abs": 0.0015466082996629417,
+            "different_samples": 30720
+          },
+          "tail_vs_fp32_pcm": {
+            "samples": 30720,
+            "rms": 8.081703551335366,
+            "reference_rms": 489.5599182676404,
+            "rrms": 0.016508098906326582,
+            "snr_db": 35.64605875525373,
+            "max_abs": 51.0,
+            "different_samples": 28968
+          }
+        }
+      }
+    },
+    {
+      "request_id": "6",
+      "position": 42,
+      "valid_frames": 15,
+      "full_frames": 57,
+      "reference_dtype": "float32",
+      "policies": {
+        "dp": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0010347715644403717,
+            "reference_rms": 0.1254881883987492,
+            "rrms": 0.008245967828878832,
+            "snr_db": 41.67516727807534,
+            "max_abs": 0.018142462549827487,
+            "different_samples": 116736
+          },
+          "tail_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.0008577468427318415,
+            "reference_rms": 0.09167553010320746,
+            "rrms": 0.00935633360141139,
+            "snr_db": 40.577886035100335,
+            "max_abs": 0.015411648027994274,
+            "different_samples": 30720
+          },
+          "tail_vs_fp32_pcm": {
+            "samples": 30720,
+            "rms": 28.052810711265337,
+            "reference_rms": 3003.6146123655553,
+            "rrms": 0.009339683791580638,
+            "snr_db": 40.59335654369866,
+            "max_abs": 505.0,
+            "different_samples": 29157
+          }
+        },
+        "min_launches": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0010347715644403717,
+            "reference_rms": 0.1254881883987492,
+            "rrms": 0.008245967828878832,
+            "snr_db": 41.67516727807534,
+            "max_abs": 0.018142462549827487,
+            "different_samples": 116736
+          },
+          "tail_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.0008577468427318415,
+            "reference_rms": 0.09167553010320746,
+            "rrms": 0.00935633360141139,
+            "snr_db": 40.577886035100335,
+            "max_abs": 0.015411648027994274,
+            "different_samples": 30720
+          },
+          "tail_vs_fp32_pcm": {
+            "samples": 30720,
+            "rms": 28.052810711265337,
+            "reference_rms": 3003.6146123655553,
+            "rrms": 0.009339683791580638,
+            "snr_db": 40.59335654369866,
+            "max_abs": 505.0,
+            "different_samples": 29157
+          }
+        }
+      }
+    },
+    {
+      "request_id": "7",
+      "position": 42,
+      "valid_frames": 15,
+      "full_frames": 57,
+      "reference_dtype": "float32",
+      "policies": {
+        "dp": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0014255847168645319,
+            "reference_rms": 0.1588073358429413,
+            "rrms": 0.008976819044898653,
+            "snr_db": 40.93755058510033,
+            "max_abs": 0.020467475848842315,
+            "different_samples": 116736
+          },
+          "tail_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.001026470019470455,
+            "reference_rms": 0.12454185319947413,
+            "rrms": 0.008241968407410765,
+            "snr_db": 41.67938109036467,
+            "max_abs": 0.012971996402003402,
+            "different_samples": 30720
+          },
+          "tail_vs_fp32_pcm": {
+            "samples": 30720,
+            "rms": 33.5902856740854,
+            "reference_rms": 4080.581638500024,
+            "rrms": 0.008231739651319122,
+            "snr_db": 41.69016747284124,
+            "max_abs": 426.0,
+            "different_samples": 29469
+          }
+        },
+        "min_launches": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0014255847168645319,
+            "reference_rms": 0.1588073358429413,
+            "rrms": 0.008976819044898653,
+            "snr_db": 40.93755058510033,
+            "max_abs": 0.020467475848842315,
+            "different_samples": 116736
+          },
+          "tail_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.001026470019470455,
+            "reference_rms": 0.12454185319947413,
+            "rrms": 0.008241968407410765,
+            "snr_db": 41.67938109036467,
+            "max_abs": 0.012971996402003402,
+            "different_samples": 30720
+          },
+          "tail_vs_fp32_pcm": {
+            "samples": 30720,
+            "rms": 33.5902856740854,
+            "reference_rms": 4080.581638500024,
+            "rrms": 0.008231739651319122,
+            "snr_db": 41.69016747284124,
+            "max_abs": 426.0,
+            "different_samples": 29469
+          }
+        }
+      }
+    }
+  ],
+  "diagnostic_bound_pass": true,
+  "original_exact_gate": "FAIL remains unchanged; this reference is a separate numeric follow-up.",
+  "scope_correction": "This first changed GROUP contains request IDs1,2,4,6,7, of which only1 changed PCM. The five changed REQUESTS are1,32,33,48,49; a separate full-prefix reference will cover them."
+}

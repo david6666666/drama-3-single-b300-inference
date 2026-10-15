@@ -1,0 +1,65 @@
+{
+  "source_sha": "69d636ef11875add6e4edf7c9bb028b9574143a3",
+  "source_status": "",
+  "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+  "gpu_uuid": "53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "passed": true,
+  "normal_matches_archived": true,
+  "result_path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-sm-dynamic-fixed/result.json",
+  "result_sha256": "39f78b794d52e7a832b5b715424a0061e0c6b55c7a4a1c50beba3433ee56fce5",
+  "normal_capture_shapes": 46,
+  "capped_capture_shapes": 46,
+  "modes": [
+    {
+      "mode": "normal_sync",
+      "passed": true,
+      "completion_ok": true,
+      "trace_length": 414,
+      "trace_matches": true,
+      "codec_calls": 99,
+      "state_differences": [],
+      "pcm_mismatches": [],
+      "requests": 80,
+      "actual_codec_shapes": 28
+    },
+    {
+      "mode": "capped_sync",
+      "passed": true,
+      "completion_ok": true,
+      "trace_length": 414,
+      "trace_matches": true,
+      "codec_calls": 99,
+      "state_differences": [],
+      "pcm_mismatches": [],
+      "requests": 80,
+      "actual_codec_shapes": 28
+    },
+    {
+      "mode": "capped_poll",
+      "passed": true,
+      "completion_ok": true,
+      "trace_length": 414,
+      "trace_matches": true,
+      "codec_calls": 99,
+      "state_differences": [],
+      "pcm_mismatches": [],
+      "requests": 80,
+      "actual_codec_shapes": 28
+    },
+    {
+      "mode": "capped_thread",
+      "passed": true,
+      "completion_ok": true,
+      "trace_length": 414,
+      "trace_matches": true,
+      "codec_calls": 99,
+      "state_differences": [],
+      "pcm_mismatches": [],
+      "requests": 80,
+      "actual_codec_shapes": 28
+    }
+  ],
+  "original_failure_preserved": "codec-sm-dynamic",
+  "qualification": "Full fixed dynamic schedule and native PCM/state validation. Captured capped costs archived but replay used fixed original DP costs to preserve exact group shapes; production service pair will use each arm measured costs. This establishes fixed-group resource adapter correctness, not bitexact closed-loop output or end-to-end speedup.",
+  "resource_proof": "codec-greencap/capture-isolation/green48-ncu.csv:284 native kernel nodes, launch__sm_count48, launch__uses_green_context1. Model remains full148SM; resources are not disjoint and HBM/L2 remain shared."
+}
