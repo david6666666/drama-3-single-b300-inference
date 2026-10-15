@@ -115,6 +115,14 @@ def streaming_codec(codec, slots: int, dtype: torch.dtype = torch.bfloat16):
         if os.environ.get("DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM", "0") == "1"
         else None
     )
+    sm_limit = int(os.environ.get("DRAMA3_CODEC_SMS", "0"))
+    if sm_limit < 0:
+        raise ValueError("DRAMA3_CODEC_SMS must be zero or a positive SM count")
     with torch.autocast("cuda", dtype=dtype):
-        graphs.capture(torch.device("cuda"), capture_stream=capture_stream)
+        if sm_limit:
+            from drama3.codec_context import capture_codec_with_sm_limit
+
+            capture_codec_with_sm_limit(graphs, torch.device("cuda"), sm_limit)
+        else:
+            graphs.capture(torch.device("cuda"), capture_stream=capture_stream)
     return graphs
