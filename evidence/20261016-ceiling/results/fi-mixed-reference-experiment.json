@@ -1,0 +1,10 @@
+{
+  "source_sha": "1618ad4b2c7591465a47ca0dad8100e782820cd2",
+  "purpose": "Independent diagnosis of the retained failed FI gate, not a retry or reclassification of fi-mixed-validation.json. No timing or serving benchmark.",
+  "case": "Same real D58+6, fixed D64 P1280 span256; FLA versus existing explicit native FlashInfer. COMPACT_GDN=0.",
+  "reference": "Layer0 packed six real prompts plus private padding: independent token-by-token FP32 recurrence after the exact shared BF16 Q/K normalization, original BF16 V, FP32 beta, identical FP32 exp(decay) consumed by FI, and original BF16 initial state promoted to FP32. Report RMS, absolute maximum error, error RMS and relative RMS for both backends versus reference; retain inputs and outputs.",
+  "diagnostic_gates": "All 30 real prompt sequence outputs and real final states RRMS<0.01, finite padding values, exact nonparticipating state ownership. Private padding errors are reported without a PASS label. Original all-sequence 0.01 failure remains failed. Stop on a real-domain or ownership failure.",
+  "isolation_experiment": "After complete layer diagnosis, compare FI eager and graph replay exactly. Then run one eager FI trajectory with only its private trailing padding GDN outputs set to zero after every GDN layer; check all real decode/prefill final hidden and all primary real state slots exactly. This intervention tests independence; it is not a model optimization or candidate implementation.",
+  "acceptance": "DIAGNOSTIC_COMPLETE is not model quality or original gate acceptance. No service promotion; parent decides next step using numerical reference and causal isolation evidence.",
+  "gpu": "GPU2 only after idle check; unchanged clocks and cache, frozen source, artifact-only driver."
+}

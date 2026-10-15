@@ -1,0 +1,156 @@
+{
+  "source_sha": "fd07d7471d0be13ef98870dd1e34ec760daf33fd",
+  "concurrency": 64,
+  "requests_per_arm": 1088,
+  "repeats_per_arm": 1,
+  "profile_enabled": false,
+  "qualification": "One feasibility pair only; observed throughput is not a replicated fixed-output-workload speedup. Keep default off pending stronger evidence.",
+  "limits": {
+    "wer_corpus_max": 0.02950933601272712,
+    "sim_min": 61.88158934120563
+  },
+  "arms": {
+    "control": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 23.246623362065293,
+        "valid": true,
+        "throughput_frames_s": 4366.913784375996,
+        "ttfa_p50_ms": 142.3030779697001,
+        "ttfa_p95_ms": 278.6281673994284,
+        "rtf_mean": 0.3069359223207794
+      },
+      "output": {
+        "acoustic_frames": 101516.0,
+        "audio_samples": 207904768,
+        "audio_duration_s": 4714.3938321995465,
+        "at_or_above_500_frames": 1,
+        "rms_below_1e_3": 2,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.01515532110859918,
+          "wer_per_sample_mean": 0.014937827185069833,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.07016168875263676,
+          "wer_per_sample_p95": 0.09090909090909091,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.011187752355316286,
+          "wer_below_50_per_sample_mean": 0.010972414781279046,
+          "n_above_50_pct_wer": 5,
+          "pct_above_50_pct_wer": 0.4595588235294118,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 64.27557884551146,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true
+      },
+      "quality_gate_pass": true,
+      "server_pid": 221341
+    },
+    "candidate": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 23.524814135977067,
+        "valid": true,
+        "throughput_frames_s": 4430.810776974106,
+        "ttfa_p50_ms": 151.63685998413712,
+        "ttfa_p95_ms": 283.80111118312095,
+        "rtf_mean": 0.3067906834262889
+      },
+      "output": {
+        "acoustic_frames": 104234.0,
+        "audio_samples": 213471232,
+        "audio_duration_s": 4840.617505668934,
+        "at_or_above_500_frames": 7,
+        "rms_below_1e_3": 3,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.020430377627061878,
+          "wer_per_sample_mean": 0.019231750491283138,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.08791588779990782,
+          "wer_per_sample_p95": 0.1,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.013092321986654278,
+          "wer_below_50_per_sample_mean": 0.012315335587227633,
+          "n_above_50_pct_wer": 9,
+          "pct_above_50_pct_wer": 0.8272058823529412,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 63.76386100755018,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true
+      },
+      "quality_gate_pass": true,
+      "server_pid": 224577
+    }
+  },
+  "comparison": {
+    "throughput_relative_change": 0.014632071012421033,
+    "makespan_relative_change": 0.011966932555277587,
+    "output_frames_relative_change": 0.02677410457464835,
+    "ttfa_p50_delta_ms": 9.33378201443702,
+    "ttfa_p95_delta_ms": 5.172943783692574,
+    "wer_delta_percentage_points": 0.5275056518462699,
+    "sim_delta": -0.5117178379612781,
+    "same_audio_sha256": 2,
+    "same_output_frame_count": 46
+  },
+  "process_audit": {
+    "path": "deferred-process-audit.jsonl",
+    "samples": 143,
+    "sampling_interval_s": 1,
+    "observed_gpu6_pids": [
+      221341,
+      224577
+    ],
+    "expected_server_pids": [
+      221341,
+      224577
+    ],
+    "maximum_simultaneous_gpu6_processes": 1,
+    "foreign_process_observed": false,
+    "sampling_limitation": "One-second polling cannot exclude shorter unobserved interference."
+  },
+  "interpretation": "Candidate passes fixed-state exact validation and complete frozen C64 quality limits, but makespan and TTFA increase, generated work differs, and corpus WER increases within allowance. This one pair does not justify default activation or a stable speedup claim."
+}

@@ -1,0 +1,9 @@
+{
+  "source_sha": "1618ad4b2c7591465a47ca0dad8100e782820cd2",
+  "purpose": "Timing-only probe authorized after separate FP32/reference and real-domain diagnosis. Original all-sequence numerical FAIL and final prefill hidden RRMS0.091184 remain unresolved for end-to-end quality.",
+  "hypothesis": "Native FI fused packed recurrence may reduce the existing D64P1280 mixed graph cost relative to FLA materialized chunk kernels.",
+  "variable": "Existing model.prefill_gdn fla vs flashinfer only; same real58:6, D64 P1280 span256, native BF16 dense/state and original fulltop8 FP8 scales. Frozen1618 has no later layout/conv guard kernels; COMPACT_GDN=0.",
+  "protocol": "Capture both graphs before actual real prompt initialization; same initial full conv/GDN/KV/request/RNG tensors restored outside each timed interval. One warmup and five alternating CUDA-event samples per arm. No profiler, cache flush, clock change, autotuning or numerical threshold change.",
+  "decision": "More than5% full mixed median latency reduction supports proposing one full1088FI service feasibility plus complete WER/SIM scoring. It does not itself establish quality or target throughput. Smaller local reduction does not justify a service run.",
+  "gpu": "GPU2 only after idle check; unchanged native source and environment."
+}

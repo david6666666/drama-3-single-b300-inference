@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "invariant_cases": 5765,
+  "source": "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/ops/dac_channels_last.py",
+  "source_sha256": "030438bf46d8d30922c695944a1a99229fbb818a24aae8231648270fc801b2c3",
+  "cuda_initialized": false,
+  "scope": "Real CPU planner only: legal captures, fewest launches, bounded padding, ordered exact request coverage, cache behavior and unchanged default policy. Does not validate GPU graph/state/PCM."
+}

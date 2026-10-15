@@ -1,0 +1,1 @@
+{"passed": true, "cases": 12, "cuda_initialized": false, "scope": "Optional boundary requires explicit caller ownership; missing boundary and flag off retain old constant, invalid boundaries rejected. GPU kernel semantics tested separately."}

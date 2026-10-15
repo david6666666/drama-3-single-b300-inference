@@ -1,0 +1,2857 @@
+{
+  "diagnostic_only": true,
+  "source": "/home/zjy/code/hsliu/artifacts/drama3-mixed-20261016/codec-dynamic/dedicated.json",
+  "source_sha256": "1da1759c691097038f335f23c5aa4480d0688dba824043f49ddacd230b0cc2c7",
+  "replay_source_sha": "7618212e15e7506bb20d57372d6700fe837988a5",
+  "trace_entries": 414,
+  "requests": 80,
+  "nonempty_emit_calls": 75,
+  "frame_bucket_groups": 95,
+  "minimum_legal_graph_launches": 95,
+  "actual_codec_calls_by_mode": {
+    "sync": 99,
+    "poll": 99,
+    "thread": 99
+  },
+  "avoidable_DP_launches": 4,
+  "maximum_launch_count_reduction_fraction": 0.04040404040404041,
+  "group_histogram": [
+    {
+      "frame_bucket": 6,
+      "ready_count": 1,
+      "groups": 9
+    },
+    {
+      "frame_bucket": 6,
+      "ready_count": 2,
+      "groups": 1
+    },
+    {
+      "frame_bucket": 6,
+      "ready_count": 8,
+      "groups": 2
+    },
+    {
+      "frame_bucket": 6,
+      "ready_count": 16,
+      "groups": 4
+    },
+    {
+      "frame_bucket": 8,
+      "ready_count": 1,
+      "groups": 8
+    },
+    {
+      "frame_bucket": 8,
+      "ready_count": 8,
+      "groups": 3
+    },
+    {
+      "frame_bucket": 8,
+      "ready_count": 16,
+      "groups": 4
+    },
+    {
+      "frame_bucket": 10,
+      "ready_count": 1,
+      "groups": 6
+    },
+    {
+      "frame_bucket": 10,
+      "ready_count": 2,
+      "groups": 1
+    },
+    {
+      "frame_bucket": 12,
+      "ready_count": 1,
+      "groups": 6
+    },
+    {
+      "frame_bucket": 12,
+      "ready_count": 8,
+      "groups": 2
+    },
+    {
+      "frame_bucket": 12,
+      "ready_count": 15,
+      "groups": 1
+    },
+    {
+      "frame_bucket": 12,
+      "ready_count": 16,
+      "groups": 3
+    },
+    {
+      "frame_bucket": 16,
+      "ready_count": 1,
+      "groups": 10
+    },
+    {
+      "frame_bucket": 16,
+      "ready_count": 2,
+      "groups": 1
+    },
+    {
+      "frame_bucket": 16,
+      "ready_count": 5,
+      "groups": 1
+    },
+    {
+      "frame_bucket": 16,
+      "ready_count": 8,
+      "groups": 2
+    },
+    {
+      "frame_bucket": 16,
+      "ready_count": 14,
+      "groups": 1
+    },
+    {
+      "frame_bucket": 16,
+      "ready_count": 15,
+      "groups": 3
+    },
+    {
+      "frame_bucket": 24,
+      "ready_count": 1,
+      "groups": 11
+    },
+    {
+      "frame_bucket": 24,
+      "ready_count": 2,
+      "groups": 1
+    },
+    {
+      "frame_bucket": 24,
+      "ready_count": 11,
+      "groups": 1
+    },
+    {
+      "frame_bucket": 24,
+      "ready_count": 12,
+      "groups": 2
+    },
+    {
+      "frame_bucket": 24,
+      "ready_count": 14,
+      "groups": 1
+    },
+    {
+      "frame_bucket": 32,
+      "ready_count": 1,
+      "groups": 4
+    },
+    {
+      "frame_bucket": 32,
+      "ready_count": 3,
+      "groups": 2
+    },
+    {
+      "frame_bucket": 32,
+      "ready_count": 4,
+      "groups": 1
+    },
+    {
+      "frame_bucket": 32,
+      "ready_count": 6,
+      "groups": 1
+    },
+    {
+      "frame_bucket": 64,
+      "ready_count": 1,
+      "groups": 3
+    }
+  ],
+  "groups": [
+    {
+      "trace_index": 12,
+      "origin": "decode_8",
+      "bucket": 6,
+      "ready_count": 8,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "0",
+          6
+        ],
+        [
+          "1",
+          6
+        ],
+        [
+          "2",
+          6
+        ],
+        [
+          "3",
+          6
+        ],
+        [
+          "4",
+          6
+        ],
+        [
+          "5",
+          6
+        ],
+        [
+          "6",
+          6
+        ],
+        [
+          "7",
+          6
+        ]
+      ]
+    },
+    {
+      "trace_index": 32,
+      "origin": "decode_16",
+      "bucket": 8,
+      "ready_count": 8,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "0",
+          8
+        ],
+        [
+          "1",
+          8
+        ],
+        [
+          "2",
+          8
+        ],
+        [
+          "3",
+          8
+        ],
+        [
+          "4",
+          8
+        ],
+        [
+          "5",
+          8
+        ],
+        [
+          "6",
+          8
+        ],
+        [
+          "7",
+          8
+        ]
+      ]
+    },
+    {
+      "trace_index": 32,
+      "origin": "decode_16",
+      "bucket": 6,
+      "ready_count": 8,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "8",
+          6
+        ],
+        [
+          "9",
+          6
+        ],
+        [
+          "10",
+          6
+        ],
+        [
+          "11",
+          6
+        ],
+        [
+          "12",
+          6
+        ],
+        [
+          "13",
+          6
+        ],
+        [
+          "14",
+          6
+        ],
+        [
+          "15",
+          6
+        ]
+      ]
+    },
+    {
+      "trace_index": 58,
+      "origin": "decode_32",
+      "bucket": 8,
+      "ready_count": 8,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "8",
+          8
+        ],
+        [
+          "9",
+          8
+        ],
+        [
+          "10",
+          8
+        ],
+        [
+          "11",
+          8
+        ],
+        [
+          "12",
+          8
+        ],
+        [
+          "13",
+          8
+        ],
+        [
+          "14",
+          8
+        ],
+        [
+          "15",
+          8
+        ]
+      ]
+    },
+    {
+      "trace_index": 58,
+      "origin": "decode_32",
+      "bucket": 6,
+      "ready_count": 16,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "16",
+          6
+        ],
+        [
+          "17",
+          6
+        ],
+        [
+          "18",
+          6
+        ],
+        [
+          "19",
+          6
+        ],
+        [
+          "20",
+          6
+        ],
+        [
+          "21",
+          6
+        ],
+        [
+          "22",
+          6
+        ],
+        [
+          "23",
+          6
+        ],
+        [
+          "24",
+          6
+        ],
+        [
+          "25",
+          6
+        ],
+        [
+          "26",
+          6
+        ],
+        [
+          "27",
+          6
+        ],
+        [
+          "28",
+          6
+        ],
+        [
+          "29",
+          6
+        ],
+        [
+          "30",
+          6
+        ],
+        [
+          "31",
+          6
+        ]
+      ]
+    },
+    {
+      "trace_index": 76,
+      "origin": "decode_48",
+      "bucket": 12,
+      "ready_count": 8,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "0",
+          12
+        ],
+        [
+          "1",
+          12
+        ],
+        [
+          "2",
+          12
+        ],
+        [
+          "3",
+          12
+        ],
+        [
+          "4",
+          12
+        ],
+        [
+          "5",
+          12
+        ],
+        [
+          "6",
+          12
+        ],
+        [
+          "7",
+          12
+        ]
+      ]
+    },
+    {
+      "trace_index": 84,
+      "origin": "decode_48",
+      "bucket": 8,
+      "ready_count": 16,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "16",
+          8
+        ],
+        [
+          "17",
+          8
+        ],
+        [
+          "18",
+          8
+        ],
+        [
+          "19",
+          8
+        ],
+        [
+          "20",
+          8
+        ],
+        [
+          "21",
+          8
+        ],
+        [
+          "22",
+          8
+        ],
+        [
+          "23",
+          8
+        ],
+        [
+          "24",
+          8
+        ],
+        [
+          "25",
+          8
+        ],
+        [
+          "26",
+          8
+        ],
+        [
+          "27",
+          8
+        ],
+        [
+          "28",
+          8
+        ],
+        [
+          "29",
+          8
+        ],
+        [
+          "30",
+          8
+        ],
+        [
+          "31",
+          8
+        ]
+      ]
+    },
+    {
+      "trace_index": 84,
+      "origin": "decode_48",
+      "bucket": 6,
+      "ready_count": 16,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "32",
+          6
+        ],
+        [
+          "33",
+          6
+        ],
+        [
+          "34",
+          6
+        ],
+        [
+          "35",
+          6
+        ],
+        [
+          "36",
+          6
+        ],
+        [
+          "37",
+          6
+        ],
+        [
+          "38",
+          6
+        ],
+        [
+          "39",
+          6
+        ],
+        [
+          "40",
+          6
+        ],
+        [
+          "41",
+          6
+        ],
+        [
+          "42",
+          6
+        ],
+        [
+          "43",
+          6
+        ],
+        [
+          "44",
+          6
+        ],
+        [
+          "45",
+          6
+        ],
+        [
+          "46",
+          6
+        ],
+        [
+          "47",
+          6
+        ]
+      ]
+    },
+    {
+      "trace_index": 102,
+      "origin": "decode_64",
+      "bucket": 12,
+      "ready_count": 8,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "8",
+          12
+        ],
+        [
+          "9",
+          12
+        ],
+        [
+          "10",
+          12
+        ],
+        [
+          "11",
+          12
+        ],
+        [
+          "12",
+          12
+        ],
+        [
+          "13",
+          12
+        ],
+        [
+          "14",
+          12
+        ],
+        [
+          "15",
+          12
+        ]
+      ]
+    },
+    {
+      "trace_index": 110,
+      "origin": "decode_64",
+      "bucket": 8,
+      "ready_count": 16,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "32",
+          8
+        ],
+        [
+          "33",
+          8
+        ],
+        [
+          "34",
+          8
+        ],
+        [
+          "35",
+          8
+        ],
+        [
+          "36",
+          8
+        ],
+        [
+          "37",
+          8
+        ],
+        [
+          "38",
+          8
+        ],
+        [
+          "39",
+          8
+        ],
+        [
+          "40",
+          8
+        ],
+        [
+          "41",
+          8
+        ],
+        [
+          "42",
+          8
+        ],
+        [
+          "43",
+          8
+        ],
+        [
+          "44",
+          8
+        ],
+        [
+          "45",
+          8
+        ],
+        [
+          "46",
+          8
+        ],
+        [
+          "47",
+          8
+        ]
+      ]
+    },
+    {
+      "trace_index": 110,
+      "origin": "decode_64",
+      "bucket": 6,
+      "ready_count": 16,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "48",
+          6
+        ],
+        [
+          "49",
+          6
+        ],
+        [
+          "50",
+          6
+        ],
+        [
+          "51",
+          6
+        ],
+        [
+          "52",
+          6
+        ],
+        [
+          "53",
+          6
+        ],
+        [
+          "54",
+          6
+        ],
+        [
+          "55",
+          6
+        ],
+        [
+          "56",
+          6
+        ],
+        [
+          "57",
+          6
+        ],
+        [
+          "58",
+          6
+        ],
+        [
+          "59",
+          6
+        ],
+        [
+          "60",
+          6
+        ],
+        [
+          "61",
+          6
+        ],
+        [
+          "62",
+          6
+        ],
+        [
+          "63",
+          6
+        ]
+      ]
+    },
+    {
+      "trace_index": 117,
+      "origin": "retire",
+      "bucket": 10,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "24",
+          10
+        ]
+      ]
+    },
+    {
+      "trace_index": 118,
+      "origin": "decode_64",
+      "bucket": 16,
+      "ready_count": 8,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "0",
+          16
+        ],
+        [
+          "1",
+          16
+        ],
+        [
+          "2",
+          16
+        ],
+        [
+          "3",
+          16
+        ],
+        [
+          "4",
+          16
+        ],
+        [
+          "5",
+          16
+        ],
+        [
+          "6",
+          16
+        ],
+        [
+          "7",
+          16
+        ]
+      ]
+    },
+    {
+      "trace_index": 118,
+      "origin": "decode_64",
+      "bucket": 12,
+      "ready_count": 15,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "16",
+          12
+        ],
+        [
+          "17",
+          12
+        ],
+        [
+          "18",
+          12
+        ],
+        [
+          "19",
+          12
+        ],
+        [
+          "20",
+          12
+        ],
+        [
+          "21",
+          12
+        ],
+        [
+          "22",
+          12
+        ],
+        [
+          "23",
+          12
+        ],
+        [
+          "25",
+          12
+        ],
+        [
+          "26",
+          12
+        ],
+        [
+          "27",
+          12
+        ],
+        [
+          "28",
+          12
+        ],
+        [
+          "29",
+          12
+        ],
+        [
+          "30",
+          12
+        ],
+        [
+          "31",
+          12
+        ]
+      ]
+    },
+    {
+      "trace_index": 126,
+      "origin": "decode_64",
+      "bucket": 8,
+      "ready_count": 16,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "48",
+          8
+        ],
+        [
+          "49",
+          8
+        ],
+        [
+          "50",
+          8
+        ],
+        [
+          "51",
+          8
+        ],
+        [
+          "52",
+          8
+        ],
+        [
+          "53",
+          8
+        ],
+        [
+          "54",
+          8
+        ],
+        [
+          "55",
+          8
+        ],
+        [
+          "56",
+          8
+        ],
+        [
+          "57",
+          8
+        ],
+        [
+          "58",
+          8
+        ],
+        [
+          "59",
+          8
+        ],
+        [
+          "60",
+          8
+        ],
+        [
+          "61",
+          8
+        ],
+        [
+          "62",
+          8
+        ],
+        [
+          "63",
+          8
+        ]
+      ]
+    },
+    {
+      "trace_index": 134,
+      "origin": "decode_64",
+      "bucket": 16,
+      "ready_count": 8,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "8",
+          16
+        ],
+        [
+          "9",
+          16
+        ],
+        [
+          "10",
+          16
+        ],
+        [
+          "11",
+          16
+        ],
+        [
+          "12",
+          16
+        ],
+        [
+          "13",
+          16
+        ],
+        [
+          "14",
+          16
+        ],
+        [
+          "15",
+          16
+        ]
+      ]
+    },
+    {
+      "trace_index": 134,
+      "origin": "decode_64",
+      "bucket": 12,
+      "ready_count": 16,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "32",
+          12
+        ],
+        [
+          "33",
+          12
+        ],
+        [
+          "34",
+          12
+        ],
+        [
+          "35",
+          12
+        ],
+        [
+          "36",
+          12
+        ],
+        [
+          "37",
+          12
+        ],
+        [
+          "38",
+          12
+        ],
+        [
+          "39",
+          12
+        ],
+        [
+          "40",
+          12
+        ],
+        [
+          "41",
+          12
+        ],
+        [
+          "42",
+          12
+        ],
+        [
+          "43",
+          12
+        ],
+        [
+          "44",
+          12
+        ],
+        [
+          "45",
+          12
+        ],
+        [
+          "46",
+          12
+        ],
+        [
+          "47",
+          12
+        ]
+      ]
+    },
+    {
+      "trace_index": 137,
+      "origin": "retire",
+      "bucket": 8,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "0",
+          8
+        ]
+      ]
+    },
+    {
+      "trace_index": 139,
+      "origin": "retire",
+      "bucket": 10,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "3",
+          9
+        ]
+      ]
+    },
+    {
+      "trace_index": 143,
+      "origin": "retire",
+      "bucket": 12,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "5",
+          11
+        ]
+      ]
+    },
+    {
+      "trace_index": 150,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 5,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "1",
+          15
+        ],
+        [
+          "2",
+          15
+        ],
+        [
+          "4",
+          15
+        ],
+        [
+          "6",
+          15
+        ],
+        [
+          "7",
+          15
+        ]
+      ]
+    },
+    {
+      "trace_index": 150,
+      "origin": "retire",
+      "bucket": 8,
+      "ready_count": 8,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "8",
+          7
+        ],
+        [
+          "9",
+          7
+        ],
+        [
+          "10",
+          7
+        ],
+        [
+          "11",
+          7
+        ],
+        [
+          "12",
+          7
+        ],
+        [
+          "13",
+          7
+        ],
+        [
+          "14",
+          7
+        ],
+        [
+          "15",
+          7
+        ]
+      ]
+    },
+    {
+      "trace_index": 157,
+      "origin": "decode_64",
+      "bucket": 16,
+      "ready_count": 15,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "16",
+          16
+        ],
+        [
+          "17",
+          16
+        ],
+        [
+          "18",
+          16
+        ],
+        [
+          "19",
+          16
+        ],
+        [
+          "20",
+          16
+        ],
+        [
+          "21",
+          16
+        ],
+        [
+          "22",
+          16
+        ],
+        [
+          "23",
+          16
+        ],
+        [
+          "25",
+          16
+        ],
+        [
+          "26",
+          16
+        ],
+        [
+          "27",
+          16
+        ],
+        [
+          "28",
+          16
+        ],
+        [
+          "29",
+          16
+        ],
+        [
+          "30",
+          16
+        ],
+        [
+          "31",
+          16
+        ]
+      ]
+    },
+    {
+      "trace_index": 157,
+      "origin": "decode_64",
+      "bucket": 12,
+      "ready_count": 16,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "48",
+          12
+        ],
+        [
+          "49",
+          12
+        ],
+        [
+          "50",
+          12
+        ],
+        [
+          "51",
+          12
+        ],
+        [
+          "52",
+          12
+        ],
+        [
+          "53",
+          12
+        ],
+        [
+          "54",
+          12
+        ],
+        [
+          "55",
+          12
+        ],
+        [
+          "56",
+          12
+        ],
+        [
+          "57",
+          12
+        ],
+        [
+          "58",
+          12
+        ],
+        [
+          "59",
+          12
+        ],
+        [
+          "60",
+          12
+        ],
+        [
+          "61",
+          12
+        ],
+        [
+          "62",
+          12
+        ],
+        [
+          "63",
+          12
+        ]
+      ]
+    },
+    {
+      "trace_index": 164,
+      "origin": "retire",
+      "bucket": 6,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "56",
+          2
+        ]
+      ]
+    },
+    {
+      "trace_index": 165,
+      "origin": "decode_64",
+      "bucket": 6,
+      "ready_count": 16,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "64",
+          6
+        ],
+        [
+          "65",
+          6
+        ],
+        [
+          "66",
+          6
+        ],
+        [
+          "67",
+          6
+        ],
+        [
+          "68",
+          6
+        ],
+        [
+          "69",
+          6
+        ],
+        [
+          "70",
+          6
+        ],
+        [
+          "71",
+          6
+        ],
+        [
+          "72",
+          6
+        ],
+        [
+          "73",
+          6
+        ],
+        [
+          "74",
+          6
+        ],
+        [
+          "75",
+          6
+        ],
+        [
+          "76",
+          6
+        ],
+        [
+          "77",
+          6
+        ],
+        [
+          "78",
+          6
+        ],
+        [
+          "79",
+          6
+        ]
+      ]
+    },
+    {
+      "trace_index": 172,
+      "origin": "retire",
+      "bucket": 6,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "57",
+          6
+        ]
+      ]
+    },
+    {
+      "trace_index": 173,
+      "origin": "decode_64",
+      "bucket": 16,
+      "ready_count": 15,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "32",
+          16
+        ],
+        [
+          "33",
+          16
+        ],
+        [
+          "34",
+          16
+        ],
+        [
+          "35",
+          16
+        ],
+        [
+          "36",
+          16
+        ],
+        [
+          "37",
+          16
+        ],
+        [
+          "38",
+          16
+        ],
+        [
+          "39",
+          16
+        ],
+        [
+          "40",
+          16
+        ],
+        [
+          "42",
+          16
+        ],
+        [
+          "43",
+          16
+        ],
+        [
+          "44",
+          16
+        ],
+        [
+          "45",
+          16
+        ],
+        [
+          "46",
+          16
+        ],
+        [
+          "47",
+          16
+        ]
+      ]
+    },
+    {
+      "trace_index": 176,
+      "origin": "retire",
+      "bucket": 8,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "20",
+          8
+        ]
+      ]
+    },
+    {
+      "trace_index": 181,
+      "origin": "decode_64",
+      "bucket": 8,
+      "ready_count": 16,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "64",
+          8
+        ],
+        [
+          "65",
+          8
+        ],
+        [
+          "66",
+          8
+        ],
+        [
+          "67",
+          8
+        ],
+        [
+          "68",
+          8
+        ],
+        [
+          "69",
+          8
+        ],
+        [
+          "70",
+          8
+        ],
+        [
+          "71",
+          8
+        ],
+        [
+          "72",
+          8
+        ],
+        [
+          "73",
+          8
+        ],
+        [
+          "74",
+          8
+        ],
+        [
+          "75",
+          8
+        ],
+        [
+          "76",
+          8
+        ],
+        [
+          "77",
+          8
+        ],
+        [
+          "78",
+          8
+        ],
+        [
+          "79",
+          8
+        ]
+      ]
+    },
+    {
+      "trace_index": 189,
+      "origin": "decode_64",
+      "bucket": 16,
+      "ready_count": 14,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "48",
+          16
+        ],
+        [
+          "49",
+          16
+        ],
+        [
+          "50",
+          16
+        ],
+        [
+          "51",
+          16
+        ],
+        [
+          "52",
+          16
+        ],
+        [
+          "53",
+          16
+        ],
+        [
+          "54",
+          16
+        ],
+        [
+          "55",
+          16
+        ],
+        [
+          "58",
+          16
+        ],
+        [
+          "59",
+          16
+        ],
+        [
+          "60",
+          16
+        ],
+        [
+          "61",
+          16
+        ],
+        [
+          "62",
+          16
+        ],
+        [
+          "63",
+          16
+        ]
+      ]
+    },
+    {
+      "trace_index": 200,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "28",
+          20
+        ]
+      ]
+    },
+    {
+      "trace_index": 205,
+      "origin": "decode_64",
+      "bucket": 24,
+      "ready_count": 12,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "16",
+          24
+        ],
+        [
+          "17",
+          24
+        ],
+        [
+          "18",
+          24
+        ],
+        [
+          "19",
+          24
+        ],
+        [
+          "21",
+          24
+        ],
+        [
+          "22",
+          24
+        ],
+        [
+          "23",
+          24
+        ],
+        [
+          "25",
+          24
+        ],
+        [
+          "27",
+          24
+        ],
+        [
+          "29",
+          24
+        ],
+        [
+          "30",
+          24
+        ],
+        [
+          "31",
+          24
+        ]
+      ]
+    },
+    {
+      "trace_index": 205,
+      "origin": "decode_64",
+      "bucket": 12,
+      "ready_count": 16,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "64",
+          12
+        ],
+        [
+          "65",
+          12
+        ],
+        [
+          "66",
+          12
+        ],
+        [
+          "67",
+          12
+        ],
+        [
+          "68",
+          12
+        ],
+        [
+          "69",
+          12
+        ],
+        [
+          "70",
+          12
+        ],
+        [
+          "71",
+          12
+        ],
+        [
+          "72",
+          12
+        ],
+        [
+          "73",
+          12
+        ],
+        [
+          "74",
+          12
+        ],
+        [
+          "75",
+          12
+        ],
+        [
+          "76",
+          12
+        ],
+        [
+          "77",
+          12
+        ],
+        [
+          "78",
+          12
+        ],
+        [
+          "79",
+          12
+        ]
+      ]
+    },
+    {
+      "trace_index": 206,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "26",
+          23
+        ]
+      ]
+    },
+    {
+      "trace_index": 210,
+      "origin": "retire",
+      "bucket": 6,
+      "ready_count": 2,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "27",
+          1
+        ],
+        [
+          "29",
+          1
+        ]
+      ]
+    },
+    {
+      "trace_index": 214,
+      "origin": "retire",
+      "bucket": 12,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "60",
+          11
+        ]
+      ]
+    },
+    {
+      "trace_index": 218,
+      "origin": "retire",
+      "bucket": 6,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "31",
+          5
+        ]
+      ]
+    },
+    {
+      "trace_index": 221,
+      "origin": "decode_64",
+      "bucket": 24,
+      "ready_count": 14,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "32",
+          24
+        ],
+        [
+          "33",
+          24
+        ],
+        [
+          "34",
+          24
+        ],
+        [
+          "35",
+          24
+        ],
+        [
+          "36",
+          24
+        ],
+        [
+          "37",
+          24
+        ],
+        [
+          "38",
+          24
+        ],
+        [
+          "40",
+          24
+        ],
+        [
+          "42",
+          24
+        ],
+        [
+          "43",
+          24
+        ],
+        [
+          "44",
+          24
+        ],
+        [
+          "45",
+          24
+        ],
+        [
+          "46",
+          24
+        ],
+        [
+          "47",
+          24
+        ]
+      ]
+    },
+    {
+      "trace_index": 222,
+      "origin": "retire",
+      "bucket": 8,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "17",
+          7
+        ]
+      ]
+    },
+    {
+      "trace_index": 222,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "39",
+          23
+        ]
+      ]
+    },
+    {
+      "trace_index": 222,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "49",
+          15
+        ]
+      ]
+    },
+    {
+      "trace_index": 224,
+      "origin": "retire",
+      "bucket": 8,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "25",
+          8
+        ]
+      ]
+    },
+    {
+      "trace_index": 226,
+      "origin": "retire",
+      "bucket": 10,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "16",
+          9
+        ]
+      ]
+    },
+    {
+      "trace_index": 228,
+      "origin": "retire",
+      "bucket": 10,
+      "ready_count": 2,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "18",
+          10
+        ],
+        [
+          "76",
+          10
+        ]
+      ]
+    },
+    {
+      "trace_index": 228,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "50",
+          18
+        ]
+      ]
+    },
+    {
+      "trace_index": 232,
+      "origin": "retire",
+      "bucket": 12,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "19",
+          12
+        ]
+      ]
+    },
+    {
+      "trace_index": 232,
+      "origin": "retire",
+      "bucket": 6,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "36",
+          4
+        ]
+      ]
+    },
+    {
+      "trace_index": 234,
+      "origin": "retire",
+      "bucket": 6,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "45",
+          5
+        ]
+      ]
+    },
+    {
+      "trace_index": 237,
+      "origin": "decode_48",
+      "bucket": 24,
+      "ready_count": 11,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "48",
+          24
+        ],
+        [
+          "51",
+          24
+        ],
+        [
+          "52",
+          24
+        ],
+        [
+          "53",
+          24
+        ],
+        [
+          "54",
+          24
+        ],
+        [
+          "55",
+          24
+        ],
+        [
+          "58",
+          24
+        ],
+        [
+          "59",
+          24
+        ],
+        [
+          "61",
+          24
+        ],
+        [
+          "62",
+          24
+        ],
+        [
+          "63",
+          24
+        ]
+      ]
+    },
+    {
+      "trace_index": 237,
+      "origin": "decode_48",
+      "bucket": 16,
+      "ready_count": 15,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "64",
+          16
+        ],
+        [
+          "65",
+          16
+        ],
+        [
+          "66",
+          16
+        ],
+        [
+          "67",
+          16
+        ],
+        [
+          "68",
+          16
+        ],
+        [
+          "69",
+          16
+        ],
+        [
+          "70",
+          16
+        ],
+        [
+          "71",
+          16
+        ],
+        [
+          "72",
+          16
+        ],
+        [
+          "73",
+          16
+        ],
+        [
+          "74",
+          16
+        ],
+        [
+          "75",
+          16
+        ],
+        [
+          "77",
+          16
+        ],
+        [
+          "78",
+          16
+        ],
+        [
+          "79",
+          16
+        ]
+      ]
+    },
+    {
+      "trace_index": 238,
+      "origin": "retire",
+      "bucket": 8,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "46",
+          7
+        ]
+      ]
+    },
+    {
+      "trace_index": 242,
+      "origin": "retire",
+      "bucket": 10,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "38",
+          9
+        ]
+      ]
+    },
+    {
+      "trace_index": 244,
+      "origin": "retire",
+      "bucket": 10,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "43",
+          10
+        ]
+      ]
+    },
+    {
+      "trace_index": 244,
+      "origin": "retire",
+      "bucket": 6,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "68",
+          2
+        ]
+      ]
+    },
+    {
+      "trace_index": 246,
+      "origin": "retire",
+      "bucket": 6,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "48",
+          3
+        ]
+      ]
+    },
+    {
+      "trace_index": 252,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "35",
+          14
+        ]
+      ]
+    },
+    {
+      "trace_index": 254,
+      "origin": "retire",
+      "bucket": 8,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "78",
+          7
+        ]
+      ]
+    },
+    {
+      "trace_index": 256,
+      "origin": "retire",
+      "bucket": 8,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "65",
+          8
+        ]
+      ]
+    },
+    {
+      "trace_index": 262,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "34",
+          19
+        ]
+      ]
+    },
+    {
+      "trace_index": 264,
+      "origin": "retire",
+      "bucket": 32,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "21",
+          28
+        ]
+      ]
+    },
+    {
+      "trace_index": 266,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 2,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "53",
+          13
+        ],
+        [
+          "62",
+          13
+        ]
+      ]
+    },
+    {
+      "trace_index": 269,
+      "origin": "decode_32",
+      "bucket": 32,
+      "ready_count": 3,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "22",
+          32
+        ],
+        [
+          "23",
+          32
+        ],
+        [
+          "30",
+          32
+        ]
+      ]
+    },
+    {
+      "trace_index": 270,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "63",
+          15
+        ]
+      ]
+    },
+    {
+      "trace_index": 272,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "58",
+          16
+        ]
+      ]
+    },
+    {
+      "trace_index": 276,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "51",
+          18
+        ]
+      ]
+    },
+    {
+      "trace_index": 278,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "52",
+          19
+        ]
+      ]
+    },
+    {
+      "trace_index": 284,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "55",
+          22
+        ]
+      ]
+    },
+    {
+      "trace_index": 285,
+      "origin": "decode_32",
+      "bucket": 32,
+      "ready_count": 6,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "32",
+          32
+        ],
+        [
+          "33",
+          32
+        ],
+        [
+          "37",
+          32
+        ],
+        [
+          "40",
+          32
+        ],
+        [
+          "42",
+          32
+        ],
+        [
+          "47",
+          32
+        ]
+      ]
+    },
+    {
+      "trace_index": 285,
+      "origin": "decode_32",
+      "bucket": 24,
+      "ready_count": 12,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "64",
+          24
+        ],
+        [
+          "66",
+          24
+        ],
+        [
+          "67",
+          24
+        ],
+        [
+          "69",
+          24
+        ],
+        [
+          "70",
+          24
+        ],
+        [
+          "71",
+          24
+        ],
+        [
+          "72",
+          24
+        ],
+        [
+          "73",
+          24
+        ],
+        [
+          "74",
+          24
+        ],
+        [
+          "75",
+          24
+        ],
+        [
+          "77",
+          24
+        ],
+        [
+          "79",
+          24
+        ]
+      ]
+    },
+    {
+      "trace_index": 294,
+      "origin": "retire",
+      "bucket": 6,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "40",
+          3
+        ]
+      ]
+    },
+    {
+      "trace_index": 298,
+      "origin": "retire",
+      "bucket": 6,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "64",
+          5
+        ]
+      ]
+    },
+    {
+      "trace_index": 300,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "30",
+          14
+        ]
+      ]
+    },
+    {
+      "trace_index": 301,
+      "origin": "decode_32",
+      "bucket": 32,
+      "ready_count": 3,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "54",
+          32
+        ],
+        [
+          "59",
+          32
+        ],
+        [
+          "61",
+          32
+        ]
+      ]
+    },
+    {
+      "trace_index": 304,
+      "origin": "retire",
+      "bucket": 8,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "32",
+          8
+        ]
+      ]
+    },
+    {
+      "trace_index": 306,
+      "origin": "retire",
+      "bucket": 10,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "47",
+          9
+        ]
+      ]
+    },
+    {
+      "trace_index": 310,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "23",
+          19
+        ]
+      ]
+    },
+    {
+      "trace_index": 310,
+      "origin": "retire",
+      "bucket": 12,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "71",
+          11
+        ]
+      ]
+    },
+    {
+      "trace_index": 314,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "67",
+          13
+        ]
+      ]
+    },
+    {
+      "trace_index": 316,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "72",
+          14
+        ]
+      ]
+    },
+    {
+      "trace_index": 318,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "22",
+          23
+        ]
+      ]
+    },
+    {
+      "trace_index": 318,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "73",
+          15
+        ]
+      ]
+    },
+    {
+      "trace_index": 326,
+      "origin": "retire",
+      "bucket": 12,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "59",
+          11
+        ]
+      ]
+    },
+    {
+      "trace_index": 332,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "54",
+          14
+        ]
+      ]
+    },
+    {
+      "trace_index": 334,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "77",
+          23
+        ]
+      ]
+    },
+    {
+      "trace_index": 336,
+      "origin": "retire",
+      "bucket": 24,
+      "ready_count": 2,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "33",
+          24
+        ],
+        [
+          "66",
+          24
+        ]
+      ]
+    },
+    {
+      "trace_index": 346,
+      "origin": "retire",
+      "bucket": 32,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "74",
+          29
+        ]
+      ]
+    },
+    {
+      "trace_index": 349,
+      "origin": "decode_8",
+      "bucket": 32,
+      "ready_count": 4,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "69",
+          32
+        ],
+        [
+          "70",
+          32
+        ],
+        [
+          "75",
+          32
+        ],
+        [
+          "79",
+          32
+        ]
+      ]
+    },
+    {
+      "trace_index": 362,
+      "origin": "retire",
+      "bucket": 64,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "42",
+          37
+        ]
+      ]
+    },
+    {
+      "trace_index": 376,
+      "origin": "retire",
+      "bucket": 64,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "61",
+          36
+        ]
+      ]
+    },
+    {
+      "trace_index": 376,
+      "origin": "retire",
+      "bucket": 12,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "75",
+          12
+        ]
+      ]
+    },
+    {
+      "trace_index": 384,
+      "origin": "retire",
+      "bucket": 64,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "37",
+          48
+        ]
+      ]
+    },
+    {
+      "trace_index": 384,
+      "origin": "retire",
+      "bucket": 16,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "70",
+          16
+        ]
+      ]
+    },
+    {
+      "trace_index": 410,
+      "origin": "retire",
+      "bucket": 32,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "69",
+          29
+        ]
+      ]
+    },
+    {
+      "trace_index": 413,
+      "origin": "retire",
+      "bucket": 32,
+      "ready_count": 1,
+      "min_calls": 1,
+      "jobs": [
+        [
+          "79",
+          31
+        ]
+      ]
+    }
+  ],
+  "limitations": [
+    "This is the historical scripted 80-request dynamic safety replay, not the new 1088-request service trace.",
+    "Per-group actual split choices and the complete startup cost table were not archived; only aggregate99 calls and distinct actual codec shapes are available.",
+    "Reconstructs emitter thresholds exactly from recorded frame counts/retire sequence, ramp6/8/12/16/24/32 then64, with max_batch16 and max_padded_frames512.",
+    "Four avoidable launches are a launch-count bound, not a wall-time gain; larger padded batches may cost more or contend differently.",
+    "No codec precision, audio quality, GPU state or timing was evaluated by this CPU reconstruction."
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "hypothesis": "Deferring codec graph/PCM-copy host submission until after the next real model graph is enqueued overlaps that CPU work with the model, without speculative decode or changing EOS/chunk boundaries.",
+  "isolated_variable": "DRAMA3_DEFER_CODEC_SUBMIT=1; codec producer_ready remains recorded immediately after the original private gather.",
+  "source_sha": "fd07d7471d0be13ef98870dd1e34ec760daf33fd",
+  "controls": {
+    "gpu_uuid": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf",
+    "cpu_affinity": "192-199",
+    "numa": 0,
+    "omp_threads": 4,
+    "native_top8": true,
+    "gdn_state": "bfloat16",
+    "prefill_moe": "flashinfer",
+    "codec_dtype": "bfloat16",
+    "dedicated_codec_capture": true,
+    "schedule": "Same 80 corpus rows and 414-event replay; compare each event output code/metadata/roster and final model+codec state, PCM, EOS ordering"
+  },
+  "gate": "All sync/poll/thread output/state/PCM checks exact; deferred batches must use original producer event and flush after a later actual model launch or final drain.",
+  "stop": "Any divergence rejects feasibility; no performance claim from this diagnostic.",
+  "limitations": [
+    "Every replay step copies full output and metadata to CPU, which changes timing relative to service.",
+    "Independent model capture scratch remains required.",
+    "The candidate hides only codec host submission; it does not remove true EOS dependencies or the entire .cpu wait.",
+    "One feasibility correctness run; throughput needs same-source full1088 serving and quality."
+  ],
+  "cpu_checks": [
+    "pytest8 passed",
+    "ruff passed",
+    "diff --check passed",
+    "CPU producer event identity, FIFO per-generation callback/EOS, and failed-submission retention passed"
+  ],
+  "storage": {
+    "venv": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/vda4 ext4   rw,relatime,discard,errors=remount-ro,commit=30\n",
+    "model": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/vda4 ext4   rw,relatime,discard,errors=remount-ro,commit=30\n",
+    "cache": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/vda4 ext4   rw,relatime,discard,errors=remount-ro,commit=30\n"
+  },
+  "before_gpu": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d, 213372, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 36058 MiB\nGPU-adecbd14-4768-00f8-a2fa-697ced804a8d, 2104876, VLLM::Worker_PCP0, 260154 MiB\nGPU-90fb226c-3937-2448-1052-2e12282a61b9, 2104878, VLLM::Worker_PCP1, 260154 MiB\nGPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed, 2104879, VLLM::Worker_PCP2, 260154 MiB\nGPU-fd75ec1b-92a4-ca93-a3ad-976565948d0e, 2104880, VLLM::Worker_PCP3, 260154 MiB\n"
+}

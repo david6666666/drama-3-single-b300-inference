@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/validate_compact_gdn.py",
+    "--source",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-compact-1618ad4",
+    "--checkpoint",
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+    "--corpus",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+    "--output",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/compact-gdn-validation.json"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "2",
+    "OMP_NUM_THREADS": "4",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-compact-1618ad4/src",
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE": "flashinfer",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_FUSED_MOE_INPUT": "1",
+    "DRAMA3_MOE_LAYOUT": "major_k",
+    "DRAMA3_PREFILL_GDN": "fla"
+  },
+  "driver_sha256": "8e3e8d729069a127fc8f46a94169da33eca9f163df25c38238b2314173f50269",
+  "source_sha": "1618ad4b2c7591465a47ca0dad8100e782820cd2"
+}

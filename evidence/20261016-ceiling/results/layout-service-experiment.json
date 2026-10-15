@@ -1,0 +1,8 @@
+{
+  "source_sha": "eedb6e0d736ea3a2c1c9a796b2ccc52c0e6aa7e9",
+  "hypothesis": "Native-exact compactGDN+mixedlayout+emptyconvguard reduce measured refill work; allotherflagskeep previousprivateasync",
+  "variable": "three independently exact optimization flags asonecombinedcandidate; contributions diagnosed separately in frozenstategraphchecks",
+  "control": "sameGPU0, latestnative1088C64 workload andsameSHA, caches/clocks/OMP8 unchanged; no profiler",
+  "gate": "onefeasibilityperarm, all1088outputsquality beforepromotion; no3repformalclaim",
+  "stop": "any incomplete request or qualitygatefail rejectcandidate; do notalterworkload or acceptance"
+}

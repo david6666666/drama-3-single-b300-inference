@@ -1,0 +1,58 @@
+{
+  "status": "NEW_1088_ASYNC_TIMELINE_ANALYZED_DIAGNOSTIC_ONLY",
+  "goal": "Explain and reduce the gap to C64 >=6765.407263214912 frames/s while retaining native top-8 and the confirmed complete WER/SIM bounds; do not use a budget estimate as a stop criterion.",
+  "comparison_source": "7618212e15e7506bb20d57372d6700fe837988a5",
+  "comparison_run": "/home/zjy/code/hsliu/artifacts/drama3-mixed-20261016/codec-private-gpu0",
+  "assumptions": [
+    "64 / 0.008275 = 7734.139 frames/s is an optimistic full-B64 reference derived from an isolated real-input decode diagnostic, not a proven hardware upper bound, nor a guaranteed serving lower bound.",
+    "The exact diagnostic duration is 8.275183868408202 ms; report both exact and rounded arithmetic. Its source/configuration/context and lack of simultaneous codec differ from the latest service.",
+    "The reported serving makespan includes every successful request, initial filling, final draining, and benchmark wrapper overhead. Do not remove tails or long/quiet outputs to improve the reported score.",
+    "Acoustic frames are audio_samples/2048 and exclude EOS. Full-B64 decode timing includes an autoregressive step; prompt backbone and first-frame tower are separate. Conditional decode-row accounting must distinguish first frames and EOS termination.",
+    "Client in-flight intervals include request transport, server admission, prefill, decode, codec and delivery; they do not measure active GPU slots. Dispatch interarrival gaps are mostly completion-driven in this closed-loop benchmark and are not automatically admission stalls.",
+    "Output lengths differ stochastically across runs. Preserve per-sample frame differences, max-length outputs, quality and final-drain duration instead of treating elapsed-time differences as constant-work speedups.",
+    "A frame's PCM arrival time is a delivery observation, not its model-production time; transport chunks may coalesce or split engine chunks.",
+    "Do not transfer the old 384-request synchronous timeline proportions or ideal codec-hiding budget into this asynchronous 1088-request run.",
+    "CUDA event spans can include host submission gaps; summing overlapping main/codec stage spans double counts elapsed time. Event union is not SM utilization.",
+    "mixed_backbone includes the teacher-forced prefill tower. first_frame CPU wait can wait for prior mixed work; it is not independent CPU computation."
+  ],
+  "hypotheses_to_test": [
+    {
+      "id": "H1",
+      "claim": "Continuous-service decode is slowed by overlapping codec bandwidth/compute demand compared with isolated B64.",
+      "test": "Within the new timeline compare pure-decode spans by active-batch bucket and overlap with codec, preserving all groups and reporting context/phase confounds; confirm causality only with a same-source controlled experiment."
+    },
+    {
+      "id": "H2",
+      "claim": "Mixed prompt work and teacher tower remain substantial after span trimming.",
+      "test": "Count refill rounds, active decode rows, newly admitted prompts, prompt tokens/capacity/span where instrumented; quantify their event unions and slot deficits separately from ordinary decode."
+    },
+    {
+      "id": "H3",
+      "claim": "Client refill or codec delivery leaves meaningful request slots unavailable during continuous intake.",
+      "test": "Compare exact client in-flight deficit and completion-to-next-dispatch gaps with server active/pending/codec queues when available; do not infer GPU idle directly from client occupancy."
+    },
+    {
+      "id": "H4",
+      "claim": "Finite-corpus tail materially lowers total throughput.",
+      "test": "Retain all requests; report fill, continuous intake, final drain, PCM frames delivered in each interval and active-batch distributions; estimate conditional opportunity rather than subtracting tail from the official metric."
+    },
+    {
+      "id": "H5",
+      "claim": "GPU/CPU handoff gaps remain despite asynchronous codec.",
+      "test": "Report main-only, codec-only, both and neither event interval unions; distinguish GPU-domain gaps from host-wall interval and timestamp alignment uncertainty."
+    }
+  ],
+  "required_new_timeline_metrics": [
+    "Clean source SHA, GPU UUID, effective runtime environment, corpus SHA, request IDs, summary metrics, complete quality when available, profiler enabled status",
+    "All 1088 raw dispatch/completion/last-audio timestamps, output frames, chunk arrival bytes and times; warmup retained separately and excluded from measured-window stages",
+    "Nonblocking events with stage, cuda_stream, cpu_start_s, cpu_submit_ms, gpu_start_ms, gpu_end_ms, batch",
+    "Counts and active-batch distributions for decode and mixed rounds across fill, continuous intake and final drain",
+    "Mixed first-frame count per round, padded decode bucket, prompt token sum, packed capacity and max span if recorded; otherwise mark unavailable",
+    "Codec event spans, batch/frame bucket if recorded, overlap union with decode/mixed/first-frame, and backlog or host-blocking gaps if recorded",
+    "Main-stream model union, codec-stream union, overlap, codec-only/main-only and event-envelope uncovered time; nested codec_submit is not an independent GPU compute stage",
+    "Audio delivered before/after last dispatch; request completion quantiles and tail contributors, without excluding any request",
+    "Equal-source uninstrumented control/candidate full-corpus output lengths and all-sample quality before claiming any speedup"
+  ],
+  "latest_timeline": "latest-timeline.json",
+  "latest_ledger": "latest-timeline-service-ledger.json"
+}

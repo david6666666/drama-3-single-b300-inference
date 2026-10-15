@@ -1,0 +1,93 @@
+{
+  "source_sha": "a607dff26c3ca5423746f7eebec4f5f5a88cd4c0",
+  "validator_sha256": "5eb6e6957aadb1f514657f6b5f7baac02e668cc75b1773c9ef0e211050c81998",
+  "status": "PASS",
+  "exact_checks": 1023,
+  "cases": [
+    {
+      "case": "decode-b64-n64-s1-p0",
+      "control_ms": 7.234783935546875,
+      "candidate_ms": 7.231110572814941,
+      "delta_ms": -0.003673362731933416,
+      "speedup": 1.0005079942693371,
+      "dummy_tensor_differences": 0
+    },
+    {
+      "case": "decode-b64-n63-s1-p0",
+      "control_ms": 7.550585556030273,
+      "candidate_ms": 7.287616157531739,
+      "delta_ms": -0.2629693984985346,
+      "speedup": 1.0360844194883612,
+      "dummy_tensor_differences": 102
+    },
+    {
+      "case": "decode-b64-n58-s1-p0",
+      "control_ms": 7.578873634338379,
+      "candidate_ms": 7.306041526794433,
+      "delta_ms": -0.2728321075439455,
+      "speedup": 1.0373433557068286,
+      "dummy_tensor_differences": 103
+    },
+    {
+      "case": "decode-b48-n40-s1-p0",
+      "control_ms": 7.090214443206787,
+      "candidate_ms": 6.81290864944458,
+      "delta_ms": -0.2773057937622072,
+      "speedup": 1.0407029960375023,
+      "dummy_tensor_differences": 103
+    },
+    {
+      "case": "decode-b64-n58-s4-p0",
+      "control_ms": 32.60781478881836,
+      "candidate_ms": 31.547628784179686,
+      "delta_ms": -1.0601860046386733,
+      "speedup": 1.0336058856242891,
+      "dummy_tensor_differences": 109
+    },
+    {
+      "case": "first-b8-n5-s1-p0",
+      "control_ms": 1.1339903831481934,
+      "candidate_ms": 1.1155391931533813,
+      "delta_ms": -0.0184511899948121,
+      "speedup": 1.0165401539525067,
+      "dummy_tensor_differences": 28
+    },
+    {
+      "case": "mixed-b64-n58-s1-p6",
+      "control_ms": 28.273868560791016,
+      "candidate_ms": 28.12150421142578,
+      "delta_ms": -0.1523643493652358,
+      "speedup": 1.0054180725262674,
+      "dummy_tensor_differences": 74
+    },
+    {
+      "case": "mixed-b48-n40-s1-p3",
+      "control_ms": 19.77671699523926,
+      "candidate_ms": 19.58957443237305,
+      "delta_ms": -0.18714256286621023,
+      "speedup": 1.0095531714337267,
+      "dummy_tensor_differences": 74
+    },
+    {
+      "case": "mixed-b16-n12-s1-p1",
+      "control_ms": 16.810374450683593,
+      "candidate_ms": 16.78375663757324,
+      "delta_ms": -0.026617813110352273,
+      "speedup": 1.0015859270177192,
+      "dummy_tensor_differences": 74
+    }
+  ],
+  "interpretation": "All real outputs/codes, mixed prompt outputs and every tensor outside explicitly participating reserved decode dummy slots match exactly. Only expected reserved dummy state differs. Capture capacity remains2048. Timing samples are one fixed-input diagnostic, not service throughput or a statistical speedup claim.",
+  "process_audit": {
+    "path": "short-padding-process-audit.jsonl",
+    "samples": 24,
+    "gpu7_pids": [
+      256682
+    ],
+    "maximum_simultaneous_processes": 1,
+    "sampling_interval_s": 1
+  },
+  "cpu_probe": "short-padding-cpu.json",
+  "cpu_pytest": "8 passed",
+  "cleanup": "GPU7 empty in post-run nvidia-smi; no task process remains."
+}
