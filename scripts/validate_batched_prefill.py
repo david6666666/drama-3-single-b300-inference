@@ -23,7 +23,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--partial-batch", type=int, choices=(8, 16), default=8)
+    parser.add_argument("--partial-batch", type=int, choices=(6, 8, 16), default=8)
     parser.add_argument("--span", type=int, choices=(128, 192, 256), default=128)
     args = parser.parse_args()
     capacity = args.partial_batch

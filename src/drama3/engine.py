@@ -230,6 +230,11 @@ class Engine:
         if self.codec_precision not in ("float16", "bfloat16"):
             raise ValueError("DRAMA3_CODEC_DTYPE must be float16 or bfloat16")
         self.prefill_max_batch = int(os.environ.get("DRAMA3_PREFILL_MAX_BATCH", "8"))
+        self.prefill_batch_sizes = (
+            (1, 2, 4, 6, 8, 16)
+            if os.environ.get("DRAMA3_PREFILL_BATCH_6") == "1"
+            else (1, 2, 4, 8, 16)
+        )
         self.prefill_spans = (
             (128, 192, 256, 512)
             if os.environ.get("DRAMA3_PREFILL_BUCKET_192") == "1"
@@ -289,7 +294,7 @@ class Engine:
                     self.graphs[size] = DecodeGraph(self.model, size, requests=self.device_requests)
             self.first_graphs = {
                 size: DecodeGraph(self.model, size, first_frame=True, requests=self.device_requests)
-                for size in (1, 2, 4, 8, 16)
+                for size in self.prefill_batch_sizes
                 if size <= min(self.slots, self.prefill_max_batch)
             }
             self.serial_graphs = {
@@ -303,8 +308,8 @@ class Engine:
             }
             self.batched_prefill_graphs = {
                 (batch, span): BatchedPrefillGraph(self.model, batch, span)
-                for batch in (2, 4, 8, 16)
-                if batch <= min(self.slots, self.prefill_max_batch)
+                for batch in self.prefill_batch_sizes
+                if 1 < batch <= min(self.slots, self.prefill_max_batch)
                 for span in self.prefill_spans
                 if span <= self.max_length and (batch <= 8 or span <= 256)
             }
@@ -501,7 +506,7 @@ class Engine:
             )
         for key, jobs in chunks:
             requests, frames = map(list, zip(*jobs, strict=True))
-            batch = 1 << (len(jobs) - 1).bit_length()
+            batch = next(size for size in self.first_graphs if size >= len(jobs))
             if batch > 1:
                 hidden = self.batched_prefill_graphs[(batch, key)].run(
                     frames, [request.slot for request in requests]
