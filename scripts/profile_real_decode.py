@@ -27,6 +27,7 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch", type=int, default=64)
     parser.add_argument("--mxfp4-diagnostic", action="store_true")
+    parser.add_argument("--mxfp8-diagnostic", action="store_true")
     parser.add_argument("--small-moe-diagnostic", action="store_true")
     parser.add_argument("--small-moe-tiles", choices=("default", "hot", "cold"), default="default")
     args = parser.parse_args()
@@ -140,6 +141,17 @@ def main():
             rows.append(row)
             (args.output / "mxfp4.json").write_text(json.dumps(rows, indent=2) + "\n")
             print(json.dumps(row), flush=True)
+    if args.mxfp8_diagnostic:
+        from diagnostic_mxfp8_moe import benchmark
+
+        rows = []
+        for index, x in activations.items():
+            row = dict(layer=index, **benchmark(model, model.backbone.layers[index].mlp, x))
+            rows.append(row)
+            (args.output / "mxfp8.json").write_text(json.dumps(rows, indent=2) + "\n")
+            print(json.dumps(row), flush=True)
+            if not row["passed"]:
+                break
     if args.small_moe_diagnostic:
         from diagnostic_small_moe import benchmark
 
