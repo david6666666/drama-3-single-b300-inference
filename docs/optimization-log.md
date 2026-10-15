@@ -1,5 +1,14 @@
 # Experiments after the PR #8933 baseline
 
+**Correctness update:** all serving configurations listed below predate
+`a6e660c` and contain the partial-prefill GDN state-isolation bug described in
+[results.md](results.md). The reproduced failure maps padding primary slots
+6/7 in an eight-slot pool to suffix slots 2/3, overwriting unrelated live
+requests. The fix reserves padding slots in the primary half and gives them
+disjoint suffix slots. Full-model graph checks for 5/6/7 real requests in an
+eight-row batch now verify that unrelated convolution, GDN and attention states
+are unchanged. Corrected audio and throughput results are pending.
+
 The complete comparison remains in [results.md](results.md). None of the
 experiments below establishes the 2× target. These are one-repetition feasibility
 runs on separate B300 devices; they are not controlled three-repetition speedup

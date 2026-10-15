@@ -7,8 +7,11 @@ A specialized, single-process streaming inference runtime for
 B300 comparisons with vLLM-Omni and SGLang-Omni.
 
 **Development status:** the new baseline and a full candidate comparison are
-complete; the 2× target is **not achieved**. The current BF16 candidate reaches
-1.487× at C1 and 0.638× at C64. See [measured results](docs/results.md).
+complete; the 2× target is **not achieved**. The historical BF16 candidate measured
+1.487× at C1 and 0.638× at C64, but a subsequently identified partial-prefill
+state-isolation bug invalidates promotion of its concurrent results. The fix
+passed state-isolation regression checks; corrected full-corpus measurements
+are running. See [measured results](docs/results.md).
 Optimization remains in progress. Following the updated task, the target is at least **2× the new
 vLLM-Omni throughput at each concurrency**, including merged
 [PR #8933](https://github.com/vllm-project/vllm-omni/pull/8933).

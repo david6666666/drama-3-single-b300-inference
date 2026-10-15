@@ -1,5 +1,13 @@
 # Measured streaming performance
 
+**Correctness update:** the historical candidate below has a confirmed GDN
+state-isolation defect for partially filled prefill batches. A dummy row's
+suffix slot could overwrite another live request. Its concurrent results
+cannot support promotion, even where sampled WER met provisional bounds.
+The baseline is unaffected. Commit `a6e660c` reserves separate primary/suffix
+padding slots; corrected full-corpus runs are in progress. Historical rows and
+raw results remain here for auditability.
+
 Median of three complete runs. TTFA is in milliseconds; throughput is acoustic frames/s.
 
 | Runtime | C | Frames/s | TTFA p50 | TTFA p95 | Mean RTF | Ratio to new vLLM |
