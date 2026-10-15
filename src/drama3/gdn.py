@@ -19,8 +19,9 @@ from sglang.kernels.ops.attention.fla.l2norm import l2norm_fwd
 
 
 def decode(mixed, a, b, log, bias, state, output, slots):
-    """Eight value rows per CTA improve occupancy while retaining FP32 state."""
-    fused_recurrent_gated_delta_rule_packed_decode_kernel[(16, len(slots) * 32)](
+    """Use state-dtype-specific tiles; arithmetic and state layout are unchanged."""
+    tile = (16 if len(slots) <= 32 else 32) if state.dtype == torch.bfloat16 else 8
+    fused_recurrent_gated_delta_rule_packed_decode_kernel[(128 // tile, len(slots) * 32)](
         mixed_qkv=mixed,
         a=a,
         b=b,
@@ -42,7 +43,7 @@ def decode(mixed, a, b, log, bias, state, output, slots):
         K=128,
         V=128,
         BK=128,
-        BV=8,
+        BV=tile,
         SOFTPLUS_THRESHOLD=20.0,
         USE_QK_L2NORM_IN_KERNEL=True,
         num_warps=1,
