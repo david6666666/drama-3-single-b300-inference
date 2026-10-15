@@ -149,6 +149,9 @@ class DramaModel:
         state_dtype = getattr(torch, self.state_precision)
         self.moe_layout = os.environ.get("DRAMA3_MOE_LAYOUT", "major_k")
         self.prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE", "native")
+        self.prefill_gdn = os.environ.get("DRAMA3_PREFILL_GDN", "fla")
+        if self.prefill_gdn not in ("fla", "flashinfer"):
+            raise ValueError("DRAMA3_PREFILL_GDN must be fla or flashinfer")
         self.tuned_prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE_TUNED") == "1"
         self.packed_moe_projection = os.environ.get("DRAMA3_PACKED_MOE_PROJECTION") == "1"
         self.prefill_conv_backend = os.environ.get("DRAMA3_PREFILL_CONV", "torch")
@@ -408,6 +411,7 @@ class DramaModel:
                     state,
                     slots,
                     valid_length,
+                    backend=self.prefill_gdn,
                 )
             else:
                 decay = decay.reshape(sequences, span, 32)

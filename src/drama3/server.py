@@ -78,6 +78,8 @@ def create_app(checkpoint: str, fish_source: str, slots: int, max_length: int) -
             "gdn_state_precision": engine.model.state_precision,
             "moe_layout": engine.model.moe_layout,
             "prefill_moe": engine.model.prefill_moe,
+            "prefill_gdn": engine.model.prefill_gdn,
+            "prefill_spans": engine.prefill_spans,
             "packed_moe_projection": engine.model.packed_moe_projection,
             "prefill_conv": engine.model.prefill_conv_backend,
             "tuned_prefill_moe": engine.model.tuned_prefill_moe,

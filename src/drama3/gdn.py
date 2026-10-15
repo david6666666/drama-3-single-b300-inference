@@ -51,7 +51,7 @@ def decode(mixed, a, b, log, bias, state, output, slots):
     )
 
 
-def prefill(q, k, v, decay, beta, state, slots, length):
+def prefill(q, k, v, decay, beta, state, slots, length, backend="fla"):
     sequences, span = q.shape[:2]
     capacity = sequences * span
     chunks_per_sequence = (span + 63) // 64
@@ -78,6 +78,28 @@ def prefill(q, k, v, decay, beta, state, slots, length):
             tensor.flatten(0, 1).unsqueeze(0) for tensor in (q, k, v, decay, beta)
         )
     chunks = sequence_count * chunks_per_sequence
+    if backend == "flashinfer":
+        from flashinfer.gdn_prefill import chunk_gated_delta_rule
+
+        output = torch.zeros((capacity, 32, 128), device=v.device, dtype=v.dtype)
+        chunk_gated_delta_rule(
+            q=l2norm_fwd(q.reshape(capacity, 16, 128).contiguous()),
+            k=l2norm_fwd(k.reshape(capacity, 16, 128).contiguous()),
+            v=v.reshape(capacity, 32, 128).contiguous(),
+            g=decay.reshape(capacity, 32).exp(),
+            beta=beta.reshape(capacity, 32).contiguous(),
+            initial_state=state,
+            output_final_state=True,
+            cu_seqlens=boundaries,
+            use_qk_l2norm_in_kernel=False,
+            output=output,
+            output_state=state,
+            state_indices=state_slots.to(torch.int32),
+            backend="flashinfer",
+        )
+        return output.reshape(sequences, span, 32, 128)
+    if backend != "fla":
+        raise ValueError("GDN prefill backend must be fla or flashinfer")
     indices = torch.stack(
         (
             torch.arange(sequence_count, device=q.device).repeat_interleave(chunks_per_sequence),
