@@ -1,0 +1,9 @@
+{
+  "hypothesis": "GEMV tiles selected at B1 may waste occupancy at B8; test existing up/down tile sizes on the same real activations.",
+  "plane": "model",
+  "isolated_variable": "GEMV tile sizes only",
+  "source_sha": "4068dec",
+  "controls": "GPU1 OMP4, same real B8 activation/route/weights, full FP8 quantization boundaries unchanged",
+  "success": "RRMS < 0.003 and reduced captured latency; require full decode and audio/service checks before adoption",
+  "stop": "Nonfinite or RRMS >= 0.003"
+}

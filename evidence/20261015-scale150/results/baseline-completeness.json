@@ -1,0 +1,35 @@
+{
+  "acceptance_issue": "https://github.com/ThinkFlowLab/OmniRSI/issues/10",
+  "baseline": {
+    "sha": "d6ed4f4844fbc41573ffc03247e5b2ff0a38d322",
+    "benchmark": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/vllm-8933-codes1088/benchmark",
+    "quality": [
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/vllm-8933-codes1088-quality-c1.json",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/vllm-8933-codes1088-quality-c64.json",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/vllm-8933-codes1088-quality-c64-extra.json",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/vllm-8933-codes1088-quality-all-c.json",
+      "/home/zjy/code/hsliu/artifacts/drama3-scale150-20261015/vllm-quality-additional-repetitions.json"
+    ]
+  },
+  "controls": {
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+    "sampling": {
+      "temperature": 1,
+      "top_p": 0.9,
+      "top_k": 30,
+      "max_frames": 500
+    },
+    "warmup": "max(8, concurrency), no reference-wide warmup",
+    "OMP_NUM_THREADS": 8,
+    "connection": "fresh TCP per request; no retries"
+  },
+  "quality_file_sha256": {
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/vllm-8933-codes1088-quality-c1.json": "831f46533af1b107696401a196d6eced28e89cc1a2085c7598031a29926a08ca",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/vllm-8933-codes1088-quality-c64.json": "9943828de240ebdc93991016341acd69b80f67bf559d50fe563b2e0221658c7a",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/vllm-8933-codes1088-quality-c64-extra.json": "e0bbff0de6118e686af70ec38835051a5b77f7cb691b505152a4f5a665661295",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/vllm-8933-codes1088-quality-all-c.json": "1c548603bfa4a6ded056b5e882523a057d5147eef1e919d7617762f1560d95f1",
+    "/home/zjy/code/hsliu/artifacts/drama3-scale150-20261015/vllm-quality-additional-repetitions.json": "95093d413321750ba2736632ade67ee74c9a4290a963ab449166b969f8f1db76"
+  },
+  "verdict": "INCONCLUSIVE",
+  "reason": "Baseline complete; no candidate has met the frozen gates."
+}

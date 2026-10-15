@@ -1,0 +1,9 @@
+{
+  "hypothesis": "The GEMV crossover at batch8 may be too high: tensor-core FP8 experts can win at B4/B8 while preserving native quantization.",
+  "plane": "model",
+  "isolated_variable": "small-batch MoE dispatch threshold",
+  "controls": "Same captured real activations for each backend, same model/corpus/precision, GPU0 OMP4; no source or schedule change inside a comparison",
+  "source_sha": "64865f3cb8e4452a9561495d46ee6ede270c8146",
+  "success": "Lower full MoE latency and RRMS < 0.03 at selected layers, followed by complete audio and service checks",
+  "stop": "Nonfinite result or operator RRMS >= 0.03; no serving promotion from kernel timings"
+}

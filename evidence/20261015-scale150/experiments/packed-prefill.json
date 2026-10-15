@@ -1,0 +1,9 @@
+{
+  "hypothesis": "Packing real prompt rows into a token-count bucket avoids per-sequence length and batch padding, reducing prefill stalls with unchanged checkpoint precision.",
+  "plane": "model",
+  "isolated_variable": "Packed prompt layout and corresponding variable-length kernels; serving path not enabled yet",
+  "source_sha": "d85bdc2e3780533d4d85703047341a2a79f8dda9",
+  "controls": "Real heterogeneous corpus prefixes, native FP8/BF16 math, 3/5/6 request partial batches; compare complete hidden/recurrent/KV states against independent single-sequence prefill",
+  "success": "Untouched state exact; all compared outputs/states RRMS < 0.03; lower captured prompt latency before service integration",
+  "stop": "Any state overwrite, nonfinite output, graph failure, or RRMS >= 0.03"
+}

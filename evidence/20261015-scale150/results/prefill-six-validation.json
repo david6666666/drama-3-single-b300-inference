@@ -1,0 +1,459 @@
+[
+  {
+    "layer": 0,
+    "row": 0,
+    "check": "output",
+    "relative_rmse": 8.932939090300351e-05
+  },
+  {
+    "layer": 0,
+    "row": 0,
+    "check": "conv",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 0,
+    "check": "state",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 1,
+    "check": "output",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 1,
+    "check": "conv",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 1,
+    "check": "state",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 2,
+    "check": "output",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 2,
+    "check": "conv",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 2,
+    "check": "state",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 3,
+    "check": "output",
+    "relative_rmse": 7.470748823834583e-05
+  },
+  {
+    "layer": 0,
+    "row": 3,
+    "check": "conv",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 3,
+    "check": "state",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 1,
+    "row": 0,
+    "check": "output",
+    "relative_rmse": 0.00013033946743234992
+  },
+  {
+    "layer": 1,
+    "row": 0,
+    "check": "conv",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 1,
+    "row": 0,
+    "check": "state",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 1,
+    "row": 1,
+    "check": "output",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 1,
+    "row": 1,
+    "check": "conv",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 1,
+    "row": 1,
+    "check": "state",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 1,
+    "row": 2,
+    "check": "output",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 1,
+    "row": 2,
+    "check": "conv",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 1,
+    "row": 2,
+    "check": "state",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 1,
+    "row": 3,
+    "check": "output",
+    "relative_rmse": 5.449946547742002e-05
+  },
+  {
+    "layer": 1,
+    "row": 3,
+    "check": "conv",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 1,
+    "row": 3,
+    "check": "state",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 3,
+    "row": 0,
+    "check": "attention",
+    "relative_rmse": 9.750749450176954e-05
+  },
+  {
+    "layer": 3,
+    "row": 1,
+    "check": "attention",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 3,
+    "row": 2,
+    "check": "attention",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 3,
+    "row": 3,
+    "check": "attention",
+    "relative_rmse": 5.7983514125226066e-05
+  },
+  {
+    "layer": 40,
+    "row": 0,
+    "check": "attention",
+    "relative_rmse": 0.00012391289055813104
+  },
+  {
+    "layer": 40,
+    "row": 1,
+    "check": "attention",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 40,
+    "row": 2,
+    "check": "attention",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 40,
+    "row": 3,
+    "check": "attention",
+    "relative_rmse": 0.00016920357302296907
+  },
+  {
+    "check": "batched_graph_vs_eager",
+    "errors": [
+      [
+        "hidden",
+        0.0
+      ],
+      [
+        "conv0",
+        0.0
+      ],
+      [
+        "state0",
+        0.0
+      ],
+      [
+        "conv1",
+        0.0
+      ],
+      [
+        "state1",
+        0.0
+      ],
+      [
+        "conv2",
+        0.0
+      ],
+      [
+        "state2",
+        0.0
+      ],
+      [
+        "conv4",
+        0.0
+      ],
+      [
+        "state4",
+        0.0
+      ],
+      [
+        "conv5",
+        0.0
+      ],
+      [
+        "state5",
+        0.0
+      ],
+      [
+        "conv6",
+        0.0
+      ],
+      [
+        "state6",
+        0.0
+      ],
+      [
+        "conv8",
+        0.0
+      ],
+      [
+        "state8",
+        0.0
+      ],
+      [
+        "conv9",
+        0.0
+      ],
+      [
+        "state9",
+        0.0
+      ],
+      [
+        "conv10",
+        0.0
+      ],
+      [
+        "state10",
+        0.0
+      ],
+      [
+        "conv12",
+        0.0
+      ],
+      [
+        "state12",
+        0.0
+      ],
+      [
+        "conv13",
+        0.0
+      ],
+      [
+        "state13",
+        0.0
+      ],
+      [
+        "conv14",
+        0.0
+      ],
+      [
+        "state14",
+        0.0
+      ],
+      [
+        "conv16",
+        0.0
+      ],
+      [
+        "state16",
+        0.0
+      ],
+      [
+        "conv17",
+        0.0
+      ],
+      [
+        "state17",
+        0.0
+      ],
+      [
+        "conv18",
+        0.0
+      ],
+      [
+        "state18",
+        0.0
+      ],
+      [
+        "conv20",
+        0.0
+      ],
+      [
+        "state20",
+        0.0
+      ],
+      [
+        "conv21",
+        0.0
+      ],
+      [
+        "state21",
+        0.0
+      ],
+      [
+        "conv22",
+        0.0
+      ],
+      [
+        "state22",
+        0.0
+      ],
+      [
+        "conv24",
+        0.0
+      ],
+      [
+        "state24",
+        0.0
+      ],
+      [
+        "conv25",
+        0.0
+      ],
+      [
+        "state25",
+        0.0
+      ],
+      [
+        "conv26",
+        0.0
+      ],
+      [
+        "state26",
+        0.0
+      ],
+      [
+        "conv28",
+        0.0
+      ],
+      [
+        "state28",
+        0.0
+      ],
+      [
+        "conv29",
+        0.0
+      ],
+      [
+        "state29",
+        0.0
+      ],
+      [
+        "conv30",
+        0.0
+      ],
+      [
+        "state30",
+        0.0
+      ],
+      [
+        "conv32",
+        0.0
+      ],
+      [
+        "state32",
+        0.0
+      ],
+      [
+        "conv33",
+        0.0
+      ],
+      [
+        "state33",
+        0.0
+      ],
+      [
+        "conv34",
+        0.0
+      ],
+      [
+        "state34",
+        0.0
+      ],
+      [
+        "conv36",
+        0.0
+      ],
+      [
+        "state36",
+        0.0
+      ],
+      [
+        "conv37",
+        0.0
+      ],
+      [
+        "state37",
+        0.0
+      ],
+      [
+        "conv38",
+        0.0
+      ],
+      [
+        "state38",
+        0.0
+      ]
+    ],
+    "pass": true
+  },
+  {
+    "check": "partial_batch_preserves_other_requests",
+    "count": 3,
+    "pass": true
+  },
+  {
+    "check": "partial_batch_preserves_other_requests",
+    "count": 4,
+    "pass": true
+  },
+  {
+    "check": "partial_batch_preserves_other_requests",
+    "count": 5,
+    "pass": true
+  }
+]

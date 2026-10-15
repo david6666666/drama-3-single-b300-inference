@@ -1,0 +1,9 @@
+{
+  "hypothesis": "A six-row prefill graph matches the admission minimum and avoids rounding five/six requests to eight rows, reducing padded prompt compute without changing precision.",
+  "plane": "model",
+  "isolated_variable": "Additional batch-size6 prefill and first-frame graph bucket",
+  "controls": "Existing span128/192/256/512, native FP8/BF16 math, admission6, same checkpoint/corpus, no codec/dispatch changes",
+  "success": "Unrelated state exactly unchanged and batched/eager RRMS<0.03, then faster complete C64 service feasibility within audio gates",
+  "stop": "Any state overwrite, graph error, numerical failure or invalid audio; preserve baseline controls",
+  "source_sha": "4068dec19bedc94a036fefc8943b05205bdb9395"
+}

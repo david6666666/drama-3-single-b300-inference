@@ -1,0 +1,9 @@
+[
+  {
+    "layer": 0,
+    "rrms": 0.23044627904891968,
+    "quantized_reference_rrms": 0.010707486420869827,
+    "passed": false,
+    "description": "Diagnostic quantization change; no audio quality acceptance"
+  }
+]

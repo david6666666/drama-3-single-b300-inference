@@ -1,0 +1,9 @@
+{
+  "hypothesis": "Replacing only native padded prefill MoE with the existing FlashInfer FP8 path reduces prefill stalls at C64 after the state-padding correctness fix. Prior pre-fix service results cannot settle this question.",
+  "plane": "model",
+  "isolated_variable": "DRAMA3_PREFILL_MOE=flashinfer",
+  "source_sha": "ed8eb2f",
+  "controls": "Same frozen full 1088-row corpus, GPU0, OMP8, native checkpoint precision, 500 frames, existing candidate BF16 GDN/packed projection/192 bucket flags; no extra reference warmup",
+  "success": "Complete C64 feasible run faster than previous native-prefill candidate with no quality-gate regression; formal claim needs three repetitions at all C",
+  "stop": "Invalid request, state/numerical error, or quality failure; preserve artifacts"
+}
