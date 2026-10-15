@@ -227,6 +227,11 @@ class Engine:
         self.slots = slots
         self.max_length = max_length
         self.prefill_max_batch = int(os.environ.get("DRAMA3_PREFILL_MAX_BATCH", "8"))
+        self.prefill_spans = (
+            (128, 192, 256, 512)
+            if os.environ.get("DRAMA3_PREFILL_BUCKET_192") == "1"
+            else (128, 256, 512)
+        )
         if self.prefill_max_batch not in (8, 16):
             raise ValueError("Prefill maximum batch must be 8 or 16")
         self.admission_min_batch = int(os.environ.get("DRAMA3_ADMISSION_MIN_BATCH", "1"))
@@ -290,14 +295,14 @@ class Engine:
             }
             self.prefill_graphs = {
                 size: PrefillGraph(self.model, size)
-                for size in (128, 256, 512)
+                for size in self.prefill_spans
                 if size <= self.max_length
             }
             self.batched_prefill_graphs = {
                 (batch, span): BatchedPrefillGraph(self.model, batch, span)
                 for batch in (2, 4, 8, 16)
                 if batch <= min(self.slots, self.prefill_max_batch)
-                for span in (128, 256, 512)
+                for span in self.prefill_spans
                 if span <= self.max_length and (batch <= 8 or span <= 256)
             }
             self.codec_graphs = streaming_codec(self.codec, self.slots)

@@ -24,23 +24,25 @@ def main():
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--partial-batch", type=int, choices=(8, 16), default=8)
+    parser.add_argument("--span", type=int, choices=(128, 192, 256), default=128)
     args = parser.parse_args()
     capacity = args.partial_batch
+    span = args.span
     model = DramaModel(args.checkpoint, slots=state_pool_size(capacity, capacity), max_length=512)
     torch.manual_seed(42)
     lengths = torch.tensor([33, 91, 128, 3], device="cuda")
-    slots = torch.arange(4, device="cuda").repeat_interleave(128)
+    slots = torch.arange(4, device="cuda").repeat_interleave(span)
     results = []
     for index in (0, 1, 19, 39):
         layer = model.backbone.layers[index]
-        x = torch.randn(4, 128, 2048, device="cuda", dtype=torch.bfloat16)
+        x = torch.randn(4, span, 2048, device="cuda", dtype=torch.bfloat16)
         if layer.layer_type == "linear_attention":
             conv, state = model.states[index]
             conv.zero_()
             state.zero_()
             actual = model.linear_attention(
                 x.flatten(0, 1), layer.linear_attn, index, slots, False, lengths
-            ).reshape(4, 128, 2048)
+            ).reshape(4, span, 2048)
             for row, length in enumerate(lengths.tolist()):
                 conv[row + 4].zero_()
                 state[row + 4].zero_()
@@ -70,16 +72,16 @@ def main():
         (3, model.backbone.layers[3].self_attn),
         (40, model.tower.shared_layers[0].transformer_layer.attention),
     ):
-        x = torch.randn(4, 128, 2048, device="cuda", dtype=torch.bfloat16)
+        x = torch.randn(4, span, 2048, device="cuda", dtype=torch.bfloat16)
         actual = model.attention(
             x.flatten(0, 1),
             attention,
             index,
-            torch.arange(128, device="cuda").repeat(4),
+            torch.arange(span, device="cuda").repeat(4),
             slots,
             None,
             prefill_sequences=4,
-        ).reshape(4, 128, 2048)
+        ).reshape(4, span, 2048)
         for row, length in enumerate(lengths.tolist()):
             expected = model.attention(
                 x[row, :length],
@@ -94,7 +96,7 @@ def main():
                 {"layer": index, "row": row, "check": "attention", "relative_rmse": error}
             )
             assert error < 0.03, results[-1]
-    graph = BatchedPrefillGraph(model, 4, 128)
+    graph = BatchedPrefillGraph(model, 4, span)
     prompts = []
     for length in lengths.tolist():
         frames = torch.zeros(length, 11, dtype=torch.int64, device="cuda")
@@ -119,7 +121,7 @@ def main():
     # A partially filled prefill must not touch unrelated live requests. GDN
     # creates an independent suffix sequence for each padded row, so both the
     # row and its suffix need reserved slots, including for dummy requests.
-    partial_graph = BatchedPrefillGraph(model, capacity, 128)
+    partial_graph = BatchedPrefillGraph(model, capacity, span)
     for count in (capacity - 3, capacity - 2, capacity - 1):
         untouched = {
             index: (conv[count:capacity].clone(), state[count:capacity].clone())
