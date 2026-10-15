@@ -68,6 +68,9 @@ class FramePipelineGraph:
         def launch_backbone(main, code0, code1):
             blank = torch.zeros_like(main)
             partial_frame = torch.stack((main, code0, code1, *(blank for _ in range(8))), dim=-1)
+            # Allocated on main, consumed on auxiliary: retain it beyond this
+            # callback so the graph allocator cannot reuse it for the tower tail.
+            self.partial_frame = partial_frame
             self.auxiliary.wait_stream(current)
             with torch.cuda.stream(self.auxiliary):
                 self.next_hidden = model.backbone_forward(
