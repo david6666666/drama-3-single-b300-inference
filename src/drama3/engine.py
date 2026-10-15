@@ -7,6 +7,7 @@ import io
 import os
 import queue
 import threading
+import time
 from contextlib import nullcontext
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -32,6 +33,7 @@ class Request:
     max_frames: int
     loop: asyncio.AbstractEventLoop
     output: asyncio.Queue
+    queued_at: float = field(default_factory=time.monotonic)
     cancelled: threading.Event = field(default_factory=threading.Event)
     slot: int = -1
     position: int = 0
@@ -208,6 +210,13 @@ class Engine:
         self.fish_source = Path(fish_source)
         self.slots = slots
         self.max_length = max_length
+        self.admission_min_batch = int(os.environ.get("DRAMA3_ADMISSION_MIN_BATCH", "1"))
+        self.admission_min_running = int(os.environ.get("DRAMA3_ADMISSION_MIN_RUNNING", "32"))
+        self.admission_max_wait = (
+            float(os.environ.get("DRAMA3_ADMISSION_MAX_WAIT_MS", "100")) / 1000
+        )
+        if not 1 <= self.admission_min_batch <= 8 or self.admission_max_wait < 0:
+            raise ValueError("Admission batch must be 1..8 and maximum wait must be nonnegative")
         self.pending = queue.Queue(maxsize=512)
         self.stopping = threading.Event()
         self.ready = threading.Event()
@@ -220,6 +229,7 @@ class Engine:
     @torch.inference_mode()
     def run(self) -> None:
         active = []
+        waiting = []
         try:
             torch.cuda.set_device(0)
             self.model = DramaModel(
@@ -261,24 +271,35 @@ class Engine:
             free = list(range(self.slots))
             while not self.stopping.is_set():
                 if free:
-                    arriving, prompts = [], []
-                    for _ in range(min(8, len(free))):
+                    while len(waiting) < min(8, len(free)):
                         try:
                             request = self.pending.get(
-                                timeout=0.01 if not active and not arriving else 0
+                                timeout=0.01 if not active and not waiting else 0
                             )
                         except queue.Empty:
                             break
                         if request.cancelled.is_set():
                             continue
-                        request.slot = free.pop()
-                        try:
-                            prompt = self.prepare_prompt(request)
-                            arriving.append(request)
-                            prompts.append(prompt)
-                        except Exception as error:
-                            request.emit(error)
-                            free.append(request.slot)
+                        waiting.append(request)
+                    admit = waiting and (
+                        len(active) < self.admission_min_running
+                        or len(waiting) >= self.admission_min_batch
+                        or time.monotonic() - waiting[0].queued_at >= self.admission_max_wait
+                    )
+                    arriving, prompts = [], []
+                    if admit:
+                        for request in waiting:
+                            if request.cancelled.is_set():
+                                continue
+                            request.slot = free.pop()
+                            try:
+                                prompt = self.prepare_prompt(request)
+                                arriving.append(request)
+                                prompts.append(prompt)
+                            except Exception as error:
+                                request.emit(error)
+                                free.append(request.slot)
+                        waiting = []
                     if arriving:
                         try:
                             with self.measure("prefill", len(arriving)):
@@ -353,6 +374,8 @@ class Engine:
             if self.profiler is not None:
                 self.profiler.save()
             for request in active:
+                request.emit(self.failure or RuntimeError("Engine stopped"))
+            for request in waiting:
                 request.emit(self.failure or RuntimeError("Engine stopped"))
             while not self.pending.empty():
                 self.pending.get_nowait().emit(self.failure or RuntimeError("Engine stopped"))
