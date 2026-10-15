@@ -32,6 +32,7 @@ def main():
     parser.add_argument("--small-moe-backends", action="store_true")
     parser.add_argument("--routing-distribution", action="store_true")
     parser.add_argument("--projection-diagnostic", action="store_true")
+    parser.add_argument("--native-moe-tile-diagnostic", action="store_true")
     parser.add_argument("--small-moe-tiles", choices=("default", "hot", "cold"), default="default")
     args = parser.parse_args()
     if args.batch not in (1, 2, 4) and (args.batch < 8 or args.batch % 8):
@@ -176,6 +177,10 @@ def main():
         from diagnostic_bf16_projections import benchmark
 
         benchmark(projections, args.output / "projections.json")
+    if args.native_moe_tile_diagnostic:
+        from diagnostic_native_moe_tiles import benchmark
+
+        benchmark(model, activations, args.output / "native-moe-tiles.json")
     if args.small_moe_backends:
         rows = []
         original_threshold = model.small_moe_max_batch
