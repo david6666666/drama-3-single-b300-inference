@@ -71,11 +71,11 @@ def main():
                 for name in ("metadata", "codes", "last", "history"):
                     torch.testing.assert_close(actual[name], expected[name], atol=0, rtol=0)
                 for row in range(count):
-                    count = int(expected["metadata"][row, 1])
+                    generated = int(expected["metadata"][row, 1])
                     # Values after EOS/output limit are deliberately discarded;
                     # they must never become emitted codes or advance metadata.
                     compared = min(
-                        steps, count + (int(expected["metadata"][row, 3]) and not limited)
+                        steps, generated + (int(expected["metadata"][row, 3]) and not limited)
                     )
                     torch.testing.assert_close(
                         actual["output"][:compared, row],
