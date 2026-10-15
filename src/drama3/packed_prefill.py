@@ -80,10 +80,21 @@ def row_metadata(
 
 @triton.jit
 def convolution(
-    X, W, CU, SLOTS, STATE, OUT, STRIDE: tl.constexpr, TIME: tl.constexpr, CHANNELS: tl.constexpr
+    X,
+    W,
+    CU,
+    SLOTS,
+    STATE,
+    OUT,
+    STRIDE: tl.constexpr,
+    TIME: tl.constexpr,
+    CHANNELS: tl.constexpr,
+    GUARD_EMPTY: tl.constexpr = False,
 ):
     sequence = tl.program_id(2)
     start, end = tl.load(CU + sequence), tl.load(CU + sequence + 1)
+    if GUARD_EMPTY and tl.program_id(0) * TIME >= end - start:
+        return
     t = tl.program_id(0) * TIME + tl.arange(0, TIME)
     c = tl.program_id(1) * CHANNELS + tl.arange(0, CHANNELS)
     length = end - start
@@ -125,6 +136,7 @@ def packed_conv(x, weight, state, layout):
         x.stride(0),
         8,
         128,
+        GUARD_EMPTY=os.environ.get("DRAMA3_PACKED_CONV_GUARD") == "1",
         num_warps=4,
         enable_fp_fusion=False,
     )

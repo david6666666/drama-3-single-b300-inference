@@ -8,6 +8,7 @@ The caller owns metadata validation and resets only prefill sequence states.
 
 from __future__ import annotations
 
+import os
 from typing import TYPE_CHECKING
 
 import torch
@@ -136,12 +137,19 @@ def mixed_linear_attention(
         backend=model.prefill_gdn,
         packed_layout=layout,
     )
-    output = torch.cat(
-        (decode_output.reshape(decode_rows, 4096), prefill_output.reshape(-1, 4096)), dim=0
-    )
-    output = gated_norm(
-        output.reshape(-1, 1, 32, 128), z.contiguous(), layer.norm.weight, layer.norm.eps
-    ).reshape(-1, 4096)
+    if os.environ.get("DRAMA3_FUSED_MIXED_LAYOUT") == "1":
+        from drama3.mixed_ops import mixed_gated_norm
+
+        output = mixed_gated_norm(
+            decode_output, prefill_output, z, layer.norm.weight, layer.norm.eps
+        )
+    else:
+        output = torch.cat(
+            (decode_output.reshape(decode_rows, 4096), prefill_output.reshape(-1, 4096)), dim=0
+        )
+        output = gated_norm(
+            output.reshape(-1, 1, 32, 128), z.contiguous(), layer.norm.weight, layer.norm.eps
+        ).reshape(-1, 4096)
     return linear(output, layer.out_proj.weight)
 
 

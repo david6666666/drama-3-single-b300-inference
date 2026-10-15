@@ -26,6 +26,7 @@ def main():
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--variant", choices=("span", "layout", "conv", "both"), default="span")
     args = parser.parse_args()
     repo = Path(__file__).resolve().parents[1]
     raw = args.corpus.read_bytes()
@@ -41,7 +42,8 @@ def main():
             corpus_sha256=hashlib.sha256(raw).hexdigest(),
             gpu_uuid=str(torch.cuda.get_device_properties(0).uuid),
             environment={k: v for k, v in os.environ.items() if k.startswith("DRAMA3_")},
-            hypothesis="Reduce statically scheduled masked prompt chunks; identical row capacity.",
+            hypothesis="Native mixed graph variant; identical rows, inputs, RNG and state.",
+            variant=args.variant,
             gate="All outputs and mutable state exact; timing is diagnostic only.",
             stop="Any mismatch rejects the candidate; preserve all cases and raw timings.",
         ),
@@ -71,15 +73,21 @@ def main():
             capacity = triton.cdiv(total, 256) * 256
             span = triton.cdiv(max([*map(len, selected), capacity - total]), 64) * 64
             d = next(n for n in (16, 32, 48, 64) if n >= active_count)
-            cases.append(
-                (
-                    active_count,
-                    arriving_count,
-                    selected,
-                    MixedGraph(model, device, d, 8, capacity),
-                    MixedGraph(model, device, d, 8, capacity, max_length=span),
-                )
+            flags = {
+                "DRAMA3_FUSED_MIXED_LAYOUT": args.variant in ("layout", "both"),
+                "DRAMA3_PACKED_CONV_GUARD": args.variant in ("conv", "both"),
+            }
+            for flag in flags:
+                os.environ[flag] = "0"
+            control = MixedGraph(
+                model, device, d, 8, capacity, max_length=512 if args.variant == "span" else span
             )
+            for flag, enabled in flags.items():
+                os.environ[flag] = str(int(enabled))
+            candidate = MixedGraph(model, device, d, 8, capacity, max_length=span)
+            for flag in flags:
+                os.environ[flag] = "0"
+            cases.append((active_count, arriving_count, selected, control, candidate))
         tensors = state_tensors(model, device)
         for active_count, arriving_count, selected, control, candidate in cases:
             label = f"d{active_count}-p{arriving_count}"
@@ -109,9 +117,9 @@ def main():
                 checks.tensor(f"{label}/{name}", actual, expected, exact=True)
             for (name, actual), expected in zip(tensors.items(), expected_state, strict=True):
                 checks.tensor(f"{label}/{name}", actual, expected, exact=True)
-            timings = {"span512_ms": [], "trimmed_ms": []}
+            timings = {"control_ms": [], "candidate_ms": []}
             for iteration in range(6):
-                arms = [("span512_ms", control), ("trimmed_ms", candidate)]
+                arms = [("control_ms", control), ("candidate_ms", candidate)]
                 if iteration % 2:
                     arms.reverse()
                 for name, graph in arms:
@@ -128,6 +136,7 @@ def main():
                 active=active_count,
                 arriving=arriving_count,
                 capacity=control.capacity,
+                control_span=control.layout.max_length,
                 trimmed_span=candidate.layout.max_length,
                 prompt_lengths=list(map(len, selected)),
                 timings=timings,
