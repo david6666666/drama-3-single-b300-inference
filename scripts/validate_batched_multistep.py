@@ -17,11 +17,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--partial", action="store_true")
     args = parser.parse_args()
     model = DramaModel(args.checkpoint, slots=32, max_length=512)
     device = DeviceRequests(model.slots, model.config.eos_token_id, model.max_length)
     results = []
     for batch in (2, 4, 8):
+        count = batch - int(args.partial)
         single = DecodeGraph(model, batch, requests=device)
         for steps in (2, 4):
             multiple = DecodeGraph(model, batch, steps=steps, requests=device)
@@ -34,7 +36,7 @@ def main():
                     model.sampling_step.fill_(123)
                     device.codes.zero_()
                     requests = []
-                    for row in range(batch):
+                    for row in range(count):
                         position = 510 if row % 2 else 30
                         frame = torch.zeros(11, dtype=torch.int64, device="cuda")
                         frame[0] = model.config.semantic_start_token_id
@@ -46,6 +48,11 @@ def main():
                         output = torch.stack([graph.run(requests).clone() for _ in range(steps)])
                     else:
                         output = graph.run(requests).clone()
+                    for pair in (*model.states.values(), *model.kv.values()):
+                        for tensor in pair:
+                            assert not bool(tensor[count : model.slots // 2].any()), (
+                                "Unrelated primary slot changed"
+                            )
                     snapshots.append(
                         dict(
                             output=output,
@@ -63,7 +70,7 @@ def main():
                 expected, actual = snapshots
                 for name in ("metadata", "codes", "last", "history"):
                     torch.testing.assert_close(actual[name], expected[name], atol=0, rtol=0)
-                for row in range(batch):
+                for row in range(count):
                     count = int(expected["metadata"][row, 1])
                     # Values after EOS/output limit are deliberately discarded;
                     # they must never become emitted codes or advance metadata.
@@ -79,7 +86,7 @@ def main():
                     if not int(expected["metadata"][row, 3]):
                         for a, e in zip(actual["states"], expected["states"], strict=True):
                             torch.testing.assert_close(a[row], e[row], atol=0, rtol=0)
-                result = dict(batch=batch, steps=steps, limited=limited, passed=True)
+                result = dict(batch=batch, count=count, steps=steps, limited=limited, passed=True)
                 results.append(result)
                 args.output.write_text(json.dumps(results, indent=2) + "\n")
                 print(json.dumps(result), flush=True)

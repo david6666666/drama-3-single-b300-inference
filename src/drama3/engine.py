@@ -232,6 +232,7 @@ class Engine:
             raise ValueError("DRAMA3_CODEC_DTYPE must be float16 or bfloat16")
         self.prefill_max_batch = int(os.environ.get("DRAMA3_PREFILL_MAX_BATCH", "8"))
         self.packed_prefill = os.environ.get("DRAMA3_PACKED_PREFILL") == "1"
+        self.batched_multistep = os.environ.get("DRAMA3_BATCHED_MULTISTEP") == "1"
         if self.packed_prefill and self.max_length < 512:
             raise ValueError("Packed prefill currently requires a context of at least 512")
         if self.packed_prefill and os.environ.get("DRAMA3_PREFILL_MOE_TUNED") == "1":
@@ -305,6 +306,14 @@ class Engine:
             }
             self.serial_graphs = {
                 steps: DecodeGraph(self.model, 1, steps=steps, requests=self.device_requests)
+                for steps in (2, 4)
+            }
+            self.multistep_graphs = {
+                (size, steps): DecodeGraph(
+                    self.model, size, steps=steps, requests=self.device_requests
+                )
+                for size in (2, 4, 8)
+                if self.batched_multistep and size <= self.slots
                 for steps in (2, 4)
             }
             self.prefill_graphs = {
@@ -409,6 +418,13 @@ class Engine:
                     available = min(request.next_emit, request.max_frames) - request.frame_count
                     steps = 4 if available >= 4 else 2 if available >= 2 else 1
                     graph = self.serial_graphs.get(steps, graph)
+                elif self.batched_multistep and size <= 8 and not waiting and self.pending.empty():
+                    available = min(
+                        min(request.next_emit, request.max_frames) - request.frame_count
+                        for request in active
+                    )
+                    steps = 4 if available >= 4 else 2 if available >= 2 else 1
+                    graph = self.multistep_graphs.get((size, steps), graph)
                 with self.measure("decode", len(active)):
                     frames = graph.run(active)
                 if frames.ndim == 2:
