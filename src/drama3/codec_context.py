@@ -40,7 +40,7 @@ class _CurrentContext:
 def capture_codec_with_sm_limit(graphs, device, num_sms):
     """Recapture native kernels on a green stream; changing replay streams is insufficient."""
     context_type = getattr(torch.cuda, "GreenContext", None)
-    if context_type is None or not context_type.SUPPORTED:
+    if context_type is None:
         raise RuntimeError("Codec SM limiting requires CUDA GreenContext support")
     if num_sms <= 0:
         raise ValueError("Codec SM limit must be positive")
