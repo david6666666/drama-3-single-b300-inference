@@ -553,10 +553,10 @@ def expert_counts_kernel(IDS, COUNTS, PAIRS: tl.constexpr, BLOCK: tl.constexpr):
 
 
 @triton.jit
-def expert_offsets_kernel(COUNTS, STARTS, TOTAL):
+def expert_offsets_kernel(COUNTS, STARTS, TOTAL, TILE: tl.constexpr):
     expert = tl.arange(0, 256)
     count = tl.load(COUNTS + expert)
-    padded = ((count + 15) // 16) * 16
+    padded = tl.cdiv(count, TILE) * TILE
     ends = tl.cumsum(padded, 0)
     tl.store(STARTS + expert, ends - padded)
     tl.store(TOTAL, tl.sum(padded, 0))
@@ -572,6 +572,7 @@ def expert_scatter_kernel(
     PAIRS: tl.constexpr,
     BLOCK: tl.constexpr,
     EXPERT_BLOCKS: tl.constexpr,
+    TILE: tl.constexpr,
 ):
     expert = tl.program_id(0)
     pair = tl.arange(0, BLOCK)
@@ -580,15 +581,15 @@ def expert_scatter_kernel(
     match = ids == expert
     rank = tl.cumsum(match.to(tl.int32), 0) - 1
     tl.store(SORTED + start + rank, pair, match)
-    padded = ((count + 15) // 16) * 16
-    padding = tl.arange(0, 16) + count
+    padded = tl.cdiv(count, TILE) * TILE
+    padding = tl.arange(0, TILE) + count
     tl.store(SORTED + start + padding, PAIRS, padding < padded)
     blocks = tl.arange(0, EXPERT_BLOCKS)
-    tl.store(EXPERTS + start // 16 + blocks, expert, blocks * 16 < padded)
+    tl.store(EXPERTS + start // TILE + blocks, expert, blocks * TILE < padded)
 
 
-def native_moe(x, topk_ids, topk_weights, experts):
-    """Fish's FP8 GEMMs with device-only routing layout and 16-row decode tiles."""
+def native_moe(x, topk_ids, topk_weights, experts, block_m=16, group_m=1):
+    """Fish's FP8 GEMMs with device-only routing layout and selectable row tiles."""
     from fish_speech.models.text2semantic.fish_omni.fp8_moe import (
         fused_moe_gemm,
         quant_kernel,
@@ -598,14 +599,14 @@ def native_moe(x, topk_ids, topk_weights, experts):
 
     tokens = len(x)
     pairs = tokens * 8
-    max_rows = triton.cdiv(pairs + min(pairs, 256) * 15, 16) * 16
+    max_rows = triton.cdiv(pairs + min(pairs, 256) * (block_m - 1), block_m) * block_m
     counts = torch.empty(256, dtype=torch.int32, device=x.device)
     starts = torch.empty_like(counts)
     total = torch.empty(1, dtype=torch.int32, device=x.device)
     sorted_ids = torch.empty(max_rows, dtype=torch.int32, device=x.device)
-    expert_ids = torch.empty(max_rows // 16, dtype=torch.int32, device=x.device)
+    expert_ids = torch.empty(max_rows // block_m, dtype=torch.int32, device=x.device)
     expert_counts_kernel[(256,)](topk_ids, counts, pairs, triton.next_power_of_2(pairs))
-    expert_offsets_kernel[(1,)](counts, starts, total)
+    expert_offsets_kernel[(1,)](counts, starts, total, block_m)
     expert_scatter_kernel[(256,)](
         topk_ids,
         counts,
@@ -614,7 +615,8 @@ def native_moe(x, topk_ids, topk_weights, experts):
         expert_ids,
         pairs,
         triton.next_power_of_2(pairs),
-        triton.next_power_of_2(triton.cdiv(tokens, 16)),
+        triton.next_power_of_2(triton.cdiv(tokens, block_m)),
+        block_m,
     )
     quantized, scales = quantize_groups(quant_kernel, x, 2048)
     gate_up = torch.empty((pairs, 1024), dtype=x.dtype, device=x.device)
@@ -629,8 +631,8 @@ def native_moe(x, topk_ids, topk_weights, experts):
         expert_ids,
         total,
         top_k=8,
-        block_m=16,
-        group_m=1,
+        block_m=block_m,
+        group_m=group_m,
     )
     activated, activation_scales = quantize_groups(silu_mul_quant_kernel, gate_up, 512)
     down = torch.empty((pairs, 2048), dtype=torch.float32, device=x.device)
@@ -645,7 +647,7 @@ def native_moe(x, topk_ids, topk_weights, experts):
         expert_ids,
         total,
         top_k=1,
-        block_m=16,
-        group_m=1,
+        block_m=block_m,
+        group_m=group_m,
     )
     return down.view(tokens, 8, 2048).sum(1).to(x.dtype)
