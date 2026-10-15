@@ -57,7 +57,11 @@ def request_body(sample: dict, backend: str, max_frames: int) -> dict:
         "top_p": 0.9,
         "top_k": 30,
     }
-    if sample.get("reference_audio"):
+    if sample.get("reference_codes") is not None:
+        if backend == "sglang":
+            raise ValueError("This SGLang adapter does not accept pre-encoded references")
+        body.update(ref_audio_codes=sample["reference_codes"], ref_text=sample["reference_text"])
+    elif sample.get("reference_audio"):
         reference = "data:audio/wav;base64," + base64.b64encode(
             Path(sample["reference_audio"]).read_bytes()
         ).decode("ascii")

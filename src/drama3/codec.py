@@ -5,6 +5,9 @@ from pathlib import Path
 import torch
 from hydra.utils import instantiate
 from omegaconf import OmegaConf
+from torch.nn.utils import remove_weight_norm
+from torch.nn.utils.parametrize import remove_parametrizations
+from torch.nn.utils.weight_norm import WeightNorm
 
 
 class CachedMask:
@@ -70,3 +73,35 @@ class CodecGraph:
         self.codes[: codes.shape[0], :, : codes.shape[-1]].copy_(codes)
         self.graph.replay()
         return self.output[: codes.shape[0], :, : codes.shape[-1] * 2048]
+
+
+def bake_weight_norm(codec):
+    """Materialize loaded parametrizations and legacy weight-norm hooks once."""
+    for module in codec.modules():
+        parametrizations = getattr(module, "parametrizations", None)
+        for name in list(parametrizations.keys()) if parametrizations else []:
+            remove_parametrizations(module, name, leave_parametrized=True)
+        for hook in list(module._forward_pre_hooks.values()):
+            if isinstance(hook, WeightNorm):
+                remove_weight_norm(module, hook.name)
+
+
+def streaming_codec(codec, slots: int):
+    """Decode only newly generated frames using persistent convolution/KV history."""
+    from drama3.ops.dac_channels_last import ChannelsLastDACDecoder, DACDecodeGraphs, DACStreamState
+
+    bake_weight_norm(codec)
+    decoder = ChannelsLastDACDecoder(codec)
+    decoder.compile_transformer()
+    graphs = DACDecodeGraphs(
+        decoder,
+        num_codebooks=10,
+        frame_buckets=(6, 8, 10, 12, 16, 24, 32, 64),
+        max_padded_frames=512,
+        max_batch=min(slots, 16),
+        receptive_frames=0,
+        stream=DACStreamState(slots),
+    )
+    with torch.autocast("cuda", dtype=torch.bfloat16):
+        graphs.capture(torch.device("cuda"))
+    return graphs

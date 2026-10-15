@@ -19,3 +19,10 @@ The offline accuracy script imports Seed-TTS WER and speaker-verification
 implementations from the pinned SGLang-Omni benchmark repository (Apache-2.0).
 Model weights and evaluation audio are downloaded separately and are not
 included in this repository.
+
+The channels-last streaming DAC implementation and slot attention operators
+in src/drama3/ops adapt vLLM-Omni at commit
+d6ed4f4844fbc41573ffc03247e5b2ff0a38d322 (PR #8933), Apache-2.0.
+Copyright contributors to the vLLM-Omni project. Modified imports use the
+Fish Speech model containers and direct Torch/Triton operators; no vLLM
+engine or serving pipeline is required. See file headers for adaptations.

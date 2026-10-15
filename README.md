@@ -7,8 +7,12 @@ A specialized, single-process streaming inference runtime for
 B300 comparisons with vLLM-Omni and SGLang-Omni.
 
 **Development status:** baseline measurement and candidate validation are in
-progress. The target is at least **2× the better upstream throughput at each
-concurrency**. This is an acceptance target, not an achieved performance claim.
+progress. Following the updated task, the target is at least **2× the new
+vLLM-Omni throughput at each concurrency**, including merged
+[PR #8933](https://github.com/vllm-project/vllm-omni/pull/8933).
+The new baseline is frozen at `d6ed4f4844fbc41573ffc03247e5b2ff0a38d322`.
+This is an acceptance target, not an achieved performance claim. Earlier
+SGLang-Omni and vLLM-Omni measurements remain historical comparisons.
 
 The implementation uses a Python admission loop, persistent request slots,
 CUDA Graph decode and direct GPU operators. The engine does not instantiate
@@ -20,7 +24,7 @@ that warrants another language.
 ## Scope
 
 - One B300, native FP8 expert weights, BF16 model activations and FP32 GDN state.
-- Streaming mono PCM at 44.1 kHz; at most one inline voice reference.
+- Streaming mono PCM at 44.1 kHz; one inline or pre-encoded voice reference.
 - Temperature 1, top-p 0.9, top-k 30, up to 500 acoustic frames.
 - Continuous batching at capacities 1–64; one model and one codec per process.
 - No training, multi-GPU execution or new quantization scheme.
@@ -72,6 +76,23 @@ CUDA_VISIBLE_DEVICES=0 OMP_NUM_THREADS=8 python -m drama3.server \
 
 `/health` becomes ready only after checkpoint loading, CUDA Graph capture and
 codec warmup. Use `--backend standalone` with the same benchmark command.
+The runtime keeps generated codes and repetition history on the GPU, and
+its streaming codec retains convolution and attention history between chunks.
+
+Install the complete measured runtime stack with:
+
+```bash
+python scripts/install_runtime.py --venv /path/to/runtime-venv \
+  --fish-source /path/to/pinned-fish-speech
+```
+
+For comparisons with PR #8933, use `scripts/encode_references.py` to prepare
+one shared corpus of reference codes. Both APIs then receive identical
+`ref_audio_codes` integers and `ref_text`. Preparation is timed separately.
+Inline reference audio is still supported, but vLLM-Omni encodes that audio
+per request; its results are a separate workload and cannot be substituted
+for the production-serving baseline. Every measured request opens a fresh
+TCP connection on both backends, without automatic retries.
 
 `scripts/validate_model.py` compares operators and layers with Fish Speech's
 reference math. `scripts/evaluate_audio.py` scores saved audio with the upstream

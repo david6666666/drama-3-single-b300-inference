@@ -4,7 +4,23 @@ import aiohttp
 import pytest
 from aiohttp import web
 
-from drama3.benchmark import request, summarize
+from drama3.benchmark import request, request_body, summarize
+
+
+def test_preencoded_reference_is_identical_for_both_production_backends():
+    sample = {
+        "text": "Hello",
+        "reference_text": "Reference",
+        "reference_audio": "/not/read/when/codes/are/present.wav",
+        "reference_codes": [[1, 2]] * 10,
+    }
+    first = request_body(sample, "vllm", 500)
+    second = request_body(sample, "standalone", 500)
+    assert first == second
+    assert first["ref_audio_codes"] == sample["reference_codes"]
+    assert "ref_audio" not in first and "references" not in first
+    with pytest.raises(ValueError, match="does not accept"):
+        request_body(sample, "sglang", 500)
 
 
 def test_frame_throughput_and_rtf_use_different_denominators():

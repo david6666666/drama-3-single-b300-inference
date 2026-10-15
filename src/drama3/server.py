@@ -9,7 +9,7 @@ from contextlib import asynccontextmanager
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse, StreamingResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, StrictInt, model_validator
 
 from drama3.engine import Engine, Request, decode_reference
 
@@ -30,6 +30,23 @@ class SpeechRequest(BaseModel):
     temperature: float = 1.0
     top_p: float = 0.9
     top_k: int = 30
+    ref_audio_codes: list[list[StrictInt]] | None = None
+    ref_text: str | None = None
+
+    @model_validator(mode="after")
+    def validate_reference_codes(self):
+        if self.ref_audio_codes is not None:
+            codes = self.ref_audio_codes
+            if self.references or not self.ref_text or not self.ref_text.strip():
+                raise ValueError("Reference codes require ref_text and cannot accompany references")
+            if len(codes) != 10 or not 1 <= len(codes[0]) <= 1292:
+                raise ValueError("Reference codes must have 10 nonempty rows, up to 60 seconds")
+            for index, row in enumerate(codes):
+                if len(row) != len(codes[0]):
+                    raise ValueError("Reference code rows must have equal lengths")
+                if min(row) < 0 or max(row) >= (4096 if index == 0 else 1024):
+                    raise ValueError("Reference code is outside its codebook")
+        return self
 
 
 def create_app(checkpoint: str, fish_source: str, slots: int, max_length: int) -> FastAPI:
@@ -75,10 +92,13 @@ def create_app(checkpoint: str, fish_source: str, slots: int, max_length: int) -
             request_id=uuid.uuid4().hex,
             text=payload.input,
             reference=reference,
-            reference_text=payload.references[0].text if payload.references else "",
+            reference_text=payload.references[0].text
+            if payload.references
+            else payload.ref_text or "",
             max_frames=payload.max_new_tokens,
             loop=asyncio.get_running_loop(),
             output=asyncio.Queue(),
+            reference_codes=payload.ref_audio_codes,
         )
         try:
             app.state.engine.submit(request)

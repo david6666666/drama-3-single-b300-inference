@@ -15,8 +15,9 @@ import torch.nn.functional as F
 import torchaudio.functional as audio_functional
 from fish_speech.models.text2semantic.fish_omni.generate import build_drama3_prompt
 
-from drama3.codec import CodecGraph, load_codec
+from drama3.codec import load_codec, streaming_codec
 from drama3.model import AttentionBatch, DramaModel
+from drama3.runtime_state import DeviceRequests
 
 
 @dataclass
@@ -31,22 +32,32 @@ class Request:
     cancelled: threading.Event = field(default_factory=threading.Event)
     slot: int = -1
     position: int = 0
-    frames: list[torch.Tensor] = field(default_factory=list)
+    frame_count: int = 0
     emitted: int = 0
-    next_emit: int = 10
+    next_emit: int = 6
+    chunk_index: int = 0
     last_frame: torch.Tensor | None = None
     history: torch.Tensor | None = None
+    reference_codes: list[list[int]] | None = None
 
     def emit(self, value: bytes | Exception | None) -> None:
         self.loop.call_soon_threadsafe(self.output.put_nowait, value)
 
 
 class DecodeGraph:
-    def __init__(self, model: DramaModel, size: int, first_frame: bool = False, steps: int = 1):
+    def __init__(
+        self,
+        model: DramaModel,
+        size: int,
+        first_frame: bool = False,
+        steps: int = 1,
+        requests: DeviceRequests | None = None,
+    ):
         self.model = model
         self.size = size
         self.first_frame = first_frame
         self.steps = steps
+        self.requests = requests
         self.frames = torch.zeros((size, 11), dtype=torch.int64, device="cuda")
         self.frames[:, 0] = model.config.eos_token_id
         # Capture the largest attention plan; replay may shorten each sequence.
@@ -66,9 +77,11 @@ class DecodeGraph:
             self.output = self.forward()
 
     def forward(self) -> torch.Tensor:
+        if self.requests is not None:
+            self.requests.load(self.slots, self.frames, self.history, self.positions)
         self.batch.refresh()
         if self.first_frame:
-            return self.model.tower_forward(
+            output = self.model.tower_forward(
                 self.hidden,
                 self.frames,
                 self.positions,
@@ -77,15 +90,23 @@ class DecodeGraph:
                 None,
                 self.history,
             )
+            if self.requests is not None:
+                self.requests.save(self.slots, output)
+            return output
         if self.steps == 1:
-            return self.model.decode(
+            output = self.model.decode(
                 self.frames, self.positions, self.slots, self.history, self.batch
             )
+            if self.requests is not None:
+                self.requests.save(self.slots, output)
+            return output
         frames, history = self.frames, self.history
         outputs = []
         for _ in range(self.steps):
             self.batch.refresh()
             frames = self.model.decode(frames, self.positions, self.slots, history, self.batch)
+            if self.requests is not None:
+                self.requests.save(self.slots, frames)
             outputs.append(frames)
             history = torch.cat((history[:, 1:], frames[:, :1]), dim=-1)
             self.positions.add_(1).clamp_(max=self.model.max_length - 1)
@@ -93,17 +114,20 @@ class DecodeGraph:
 
     def run(self, requests: list[Request], hidden: torch.Tensor | None = None) -> torch.Tensor:
         count = len(requests)
-        self.frames[:count].copy_(torch.stack([request.last_frame for request in requests]))
-        self.history[:count].copy_(torch.stack([request.history for request in requests]))
+        if self.requests is None:
+            self.frames[:count].copy_(torch.stack([request.last_frame for request in requests]))
+            self.history[:count].copy_(torch.stack([request.history for request in requests]))
         slot_ids = [request.slot for request in requests]
         slot_ids += list(range(self.model.slots // 2 + count, self.model.slots // 2 + self.size))
         positions = [request.position for request in requests] + [0] * (self.size - count)
         self.slots.copy_(torch.tensor(slot_ids, dtype=torch.int64))
-        self.positions.copy_(torch.tensor(positions, dtype=torch.int64))
+        if self.requests is None:
+            self.positions.copy_(torch.tensor(positions, dtype=torch.int64))
         if hidden is not None:
             self.hidden.copy_(hidden)
         self.graph.replay()
-        return (self.output[:count] if self.steps == 1 else self.output[:, :count]).clone()
+        output = self.output[:count] if self.steps == 1 else self.output[:, :count]
+        return output if self.requests is not None else output.clone()
 
 
 class PrefillGraph:
@@ -162,26 +186,27 @@ class Engine:
                 str(self.checkpoint), slots=2 * self.slots, max_length=self.max_length
             )
             self.codec = load_codec(self.checkpoint, self.fish_source)
+            self.device_requests = DeviceRequests(
+                self.model.slots, self.model.config.eos_token_id, self.max_length
+            )
             self.references = {}
             self.graphs = {}
             for size in (1, 2, 4, 8, 16, 32, 64):
                 if size <= self.slots:
-                    self.graphs[size] = DecodeGraph(self.model, size)
-            self.first_graph = DecodeGraph(self.model, 1, first_frame=True)
+                    self.graphs[size] = DecodeGraph(self.model, size, requests=self.device_requests)
+            self.first_graph = DecodeGraph(
+                self.model, 1, first_frame=True, requests=self.device_requests
+            )
             self.serial_graphs = {
-                steps: DecodeGraph(self.model, 1, steps=steps) for steps in (2, 4)
+                steps: DecodeGraph(self.model, 1, steps=steps, requests=self.device_requests)
+                for steps in (2, 4)
             }
             self.prefill_graphs = {
                 size: PrefillGraph(self.model, size)
                 for size in (128, 256, 512)
                 if size <= self.max_length
             }
-            self.codec_graphs = {
-                (batch, length): CodecGraph(self.codec, batch, length)
-                for batch in (1, 2, 4, 8)
-                if batch <= self.slots
-                for length in (10, 20, 32, 64, 96)
-            }
+            self.codec_graphs = streaming_codec(self.codec, self.slots)
             torch.cuda.synchronize()
             self.ready.set()
             free = list(range(self.slots))
@@ -221,7 +246,7 @@ class Engine:
                 graph = self.graphs[size]
                 if len(active) == 1 and self.pending.empty():
                     request = active[0]
-                    available = min(request.next_emit, request.max_frames) - len(request.frames)
+                    available = min(request.next_emit, request.max_frames) - request.frame_count
                     steps = 4 if available >= 4 else 2 if available >= 2 else 1
                     graph = self.serial_graphs.get(steps, graph)
                 frames = graph.run(active)
@@ -233,17 +258,15 @@ class Engine:
                 finished = []
                 for index, request in enumerate(active):
                     done = False
-                    for frame, main in zip(frames[:, index], main_tokens[index], strict=True):
+                    for main in main_tokens[index]:
                         done = main == self.model.config.eos_token_id
                         if not done:
-                            request.frames.append(frame[1:].clone())
-                            request.last_frame = frame.clone()
-                            request.history = torch.cat((request.history[1:], frame[:1]))
+                            request.frame_count += 1
                             request.position += 1
-                        done = done or len(request.frames) >= request.max_frames
+                        done = done or request.frame_count >= request.max_frames
                         if done:
                             break
-                    if len(request.frames) >= request.next_emit or done:
+                    if request.frame_count >= request.next_emit or done:
                         emit.append(request)
                     if done:
                         finished.append(request)
@@ -266,7 +289,10 @@ class Engine:
     def prefill(self, request: Request) -> None:
         codes = []
         texts = []
-        if request.reference is not None:
+        if request.reference_codes is not None:
+            codes = [torch.tensor(request.reference_codes, dtype=torch.int64)]
+            texts = [request.reference_text]
+        elif request.reference is not None:
             digest = hashlib.sha256(request.reference).hexdigest()
             if digest not in self.references:
                 waveform, sample_rate = sf.read(
@@ -300,12 +326,13 @@ class Engine:
         request.position = len(frames) - 1
         request.last_frame = frames[-1].to("cuda")
         request.history = F.pad(frames[-16:, 0], (max(0, 16 - len(frames)), 0), value=-1).to("cuda")
+        self.device_requests.initialize(
+            request.slot, request.last_frame, request.history, request.position, request.max_frames
+        )
         first = self.first_graph.run([request], hidden)[0]
         if first[0].item() == self.model.config.eos_token_id:
             raise ValueError("The model generated no acoustic frames")
-        request.frames.append(first[1:].clone())
-        request.last_frame = first.clone()
-        request.history = torch.cat((request.history[1:], first[:1]))
+        request.frame_count = 1
         request.position += 1
 
     def decode_audio(self, codes: torch.Tensor) -> torch.Tensor:
@@ -318,30 +345,39 @@ class Engine:
     def emit_audio_batch(self, requests: list[Request]) -> None:
         groups = {}
         for request in requests:
-            count = len(request.frames)
+            count = request.frame_count
             if count <= request.emitted:
                 continue
-            left = max(0, request.emitted - 32)
-            length = count - left
-            groups.setdefault(length, []).append((request, left, count))
+            length = count - request.emitted
+            bucket = self.codec_graphs.frame_bucket(length)
+            groups.setdefault(bucket, []).append((request, request.emitted, count))
         for length, jobs in groups.items():
-            for start in range(0, len(jobs), min(8, self.slots)):
-                chunk = jobs[start : start + min(8, self.slots)]
-                batch = 1 << (len(chunk) - 1).bit_length()
-                codes = torch.zeros((len(chunk), 10, length), dtype=torch.int64, device="cuda")
-                for index, (request, left, count) in enumerate(chunk):
-                    codes[index, :, : count - left] = torch.stack(request.frames[left:]).T
-                graph = self.codec_graphs.get((batch, length))
-                waveform = (
-                    graph.run(codes) if graph is not None else self.decode_audio(codes)
-                ).float()
+            start = 0
+            for batch in self.codec_graphs.split(length, len(jobs)):
+                chunk = jobs[start : start + batch]
+                start += batch
+                rows = torch.tensor(
+                    [
+                        [request.slot for request, _, _ in chunk],
+                        [int(left == 0) for _, left, _ in chunk],
+                        [count - left for _, left, count in chunk],
+                        [left for _, left, _ in chunk],
+                    ],
+                    dtype=torch.int64,
+                    device="cuda",
+                )
+                codes = self.device_requests.gather_codes(rows, length)
+                with torch.autocast("cuda", dtype=torch.bfloat16):
+                    waveform = self.codec_graphs(codes, rows=rows)
                 pcm = (waveform.clamp(-1, 1) * 32767).to(torch.int16).cpu().numpy()
                 for index, (request, left, count) in enumerate(chunk):
-                    begin, end = (request.emitted - left) * 2048, (count - left) * 2048
-                    request.emit(pcm[index, 0, begin:end].astype("<i2", copy=False).tobytes())
+                    end = (count - left) * 2048
+                    request.emit(pcm[index, 0, :end].astype("<i2", copy=False).tobytes())
                     request.emitted = count
+                    request.chunk_index += 1
+                    ramp = (6, 8, 12, 16, 24, 32)
                     request.next_emit = count + (
-                        10 if count == 10 else 12 if count == 20 else 32 if count == 32 else 64
+                        ramp[request.chunk_index] if request.chunk_index < len(ramp) else 64
                     )
 
     def submit(self, request: Request) -> None:
