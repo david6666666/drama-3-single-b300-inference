@@ -24,7 +24,7 @@ from drama3.audio_queue import AudioQueue
 from drama3.codec import load_codec, streaming_codec
 from drama3.model import AttentionBatch, DramaModel
 from drama3.packed_prefill import PackedPrefillGraph
-from drama3.profiling import StageProfiler
+from drama3.profiling import StageProfiler, TimelineProfiler
 from drama3.runtime_state import DeviceRequests
 
 
@@ -266,6 +266,9 @@ class Engine:
         self.ready = threading.Event()
         self.failure = None
         profile_path = os.environ.get("DRAMA3_PROFILE_PATH")
+        timeline_path = os.environ.get("DRAMA3_TIMELINE_PATH")
+        if profile_path and timeline_path:
+            raise ValueError("Select either synchronized stage profiling or event timeline")
         self.async_codec = os.environ.get("DRAMA3_ASYNC_CODEC") == "1"
         self.audio_delivery_thread = os.environ.get("DRAMA3_AUDIO_DELIVERY_THREAD") == "1"
         if self.audio_delivery_thread and not self.async_codec:
@@ -273,7 +276,13 @@ class Engine:
         self.audio_queue = None
         if self.async_codec and profile_path:
             raise ValueError("StageProfiler is synchronous; use a CUDA trace for codec overlap")
-        self.profiler = StageProfiler(profile_path) if profile_path else None
+        self.profiler = (
+            TimelineProfiler(timeline_path)
+            if timeline_path
+            else StageProfiler(profile_path)
+            if profile_path
+            else None
+        )
         self.thread = threading.Thread(target=self.run, name="drama3-gpu", daemon=False)
         self.thread.start()
 
@@ -343,7 +352,9 @@ class Engine:
             )
             if self.async_codec:
                 self.audio_queue = AudioQueue(
-                    self.codec_graphs, threaded=self.audio_delivery_thread
+                    self.codec_graphs,
+                    threaded=self.audio_delivery_thread,
+                    profiler=self.profiler if isinstance(self.profiler, TimelineProfiler) else None,
                 )
             torch.cuda.synchronize()
             self.ready.set()
@@ -450,7 +461,7 @@ class Engine:
                         free.append(request.slot)
                     else:
                         survivors.append(request)
-                with self.measure("codec", len(emit)):
+                with self.measure("codec_submit" if self.async_codec else "codec", len(emit)):
                     self.emit_audio_batch(emit)
                 for request in finished:
                     self.finish_audio(request)

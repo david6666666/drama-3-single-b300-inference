@@ -3,6 +3,7 @@
 import queue
 import threading
 from collections import deque
+from contextlib import nullcontext
 from dataclasses import dataclass
 
 import torch
@@ -19,11 +20,12 @@ class AudioBatch:
 
 
 class AudioQueue:
-    def __init__(self, graphs, max_pending=32, threaded=False):
+    def __init__(self, graphs, max_pending=32, threaded=False, profiler=None):
         self.graphs = graphs
         self.max_pending = max_pending
         self.stream = torch.cuda.Stream()
         self.threaded = threaded
+        self.profiler = profiler
         self.pending = queue.Queue(max_pending) if threaded else deque()
         self.failure = None
         self.closed = False
@@ -86,6 +88,9 @@ class AudioQueue:
         with (
             torch.cuda.stream(self.stream),
             torch.autocast("cuda", dtype=self.graphs.decoder.dtype),
+            self.profiler.measure("codec_gpu_and_copy", len(codes))
+            if self.profiler is not None
+            else nullcontext(),
         ):
             waveform = self.graphs(codes, rows=rows)
             pcm = (waveform.clamp(-1, 1) * 32767).to(torch.int16)
