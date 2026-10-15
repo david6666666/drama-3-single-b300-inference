@@ -66,6 +66,13 @@ FP32 recurrent state. Reject promotion if full WER/SIM coverage fails the qualit
 gate or the complete serving comparison does not improve. Kernel timings alone
 cannot promote this path.
 
+An independent precision experiment sets `DRAMA3_GDN_STATE_DTYPE=bfloat16`,
+matching the new upstream deployment's recurrent-state storage. The default is
+still FP32. Its hypothesis is lower state traffic at larger batches; dense and
+expert precision, corpus, and sampling stay fixed. Validate recurrence and full
+saved-audio WER/SIM before promotion. Profile the actual 2048-token graph capacity
+as well as the original 512-token diagnostic so planning overhead is visible.
+
 ## Provenance
 
 - ThinkFlowLab/OmniRSI PR 9: Strata, vLLM-Omni, SGLang-Omni knowledge packs.

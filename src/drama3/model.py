@@ -126,6 +126,10 @@ class AttentionBatch:
 
 class DramaModel:
     def __init__(self, checkpoint: str, slots: int = 64, max_length: int = 2048):
+        self.state_precision = os.environ.get("DRAMA3_GDN_STATE_DTYPE", "float32")
+        if self.state_precision not in ("float32", "bfloat16"):
+            raise ValueError("DRAMA3_GDN_STATE_DTYPE must be float32 or bfloat16")
+        state_dtype = getattr(torch, self.state_precision)
         self.weights = FishOmniModel.from_pretrained(
             checkpoint,
             devices=["cuda:0"],
@@ -167,7 +171,7 @@ class DramaModel:
                 )
                 self.states[index] = (
                     torch.zeros((slots, 8192, 3), dtype=torch.bfloat16, device="cuda"),
-                    torch.zeros((slots, 32, 128, 128), dtype=torch.float32, device="cuda"),
+                    torch.zeros((slots, 32, 128, 128), dtype=state_dtype, device="cuda"),
                 )
             layer.mlp.shared_expert.packed_gate_up = torch.cat(
                 (

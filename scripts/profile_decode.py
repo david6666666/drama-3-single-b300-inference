@@ -17,6 +17,7 @@ def main():
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch", type=int, default=1)
+    parser.add_argument("--max-length", type=int, default=512)
     parser.add_argument("--cold-gemv", action="store_true")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
@@ -36,7 +37,7 @@ def main():
             return out
 
         kernels.gemv = cold_gemv
-    model = DramaModel(args.checkpoint, slots=2 * args.batch, max_length=512)
+    model = DramaModel(args.checkpoint, slots=2 * args.batch, max_length=args.max_length)
     graph = DecodeGraph(model, args.batch)
     graph.positions.fill_(300)
     graph.batch.plan(graph.slots.cpu().tolist(), [300] * args.batch)
@@ -49,7 +50,13 @@ def main():
         graph.graph.replay()
     end.record()
     torch.cuda.synchronize()
-    result = {"batch": args.batch, "decode_ms": start.elapsed_time(end) / 50}
+    result = {
+        "batch": args.batch,
+        "max_length": args.max_length,
+        "gdn_state_precision": model.state_precision,
+        "dense_precision": model.dense_precision,
+        "decode_ms": start.elapsed_time(end) / 50,
+    }
     (args.output / "timing.json").write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result), flush=True)
     with profile(activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA]) as prof:

@@ -75,6 +75,7 @@ def create_app(checkpoint: str, fish_source: str, slots: int, max_length: int) -
             "model": "fishaudio/drama-3",
             "slots": slots,
             "dense_precision": engine.model.dense_precision,
+            "gdn_state_precision": engine.model.state_precision,
         }
 
     @app.post("/v1/audio/speech")
