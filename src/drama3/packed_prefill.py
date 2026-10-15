@@ -1,5 +1,6 @@
 """Packed prompt metadata and convolution, with private padding state slots."""
 
+import os
 from dataclasses import dataclass
 
 import torch
@@ -12,6 +13,39 @@ class PackedLayout:
     boundaries: torch.Tensor
     sequence_slots: torch.Tensor
     max_length: int
+    chunk_indices: torch.Tensor | None = None
+    chunk_offsets: torch.Tensor | None = None
+
+    def initialize_chunks(self, lengths):
+        if os.environ.get("DRAMA3_COMPACT_GDN") != "1":
+            return
+        count = len(lengths)
+        capacity = min(
+            count * triton.cdiv(self.max_length, 64), triton.cdiv(sum(lengths), 64) + count - 1
+        )
+        self.chunk_indices = torch.empty(
+            (capacity, 2), dtype=torch.int64, device=self.boundaries.device
+        )
+        self.chunk_offsets = torch.empty(
+            count + 1, dtype=torch.int64, device=self.boundaries.device
+        )
+        self.update_chunks(lengths)
+
+    def update_chunks(self, lengths):
+        if self.chunk_indices is None:
+            return
+        indices, offsets = [], [0]
+        for sequence, length in enumerate(lengths):
+            indices.extend((sequence, chunk) for chunk in range(triton.cdiv(length, 64)))
+            offsets.append(len(indices))
+        if len(indices) > len(self.chunk_indices):
+            raise ValueError("Packed chunks exceed captured descriptor capacity")
+        # The remaining entries address an out-of-range chunk of a valid
+        # sequence; guarded kernels skip it without touching state or output.
+        invalid = (len(lengths) - 1, triton.cdiv(lengths[-1], 64))
+        indices.extend([invalid] * (len(self.chunk_indices) - len(indices)))
+        self.chunk_indices.copy_(torch.tensor(indices, dtype=torch.int64))
+        self.chunk_offsets.copy_(torch.tensor(offsets, dtype=torch.int64))
 
 
 @triton.jit
@@ -114,6 +148,7 @@ class PackedPrefillGraph:
         )
         slots = torch.arange(model.slots - batch - 1, model.slots, device="cuda")
         self.layout = PackedLayout(boundaries, slots, max_length)
+        self.layout.initialize_chunks(sizes)
         self.graph = torch.cuda.CUDAGraph()
         stream = capture_stream or torch.cuda.Stream()
         stream.wait_stream(torch.cuda.current_stream())
@@ -156,6 +191,7 @@ class PackedPrefillGraph:
         boundaries = [0, *torch.tensor(lengths).cumsum(0).tolist()]
         self.layout.boundaries.copy_(torch.tensor(boundaries, dtype=torch.int32))
         self.layout.sequence_slots.copy_(torch.tensor(slots + reserved))
+        self.layout.update_chunks(lengths)
         for index, prompt in enumerate(prompts):
             self.frames[boundaries[index] : boundaries[index + 1]].copy_(prompt)
         self.graph.replay()

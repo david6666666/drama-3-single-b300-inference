@@ -105,20 +105,32 @@ def prefill(q, k, v, decay, beta, state, slots, length, backend="fla", packed_la
         return output.reshape(sequences, span, 32, 128)
     if backend != "fla":
         raise ValueError("GDN prefill backend must be fla or flashinfer")
-    indices = torch.stack(
-        (
-            torch.arange(sequence_count, device=q.device).repeat_interleave(chunks_per_sequence),
-            torch.arange(chunks_per_sequence, device=q.device).repeat(sequence_count),
-        ),
-        dim=1,
-    )
-    offsets = torch.arange(sequence_count + 1, device=q.device) * chunks_per_sequence
+    compact = packed_layout is not None and packed_layout.chunk_indices is not None
+    if compact:
+        from drama3.gdn_compact import compact_chunk_o, compact_intra
+
+        indices, offsets = packed_layout.chunk_indices, packed_layout.chunk_offsets
+        chunks = len(indices)
+    else:
+        indices = torch.stack(
+            (
+                torch.arange(sequence_count, device=q.device).repeat_interleave(
+                    chunks_per_sequence
+                ),
+                torch.arange(chunks_per_sequence, device=q.device).repeat(sequence_count),
+            ),
+            dim=1,
+        )
+        offsets = torch.arange(sequence_count + 1, device=q.device) * chunks_per_sequence
     q, k, v, decay, beta = (tensor.contiguous() for tensor in (q, k, v, decay, beta))
     q, k = l2norm_fwd(q), l2norm_fwd(k)
     g = chunk_local_cumsum(decay, chunk_size=64, cu_seqlens=boundaries, chunk_indices=indices)
-    w, u, _ = chunk_gated_delta_rule_fwd_intra(
-        k=k, v=v, g=g, beta=beta, cu_seqlens=boundaries, chunk_indices=indices
-    )
+    if compact:
+        w, u = compact_intra(k, v, beta, g, boundaries, indices)
+    else:
+        w, u, _ = chunk_gated_delta_rule_fwd_intra(
+            k=k, v=v, g=g, beta=beta, cu_seqlens=boundaries, chunk_indices=indices
+        )
     h = torch.empty((1, chunks, 32, 128, 128), dtype=k.dtype, device=k.device)
     updated = torch.empty_like(u)
     chunk_gated_delta_rule_fwd_kernel_h_blockdim64[
@@ -156,7 +168,8 @@ def prefill(q, k, v, decay, beta, state, slots, length, backend="fla", packed_la
         USE_EXP2=False,
     )
     output = torch.zeros_like(v)
-    chunk_fwd_kernel_o[(2, chunks, 32)](
+    output_kernel = compact_chunk_o if compact else chunk_fwd_kernel_o
+    output_kernel[(2, chunks, 32)](
         q,
         k,
         updated,

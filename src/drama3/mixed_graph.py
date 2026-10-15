@@ -44,6 +44,7 @@ class MixedGraph:
             torch.tensor([*range(batch), model.slots - 1], device="cuda", dtype=torch.int64),
             max_length,
         )
+        self.layout.initialize_chunks(sizes)
         self.attention = AttentionBatch(
             self.slots[:decode_size], self.positions[:decode_size], model.max_length
         )
@@ -124,6 +125,7 @@ class MixedGraph:
         self.slots[:d].copy_(torch.tensor(decode_slots, dtype=torch.int64))
         self.layout.boundaries.copy_(torch.tensor(boundaries, dtype=torch.int32))
         self.layout.sequence_slots.copy_(torch.tensor(pref_slots, dtype=torch.int64))
+        self.layout.update_chunks(lengths)
         for i, prompt in enumerate(prompts):
             self.frames[d + boundaries[i] : d + boundaries[i + 1]].copy_(prompt)
 
