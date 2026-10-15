@@ -1,0 +1,16 @@
+{
+  "verdict": "INCONCLUSIVE",
+  "reason": "No candidate meets the frozen all-concurrency throughput gate. Only individual feasibility configurations have complete1088-row quality; the candidate21-group matrix is absent.",
+  "baseline_quality_groups": 21,
+  "baseline_scored_waveforms": 22848,
+  "packed_replay_checks": 5076,
+  "failed_diagnostics": {
+    "packed-prefill-validation.json": "Full-network RRMS gate failed",
+    "padded-control-validation-v2.json": "Unchanged padded control also fails the full-network gate",
+    "packed-layer-validation.json": "Operator checks passed for B3; invalid nested graph timing failed",
+    "packed-layer-validation-v2.json": "B5 graph/eager mismatch with atomic reduction",
+    "batched-multistep-partial-validation.json": "Test count variable overwritten; setup invalid; corrected v2 preserved",
+    "prefill-decode-overlap.json": "GPU1 timing unqualified due to observed external job; GPU0 retry preserved"
+  },
+  "acceptance_issue": "https://github.com/ThinkFlowLab/OmniRSI/issues/10"
+}

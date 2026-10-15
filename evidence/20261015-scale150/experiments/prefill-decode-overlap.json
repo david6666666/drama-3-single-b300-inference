@@ -1,0 +1,15 @@
+{
+  "source_sha": "7a413791bdf20e6ff2463fac35d5d236068ba37d",
+  "hypothesis": "Packed prefill for six new slots may overlap five decode steps for58active requests without corrupting either state set.",
+  "isolated_variable": "Serial versus concurrent replay, separate capture streams and disjoint primary/padding slots",
+  "controls": "GPU1 OMP4, identical64real corpus prompts and exact cloned initial states, no atomic prefill, nativeFP8/BF16, context2048; no first-frame generation in overlap",
+  "success": "Bit-exact hidden, KV, convolution, recurrent, request and sampling states; shorter GPU interval before scheduling implementation",
+  "stop": "Any state or output difference; no service claim, excludes admission, first-frame generation and codec",
+  "gpu1_timing_qualification": "UNQUALIFIED: external VLLM workers observed on GPU1/3/4/5 at completion. State equality remains observed but timing cannot establish a gain.",
+  "retry": {
+    "gpu": 0,
+    "source_sha": "7a413791bdf20e6ff2463fac35d5d236068ba37d",
+    "output": "prefill-decode-overlap-gpu0.json",
+    "controls": "Identical serial/concurrent inputs and flags; isolated GPU0 verified empty before launch."
+  }
+}

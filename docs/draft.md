@@ -1,8 +1,10 @@
 # Drama 3 on one B300
 
 The target is a standalone streaming TTS runtime for `fishaudio/drama-3`.
-The updated acceptance target is at least twice the measured vLLM-Omni
-throughput after PR #8933 at each concurrency, subject to output quality.
+The latest acceptance target is at least 1.5 times the measured vLLM-Omni
+throughput after PR #8933 at each concurrency, with WER increase ≤1 percentage
+point and SIM decrease ≤2 versus the same-concurrency baseline. These quality
+bounds are user-confirmed and frozen in [acceptance issue #10](https://github.com/ThinkFlowLab/OmniRSI/issues/10).
 The completed [full comparison](full-comparison.md) does not meet that target.
 
 ## Baseline contract

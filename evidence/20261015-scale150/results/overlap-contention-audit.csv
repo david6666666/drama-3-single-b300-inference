@@ -1,0 +1,5 @@
+pid, gpu_uuid, process_name, used_gpu_memory [MiB]
+1480278, GPU-adecbd14-4768-00f8-a2fa-697ced804a8d, VLLM::Worker_PCP0, 144640 MiB
+1480279, GPU-90fb226c-3937-2448-1052-2e12282a61b9, VLLM::Worker_PCP1, 144640 MiB
+1480280, GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed, VLLM::Worker_PCP2, 144640 MiB
+1480281, GPU-fd75ec1b-92a4-ca93-a3ad-976565948d0e, VLLM::Worker_PCP3, 144640 MiB

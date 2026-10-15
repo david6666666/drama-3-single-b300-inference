@@ -1,0 +1,9 @@
+{
+  "source_sha": "c730e2fe554636ff169ea944af6e86d923085e59",
+  "hypothesis": "Graphs captured on one stream may share cached BLAS workspace when replayed concurrently; isolate before adding overlap.",
+  "isolated_variable": "Default shared capture stream versus separate explicit capture streams",
+  "controls": "GPU1, fixed seed42 BF16 inputs and FP32 output GEMMs at real projection geometries, two concurrent graphs x100 replays, explicit input lifetime retention",
+  "success": "All48outputs per variant finite and bit-exact to serial graph reference",
+  "stop": "Record mismatch without claiming model race; model/codec-specific validation still required",
+  "source": "https://github.com/pytorch/pytorch/blob/cf30153c4c131c8164ee7798e5022d810682e2cb/aten/src/ATen/cuda/CublasHandlePool.cpp#L290-L304"
+}

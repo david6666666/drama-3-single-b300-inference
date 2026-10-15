@@ -1,0 +1,86 @@
+[
+  {
+    "batch": 2,
+    "count": 1,
+    "steps": 2,
+    "limited": false,
+    "passed": true
+  },
+  {
+    "batch": 2,
+    "count": 1,
+    "steps": 2,
+    "limited": true,
+    "passed": true
+  },
+  {
+    "batch": 2,
+    "count": 1,
+    "steps": 4,
+    "limited": false,
+    "passed": true
+  },
+  {
+    "batch": 2,
+    "count": 1,
+    "steps": 4,
+    "limited": true,
+    "passed": true
+  },
+  {
+    "batch": 4,
+    "count": 3,
+    "steps": 2,
+    "limited": false,
+    "passed": true
+  },
+  {
+    "batch": 4,
+    "count": 3,
+    "steps": 2,
+    "limited": true,
+    "passed": true
+  },
+  {
+    "batch": 4,
+    "count": 3,
+    "steps": 4,
+    "limited": false,
+    "passed": true
+  },
+  {
+    "batch": 4,
+    "count": 3,
+    "steps": 4,
+    "limited": true,
+    "passed": true
+  },
+  {
+    "batch": 8,
+    "count": 7,
+    "steps": 2,
+    "limited": false,
+    "passed": true
+  },
+  {
+    "batch": 8,
+    "count": 7,
+    "steps": 2,
+    "limited": true,
+    "passed": true
+  },
+  {
+    "batch": 8,
+    "count": 7,
+    "steps": 4,
+    "limited": false,
+    "passed": true
+  },
+  {
+    "batch": 8,
+    "count": 7,
+    "steps": 4,
+    "limited": true,
+    "passed": true
+  }
+]

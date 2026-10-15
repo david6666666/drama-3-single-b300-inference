@@ -1,0 +1,23 @@
+[
+  {
+    "batch": 2,
+    "count": 2,
+    "steps": 2,
+    "limited": false,
+    "passed": true
+  },
+  {
+    "batch": 2,
+    "count": 2,
+    "steps": 2,
+    "limited": true,
+    "passed": true
+  },
+  {
+    "batch": 2,
+    "count": 4,
+    "steps": 4,
+    "limited": false,
+    "passed": true
+  }
+]

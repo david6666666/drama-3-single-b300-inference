@@ -67,12 +67,34 @@ performance claim. The unchanged formal candidate remains in
 | MXFP8 expert re-encoding | Layer 0 RRMS 0.23045 versus native; independent implementation parity 0.01071 | Rejected by the predeclared 0.1 error limit; no service test |
 | Packed variable-length attention primitive | CUDA Graph, changing lengths, empty sequences and causal GQA checks pass | Proceed only to isolated full-prefill validation |
 | Complete packed prefill versus independent single requests | Worst state RRMS 0.322; unchanged padded control also reaches 0.394 | Both exceed 0.03; retain failed diagnostics and isolate each operation on identical inputs |
+| Packed prefill with ordered native reduction | All 4546 expanded layer/graph/state checks pass at B2/3/5/6/8; C64 3645.87 frames/s versus same-configuration padded 3383.91 | Single-run feasibility improvement; below both vLLM and target |
+| Packed prefill audio quality | All 1088 scored; WER 1.624%, SIM 64.364 | Within confirmed bounds for this run; all-concurrency repeated acceptance still missing |
+| Fused small-batch tower projection | All 144 operator checks pass, maximum RRMS 0.000393; real B4 decode 4.190 → 4.059 ms; C4 serving 725.92 versus fresh unchanged 756.05 frames/s | Not selected: microbench gain did not improve service; complete WER 1.348%, SIM 64.067 |
+| Batched multi-step decode | 24 full/partial-batch checks pass exactly, including limits and context boundaries; C4 740.25 frames/s, TTFA p95 74.267 ms | Not selected: lower throughput and higher first-audio latency than fresh control; complete WER 1.859%, SIM 64.181 |
+| Concurrent GEMM graphs | Separate and shared capture streams both match serial outputs in the tested primitive | No workspace race demonstrated; do not attribute prior quality problems to this hypothesis |
+| Packed prefill/decode overlap | GPU0: serial 80.656 ms, overlap 75.123 ms for one prefill plus five decode steps; hidden and all states exact | Isolated opportunity only; first-frame sampling, scheduling and codec excluded; no service integration |
 
 The original packed experiment was stopped at its numerical gate. A separately
 declared layer-isolation experiment retains the 0.03 operator threshold and
 exact state-ownership checks; it does not treat whole-network drift as a pass.
 Neither graph parity nor layer parity replaces full audio quality. The frozen
 acceptance plan and validator have not been relaxed.
+
+The layer-isolation probe initially also found a graph/eager mismatch at B5
+when the existing atomic FP32 reduction was enabled. Disabling the tuned
+atomic prefill path removed that mismatch in all tested cases, without changing
+the numeric threshold. Experimental packed serving therefore rejects the atomic
+configuration. Both arms of its service comparison use the untuned native
+reduction. Their TTFA p50/p95 are respectively 145.818/347.136 ms (packed) and
+164.584/432.392 ms (padded); mean RTF is 0.364525 and 0.391865. These are single
+feasibility measurements, not a repeated A/B claim. The raw timings, launch
+commands, partial failures and complete packed quality remain in the evidence.
+
+The first overlap diagnostic used GPU1. External vLLM workers were observed on
+that device at completion, so its timing is explicitly unqualified. The GPU0
+retry above used an empty device; those external processes were left alone.
+The packed graph validator was also strengthened to snapshot untouched slots
+before graph replay, in addition to the existing eager-path isolation check.
 
 Raw compact evidence and experiment plans are under
 [20261015-scale150](../evidence/20261015-scale150).
