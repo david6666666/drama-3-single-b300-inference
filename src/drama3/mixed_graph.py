@@ -10,8 +10,18 @@ from drama3.packed_prefill import PackedLayout, row_metadata
 
 class MixedGraph:
     def __init__(
-        self, model, requests, decode_size, batch, capacity, pool=None, joint_backbone=True
+        self,
+        model,
+        requests,
+        decode_size,
+        batch,
+        capacity,
+        pool=None,
+        joint_backbone=True,
+        max_length=512,
     ):
+        if not 3 <= max_length <= 512:
+            raise ValueError("Mixed prompt span must be between 3 and 512")
         self.model, self.requests = model, requests
         self.joint_backbone = joint_backbone
         self.decode_size, self.batch, self.capacity = decode_size, batch, capacity
@@ -25,12 +35,14 @@ class MixedGraph:
         self.labels = torch.empty(capacity, 11, device="cuda", dtype=torch.int64)
         sizes = [capacity // (batch + 1)] * batch
         sizes.append(capacity - sum(sizes))
+        if max(sizes) > max_length:
+            raise ValueError("Capture layout exceeds the mixed prompt span")
         self.layout = PackedLayout(
             torch.tensor(
                 [0, *torch.tensor(sizes).cumsum(0).tolist()], device="cuda", dtype=torch.int32
             ),
             torch.tensor([*range(batch), model.slots - 1], device="cuda", dtype=torch.int64),
-            512,
+            max_length,
         )
         self.attention = AttentionBatch(
             self.slots[:decode_size], self.positions[:decode_size], model.max_length
@@ -95,7 +107,7 @@ class MixedGraph:
             raise ValueError("Invalid mixed request count")
         lengths = list(map(len, prompts))
         padding = self.capacity - sum(lengths)
-        if min(lengths) < 3 or max(lengths + [padding]) > 512 or padding < 0:
+        if min(lengths) < 3 or max(lengths + [padding]) > self.layout.max_length or padding < 0:
             raise ValueError("Prompts exceed mixed graph capacity")
         decode_slots = [r.slot for r in active]
         decode_slots += list(range(self.model.slots // 2 + count, self.model.slots // 2 + d))
