@@ -10,6 +10,7 @@ import threading
 import time
 from contextlib import nullcontext
 from dataclasses import dataclass, field
+from functools import partial
 from pathlib import Path
 
 import soundfile as sf
@@ -18,6 +19,7 @@ import torch.nn.functional as F
 import torchaudio.functional as audio_functional
 from fish_speech.models.text2semantic.fish_omni.generate import build_drama3_prompt
 
+from drama3.audio_queue import AudioQueue
 from drama3.codec import load_codec, streaming_codec
 from drama3.model import AttentionBatch, DramaModel
 from drama3.profiling import StageProfiler
@@ -44,6 +46,9 @@ class Request:
     last_frame: torch.Tensor | None = None
     history: torch.Tensor | None = None
     reference_codes: list[list[int]] | None = None
+    pending_audio: int = 0
+    finish_requested: bool = False
+    audio_failed: bool = False
 
     def emit(self, value: bytes | Exception | None) -> None:
         self.loop.call_soon_threadsafe(self.output.put_nowait, value)
@@ -222,6 +227,10 @@ class Engine:
         self.ready = threading.Event()
         self.failure = None
         profile_path = os.environ.get("DRAMA3_PROFILE_PATH")
+        self.async_codec = os.environ.get("DRAMA3_ASYNC_CODEC") == "1"
+        self.audio_queue = None
+        if self.async_codec and profile_path:
+            raise ValueError("StageProfiler is synchronous; use a CUDA trace for codec overlap")
         self.profiler = StageProfiler(profile_path) if profile_path else None
         self.thread = threading.Thread(target=self.run, name="drama3-gpu", daemon=False)
         self.thread.start()
@@ -266,10 +275,14 @@ class Engine:
                 if span <= self.max_length
             }
             self.codec_graphs = streaming_codec(self.codec, self.slots)
+            if self.async_codec:
+                self.audio_queue = AudioQueue(self.codec_graphs)
             torch.cuda.synchronize()
             self.ready.set()
             free = list(range(self.slots))
             while not self.stopping.is_set():
+                if self.audio_queue is not None:
+                    self.audio_queue.drain(block=not active)
                 if free:
                     while len(waiting) < min(8, len(free)):
                         try:
@@ -315,7 +328,7 @@ class Engine:
                                 continue
                             if request.max_frames == 1:
                                 self.emit_audio(request)
-                                request.emit(None)
+                                self.finish_audio(request)
                                 free.append(request.slot)
                             else:
                                 active.append(request)
@@ -365,12 +378,21 @@ class Engine:
                 with self.measure("codec", len(emit)):
                     self.emit_audio_batch(emit)
                 for request in finished:
-                    request.emit(None)
+                    self.finish_audio(request)
                 active = survivors
         except Exception as error:
             self.failure = error
             self.ready.set()
         finally:
+            if self.audio_queue is not None:
+                try:
+                    if self.failure is None:
+                        self.audio_queue.close()
+                    else:
+                        self.audio_queue.abort(self.failure)
+                except Exception as error:
+                    self.failure = self.failure or error
+                    self.audio_queue.abort(self.failure)
             if self.profiler is not None:
                 self.profiler.save()
             for request in active:
@@ -457,6 +479,20 @@ class Engine:
     def emit_audio(self, request: Request) -> None:
         self.emit_audio_batch([request])
 
+    def finish_audio(self, request):
+        request.finish_requested = True
+        if not request.pending_audio and not request.audio_failed:
+            request.emit(None)
+
+    @staticmethod
+    def audio_ready(request, data):
+        request.pending_audio -= 1
+        request.audio_failed = request.audio_failed or isinstance(data, Exception)
+        if not request.cancelled.is_set():
+            request.emit(data)
+            if request.finish_requested and not request.pending_audio and not request.audio_failed:
+                request.emit(None)
+
     def emit_audio_batch(self, requests: list[Request]) -> None:
         groups = {}
         for request in requests:
@@ -482,12 +518,22 @@ class Engine:
                     device="cuda",
                 )
                 codes = self.device_requests.gather_codes(rows, length)
-                with torch.autocast("cuda", dtype=torch.bfloat16):
-                    waveform = self.codec_graphs(codes, rows=rows)
-                pcm = (waveform.clamp(-1, 1) * 32767).to(torch.int16).cpu().numpy()
+                if self.audio_queue is not None:
+                    callbacks = []
+                    for request, left, count in chunk:
+                        request.pending_audio += 1
+                        callbacks.append(
+                            (partial(self.audio_ready, request), (count - left) * 2048)
+                        )
+                    self.audio_queue.submit(codes, rows, callbacks)
+                else:
+                    with torch.autocast("cuda", dtype=torch.bfloat16):
+                        waveform = self.codec_graphs(codes, rows=rows)
+                    pcm = (waveform.clamp(-1, 1) * 32767).to(torch.int16).cpu().numpy()
                 for index, (request, left, count) in enumerate(chunk):
-                    end = (count - left) * 2048
-                    request.emit(pcm[index, 0, :end].astype("<i2", copy=False).tobytes())
+                    if self.audio_queue is None:
+                        end = (count - left) * 2048
+                        request.emit(pcm[index, 0, :end].astype("<i2", copy=False).tobytes())
                     request.emitted = count
                     request.chunk_index += 1
                     ramp = (6, 8, 12, 16, 24, 32)
