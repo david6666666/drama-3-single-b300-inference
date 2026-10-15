@@ -1,0 +1,8 @@
+{
+  "source_sha": "8ecad791d3ef0adbbb832990f219b8eb03ccdb4c",
+  "hypothesis": "Real top-8 occupancy across all40layers can identify exact native kernel/layout scheduling opportunities.",
+  "isolated_variable": "Read-only routing instrumentation; no model computation changed",
+  "controls": "GPU0 OMP4,64real voice-cloning prompts, all8experts retained, nativeFP8/BF16 and BF16GDN, current graph geometry2048",
+  "success": "Capture native per-layer expert occupancy and unchanged complete route weights; do not infer service gain from this diagnostic",
+  "stop": "Any invalid inference/state; no pruning or new lossy quantization authorized by user"
+}

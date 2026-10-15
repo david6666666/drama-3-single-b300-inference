@@ -1,0 +1,242 @@
+[
+  {
+    "layer": 0,
+    "unique_experts": 195,
+    "max_expert_tokens": 8,
+    "moe_us": 140.4873973033467
+  },
+  {
+    "layer": 1,
+    "unique_experts": 207,
+    "max_expert_tokens": 8,
+    "moe_us": 144.87873937042667
+  },
+  {
+    "layer": 2,
+    "unique_experts": 200,
+    "max_expert_tokens": 8,
+    "moe_us": 142.04189809163412
+  },
+  {
+    "layer": 3,
+    "unique_experts": 199,
+    "max_expert_tokens": 7,
+    "moe_us": 140.24290536579335
+  },
+  {
+    "layer": 4,
+    "unique_experts": 194,
+    "max_expert_tokens": 8,
+    "moe_us": 138.83822842648155
+  },
+  {
+    "layer": 5,
+    "unique_experts": 197,
+    "max_expert_tokens": 9,
+    "moe_us": 140.68837793249833
+  },
+  {
+    "layer": 6,
+    "unique_experts": 191,
+    "max_expert_tokens": 10,
+    "moe_us": 137.7988976317567
+  },
+  {
+    "layer": 7,
+    "unique_experts": 182,
+    "max_expert_tokens": 11,
+    "moe_us": 132.9673436971811
+  },
+  {
+    "layer": 8,
+    "unique_experts": 187,
+    "max_expert_tokens": 10,
+    "moe_us": 134.51212350424237
+  },
+  {
+    "layer": 9,
+    "unique_experts": 174,
+    "max_expert_tokens": 12,
+    "moe_us": 129.4177654461983
+  },
+  {
+    "layer": 10,
+    "unique_experts": 171,
+    "max_expert_tokens": 17,
+    "moe_us": 127.48909498515881
+  },
+  {
+    "layer": 11,
+    "unique_experts": 171,
+    "max_expert_tokens": 13,
+    "moe_us": 128.30978540273813
+  },
+  {
+    "layer": 12,
+    "unique_experts": 144,
+    "max_expert_tokens": 11,
+    "moe_us": 115.55708860739684
+  },
+  {
+    "layer": 13,
+    "unique_experts": 167,
+    "max_expert_tokens": 22,
+    "moe_us": 126.70301412924742
+  },
+  {
+    "layer": 14,
+    "unique_experts": 163,
+    "max_expert_tokens": 20,
+    "moe_us": 125.09144636300896
+  },
+  {
+    "layer": 15,
+    "unique_experts": 144,
+    "max_expert_tokens": 21,
+    "moe_us": 116.05614167225511
+  },
+  {
+    "layer": 16,
+    "unique_experts": 155,
+    "max_expert_tokens": 21,
+    "moe_us": 121.7613775518876
+  },
+  {
+    "layer": 17,
+    "unique_experts": 151,
+    "max_expert_tokens": 14,
+    "moe_us": 120.02754332144049
+  },
+  {
+    "layer": 18,
+    "unique_experts": 155,
+    "max_expert_tokens": 14,
+    "moe_us": 121.45558394394912
+  },
+  {
+    "layer": 19,
+    "unique_experts": 157,
+    "max_expert_tokens": 13,
+    "moe_us": 123.20733372169205
+  },
+  {
+    "layer": 20,
+    "unique_experts": 163,
+    "max_expert_tokens": 14,
+    "moe_us": 124.59519826448881
+  },
+  {
+    "layer": 21,
+    "unique_experts": 162,
+    "max_expert_tokens": 14,
+    "moe_us": 124.01030528080928
+  },
+  {
+    "layer": 22,
+    "unique_experts": 155,
+    "max_expert_tokens": 27,
+    "moe_us": 121.17288173773349
+  },
+  {
+    "layer": 23,
+    "unique_experts": 167,
+    "max_expert_tokens": 12,
+    "moe_us": 125.55303821316014
+  },
+  {
+    "layer": 24,
+    "unique_experts": 147,
+    "max_expert_tokens": 22,
+    "moe_us": 117.44214794303798
+  },
+  {
+    "layer": 25,
+    "unique_experts": 152,
+    "max_expert_tokens": 27,
+    "moe_us": 120.88914895669008
+  },
+  {
+    "layer": 26,
+    "unique_experts": 144,
+    "max_expert_tokens": 23,
+    "moe_us": 117.08974466695415
+  },
+  {
+    "layer": 27,
+    "unique_experts": 143,
+    "max_expert_tokens": 39,
+    "moe_us": 116.6777526276021
+  },
+  {
+    "layer": 28,
+    "unique_experts": 152,
+    "max_expert_tokens": 26,
+    "moe_us": 120.13171911239624
+  },
+  {
+    "layer": 29,
+    "unique_experts": 141,
+    "max_expert_tokens": 44,
+    "moe_us": 115.7097828693879
+  },
+  {
+    "layer": 30,
+    "unique_experts": 140,
+    "max_expert_tokens": 28,
+    "moe_us": 116.47633627841347
+  },
+  {
+    "layer": 31,
+    "unique_experts": 136,
+    "max_expert_tokens": 40,
+    "moe_us": 113.68167996406554
+  },
+  {
+    "layer": 32,
+    "unique_experts": 140,
+    "max_expert_tokens": 34,
+    "moe_us": 116.0944190206407
+  },
+  {
+    "layer": 33,
+    "unique_experts": 157,
+    "max_expert_tokens": 31,
+    "moe_us": 123.55856406383026
+  },
+  {
+    "layer": 34,
+    "unique_experts": 150,
+    "max_expert_tokens": 34,
+    "moe_us": 119.23446166209685
+  },
+  {
+    "layer": 35,
+    "unique_experts": 146,
+    "max_expert_tokens": 28,
+    "moe_us": 117.89853180511088
+  },
+  {
+    "layer": 36,
+    "unique_experts": 153,
+    "max_expert_tokens": 33,
+    "moe_us": 120.0675279666216
+  },
+  {
+    "layer": 37,
+    "unique_experts": 151,
+    "max_expert_tokens": 19,
+    "moe_us": 119.18618648867064
+  },
+  {
+    "layer": 38,
+    "unique_experts": 151,
+    "max_expert_tokens": 28,
+    "moe_us": 120.43876406512682
+  },
+  {
+    "layer": 39,
+    "unique_experts": 116,
+    "max_expert_tokens": 27,
+    "moe_us": 106.4160406589508
+  }
+]

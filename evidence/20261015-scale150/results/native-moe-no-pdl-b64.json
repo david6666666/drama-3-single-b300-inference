@@ -1,0 +1,22 @@
+[
+  {
+    "optimization": "moe-no-pdl",
+    "overlap": false,
+    "batch": 64,
+    "gpu_ms_per_step": 8.448230743408203,
+    "frames_exact": true,
+    "state_differences": [],
+    "passed": true,
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac"
+  },
+  {
+    "optimization": "moe-no-pdl",
+    "overlap": true,
+    "batch": 64,
+    "gpu_ms_per_step": 8.529244995117187,
+    "frames_exact": true,
+    "state_differences": [],
+    "passed": true,
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac"
+  }
+]

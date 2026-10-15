@@ -1,0 +1,370 @@
+{
+  "source_sha": "8ecad791d3ef0adbbb832990f219b8eb03ccdb4c",
+  "all_top8_retained": true,
+  "layers": [
+    {
+      "layer": 0,
+      "assignments": 512,
+      "experts": 195,
+      "tokens_per_used_expert": 2.6256410256410256,
+      "max_tokens": 8,
+      "singleton_experts": 51,
+      "tile8_padded_rows": 1560
+    },
+    {
+      "layer": 1,
+      "assignments": 512,
+      "experts": 207,
+      "tokens_per_used_expert": 2.473429951690821,
+      "max_tokens": 8,
+      "singleton_experts": 56,
+      "tile8_padded_rows": 1656
+    },
+    {
+      "layer": 2,
+      "assignments": 512,
+      "experts": 200,
+      "tokens_per_used_expert": 2.56,
+      "max_tokens": 8,
+      "singleton_experts": 58,
+      "tile8_padded_rows": 1600
+    },
+    {
+      "layer": 3,
+      "assignments": 512,
+      "experts": 199,
+      "tokens_per_used_expert": 2.5728643216080402,
+      "max_tokens": 7,
+      "singleton_experts": 57,
+      "tile8_padded_rows": 1592
+    },
+    {
+      "layer": 4,
+      "assignments": 512,
+      "experts": 194,
+      "tokens_per_used_expert": 2.6391752577319587,
+      "max_tokens": 8,
+      "singleton_experts": 54,
+      "tile8_padded_rows": 1552
+    },
+    {
+      "layer": 5,
+      "assignments": 512,
+      "experts": 197,
+      "tokens_per_used_expert": 2.598984771573604,
+      "max_tokens": 9,
+      "singleton_experts": 72,
+      "tile8_padded_rows": 1592
+    },
+    {
+      "layer": 6,
+      "assignments": 512,
+      "experts": 191,
+      "tokens_per_used_expert": 2.680628272251309,
+      "max_tokens": 10,
+      "singleton_experts": 57,
+      "tile8_padded_rows": 1552
+    },
+    {
+      "layer": 7,
+      "assignments": 512,
+      "experts": 182,
+      "tokens_per_used_expert": 2.8131868131868134,
+      "max_tokens": 11,
+      "singleton_experts": 58,
+      "tile8_padded_rows": 1488
+    },
+    {
+      "layer": 8,
+      "assignments": 512,
+      "experts": 187,
+      "tokens_per_used_expert": 2.7379679144385025,
+      "max_tokens": 10,
+      "singleton_experts": 63,
+      "tile8_padded_rows": 1504
+    },
+    {
+      "layer": 9,
+      "assignments": 512,
+      "experts": 174,
+      "tokens_per_used_expert": 2.942528735632184,
+      "max_tokens": 12,
+      "singleton_experts": 51,
+      "tile8_padded_rows": 1408
+    },
+    {
+      "layer": 10,
+      "assignments": 512,
+      "experts": 171,
+      "tokens_per_used_expert": 2.9941520467836256,
+      "max_tokens": 17,
+      "singleton_experts": 52,
+      "tile8_padded_rows": 1392
+    },
+    {
+      "layer": 11,
+      "assignments": 512,
+      "experts": 171,
+      "tokens_per_used_expert": 2.9941520467836256,
+      "max_tokens": 13,
+      "singleton_experts": 48,
+      "tile8_padded_rows": 1408
+    },
+    {
+      "layer": 12,
+      "assignments": 512,
+      "experts": 144,
+      "tokens_per_used_expert": 3.5555555555555554,
+      "max_tokens": 11,
+      "singleton_experts": 38,
+      "tile8_padded_rows": 1240
+    },
+    {
+      "layer": 13,
+      "assignments": 512,
+      "experts": 167,
+      "tokens_per_used_expert": 3.065868263473054,
+      "max_tokens": 22,
+      "singleton_experts": 51,
+      "tile8_padded_rows": 1376
+    },
+    {
+      "layer": 14,
+      "assignments": 512,
+      "experts": 163,
+      "tokens_per_used_expert": 3.1411042944785277,
+      "max_tokens": 20,
+      "singleton_experts": 52,
+      "tile8_padded_rows": 1408
+    },
+    {
+      "layer": 15,
+      "assignments": 512,
+      "experts": 144,
+      "tokens_per_used_expert": 3.5555555555555554,
+      "max_tokens": 21,
+      "singleton_experts": 48,
+      "tile8_padded_rows": 1264
+    },
+    {
+      "layer": 16,
+      "assignments": 512,
+      "experts": 155,
+      "tokens_per_used_expert": 3.303225806451613,
+      "max_tokens": 21,
+      "singleton_experts": 56,
+      "tile8_padded_rows": 1344
+    },
+    {
+      "layer": 17,
+      "assignments": 512,
+      "experts": 151,
+      "tokens_per_used_expert": 3.390728476821192,
+      "max_tokens": 14,
+      "singleton_experts": 40,
+      "tile8_padded_rows": 1256
+    },
+    {
+      "layer": 18,
+      "assignments": 512,
+      "experts": 155,
+      "tokens_per_used_expert": 3.303225806451613,
+      "max_tokens": 14,
+      "singleton_experts": 61,
+      "tile8_padded_rows": 1360
+    },
+    {
+      "layer": 19,
+      "assignments": 512,
+      "experts": 157,
+      "tokens_per_used_expert": 3.261146496815287,
+      "max_tokens": 13,
+      "singleton_experts": 48,
+      "tile8_padded_rows": 1344
+    },
+    {
+      "layer": 20,
+      "assignments": 512,
+      "experts": 163,
+      "tokens_per_used_expert": 3.1411042944785277,
+      "max_tokens": 14,
+      "singleton_experts": 55,
+      "tile8_padded_rows": 1352
+    },
+    {
+      "layer": 21,
+      "assignments": 512,
+      "experts": 162,
+      "tokens_per_used_expert": 3.1604938271604937,
+      "max_tokens": 14,
+      "singleton_experts": 51,
+      "tile8_padded_rows": 1320
+    },
+    {
+      "layer": 22,
+      "assignments": 512,
+      "experts": 155,
+      "tokens_per_used_expert": 3.303225806451613,
+      "max_tokens": 27,
+      "singleton_experts": 56,
+      "tile8_padded_rows": 1320
+    },
+    {
+      "layer": 23,
+      "assignments": 512,
+      "experts": 167,
+      "tokens_per_used_expert": 3.065868263473054,
+      "max_tokens": 12,
+      "singleton_experts": 53,
+      "tile8_padded_rows": 1384
+    },
+    {
+      "layer": 24,
+      "assignments": 512,
+      "experts": 147,
+      "tokens_per_used_expert": 3.4829931972789114,
+      "max_tokens": 22,
+      "singleton_experts": 38,
+      "tile8_padded_rows": 1272
+    },
+    {
+      "layer": 25,
+      "assignments": 512,
+      "experts": 152,
+      "tokens_per_used_expert": 3.3684210526315788,
+      "max_tokens": 27,
+      "singleton_experts": 50,
+      "tile8_padded_rows": 1328
+    },
+    {
+      "layer": 26,
+      "assignments": 512,
+      "experts": 144,
+      "tokens_per_used_expert": 3.5555555555555554,
+      "max_tokens": 23,
+      "singleton_experts": 43,
+      "tile8_padded_rows": 1264
+    },
+    {
+      "layer": 27,
+      "assignments": 512,
+      "experts": 143,
+      "tokens_per_used_expert": 3.5804195804195804,
+      "max_tokens": 39,
+      "singleton_experts": 59,
+      "tile8_padded_rows": 1304
+    },
+    {
+      "layer": 28,
+      "assignments": 512,
+      "experts": 152,
+      "tokens_per_used_expert": 3.3684210526315788,
+      "max_tokens": 26,
+      "singleton_experts": 59,
+      "tile8_padded_rows": 1352
+    },
+    {
+      "layer": 29,
+      "assignments": 512,
+      "experts": 141,
+      "tokens_per_used_expert": 3.631205673758865,
+      "max_tokens": 44,
+      "singleton_experts": 47,
+      "tile8_padded_rows": 1264
+    },
+    {
+      "layer": 30,
+      "assignments": 512,
+      "experts": 140,
+      "tokens_per_used_expert": 3.657142857142857,
+      "max_tokens": 28,
+      "singleton_experts": 47,
+      "tile8_padded_rows": 1280
+    },
+    {
+      "layer": 31,
+      "assignments": 512,
+      "experts": 136,
+      "tokens_per_used_expert": 3.764705882352941,
+      "max_tokens": 40,
+      "singleton_experts": 51,
+      "tile8_padded_rows": 1264
+    },
+    {
+      "layer": 32,
+      "assignments": 512,
+      "experts": 140,
+      "tokens_per_used_expert": 3.657142857142857,
+      "max_tokens": 34,
+      "singleton_experts": 55,
+      "tile8_padded_rows": 1272
+    },
+    {
+      "layer": 33,
+      "assignments": 512,
+      "experts": 157,
+      "tokens_per_used_expert": 3.261146496815287,
+      "max_tokens": 31,
+      "singleton_experts": 63,
+      "tile8_padded_rows": 1400
+    },
+    {
+      "layer": 34,
+      "assignments": 512,
+      "experts": 150,
+      "tokens_per_used_expert": 3.4133333333333336,
+      "max_tokens": 34,
+      "singleton_experts": 62,
+      "tile8_padded_rows": 1344
+    },
+    {
+      "layer": 35,
+      "assignments": 512,
+      "experts": 146,
+      "tokens_per_used_expert": 3.506849315068493,
+      "max_tokens": 28,
+      "singleton_experts": 50,
+      "tile8_padded_rows": 1296
+    },
+    {
+      "layer": 36,
+      "assignments": 512,
+      "experts": 153,
+      "tokens_per_used_expert": 3.34640522875817,
+      "max_tokens": 33,
+      "singleton_experts": 59,
+      "tile8_padded_rows": 1368
+    },
+    {
+      "layer": 37,
+      "assignments": 512,
+      "experts": 151,
+      "tokens_per_used_expert": 3.390728476821192,
+      "max_tokens": 19,
+      "singleton_experts": 49,
+      "tile8_padded_rows": 1288
+    },
+    {
+      "layer": 38,
+      "assignments": 512,
+      "experts": 151,
+      "tokens_per_used_expert": 3.390728476821192,
+      "max_tokens": 28,
+      "singleton_experts": 54,
+      "tile8_padded_rows": 1336
+    },
+    {
+      "layer": 39,
+      "assignments": 512,
+      "experts": 116,
+      "tokens_per_used_expert": 4.413793103448276,
+      "max_tokens": 27,
+      "singleton_experts": 59,
+      "tile8_padded_rows": 1192
+    }
+  ],
+  "mean_used_experts": 161.75,
+  "mean_tile8_utilization": 0.37418707790753425,
+  "timing_qualified": false,
+  "timing_limitation": "An external process was observed on GPU0 after this diagnostic. Routing identities/weights remain observations; timing is excluded from controlled performance claims."
+}

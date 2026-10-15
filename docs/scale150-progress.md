@@ -12,6 +12,12 @@ requests per repetition, three repetitions at each of seven concurrency levels,
 complete quality coverage and matching source, hardware and workload controls.
 No README success example will be added to OmniRSI before every gate passes.
 
+The user also confirmed that further optimization must preserve native model
+computation: retain all eight routed experts and introduce no additional lossy
+quantization. Existing precision-reduction diagnostics remain historical
+rejections. Operator layout, fusion and scheduling experiments must still pass
+the unchanged performance and audio-quality gates.
+
 ## Complete baseline quality
 
 All 21 vLLM performance groups now have complete WER/SIM scoring: 22,848 saved
@@ -73,6 +79,12 @@ performance claim. The unchanged formal candidate remains in
 | Batched multi-step decode | 24 full/partial-batch checks pass exactly, including limits and context boundaries; C4 740.25 frames/s, TTFA p95 74.267 ms | Not selected: lower throughput and higher first-audio latency than fresh control; complete WER 1.859%, SIM 64.181 |
 | Concurrent GEMM graphs | Separate and shared capture streams both match serial outputs in the tested primitive | No workspace race demonstrated; do not attribute prior quality problems to this hypothesis |
 | Packed prefill/decode overlap | GPU0: serial 80.656 ms, overlap 75.123 ms for one prefill plus five decode steps; hidden and all states exact | Isolated opportunity only; first-frame sampling, scheduling and codec excluded; no service integration |
+| Native shared/routed expert overlap | GPU6: B64 8.452 → 8.418 ms and B4 4.195 → 4.134 ms per decode step; ten steps preserve codes and all state exactly | Small diagnostic difference only; no serving improvement established |
+| Native BF16 projection tiles | All 144 tested tiles pass on real B64 projection inputs, max RRMS 0.000146; none beats the existing operator | Keep existing projection dispatch; no new quantization or serving default |
+| Real decode/codec overlap replay | Sync, polled and threaded delivery produce exact PCM and model/codec state for two generations of 64 requests, including slot reuse | Isolates stream safety under fixed request ordering; does not resolve earlier service-quality failure or establish throughput |
+| Packed prefill plus native asynchronous codec | GPU6, one C64 full-corpus trial per arm: sync 3657.93 frames/s, async 3729.52; both score all 1088 outputs | Below target; a 2% feasibility difference is not a repeated serving claim |
+| Fused native MoE input preparation | All 64 buffer cases exact; B64 ten-step decode 8.456 → 8.275 ms with exact codes and all mutable state | Retains original FP8 values, scales and all 256 router logits; no service gain established yet |
+| Disable native MoE programmatic dependent launch | Exact codes and state; B64 8.448 → 8.529 ms | Slower in this diagnostic; retain the existing launch policy |
 
 The original packed experiment was stopped at its numerical gate. A separately
 declared layer-isolation experiment retains the 0.03 operator threshold and
@@ -95,6 +107,29 @@ that device at completion, so its timing is explicitly unqualified. The GPU0
 retry above used an empty device; those external processes were left alone.
 The packed graph validator was also strengthened to snapshot untouched slots
 before graph replay, in addition to the existing eager-path isolation check.
+
+Full top-8 routing instrumentation observed a mean of 161.75 active experts per
+B64 layer in one real decode snapshot. Padding each expert to eight rows would
+give mean row utilization of 37.4%; this describes the routing distribution,
+not measured hardware utilization. All experts are retained. An external job
+was observed on GPU0 after that capture, so its timing is unqualified. Subsequent
+stream and projection diagnostics use an idle GPU6; formal acceptance still
+requires the frozen physical GPU0. Other users' GPU processes are left intact.
+
+The packed codec pair uses the same frozen runtime `66dd6fc` on GPU6. Sync
+TTFA p50/p95 is 149.145/346.882 ms, mean RTF 0.366906, WER 1.767% and SIM
+64.035. Async TTFA is 146.331/345.504 ms, mean RTF 0.351421, WER 2.462% and
+SIM 63.924. Both individual groups meet the confirmed C64 quality bounds.
+This does not erase the earlier async quality failure on a different serving
+configuration, establish its cause, or satisfy the repeated GPU0 campaign.
+
+A separate 384-request event timeline at `1a88b79` excludes warmup using raw
+request timestamps. Mean active decode batch is 49.65; prefill event spans sum
+to 2.436 s, decode to 6.612 s, and codec/copy to 2.308 s. Codec spans overlap
+decode by 1.935 s. These spans can include submission gaps and are not SM
+utilization or summed kernel durations. Codec already overlaps substantial
+decode work, so its standalone duration is not an available service speedup.
+The instrumented run is diagnostic only and is excluded from acceptance.
 
 Raw compact evidence and experiment plans are under
 [20261015-scale150](../evidence/20261015-scale150).

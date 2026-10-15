@@ -1,0 +1,8 @@
+{
+  "source_sha": "3a45588f9d95e3143cde22ef1372fe3692fa23d1",
+  "hypothesis": "One kernel can retain exact native 128-channel FP8 quantization, write the required scale layout directly and cast all256router logits, reducing three preparation launches to one.",
+  "isolated_variable": "Only input preparation fusion; native full8 routing and both FP8 expert GEMMs unchanged; no new precision conversion.",
+  "controls": "GPU6 OMP4 same weights and checkpoint, native BF16GDN. Unit buffer sweep covers B12..64, strided/contiguous, zero/tiny/ordinary/large inputs; real graph replay compares identical prompt-prefilled state.",
+  "success": "Every byte of quantized activations/scales/router output exact; ten real autoregressive steps preserve all codes and mutable state bitexact before serving trial.",
+  "stop": "Any buffer/state/code mismatch or external GPU6 process; retain failed evidence without relaxing exactness."
+}
