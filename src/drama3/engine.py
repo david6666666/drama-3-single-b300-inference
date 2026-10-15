@@ -42,10 +42,11 @@ class Request:
 
 
 class DecodeGraph:
-    def __init__(self, model: DramaModel, size: int, first_frame: bool = False):
+    def __init__(self, model: DramaModel, size: int, first_frame: bool = False, steps: int = 1):
         self.model = model
         self.size = size
         self.first_frame = first_frame
+        self.steps = steps
         self.frames = torch.zeros((size, 11), dtype=torch.int64, device="cuda")
         self.frames[:, 0] = model.config.eos_token_id
         # Capture the largest attention plan; replay may shorten each sequence.
@@ -76,7 +77,19 @@ class DecodeGraph:
                 None,
                 self.history,
             )
-        return self.model.decode(self.frames, self.positions, self.slots, self.history, self.batch)
+        if self.steps == 1:
+            return self.model.decode(
+                self.frames, self.positions, self.slots, self.history, self.batch
+            )
+        frames, history = self.frames, self.history
+        outputs = []
+        for _ in range(self.steps):
+            self.batch.refresh()
+            frames = self.model.decode(frames, self.positions, self.slots, history, self.batch)
+            outputs.append(frames)
+            history = torch.cat((history[:, 1:], frames[:, :1]), dim=-1)
+            self.positions.add_(1).clamp_(max=self.model.max_length - 1)
+        return torch.stack(outputs)
 
     def run(self, requests: list[Request], hidden: torch.Tensor | None = None) -> torch.Tensor:
         count = len(requests)
@@ -90,7 +103,7 @@ class DecodeGraph:
         if hidden is not None:
             self.hidden.copy_(hidden)
         self.graph.replay()
-        return self.output[:count].clone()
+        return (self.output[:count] if self.steps == 1 else self.output[:, :count]).clone()
 
 
 class PrefillGraph:
@@ -155,6 +168,9 @@ class Engine:
                 if size <= self.slots:
                     self.graphs[size] = DecodeGraph(self.model, size)
             self.first_graph = DecodeGraph(self.model, 1, first_frame=True)
+            self.serial_graphs = {
+                steps: DecodeGraph(self.model, 1, steps=steps) for steps in (2, 4)
+            }
             self.prefill_graphs = {
                 size: PrefillGraph(self.model, size)
                 for size in (128, 256, 512)
@@ -169,9 +185,8 @@ class Engine:
             torch.cuda.synchronize()
             self.ready.set()
             free = list(range(self.slots))
-            steps = 0
             while not self.stopping.is_set():
-                if free and (not active or steps % 4 == 0):
+                if free:
                     try:
                         request = self.pending.get(timeout=0.01 if not active else 0)
                     except queue.Empty:
@@ -203,19 +218,31 @@ class Engine:
                 if not active:
                     continue
                 size = 1 << (len(active) - 1).bit_length()
-                frames = self.graphs[size].run(active)
-                main_tokens = frames[:, 0].cpu().tolist()
+                graph = self.graphs[size]
+                if len(active) == 1 and self.pending.empty():
+                    request = active[0]
+                    available = min(request.next_emit, request.max_frames) - len(request.frames)
+                    steps = 4 if available >= 4 else 2 if available >= 2 else 1
+                    graph = self.serial_graphs.get(steps, graph)
+                frames = graph.run(active)
+                if frames.ndim == 2:
+                    frames = frames.unsqueeze(0)
+                main_tokens = frames[:, :, 0].T.cpu().tolist()
                 survivors = []
                 emit = []
                 finished = []
-                for request, frame, main in zip(active, frames, main_tokens, strict=True):
-                    done = main == self.model.config.eos_token_id
-                    if not done:
-                        request.frames.append(frame[1:].clone())
-                        request.last_frame = frame.clone()
-                        request.history = torch.cat((request.history[1:], frame[:1]))
-                        request.position += 1
-                    done = done or len(request.frames) >= request.max_frames
+                for index, request in enumerate(active):
+                    done = False
+                    for frame, main in zip(frames[:, index], main_tokens[index], strict=True):
+                        done = main == self.model.config.eos_token_id
+                        if not done:
+                            request.frames.append(frame[1:].clone())
+                            request.last_frame = frame.clone()
+                            request.history = torch.cat((request.history[1:], frame[:1]))
+                            request.position += 1
+                        done = done or len(request.frames) >= request.max_frames
+                        if done:
+                            break
                     if len(request.frames) >= request.next_emit or done:
                         emit.append(request)
                     if done:
@@ -227,7 +254,6 @@ class Engine:
                 for request in finished:
                     request.emit(None)
                 active = survivors
-                steps += 1
         except Exception as error:
             self.failure = error
             self.ready.set()

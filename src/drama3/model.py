@@ -23,6 +23,7 @@ from drama3.kernels import (
     conv_update,
     gated_norm,
     linear,
+    native_moe,
     prepare_attention,
     route,
     silu_mul,
@@ -368,7 +369,7 @@ class DramaModel:
             if len(x) <= 8:
                 routed = small_batch_moe(x, indices, weights, experts)
             else:
-                routed = experts(x, indices, weights)
+                routed = native_moe(x, indices, weights, experts)
         else:
             quantized, scales = quantize_groups(quant_kernel, x, x.shape[-1])
             routed = trtllm_fp8_block_scale_moe(

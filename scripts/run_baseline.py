@@ -1,6 +1,7 @@
 """Start, benchmark, and clean up one pinned single-GPU upstream baseline."""
 
 import argparse
+import hashlib
 import json
 import os
 import signal
@@ -13,11 +14,12 @@ from pathlib import Path
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--backend", choices=["sglang", "vllm"], required=True)
+    parser.add_argument("--backend", choices=["sglang", "vllm", "standalone"], required=True)
     parser.add_argument("--source", type=Path, required=True)
     parser.add_argument("--venv", type=Path, required=True)
     parser.add_argument("--bench-python", type=Path, required=True)
     parser.add_argument("--checkpoint", type=Path, required=True)
+    parser.add_argument("--fish-source", type=Path)
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--gpu", type=int, default=0)
@@ -34,7 +36,24 @@ def main() -> None:
         OMP_NUM_THREADS="8",
         HF_MODULES_CACHE=str(args.output / "hf_modules"),
     )
-    if args.backend == "sglang":
+    if args.backend == "standalone":
+        if args.fish_source is None:
+            parser.error("--fish-source is required for the standalone runtime")
+        environment["PYTHONPATH"] = str(args.source / "src")
+        command = [
+            str(args.venv / "bin/python"),
+            "-m",
+            "drama3.server",
+            "--checkpoint",
+            str(args.checkpoint),
+            "--fish-source",
+            str(args.fish_source),
+            "--slots",
+            str(args.capacity),
+            "--port",
+            str(args.port),
+        ]
+    elif args.backend == "sglang":
         command = [
             str(args.venv / "bin/sgl-omni"),
             "serve",
@@ -74,6 +93,12 @@ def main() -> None:
         "gpu": args.gpu,
         "cpu_affinity": sorted(os.sched_getaffinity(0)),
         "omp_threads": 8,
+        "benchmark_client_sha256": hashlib.sha256(
+            (Path(__file__).resolve().parents[1] / "src/drama3/benchmark.py").read_bytes()
+        ).hexdigest(),
+        "source_status": subprocess.check_output(
+            ["git", "-C", str(args.source), "status", "--porcelain"], text=True
+        ),
     }
     (args.output / "launch.json").write_text(json.dumps(metadata, indent=2) + "\n")
     started = time.monotonic()
@@ -86,6 +111,11 @@ def main() -> None:
             stderr=subprocess.STDOUT,
             start_new_session=True,
         )
+
+        def stop(_signal, _frame):
+            raise KeyboardInterrupt("Benchmark interrupted; cleaning up its server")
+
+        signal.signal(signal.SIGTERM, stop)
         try:
             url = f"http://127.0.0.1:{args.port}"
             deadline = started + 1800

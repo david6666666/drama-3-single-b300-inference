@@ -17,8 +17,25 @@ def main():
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch", type=int, default=1)
+    parser.add_argument("--cold-gemv", action="store_true")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
+    if args.cold_gemv:
+        import triton
+
+        import drama3.kernels as kernels
+
+        def cold_gemv(x, weight, rows=4):
+            n, k = weight.shape
+            rows = 2 if n == 4096 and k == 2048 else 1
+            warps = 4 if n >= 9216 or k == 512 else 8
+            out = torch.empty((1, n), dtype=x.dtype, device=x.device)
+            kernels.gemv_kernel[(triton.cdiv(n, rows),)](
+                x, weight, out, n, k, rows, triton.next_power_of_2(k), num_warps=warps
+            )
+            return out
+
+        kernels.gemv = cold_gemv
     model = DramaModel(args.checkpoint, slots=2 * args.batch, max_length=512)
     graph = DecodeGraph(model, args.batch)
     graph.positions.fill_(300)

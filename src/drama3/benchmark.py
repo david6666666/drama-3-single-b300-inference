@@ -178,10 +178,14 @@ async def run(args: argparse.Namespace) -> None:
         "frame_measure": "returned_waveform_samples / 2048; excludes EOS",
         "rtf_boundary": "dispatch_to_last_audio",
         "finish_reason_coverage": False,
+        "connection_policy": "fresh TCP connection per request; no automatic retries",
     }
     (args.output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     timeout = aiohttp.ClientTimeout(total=args.timeout)
-    connector = aiohttp.TCPConnector(limit=max(args.concurrency), force_close=False)
+    # Runs save WAV files between measured batches. A pooled socket can expire
+    # at the server while its close notification waits on this event loop.
+    # Use the same fresh-connection policy for every backend and keep failures.
+    connector = aiohttp.TCPConnector(limit=max(args.concurrency), force_close=True)
     endpoint = args.url.rstrip("/") + "/v1/audio/speech"
     summaries = []
     async with aiohttp.ClientSession(timeout=timeout, connector=connector) as session:
