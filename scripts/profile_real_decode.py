@@ -31,6 +31,7 @@ def main():
     parser.add_argument("--small-moe-diagnostic", action="store_true")
     parser.add_argument("--small-moe-backends", action="store_true")
     parser.add_argument("--routing-distribution", action="store_true")
+    parser.add_argument("--projection-diagnostic", action="store_true")
     parser.add_argument("--small-moe-tiles", choices=("default", "hot", "cold"), default="default")
     args = parser.parse_args()
     if args.batch not in (1, 2, 4) and (args.batch < 8 or args.batch % 8):
@@ -64,6 +65,16 @@ def main():
     original = model.moe
     indices = {id(layer.mlp): i for i, layer in enumerate(model.backbone.layers)}
     activations = {}
+    projections = {}
+    if args.projection_diagnostic:
+        import drama3.model as model_module
+
+        def capture_projection(x, weight):
+            if torch.cuda.is_current_stream_capturing():
+                projections[id(weight)] = (x, weight)
+            return linear(x, weight)
+
+        model_module.linear = capture_projection
 
     def capture(x, layer, decode=False):
         if decode and (args.routing_distribution or indices[id(layer)] in (0, 19, 39)):
@@ -73,6 +84,8 @@ def main():
     model.moe = capture
     graph = DecodeGraph(model, args.batch, requests=device)
     model.moe = original
+    if args.projection_diagnostic:
+        model_module.linear = linear
     first = DecodeGraph(model, prefill_batch, first_frame=True, requests=device)
     span = max(128, triton.next_power_of_2(max(map(len, prompts))))
     prefill = BatchedPrefillGraph(model, prefill_batch, span)
@@ -159,6 +172,10 @@ def main():
     (args.output / "moe.json").write_text(json.dumps(rows, indent=2) + "\n")
     if args.routing_distribution:
         (args.output / "routing.json").write_text(json.dumps(routing_rows, indent=2) + "\n")
+    if args.projection_diagnostic:
+        from diagnostic_bf16_projections import benchmark
+
+        benchmark(projections, args.output / "projections.json")
     if args.small_moe_backends:
         rows = []
         original_threshold = model.small_moe_max_batch
