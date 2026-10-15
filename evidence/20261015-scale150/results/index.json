@@ -63,6 +63,16 @@
       "bytes": 543
     },
     {
+      "path": "results/fused-moe-input-real-b16.json",
+      "sha256": "d7b106af43fec9f68b19b15cef10f5d8319a3ab866db6167b1ab5a4cf38082f8",
+      "bytes": 573
+    },
+    {
+      "path": "results/fused-moe-input-real-b16.log.gz",
+      "sha256": "8b0cb3b06f495fd8a19be88c50939f2b1d9d3fb525c17af2acbb630117cfe350",
+      "bytes": 590
+    },
+    {
       "path": "results/fused-moe-input-real-b64.json",
       "sha256": "9677e13cba96c5e4b408c935447ac9fa5e691a6e0791fff763ed1680cb811abc",
       "bytes": 573
@@ -218,9 +228,9 @@
       "bytes": 4577
     },
     {
-      "path": "results/native-routing-occupancy/routing.json",
-      "sha256": "2b66a53e75b5f36bf5a1a133c9b7ab0e9b22e7b1168761f36a5c721a24c68274",
-      "bytes": 945089
+      "path": "results/native-routing-occupancy/routing.json.gz",
+      "sha256": "b67f90d1cb00a00139d0d60eddfd010edb71ab243f64f5f610dd177931f78b47",
+      "bytes": 236987
     },
     {
       "path": "results/native-routing-occupancy/timing.json",
@@ -288,9 +298,9 @@
       "bytes": 2700
     },
     {
-      "path": "results/packed-async-timeline.json",
-      "sha256": "1df106644e43c3d2fc93b98f136bbae55efeeec62129b187eeb3b25bb1daca53",
-      "bytes": 783183
+      "path": "results/packed-async-timeline.json.gz",
+      "sha256": "ba06267edc81910c8140ac85a1ab0f7adb376c1317da6050b70a172f2cee6204",
+      "bytes": 117194
     },
     {
       "path": "results/packed-codec-async-feasibility/benchmark/c64-r0.jsonl.gz",
@@ -333,9 +343,9 @@
       "bytes": 4976
     },
     {
-      "path": "results/packed-codec-async-feasibility-quality.json",
-      "sha256": "abc3e5b87503475f4be95fd48b6667820fe5d39304d0069bceed6b27689e3f78",
-      "bytes": 897448
+      "path": "results/packed-codec-async-feasibility-quality.json.gz",
+      "sha256": "48f29a37d7d0227d5c0a566f3f0a786fa643f202c6be419ce37225dfa0e8943a",
+      "bytes": 95020
     },
     {
       "path": "results/packed-codec-sync-control/benchmark/c64-r0.jsonl.gz",
@@ -378,9 +388,9 @@
       "bytes": 4951
     },
     {
-      "path": "results/packed-codec-sync-control-quality.json",
-      "sha256": "58750a1ebd3a5e2ff0706ee5d5f05285e94a40598320a3efc3c9c744014f536b",
-      "bytes": 897932
+      "path": "results/packed-codec-sync-control-quality.json.gz",
+      "sha256": "77e735ba6ce3b232e827adc0bf80249ca621736fb0b30eb06d19eb4de332b155",
+      "bytes": 94679
     },
     {
       "path": "results/packed-layer-validation-b8.json.gz",
