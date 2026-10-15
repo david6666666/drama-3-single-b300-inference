@@ -91,7 +91,13 @@ class DecodeGraph:
 
     def forward(self) -> torch.Tensor:
         if self.requests is not None:
-            self.requests.load(self.slots, self.frames, self.history, self.positions)
+            self.requests.load(
+                self.slots,
+                self.frames,
+                self.history,
+                self.positions,
+                padding_start=self.model.slots // 2,
+            )
         self.batch.refresh()
         if self.first_frame:
             output = self.model.tower_forward(

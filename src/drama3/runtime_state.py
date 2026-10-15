@@ -1,5 +1,7 @@
 """Device-resident request inputs, token history and codec frames."""
 
+import os
+
 import torch
 import triton
 import triton.language as tl
@@ -7,7 +9,15 @@ import triton.language as tl
 
 @triton.jit
 def _load(
-    last, history, metadata, slots, frames_out, history_out, positions_out, MAX_LENGTH: tl.constexpr
+    last,
+    history,
+    metadata,
+    slots,
+    frames_out,
+    history_out,
+    positions_out,
+    MAX_LENGTH: tl.constexpr,
+    PADDING_START: tl.constexpr,
 ):
     row = tl.program_id(0)
     slot = tl.load(slots + row)
@@ -15,6 +25,8 @@ def _load(
     frame = tl.load(last + slot * 11 + lane, lane < 11, 0)
     hist = tl.load(history + slot * 16 + lane, lane < 16, -1)
     pos = tl.load(metadata + slot * 4)
+    if PADDING_START >= 0:
+        pos = tl.where(slot >= PADDING_START, 0, pos)
     tl.store(frames_out + row * 11 + lane, frame, lane < 11)
     tl.store(history_out + row * 16 + lane, hist, lane < 16)
     tl.store(positions_out + row, tl.minimum(pos, MAX_LENGTH - 1))
@@ -65,6 +77,7 @@ class DeviceRequests:
         self.eos = eos
         self.max_frames = max_frames
         self.max_length = max_length
+        self.short_padding_context = os.environ.get("DRAMA3_SHORT_PADDING_CONTEXT", "0") == "1"
         self.last = torch.zeros(slots, 11, device="cuda", dtype=torch.int64)
         self.last[:, 0] = eos
         self.history = torch.full((slots, 16), -1, device="cuda", dtype=torch.int64)
@@ -78,7 +91,10 @@ class DeviceRequests:
         self.history[slot].copy_(history)
         self.metadata[slot].copy_(torch.tensor([position, 0, limit, 0]))
 
-    def load(self, slots, frames, history, positions):
+    def load(self, slots, frames, history, positions, *, padding_start=None):
+        # Only graph callers that own reserved slots may shorten their dummy rows.
+        if padding_start is not None and not 0 < padding_start <= self.metadata.shape[0]:
+            raise ValueError("padding_start must identify a nonempty reserved slot range")
         _load[(len(slots),)](
             self.last,
             self.history,
@@ -88,6 +104,9 @@ class DeviceRequests:
             history,
             positions,
             MAX_LENGTH=self.max_length,
+            PADDING_START=(
+                padding_start if self.short_padding_context and padding_start is not None else -1
+            ),
             num_warps=1,
         )
 

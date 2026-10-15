@@ -60,7 +60,13 @@ class MixedGraph:
 
     def forward(self):
         d = self.decode_size
-        self.requests.load(self.slots[:d], self.frames[:d], self.history, self.positions[:d])
+        self.requests.load(
+            self.slots[:d],
+            self.frames[:d],
+            self.history,
+            self.positions[:d],
+            padding_start=self.model.slots // 2,
+        )
         self.attention.refresh()
         row_metadata[(triton.cdiv(self.capacity, 128),)](
             self.layout.boundaries,
