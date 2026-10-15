@@ -9,6 +9,10 @@ disjoint suffix slots. Full-model graph checks for 5/6/7 real requests in an
 eight-row batch now verify that unrelated convolution, GDN and attention states
 are unchanged. Corrected audio and throughput results are pending.
 
+Corrected full-corpus feasibility results are now recorded in
+[full-corpus-results.md](full-corpus-results.md). The historical failures below
+are confounded by the slot bug and cannot isolate an operator's quality effect.
+
 The complete comparison remains in [results.md](results.md). None of the
 experiments below establishes the 2× target. These are one-repetition feasibility
 runs on separate B300 devices; they are not controlled three-repetition speedup
@@ -82,11 +86,13 @@ launcher. They are experiments, not recommended production settings.
 | `DRAMA3_PACKED_MOE_PROJECTION` | off | `1`: packed shared/router projection |
 | `DRAMA3_PREFILL_CONV` | `torch` | `triton`: causal convolution with exact end state |
 | `DRAMA3_PREFILL_MOE` | `native` | `flashinfer`: failed audio gate |
+| `DRAMA3_PREFILL_MOE_TUNED` | off | `1`: 64-row native tiles and FP32 atomic reduction for large prefills |
 | `DRAMA3_MOE_LAYOUT` | `major_k` | `blocked`: unchanged FP8 bytes, different layout |
 | `DRAMA3_AUTOTUNE_CACHE` | unset | FlashInfer tactic cache path |
 | `DRAMA3_ADMISSION_MIN_BATCH` | `1` | Bounded wait for a larger prefill batch |
 | `DRAMA3_ADMISSION_MIN_RUNNING` | `32` | Minimum active requests before admission waits |
 | `DRAMA3_ADMISSION_MAX_WAIT_MS` | `100` | Maximum admission delay |
+| `DRAMA3_PREFILL_MAX_BATCH` | `8` | `16`: larger short-prompt batches with separate padding state |
 | `DRAMA3_ASYNC_CODEC` | off | `1`: bounded codec CUDA stream |
 | `DRAMA3_AUDIO_DELIVERY_THREAD` | off | `1`: event-waiting PCM sender, requires async codec |
 

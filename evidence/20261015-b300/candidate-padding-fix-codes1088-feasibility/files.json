@@ -1,0 +1,62 @@
+[
+  {
+    "source": "benchmark/c1-r0.jsonl",
+    "artifact": "benchmark/c1-r0.jsonl.gz",
+    "uncompressed_sha256": "1fb277f29f5c31ed5aec98b8fec99567608ee378e7ff4dbb4556ed82c7d6bb5b",
+    "bytes": 1052106
+  },
+  {
+    "source": "benchmark/c1-warmup.json",
+    "artifact": "benchmark/c1-warmup.json",
+    "uncompressed_sha256": "37ade81baf3de55988d98199610364ede9b54c8829b5460974acdb9b71700918",
+    "bytes": 9326
+  },
+  {
+    "source": "benchmark/c64-r0.jsonl",
+    "artifact": "benchmark/c64-r0.jsonl.gz",
+    "uncompressed_sha256": "4a9fe759350a84716427f5f39730115321107ce84c7523af877210268e64e8d8",
+    "bytes": 1042335
+  },
+  {
+    "source": "benchmark/c64-warmup.json",
+    "artifact": "benchmark/c64-warmup.json",
+    "uncompressed_sha256": "db49dbeb9e080e41528874175b3393a1c3c13715e1b7a2f29625797a0ac621fc",
+    "bytes": 73844
+  },
+  {
+    "source": "benchmark/manifest.json",
+    "artifact": "benchmark/manifest.json",
+    "uncompressed_sha256": "36a35969d48a1c5f8f0b124544d0f0875f7a92b1fabb075dd7c14d0fe33bbcca",
+    "bytes": 783
+  },
+  {
+    "source": "benchmark/summary.json",
+    "artifact": "benchmark/summary.json",
+    "uncompressed_sha256": "5c621d45cdd764070bf8a5be7cb5001bd85ae3f7e941f98f6cd5be52f1c04907",
+    "bytes": 653
+  },
+  {
+    "source": "benchmark-command.json",
+    "artifact": "benchmark-command.json",
+    "uncompressed_sha256": "b1239e8e5599655638a38fc47d45d822ee7903fc7b759ecd296973ee64a2ee84",
+    "bytes": 502
+  },
+  {
+    "source": "benchmark.log",
+    "artifact": "benchmark.log.gz",
+    "uncompressed_sha256": "e815728a1ceab0f6278e0bfedbf7068ac805af80b26f1b7cf486ddc35e3f725f",
+    "bytes": 548
+  },
+  {
+    "source": "launch.json",
+    "artifact": "launch.json",
+    "uncompressed_sha256": "4eebf5d367c033dd4433824698a2a2e925d19ac736973faf62114bc6ba40f142",
+    "bytes": 2868
+  },
+  {
+    "source": "server.log",
+    "artifact": "server.log.gz",
+    "uncompressed_sha256": "aff42d383ff9092f9e19c9007ba26217db58283ccd0292fcaf7d490290d65204",
+    "bytes": 157099
+  }
+]

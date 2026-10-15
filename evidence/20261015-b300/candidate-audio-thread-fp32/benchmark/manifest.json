@@ -1,0 +1,22 @@
+{
+  "url": "http://127.0.0.1:18084",
+  "backend": "standalone",
+  "corpus": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en192-codes/requests.jsonl",
+  "output": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/candidate-audio-thread-fp32/benchmark",
+  "concurrency": [
+    1,
+    64
+  ],
+  "requests": 192,
+  "repeats": 1,
+  "warmup": 8,
+  "max_frames": 500,
+  "timeout": 300,
+  "save_audio": true,
+  "warm_references": true,
+  "corpus_sha256": "063bd99acb9bb6dbc839bfc2d4f53e5df4ca7665170a86ee6d653096aeafec24",
+  "frame_measure": "returned_waveform_samples / 2048; excludes EOS",
+  "rtf_boundary": "dispatch_to_last_audio",
+  "finish_reason_coverage": false,
+  "connection_policy": "fresh TCP connection per request; no automatic retries"
+}

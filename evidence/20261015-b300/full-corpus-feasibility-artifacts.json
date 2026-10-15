@@ -1,0 +1,104 @@
+[
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/candidate-padding-fix-codes1088-quality.json",
+    "artifact": "evidence/20261015-b300/candidate-padding-fix-codes1088-quality.json.gz",
+    "sha256": "610dd5ece27f05ea94b9c23ba86f640a1e4aed59073e697bb093971e771bd11f",
+    "bytes": 1793577
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/candidate-native-tuned-codes1088-quality-c64.json",
+    "artifact": "evidence/20261015-b300/candidate-native-tuned-codes1088-quality-c64.json.gz",
+    "sha256": "fd4b9efff3f2db700fe1b10533ce3a7e57e67313295331006e3aa51bea5ebb0d",
+    "bytes": 897374
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/candidate-native-tuned-bf16-codes1088-quality-c64.json",
+    "artifact": "evidence/20261015-b300/candidate-native-tuned-bf16-codes1088-quality-c64.json.gz",
+    "sha256": "01e2a74ddefa88a49cfcc08071b24699d11c5672bf159684b5c8150afe547495",
+    "bytes": 897112
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/vllm-8933-codes1088-quality-c1.json",
+    "artifact": "evidence/20261015-b300/vllm-8933-codes1088-quality-c1.json.gz",
+    "sha256": "831f46533af1b107696401a196d6eced28e89cc1a2085c7598031a29926a08ca",
+    "bytes": 896496
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/real-prefill-moe-atomic-v2.json",
+    "artifact": "evidence/20261015-b300/real-prefill-moe-atomic-v2.json.gz",
+    "sha256": "9b5f971fec4a1707613a4b197409570ecff47855f8d79857144927c9e111d218",
+    "bytes": 8348
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/gdn-prefill-backends.json",
+    "artifact": "evidence/20261015-b300/gdn-prefill-backends.json.gz",
+    "sha256": "30260f9bf17bc65d3d0fc2f0be1d31cb6841fa142743e7903b5b6d5529841333",
+    "bytes": 1755
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/gdn-prefill-backends-finite.json",
+    "artifact": "evidence/20261015-b300/gdn-prefill-backends-finite.json.gz",
+    "sha256": "eb08475a04ebf081a0380c0782a6c2d7be70aeb7c0975705a7c9d9b9fdf7b7a6",
+    "bytes": 2319
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/gdn-prefill-backends-normalized.json",
+    "artifact": "evidence/20261015-b300/gdn-prefill-backends-normalized.json.gz",
+    "sha256": "54bdc35afbbd008995da58e7bdf03b124dd583da3ddc147c7235514699dcdf03",
+    "bytes": 2577
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/int8-gemv-diagnostic.json",
+    "artifact": "evidence/20261015-b300/int8-gemv-diagnostic.json.gz",
+    "sha256": "d3d5059a81a9fe74081eb8e613fab0e29f1f1510d1622951cdb8c483ef5976e3",
+    "bytes": 19807
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/int8-dp4a-diagnostic.json",
+    "artifact": "evidence/20261015-b300/int8-dp4a-diagnostic.json.gz",
+    "sha256": "cbd149b3791db94eb6f4a7dff378514e8096c0b03a744320bce1de0c9a42171f",
+    "bytes": 20940
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/int8-input-decode-1.log",
+    "artifact": "evidence/20261015-b300/int8-input-decode-1.log.gz",
+    "sha256": "b32b06e3a746d5e678e2452365e7486ceb515d0c58ec9dc09de2aecdb1e12619",
+    "bytes": 1493
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/gdn-decode-bf16-tuning.log",
+    "artifact": "evidence/20261015-b300/gdn-decode-bf16-tuning.log.gz",
+    "sha256": "7493eb69e44f2e8e6934f2431b78cff337e66ab70b288ff87d0c84ab78bceef9",
+    "bytes": 1109
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/real-prefill-native-tuned-0/timing.json",
+    "artifact": "evidence/20261015-b300/real-prefill-native-tuned-0-timing.json.gz",
+    "sha256": "a4a522be17d9f13323ce43edcf4212b488d98302d28be747705a0a4d03c9c6ae",
+    "bytes": 330
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/real-prefill-native-tuned-1/timing.json",
+    "artifact": "evidence/20261015-b300/real-prefill-native-tuned-1-timing.json.gz",
+    "sha256": "4b5cfedfdb93b92730022d8f69cfdd1ec2bb0db7f5be5ad2d302eda255b55f38",
+    "bytes": 329
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/int8-input-decode-0/timing.json",
+    "artifact": "evidence/20261015-b300/int8-input-decode-0-timing.json.gz",
+    "sha256": "a8f6c6e7075bc152f468a9fcd5959266fb2cc4a46df13750dfe52b991078d279",
+    "bytes": 267
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/int8-input-decode-v2/timing.json",
+    "artifact": "evidence/20261015-b300/int8-input-decode-v2-timing.json.gz",
+    "sha256": "fd068899d0a8cfa54325f441c17077296f7bc05f6b3427621d04ac8a9d45d0a7",
+    "bytes": 267
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/encoding.json",
+    "artifact": "evidence/20261015-b300/seedtts-en1088-codes-encoding.json.gz",
+    "sha256": "0c60f0df5099777afd2ad196fb71bb5f58d7a896ab4cb329f7b8633dbf0becbf",
+    "bytes": 537
+  }
+]

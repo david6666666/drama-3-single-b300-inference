@@ -1,0 +1,28 @@
+[
+  {
+    "concurrency": 1,
+    "repeat": 0,
+    "requests": 1088,
+    "completed": 1088,
+    "failed": 0,
+    "makespan_s": 346.6890652020229,
+    "valid": true,
+    "throughput_frames_s": 296.56833837573276,
+    "ttfa_p50_ms": 34.420176467392594,
+    "ttfa_p95_ms": 35.44695413438603,
+    "rtf_mean": 0.07327480468240107
+  },
+  {
+    "concurrency": 64,
+    "repeat": 0,
+    "requests": 1088,
+    "completed": 1088,
+    "failed": 0,
+    "makespan_s": 31.84725711203646,
+    "valid": true,
+    "throughput_frames_s": 3256.920984909504,
+    "ttfa_p50_ms": 172.0604490255937,
+    "ttfa_p95_ms": 404.6964081469836,
+    "rtf_mean": 0.4088602351210428
+  }
+]

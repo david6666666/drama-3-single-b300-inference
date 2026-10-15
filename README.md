@@ -20,6 +20,8 @@ This is an acceptance target, not an achieved performance claim. Earlier
 SGLang-Omni and vLLM-Omni measurements remain historical comparisons.
 Recent feasibility runs, failed quality gates and experimental options are
 documented in the [optimization log](docs/optimization-log.md).
+The [full-corpus feasibility report](docs/full-corpus-results.md) tracks
+corrected state isolation and complete 1088-row audio-quality coverage.
 
 The implementation uses a Python admission loop, persistent request slots,
 CUDA Graph decode and direct GPU operators. The engine does not instantiate

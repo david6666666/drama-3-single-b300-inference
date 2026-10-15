@@ -1,0 +1,62 @@
+[
+  {
+    "source": "benchmark/c1-r0.jsonl",
+    "artifact": "benchmark/c1-r0.jsonl.gz",
+    "uncompressed_sha256": "426bbd5835cead600d1414c12174fab368ad753fb12eac4f6c57ec7115411f91",
+    "bytes": 1052440
+  },
+  {
+    "source": "benchmark/c1-warmup.json",
+    "artifact": "benchmark/c1-warmup.json",
+    "uncompressed_sha256": "3330646bfafdab792594c2b7bd82ef7358183a948f659213f34b6de2543ec079",
+    "bytes": 9331
+  },
+  {
+    "source": "benchmark/c64-r0.jsonl",
+    "artifact": "benchmark/c64-r0.jsonl.gz",
+    "uncompressed_sha256": "1f5371f16dfa342b63e597f56761278074937d201b2eb8a521fa7c2c24b19fa4",
+    "bytes": 1037876
+  },
+  {
+    "source": "benchmark/c64-warmup.json",
+    "artifact": "benchmark/c64-warmup.json",
+    "uncompressed_sha256": "c94cd680d5ff211133385d16d365f91c70ebfef84b2f8a3cfa1dc07cb80b9ed4",
+    "bytes": 74286
+  },
+  {
+    "source": "benchmark/manifest.json",
+    "artifact": "benchmark/manifest.json",
+    "uncompressed_sha256": "2eacd1331e20a9a9a19d30f3102b79827ef3f37ee2cc571ac78285da9b6159e5",
+    "bytes": 781
+  },
+  {
+    "source": "benchmark/summary.json",
+    "artifact": "benchmark/summary.json",
+    "uncompressed_sha256": "eb71295cb673714f428a2af1229b554c95e283e6846af0947e35b89c3e434004",
+    "bytes": 654
+  },
+  {
+    "source": "benchmark-command.json",
+    "artifact": "benchmark-command.json",
+    "uncompressed_sha256": "de997eb9ce7a57f25047b6ff89dec6ef9a7bc3a94ab07008a1ca6420ace673e7",
+    "bytes": 500
+  },
+  {
+    "source": "benchmark.log",
+    "artifact": "benchmark.log.gz",
+    "uncompressed_sha256": "ac815ad14db9c7ad468ce008de3e39a70ffbc29cdeb03bb7aa48d5a137d2d928",
+    "bytes": 549
+  },
+  {
+    "source": "launch.json",
+    "artifact": "launch.json",
+    "uncompressed_sha256": "a03461fed859709543cd0b0d852f645fef2e90dcd11451fa32250dd8e69ffd5c",
+    "bytes": 2870
+  },
+  {
+    "source": "server.log",
+    "artifact": "server.log.gz",
+    "uncompressed_sha256": "617b77cd59149dd186fd105a217078f797be1fcd7187451719a2f95d2372926a",
+    "bytes": 157089
+  }
+]
