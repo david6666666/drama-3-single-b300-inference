@@ -29,6 +29,19 @@ def _gemv(X, W, S, OUT, N: tl.constexpr, K: tl.constexpr, ROWS: tl.constexpr):
     tl.store(OUT + n, y, n < N)
 
 
+@triton.jit
+def _gemv_grouped(X, W, S, OUT, N: tl.constexpr, K: tl.constexpr, ROWS: tl.constexpr):
+    n = tl.program_id(0) * ROWS + tl.arange(0, ROWS)
+    group = tl.arange(0, K // 128)
+    column = tl.arange(0, 128)
+    k = group[:, None] * 128 + column[None, :]
+    x = tl.load(X + k).to(tl.float32)
+    w = tl.load(W + n[:, None, None] * K + k[None, :, :], n[:, None, None] < N, 0.0).to(tl.float32)
+    partial = tl.sum(w * x[None, :, :], 2)
+    scale = tl.load(S + (n[:, None] // 128) * (K // 128) + group[None, :], n[:, None] < N, 0.0)
+    tl.store(OUT + n, tl.sum(partial * scale, 1), n < N)
+
+
 def register(weight):
     n, k = weight.shape
     if k % 128:

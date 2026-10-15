@@ -27,7 +27,9 @@ that warrants another language.
 - Streaming mono PCM at 44.1 kHz; one inline or pre-encoded voice reference.
 - Temperature 1, top-p 0.9, top-k 30, up to 500 acoustic frames.
 - Continuous batching at capacities 1–64; one model and one codec per process.
-- No training, multi-GPU execution or new quantization scheme.
+- No training or multi-GPU execution. Default execution preserves checkpoint precision.
+- `DRAMA3_EXPERIMENTAL_DENSE_FP8=1` is an explicitly lossy research path,
+  disabled by default. It has no passing quality or performance claim.
 
 The benchmark contract and provenance are in [docs/draft.md](docs/draft.md).
 Exact source revisions, model/dataset revisions and dependency snapshots are

@@ -59,7 +59,12 @@ experiment on invalid audio, repeated startup failure, OOM or state corruption;
 preserve the failure evidence and address its cause before continuing.
 
 Non-goals for the first version: training, multiple GPUs, broad model support,
-new quantization formats, altered model sampling or shorter output limits.
+altered model sampling or shorter output limits. The default path retains native
+precision; dense FP8 is now a separate opt-in feasibility experiment. Its isolated
+variable is quantizing dense projections, with unchanged corpus, sampling and
+FP32 recurrent state. Reject promotion if full WER/SIM coverage fails the quality
+gate or the complete serving comparison does not improve. Kernel timings alone
+cannot promote this path.
 
 ## Provenance
 
