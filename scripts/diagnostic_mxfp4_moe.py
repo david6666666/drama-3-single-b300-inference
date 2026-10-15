@@ -7,6 +7,7 @@ permutation itself is supplied by FlashInfer. No serving path imports this.
 from functools import partial
 
 import torch
+import torch.nn.functional as F
 import triton
 from flashinfer import fp4_quantize, nvfp4_block_scale_interleave
 from flashinfer.fused_moe import trtllm_fp4_block_scale_moe
@@ -24,7 +25,11 @@ def prepare(weight, scale, gated):
     permutation = (
         _maybe_get_cached_w3_w1_permute_indices if gated else get_w2_permute_indices_with_cache
     )
-    cache, packed, scales = {}, [], []
+    cache, packed, scales, restored = {}, [], [], []
+    values = torch.tensor(
+        [0, 0.5, 1, 1.5, 2, 3, 4, 6, 0, -0.5, -1, -1.5, -2, -3, -4, -6],
+        device=weight.device,
+    )
     for index in range(experts):
         dense = (
             (
@@ -39,12 +44,21 @@ def prepare(weight, scale, gated):
         )
         quantized = quantized.view(torch.uint8).reshape(rows, columns // 2)
         factors = factors.view(torch.uint8).reshape(rows, columns // 32)
+        nibbles = torch.stack((quantized & 15, quantized >> 4), dim=-1).reshape(rows, columns)
+        restored.append(
+            (
+                values[nibbles.long()]
+                * torch.exp2(factors.float() - 127).repeat_interleave(32, dim=-1)
+            ).to(torch.bfloat16)
+        )
         order = permutation(cache, quantized, 128, is_gated_act_gemm=True)
         scale_order = permutation(cache, factors, 128, num_elts_per_sf=16, is_gated_act_gemm=True)
         packed.append(quantized[order].contiguous())
         scales.append(nvfp4_block_scale_interleave(factors[scale_order].contiguous()))
-    return torch.stack(packed), torch.stack(scales).view(torch.float8_e4m3fn).reshape(
-        experts, rows, columns // 32
+    return (
+        torch.stack(packed),
+        torch.stack(scales).view(torch.float8_e4m3fn).reshape(experts, rows, columns // 32),
+        torch.stack(restored),
     )
 
 
@@ -52,8 +66,8 @@ def benchmark(model, layer, x):
     if model.moe_layout != "major_k":
         raise ValueError("This diagnostic requires unshuffled source weights")
     experts = layer.experts
-    up, up_scale = prepare(experts.flashinfer_w13, experts.flashinfer_w13_scale, True)
-    down, down_scale = prepare(experts.w2_weight, experts.w2_scale_inv, False)
+    up, up_scale, restored_up = prepare(experts.flashinfer_w13, experts.flashinfer_w13_scale, True)
+    down, down_scale, restored_down = prepare(experts.w2_weight, experts.w2_scale_inv, False)
     unit = torch.ones(256, device=x.device)
 
     def run():
@@ -94,6 +108,32 @@ def benchmark(model, layer, x):
     reference_fn = partial(model.moe, x, layer, True)
     reference, actual = reference_fn(), run()
     assert bool(actual.isfinite().all()), "Non-finite MXFP4 output"
+    # Independently decode E2M1/UE8M0 bytes before expert GEMMs to distinguish
+    # quantization error from a wrong shuffle or kernel contract.
+    projected = linear(x, layer.packed_input_projection)
+    probability = projected[:, 1024:1280].float().softmax(-1)
+    weights, ids = probability.topk(8, dim=-1)
+    weights = weights / weights.sum(-1, keepdim=True)
+    routed = torch.zeros_like(x, dtype=torch.float32)
+    routes = {}
+    for token, row in enumerate(ids.cpu().tolist()):
+        for rank, expert in enumerate(row):
+            routes.setdefault(expert, []).append((token, rank))
+    for expert, selections in routes.items():
+        tokens, ranks = torch.tensor(selections, device=x.device).T
+        values = F.linear(x[tokens], restored_up[expert]).float()
+        up_values, gate = values.chunk(2, dim=-1)
+        activation = (up_values * F.silu(gate)).to(torch.bfloat16)
+        down_values = F.linear(activation, restored_down[expert]).float()
+        routed.index_add_(0, tokens, down_values * weights[tokens, ranks, None])
+    shared = linear(silu_mul(projected[:, :1024]), layer.shared_expert.down_proj.weight)
+    restored_reference = combine_experts(routed.to(x.dtype), shared, projected[:, 1280:1281])
+    parity = float(
+        (
+            (actual.float() - restored_reference.float()).square().mean()
+            / restored_reference.float().square().mean()
+        ).sqrt()
+    )
     error = float(
         (
             (actual.float() - reference.float()).square().mean() / reference.float().square().mean()
@@ -101,6 +141,7 @@ def benchmark(model, layer, x):
     )
     return dict(
         rrms=error,
+        quantized_reference_rrms=parity,
         reference_us=triton.testing.do_bench_cudagraph(reference_fn) * 1000,
         mxfp4_us=triton.testing.do_bench_cudagraph(run) * 1000,
         description="Diagnostic only; lossy weight quantization; audio quality untested",
