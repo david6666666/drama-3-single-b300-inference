@@ -1,4 +1,4 @@
-"""Diagnostic native BF16 table projection with a fused small-batch epilogue."""
+"""Opt-in native BF16 table projection with a fused small-batch epilogue."""
 
 import torch
 import triton

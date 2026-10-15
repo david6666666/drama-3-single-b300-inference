@@ -75,7 +75,44 @@ def main():
         lengths = list(map(len, selected))
         capacity = triton.cdiv(sum(lengths), args.capacity_step) * args.capacity_step
         graph = PackedPrefillGraph(model, args.batch, capacity)
+        owned = set(range(count)) | set(range(32 - (args.batch + 1 - count), 32))
+        untouched = sorted(set(range(32)) - owned)
+        untouched_state = {
+            i: (conv[untouched].clone(), state[untouched].clone())
+            for i, (conv, state) in model.states.items()
+        }
+        untouched_kv = {
+            i: (key[untouched].clone(), value[untouched].clone())
+            for i, (key, value) in model.kv.items()
+        }
         actual = graph.run(selected, list(range(count)))[:count]
+        for index, (conv, state) in model.states.items():
+            check(
+                f"b{count}/replay_untouched_conv/{index}",
+                conv[untouched],
+                untouched_state[index][0],
+                exact=True,
+            )
+            check(
+                f"b{count}/replay_untouched_state/{index}",
+                state[untouched],
+                untouched_state[index][1],
+                exact=True,
+            )
+        for index, (key, value) in model.kv.items():
+            check(
+                f"b{count}/replay_untouched_key/{index}",
+                key[untouched],
+                untouched_kv[index][0],
+                exact=True,
+            )
+            check(
+                f"b{count}/replay_untouched_value/{index}",
+                value[untouched],
+                untouched_kv[index][1],
+                exact=True,
+            )
+        del untouched_state, untouched_kv
         check(
             f"b{count}/positions",
             graph.positions[: sum(lengths)],
@@ -97,8 +134,6 @@ def main():
                 exact=True,
             )
             offset += len(prompt)
-        owned = set(range(count)) | set(range(32 - (args.batch + 1 - count), 32))
-        untouched = sorted(set(range(32)) - owned)
         state_before = {
             i: (c[:count].clone(), s[:count].clone(), c[untouched].clone(), s[untouched].clone())
             for i, (c, s) in model.states.items()
