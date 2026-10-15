@@ -28,10 +28,20 @@ def main():
     parser.add_argument("--batch", type=int, default=64)
     parser.add_argument("--mxfp4-diagnostic", action="store_true")
     parser.add_argument("--small-moe-diagnostic", action="store_true")
+    parser.add_argument("--small-moe-tiles", choices=("default", "hot", "cold"), default="default")
     args = parser.parse_args()
     if args.batch not in (1, 2, 4) and (args.batch < 8 or args.batch % 8):
         parser.error("Batch must be 1, 2, 4 or a positive multiple of eight")
     prefill_batch = min(args.batch, 8)
+    if args.small_moe_tiles != "default":
+        import drama3.model as model_module
+
+        model_module.small_batch_moe = partial(
+            model_module.small_batch_moe,
+            up_rows=8 if args.small_moe_tiles == "hot" else 2,
+            down_rows=8,
+            down_warps=4,
+        )
     args.output.mkdir(parents=True, exist_ok=False)
     data = args.corpus.read_bytes()
     samples = [json.loads(s) for s in data.splitlines()][: args.batch]
@@ -93,6 +103,7 @@ def main():
         state_dtype=model.state_precision,
         moe_layout=model.moe_layout,
         packed_projection=model.packed_moe_projection,
+        small_moe_tiles=args.small_moe_tiles,
         description="Ten actual autoregressive steps; completed slots remain in graph",
     )
     (args.output / "timing.json").write_text(json.dumps(result, indent=2) + "\n")

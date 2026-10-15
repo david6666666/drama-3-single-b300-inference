@@ -322,7 +322,7 @@ def expert_down_kernel(X, XS, W, WS, IDS, ROUTING, OUT, ROWS: tl.constexpr):
     tl.store(OUT + batch * 2048 + n, output)
 
 
-def small_batch_moe(x, topk_ids, topk_weights, experts):
+def small_batch_moe(x, topk_ids, topk_weights, experts, up_rows=4, down_rows=4, down_warps=8):
     from fish_speech.models.text2semantic.fish_omni.fp8_moe import (
         quant_kernel,
         quantize_groups,
@@ -331,19 +331,19 @@ def small_batch_moe(x, topk_ids, topk_weights, experts):
 
     quantized, scales = quantize_groups(quant_kernel, x, 2048)
     gate_up = torch.empty((len(x) * 8, 1024), device=x.device, dtype=x.dtype)
-    expert_up_kernel[(len(x), 8, 256)](
+    expert_up_kernel[(len(x), 8, 1024 // up_rows)](
         quantized,
         scales,
         experts.w13_weight,
         experts.w13_scale_inv,
         topk_ids,
         gate_up,
-        4,
+        up_rows,
         num_warps=4,
     )
     activated, activation_scales = quantize_groups(silu_mul_quant_kernel, gate_up, 512)
     output = torch.empty_like(x)
-    expert_down_kernel[(len(x), 512)](
+    expert_down_kernel[(len(x), 2048 // down_rows)](
         activated,
         activation_scales,
         experts.w2_weight,
@@ -351,8 +351,8 @@ def small_batch_moe(x, topk_ids, topk_weights, experts):
         topk_ids,
         topk_weights,
         output,
-        4,
-        num_warps=8,
+        down_rows,
+        num_warps=down_warps,
     )
     return output
 
