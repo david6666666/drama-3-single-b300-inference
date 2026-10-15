@@ -98,7 +98,7 @@ def packed_conv(x, weight, state, layout):
 
 
 class PackedPrefillGraph:
-    def __init__(self, model, batch, capacity, max_length=512):
+    def __init__(self, model, batch, capacity, max_length=512, pool=None):
         self.model, self.batch, self.capacity = model, batch, capacity
         self.frames = torch.zeros(capacity, 11, device="cuda", dtype=torch.int64)
         self.frames[:, 0] = model.config.eos_token_id
@@ -121,7 +121,7 @@ class PackedPrefillGraph:
             for _ in range(2):
                 self.output = self.forward()
         torch.cuda.current_stream().wait_stream(stream)
-        with torch.cuda.graph(self.graph):
+        with torch.cuda.graph(self.graph, pool=pool):
             self.output = self.forward()
 
     def forward(self):

@@ -43,9 +43,11 @@ def main():
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--corpus", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--batch", type=int, choices=(6, 8), default=6)
+    parser.add_argument("--capacity-step", type=int, choices=(128, 256), default=128)
     args = parser.parse_args()
     model = DramaModel(args.checkpoint, slots=32, max_length=512)
-    samples = [json.loads(s) for s in args.corpus.read_text().splitlines()][:6]
+    samples = [json.loads(s) for s in args.corpus.read_text().splitlines()][: args.batch]
     prompts = [
         build_drama3_prompt(
             s["text"],
@@ -71,8 +73,8 @@ def main():
     def run_case(count):
         selected = prompts[:count]
         lengths = list(map(len, selected))
-        capacity = triton.cdiv(sum(lengths), 128) * 128
-        graph = PackedPrefillGraph(model, 6, capacity)
+        capacity = triton.cdiv(sum(lengths), args.capacity_step) * args.capacity_step
+        graph = PackedPrefillGraph(model, args.batch, capacity)
         actual = graph.run(selected, list(range(count)))[:count]
         check(
             f"b{count}/positions",
@@ -95,7 +97,7 @@ def main():
                 exact=True,
             )
             offset += len(prompt)
-        owned = set(range(count)) | set(range(32 - (7 - count), 32))
+        owned = set(range(count)) | set(range(32 - (args.batch + 1 - count), 32))
         untouched = sorted(set(range(32)) - owned)
         state_before = {
             i: (c[:count].clone(), s[:count].clone(), c[untouched].clone(), s[untouched].clone())
@@ -216,7 +218,7 @@ def main():
         args.output.write_text(json.dumps(results, indent=2) + "\n")
         print(json.dumps(row), flush=True)
 
-    for count in (3, 5, 6):
+    for count in sorted({2, 3, 5, 6, args.batch}):
         run_case(count)
 
 

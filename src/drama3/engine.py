@@ -23,6 +23,7 @@ from fish_speech.models.text2semantic.fish_omni.generate import build_drama3_pro
 from drama3.audio_queue import AudioQueue
 from drama3.codec import load_codec, streaming_codec
 from drama3.model import AttentionBatch, DramaModel
+from drama3.packed_prefill import PackedPrefillGraph
 from drama3.profiling import StageProfiler
 from drama3.runtime_state import DeviceRequests
 
@@ -230,6 +231,11 @@ class Engine:
         if self.codec_precision not in ("float16", "bfloat16"):
             raise ValueError("DRAMA3_CODEC_DTYPE must be float16 or bfloat16")
         self.prefill_max_batch = int(os.environ.get("DRAMA3_PREFILL_MAX_BATCH", "8"))
+        self.packed_prefill = os.environ.get("DRAMA3_PACKED_PREFILL") == "1"
+        if self.packed_prefill and self.max_length < 512:
+            raise ValueError("Packed prefill currently requires a context of at least 512")
+        if self.packed_prefill and os.environ.get("DRAMA3_PREFILL_MOE_TUNED") == "1":
+            raise ValueError("Packed prefill currently requires DRAMA3_PREFILL_MOE_TUNED=0")
         self.prefill_batch_sizes = (
             (1, 2, 4, 6, 8, 16)
             if os.environ.get("DRAMA3_PREFILL_BATCH_6") == "1"
@@ -309,10 +315,20 @@ class Engine:
             self.batched_prefill_graphs = {
                 (batch, span): BatchedPrefillGraph(self.model, batch, span)
                 for batch in self.prefill_batch_sizes
-                if 1 < batch <= min(self.slots, self.prefill_max_batch)
+                if not self.packed_prefill and 1 < batch <= min(self.slots, self.prefill_max_batch)
                 for span in self.prefill_spans
                 if span <= self.max_length and (batch <= 8 or span <= 256)
             }
+            self.packed_prefill_graphs = {}
+            if self.packed_prefill and self.slots > 1:
+                batch = min(self.slots, self.prefill_max_batch)
+                # Replay is serial and run() clones its output before another
+                # graph can reuse these temporary allocations.
+                pool = torch.cuda.graph_pool_handle()
+                for capacity in (128, *range(256, batch * 512 + 1, 256)):
+                    self.packed_prefill_graphs[capacity] = PackedPrefillGraph(
+                        self.model, batch, capacity, pool=pool
+                    )
             self.codec_graphs = streaming_codec(
                 self.codec, self.slots, dtype=getattr(torch, self.codec_precision)
             )
@@ -492,6 +508,23 @@ class Engine:
         return frames
 
     def prefill_many(self, requests, prompts):
+        if self.packed_prefill_graphs and len(requests) > 1:
+            packed = [(r, p) for r, p in zip(requests, prompts, strict=True) if 3 <= len(p) <= 512]
+            if len(packed) > 1:
+                packed_requests, packed_prompts = map(list, zip(*packed, strict=True))
+                total = sum(map(len, packed_prompts))
+                capacity = next(size for size in self.packed_prefill_graphs if size >= total)
+                hidden = self.packed_prefill_graphs[capacity].run(
+                    packed_prompts, [r.slot for r in packed_requests]
+                )
+                batch = next(size for size in self.first_graphs if size >= len(packed))
+                self.finish_prefill(packed_requests, hidden[:batch], batch)
+                remaining = [
+                    (r, p) for r, p in zip(requests, prompts, strict=True) if not 3 <= len(p) <= 512
+                ]
+                if not remaining:
+                    return
+                requests, prompts = map(list, zip(*remaining, strict=True))
         groups = {}
         for request, frames in zip(requests, prompts, strict=True):
             bucket = next((size for size in self.prefill_graphs if 3 <= len(frames) <= size), None)
@@ -515,11 +548,14 @@ class Engine:
                 hidden = self.prefill_graphs[key].run(frames[0], requests[0].slot)
             else:
                 hidden = self.model.prefill(frames[0], requests[0].slot)
-            first = self.first_graphs[batch].run(requests, hidden)[:, 0].cpu().tolist()
-            for request, main in zip(requests, first, strict=True):
-                if main != self.model.config.eos_token_id:
-                    request.frame_count = 1
-                    request.position += 1
+            self.finish_prefill(requests, hidden, batch)
+
+    def finish_prefill(self, requests, hidden, batch):
+        first = self.first_graphs[batch].run(requests, hidden)[:, 0].cpu().tolist()
+        for request, main in zip(requests, first, strict=True):
+            if main != self.model.config.eos_token_id:
+                request.frame_count = 1
+                request.position += 1
 
     def decode_audio(self, codes: torch.Tensor) -> torch.Tensor:
         with torch.autocast("cuda", dtype=torch.bfloat16):
