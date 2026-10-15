@@ -1,0 +1,170 @@
+[
+  {
+    "batch": 128,
+    "layer": 0,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 259.2071714072392
+  },
+  {
+    "batch": 128,
+    "layer": 0,
+    "backend": "native",
+    "relative_rmse": 0.0,
+    "microseconds": 161.27159118652344
+  },
+  {
+    "batch": 128,
+    "layer": 19,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 248.68384403968923
+  },
+  {
+    "batch": 128,
+    "layer": 19,
+    "backend": "native",
+    "relative_rmse": 0.0,
+    "microseconds": 152.0672839620839
+  },
+  {
+    "batch": 128,
+    "layer": 39,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 241.88665307086447
+  },
+  {
+    "batch": 128,
+    "layer": 39,
+    "backend": "native",
+    "relative_rmse": 0.0,
+    "microseconds": 141.45140647888184
+  },
+  {
+    "batch": 217,
+    "layer": 0,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 348.884916305542
+  },
+  {
+    "batch": 217,
+    "layer": 0,
+    "backend": "native",
+    "relative_rmse": 7.07438539393479e-06,
+    "microseconds": 172.43342908840737
+  },
+  {
+    "batch": 217,
+    "layer": 19,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 345.7948396790702
+  },
+  {
+    "batch": 217,
+    "layer": 19,
+    "backend": "native",
+    "relative_rmse": 5.209552909946069e-06,
+    "microseconds": 169.8446183834436
+  },
+  {
+    "batch": 217,
+    "layer": 39,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 318.54765755789623
+  },
+  {
+    "batch": 217,
+    "layer": 39,
+    "backend": "native",
+    "relative_rmse": 2.85943519884313e-06,
+    "microseconds": 162.3727850957748
+  },
+  {
+    "batch": 256,
+    "layer": 0,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 351.4215660095215
+  },
+  {
+    "batch": 256,
+    "layer": 0,
+    "backend": "native",
+    "relative_rmse": 2.521396345400717e-05,
+    "microseconds": 176.72373266781076
+  },
+  {
+    "batch": 256,
+    "layer": 19,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 345.6571616378485
+  },
+  {
+    "batch": 256,
+    "layer": 19,
+    "backend": "native",
+    "relative_rmse": 4.855408406001516e-06,
+    "microseconds": 172.95182978065267
+  },
+  {
+    "batch": 256,
+    "layer": 39,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 318.4960577223036
+  },
+  {
+    "batch": 256,
+    "layer": 39,
+    "backend": "native",
+    "relative_rmse": 7.817376172170043e-06,
+    "microseconds": 162.9169429432262
+  },
+  {
+    "batch": 512,
+    "layer": 0,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 374.3696594238281
+  },
+  {
+    "batch": 512,
+    "layer": 0,
+    "backend": "native",
+    "relative_rmse": 3.5784382816927973e-06,
+    "microseconds": 216.7176934175713
+  },
+  {
+    "batch": 512,
+    "layer": 19,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 376.2247657775879
+  },
+  {
+    "batch": 512,
+    "layer": 19,
+    "backend": "native",
+    "relative_rmse": 1.05450762930559e-05,
+    "microseconds": 218.2230083421729
+  },
+  {
+    "batch": 512,
+    "layer": 39,
+    "backend": "reference",
+    "relative_rmse": 0.0,
+    "microseconds": 367.6343843048694
+  },
+  {
+    "batch": 512,
+    "layer": 39,
+    "backend": "native",
+    "relative_rmse": 4.953271854901686e-05,
+    "microseconds": 217.92237924975018
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "url": "http://127.0.0.1:18080",
+  "backend": "sglang",
+  "corpus": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en192/requests.jsonl",
+  "output": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/sglang-default-en192",
+  "concurrency": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "requests": 192,
+  "repeats": 3,
+  "warmup": 8,
+  "max_frames": 500,
+  "timeout": 300,
+  "save_audio": true,
+  "corpus_sha256": "df4544e1c7f4f63c101c08deef4867ea8f811b8886b3994b6b6593f592a8f159",
+  "frame_measure": "returned_waveform_samples / 2048; excludes EOS",
+  "rtf_boundary": "dispatch_to_last_audio",
+  "finish_reason_coverage": false
+}

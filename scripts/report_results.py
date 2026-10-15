@@ -29,8 +29,8 @@ def load_summary(path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--sglang", type=Path, required=True)
-    parser.add_argument("--vllm", type=Path)
+    parser.add_argument("--sglang", type=Path)
+    parser.add_argument("--vllm", type=Path, required=True)
     parser.add_argument("--candidate", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
@@ -44,15 +44,11 @@ def main():
         "",
         "Median of three complete runs. TTFA is in milliseconds; throughput is acoustic frames/s.",
         "",
-        "| Runtime | C | Frames/s | TTFA p50 | TTFA p95 | Mean RTF | Ratio to better baseline |",
+        "| Runtime | C | Frames/s | TTFA p50 | TTFA p95 | Mean RTF | Ratio to new vLLM |",
         "|---|---:|---:|---:|---:|---:|---:|",
     ]
     for concurrency in sorted({c for values in groups.values() for c in values}):
-        baseline = None
-        if all(concurrency in groups.get(name, {}) for name in ("sglang", "vllm")):
-            baseline = max(
-                groups[name][concurrency]["throughput_frames_s"] for name in ("sglang", "vllm")
-            )
+        baseline = groups.get("vllm", {}).get(concurrency, {}).get("throughput_frames_s")
         for name, values in groups.items():
             if concurrency not in values:
                 continue
@@ -74,6 +70,21 @@ def main():
         "INCONCLUSIVE, never PASS.",
         "",
     ]
+    if "candidate" in groups:
+        required = {1, 2, 4, 8, 16, 32, 64}
+        covered = required <= groups["candidate"].keys() and required <= groups["vllm"].keys()
+        if covered:
+            passed = all(
+                groups["candidate"][c]["throughput_frames_s"]
+                >= 2 * groups["vllm"][c]["throughput_frames_s"]
+                for c in required
+            )
+            verdict = "PASS" if passed else "FAIL"
+        else:
+            verdict = "INCOMPLETE"
+        lines.extend(
+            [f"Throughput-only 2× gate: **{verdict}**. Quality is a separate required gate.", ""]
+        )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text("\n".join(lines))
 

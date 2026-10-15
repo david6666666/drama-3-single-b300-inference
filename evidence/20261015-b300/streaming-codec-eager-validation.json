@@ -1,0 +1,30 @@
+[
+  {
+    "check": "whole_vs_fish",
+    "relative_rmse": 0.01828736811876297
+  },
+  {
+    "check": "stream_vs_fish",
+    "reuse": 0,
+    "graphs": false,
+    "relative_rmse": 0.017830543220043182
+  },
+  {
+    "check": "stream_vs_whole",
+    "reuse": 0,
+    "graphs": false,
+    "relative_rmse": 0.010790121741592884
+  },
+  {
+    "check": "stream_vs_fish",
+    "reuse": 1,
+    "graphs": false,
+    "relative_rmse": 0.017830543220043182
+  },
+  {
+    "check": "stream_vs_whole",
+    "reuse": 1,
+    "graphs": false,
+    "relative_rmse": 0.010790121741592884
+  }
+]

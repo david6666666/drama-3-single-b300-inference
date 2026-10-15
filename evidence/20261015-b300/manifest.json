@@ -1,0 +1,113 @@
+{
+  "created_utc": "2026-10-15T03:48:35.685328+00:00",
+  "status": "NEW_BASELINE_RUNNING_2X_NOT_ACHIEVED",
+  "repositories": {
+    "sglang-omni": "e9e016b83e1a5d92b4232f90427a44afac8d84b6",
+    "vllm-omni": "d6ed4f4844fbc41573ffc03247e5b2ff0a38d322",
+    "OmniRSI-pr9": "4ad551a916678a177d1ffc035a972bebd5b34c39",
+    "kda": "ef6ce617693ef0782b3ecb9f37e39bbf10226a90",
+    "fish-speech": "541566932abbaebcb0a40e562a1f846738383f38",
+    "vllm-omni-historical": "e7c007cc3fa697e88c866863fdd7602ba0e5afb4"
+  },
+  "model": {
+    "id": "fishaudio/drama-3",
+    "revision": "e0a9218aa48888270f06ef1ed9ea67622c0e17d2"
+  },
+  "dataset": {
+    "id": "zhaochenyang20/seed-tts-eval-arrow",
+    "revision": "81d1901582dee1293a537a6d945d084301712c41",
+    "split": "en",
+    "selection": "first 192 English parquet rows; 126 unique reference waveforms",
+    "path": "data/en-00000-of-00001.parquet"
+  },
+  "gpu": "index, uuid, name, driver_version, memory.total [MiB]\n0, GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d, NVIDIA B300 SXM6 AC, 610.43.02, 275040 MiB\n1, GPU-adecbd14-4768-00f8-a2fa-697ced804a8d, NVIDIA B300 SXM6 AC, 610.43.02, 275040 MiB\n2, GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a, NVIDIA B300 SXM6 AC, 610.43.02, 275040 MiB\n3, GPU-90fb226c-3937-2448-1052-2e12282a61b9, NVIDIA B300 SXM6 AC, 610.43.02, 275040 MiB\n4, GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed, NVIDIA B300 SXM6 AC, 610.43.02, 275040 MiB\n5, GPU-fd75ec1b-92a4-ca93-a3ad-976565948d0e, NVIDIA B300 SXM6 AC, 610.43.02, 275040 MiB\n6, GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf, NVIDIA B300 SXM6 AC, 610.43.02, 275040 MiB\n7, GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, NVIDIA B300 SXM6 AC, 610.43.02, 275040 MiB\n",
+  "gpu_index": 0,
+  "concurrency": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.9,
+    "top_k": 30,
+    "max_new_tokens": 500
+  },
+  "acceptance": {
+    "throughput_ratio": 2.0,
+    "scope": "each_concurrency",
+    "quality": "upstream WER and speaker similarity; no pass without complete evidence",
+    "baseline": "vLLM-Omni main including PR #8933; supersedes historical envelope"
+  },
+  "smoke_dataset": {
+    "id": "zhaochenyang20/seed-tts-eval-mini",
+    "revision": "0df0b57b45253d5a9fa0b0e98846642f235f828e"
+  },
+  "quality_models": [
+    {
+      "repo": "popsoda2002/seedtts-wavlm-sim",
+      "revision": "508f5410742122c7fb0d94e288152debd92cf629",
+      "file": "wavlm_large_finetune.pth",
+      "path": "/home/zjy/.cache/huggingface/hub/models--popsoda2002--seedtts-wavlm-sim/snapshots/508f5410742122c7fb0d94e288152debd92cf629/wavlm_large_finetune.pth"
+    },
+    {
+      "repo": "s3prl/converted_ckpts",
+      "revision": "8cad0b370e7e35f8d56951d95d2be036ea85510c",
+      "file": "wavlm_large.pt",
+      "path": "/home/zjy/.cache/huggingface/hub/models--s3prl--converted_ckpts/snapshots/8cad0b370e7e35f8d56951d95d2be036ea85510c/wavlm_large.pt"
+    },
+    {
+      "repo": "openai/whisper-large-v3",
+      "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "path": "/home/zjy/.cache/huggingface/hub/models--openai--whisper-large-v3/snapshots/06f233fe06e710322aca913c1bc4249a0d71fce1"
+    }
+  ],
+  "diagnostics": [
+    {
+      "gpu_index": 1,
+      "purpose": "feasibility/accuracy/operator profiling only; not framework comparison claims"
+    },
+    {
+      "gpu_index": 2,
+      "purpose": "feasibility/accuracy/operator profiling only; not framework comparison claims"
+    },
+    {
+      "gpu_index": 3,
+      "purpose": "feasibility/accuracy/operator profiling only; not framework comparison claims"
+    },
+    {
+      "gpu_index": 4,
+      "purpose": "feasibility/accuracy/operator profiling only; not framework comparison claims"
+    }
+  ],
+  "host_isolation": "Shared host. GPU 0 reserved for these sequential performance runs; other GPUs have independent users. GPU 1 used for our numerical diagnostics.",
+  "input_contract": "Identical pre-encoded reference codes, FP32 Fish codec preparation; fresh TCP per request",
+  "reference_encoding": {
+    "input_corpus_sha256": "df4544e1c7f4f63c101c08deef4867ea8f811b8886b3994b6b6593f592a8f159",
+    "output_corpus_sha256": "063bd99acb9bb6dbc839bfc2d4f53e5df4ca7665170a86ee6d653096aeafec24",
+    "dtype": "float32",
+    "encoder": "pinned Fish Speech codec",
+    "checkpoint": "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+    "fish_source": "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "requests": 192,
+    "unique_references": 126,
+    "preparation_s": 11.838681191089563
+  },
+  "candidate_sha": "5726cbae8076afafb9fe1b2ce53647393578bdf1",
+  "runtime_state_dtype": {
+    "new_vllm": "bfloat16",
+    "candidate": "float32"
+  },
+  "failures": [
+    "Historical vLLM and candidate-67ed1de C64 runs had Server disconnected errors. Preserved; no retry or partial run promotion.",
+    "Inline-reference probe of new vLLM deliberately stopped after verifying it encodes per request. Not the production baseline.",
+    "candidate-225c6d8 C64 warmup returned one first-frame EOS/empty-audio error. Suite ineligible for acceptance.",
+    "Batched GDN with padded neutral gates failed final-state numerical validation (6.37% RRMS). Replaced with true varlen boundaries.",
+    "First varlen diagnostic reused dirty scratch slots as its reference states; corrected test isolation and re-ran.",
+    "FI fused MoE N32 layer19 exceeds the 3% operator RRMS diagnostic (3.72%); end-to-end quality is required, no bitwise/lossless claim."
+  ]
+}

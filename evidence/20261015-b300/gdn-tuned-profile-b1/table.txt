@@ -1,0 +1,53 @@
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                            gemv_kernel         0.00%       0.000us         0.00%       0.000us       0.000us       7.382ms        42.48%       7.382ms       4.687us          1575  
+                                       expert_up_kernel         0.00%       0.000us         0.00%       0.000us       0.000us       1.416ms         8.15%       1.416ms       7.080us           200  
+                                        add_norm_kernel         0.00%       0.000us         0.00%       0.000us       0.000us       1.352ms         7.78%       1.352ms       2.550us           530  
+                                     expert_down_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     906.313us         5.21%     906.313us       4.532us           200  
+kernel_cutlass_decode_flashinfercute_dslattentiongqa...         0.00%       0.000us         0.00%       0.000us       0.000us     658.914us         3.79%     658.914us       5.730us           115  
+fused_recurrent_gated_delta_rule_packed_decode_kerne...         0.00%       0.000us         0.00%       0.000us       0.000us     468.518us         2.70%     468.518us       3.123us           150  
+kernel_cutlass_kernel_flashinfernormkernelsrmsnormRM...         0.00%       0.000us         0.00%       0.000us       0.000us     465.480us         2.68%     465.480us       2.327us           200  
+                                           route_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     419.588us         2.41%     419.588us       2.098us           200  
+                               attention_prepare_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     379.708us         2.18%     379.708us       3.302us           115  
+                                        silu_mul_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     351.008us         2.02%     351.008us       1.325us           265  
+                                     conv_update_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     327.520us         1.88%     327.520us       2.183us           150  
+                                  silu_mul_quant_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     308.222us         1.77%     308.222us       1.541us           200  
+                                 combine_experts_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     302.503us         1.74%     302.503us       1.513us           200  
+                                      gated_norm_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     285.506us         1.64%     285.506us       1.903us           150  
+                                           quant_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     265.408us         1.53%     265.408us       1.327us           200  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us     219.323us         1.26%     219.323us       1.907us           115  
+kernel_cutlass_reduction_kernel_128_2_256_tensorptrb...         0.00%       0.000us         0.00%       0.000us       0.000us     203.877us         1.17%     203.877us       1.773us           115  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us     203.042us         1.17%     203.042us       2.707us            75  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us     168.258us         0.97%     168.258us       1.463us           115  
+                                    sample_merge_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     151.555us         0.87%     151.555us       2.756us            55  
+void at::native::(anonymous namespace)::indexSelectS...         0.00%       0.000us         0.00%       0.000us       0.000us     149.477us         0.86%     149.477us       2.135us            70  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us     148.898us         0.86%     148.898us       2.978us            50  
+void at::native::vectorized_elementwise_kernel<4, at...         0.00%       0.000us         0.00%       0.000us       0.000us     127.616us         0.73%     127.616us       1.110us           115  
+                                sample_partition_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     127.590us         0.73%     127.590us       2.320us            55  
+void at::native::vectorized_elementwise_kernel<2, at...         0.00%       0.000us         0.00%       0.000us       0.000us     117.089us         0.67%     117.089us       1.673us            70  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us      88.290us         0.51%      88.290us       1.358us            65  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us      77.440us         0.45%      77.440us       1.106us            70  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us      58.047us         0.33%      58.047us       1.451us            40  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us      43.426us         0.25%      43.426us       1.737us            25  
+void at::native::(anonymous namespace)::EmbeddingBag...         0.00%       0.000us         0.00%       0.000us       0.000us      42.431us         0.24%      42.431us       4.243us            10  
+void at::native::index_elementwise_kernel<128, 4, at...         0.00%       0.000us         0.00%       0.000us       0.000us      25.568us         0.15%      25.568us       2.557us            10  
+void (anonymous namespace)::elementwise_kernel_with_...         0.00%       0.000us         0.00%       0.000us       0.000us      20.097us         0.12%      20.097us       1.005us            20  
+void at::native::vectorized_elementwise_kernel<2, at...         0.00%       0.000us         0.00%       0.000us       0.000us      16.351us         0.09%      16.351us       1.635us            10  
+void at::native::vectorized_elementwise_kernel<2, at...         0.00%       0.000us         0.00%       0.000us       0.000us      16.351us         0.09%      16.351us       1.635us            10  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us      13.120us         0.08%      13.120us       1.312us            10  
+void at::native::reduce_kernel<512, 1, at::native::R...         0.00%       0.000us         0.00%       0.000us       0.000us      11.553us         0.07%      11.553us       2.311us             5  
+void at::native::(anonymous namespace)::CatArrayBatc...         0.00%       0.000us         0.00%       0.000us       0.000us      10.785us         0.06%      10.785us       2.157us             5  
+                              attention_metadata_kernel         0.00%       0.000us         0.00%       0.000us       0.000us       9.824us         0.06%       9.824us       1.965us             5  
+void at::native::elementwise_kernel<128, 4, at::nati...         0.00%       0.000us         0.00%       0.000us       0.000us       9.567us         0.06%       9.567us       1.913us             5  
+void at::native::vectorized_elementwise_kernel<2, at...         0.00%       0.000us         0.00%       0.000us       0.000us       9.057us         0.05%       9.057us       1.811us             5  
+void at::native::vectorized_elementwise_kernel<2, at...         0.00%       0.000us         0.00%       0.000us       0.000us       8.704us         0.05%       8.704us       1.741us             5  
+void at::native::unrolled_elementwise_kernel<at::nat...         0.00%       0.000us         0.00%       0.000us       0.000us       6.880us         0.04%       6.880us       1.376us             5  
+void at::native::vectorized_elementwise_kernel<8, at...         0.00%       0.000us         0.00%       0.000us       0.000us       6.496us         0.04%       6.496us       1.299us             5  
+                                        cudaGraphLaunch        19.27%       3.719ms        25.00%       4.826ms     965.118us       0.000us         0.00%       0.000us       0.000us             5  
+                                Activity Buffer Request         5.74%       1.107ms         5.74%       1.107ms       1.107ms       0.000us         0.00%       0.000us       0.000us             1  
+                                  cudaDeviceSynchronize        75.00%      14.476ms        75.00%      14.476ms       7.238ms       0.000us         0.00%       0.000us       0.000us             2  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 19.302ms
+Self CUDA time total: 17.379ms
+

@@ -1,0 +1,450 @@
+[
+  {
+    "batch": 1,
+    "backend": "sglang",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 4.455675860635595,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "flashinfer",
+    "output_rrms": 0.0004105644184164703,
+    "state_rrms": 0.00014551480126101524,
+    "microseconds": 5.375904222609292,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile8-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 2.400037568852568,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile8-warps4",
+    "output_rrms": 0.0,
+    "state_rrms": 7.90314302889783e-09,
+    "microseconds": 2.8414913120601626,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile8-warps8",
+    "output_rrms": 0.0,
+    "state_rrms": 7.90314302889783e-09,
+    "microseconds": 3.062586858868599,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile16-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 3.6368947672216514,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile16-warps4",
+    "output_rrms": 0.0,
+    "state_rrms": 7.90314302889783e-09,
+    "microseconds": 2.6925864325108635,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile16-warps8",
+    "output_rrms": 0.0,
+    "state_rrms": 7.90314302889783e-09,
+    "microseconds": 3.0797763090384636,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile32-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 4.656324904094371,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile32-warps4",
+    "output_rrms": 0.0,
+    "state_rrms": 7.90314302889783e-09,
+    "microseconds": 2.754962483199152,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile32-warps8",
+    "output_rrms": 0.0,
+    "state_rrms": 7.90314302889783e-09,
+    "microseconds": 2.823645815984839,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile64-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 8.838994692912143,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile64-warps4",
+    "output_rrms": 0.0,
+    "state_rrms": 7.90314302889783e-09,
+    "microseconds": 3.3633759985922156,
+    "pass": true
+  },
+  {
+    "batch": 1,
+    "backend": "tile64-warps8",
+    "output_rrms": 0.0,
+    "state_rrms": 7.90314302889783e-09,
+    "microseconds": 3.4001817596553727,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "sglang",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 7.180111741506924,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "flashinfer",
+    "output_rrms": 0.0005811385344713926,
+    "state_rrms": 0.00014362254296429455,
+    "microseconds": 15.21911170538955,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile8-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 5.218652348888657,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile8-warps4",
+    "output_rrms": 6.257665972952964e-06,
+    "state_rrms": 7.895724074558075e-09,
+    "microseconds": 7.6190920229311345,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile8-warps8",
+    "output_rrms": 6.257665972952964e-06,
+    "state_rrms": 7.895724074558075e-09,
+    "microseconds": 11.521954253046395,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile16-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 6.187683430549979,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile16-warps4",
+    "output_rrms": 6.257665972952964e-06,
+    "state_rrms": 7.895724074558075e-09,
+    "microseconds": 6.346590631012012,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile16-warps8",
+    "output_rrms": 6.257665972952964e-06,
+    "state_rrms": 7.895724074558075e-09,
+    "microseconds": 8.175586679025756,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile32-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 7.179068549710199,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile32-warps4",
+    "output_rrms": 6.257665972952964e-06,
+    "state_rrms": 7.895724074558075e-09,
+    "microseconds": 6.436776109132222,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile32-warps8",
+    "output_rrms": 6.257665972952964e-06,
+    "state_rrms": 7.895724074558075e-09,
+    "microseconds": 7.099031517235422,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile64-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 11.525547543510061,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile64-warps4",
+    "output_rrms": 6.257665972952964e-06,
+    "state_rrms": 7.895724074558075e-09,
+    "microseconds": 7.453880511812314,
+    "pass": true
+  },
+  {
+    "batch": 8,
+    "backend": "tile64-warps8",
+    "output_rrms": 6.257665972952964e-06,
+    "state_rrms": 7.895724074558075e-09,
+    "microseconds": 7.388759229742169,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "sglang",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 23.79180813829104,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "flashinfer",
+    "output_rrms": 0.0005647327634505928,
+    "state_rrms": 0.00014229775115381926,
+    "microseconds": 32.05621341864268,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile8-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 14.683763743326674,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile8-warps4",
+    "output_rrms": 1.0686820672844988e-07,
+    "state_rrms": 9.162150149677473e-09,
+    "microseconds": 24.872369904814185,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile8-warps8",
+    "output_rrms": 1.0686820672844988e-07,
+    "state_rrms": 9.162150149677473e-09,
+    "microseconds": 40.44768096535069,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile16-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 19.407524036455758,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile16-warps4",
+    "output_rrms": 1.0686820672844988e-07,
+    "state_rrms": 9.162150149677473e-09,
+    "microseconds": 19.556815103947116,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile16-warps8",
+    "output_rrms": 1.0686820672844988e-07,
+    "state_rrms": 9.162150149677473e-09,
+    "microseconds": 26.092129225640665,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile32-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 23.712046708311444,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile32-warps4",
+    "output_rrms": 1.0686820672844988e-07,
+    "state_rrms": 9.162150149677473e-09,
+    "microseconds": 19.012466045694612,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile32-warps8",
+    "output_rrms": 1.0686820672844988e-07,
+    "state_rrms": 9.162150149677473e-09,
+    "microseconds": 22.87495533096171,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile64-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 38.7449497129859,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile64-warps4",
+    "output_rrms": 1.0686820672844988e-07,
+    "state_rrms": 9.162150149677473e-09,
+    "microseconds": 20.885400539491236,
+    "pass": true
+  },
+  {
+    "batch": 32,
+    "backend": "tile64-warps8",
+    "output_rrms": 1.0686820672844988e-07,
+    "state_rrms": 9.162150149677473e-09,
+    "microseconds": 21.61491447361482,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "sglang",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 51.245371500651046,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "flashinfer",
+    "output_rrms": 0.0005540646379813552,
+    "state_rrms": 0.00015614586300216615,
+    "microseconds": 60.37750435513398,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile8-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 43.03364271528265,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile8-warps4",
+    "output_rrms": 1.3781725101580378e-05,
+    "state_rrms": 9.048823024215835e-09,
+    "microseconds": 52.46659780393179,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile8-warps8",
+    "output_rrms": 1.3781725101580378e-05,
+    "state_rrms": 9.048823024215835e-09,
+    "microseconds": 81.8369207023078,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile16-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 55.43684656220364,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile16-warps4",
+    "output_rrms": 1.3781725101580378e-05,
+    "state_rrms": 9.048823024215835e-09,
+    "microseconds": 46.11506174845868,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile16-warps8",
+    "output_rrms": 1.3781725101580378e-05,
+    "state_rrms": 9.048823024215835e-09,
+    "microseconds": 54.52084541320801,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile32-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 51.27191060384115,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile32-warps4",
+    "output_rrms": 1.3781725101580378e-05,
+    "state_rrms": 9.048823024215835e-09,
+    "microseconds": 46.237938273209096,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile32-warps8",
+    "output_rrms": 1.3781725101580378e-05,
+    "state_rrms": 9.048823024215835e-09,
+    "microseconds": 51.00796563284737,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile64-warps1",
+    "output_rrms": 0.0,
+    "state_rrms": 0.0,
+    "microseconds": 81.81950865673419,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile64-warps4",
+    "output_rrms": 1.3781725101580378e-05,
+    "state_rrms": 9.048823024215835e-09,
+    "microseconds": 50.62559575707428,
+    "pass": true
+  },
+  {
+    "batch": 64,
+    "backend": "tile64-warps8",
+    "output_rrms": 1.3781725101580378e-05,
+    "state_rrms": 9.048823024215835e-09,
+    "microseconds": 50.67480333876799,
+    "pass": true
+  }
+]

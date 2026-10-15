@@ -1,0 +1,38 @@
+[
+  {
+    "layer": 0,
+    "row": 0,
+    "check": "output",
+    "relative_rmse": 8.932939090300351e-05
+  },
+  {
+    "layer": 0,
+    "row": 0,
+    "check": "conv",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 0,
+    "check": "state",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 1,
+    "check": "output",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 1,
+    "check": "conv",
+    "relative_rmse": 0.0
+  },
+  {
+    "layer": 0,
+    "row": 1,
+    "check": "state",
+    "relative_rmse": 0.06373284757137299
+  }
+]

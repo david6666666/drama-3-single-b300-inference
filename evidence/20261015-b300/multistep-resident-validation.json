@@ -1,0 +1,22 @@
+[
+  {
+    "steps": 2,
+    "position": 30,
+    "passed": true
+  },
+  {
+    "steps": 2,
+    "position": 510,
+    "passed": true
+  },
+  {
+    "steps": 4,
+    "position": 30,
+    "passed": true
+  },
+  {
+    "steps": 4,
+    "position": 510,
+    "passed": true
+  }
+]
