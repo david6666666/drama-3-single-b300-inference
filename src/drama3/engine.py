@@ -49,6 +49,7 @@ class Request:
     pending_audio: int = 0
     finish_requested: bool = False
     audio_failed: bool = False
+    audio_lock: threading.Lock = field(default_factory=threading.Lock)
 
     def emit(self, value: bytes | Exception | None) -> None:
         self.loop.call_soon_threadsafe(self.output.put_nowait, value)
@@ -228,6 +229,9 @@ class Engine:
         self.failure = None
         profile_path = os.environ.get("DRAMA3_PROFILE_PATH")
         self.async_codec = os.environ.get("DRAMA3_ASYNC_CODEC") == "1"
+        self.audio_delivery_thread = os.environ.get("DRAMA3_AUDIO_DELIVERY_THREAD") == "1"
+        if self.audio_delivery_thread and not self.async_codec:
+            raise ValueError("A PCM delivery thread requires DRAMA3_ASYNC_CODEC=1")
         self.audio_queue = None
         if self.async_codec and profile_path:
             raise ValueError("StageProfiler is synchronous; use a CUDA trace for codec overlap")
@@ -276,7 +280,9 @@ class Engine:
             }
             self.codec_graphs = streaming_codec(self.codec, self.slots)
             if self.async_codec:
-                self.audio_queue = AudioQueue(self.codec_graphs)
+                self.audio_queue = AudioQueue(
+                    self.codec_graphs, threaded=self.audio_delivery_thread
+                )
             torch.cuda.synchronize()
             self.ready.set()
             free = list(range(self.slots))
@@ -480,18 +486,28 @@ class Engine:
         self.emit_audio_batch([request])
 
     def finish_audio(self, request):
-        request.finish_requested = True
-        if not request.pending_audio and not request.audio_failed:
-            request.emit(None)
+        with request.audio_lock:
+            request.finish_requested = True
+            if (
+                not request.pending_audio
+                and not request.audio_failed
+                and not request.cancelled.is_set()
+            ):
+                request.emit(None)
 
     @staticmethod
     def audio_ready(request, data):
-        request.pending_audio -= 1
-        request.audio_failed = request.audio_failed or isinstance(data, Exception)
-        if not request.cancelled.is_set():
-            request.emit(data)
-            if request.finish_requested and not request.pending_audio and not request.audio_failed:
-                request.emit(None)
+        with request.audio_lock:
+            request.pending_audio -= 1
+            request.audio_failed = request.audio_failed or isinstance(data, Exception)
+            if not request.cancelled.is_set():
+                request.emit(data)
+                if (
+                    request.finish_requested
+                    and not request.pending_audio
+                    and not request.audio_failed
+                ):
+                    request.emit(None)
 
     def emit_audio_batch(self, requests: list[Request]) -> None:
         groups = {}
@@ -521,7 +537,8 @@ class Engine:
                 if self.audio_queue is not None:
                     callbacks = []
                     for request, left, count in chunk:
-                        request.pending_audio += 1
+                        with request.audio_lock:
+                            request.pending_audio += 1
                         callbacks.append(
                             (partial(self.audio_ready, request), (count - left) * 2048)
                         )

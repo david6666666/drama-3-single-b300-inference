@@ -26,6 +26,7 @@ def request(slot, callback):
         finish_requested=False,
         audio_failed=False,
         cancelled=threading.Event(),
+        audio_lock=threading.Lock(),
         emit=callback,
     )
 
@@ -44,10 +45,13 @@ def main():
     engine.device_requests = DeviceRequests(4, 0, 512)
     engine.codec_graphs = streaming_codec(load_codec(args.checkpoint, args.fish_source), 2)
     outputs = {}
-    for asynchronous in (False, True):
+    for asynchronous in ("sync", "poll", "thread"):
+        threaded = asynchronous == "thread"
         events = {}
         engine.audio_queue = (
-            AudioQueue(engine.codec_graphs, max_pending=2) if asynchronous else None
+            AudioQueue(engine.codec_graphs, max_pending=2, threaded=threaded)
+            if asynchronous != "sync"
+            else None
         )
         for generation in range(2):
             requests = []
@@ -72,7 +76,7 @@ def main():
             assert values[-1] is None and len(values) == 4, values
             assert all(isinstance(value, bytes) for value in values[:-1])
         outputs[asynchronous] = events
-    assert outputs[False] == outputs[True], (
+    assert outputs["sync"] == outputs["poll"] == outputs["thread"], (
         "Asynchronous PCM differs or completion arrived too early"
     )
     cancelled = []
@@ -84,6 +88,7 @@ def main():
     engine.finish_audio(req)
     engine.audio_queue.close()
     assert not cancelled and req.pending_audio == 0
+    engine.audio_queue = AudioQueue(engine.codec_graphs, max_pending=2)
     errors = []
     req = request(0, errors.append)
     req.frame_count = 1
@@ -105,7 +110,7 @@ def main():
         ],
         audio_sha256={
             name: hashlib.sha256(b"".join(values[:-1])).hexdigest()
-            for name, values in outputs[True].items()
+            for name, values in outputs["thread"].items()
         },
     )
     args.output.write_text(json.dumps(result, indent=2) + "\n")

@@ -81,6 +81,7 @@ def create_app(checkpoint: str, fish_source: str, slots: int, max_length: int) -
             "packed_moe_projection": engine.model.packed_moe_projection,
             "prefill_conv": engine.model.prefill_conv_backend,
             "async_codec": engine.async_codec,
+            "audio_delivery_thread": engine.audio_delivery_thread,
         }
 
     @app.post("/v1/audio/speech")
