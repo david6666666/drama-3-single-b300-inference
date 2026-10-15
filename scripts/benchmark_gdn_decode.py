@@ -31,6 +31,7 @@ def main():
         log = torch.randn(32, device="cuda")
         bias = torch.randn(32, device="cuda")
         slots = torch.arange(batch - 1, -1, -1, device="cuda", dtype=torch.int64)
+        flashinfer_slots = slots.to(torch.int32)
         initial = torch.randn(batch, 32, 128, 128, device="cuda").to(
             getattr(torch, args.state_dtype)
         )
@@ -95,8 +96,8 @@ def main():
                 b[:, None],
                 output=output,
                 initial_state=state,
-                initial_state_indices=slots,
-                output_state_indices=slots,
+                initial_state_indices=flashinfer_slots,
+                output_state_indices=flashinfer_slots,
                 backend="flashinfer",
             )
 

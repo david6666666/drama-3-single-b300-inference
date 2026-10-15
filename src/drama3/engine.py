@@ -4,6 +4,7 @@ import asyncio
 import base64
 import hashlib
 import io
+import math
 import os
 import queue
 import threading
@@ -212,6 +213,11 @@ class BatchedPrefillGraph:
         return self.output.clone()
 
 
+def state_pool_size(request_slots, prefill_limit=8):
+    """Each live or padding primary slot owns a distinct GDN suffix slot."""
+    return 2 * (request_slots + min(request_slots, prefill_limit))
+
+
 class Engine:
     def __init__(self, checkpoint: str, fish_source: str, slots: int = 64, max_length: int = 2048):
         if slots not in (1, 2, 4, 8, 16, 32, 64):
@@ -220,13 +226,21 @@ class Engine:
         self.fish_source = Path(fish_source)
         self.slots = slots
         self.max_length = max_length
+        self.prefill_max_batch = int(os.environ.get("DRAMA3_PREFILL_MAX_BATCH", "8"))
+        if self.prefill_max_batch not in (8, 16):
+            raise ValueError("Prefill maximum batch must be 8 or 16")
         self.admission_min_batch = int(os.environ.get("DRAMA3_ADMISSION_MIN_BATCH", "1"))
         self.admission_min_running = int(os.environ.get("DRAMA3_ADMISSION_MIN_RUNNING", "32"))
         self.admission_max_wait = (
             float(os.environ.get("DRAMA3_ADMISSION_MAX_WAIT_MS", "100")) / 1000
         )
-        if not 1 <= self.admission_min_batch <= 8 or self.admission_max_wait < 0:
-            raise ValueError("Admission batch must be 1..8 and maximum wait must be nonnegative")
+        if (
+            not 1 <= self.admission_min_batch <= self.prefill_max_batch
+            or self.admission_min_running < 1
+            or not math.isfinite(self.admission_max_wait)
+            or self.admission_max_wait < 0
+        ):
+            raise ValueError("Invalid admission batch, active threshold or maximum wait")
         self.pending = queue.Queue(maxsize=512)
         self.stopping = threading.Event()
         self.ready = threading.Event()
@@ -253,7 +267,7 @@ class Engine:
                 str(self.checkpoint),
                 # Reserve a full prefill batch in the primary half. The second
                 # half mirrors every primary slot for padded GDN suffixes.
-                slots=2 * (self.slots + min(self.slots, 8)),
+                slots=state_pool_size(self.slots, self.prefill_max_batch),
                 max_length=self.max_length,
             )
             self.codec = load_codec(self.checkpoint, self.fish_source)
@@ -267,8 +281,8 @@ class Engine:
                     self.graphs[size] = DecodeGraph(self.model, size, requests=self.device_requests)
             self.first_graphs = {
                 size: DecodeGraph(self.model, size, first_frame=True, requests=self.device_requests)
-                for size in (1, 2, 4, 8)
-                if size <= self.slots
+                for size in (1, 2, 4, 8, 16)
+                if size <= min(self.slots, self.prefill_max_batch)
             }
             self.serial_graphs = {
                 steps: DecodeGraph(self.model, 1, steps=steps, requests=self.device_requests)
@@ -281,10 +295,10 @@ class Engine:
             }
             self.batched_prefill_graphs = {
                 (batch, span): BatchedPrefillGraph(self.model, batch, span)
-                for batch in (2, 4, 8)
-                if batch <= self.slots
+                for batch in (2, 4, 8, 16)
+                if batch <= min(self.slots, self.prefill_max_batch)
                 for span in (128, 256, 512)
-                if span <= self.max_length
+                if span <= self.max_length and (batch <= 8 or span <= 256)
             }
             self.codec_graphs = streaming_codec(self.codec, self.slots)
             if self.async_codec:
@@ -298,7 +312,7 @@ class Engine:
                 if self.audio_queue is not None:
                     self.audio_queue.drain(block=not active)
                 if free:
-                    while len(waiting) < min(8, len(free)):
+                    while len(waiting) < min(self.prefill_max_batch, len(free)):
                         try:
                             request = self.pending.get(
                                 timeout=0.01 if not active and not waiting else 0
@@ -469,7 +483,13 @@ class Engine:
             # Long prompts use the eager single-sequence fallback.
             key = bucket if bucket is not None else (None, request.slot)
             groups.setdefault(key, []).append((request, frames))
+        chunks = []
         for key, jobs in groups.items():
+            limit = self.prefill_max_batch if isinstance(key, int) and key <= 256 else 8
+            chunks.extend(
+                (key, jobs[start : start + limit]) for start in range(0, len(jobs), limit)
+            )
+        for key, jobs in chunks:
             requests, frames = map(list, zip(*jobs, strict=True))
             batch = 1 << (len(jobs) - 1).bit_length()
             if batch > 1:

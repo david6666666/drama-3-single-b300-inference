@@ -6,7 +6,7 @@ from pathlib import Path
 
 import torch
 
-from drama3.engine import BatchedPrefillGraph
+from drama3.engine import BatchedPrefillGraph, state_pool_size
 from drama3.model import DramaModel
 
 
@@ -23,8 +23,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--partial-batch", type=int, choices=(8, 16), default=8)
     args = parser.parse_args()
-    model = DramaModel(args.checkpoint, slots=32, max_length=512)
+    capacity = args.partial_batch
+    model = DramaModel(args.checkpoint, slots=state_pool_size(capacity, capacity), max_length=512)
     torch.manual_seed(42)
     lengths = torch.tensor([33, 91, 128, 3], device="cuda")
     slots = torch.arange(4, device="cuda").repeat_interleave(128)
@@ -117,23 +119,27 @@ def main():
     # A partially filled prefill must not touch unrelated live requests. GDN
     # creates an independent suffix sequence for each padded row, so both the
     # row and its suffix need reserved slots, including for dummy requests.
-    partial_graph = BatchedPrefillGraph(model, 8, 128)
-    for count in (5, 6, 7):
+    partial_graph = BatchedPrefillGraph(model, capacity, 128)
+    for count in (capacity - 3, capacity - 2, capacity - 1):
         untouched = {
-            index: (conv[count:8].clone(), state[count:8].clone())
+            index: (conv[count:capacity].clone(), state[count:capacity].clone())
             for index, (conv, state) in model.states.items()
         }
         untouched_kv = {
-            index: (key[count:8].clone(), value[count:8].clone())
+            index: (key[count:capacity].clone(), value[count:capacity].clone())
             for index, (key, value) in model.kv.items()
         }
         partial_graph.run([prompts[i % 4] for i in range(count)], list(range(count)))
         for index, (conv, state) in model.states.items():
-            assert torch.equal(conv[count:8], untouched[index][0]), (count, index, "conv")
-            assert torch.equal(state[count:8], untouched[index][1]), (count, index, "state")
+            assert torch.equal(conv[count:capacity], untouched[index][0]), (count, index, "conv")
+            assert torch.equal(state[count:capacity], untouched[index][1]), (count, index, "state")
         for index, (key, value) in model.kv.items():
-            assert torch.equal(key[count:8], untouched_kv[index][0]), (count, index, "key")
-            assert torch.equal(value[count:8], untouched_kv[index][1]), (count, index, "value")
+            assert torch.equal(key[count:capacity], untouched_kv[index][0]), (count, index, "key")
+            assert torch.equal(value[count:capacity], untouched_kv[index][1]), (
+                count,
+                index,
+                "value",
+            )
         results.append(
             {"check": "partial_batch_preserves_other_requests", "count": count, "pass": True}
         )
