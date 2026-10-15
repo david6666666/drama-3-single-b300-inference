@@ -697,7 +697,11 @@ class DramaModel:
         labels: torch.Tensor | None,
         history: torch.Tensor | None = None,
         prefill_sequences: int = 1,
+        *,
+        code1_callback=None,
     ) -> torch.Tensor:
+        if code1_callback is not None and labels is not None:
+            raise ValueError("The code1 callback is only supported for decode")
         if labels is None:
             self.sampling_step.add_(1)
             logits = linear(hidden, self.lm_head)[:, : len(self.candidates)]
@@ -742,6 +746,8 @@ class DramaModel:
             )
             if labels is None:
                 codes.append(sample(linear(hidden, head.weight), self.sampling_step, index + 2))
+                if index == 0 and code1_callback is not None:
+                    code1_callback(main, codes[0], codes[1])
         return torch.stack((main, *codes), dim=-1)
 
     @torch.inference_mode()

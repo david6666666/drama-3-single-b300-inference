@@ -4,6 +4,7 @@ import asyncio
 import base64
 import hashlib
 import io
+import json
 import math
 import os
 import queue
@@ -239,6 +240,8 @@ class Engine:
         self.prefill_max_batch = int(os.environ.get("DRAMA3_PREFILL_MAX_BATCH", "8"))
         self.packed_prefill = os.environ.get("DRAMA3_PACKED_PREFILL") == "1"
         self.batched_multistep = os.environ.get("DRAMA3_BATCHED_MULTISTEP") == "1"
+        self.frame_pipeline = os.environ.get("DRAMA3_FRAME_PIPELINE") == "1"
+        self.frame_pipeline_counts = dict(eligible=0, capacity=0, admission=0, audio_boundary=0)
         self.mixed_backbone = os.environ.get("DRAMA3_MIXED_BACKBONE") == "1"
         self.mixed_span256 = os.environ.get("DRAMA3_MIXED_SPAN256") == "1"
         if self.mixed_backbone and (not self.packed_prefill or self.prefill_max_batch != 8):
@@ -332,6 +335,15 @@ class Engine:
             for size in (1, 2, 4, 8, 12, 16, 24, 32, 40, 48, 56, 64):
                 if size <= self.slots:
                     self.graphs[size] = DecodeGraph(self.model, size, requests=self.device_requests)
+            self.pipeline_graphs = {}
+            if self.frame_pipeline:
+                from drama3.frame_pipeline import FramePipelineGraph
+
+                self.pipeline_graphs = {
+                    size: FramePipelineGraph(self.model, size, self.device_requests)
+                    for size in self.graphs
+                    if size >= 16
+                }
             self.first_graphs = {
                 size: DecodeGraph(self.model, size, first_frame=True, requests=self.device_requests)
                 for size in self.prefill_batch_sizes
@@ -545,6 +557,18 @@ class Engine:
                     )
                     steps = 4 if available >= 4 else 2 if available >= 2 else 1
                     graph = self.multistep_graphs.get((size, steps), graph)
+                if self.frame_pipeline:
+                    from drama3.frame_pipeline import pair_blocker
+
+                    blocker = pair_blocker(
+                        active,
+                        waiting=bool(waiting),
+                        pending=not self.pending.empty(),
+                        supported=size in self.pipeline_graphs,
+                    )
+                    self.frame_pipeline_counts[blocker or "eligible"] += 1
+                    if blocker is None:
+                        graph = self.pipeline_graphs[size]
                 decode_metadata = (
                     dict(steps=graph.steps, padded_batch=graph.size)
                     if isinstance(self.profiler, TimelineProfiler)
@@ -579,6 +603,8 @@ class Engine:
                         self.codec_trace_submissions.clear()
             if self.profiler is not None:
                 self.profiler.save()
+            if self.frame_pipeline:
+                print(json.dumps({"frame_pipeline_counts": self.frame_pipeline_counts}), flush=True)
             for request in active:
                 request.emit(self.failure or RuntimeError("Engine stopped"))
             for request in waiting:
