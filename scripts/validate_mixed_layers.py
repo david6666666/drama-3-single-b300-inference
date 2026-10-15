@@ -220,6 +220,9 @@ def main():
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        "--timing", action="store_true", help="Diagnostic split/joint graph timing after parity"
+    )
     parser.add_argument("--cases", nargs="+", default=["58:6"], help="Active:arriving counts")
     args = parser.parse_args()
     try:
@@ -289,7 +292,13 @@ def main():
             selected = prompts[active_count : active_count + arriving_count]
             capacity = triton.cdiv(sum(map(len, selected)), 256) * 256
             graphs.append(
-                MixedGraph(model, device, triton.next_power_of_2(active_count), 8, capacity)
+                MixedGraph(
+                    model,
+                    device,
+                    next(n for n in (16, 32, 48, 64) if n >= active_count),
+                    8,
+                    capacity,
+                )
             )
         # Every capture above may update state. Initialize real requests only
         # afterwards; later cases deliberately reuse physical slots from earlier ones.
@@ -383,6 +392,34 @@ def main():
                 ),
                 flush=True,
             )
+            if args.timing:
+                control = MixedGraph(
+                    model, device, graph.decode_size, 8, graph.capacity, joint_backbone=False
+                )
+                control.prepare(
+                    active, prompts[active_count : active_count + arriving_count], arriving_slots
+                )
+                measurements = {"split_ms": [], "joint_ms": []}
+                for iteration in range(6):
+                    arms = [("split_ms", control), ("joint_ms", graph)]
+                    if iteration % 2:
+                        arms.reverse()
+                    for name, arm in arms:
+                        restore(tensors.values(), initial)
+                        begin, end = (
+                            torch.cuda.Event(enable_timing=True),
+                            torch.cuda.Event(enable_timing=True),
+                        )
+                        begin.record()
+                        arm.graph.replay()
+                        end.record()
+                        end.synchronize()
+                        if iteration:
+                            measurements[name].append(begin.elapsed_time(end))
+                row["diagnostic_graph_timings"] = measurements
+                checks.flush()
+                print(json.dumps(dict(case=prefix, timings=measurements)), flush=True)
+                del control
             del initial, captured_state, captured_output
         checks.report["status"] = "PASS"
         checks.flush()
