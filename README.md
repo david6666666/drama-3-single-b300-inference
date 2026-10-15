@@ -43,6 +43,8 @@ that warrants another language.
   remains only in diagnostic scripts and is not a serving option.
 
 The benchmark contract and provenance are in [docs/draft.md](docs/draft.md).
+The complete 1088-request comparison commands and exact experimental flags are
+in [the reproduction guide](docs/reproduce-full-benchmark.md).
 Exact source revisions, model/dataset revisions and dependency snapshots are
 under [evidence/20261014-b300](evidence/20261014-b300).
 
