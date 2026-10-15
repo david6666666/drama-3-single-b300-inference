@@ -223,9 +223,9 @@ def mixed_backbone(
             layer.post_attention_layernorm.eps,
         )
         pending = (
-            model.moe_parts(normalized, layer.mlp, decode=True)
+            model.moe_parts(normalized, layer.mlp, decode=True, row_slots=slots)
             if model.fused_moe_residual
-            else model.moe(normalized, layer.mlp, decode=True)
+            else model.moe(normalized, layer.mlp, decode=True, row_slots=slots)
         )
     if model.fused_moe_residual:
         return combine_experts_add_norm(

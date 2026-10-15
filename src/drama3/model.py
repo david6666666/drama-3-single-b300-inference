@@ -161,6 +161,9 @@ class DramaModel:
         self.packed_moe_projection = os.environ.get("DRAMA3_PACKED_MOE_PROJECTION") == "1"
         self.batched_table_projection = os.environ.get("DRAMA3_BATCHED_TABLE_PROJECTION") == "1"
         self.fused_moe_input = os.environ.get("DRAMA3_FUSED_MOE_INPUT") == "1"
+        self.reserved_padding_router = os.environ.get("DRAMA3_RESERVED_PADDING_ROUTER") == "1"
+        if self.reserved_padding_router and not self.fused_moe_input:
+            raise ValueError("DRAMA3_RESERVED_PADDING_ROUTER requires DRAMA3_FUSED_MOE_INPUT=1")
         self.fused_moe_residual = os.environ.get("DRAMA3_FUSED_MOE_RESIDUAL") == "1"
         pdl = os.environ.get("DRAMA3_MOE_PDL", "auto")
         if pdl not in ("auto", "0", "1"):
@@ -479,10 +482,14 @@ class DramaModel:
         ).reshape(-1, 4096)
         return linear(out, layer.out_proj.weight)
 
-    def moe(self, x: torch.Tensor, layer, decode: bool = False) -> torch.Tensor:
-        return combine_experts(*self.moe_parts(x, layer, decode))
+    def moe(
+        self, x: torch.Tensor, layer, decode: bool = False, *, row_slots: torch.Tensor | None = None
+    ) -> torch.Tensor:
+        return combine_experts(*self.moe_parts(x, layer, decode, row_slots=row_slots))
 
-    def moe_parts(self, x: torch.Tensor, layer, decode: bool = False):
+    def moe_parts(
+        self, x: torch.Tensor, layer, decode: bool = False, *, row_slots: torch.Tensor | None = None
+    ):
         """Return unchanged native outputs after joining any shared-expert stream."""
         experts = layer.experts
         if self.packed_moe_projection:
@@ -503,14 +510,14 @@ class DramaModel:
             stream.wait_stream(torch.cuda.current_stream())
             with torch.cuda.stream(stream):
                 shared = linear(silu_mul(gate_up), layer.shared_expert.down_proj.weight)
-        routed = self.routed_moe(x, router, experts, decode)
+        routed = self.routed_moe(x, router, experts, decode, row_slots=row_slots)
         if stream is None:
             shared = linear(silu_mul(gate_up), layer.shared_expert.down_proj.weight)
         else:
             torch.cuda.current_stream().wait_stream(stream)
         return routed, shared, shared_gate
 
-    def routed_moe(self, x, router, experts, decode):
+    def routed_moe(self, x, router, experts, decode, *, row_slots=None):
         """Unchanged full top-8 expert path, independent of the shared expert."""
         if len(x) <= self.small_moe_max_batch or (not decode and self.prefill_moe == "native"):
             if len(x) <= self.small_moe_max_batch:
@@ -536,7 +543,13 @@ class DramaModel:
             if decode and self.fused_moe_input:
                 from drama3.moe_input import prepare_moe_input
 
-                quantized, scales, logits = prepare_moe_input(x, router)
+                padding_slots = row_slots if self.reserved_padding_router else None
+                quantized, scales, logits = prepare_moe_input(
+                    x,
+                    router,
+                    row_slots=padding_slots,
+                    padding_start=self.slots // 2 if padding_slots is not None else None,
+                )
             else:
                 quantized, scales = quantize_groups(quant_kernel, x, x.shape[-1])
                 scales, logits = scales.T.contiguous(), router.float()
@@ -616,9 +629,9 @@ class DramaModel:
                 layer.post_attention_layernorm.eps,
             )
             pending = (
-                self.moe_parts(normalized, layer.mlp, batch is not None)
+                self.moe_parts(normalized, layer.mlp, batch is not None, row_slots=slots)
                 if self.fused_moe_residual
-                else self.moe(normalized, layer.mlp, batch is not None)
+                else self.moe(normalized, layer.mlp, batch is not None, row_slots=slots)
             )
         if self.fused_moe_residual:
             return combine_experts_add_norm(
