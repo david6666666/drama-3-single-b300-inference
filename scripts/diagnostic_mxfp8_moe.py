@@ -51,7 +51,7 @@ def prepare(weight, scale, gated):
         factors.append(shuffle_matrix_sf_a(scales, 128).contiguous())
     return (
         torch.stack(packed).view(torch.float8_e4m3fn),
-        torch.stack(factors).view(torch.float8_e4m3fn),
+        torch.stack(factors),
         torch.stack(restored),
     )
 
@@ -70,7 +70,7 @@ def benchmark(model, layer, x):
             routing_logits=projected[:, 1024:1280].float(),
             routing_bias=None,
             hidden_states=q,
-            hidden_states_scale=scale.view(torch.float8_e4m3fn).reshape(len(x), -1),
+            hidden_states_scale=scale.view(torch.uint8).reshape(len(x), -1),
             gemm1_weights=up,
             gemm1_weights_scale=up_scale,
             gemm2_weights=down,
