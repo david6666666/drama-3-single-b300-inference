@@ -1104,7 +1104,12 @@ class DACDecodeGraphs:
         return max(0, int(context) - min(int(context), self.receptive_frames))
 
     @torch.inference_mode()
-    def capture(self, device: torch.device) -> None:
+    def capture(
+        self, device: torch.device, *, capture_stream: torch.cuda.Stream | None = None
+    ) -> None:
+        # Keep an explicitly selected capture stream alive with its graphs. BLAS
+        # workspace allocation is keyed by stream independently of graph pools.
+        self.capture_stream = capture_stream
         shapes = sorted(
             (
                 (b, f, t)
@@ -1134,7 +1139,7 @@ class DACDecodeGraphs:
                 self.decoder(static, trim)
             torch.accelerator.synchronize(device)
             graph = torch.cuda.CUDAGraph()
-            with torch.cuda.graph(graph, pool=pool):
+            with torch.cuda.graph(graph, pool=pool, stream=capture_stream):
                 out = self.decoder(static, trim)
             self._unbind()
             self.graphs[(batch, frames, trim)] = (graph, static, out)

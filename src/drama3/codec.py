@@ -1,6 +1,7 @@
 """Strict Fish codec loading and fixed-window graph execution."""
 
 import copy
+import os
 from pathlib import Path
 
 import torch
@@ -109,6 +110,11 @@ def streaming_codec(codec, slots: int, dtype: torch.dtype = torch.bfloat16):
         receptive_frames=0,
         stream=DACStreamState(slots),
     )
+    capture_stream = (
+        torch.cuda.Stream()
+        if os.environ.get("DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM", "0") == "1"
+        else None
+    )
     with torch.autocast("cuda", dtype=dtype):
-        graphs.capture(torch.device("cuda"))
+        graphs.capture(torch.device("cuda"), capture_stream=capture_stream)
     return graphs
