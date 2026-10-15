@@ -39,7 +39,14 @@ def main():
     graph.run(prompts, list(range(args.batch)))
     for _ in range(3):
         graph.graph.replay()
-    elapsed = triton.testing.do_bench_cudagraph(graph.graph.replay)
+    # A captured graph cannot be replayed from inside another stream capture.
+    start, end = (torch.cuda.Event(enable_timing=True) for _ in range(2))
+    start.record()
+    for _ in range(20):
+        graph.graph.replay()
+    end.record()
+    torch.cuda.synchronize()
+    elapsed = start.elapsed_time(end) / 20
     result = dict(
         batch=args.batch,
         span=span,
