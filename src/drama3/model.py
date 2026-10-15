@@ -146,6 +146,7 @@ class DramaModel:
         state_dtype = getattr(torch, self.state_precision)
         self.moe_layout = os.environ.get("DRAMA3_MOE_LAYOUT", "major_k")
         self.prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE", "native")
+        self.packed_moe_projection = os.environ.get("DRAMA3_PACKED_MOE_PROJECTION") == "1"
         if self.moe_layout not in ("major_k", "blocked"):
             raise ValueError("DRAMA3_MOE_LAYOUT must be major_k or blocked")
         if self.prefill_moe not in ("native", "flashinfer"):
@@ -203,6 +204,16 @@ class DramaModel:
                     layer.mlp.shared_expert.gate_proj.weight,
                     layer.mlp.shared_expert.up_proj.weight,
                 )
+            )
+            layer.mlp.packed_input_projection = F.pad(
+                torch.cat(
+                    (
+                        layer.mlp.shared_expert.packed_gate_up,
+                        layer.mlp.gate.weight,
+                        layer.mlp.shared_expert_gate.weight,
+                    )
+                ),
+                (0, 0, 0, 127),
             )
         for index, layer in enumerate([*self.tower.shared_layers, *self.tower.residual_layers]):
             self.allocate_kv(40 + index)
@@ -442,11 +453,22 @@ class DramaModel:
 
     def moe(self, x: torch.Tensor, layer, decode: bool = False) -> torch.Tensor:
         experts = layer.experts
+        if self.packed_moe_projection:
+            projected = linear(x, layer.packed_input_projection)
+            gate_up, router, shared_gate = (
+                projected[:, :1024],
+                projected[:, 1024:1280],
+                projected[:, 1280:1281],
+            )
+        else:
+            gate_up = linear(x, layer.shared_expert.packed_gate_up)
+            router = linear(x, layer.gate.weight)
+            shared_gate = linear(x, layer.shared_expert_gate.weight)
         if len(x) <= 8 or (not decode and self.prefill_moe == "native"):
             if len(x) <= 8:
-                weights, indices = route(linear(x, layer.gate.weight))
+                weights, indices = route(router)
             else:
-                probabilities = linear(x, layer.gate.weight).float().softmax(-1)
+                probabilities = router.float().softmax(-1)
                 weights, indices = probabilities.topk(8, dim=-1)
                 weights = (weights / weights.sum(-1, keepdim=True)).to(x.dtype)
             if len(x) <= 8:
@@ -456,7 +478,7 @@ class DramaModel:
         else:
             quantized, scales = quantize_groups(quant_kernel, x, x.shape[-1])
             routed = trtllm_fp8_block_scale_moe(
-                routing_logits=linear(x, layer.gate.weight).float(),
+                routing_logits=router.float(),
                 routing_bias=None,
                 hidden_states=quantized,
                 hidden_states_scale=scales.T.contiguous(),
@@ -482,10 +504,10 @@ class DramaModel:
             if isinstance(routed, list):
                 routed = routed[0]
         shared = linear(
-            silu_mul(linear(x, layer.shared_expert.packed_gate_up)),
+            silu_mul(gate_up),
             layer.shared_expert.down_proj.weight,
         )
-        return combine_experts(routed, shared, linear(x, layer.shared_expert_gate.weight))
+        return combine_experts(routed, shared, shared_gate)
 
     def backbone_forward(
         self,

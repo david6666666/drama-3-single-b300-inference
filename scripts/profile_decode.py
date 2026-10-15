@@ -57,6 +57,7 @@ def main():
         "dense_precision": model.dense_precision,
         "moe_layout": model.moe_layout,
         "prefill_moe": model.prefill_moe,
+        "packed_moe_projection": model.packed_moe_projection,
         "decode_ms": start.elapsed_time(end) / 50,
     }
     (args.output / "timing.json").write_text(json.dumps(result, indent=2) + "\n")

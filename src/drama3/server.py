@@ -78,6 +78,7 @@ def create_app(checkpoint: str, fish_source: str, slots: int, max_length: int) -
             "gdn_state_precision": engine.model.state_precision,
             "moe_layout": engine.model.moe_layout,
             "prefill_moe": engine.model.prefill_moe,
+            "packed_moe_projection": engine.model.packed_moe_projection,
         }
 
     @app.post("/v1/audio/speech")

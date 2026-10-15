@@ -362,16 +362,16 @@ def small_batch_moe(x, topk_ids, topk_weights, experts):
 
 
 @triton.jit
-def route_kernel(LOGITS, IDS, WEIGHTS):
+def route_kernel(LOGITS, IDS, WEIGHTS, STRIDE: tl.constexpr):
     row = tl.program_id(0)
     columns = tl.arange(0, 256)
-    logits = tl.load(LOGITS + row * 256 + columns).to(tl.float32)
+    logits = tl.load(LOGITS + row * STRIDE + columns).to(tl.float32)
     bits = logits.to(tl.uint32, bitcast=True)
     ordered = bits ^ tl.where((bits & 0x80000000) != 0, 0xFFFFFFFF, 0x80000000).to(tl.uint32)
     keys = (ordered & 0xFFFF0000) | (65535 - columns.to(tl.uint32))
     selected = tl.topk(keys, 8)
     ids = (65535 - (selected & 65535)).to(tl.int32)
-    values = tl.load(LOGITS + row * 256 + ids).to(tl.float32)
+    values = tl.load(LOGITS + row * STRIDE + ids).to(tl.float32)
     numerator = tl.exp(values - tl.max(logits, 0))
     probability = numerator / tl.sum(tl.exp(logits - tl.max(logits, 0)), 0)
     weights = probability / tl.sum(probability, 0)
@@ -383,16 +383,16 @@ def route_kernel(LOGITS, IDS, WEIGHTS):
 def route(logits):
     indices = torch.empty((len(logits), 8), dtype=torch.int64, device=logits.device)
     weights = torch.empty((len(logits), 8), dtype=logits.dtype, device=logits.device)
-    route_kernel[(len(logits),)](logits, indices, weights, num_warps=4)
+    route_kernel[(len(logits),)](logits, indices, weights, logits.stride(0), num_warps=4)
     return weights, indices
 
 
 @triton.jit
-def silu_mul_kernel(X, OUT, WIDTH: tl.constexpr, BLOCK: tl.constexpr):
+def silu_mul_kernel(X, OUT, WIDTH: tl.constexpr, STRIDE: tl.constexpr, BLOCK: tl.constexpr):
     row = tl.program_id(0)
     col = tl.program_id(1) * BLOCK + tl.arange(0, BLOCK)
-    gate = tl.load(X + row * WIDTH * 2 + col, col < WIDTH, other=0).to(tl.float32)
-    up = tl.load(X + row * WIDTH * 2 + WIDTH + col, col < WIDTH, other=0).to(tl.float32)
+    gate = tl.load(X + row * STRIDE + col, col < WIDTH, other=0).to(tl.float32)
+    up = tl.load(X + row * STRIDE + WIDTH + col, col < WIDTH, other=0).to(tl.float32)
     activated = (gate * tl.sigmoid(gate)).to(X.dtype.element_ty).to(tl.float32)
     tl.store(OUT + row * WIDTH + col, activated * up, col < WIDTH)
 
@@ -400,7 +400,9 @@ def silu_mul_kernel(X, OUT, WIDTH: tl.constexpr, BLOCK: tl.constexpr):
 def silu_mul(projected):
     width = projected.shape[-1] // 2
     output = torch.empty((len(projected), width), dtype=projected.dtype, device=projected.device)
-    silu_mul_kernel[(len(projected), triton.cdiv(width, 256))](projected, output, width, 256)
+    silu_mul_kernel[(len(projected), triton.cdiv(width, 256))](
+        projected, output, width, projected.stride(0), 256
+    )
     return output
 
 
@@ -427,19 +429,23 @@ def add_norm(x, residual, weight, epsilon):
 
 
 @triton.jit
-def combine_experts_kernel(ROUTED, SHARED, GATE, OUT):
+def combine_experts_kernel(ROUTED, SHARED, GATE, OUT, STRIDE: tl.constexpr):
     row, block = tl.program_id(0), tl.program_id(1)
     col = block * 256 + tl.arange(0, 256)
     routed = tl.load(ROUTED + row * 2048 + col).to(tl.float32)
     shared = tl.load(SHARED + row * 2048 + col).to(tl.float32)
-    gate = tl.sigmoid(tl.load(GATE + row).to(tl.float32)).to(SHARED.dtype.element_ty).to(tl.float32)
+    gate = (
+        tl.sigmoid(tl.load(GATE + row * STRIDE).to(tl.float32))
+        .to(SHARED.dtype.element_ty)
+        .to(tl.float32)
+    )
     weighted = (shared * gate).to(SHARED.dtype.element_ty).to(tl.float32)
     tl.store(OUT + row * 2048 + col, routed + weighted)
 
 
 def combine_experts(routed, shared, gate):
     output = torch.empty_like(routed)
-    combine_experts_kernel[(len(routed), 8)](routed, shared, gate, output)
+    combine_experts_kernel[(len(routed), 8)](routed, shared, gate, output, gate.stride(0))
     return output
 
 
