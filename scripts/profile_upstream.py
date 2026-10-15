@@ -2,6 +2,7 @@
 
 import argparse
 import asyncio
+import hashlib
 import json
 import os
 import signal
@@ -17,22 +18,26 @@ import yaml
 from drama3.benchmark import batch, request_body
 
 
-async def capture(url, corpus, output, concurrency):
-    samples = [json.loads(row) for row in corpus.read_text().splitlines()]
+async def capture(url, corpus, output, concurrency, request_count=None):
+    corpus_bytes = corpus.read_bytes()
+    corpus_sha256 = hashlib.sha256(corpus_bytes).hexdigest()
+    samples = [json.loads(row) for row in corpus_bytes.decode().splitlines()]
     bodies = [request_body(sample, "vllm", 500) for sample in samples]
     connector = aiohttp.TCPConnector(limit=64, force_close=True)
     async with aiohttp.ClientSession(
         connector=connector, timeout=aiohttp.ClientTimeout(total=600)
     ) as session:
         for c in concurrency:
+            count = request_count or c
             warm, _ = await batch(session, url + "/v1/audio/speech", samples, bodies, c, c, "warm")
             assert all(row["success"] for row, _ in warm)
             async with session.post(url + "/start_profile", json={}) as response:
                 response.raise_for_status()
             started = time.time()
+            started_monotonic = time.perf_counter()
             try:
                 rows, elapsed = await batch(
-                    session, url + "/v1/audio/speech", samples, bodies, c, c, f"profile-c{c}"
+                    session, url + "/v1/audio/speech", samples, bodies, c, count, f"profile-c{c}"
                 )
             finally:
                 async with session.post(url + "/stop_profile", json={}) as response:
@@ -43,6 +48,9 @@ async def capture(url, corpus, output, concurrency):
                     {
                         "diagnostic_only": True,
                         "profile_started_unix": started,
+                        "profile_started_monotonic_s": started_monotonic,
+                        "profile_request_count": count,
+                        "corpus_sha256": corpus_sha256,
                         "concurrency": c,
                         "elapsed_with_profiler_s": elapsed,
                         "stop_profile_response": stopped,
@@ -66,7 +74,12 @@ def main():
     parser.add_argument("--gpu", type=int, default=0)
     parser.add_argument("--port", type=int, default=18080)
     parser.add_argument("--concurrency", type=int, nargs="+", default=[1, 8, 32, 64])
+    parser.add_argument("--requests", type=int, help="Profile requests per concurrency; default: C")
     args = parser.parse_args()
+    if args.requests is not None and args.requests <= 0:
+        parser.error("--requests must be positive")
+    if any(c <= 0 for c in args.concurrency):
+        parser.error("--concurrency values must be positive")
     args.output.mkdir(parents=True, exist_ok=False)
     deploy = yaml.safe_load((args.source / "vllm_omni/deploy/fish_omni.yaml").read_text())
     for stage in deploy["stages"]:
@@ -101,6 +114,9 @@ def main():
             ["git", "-C", str(args.source), "status", "--porcelain"], text=True
         ),
         "gpu": args.gpu,
+        "profile_request_count": args.requests,
+        "profile_request_counts": {str(c): args.requests or c for c in args.concurrency},
+        "corpus_sha256": hashlib.sha256(args.corpus.read_bytes()).hexdigest(),
         "cpu_affinity": sorted(os.sched_getaffinity(0)),
         "omp_threads": 8,
     }
@@ -137,7 +153,7 @@ def main():
             metadata["startup_to_readiness_s"] = time.monotonic() - started
             (args.output / "launch.json").write_text(json.dumps(metadata, indent=2) + "\n")
             print("Upstream ready", flush=True)
-            asyncio.run(capture(url, args.corpus, args.output, args.concurrency))
+            asyncio.run(capture(url, args.corpus, args.output, args.concurrency, args.requests))
         finally:
             try:
                 os.killpg(process.pid, signal.SIGTERM)
