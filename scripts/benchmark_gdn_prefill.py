@@ -7,6 +7,7 @@ from pathlib import Path
 import torch
 import triton
 from flashinfer.gdn_prefill import chunk_gated_delta_rule
+from sglang.kernels.ops.attention.fla.l2norm import l2norm_fwd
 
 from drama3.gdn import prefill
 
@@ -68,15 +69,17 @@ def main():
             ):
                 state.zero_()
                 return chunk_gated_delta_rule(
-                    q=qf,
-                    k=kf,
+                    # SM100's direct API expects already-normalized Q/K;
+                    # its dispatch does not apply use_qk_l2norm_in_kernel.
+                    q=l2norm_fwd(qf),
+                    k=l2norm_fwd(kf),
                     v=vf,
                     g=alpha,
                     beta=betaf,
                     initial_state=state,
                     output_final_state=True,
                     cu_seqlens=boundaries,
-                    use_qk_l2norm_in_kernel=True,
+                    use_qk_l2norm_in_kernel=False,
                     output_state=state,
                     state_indices=state_indices,
                     backend="flashinfer",
