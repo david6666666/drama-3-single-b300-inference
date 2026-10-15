@@ -159,6 +159,9 @@ class DramaModel:
         self.tuned_prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE_TUNED") == "1"
         self.packed_moe_projection = os.environ.get("DRAMA3_PACKED_MOE_PROJECTION") == "1"
         self.batched_table_projection = os.environ.get("DRAMA3_BATCHED_TABLE_PROJECTION") == "1"
+        self.moe_shared_stream = (
+            torch.cuda.Stream() if os.environ.get("DRAMA3_MOE_SHARED_OVERLAP") == "1" else None
+        )
         self.prefill_conv_backend = os.environ.get("DRAMA3_PREFILL_CONV", "torch")
         if self.prefill_conv_backend not in ("torch", "triton"):
             raise ValueError("DRAMA3_PREFILL_CONV must be torch or triton")
@@ -482,6 +485,22 @@ class DramaModel:
             gate_up = linear(x, layer.shared_expert.packed_gate_up)
             router = linear(x, layer.gate.weight)
             shared_gate = linear(x, layer.shared_expert_gate.weight)
+        stream = self.moe_shared_stream if decode else None
+        if stream is not None:
+            # Fork only after the packed input projection is ready, and join
+            # before combining outputs or letting its storage be reused.
+            stream.wait_stream(torch.cuda.current_stream())
+            with torch.cuda.stream(stream):
+                shared = linear(silu_mul(gate_up), layer.shared_expert.down_proj.weight)
+        routed = self.routed_moe(x, router, experts, decode)
+        if stream is None:
+            shared = linear(silu_mul(gate_up), layer.shared_expert.down_proj.weight)
+        else:
+            torch.cuda.current_stream().wait_stream(stream)
+        return combine_experts(routed, shared, shared_gate)
+
+    def routed_moe(self, x, router, experts, decode):
+        """Unchanged full top-8 expert path, independent of the shared expert."""
         if len(x) <= self.small_moe_max_batch or (not decode and self.prefill_moe == "native"):
             if len(x) <= self.small_moe_max_batch:
                 weights, indices = route(router)
@@ -530,11 +549,7 @@ class DramaModel:
             )
             if isinstance(routed, list):
                 routed = routed[0]
-        shared = linear(
-            silu_mul(gate_up),
-            layer.shared_expert.down_proj.weight,
-        )
-        return combine_experts(routed, shared, shared_gate)
+        return routed
 
     def backbone_forward(
         self,
