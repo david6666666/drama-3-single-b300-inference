@@ -50,7 +50,16 @@ def main():
             if args.padded_control
             else PackedPrefillGraph(model, 6, capacity)
         )
-        untouched = torch.tensor(list(range(count, 25)), device="cuda")
+        owned = set(range(count))
+        if args.padded_control:
+            half = model.slots // 2
+            owned.update(range(half - (graph.batch - count), half))
+            # The existing padded path also owns one GDN suffix scratch slot
+            # for every primary sequence, including the dummy sequences.
+            owned.update((slot + half) % model.slots for slot in list(owned))
+        else:
+            owned.update(range(model.slots - (graph.batch + 1 - count), model.slots))
+        untouched = torch.tensor(sorted(set(range(model.slots)) - owned), device="cuda")
         original_state = {
             i: (conv[untouched].clone(), state[untouched].clone())
             for i, (conv, state) in model.states.items()
@@ -96,7 +105,13 @@ def main():
                 )
         passed = all(error < 0.03 for _, error in errors)
         result = dict(
-            count=count, capacity=capacity, errors=errors, untouched_exact=True, passed=passed
+            count=count,
+            capacity=capacity,
+            padded_control=args.padded_control,
+            owned_slots=sorted(owned),
+            errors=errors,
+            untouched_exact=True,
+            passed=passed,
         )
         results.append(result)
         args.output.write_text(json.dumps(results, indent=2) + "\n")
