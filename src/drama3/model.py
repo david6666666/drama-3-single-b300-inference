@@ -33,6 +33,7 @@ from drama3.kernels import (
 from drama3.kernels import (
     sample_partitioned as sample,
 )
+from drama3.packed_prefill import PackedLayout, packed_conv
 from drama3.prefill_conv import prefill_conv
 
 
@@ -351,13 +352,28 @@ class DramaModel:
         v = v.reshape(-1, 2, 256)
         keys[slots, positions] = k
         values[slots, positions] = v
-        out = F.scaled_dot_product_attention(
-            q.reshape(prefill_sequences, -1, 16, 256).transpose(1, 2),
-            k.reshape(prefill_sequences, -1, 2, 256).transpose(1, 2),
-            v.reshape(prefill_sequences, -1, 2, 256).transpose(1, 2),
-            is_causal=True,
-            enable_gqa=True,
-        ).transpose(1, 2)
+        if isinstance(prefill_sequences, PackedLayout):
+            layout = prefill_sequences
+            out = torch.ops.aten._flash_attention_forward(
+                q,
+                k,
+                v,
+                layout.boundaries,
+                layout.boundaries,
+                layout.max_length,
+                layout.max_length,
+                0.0,
+                True,
+                False,
+            )[0]
+        else:
+            out = F.scaled_dot_product_attention(
+                q.reshape(prefill_sequences, -1, 16, 256).transpose(1, 2),
+                k.reshape(prefill_sequences, -1, 2, 256).transpose(1, 2),
+                v.reshape(prefill_sequences, -1, 2, 256).transpose(1, 2),
+                is_causal=True,
+                enable_gqa=True,
+            ).transpose(1, 2)
         return linear(
             out.reshape(-1, 4096) * gate.sigmoid(),
             layer.wo.weight if tower else layer.o_proj.weight,
@@ -379,6 +395,23 @@ class DramaModel:
             mixed = conv_update(mixed, conv, layer.conv1d.weight, slots)
             out = torch.empty((len(slots), 1, 32, 128), dtype=x.dtype, device=x.device)
             gdn_decode(mixed, a, b, layer.A_log_fp32, layer.dt_bias_fp32, state, out, slots)
+        elif isinstance(valid_length, PackedLayout):
+            mixed = packed_conv(mixed, layer.conv1d.weight, conv, valid_length)
+            q, k, v = mixed.split((2048, 2048, 4096), dim=-1)
+            decay = -layer.A_log.float().exp() * F.softplus(a.float() + layer.dt_bias.float())
+            beta = b.float().sigmoid()
+            out = gdn_prefill(
+                q.reshape(1, -1, 16, 128),
+                k.reshape(1, -1, 16, 128),
+                v.reshape(1, -1, 32, 128),
+                decay.reshape(1, -1, 32),
+                beta.reshape(1, -1, 32),
+                state,
+                slots,
+                None,
+                backend=self.prefill_gdn,
+                packed_layout=valid_length,
+            )
         else:
             sequences = len(valid_length) if valid_length is not None else 1
             span = len(x) // sequences
@@ -528,7 +561,11 @@ class DramaModel:
                     positions,
                     slots,
                     batch,
-                    len(valid_length) if valid_length is not None else 1,
+                    valid_length
+                    if isinstance(valid_length, PackedLayout)
+                    else len(valid_length)
+                    if valid_length is not None
+                    else 1,
                 )
             else:
                 mixed = self.linear_attention(
@@ -642,6 +679,17 @@ class DramaModel:
             if labels is None:
                 codes.append(sample(linear(hidden, head.weight), self.sampling_step, index + 2))
         return torch.stack((main, *codes), dim=-1)
+
+    @torch.inference_mode()
+    def prefill_packed(self, frames, labels, positions, slots, layout):
+        for conv, state in self.states.values():
+            conv.index_fill_(0, layout.sequence_slots, 0)
+            state.index_fill_(0, layout.sequence_slots, 0)
+        hidden = self.backbone_forward(frames, positions, slots, None, layout)
+        self.tower_forward(hidden, frames, positions, slots, None, labels, prefill_sequences=layout)
+        # The first-frame graph overwrites each final prompt position's tower KV.
+        ends = layout.boundaries[1:-1].to(torch.int64) - 1
+        return hidden.index_select(0, ends.clamp_min(0))
 
     @torch.inference_mode()
     def prefill_batched(self, frames, request_slots, lengths):

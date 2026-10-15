@@ -51,11 +51,16 @@ def decode(mixed, a, b, log, bias, state, output, slots):
     )
 
 
-def prefill(q, k, v, decay, beta, state, slots, length, backend="fla"):
+def prefill(q, k, v, decay, beta, state, slots, length, backend="fla", packed_layout=None):
     sequences, span = q.shape[:2]
     capacity = sequences * span
     chunks_per_sequence = (span + 63) // 64
-    if sequences == 1:
+    if packed_layout is not None:
+        boundaries = packed_layout.boundaries
+        state_slots = packed_layout.sequence_slots
+        sequence_count = len(state_slots)
+        chunks_per_sequence = (packed_layout.max_length + 63) // 64
+    elif sequences == 1:
         boundaries = torch.cat((torch.zeros_like(length), length))
         state_slots = slots[:1]
         sequence_count = 1
