@@ -27,6 +27,11 @@ def main() -> None:
     parser.add_argument("--capacity", type=int, default=64)
     parser.add_argument("--requests", type=int, default=192)
     parser.add_argument("--repeats", type=int, default=3)
+    parser.add_argument(
+        "--skip-reference-warmup",
+        action="store_true",
+        help="Skip the extra corpus pass for pre-encoded refs; retain per-concurrency warmup",
+    )
     parser.add_argument("--concurrency", nargs="+", type=int, default=[1, 2, 4, 8, 16, 32, 64])
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
@@ -152,11 +157,12 @@ def main() -> None:
                 str(args.requests),
                 "--repeats",
                 str(args.repeats),
-                "--warm-references",
                 "--save-audio",
                 "--concurrency",
                 *map(str, args.concurrency),
             ]
+            if not args.skip_reference_warmup:
+                benchmark.append("--warm-references")
             (args.output / "benchmark-command.json").write_text(
                 json.dumps(benchmark, indent=2) + "\n"
             )
