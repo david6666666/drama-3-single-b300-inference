@@ -57,7 +57,7 @@ def main():
         for layer in [*model.tower.shared_layers, *model.tower.residual_layers]:
             selected.extend(
                 (
-                    layer.transformer_layer.attention.packed_qkv,
+                    layer.transformer_layer.attention.wqkv.weight,
                     layer.transformer_layer.feed_forward.packed_gate_up,
                 )
             )

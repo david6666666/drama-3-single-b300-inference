@@ -21,6 +21,7 @@ from sglang.kernels.ops.attention.fla.fused_recurrent import (
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--state-dtype", choices=("float32", "bfloat16"), default="float32")
     args = parser.parse_args()
     torch.manual_seed(42)
     results = []
@@ -30,7 +31,9 @@ def main():
         log = torch.randn(32, device="cuda")
         bias = torch.randn(32, device="cuda")
         slots = torch.arange(batch - 1, -1, -1, device="cuda", dtype=torch.int64)
-        initial = torch.randn(batch, 32, 128, 128, device="cuda")
+        initial = torch.randn(batch, 32, 128, 128, device="cuda").to(
+            getattr(torch, args.state_dtype)
+        )
         state = initial.clone()
         output = torch.empty(batch, 1, 32, 128, device="cuda", dtype=torch.bfloat16)
         reference = partial(
@@ -113,11 +116,15 @@ def main():
                 ).sqrt()
             )
             state_error = float(
-                ((state - expected_state).square().mean() / expected_state.square().mean()).sqrt()
+                (
+                    (state.float() - expected_state.float()).square().mean()
+                    / expected_state.float().square().mean()
+                ).sqrt()
             )
             elapsed = triton.testing.do_bench_cudagraph(fn)
             row = {
                 "batch": batch,
+                "state_dtype": args.state_dtype,
                 "backend": name,
                 "output_rrms": error,
                 "state_rrms": state_error,
