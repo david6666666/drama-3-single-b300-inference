@@ -20,10 +20,28 @@ def rrms(a, b):
     )
 
 
+def recurrent_fp32(q, k, v, g, beta, lengths):
+    """Independent recurrence after the shared BF16 Q/K normalization boundary."""
+    q = l2norm_fwd(q.contiguous()).float().repeat_interleave(2, dim=2)
+    k = l2norm_fwd(k.contiguous()).float().repeat_interleave(2, dim=2)
+    state = torch.zeros(len(q), 32, 128, 128, device=q.device)
+    outputs = []
+    for step in range(q.shape[1]):
+        decayed = state * g[:, step, :, None, None].exp()
+        residual = v[:, step].float() - (decayed * k[:, step, :, None, :]).sum(-1)
+        updated = (
+            decayed + (residual * beta[:, step, :, None])[:, :, :, None] * k[:, step, :, None, :]
+        )
+        state = torch.where((step < lengths)[:, None, None, None], updated, state)
+        outputs.append((state * q[:, step, :, None, :]).sum(-1) * (128**-0.5))
+    return torch.stack(outputs, dim=1), state
+
+
 @torch.inference_mode()
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--fp32-reference", action="store_true")
     args = parser.parse_args()
     torch.manual_seed(42)
     results = []
@@ -50,6 +68,9 @@ def main():
         alpha = g.exp().flatten(0, 1)
         betaf = beta.flatten(0, 1)
         mask = torch.arange(span, device="cuda")[None, :] < lengths[:, None]
+        truth, truth_state = (
+            recurrent_fp32(q, k, v, g, beta, lengths) if args.fp32_reference else (None, None)
+        )
         for dtype in (torch.float32, torch.bfloat16):
             state = torch.zeros(2 * batch, 32, 128, 128, device="cuda", dtype=dtype)
 
@@ -102,7 +123,19 @@ def main():
                 flashinfer_state_finite=bool(state[:batch].isfinite().all()),
                 passed=output_error < 0.003 and state_error < 0.003,
             )
-            if row["passed"]:
+            if truth is not None:
+                row.update(
+                    fla_reference_output_rrms=rrms(expected[mask], truth[mask]),
+                    flashinfer_reference_output_rrms=rrms(actual[mask], truth[mask]),
+                    fla_reference_state_rrms=rrms(expected_state, truth_state),
+                    flashinfer_reference_state_rrms=rrms(state[:batch], truth_state),
+                )
+                row["reference_qualified"] = all(
+                    row[f"flashinfer_reference_{kind}_rrms"]
+                    <= min(0.01, 1.1 * row[f"fla_reference_{kind}_rrms"])
+                    for kind in ("output", "state")
+                )
+            if row["passed"] or row.get("reference_qualified"):
                 row["fla_us"] = triton.testing.do_bench_cudagraph(native) * 1000
                 row["flashinfer_us"] = triton.testing.do_bench_cudagraph(flash) * 1000
             results.append(row)
