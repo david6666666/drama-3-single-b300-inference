@@ -1,0 +1,420 @@
+{
+  "diagnostic_only": true,
+  "trace_sha256": "176194c3190ee4c97b89a31d2618de1491ee90aa0fbd44e55e427a63952f0c9f",
+  "requests_sha256": "f86fa29563dddf974d1adb76c7337fdf09ac033cca4a9cf23dfbc53b01174ab5",
+  "requests": 384,
+  "request_interval_s": 9.998439846094698,
+  "continuous_admission_interval_s": 8.026762248016894,
+  "final_drain_interval_s": 1.9716775980778039,
+  "all": {
+    "prefill": {
+      "calls": 2,
+      "mean_batch": 4.5,
+      "batch_histogram": {
+        "1": 1,
+        "8": 1
+      },
+      "gpu_event_span_sum_ms": 51.193726539611816,
+      "gpu_event_span_mean_ms": 25.596863269805908,
+      "cpu_submit_or_wait_sum_ms": 51.209400058723986
+    },
+    "decode": {
+      "calls": 716,
+      "mean_batch": 45.36731843575419,
+      "batch_histogram": {
+        "1": 55,
+        "2": 2,
+        "3": 21,
+        "4": 27,
+        "5": 35,
+        "6": 2,
+        "7": 9,
+        "8": 2,
+        "9": 2,
+        "10": 6,
+        "12": 3,
+        "13": 7,
+        "14": 4,
+        "15": 2,
+        "17": 1,
+        "18": 1,
+        "20": 1,
+        "21": 1,
+        "23": 2,
+        "25": 5,
+        "26": 1,
+        "28": 6,
+        "30": 2,
+        "31": 1,
+        "33": 2,
+        "34": 3,
+        "36": 2,
+        "38": 1,
+        "41": 1,
+        "42": 2,
+        "43": 3,
+        "44": 1,
+        "46": 4,
+        "47": 7,
+        "49": 2,
+        "51": 1,
+        "52": 1,
+        "53": 1,
+        "55": 1,
+        "56": 3,
+        "57": 4,
+        "58": 31,
+        "59": 59,
+        "60": 71,
+        "61": 81,
+        "62": 95,
+        "63": 88,
+        "64": 54
+      },
+      "gpu_event_span_sum_ms": 6059.818753957748,
+      "gpu_event_span_mean_ms": 8.46343401390747,
+      "cpu_submit_or_wait_sum_ms": 162.69127186387777
+    },
+    "mixed_backbone": {
+      "calls": 69,
+      "mean_batch": 55.507246376811594,
+      "batch_histogram": {
+        "9": 1,
+        "17": 1,
+        "25": 1,
+        "33": 1,
+        "41": 1,
+        "49": 1,
+        "52": 1,
+        "54": 1,
+        "55": 1,
+        "56": 9,
+        "57": 12,
+        "58": 17,
+        "59": 9,
+        "60": 4,
+        "61": 8,
+        "62": 1
+      },
+      "gpu_event_span_sum_ms": 1968.70751953125,
+      "gpu_event_span_mean_ms": 28.53199303668478,
+      "cpu_submit_or_wait_sum_ms": 20.07580630015582
+    },
+    "first_frame": {
+      "calls": 69,
+      "mean_batch": 5.434782608695652,
+      "batch_histogram": {
+        "2": 2,
+        "3": 8,
+        "4": 9,
+        "5": 9,
+        "6": 29,
+        "7": 4,
+        "8": 8
+      },
+      "gpu_event_span_sum_ms": 82.23049640655518,
+      "gpu_event_span_mean_ms": 1.1917463247326836,
+      "cpu_submit_or_wait_sum_ms": 2030.86389740929
+    },
+    "mixed_decode_tower": {
+      "calls": 69,
+      "mean_batch": 55.507246376811594,
+      "batch_histogram": {
+        "9": 1,
+        "17": 1,
+        "25": 1,
+        "33": 1,
+        "41": 1,
+        "49": 1,
+        "52": 1,
+        "54": 1,
+        "55": 1,
+        "56": 9,
+        "57": 12,
+        "58": 17,
+        "59": 9,
+        "60": 4,
+        "61": 8,
+        "62": 1
+      },
+      "gpu_event_span_sum_ms": 100.93196785449982,
+      "gpu_event_span_mean_ms": 1.462782142818838,
+      "cpu_submit_or_wait_sum_ms": 3.3715541940182447
+    },
+    "codec": {
+      "calls": 484,
+      "mean_batch": 4.902892561983471,
+      "batch_histogram": {
+        "1": 129,
+        "2": 53,
+        "3": 27,
+        "4": 30,
+        "5": 38,
+        "6": 55,
+        "7": 40,
+        "8": 45,
+        "9": 14,
+        "10": 13,
+        "11": 8,
+        "12": 9,
+        "13": 10,
+        "14": 5,
+        "15": 4,
+        "16": 3,
+        "17": 1
+      },
+      "gpu_event_span_sum_ms": 1454.239966609981,
+      "gpu_event_span_mean_ms": 3.004628030185911,
+      "cpu_submit_or_wait_sum_ms": 1474.4818434119225
+    }
+  },
+  "by_client_phase": {
+    "continuous_admission_including_fill": {
+      "prefill": {
+        "calls": 2,
+        "mean_batch": 4.5,
+        "batch_histogram": {
+          "1": 1,
+          "8": 1
+        },
+        "gpu_event_span_sum_ms": 51.193726539611816,
+        "gpu_event_span_mean_ms": 25.596863269805908,
+        "cpu_submit_or_wait_sum_ms": 51.209400058723986
+      },
+      "decode": {
+        "calls": 477,
+        "mean_batch": 61.071278825995805,
+        "batch_histogram": {
+          "1": 1,
+          "9": 1,
+          "56": 2,
+          "57": 3,
+          "58": 29,
+          "59": 55,
+          "60": 68,
+          "61": 81,
+          "62": 95,
+          "63": 88,
+          "64": 54
+        },
+        "gpu_event_span_sum_ms": 4316.358622074127,
+        "gpu_event_span_mean_ms": 9.04896985759775,
+        "cpu_submit_or_wait_sum_ms": 137.75311363860965
+      },
+      "mixed_backbone": {
+        "calls": 68,
+        "mean_batch": 55.5,
+        "batch_histogram": {
+          "9": 1,
+          "17": 1,
+          "25": 1,
+          "33": 1,
+          "41": 1,
+          "49": 1,
+          "52": 1,
+          "54": 1,
+          "55": 1,
+          "56": 8,
+          "57": 12,
+          "58": 17,
+          "59": 9,
+          "60": 4,
+          "61": 8,
+          "62": 1
+        },
+        "gpu_event_span_sum_ms": 1942.3233909606934,
+        "gpu_event_span_mean_ms": 28.563579278833725,
+        "cpu_submit_or_wait_sum_ms": 19.90421034861356
+      },
+      "first_frame": {
+        "calls": 68,
+        "mean_batch": 5.455882352941177,
+        "batch_histogram": {
+          "2": 2,
+          "3": 8,
+          "4": 8,
+          "5": 9,
+          "6": 29,
+          "7": 4,
+          "8": 8
+        },
+        "gpu_event_span_sum_ms": 80.93936038017273,
+        "gpu_event_span_mean_ms": 1.1902847114731283,
+        "cpu_submit_or_wait_sum_ms": 2003.3597783185542
+      },
+      "mixed_decode_tower": {
+        "calls": 68,
+        "mean_batch": 55.5,
+        "batch_histogram": {
+          "9": 1,
+          "17": 1,
+          "25": 1,
+          "33": 1,
+          "41": 1,
+          "49": 1,
+          "52": 1,
+          "54": 1,
+          "55": 1,
+          "56": 8,
+          "57": 12,
+          "58": 17,
+          "59": 9,
+          "60": 4,
+          "61": 8,
+          "62": 1
+        },
+        "gpu_event_span_sum_ms": 99.44230389595032,
+        "gpu_event_span_mean_ms": 1.4623868219992693,
+        "cpu_submit_or_wait_sum_ms": 3.323255223222077
+      },
+      "codec": {
+        "calls": 411,
+        "mean_batch": 5.318734793187348,
+        "batch_histogram": {
+          "1": 92,
+          "2": 40,
+          "3": 23,
+          "4": 25,
+          "5": 33,
+          "6": 54,
+          "7": 35,
+          "8": 43,
+          "9": 14,
+          "10": 12,
+          "11": 8,
+          "12": 9,
+          "13": 10,
+          "14": 5,
+          "15": 4,
+          "16": 3,
+          "17": 1
+        },
+        "gpu_event_span_sum_ms": 1281.6938867359422,
+        "gpu_event_span_mean_ms": 3.11847661006312,
+        "cpu_submit_or_wait_sum_ms": 1299.6832848293707
+      }
+    },
+    "final_drain": {
+      "codec": {
+        "calls": 73,
+        "mean_batch": 2.5616438356164384,
+        "batch_histogram": {
+          "1": 37,
+          "2": 13,
+          "3": 4,
+          "4": 5,
+          "5": 5,
+          "6": 1,
+          "7": 5,
+          "8": 2,
+          "10": 1
+        },
+        "gpu_event_span_sum_ms": 172.5460798740387,
+        "gpu_event_span_mean_ms": 2.363644929781352,
+        "cpu_submit_or_wait_sum_ms": 174.79855858255178
+      },
+      "decode": {
+        "calls": 239,
+        "mean_batch": 14.02510460251046,
+        "batch_histogram": {
+          "1": 54,
+          "2": 2,
+          "3": 21,
+          "4": 27,
+          "5": 35,
+          "6": 2,
+          "7": 9,
+          "8": 2,
+          "9": 1,
+          "10": 6,
+          "12": 3,
+          "13": 7,
+          "14": 4,
+          "15": 2,
+          "17": 1,
+          "18": 1,
+          "20": 1,
+          "21": 1,
+          "23": 2,
+          "25": 5,
+          "26": 1,
+          "28": 6,
+          "30": 2,
+          "31": 1,
+          "33": 2,
+          "34": 3,
+          "36": 2,
+          "38": 1,
+          "41": 1,
+          "42": 2,
+          "43": 3,
+          "44": 1,
+          "46": 4,
+          "47": 7,
+          "49": 2,
+          "51": 1,
+          "52": 1,
+          "53": 1,
+          "55": 1,
+          "56": 1,
+          "57": 1,
+          "58": 2,
+          "59": 4,
+          "60": 3
+        },
+        "gpu_event_span_sum_ms": 1743.4601318836212,
+        "gpu_event_span_mean_ms": 7.2948122672954865,
+        "cpu_submit_or_wait_sum_ms": 24.938158225268126
+      },
+      "mixed_backbone": {
+        "calls": 1,
+        "mean_batch": 56,
+        "batch_histogram": {
+          "56": 1
+        },
+        "gpu_event_span_sum_ms": 26.38412857055664,
+        "gpu_event_span_mean_ms": 26.38412857055664,
+        "cpu_submit_or_wait_sum_ms": 0.17159595154225826
+      },
+      "first_frame": {
+        "calls": 1,
+        "mean_batch": 4,
+        "batch_histogram": {
+          "4": 1
+        },
+        "gpu_event_span_sum_ms": 1.2911360263824463,
+        "gpu_event_span_mean_ms": 1.2911360263824463,
+        "cpu_submit_or_wait_sum_ms": 27.504119090735912
+      },
+      "mixed_decode_tower": {
+        "calls": 1,
+        "mean_batch": 56,
+        "batch_histogram": {
+          "56": 1
+        },
+        "gpu_event_span_sum_ms": 1.4896639585494995,
+        "gpu_event_span_mean_ms": 1.4896639585494995,
+        "cpu_submit_or_wait_sum_ms": 0.04829897079616785
+      }
+    }
+  },
+  "limitations": [
+    "Client last-dispatch splits admission and drain; admission interval includes initial fill, not a formally verified GPU steady state.",
+    "mixed_backbone includes the packed teacher-forced prefill tower; its event is not backbone-only latency.",
+    "first_frame CPU duration includes waiting for earlier mixed backbone on the same stream; do not sum this as independent CPU work.",
+    "All selected records use main CUDA stream 0; event spans are sequential and include submission gaps, not SM utilization.",
+    "The stock analyze_timeline codec_event_union_ms looks only for asynchronous codec_gpu_and_copy, so its zero does not describe this synchronous codec stage.",
+    "No profiler timing is acceptance evidence; preserve all requests and tail."
+  ],
+  "pure_decode_active57plus": {
+    "calls": 483,
+    "mean_batch": 61.27950310559006,
+    "mean_gpu_event_ms": 9.072680475302118,
+    "sum_gpu_event_ms": 4382.104669570923
+  },
+  "stage_span_sum_ms": 9717.122430899646,
+  "outside_recorded_event_spans_ms": 281.3174151950516,
+  "cuda_streams": [
+    0
+  ]
+}

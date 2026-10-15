@@ -1,0 +1,15 @@
+[
+  {
+    "concurrency": 64,
+    "repeat": 0,
+    "requests": 1088,
+    "completed": 1088,
+    "failed": 0,
+    "makespan_s": 25.77823715505656,
+    "valid": true,
+    "throughput_frames_s": 3997.014977410465,
+    "ttfa_p50_ms": 146.18156297365203,
+    "ttfa_p95_ms": 263.72545998892747,
+    "rtf_mean": 0.32985042463101244
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "repository_sha": "a25c68da0b501374a0f457f4f912543f9cbd821d",
+  "source_sha256": {
+    "scripts/validate_decode_transitions.py": "1d35732125fcef440ab68de48a2caa2ff91425305d673b74262159a99beb0da5",
+    "src/drama3/engine.py": "0772f960402e9eeeb0d41833eb248daefb21081743504f4bb0b84d82a5269d32"
+  },
+  "torch_version": "2.13.0+cu130",
+  "cuda_initialized": false,
+  "cases": [
+    {
+      "name": "multistep_eos_limit_boundary_and_survivor_order",
+      "passed": true,
+      "released_slots": [
+        3,
+        7
+      ],
+      "counts_and_positions": [
+        [
+          5,
+          11
+        ],
+        [
+          6,
+          22
+        ],
+        [
+          6,
+          33
+        ],
+        [
+          4,
+          43
+        ]
+      ]
+    },
+    {
+      "name": "two_dimensional_single_step_and_immediate_eos",
+      "passed": true
+    },
+    {
+      "name": "one_frame_remainder_stops_once",
+      "passed": true
+    }
+  ],
+  "scope": "Host request lifecycle only; no GPU, cancellation or audio-quality claim"
+}

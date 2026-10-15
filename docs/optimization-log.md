@@ -97,10 +97,19 @@ launcher. They are experiments, not recommended production settings.
 | `DRAMA3_ADMISSION_MIN_RUNNING` | `32` | Minimum active requests before admission waits |
 | `DRAMA3_ADMISSION_MAX_WAIT_MS` | `100` | Maximum admission delay |
 | `DRAMA3_PREFILL_MAX_BATCH` | `8` | `16`: larger short-prompt batches with separate padding state |
-| `DRAMA3_ASYNC_CODEC` | off | `1`: bounded codec CUDA stream |
+| `DRAMA3_ASYNC_CODEC` | off | `1`: bounded codec CUDA stream; requires dedicated capture stream |
 | `DRAMA3_AUDIO_DELIVERY_THREAD` | off | `1`: event-waiting PCM sender, requires async codec |
 
 The full 1088-row run uses `--skip-reference-warmup` on both runtimes: identical
 pre-encoded references need no additional corpus-wide preparation pass. Per-C
 warmup remains `max(8, concurrency)` requests. This is a separate protocol from
 the historical 192-row comparison and will be reported separately.
+
+
+Mixed scheduling experiments add `DRAMA3_MIXED_BACKBONE=1` (requires packed
+prefill, batch limit 8 and explicit native `DRAMA3_PREFILL_MOE=flashinfer`) and
+`DRAMA3_MIXED_SPAN256=1` (shorter prompt bounds with the 512-bound fallback).
+`DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM=1` is required for asynchronous codec:
+shared capture scratch produced reproducible output corruption. These options
+do not establish the all-concurrency performance target; see the
+[complete investigation](high-concurrency-analysis.md).

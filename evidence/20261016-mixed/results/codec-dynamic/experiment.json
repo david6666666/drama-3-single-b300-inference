@@ -1,0 +1,29 @@
+{
+  "hypothesis": "A codec-only capture stream isolates ATen cuBLAS/cuBLASLt workspace ranges from model graphs; this is not an established cause of prior async quality failures.",
+  "isolated_variable": "default versus dedicated codec capture stream; within each, sync versus poll/thread replay with same initial state, corpus, RNG and admission trace.",
+  "source_sha": "7618212e15e7506bb20d57372d6700fe837988a5",
+  "controls": {
+    "gpu": 6,
+    "gpu_uuid": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf",
+    "numa": 0,
+    "cpu_affinity": "192-199",
+    "omp_threads": 4,
+    "corpus": "first80 fixed rows of seedtts-en1088-codes",
+    "native_top8": true,
+    "codec_dtype": "bfloat16",
+    "cache": "reuse existing local cache; do not flush"
+  },
+  "gate": "Exact per-step output codes/roster and metadata, all final mutable tensors, PCM bytes and completion order. Dedicated capture must expose nonempty disjoint ATen workspace address ranges.",
+  "stop": "Any mismatch stops this arm, preserving raw evidence; no repetition or performance claim.",
+  "limitations": [
+    "Extra full-code and metadata D2H per decode step can alter overlap timing relative to service.",
+    "ATen workspace map inspection does not cover other libraries scratch or prove executed kernel uses each cached workspace.",
+    "Single feasibility replay is not 1088-request WER/SIM validation or all-concurrency promotion."
+  ],
+  "before_gpu": "GPU-adecbd14-4768-00f8-a2fa-697ced804a8d, 2104876, VLLM::Worker_PCP0, 260154 MiB\nGPU-90fb226c-3937-2448-1052-2e12282a61b9, 2104878, VLLM::Worker_PCP1, 260154 MiB\nGPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed, 2104879, VLLM::Worker_PCP2, 260154 MiB\nGPU-fd75ec1b-92a4-ca93-a3ad-976565948d0e, 2104880, VLLM::Worker_PCP3, 260154 MiB\nGPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 3583232, python, 2340 MiB\n",
+  "checkpoint": "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+  "fish_source": "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+  "venv": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone",
+  "frozen_worktree": "/home/zjy/code/hsliu/drama3-codec-dynamic-frozen-20261016",
+  "storage": "findmnt: model, venv and cache all /dev/vda4 ext4 mounted at /"
+}

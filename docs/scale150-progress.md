@@ -53,8 +53,12 @@ full B64 operator would also misattribute the difference.
 The standalone stage diagnostic spends substantial time outside decode:
 9.18 s in prefill, 18.58 s in decode, and 4.36 s in codec, with mean decode
 occupancy of 51.5 requests. Its synchronization changes execution, so these
-totals explain hypotheses rather than predict an end-to-end speedup. Current
-work targets padded prompt computation, admission occupancy and codec overlap,
+totals explain hypotheses rather than predict an end-to-end speedup. That
+historical synchronized probe does not identify steady-state occupancy.
+The newer continuous-admission traces show mean active decode batches of 60.718
+(upstream) and 61.071 (standalone mixed), both close to C64; their different
+profiling conditions prevent a controlled speed comparison. Current work targets
+mixed prompt span, shared model execution and codec overlap,
 while retaining numerical and state checks. A Rust rewrite is not yet supported
 by evidence of a dominant CPU cost.
 
@@ -89,6 +93,13 @@ performance claim. The unchanged formal candidate remains in
 | Packed prefill/codec concurrent replay | B1/F6, B4/F16 and B8/F64 codec work overlaps six real prompt prefills; all model/codec state, hidden output and PCM exact | No data race reproduced in these cases; dynamic service quality remains unresolved |
 | Native input fusion with synchronous codec | GPU0 same-source C64 control/fused: 3596.20 / 3643.99 frames/s; WER 1.608% / 1.742%, SIM 64.155 / 64.115; all 1088 outputs in each arm scored | Both single groups pass quality; small feasibility gain only, far below the throughput target |
 | Larger native FP8 expert column tiles | All 36 tested configurations preserve original native output exactly; wider tiles lose to the original N128 configuration, itself slower than current FlashInfer on these inputs | No serving dispatch change; original-native/current-FlashInfer differences are recorded separately |
+| Mixed backbone layer/graph/state validation | Expanded D58/P6, D40/P3 and D12/P1 cases pass 2190 checks, including reused slots and untouched-state equality | Numerical/state evidence only; GPU0 timing unqualified after an external process appeared; [checks](../evidence/20261016-mixed/results/mixed-layers-expanded-v2.json) |
+| Upstream C64 continuous-admission profile | 256 requests: 802 CPU scheduler steps, not piecewise fragments; admission interval has 36 mixed and 284 decode steps, mean decode active 60.718 | Initial fill and final drain retained; not formal throughput or SM utilization; [summary](../evidence/20261016-mixed/results/vllm-continuous-schedule.json) |
+| Actual-input native FP8 expert counters | Six FC1/FC2 launches at layers 0/19/39: DRAM 4.320–5.792 TB/s, tensor-pipe active 3.46–4.48%; all original top-8 weights/scales retained | Consistent with weight movement limiting these sampled kernels; not an all-layer mean or serving speedup; [counters and limits](../evidence/20261016-mixed/results/ncu/summary.json) |
+| Mixed backbone, synchronous codec, complete same-source pair | GPU6 C64 control/mixed: 3816.47 / 4094.18 frames/s, WER 1.608% / 1.583%, SIM 64.489 / 64.286; 1088 outputs scored per arm | Both single groups pass quality; observed +7.28% is confounded by output-length/tail differences and remains below baseline; [control](../evidence/20261016-mixed/results/mixed-control-gpu6/benchmark/summary.json), [mixed](../evidence/20261016-mixed/results/mixed-candidate-gpu6/benchmark/summary.json) |
+| Mixed continuous-service event timeline | GPU2, 384 requests: 9.998 s window; pure decode 6.060 s, mixed plus teacher tower 1.969 s, synchronous codec 1.454 s | All events on stream 0; CPU first-frame wait overlaps prior GPU work; no causal speedup attribution; [phases](../evidence/20261016-mixed/results/mixed-timeline-phase-analysis.json) |
+| Reduced mixed prompt span | Three shapes / 339 exact output-and-state checks pass; 512 → 256/192 span saves 2.53–2.62 ms per refill in the isolated diagnostic | Preserve packed row capacity; long prompts require fallback; no end-to-end claim from these timings; [checks](../evidence/20261016-mixed/results/mixed-span.json) |
+| Mixed span 256 with fallback 512, complete service pair | GPU0 C64 same-source control/candidate: 3997.02 / 4082.76 frames/s; TTFA p95 263.725 / 276.424 ms; WER 1.951% / 1.834%, SIM 63.752 / 63.624, all 1088 per arm scored | Both single groups pass quality; observed +2.15% with worse p95 remains below baseline; do not conflate with the GPU6 mixed pair; [control](../evidence/20261016-mixed/results/span-control-gpu0/benchmark/summary.json), [candidate](../evidence/20261016-mixed/results/span-candidate-gpu0/benchmark/summary.json) |
 
 The original packed experiment was stopped at its numerical gate. A separately
 declared layer-isolation experiment retains the 0.03 operator threshold and
@@ -150,8 +161,93 @@ utilization or summed kernel durations. Codec already overlaps substantial
 decode work, so its standalone duration is not an available service speedup.
 The instrumented run is diagnostic only and is excluded from acceptance.
 
+## Mixed scheduling: complete feasibility, target still unmet
+
+The latest mixed-backbone pair uses the same runtime `a25c68d`, GPU6 and full
+1088-request corpus in each arm. Only `DRAMA3_MIXED_BACKBONE` changes; both arms
+use FlashInfer prefill MoE, FLA prefill GDN, BF16 recurrent state, native fused
+MoE inputs and synchronous BF16 codec. The frozen upstream deployment instead
+uses asynchronous FP16 codec and MPS; these are recorded differences, not an
+isolated estimate of their performance contribution.
+
+| Metric | Separate-backbone control | Mixed candidate |
+|---|---:|---:|
+| Frames/s | 3816.466 | 4094.177 |
+| TTFA p50 / p95, ms | 140.674 / 291.234 | 147.565 / 267.444 |
+| Mean RTF | 0.346050 | 0.331417 |
+| Corpus WER, % | 1.607636 | 1.582517 |
+| Mean SIM | 64.48894 | 64.28628 |
+| Successful / WER scored / SIM scored | 1088 / 1088 / 1088 | 1088 / 1088 / 1088 |
+| Actual acoustic frames | 102946 | 101162 |
+| Makespan, s | 26.9742 | 24.7088 |
+| Last dispatch to final completion, s | 1.9016 | 1.1362 |
+
+Both individual quality groups pass the unchanged C64 bounds, with no excluded
+outliers: [control quality](../evidence/20261016-mixed/results/mixed-control-quality.json)
+and [candidate quality](../evidence/20261016-mixed/results/mixed-candidate-quality.json).
+The observed +7.28% throughput difference is not a repeated fixed-workload
+speedup. The candidate generated 1.733% fewer frames, and 500-frame outputs fell
+from four to one. Final drain shortened by 0.7653 s, about 34% of the makespan
+difference. All requests and tail remain included. Sampling counters, row order
+and graph preparation can change the random trajectory; no single cause of
+output differences has been established. The candidate is only 90.77% of the
+4510.27 frames/s C64 baseline and needs another 65.24% to reach 6765.41.
+
+The separate 384-request mixed diagnostic excludes warmup and retains all
+requests. Its 8.027 s continuous-admission interval includes initial fill; mean
+pure-decode batch is 61.071 there, versus 14.025 during the 1.972 s final drain.
+Thus global mean batch 45.367 does not describe sustained occupancy. The
+`mixed_backbone` event includes the teacher-forced prefill tower. CPU first-frame
+wait of 2.031 s mostly waits for earlier GPU work and is not independent CPU
+computation. Synchronous codec occupies 1.454 s of the 9.998 s event window;
+perfectly hiding it would give only an ideal 1.170× budget, not a predicted gain.
+The old-request tower is just 100.93 ms, about 1.01% of the window, so fully
+unifying its labels and sampling has lower priority than prompt span and safe
+codec scheduling. See the [source-grounded analysis](high-concurrency-analysis.md)
+for counters, source references and interpretation limits.
+
+The next span experiment uses `9247e4b` on physical GPU0, with both arms already
+using mixed backbone. Control / span-256-with-512-fallback has TTFA p50
+146.182 / 147.932 ms, p95 263.725 / 276.424 ms and mean RTF 0.329850 / 0.323508.
+Its 3997.02 / 4082.76 frames/s is another single feasibility comparison, still
+below baseline. Both groups now have complete WER/SIM for all 1088 outputs:
+control WER 1.950934%, SIM 63.75201; candidate WER 1.833710%, SIM 63.62432.
+Both pass the unchanged single-group quality bounds, with all outliers included:
+[control quality](../evidence/20261016-mixed/results/span-control-quality.json),
+[candidate quality](../evidence/20261016-mixed/results/span-candidate-quality.json).
+This result must not be multiplied by the separate GPU6 difference or described
+as a validated all-concurrency improvement. The earlier asynchronous
+codec failures remain unresolved despite the passing synchronous mixed pair.
+
 Raw compact evidence and experiment plans are under
-[20261015-scale150](../evidence/20261015-scale150).
+[20261015-scale150](../evidence/20261015-scale150) and
+[20261016-mixed](../evidence/20261016-mixed).
 Large profiler traces and audio stay in the recorded local artifact directories.
 OmniRSI PR #9 has its conflicts resolved and a source-grounded concurrency
 knowledge record, but no successful optimization claim.
+
+
+The later fixed dynamic codec replay reproduces a default-capture divergence
+with identical request ordering, while a dedicated codec capture stream retains
+exact codes, PCM and all state across sync/poll/thread modes. Actual ATen BLAS
+workspace ranges are shared in the former and disjoint in the latter. See
+[the controlled diagnostic](../evidence/20261016-mixed/results/codec-dynamic/summary.json).
+Its additional host reads affect overlap timing; the historical async quality
+failures remain recorded pending a fresh complete service comparison. The
+experimental flag defaults off.
+
+[Actual mixed MoE counters](../evidence/20261016-mixed/results/ncu/mixed/summary.json)
+also show near-one-footprint expert-weight reads for the three sampled layers.
+They reject a large redundant-HBM-read hypothesis for these inputs, without
+establishing an all-layer lower bound or a service speedup.
+
+
+The fresh GPU0 workspace pair is complete (`7618212`, all 1088 outputs per arm).
+Shared capture: 4307.662 frames/s, WER 6.162606%, SIM 63.124403 (**quality fail**).
+Private capture: 4360.917 frames/s, TTFA p50/p95 143.351/278.698 ms, mean RTF
+0.307843, WER 1.590890%, SIM 64.191350 (**single-group quality pass**).
+This supports the reproduced correctness fix, not a repeated speedup claim or
+qualification of every historical async failure. New service startup rejects
+async codec without `DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM=1`; synchronous defaults
+are unchanged. C64 remains below both the 4510.27 baseline and 6765.41 target.
+[Full pair and raw quality](../evidence/20261016-mixed/results/service-feasibility-summary.json).

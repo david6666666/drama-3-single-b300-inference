@@ -1,0 +1,371 @@
+{
+  "source_sha": "7618212e15e7506bb20d57372d6700fe837988a5",
+  "source_status": "",
+  "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+  "gpu_uuid": "619f7fdc-5f98-8c37-fe89-0465d6130baf",
+  "capture": "default",
+  "environment": {
+    "DRAMA3_PREFILL_MOE": "flashinfer",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_FUSED_MOE_INPUT": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM": "0"
+  },
+  "hypothesis": "A private codec capture stream isolates ATen BLAS scratch from model graphs.",
+  "controls": "Fixed graphs, initial model/codec state, RNG, corpus and scripted arrivals.",
+  "gate": "Exact roster/codes, PCM/completion and final mutable state; no E2E claim.",
+  "stop": "Any divergence fails; dedicated capture must have disjoint observed BLAS ranges.",
+  "modes": [
+    {
+      "mode": "sync",
+      "completion_ok": true,
+      "state_differences": [],
+      "pcm_mismatches": [],
+      "request_frames": {
+        "24": 24,
+        "0": 50,
+        "41": 26,
+        "3": 51,
+        "5": 53,
+        "1": 57,
+        "2": 57,
+        "4": 57,
+        "6": 57,
+        "7": 57,
+        "8": 49,
+        "9": 49,
+        "10": 49,
+        "11": 49,
+        "12": 49,
+        "13": 49,
+        "14": 49,
+        "15": 49,
+        "56": 28,
+        "57": 32,
+        "20": 50,
+        "28": 62,
+        "26": 65,
+        "27": 67,
+        "29": 67,
+        "60": 53,
+        "31": 71,
+        "17": 73,
+        "39": 65,
+        "49": 57,
+        "25": 74,
+        "44": 66,
+        "16": 75,
+        "18": 76,
+        "50": 60,
+        "76": 36,
+        "19": 78,
+        "36": 70,
+        "45": 71,
+        "46": 73,
+        "38": 75,
+        "43": 76,
+        "68": 44,
+        "48": 69,
+        "35": 80,
+        "78": 49,
+        "65": 50,
+        "34": 85,
+        "21": 94,
+        "53": 79,
+        "62": 79,
+        "63": 81,
+        "58": 82,
+        "51": 84,
+        "52": 85,
+        "55": 88,
+        "40": 101,
+        "64": 71,
+        "30": 112,
+        "32": 106,
+        "47": 107,
+        "23": 117,
+        "71": 77,
+        "67": 79,
+        "72": 80,
+        "22": 121,
+        "73": 81,
+        "59": 109,
+        "54": 112,
+        "77": 89,
+        "33": 122,
+        "66": 90,
+        "74": 95,
+        "42": 135,
+        "61": 134,
+        "75": 110,
+        "37": 146,
+        "70": 114,
+        "69": 127,
+        "79": 129
+      },
+      "trace_sha256": "2f59327b44b4903129e670c27a24cdd60724ecd04274478f44ba603bd50dc23d",
+      "trace_length": 414,
+      "trace_matches": true,
+      "codec_shapes": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          16
+        ],
+        [
+          1,
+          24
+        ],
+        [
+          1,
+          32
+        ],
+        [
+          1,
+          64
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          16
+        ],
+        [
+          2,
+          24
+        ],
+        [
+          2,
+          32
+        ],
+        [
+          3,
+          32
+        ],
+        [
+          4,
+          16
+        ],
+        [
+          4,
+          32
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          8,
+          12
+        ],
+        [
+          8,
+          16
+        ],
+        [
+          11,
+          24
+        ],
+        [
+          12,
+          16
+        ],
+        [
+          12,
+          24
+        ],
+        [
+          15,
+          12
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          16,
+          6
+        ],
+        [
+          16,
+          8
+        ],
+        [
+          16,
+          12
+        ]
+      ],
+      "codec_calls": 99,
+      "decode_shapes": [
+        "decode_1",
+        "decode_16",
+        "decode_2",
+        "decode_32",
+        "decode_4",
+        "decode_48",
+        "decode_64",
+        "decode_8",
+        "first_frame"
+      ],
+      "prefill_capacities": [
+        256,
+        768,
+        1024,
+        1280,
+        1536,
+        1792
+      ],
+      "pcm_sha256": {
+        "0": "be5cd2ab557e28d0ee2e1903a543480ea2693e58d7b64fecc96f3d1744b17c7a",
+        "1": "f17cbd3ec8dabcb34028058b351107c89efe9668536540833ae8f6ce74027027",
+        "2": "9cca69a17d102b64bd792e949c9d04ef955a5dff0d220d9fbff9b7d65995fd8a",
+        "3": "35f6bf2d279b5a786bde5f690bd7685ba6c50091cc4b15bef2aeb9fd99ab3c01",
+        "4": "fed69e070b2ff606dbbfa2c4b5863ccb4b4f45468d08c32125b579b9123d077c",
+        "5": "b1ef1161fd47487cdc92fc737555f24cc024cac42e99b906b9b15b6a7b212627",
+        "6": "a1482c7512521f3b712d67b300e08d67881fd5ce58ed638d79017e52716cb144",
+        "7": "0394503b7cd55ecf415d202234675f368c84732858e4608130901a57fc3effee",
+        "8": "ef1c04dd209ebb55e652f153b30bae4b8c1640f3faeeaef3679fea5c18a4e780",
+        "9": "daef87087b40815c1f7df8e068bba570cff6281bdbf97562fe6cc5009b03337f",
+        "10": "4898a3828b9f61e41fc8cfcbca490874ccfc28f9dc3e99d86f6386620312e628",
+        "11": "2df7eae92f62c2e4bfff9668741cf123f6e97e0740c47fcf4d4326117867bd67",
+        "12": "6c39294ef8efdaf6f3dd3a37c566c7590db7c60a7a980ceafb5ba01e54216aa7",
+        "13": "9e7f9f6f53b28eec664ddd44f1ecdae8c838c6894d40b811bb17ad441f155e91",
+        "14": "a38e9a07629ca448c28d55e5e7eced57f37fd5c75fabe479cf7b60969afde692",
+        "15": "8a95948e027ab730afa8bd92df4355ce8ef19e378392636d69d2f766f67505d1",
+        "16": "bc3ae53a2a9a645906712e8ba1da6986f6d8b5c1d5fa3b5f132eb4283f399df1",
+        "17": "6f692b2fc6ae94ccbdd44a494768cdc621012a27751f976ff5fc5014b9ec1d0a",
+        "18": "07c6de28c2201db61d4556f78e216b2964c3a64e4432036f224fcff8f317190f",
+        "19": "1f8fccba27ec8e1935978888a3a81706a0be5fe865844f725de32f2081f00fcf",
+        "20": "08e3b976f10d425babfcc8a537804d8bbe08d1f3681683a16e7a9c29501590df",
+        "21": "bb35f1471cce9f18fc5384fb94c280d9be93aa932f5961bafb55a582344be985",
+        "22": "1daf96fbe85b9267854ca8601a917e842e8f2693699122efb062e6ef904b979d",
+        "23": "e8cdd2db86d9f3712db44d66deb0cd8522ea6449006c8e95e33ceab8a3fe8d37",
+        "24": "49f76c795db735358475a1eed250e0b5be0212d5c490b1a205058910390f92b4",
+        "25": "06f5939fdc691638bfd5befd3f2fee1da7a7c155121b0db8a1be80f3ff0a36f2",
+        "26": "b01b59a59aedcb36b58f84c4ef13c52cdd5e95da1107ce1e41787cbc13abc791",
+        "27": "d648520467452a6ef9523b32751a8b505f9635f1705af47706d7eb35fe72dee4",
+        "28": "c04e949df7b0e0411cb2bdad0f3a2d08a5fcc9c0efbd79515347de90e1c2cf94",
+        "29": "532b00366d7c91920a324d25206b6167b2776cfd89e156762dde8ac8f514b356",
+        "30": "ff055e9c67130444179055f181ed4023bb5f5255cc299b85e3a7f2906bc96c4b",
+        "31": "16045b5a8f1b51254f45cb48a4ca31c52e72d52c1f97289d3262db20a78101ef",
+        "32": "5df4c2bc372b889af7e44d88a17e879efba80d0f190404a1067b92e665efca9a",
+        "33": "c187725e1e82f9ccbd414ca3a2840dc4dc8ff38da64775ad70f896b7214e9065",
+        "34": "c95121734708fb8dc44a7abe8e762a777c2ef9c60a44591c937e632852f45309",
+        "35": "b43830958aa9cc75b7fd002de6319c41328772ecdc0d7dd15402979fff280344",
+        "36": "a535b6f8cb7b0b535e62468f81a880355691d7cd543f7204286f25e56b00300a",
+        "37": "98b0569be06a82589fbfb8208562f709ad946babf394e1ea526dd99100e5aad0",
+        "38": "39d9a6a2ae0f088f6ede59e902b12c5f59967adc48d6ecf008e37f3c5c27622b",
+        "39": "203c30a1c5424e28b77efc3a7ad4e99ee4517376e1a02611fef6d98584527a36",
+        "40": "359c2beeffffbc607813c92d31a3b86cd09196119074f2d0a8adc63409029366",
+        "41": "e050a045925b93bdf252f6d9053326f639ffc2bb996b4b9c45127a4772f5a737",
+        "42": "d8deb220f26aac973b7c534c5788f98342f8cfbe028ad70aeebf5ac3a0b046eb",
+        "43": "ad73abd828e28fa23e434dc1ccde34c10956f9d06deeaa7401ddcc4636b9560d",
+        "44": "ec1fa36e1f0b184a0c89717073c9c820dbdd4daa6e50bdac6db7a2eedeeab40d",
+        "45": "2c66d56caf55080425d207dd86c28d0eee0065c948600884a2e37e71882a13a2",
+        "46": "0fdf37844c2abbbf30049945f20bdc5c3d44badb3473c7da818f26be90950c50",
+        "47": "c2338c5b7cb1fbd401084b697772c545975d77a5921bf09bd66bef4981571cf9",
+        "48": "0af605d5c49e4d4b62bd2ec6031745ebb70a588238be9aba44ff0977bd377145",
+        "49": "7ec8924633f0319d9d6bdd47cd42f3a422f4ed87e4babf82493480b0cf503b95",
+        "50": "20159ed63423a872ad1375ef87af6894ada60217e948f521fe1223b2182528bc",
+        "51": "dbabfea63a3a3734a0ad36e28f8ae7e5fc0eb61dc4bf34fe1bb8c6c150119302",
+        "52": "b98c6ea29543877b8ba4ce44fafc60946edb7fd3d05b1c9461a18852b3e15cbc",
+        "53": "2ee6d8440b94c38141e96a9559814e08f1d144dcdcaf29c1c927b03440070546",
+        "54": "d7905847d92f9548237a346cf71a10c75c292c48b85b2875f37743ff0b5836a1",
+        "55": "a8ea3ddf500b454a29625f6fb720f77a58cf61097eddcc512b56f62801417870",
+        "56": "4de0506182433d3eb9af3b1159d24307f1b62e7f7651b1c2c9034104d1005f44",
+        "57": "77bb73f39d6b3b3ab4e5843d4d4f55d366ed41035792999d93c72dcb5fe4eda9",
+        "58": "218e4034af8283497326e91c2582e9b3439ded938b83baae3aba38263df90711",
+        "59": "7fe3cf2fe35706ea95ff42cb09d49d97db50a87bf35fd8381c82ab47f30847c7",
+        "60": "382471f29197692828ef979c284032c9e0b7e1856e10245ffcb71e0ab9801ecc",
+        "61": "2f0b8d4f70b6022e0de74b11934f917858e1481ebd9adeae12aedbbc70ab7619",
+        "62": "d9b8e00a1ebae3d3c9029ffe54a7b9417315e2f1e0fd0cb1f0ade159bbf61e84",
+        "63": "8a2b700b2f84fb521f63778f33c7331198f6e642d68bee6a1fa92f694cc68bc3",
+        "64": "49129cd5e6564ce5fa606a804b931e3cea295296e3ca04241b1f4f0b717f673f",
+        "65": "9641689cc57745fb38d937f73d48f53bdc4d9eb1ed8ee985aed62445ec886c90",
+        "66": "fdca82f4191bef6502def335b5fc3805fb5ad6b66122d3a21d05a9310ec72fc8",
+        "67": "044092ea4170db7066572f45a43f19caadc1227751379b45dd2e5146219ed7d1",
+        "68": "9e20826e59d47291d91f776528a6a6ad7d467aeff626b47fa6c6a3220d9ed892",
+        "69": "357f9e89b9fa9b8c89e6dc92de4831191a50a21a82880cca2db0215847f57aa0",
+        "70": "6818cbc46e23a423ba742fc85b0ceba4b6f0d724ef4ba07a4a97850e2ff3fa3b",
+        "71": "385126a862266604b02ece4eeaf5fa607ed2adc14ac2297bb70e79f58edd5fcd",
+        "72": "c9d1815ca00c427507cf7d12690942a5eef5155264897414a701ce4f3267de35",
+        "73": "40a97307405af281075dc97603b6b606b2c7031135c4d55cb0318f5487a225a0",
+        "74": "8e221c0e6a07879f5977f6af05a81b981042bc16a3e9299e74889b52861dc631",
+        "75": "cd67a72c9779a7a7871b05d33bd0baf5ff433af7f1118773832b4b7e207cb1c4",
+        "76": "cd1137ce2e81c8fce758e2d0931c8efcb43d0e160cc090d8aa1a6d14020f37de",
+        "77": "338769cc6ad5d1a13d2186377bec73e3b2477aec757f4e1c50163655cea29abc",
+        "78": "0454c18fbd169357712dc18b31b6d0bdf1c849971295450f258d95bc7ea5dc05",
+        "79": "a5df5a943615e4997e27945a67f60529fb3ff05efe15ae15fa065e356b782f19"
+      },
+      "passed": true
+    }
+  ],
+  "workspace": {
+    "scope": "Installed ATen cuBLAS/cuBLASLt maps; does not inspect other libraries' scratch",
+    "model_capture_stream": 336670064,
+    "codec_capture_stream": 336670064,
+    "model": [
+      {
+        "kind": "cublas",
+        "handle": 676719024,
+        "stream": 336670064,
+        "ptr": 137218098200576,
+        "size": 33554432
+      }
+    ],
+    "codec": [
+      {
+        "kind": "cublas",
+        "handle": 676719024,
+        "stream": 336670064,
+        "ptr": 137218098200576,
+        "size": 33554432
+      }
+    ],
+    "overlapping_ranges": [
+      [
+        {
+          "kind": "cublas",
+          "handle": 676719024,
+          "stream": 336670064,
+          "ptr": 137218098200576,
+          "size": 33554432
+        },
+        {
+          "kind": "cublas",
+          "handle": 676719024,
+          "stream": 336670064,
+          "ptr": 137218098200576,
+          "size": 33554432
+        }
+      ]
+    ]
+  }
+}

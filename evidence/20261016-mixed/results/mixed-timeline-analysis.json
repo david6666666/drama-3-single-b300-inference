@@ -1,0 +1,344 @@
+{
+  "diagnostics_only": true,
+  "requests": 384,
+  "raw_request_interval_s": 9.998439846094698,
+  "stage_records": 1409,
+  "excluded_records": 258,
+  "stages": {
+    "prefill": {
+      "calls": 2,
+      "mean_active_batch": 4.5,
+      "summed_event_ms": 51.193726539611816,
+      "cpu_submit_ms": 51.209400058723986
+    },
+    "decode": {
+      "calls": 716,
+      "mean_active_batch": 45.36731843575419,
+      "summed_event_ms": 6059.818753957748,
+      "cpu_submit_ms": 162.69127186387777
+    },
+    "mixed_backbone": {
+      "calls": 69,
+      "mean_active_batch": 55.507246376811594,
+      "summed_event_ms": 1968.70751953125,
+      "cpu_submit_ms": 20.07580630015582
+    },
+    "first_frame": {
+      "calls": 69,
+      "mean_active_batch": 5.434782608695652,
+      "summed_event_ms": 82.23049640655518,
+      "cpu_submit_ms": 2030.86389740929
+    },
+    "mixed_decode_tower": {
+      "calls": 69,
+      "mean_active_batch": 55.507246376811594,
+      "summed_event_ms": 100.93196785449982,
+      "cpu_submit_ms": 3.3715541940182447
+    },
+    "codec": {
+      "calls": 484,
+      "mean_active_batch": 4.902892561983471,
+      "summed_event_ms": 1454.239966609981,
+      "cpu_submit_ms": 1474.4818434119225
+    }
+  },
+  "codec_decode_overlap_ms": 0.0,
+  "codec_prefill_overlap_ms": 0.0,
+  "codec_event_union_ms": 0,
+  "decode_batches": [
+    {
+      "active": 1,
+      "overlaps_codec": false,
+      "calls": 55,
+      "mean_event_ms": 11.452583560076627
+    },
+    {
+      "active": 2,
+      "overlaps_codec": false,
+      "calls": 2,
+      "mean_event_ms": 3.73852801322937
+    },
+    {
+      "active": 3,
+      "overlaps_codec": false,
+      "calls": 21,
+      "mean_event_ms": 4.22492808387393
+    },
+    {
+      "active": 4,
+      "overlaps_codec": false,
+      "calls": 27,
+      "mean_event_ms": 4.232548731344718
+    },
+    {
+      "active": 5,
+      "overlaps_codec": false,
+      "calls": 35,
+      "mean_event_ms": 5.295461504799979
+    },
+    {
+      "active": 6,
+      "overlaps_codec": false,
+      "calls": 2,
+      "mean_event_ms": 5.31112003326416
+    },
+    {
+      "active": 7,
+      "overlaps_codec": false,
+      "calls": 9,
+      "mean_event_ms": 5.289066685570611
+    },
+    {
+      "active": 8,
+      "overlaps_codec": false,
+      "calls": 2,
+      "mean_event_ms": 5.376736164093018
+    },
+    {
+      "active": 9,
+      "overlaps_codec": false,
+      "calls": 2,
+      "mean_event_ms": 5.4191999435424805
+    },
+    {
+      "active": 10,
+      "overlaps_codec": false,
+      "calls": 6,
+      "mean_event_ms": 5.543461322784424
+    },
+    {
+      "active": 12,
+      "overlaps_codec": false,
+      "calls": 3,
+      "mean_event_ms": 5.455071926116943
+    },
+    {
+      "active": 13,
+      "overlaps_codec": false,
+      "calls": 7,
+      "mean_event_ms": 5.981284550258091
+    },
+    {
+      "active": 14,
+      "overlaps_codec": false,
+      "calls": 4,
+      "mean_event_ms": 6.0346879959106445
+    },
+    {
+      "active": 15,
+      "overlaps_codec": false,
+      "calls": 2,
+      "mean_event_ms": 6.054640054702759
+    },
+    {
+      "active": 17,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 6.837152004241943
+    },
+    {
+      "active": 18,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 6.660064220428467
+    },
+    {
+      "active": 20,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 6.83135986328125
+    },
+    {
+      "active": 21,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 6.639552116394043
+    },
+    {
+      "active": 23,
+      "overlaps_codec": false,
+      "calls": 2,
+      "mean_event_ms": 6.672911882400513
+    },
+    {
+      "active": 25,
+      "overlaps_codec": false,
+      "calls": 5,
+      "mean_event_ms": 7.243084812164307
+    },
+    {
+      "active": 26,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 7.279104232788086
+    },
+    {
+      "active": 28,
+      "overlaps_codec": false,
+      "calls": 6,
+      "mean_event_ms": 7.2670027414957685
+    },
+    {
+      "active": 30,
+      "overlaps_codec": false,
+      "calls": 2,
+      "mean_event_ms": 7.382256031036377
+    },
+    {
+      "active": 31,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 7.534719944000244
+    },
+    {
+      "active": 33,
+      "overlaps_codec": false,
+      "calls": 2,
+      "mean_event_ms": 8.094784021377563
+    },
+    {
+      "active": 34,
+      "overlaps_codec": false,
+      "calls": 3,
+      "mean_event_ms": 8.033706506093344
+    },
+    {
+      "active": 36,
+      "overlaps_codec": false,
+      "calls": 2,
+      "mean_event_ms": 8.087967872619629
+    },
+    {
+      "active": 38,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 8.305855751037598
+    },
+    {
+      "active": 41,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 8.342207908630371
+    },
+    {
+      "active": 42,
+      "overlaps_codec": false,
+      "calls": 2,
+      "mean_event_ms": 8.38159990310669
+    },
+    {
+      "active": 43,
+      "overlaps_codec": false,
+      "calls": 3,
+      "mean_event_ms": 8.401589075724283
+    },
+    {
+      "active": 44,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 8.575008392333984
+    },
+    {
+      "active": 46,
+      "overlaps_codec": false,
+      "calls": 4,
+      "mean_event_ms": 8.32966423034668
+    },
+    {
+      "active": 47,
+      "overlaps_codec": false,
+      "calls": 7,
+      "mean_event_ms": 8.35755457196917
+    },
+    {
+      "active": 49,
+      "overlaps_codec": false,
+      "calls": 2,
+      "mean_event_ms": 8.88094425201416
+    },
+    {
+      "active": 51,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 8.737343788146973
+    },
+    {
+      "active": 52,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 8.954912185668945
+    },
+    {
+      "active": 53,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 9.048192024230957
+    },
+    {
+      "active": 55,
+      "overlaps_codec": false,
+      "calls": 1,
+      "mean_event_ms": 8.871487617492676
+    },
+    {
+      "active": 56,
+      "overlaps_codec": false,
+      "calls": 3,
+      "mean_event_ms": 8.626666704813639
+    },
+    {
+      "active": 57,
+      "overlaps_codec": false,
+      "calls": 4,
+      "mean_event_ms": 9.49509596824646
+    },
+    {
+      "active": 58,
+      "overlaps_codec": false,
+      "calls": 31,
+      "mean_event_ms": 9.149950950376448
+    },
+    {
+      "active": 59,
+      "overlaps_codec": false,
+      "calls": 59,
+      "mean_event_ms": 9.175657724930069
+    },
+    {
+      "active": 60,
+      "overlaps_codec": false,
+      "calls": 71,
+      "mean_event_ms": 9.13447436480455
+    },
+    {
+      "active": 61,
+      "overlaps_codec": false,
+      "calls": 81,
+      "mean_event_ms": 9.181561246330356
+    },
+    {
+      "active": 62,
+      "overlaps_codec": false,
+      "calls": 95,
+      "mean_event_ms": 9.058663809926886
+    },
+    {
+      "active": 63,
+      "overlaps_codec": false,
+      "calls": 88,
+      "mean_event_ms": 9.01327668536793
+    },
+    {
+      "active": 64,
+      "overlaps_codec": false,
+      "calls": 54,
+      "mean_event_ms": 8.76141572881628
+    }
+  ],
+  "limitations": [
+    "CUDA event spans can include GPU waiting for host submission; these are not SM utilization or summed kernel durations.",
+    "Overlap and slower decode are correlated observations; batches, context lengths and tail steps differ, so this is not causal attribution.",
+    "Active batch counts do not count graph multi-steps and cannot be converted directly to generated frames.",
+    "Warmup is excluded by the shared host monotonic clock, not by choosing favorable measured requests."
+  ]
+}

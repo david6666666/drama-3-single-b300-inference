@@ -1,0 +1,6 @@
+{
+  "hypothesis": "Identify remaining serialized event spans after joint backbone, not a performance claim.",
+  "source": "a25c68da0b501374a0f457f4f912543f9cbd821d",
+  "controls": "Same mixed native flags as GPU6 feasibility, GPU2, C64 requests384, synchronous BF16 codec; timeline events only.",
+  "stop": "No formal speedup claim; preserve full measured interval including startup/drain; no cache flush."
+}
