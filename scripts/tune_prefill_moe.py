@@ -20,6 +20,7 @@ def main():
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch", type=int, default=8)
+    parser.add_argument("--atomic", action="store_true")
     args = parser.parse_args()
     model = DramaModel(args.checkpoint, slots=4 * args.batch, max_length=512)
     samples = [json.loads(s) for s in args.corpus.read_text().splitlines()][: args.batch]
@@ -65,7 +66,9 @@ def main():
         counts = torch.bincount(ids.flatten(), minlength=256).cpu()
         for block_m in (16, 32, 64, 128):
             for group_m in (1, 8):
-                fn = partial(native_moe, x, ids, weights, layer.experts, block_m, group_m)
+                fn = partial(
+                    native_moe, x, ids, weights, layer.experts, block_m, group_m, args.atomic
+                )
                 actual = fn()
                 error = float(
                     (
@@ -81,6 +84,7 @@ def main():
                     max_expert_tokens=int(counts.max()),
                     block_m=block_m,
                     group_m=group_m,
+                    atomic=args.atomic,
                     rrms=error,
                     passed=bool(actual.isfinite().all()) and error < 0.003,
                 )

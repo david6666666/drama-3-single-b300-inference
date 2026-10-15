@@ -588,7 +588,7 @@ def expert_scatter_kernel(
     tl.store(EXPERTS + start // TILE + blocks, expert, blocks * TILE < padded)
 
 
-def native_moe(x, topk_ids, topk_weights, experts, block_m=16, group_m=1):
+def native_moe(x, topk_ids, topk_weights, experts, block_m=16, group_m=1, atomic=False):
     """Fish's FP8 GEMMs with device-only routing layout and selectable row tiles."""
     from fish_speech.models.text2semantic.fish_omni.fp8_moe import (
         fused_moe_gemm,
@@ -635,6 +635,21 @@ def native_moe(x, topk_ids, topk_weights, experts, block_m=16, group_m=1):
         group_m=group_m,
     )
     activated, activation_scales = quantize_groups(silu_mul_quant_kernel, gate_up, 512)
+    if atomic:
+        from drama3.moe_atomic import atomic_down
+
+        return atomic_down(
+            activated,
+            activation_scales,
+            experts,
+            topk_weights.flatten(),
+            sorted_ids,
+            expert_ids,
+            total,
+            tokens,
+            block_m,
+            group_m,
+        )
     down = torch.empty((pairs, 2048), dtype=torch.float32, device=x.device)
     fused_moe_gemm(
         activated,

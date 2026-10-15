@@ -27,6 +27,10 @@ Copyright contributors to the vLLM-Omni project. Modified imports use the
 Fish Speech model containers and direct Torch/Triton operators; no vLLM
 engine or serving pipeline is required. See file headers for adaptations.
 
+The experimental atomic MoE reduction in src/drama3/moe_atomic.py adapts
+Fish Speech fp8_moe.py at 541566932abbaebcb0a40e562a1f846738383f38,
+under the Fish Audio Community License, Version 1.0.
+
 The optional BlockMajorK MoE byte permutation in src/drama3/model.py follows
 vLLM 0.31.0's Apache-2.0 flashinfer_utils.py (Copyright contributors to the
 vLLM project), using FlashInfer's public row-index helper. No vLLM runtime is
