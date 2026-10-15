@@ -1,0 +1,122 @@
+"""Profile heterogeneous voice-clone decode after real prompt prefill."""
+
+import argparse
+import hashlib
+import json
+from functools import partial
+from pathlib import Path
+from types import SimpleNamespace
+
+import torch
+import torch.nn.functional as F
+import triton
+from fish_speech.models.text2semantic.fish_omni.generate import build_drama3_prompt
+from torch.profiler import ProfilerActivity, profile
+
+from drama3.engine import BatchedPrefillGraph, DecodeGraph, state_pool_size
+from drama3.kernels import linear
+from drama3.model import DramaModel
+from drama3.runtime_state import DeviceRequests
+
+
+@torch.inference_mode()
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--checkpoint", required=True)
+    parser.add_argument("--corpus", type=Path, required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--batch", type=int, default=64)
+    args = parser.parse_args()
+    if args.batch % 8:
+        parser.error("Batch must be a multiple of eight")
+    args.output.mkdir(parents=True, exist_ok=False)
+    data = args.corpus.read_bytes()
+    samples = [json.loads(s) for s in data.splitlines()][: args.batch]
+    model = DramaModel(args.checkpoint, slots=state_pool_size(args.batch), max_length=2048)
+    prompts = [
+        build_drama3_prompt(
+            s["text"],
+            model.weights.tokenizer,
+            model.config,
+            [s["reference_text"]],
+            [torch.tensor(s["reference_codes"])],
+        )
+        for s in samples
+    ]
+    device = DeviceRequests(model.slots, model.config.eos_token_id, model.max_length)
+    requests = [SimpleNamespace(slot=i, position=len(p) - 1) for i, p in enumerate(prompts)]
+    original = model.moe
+    indices = {id(layer.mlp): i for i, layer in enumerate(model.backbone.layers)}
+    activations = {}
+
+    def capture(x, layer, decode=False):
+        if decode and indices[id(layer)] in (0, 19, 39):
+            activations[indices[id(layer)]] = x
+        return original(x, layer, decode)
+
+    model.moe = capture
+    graph = DecodeGraph(model, args.batch, requests=device)
+    model.moe = original
+    first = DecodeGraph(model, 8, first_frame=True, requests=device)
+    span = max(128, triton.next_power_of_2(max(map(len, prompts))))
+    prefill = BatchedPrefillGraph(model, 8, span)
+    for i, prompt in enumerate(prompts):
+        history = F.pad(prompt[-16:, 0], (max(0, 16 - len(prompt)), 0), value=-1).to("cuda")
+        device.initialize(i, prompt[-1].to("cuda"), history, len(prompt) - 1, 500)
+    for start in range(0, args.batch, 8):
+        hidden = prefill.run(prompts[start : start + 8], list(range(start, start + 8)))
+        first.run(requests[start : start + 8], hidden)
+    graph.run(requests)
+    for _ in range(7):
+        graph.graph.replay()
+    torch.cuda.synchronize()
+    initial_counts = device.metadata[: args.batch, 1].cpu().tolist()
+    initial_done = int(device.metadata[: args.batch, 3].sum())
+    begin, end = torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True)
+    begin.record()
+    for _ in range(10):
+        graph.graph.replay()
+    end.record()
+    end.synchronize()
+    result = dict(
+        batch=args.batch,
+        corpus_sha256=hashlib.sha256(data).hexdigest(),
+        prompt_lengths=list(map(len, prompts)),
+        initial_counts=initial_counts,
+        initial_done=initial_done,
+        final_done=int(device.metadata[: args.batch, 3].sum()),
+        decode_ms=begin.elapsed_time(end) / 10,
+        state_dtype=model.state_precision,
+        moe_layout=model.moe_layout,
+        packed_projection=model.packed_moe_projection,
+        description="Ten actual autoregressive steps; completed slots remain in graph",
+    )
+    (args.output / "timing.json").write_text(json.dumps(result, indent=2) + "\n")
+    print(json.dumps(result), flush=True)
+    with profile(activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA]) as prof:
+        for _ in range(3):
+            graph.graph.replay()
+        torch.cuda.synchronize()
+    prof.export_chrome_trace(str(args.output / "trace.json.gz"))
+    (args.output / "table.txt").write_text(
+        prof.key_averages().table(sort_by="self_device_time_total", row_limit=40) + "\n"
+    )
+    rows = []
+    for index, x in activations.items():
+        layer = model.backbone.layers[index].mlp
+        router = linear(x, layer.gate.weight)
+        ids = router.float().topk(8, dim=-1).indices
+        counts = torch.bincount(ids.flatten(), minlength=256)
+        row = dict(
+            layer=index,
+            unique_experts=int((counts > 0).sum()),
+            max_expert_tokens=int(counts.max()),
+            moe_us=triton.testing.do_bench_cudagraph(partial(original, x, layer, True)) * 1000,
+        )
+        rows.append(row)
+        print(json.dumps(row), flush=True)
+    (args.output / "moe.json").write_text(json.dumps(rows, indent=2) + "\n")
+
+
+if __name__ == "__main__":
+    main()
