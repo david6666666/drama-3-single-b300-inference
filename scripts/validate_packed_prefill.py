@@ -132,8 +132,15 @@ def main():
             # Identical prompt/slot inputs; time captured GPU work, excluding CPU copies.
             padded.run(selected, list(range(count)))
             graph.run(selected, list(range(count)))
-            result["padded_graph_ms"] = triton.testing.do_bench_cudagraph(padded.graph.replay)
-            result["packed_graph_ms"] = triton.testing.do_bench_cudagraph(graph.graph.replay)
+            for name, captured in (("padded", padded.graph), ("packed", graph.graph)):
+                begin = torch.cuda.Event(enable_timing=True)
+                end = torch.cuda.Event(enable_timing=True)
+                begin.record()
+                for _ in range(10):
+                    captured.replay()
+                end.record()
+                end.synchronize()
+                result[f"{name}_graph_ms"] = begin.elapsed_time(end) / 10
             args.output.write_text(json.dumps(results, indent=2) + "\n")
             print(json.dumps({k: v for k, v in result.items() if k != "errors"}), flush=True)
 

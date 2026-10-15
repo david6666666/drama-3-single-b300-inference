@@ -26,6 +26,17 @@ def rrms(a, b):
     )
 
 
+def time_graph(graph):
+    graph.replay()
+    begin, end = torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True)
+    begin.record()
+    for _ in range(10):
+        graph.replay()
+    end.record()
+    end.synchronize()
+    return begin.elapsed_time(end) / 10
+
+
 @torch.inference_mode()
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -197,8 +208,8 @@ def main():
         row = dict(
             count=count,
             capacity=capacity,
-            padded_ms=triton.testing.do_bench_cudagraph(padded.graph.replay),
-            packed_ms=triton.testing.do_bench_cudagraph(graph.graph.replay),
+            padded_ms=time_graph(padded.graph),
+            packed_ms=time_graph(graph.graph),
             passed=True,
         )
         results.append(row)
