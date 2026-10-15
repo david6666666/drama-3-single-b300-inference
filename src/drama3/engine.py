@@ -276,6 +276,11 @@ class Engine:
         if profile_path and timeline_path:
             raise ValueError("Select either synchronized stage profiling or event timeline")
         self.async_codec = os.environ.get("DRAMA3_ASYNC_CODEC") == "1"
+        if self.async_codec and os.environ.get("DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM") != "1":
+            raise ValueError(
+                "Async codec requires DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM=1 "
+                "to isolate model and codec BLAS workspaces"
+            )
         self.audio_delivery_thread = os.environ.get("DRAMA3_AUDIO_DELIVERY_THREAD") == "1"
         if self.audio_delivery_thread and not self.async_codec:
             raise ValueError("A PCM delivery thread requires DRAMA3_ASYNC_CODEC=1")
