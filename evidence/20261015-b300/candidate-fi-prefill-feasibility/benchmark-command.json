@@ -1,0 +1,22 @@
+[
+  "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+  "-m",
+  "drama3.benchmark",
+  "--url",
+  "http://127.0.0.1:18085",
+  "--backend",
+  "standalone",
+  "--corpus",
+  "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en192-codes/requests.jsonl",
+  "--output",
+  "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/candidate-fi-prefill-feasibility/benchmark",
+  "--requests",
+  "192",
+  "--repeats",
+  "1",
+  "--warm-references",
+  "--save-audio",
+  "--concurrency",
+  "1",
+  "64"
+]

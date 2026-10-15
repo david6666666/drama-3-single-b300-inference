@@ -1,0 +1,86 @@
+[
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/candidate-bf16-state-quality.json",
+    "artifact": "evidence/20261015-b300/candidate-bf16-state-quality.json.gz",
+    "sha256": "8705a346aa806c420c6f92a0ff42f7073a11e9d8f2554e25f76d640920dd3e66",
+    "bytes": 309976
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/candidate-fi-prefill-quality.json",
+    "artifact": "evidence/20261015-b300/candidate-fi-prefill-quality.json.gz",
+    "sha256": "048b8df9d6f644e4877579323d41cdafe754743f375efa6412820c6750a2ad97",
+    "bytes": 309962
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/candidate-packed-bf16-quality.json",
+    "artifact": "evidence/20261015-b300/candidate-packed-bf16-quality.json.gz",
+    "sha256": "3abf9f676b1305d8f8f3721107019d2b9780ecfc79a39830b0f20b81cbb93680",
+    "bytes": 309771
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/candidate-admission6-quality.json",
+    "artifact": "evidence/20261015-b300/candidate-admission6-quality.json.gz",
+    "sha256": "11c0264a4f3fb3b0dd2b91ad7f316301d63b8b6b0a72dc0a232e8533e95f20e2",
+    "bytes": 155224
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/candidate-async-fp32-quality.json",
+    "artifact": "evidence/20261015-b300/candidate-async-fp32-quality.json.gz",
+    "sha256": "623c969dfc5eb1f15d135d53a40e0dfacc84e7dee416cf55f37fc7b92fd9afa2",
+    "bytes": 309951
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/prefill-conv-benchmark.json",
+    "artifact": "evidence/20261015-b300/prefill-conv-benchmark.json.gz",
+    "sha256": "c75af2ccfb8a26c8b5fc93104eb64f6fd9a863c22485b8bd5fd1f30bcdb2253b",
+    "bytes": 1202
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/prefill-conv-batched-validation.json",
+    "artifact": "evidence/20261015-b300/prefill-conv-batched-validation.json.gz",
+    "sha256": "6d5ee329cbff067e9fcf1e66c015471a773487842473fe3ded6507f124d0a895",
+    "bytes": 5903
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/async-codec-validation.json",
+    "artifact": "evidence/20261015-b300/async-codec-validation.json.gz",
+    "sha256": "9e05b34e7e616ef0160991c35a734ef1af043356225d1aea9b3561063dab9f00",
+    "bytes": 508
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/async-codec-thread-validation.log",
+    "artifact": "evidence/20261015-b300/async-codec-thread-validation.log.gz",
+    "sha256": "4e24202201bda7522c76b6fff6bff2feb8964692aeaddffb076ea6f4d30e9c20",
+    "bytes": 228
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/async-codec-thread-validation-v2.json",
+    "artifact": "evidence/20261015-b300/async-codec-thread-validation-v2.json.gz",
+    "sha256": "9e05b34e7e616ef0160991c35a734ef1af043356225d1aea9b3561063dab9f00",
+    "bytes": 508
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/packed-moe-projection.json",
+    "artifact": "evidence/20261015-b300/packed-moe-projection.json.gz",
+    "sha256": "b7a37d32fce0e1ea8b6465b9d4e689917e15ecc57a00ab07b651e2e6b3bce061",
+    "bytes": 3345
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/fused-gated-projection.json",
+    "artifact": "evidence/20261015-b300/fused-gated-projection.json.gz",
+    "sha256": "c6a2a597ac9454ec1ac49d518e2f062a1ccbac86f2fb75a7ce8217e619407b3f",
+    "bytes": 4486
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/dense-fp8-gemv-tuning.json",
+    "artifact": "evidence/20261015-b300/dense-fp8-gemv-tuning.json.gz",
+    "sha256": "1446811bf062cda9bca5910c0d5537cd97f63a77a7293a564606e10a3ac13ad1",
+    "bytes": 12946
+  },
+  {
+    "source": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/bf16-state-batched-validation.json",
+    "artifact": "evidence/20261015-b300/bf16-state-batched-validation.json.gz",
+    "sha256": "6d5ee329cbff067e9fcf1e66c015471a773487842473fe3ded6507f124d0a895",
+    "bytes": 5903
+  }
+]

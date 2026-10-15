@@ -1,0 +1,68 @@
+[
+  {
+    "source": "benchmark/c1-r0.jsonl",
+    "artifact": "benchmark/c1-r0.jsonl.gz",
+    "uncompressed_sha256": "6c6da8d91e75aeddb8c985b5eae86b46340e9044b925877d36d3432235ea6865",
+    "bytes": 183483
+  },
+  {
+    "source": "benchmark/c1-warmup.json",
+    "artifact": "benchmark/c1-warmup.json",
+    "uncompressed_sha256": "42254269ff979a549450cdb750e5882d389e5ffbad02c7f915dd5bfc040a0336",
+    "bytes": 9430
+  },
+  {
+    "source": "benchmark/c64-r0.jsonl",
+    "artifact": "benchmark/c64-r0.jsonl.gz",
+    "uncompressed_sha256": "78b854a63f9979798c23f62c6781056f7650fc4bb587c53eb0634c786728bd45",
+    "bytes": 180969
+  },
+  {
+    "source": "benchmark/c64-warmup.json",
+    "artifact": "benchmark/c64-warmup.json",
+    "uncompressed_sha256": "7ee2ec60524cfc1edde502af9dc04ce95f3685fc66be6f67b4dac9f1c61d6759",
+    "bytes": 74078
+  },
+  {
+    "source": "benchmark/manifest.json",
+    "artifact": "benchmark/manifest.json",
+    "uncompressed_sha256": "d5535a04bc79bf809cce54e0c957cded2f1072a5750f6afd7946f8194de65d94",
+    "bytes": 763
+  },
+  {
+    "source": "benchmark/reference-warmup.json",
+    "artifact": "benchmark/reference-warmup.json",
+    "uncompressed_sha256": "5d200fc833205ea88b76bf77996b84761c1b9334df2e1a03be3a47b4f8018c2b",
+    "bytes": 242896
+  },
+  {
+    "source": "benchmark/summary.json",
+    "artifact": "benchmark/summary.json",
+    "uncompressed_sha256": "153dd0785e4298d57eea1924ab7ef514d0bf3f95ca782e76f6000ffb3ba7f7ab",
+    "bytes": 647
+  },
+  {
+    "source": "benchmark-command.json",
+    "artifact": "benchmark-command.json",
+    "uncompressed_sha256": "bfe6477409cec28dbc6201ccd199dff2a7e080a791fa0207fcd069d779ae7b9a",
+    "bytes": 506
+  },
+  {
+    "source": "benchmark.log",
+    "artifact": "benchmark.log.gz",
+    "uncompressed_sha256": "9e9da702f98d81e12ff61ab872f28d3dbe24acbf03e11c72c0fd7e0bf699555a",
+    "bytes": 542
+  },
+  {
+    "source": "launch.json",
+    "artifact": "launch.json",
+    "uncompressed_sha256": "a7857198dee5c822d87e73607b155c865ce2dbd5a788344d5746e8d7129e1d69",
+    "bytes": 2872
+  },
+  {
+    "source": "server.log",
+    "artifact": "server.log.gz",
+    "uncompressed_sha256": "2e8809f1d26335056d546376b8d219e178aa4b06f91e20d2238ebbb49a5171b1",
+    "bytes": 48289
+  }
+]
