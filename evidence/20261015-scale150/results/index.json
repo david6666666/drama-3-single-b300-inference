@@ -63,6 +63,96 @@
       "bytes": 543
     },
     {
+      "path": "results/fused-moe-input-control/benchmark/c64-r0.jsonl.gz",
+      "sha256": "2ecbd4f296a32b9c0a87426ef57a8f7ce5ba4abf07114ba489e3726bfbccbcdd",
+      "bytes": 244064
+    },
+    {
+      "path": "results/fused-moe-input-control/benchmark/c64-warmup.json",
+      "sha256": "fcbc9671137f9b280cf41c32df3bd6565232cecea4e13c00080067d570679265",
+      "bytes": 74653
+    },
+    {
+      "path": "results/fused-moe-input-control/benchmark/manifest.json",
+      "sha256": "48a6737b576b5186f37e73e9379869902e9105dcb6dbcd2974bbd28ca69dd913",
+      "bytes": 760
+    },
+    {
+      "path": "results/fused-moe-input-control/benchmark/summary.json",
+      "sha256": "d8c408336c2331deece8f2fe96285da28b66a3d656bd6b1a699c35d05b82f08d",
+      "bytes": 330
+    },
+    {
+      "path": "results/fused-moe-input-control/benchmark-command.json",
+      "sha256": "e2b4abda819a7c83057e2f892c97e422320cf79220aec83b795098399547a6c6",
+      "bytes": 479
+    },
+    {
+      "path": "results/fused-moe-input-control/benchmark.log.gz",
+      "sha256": "6ce5fad51e6bc2729c703803260ec22424aa6326022e8a1d4ef5c3e3f0155dbd",
+      "bytes": 208
+    },
+    {
+      "path": "results/fused-moe-input-control/launch.json",
+      "sha256": "4d0202299d66a93ba6afaf3be2ec52cfe36766491b6f96b80d421c4b76a765a1",
+      "bytes": 3127
+    },
+    {
+      "path": "results/fused-moe-input-control/server.log.gz",
+      "sha256": "aa23636162a1a9596c8610327310027a9298a15ab1aa053eb1e9370981eaa32c",
+      "bytes": 5009
+    },
+    {
+      "path": "results/fused-moe-input-control-quality.json.gz",
+      "sha256": "250e3973a930afd39c9ceeebf9a1a26c0d8d7f0b42e4e77466d675f2fa01022d",
+      "bytes": 96411
+    },
+    {
+      "path": "results/fused-moe-input-feasibility/benchmark/c64-r0.jsonl.gz",
+      "sha256": "bf0c0d627dcaa4c9384e0f781ff21262de54c73abfcfd4fa64c7371287dfab33",
+      "bytes": 246179
+    },
+    {
+      "path": "results/fused-moe-input-feasibility/benchmark/c64-warmup.json",
+      "sha256": "39d98ad274d6c51cbf0a6addd5f6a3290f775f43ccc8c262f2988b17a5d46bdf",
+      "bytes": 75167
+    },
+    {
+      "path": "results/fused-moe-input-feasibility/benchmark/manifest.json",
+      "sha256": "162f439bebde32c4398ce043c18730b32ebf36da7e03f0f4cf275319909cd3d6",
+      "bytes": 764
+    },
+    {
+      "path": "results/fused-moe-input-feasibility/benchmark/summary.json",
+      "sha256": "873d4565b40ef1ffda1cb96a60ee9a0593f76b88681f3ebb524fa643477fb1de",
+      "bytes": 329
+    },
+    {
+      "path": "results/fused-moe-input-feasibility/benchmark-command.json",
+      "sha256": "d1443a52339e099c055545324716e9d7e4a31e0695ae31ba9e9d2a9ad4074419",
+      "bytes": 483
+    },
+    {
+      "path": "results/fused-moe-input-feasibility/benchmark.log.gz",
+      "sha256": "36ebd8d77ce6e07b76ff9b261a14391aa36c879dd087aebca3c2c559228c8c68",
+      "bytes": 207
+    },
+    {
+      "path": "results/fused-moe-input-feasibility/launch.json",
+      "sha256": "fc4be995996f9bcf6f200704cf167257cf021dc3c03acbd5aa6ad4609eda20d5",
+      "bytes": 3126
+    },
+    {
+      "path": "results/fused-moe-input-feasibility/server.log.gz",
+      "sha256": "7356f5b4cf126c8e5935e747045d7510960fd1e4cbffe4f7d1711bb986fd8e08",
+      "bytes": 5030
+    },
+    {
+      "path": "results/fused-moe-input-feasibility-quality.json.gz",
+      "sha256": "119f685e29058b6240ef946516627ff7514d6a01555b4d464e50ba8a6d662b33",
+      "bytes": 95329
+    },
+    {
       "path": "results/fused-moe-input-real-b16.json",
       "sha256": "d7b106af43fec9f68b19b15cef10f5d8319a3ab866db6167b1ab5a4cf38082f8",
       "bytes": 573
@@ -476,6 +566,16 @@
       "path": "results/padded-control-validation.log.gz",
       "sha256": "b1cbbc9861ad0b3f4b4762393f6d2f0281be171b5e36fee9c52262552f4c3603",
       "bytes": 612
+    },
+    {
+      "path": "results/prefill-codec-overlap.json",
+      "sha256": "cf8e227e7ffc7391de401f59b90a79d74aaea760b23b31fa4900d39badf28ba5",
+      "bytes": 1134
+    },
+    {
+      "path": "results/prefill-codec-overlap.log.gz",
+      "sha256": "aed91221a197e91f0b2f06fc2645e22e1223096ee85d01302e618c516a168103",
+      "bytes": 1002
     },
     {
       "path": "results/prefill-decode-overlap-gpu0.json",

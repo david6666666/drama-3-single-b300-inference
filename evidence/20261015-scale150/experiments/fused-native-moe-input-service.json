@@ -1,0 +1,8 @@
+{
+  "source_sha": "3a45588f9d95e3143cde22ef1372fe3692fa23d1",
+  "hypothesis": "Exact fused native MoE input preparation reduces full-service decode overhead after B16/B64 exact-state checks.",
+  "isolated_variable": "DRAMA3_FUSED_MOE_INPUT=0 vs1 only; fixed native top8 model, packed prefill and asynchronous BF16 codec in both arms.",
+  "controls": "GPU6 isolated samephysicalB300,OMP8,C64,capacity64,1088requests and64warmup,one feasibility repetition per configuration,cache reused,no reference warmup,all audio retained and scored; formal GPU0 unavailable.",
+  "success": "Complete samples and confirmed same-C64 baseline WER/SIM gates, report TTFA/RTF/fps; no 1.5x or repeated-A/B claim from this experiment.",
+  "stop": "Any buffer/state/runtime failure or incomplete/failed audio quality; retain earlier results and do not select lucky repetitions."
+}

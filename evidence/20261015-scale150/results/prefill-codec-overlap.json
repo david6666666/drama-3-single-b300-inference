@@ -1,0 +1,62 @@
+[
+  {
+    "batch": 1,
+    "frames": 6,
+    "codec_repeats": 24,
+    "concurrent": false,
+    "state_differences": [],
+    "hidden_exact": true,
+    "pcm_exact": true,
+    "passed": true
+  },
+  {
+    "batch": 1,
+    "frames": 6,
+    "codec_repeats": 24,
+    "concurrent": true,
+    "state_differences": [],
+    "hidden_exact": true,
+    "pcm_exact": true,
+    "passed": true
+  },
+  {
+    "batch": 4,
+    "frames": 16,
+    "codec_repeats": 8,
+    "concurrent": false,
+    "state_differences": [],
+    "hidden_exact": true,
+    "pcm_exact": true,
+    "passed": true
+  },
+  {
+    "batch": 4,
+    "frames": 16,
+    "codec_repeats": 8,
+    "concurrent": true,
+    "state_differences": [],
+    "hidden_exact": true,
+    "pcm_exact": true,
+    "passed": true
+  },
+  {
+    "batch": 8,
+    "frames": 64,
+    "codec_repeats": 4,
+    "concurrent": false,
+    "state_differences": [],
+    "hidden_exact": true,
+    "pcm_exact": true,
+    "passed": true
+  },
+  {
+    "batch": 8,
+    "frames": 64,
+    "codec_repeats": 4,
+    "concurrent": true,
+    "state_differences": [],
+    "hidden_exact": true,
+    "pcm_exact": true,
+    "passed": true
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "source_sha": "e59a655ef9bd4e80582cca47ce8985fd86ff1775",
+  "hypothesis": "The quality failure may involve simultaneous prefill and codec graphs, which was not covered by decode/codec replay.",
+  "isolated_variable": "Only serial versus simultaneous actual packed native prefill and actual codec graphs, using the current shared default graph capture stream and independent replay streams.",
+  "controls": "GPU0 nowfree,OMP4,BF16GDN,native all8experts,ordereduntunedprefill,6realprompts,codec B1/F6,B4/F16,B8/F64,identicalfullstatebeforeeacharm,no cacheflush.",
+  "success": "Bitexact full model/codec state, prefill hidden and PCM at each shape; no timing claim.",
+  "stop": "First exactness/runtime/shape failure; no speculative race attribution without reproduction."
+}

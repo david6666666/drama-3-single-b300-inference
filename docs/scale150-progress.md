@@ -85,6 +85,8 @@ performance claim. The unchanged formal candidate remains in
 | Packed prefill plus native asynchronous codec | GPU6, one C64 full-corpus trial per arm: sync 3657.93 frames/s, async 3729.52; both score all 1088 outputs | Below target; a 2% feasibility difference is not a repeated serving claim |
 | Fused native MoE input preparation | All 64 buffer cases exact; B64 ten-step decode 8.456 → 8.275 ms with exact codes and all mutable state | Retains original FP8 values, scales and all 256 router logits; no service gain established yet |
 | Disable native MoE programmatic dependent launch | Exact codes and state; B64 8.448 → 8.529 ms | Slower in this diagnostic; retain the existing launch policy |
+| Native input fusion with async codec, fresh same-source control | GPU6: control 3751.27 frames/s, WER 8.047%, SIM 62.623; fused 3860.94 frames/s, WER 3.266%, SIM 63.716; all outputs scored | Both fail the C64 WER bound; reject this configuration despite exact operator/replay checks |
+| Packed prefill/codec concurrent replay | B1/F6, B4/F16 and B8/F64 codec work overlaps six real prompt prefills; all model/codec state, hidden output and PCM exact | No data race reproduced in these cases; dynamic service quality remains unresolved |
 
 The original packed experiment was stopped at its numerical gate. A separately
 declared layer-isolation experiment retains the 0.03 operator threshold and
@@ -122,6 +124,13 @@ TTFA p50/p95 is 149.145/346.882 ms, mean RTF 0.366906, WER 1.767% and SIM
 SIM 63.924. Both individual groups meet the confirmed C64 quality bounds.
 This does not erase the earlier async quality failure on a different serving
 configuration, establish its cause, or satisfy the repeated GPU0 campaign.
+The subsequent same-source native-fusion trial fails quality in both arms:
+the control has WER 8.047% and the fusion arm 3.266%, above the C64 limit of
+2.951%. These failures supersede any suggestion that the asynchronous serving
+configuration is ready for selection. They are retained without outlier
+filtering or retries for a favorable sample. Exact decode/codec and
+prefill/codec replay checks did not reproduce a race; neither establishes the
+cause of the service failures. Synchronous codec isolates the next fusion test.
 
 A separate 384-request event timeline at `1a88b79` excludes warmup using raw
 request timestamps. Mean active decode batch is 49.65; prefill event spans sum
