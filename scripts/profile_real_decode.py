@@ -29,6 +29,7 @@ def main():
     parser.add_argument("--mxfp4-diagnostic", action="store_true")
     parser.add_argument("--mxfp8-diagnostic", action="store_true")
     parser.add_argument("--small-moe-diagnostic", action="store_true")
+    parser.add_argument("--small-moe-backends", action="store_true")
     parser.add_argument("--small-moe-tiles", choices=("default", "hot", "cold"), default="default")
     args = parser.parse_args()
     if args.batch not in (1, 2, 4) and (args.batch < 8 or args.batch % 8):
@@ -132,6 +133,33 @@ def main():
         rows.append(row)
         print(json.dumps(row), flush=True)
     (args.output / "moe.json").write_text(json.dumps(rows, indent=2) + "\n")
+    if args.small_moe_backends:
+        rows = []
+        original_threshold = model.small_moe_max_batch
+        for index, x in activations.items():
+            layer = model.backbone.layers[index].mlp
+            model.small_moe_max_batch = 8
+            expected = original(x, layer, True)
+            for name, threshold in (("gemv", 8), ("flashinfer", 0)):
+                model.small_moe_max_batch = threshold
+                fn = partial(original, x, layer, True)
+                actual = fn()
+                error = float(
+                    (
+                        (actual.float() - expected.float()).square().mean()
+                        / expected.float().square().mean()
+                    ).sqrt()
+                )
+                passed = bool(actual.isfinite().all()) and error < 0.03
+                row = dict(layer=index, backend=name, rrms=error, passed=passed)
+                if passed:
+                    row["us"] = triton.testing.do_bench_cudagraph(fn) * 1000
+                rows.append(row)
+                (args.output / "small-moe-backends.json").write_text(
+                    json.dumps(rows, indent=2) + "\n"
+                )
+                print(json.dumps(row), flush=True)
+        model.small_moe_max_batch = original_threshold
     if args.mxfp4_diagnostic:
         from diagnostic_mxfp4_moe import benchmark
 

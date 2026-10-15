@@ -148,6 +148,9 @@ class DramaModel:
             raise ValueError("DRAMA3_GDN_STATE_DTYPE must be float32 or bfloat16")
         state_dtype = getattr(torch, self.state_precision)
         self.moe_layout = os.environ.get("DRAMA3_MOE_LAYOUT", "major_k")
+        self.small_moe_max_batch = int(os.environ.get("DRAMA3_SMALL_MOE_MAX_BATCH", "8"))
+        if self.small_moe_max_batch not in (0, 1, 2, 4, 8):
+            raise ValueError("DRAMA3_SMALL_MOE_MAX_BATCH must be 0, 1, 2, 4 or 8")
         self.prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE", "native")
         self.prefill_gdn = os.environ.get("DRAMA3_PREFILL_GDN", "fla")
         if self.prefill_gdn not in ("fla", "flashinfer"):
@@ -445,14 +448,14 @@ class DramaModel:
             gate_up = linear(x, layer.shared_expert.packed_gate_up)
             router = linear(x, layer.gate.weight)
             shared_gate = linear(x, layer.shared_expert_gate.weight)
-        if len(x) <= 8 or (not decode and self.prefill_moe == "native"):
-            if len(x) <= 8:
+        if len(x) <= self.small_moe_max_batch or (not decode and self.prefill_moe == "native"):
+            if len(x) <= self.small_moe_max_batch:
                 weights, indices = route(router)
             else:
                 probabilities = router.float().softmax(-1)
                 weights, indices = probabilities.topk(8, dim=-1)
                 weights = (weights / weights.sum(-1, keepdim=True)).to(x.dtype)
-            if len(x) <= 8:
+            if len(x) <= self.small_moe_max_batch:
                 routed = small_batch_moe(x, indices, weights, experts)
             else:
                 tuned = self.tuned_prefill_moe and len(x) >= 1024
