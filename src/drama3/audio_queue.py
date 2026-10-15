@@ -83,7 +83,10 @@ class AudioQueue:
         self.stream.wait_event(ready)
         codes.record_stream(self.stream)
         rows.record_stream(self.stream)
-        with torch.cuda.stream(self.stream), torch.autocast("cuda", dtype=torch.bfloat16):
+        with (
+            torch.cuda.stream(self.stream),
+            torch.autocast("cuda", dtype=self.graphs.decoder.dtype),
+        ):
             waveform = self.graphs(codes, rows=rows)
             pcm = (waveform.clamp(-1, 1) * 32767).to(torch.int16)
             host = torch.empty(pcm.shape, dtype=torch.int16, pin_memory=True)

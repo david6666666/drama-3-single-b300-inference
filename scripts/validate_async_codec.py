@@ -38,12 +38,15 @@ def main():
     parser.add_argument("--fish-source", type=Path, required=True)
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--dtype", choices=("bfloat16", "float16"), default="bfloat16")
     args = parser.parse_args()
     samples = [json.loads(s) for s in args.corpus.read_text().splitlines()][:4]
     sources = [torch.tensor(s["reference_codes"], device="cuda") for s in samples]
     engine = Engine.__new__(Engine)
     engine.device_requests = DeviceRequests(4, 0, 512)
-    engine.codec_graphs = streaming_codec(load_codec(args.checkpoint, args.fish_source), 2)
+    engine.codec_graphs = streaming_codec(
+        load_codec(args.checkpoint, args.fish_source), 2, dtype=getattr(torch, args.dtype)
+    )
     outputs = {}
     for asynchronous in ("sync", "poll", "thread"):
         threaded = asynchronous == "thread"
@@ -100,6 +103,7 @@ def main():
     assert req.audio_failed and req.pending_audio == 0
     result = dict(
         passed=True,
+        codec_dtype=args.dtype,
         checks=[
             "pcm_bytes",
             "slot_reuse",

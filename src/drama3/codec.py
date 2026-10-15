@@ -1,5 +1,6 @@
 """Strict Fish codec loading and fixed-window graph execution."""
 
+import copy
 from pathlib import Path
 
 import torch
@@ -86,12 +87,18 @@ def bake_weight_norm(codec):
                 remove_weight_norm(module, hook.name)
 
 
-def streaming_codec(codec, slots: int):
+def streaming_codec(codec, slots: int, dtype: torch.dtype = torch.bfloat16):
     """Decode only newly generated frames using persistent convolution/KV history."""
     from drama3.ops.dac_channels_last import ChannelsLastDACDecoder, DACDecodeGraphs, DACStreamState
 
     bake_weight_norm(codec)
-    decoder = ChannelsLastDACDecoder(codec)
+    if dtype not in (torch.float16, torch.bfloat16):
+        raise ValueError("Streaming codec supports float16 or bfloat16")
+    if dtype == torch.float16:
+        # Keep reference encoding on its original FP32-weight module. Only
+        # decoder execution follows the upstream deployment's FP16 setting.
+        codec = copy.deepcopy(codec).to(dtype)
+    decoder = ChannelsLastDACDecoder(codec, dtype=dtype)
     decoder.compile_transformer()
     graphs = DACDecodeGraphs(
         decoder,
@@ -102,6 +109,6 @@ def streaming_codec(codec, slots: int):
         receptive_frames=0,
         stream=DACStreamState(slots),
     )
-    with torch.autocast("cuda", dtype=torch.bfloat16):
+    with torch.autocast("cuda", dtype=dtype):
         graphs.capture(torch.device("cuda"))
     return graphs

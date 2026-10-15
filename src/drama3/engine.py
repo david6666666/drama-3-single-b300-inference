@@ -226,6 +226,9 @@ class Engine:
         self.fish_source = Path(fish_source)
         self.slots = slots
         self.max_length = max_length
+        self.codec_precision = os.environ.get("DRAMA3_CODEC_DTYPE", "bfloat16")
+        if self.codec_precision not in ("float16", "bfloat16"):
+            raise ValueError("DRAMA3_CODEC_DTYPE must be float16 or bfloat16")
         self.prefill_max_batch = int(os.environ.get("DRAMA3_PREFILL_MAX_BATCH", "8"))
         self.prefill_spans = (
             (128, 192, 256, 512)
@@ -305,7 +308,9 @@ class Engine:
                 for span in self.prefill_spans
                 if span <= self.max_length and (batch <= 8 or span <= 256)
             }
-            self.codec_graphs = streaming_codec(self.codec, self.slots)
+            self.codec_graphs = streaming_codec(
+                self.codec, self.slots, dtype=getattr(torch, self.codec_precision)
+            )
             if self.async_codec:
                 self.audio_queue = AudioQueue(
                     self.codec_graphs, threaded=self.audio_delivery_thread
@@ -577,7 +582,7 @@ class Engine:
                         )
                     self.audio_queue.submit(codes, rows, callbacks)
                 else:
-                    with torch.autocast("cuda", dtype=torch.bfloat16):
+                    with torch.autocast("cuda", dtype=self.codec_graphs.decoder.dtype):
                         waveform = self.codec_graphs(codes, rows=rows)
                     pcm = (waveform.clamp(-1, 1) * 32767).to(torch.int16).cpu().numpy()
                 for index, (request, left, count) in enumerate(chunk):
