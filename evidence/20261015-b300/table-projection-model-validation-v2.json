@@ -1,0 +1,554 @@
+[
+  {
+    "name": "moe/layer0/n1",
+    "relative_rmse": 0.00046122510684654117,
+    "cosine": 1.0,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "moe/layer19/n1",
+    "relative_rmse": 0.0015234053134918213,
+    "cosine": 0.999998927116394,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "moe/layer39/n1",
+    "relative_rmse": 0.0018890687497332692,
+    "cosine": 0.9999980926513672,
+    "max_abs": 0.5,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "moe/layer0/n2",
+    "relative_rmse": 0.002147603314369917,
+    "cosine": 0.9999976754188538,
+    "max_abs": 1.0,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "moe/layer19/n2",
+    "relative_rmse": 0.001927912700921297,
+    "cosine": 0.9999982118606567,
+    "max_abs": 1.0,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "moe/layer39/n2",
+    "relative_rmse": 0.001967101590707898,
+    "cosine": 0.9999980330467224,
+    "max_abs": 1.0,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "moe/layer0/n4",
+    "relative_rmse": 0.002947126980870962,
+    "cosine": 0.999995768070221,
+    "max_abs": 8.0,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "moe/layer19/n4",
+    "relative_rmse": 0.0022849454544484615,
+    "cosine": 0.9999974370002747,
+    "max_abs": 2.0,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "moe/layer39/n4",
+    "relative_rmse": 0.0021313983015716076,
+    "cosine": 0.9999976754188538,
+    "max_abs": 2.0,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "moe/layer0/n8",
+    "relative_rmse": 0.00250779720954597,
+    "cosine": 0.9999971389770508,
+    "max_abs": 8.0,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "moe/layer19/n8",
+    "relative_rmse": 0.0018843957222998142,
+    "cosine": 0.999998152256012,
+    "max_abs": 1.0,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "moe/layer39/n8",
+    "relative_rmse": 0.0014183156890794635,
+    "cosine": 0.9999989867210388,
+    "max_abs": 1.0,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer0/prefill",
+    "relative_rmse": 0.00524991424754262,
+    "cosine": 0.9999865293502808,
+    "max_abs": 0.5,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer0/decode0",
+    "relative_rmse": 0.002839433029294014,
+    "cosine": 0.9999959468841553,
+    "max_abs": 0.06640625,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer0/decode1",
+    "relative_rmse": 0.00463792122900486,
+    "cosine": 0.9999896883964539,
+    "max_abs": 0.0625,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer0/decode2",
+    "relative_rmse": 0.0018151133554056287,
+    "cosine": 0.9999983310699463,
+    "max_abs": 0.125,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer0/decode3",
+    "relative_rmse": 0.004568380769342184,
+    "cosine": 0.9999898672103882,
+    "max_abs": 0.046875,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer3/prefill",
+    "relative_rmse": 0.000710701453499496,
+    "cosine": 0.9999998807907104,
+    "max_abs": 0.5,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer3/decode0",
+    "relative_rmse": 0.0012044489849358797,
+    "cosine": 0.9999992847442627,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer3/decode1",
+    "relative_rmse": 0.0009928218787536025,
+    "cosine": 0.9999996423721313,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer3/decode2",
+    "relative_rmse": 0.0005708520184271038,
+    "cosine": 0.9999998211860657,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer3/decode3",
+    "relative_rmse": 0.001319748698733747,
+    "cosine": 0.9999991655349731,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer19/prefill",
+    "relative_rmse": 0.0012994452845305204,
+    "cosine": 0.9999991655349731,
+    "max_abs": 0.5,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer19/decode0",
+    "relative_rmse": 0.0014917332446202636,
+    "cosine": 0.9999988675117493,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer19/decode1",
+    "relative_rmse": 0.0010751814115792513,
+    "cosine": 0.999999463558197,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer19/decode2",
+    "relative_rmse": 0.001109147910028696,
+    "cosine": 0.9999994039535522,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer19/decode3",
+    "relative_rmse": 0.0015638828044757247,
+    "cosine": 0.9999986886978149,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer39/prefill",
+    "relative_rmse": 0.000931174261495471,
+    "cosine": 0.9999996423721313,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer39/decode0",
+    "relative_rmse": 0.001425585593096912,
+    "cosine": 0.9999990463256836,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer39/decode1",
+    "relative_rmse": 0.001832281006500125,
+    "cosine": 0.9999983906745911,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer39/decode2",
+    "relative_rmse": 0.0005642620380967855,
+    "cosine": 0.9999998807907104,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "attention/layer39/decode3",
+    "relative_rmse": 0.001844695769250393,
+    "cosine": 0.9999983310699463,
+    "max_abs": 0.25,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer0/prefill",
+    "relative_rmse": 0.0019635194912552834,
+    "cosine": 0.9999979734420776,
+    "max_abs": 0.03125,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer1/table/semanticFalse",
+    "relative_rmse": 0.00011269358947174624,
+    "cosine": 1.0,
+    "max_abs": 0.0625,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer1/table/semanticTrue",
+    "relative_rmse": 0.00012600615445990115,
+    "cosine": 1.0,
+    "max_abs": 0.0625,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer1/prefill",
+    "relative_rmse": 0.004681449383497238,
+    "cosine": 0.9999890923500061,
+    "max_abs": 0.03125,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer2/table/semanticFalse",
+    "relative_rmse": 8.892807818483561e-05,
+    "cosine": 1.0,
+    "max_abs": 0.0625,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer2/table/semanticTrue",
+    "relative_rmse": 4.255180385825952e-08,
+    "cosine": 1.0,
+    "max_abs": 3.0517578125e-05,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer2/prefill",
+    "relative_rmse": 0.004748452454805374,
+    "cosine": 0.9999886751174927,
+    "max_abs": 0.0390625,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer3/table/semanticFalse",
+    "relative_rmse": 5.090060312795686e-06,
+    "cosine": 0.9999998807907104,
+    "max_abs": 0.00390625,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer3/table/semanticTrue",
+    "relative_rmse": 0.0,
+    "cosine": 1.0,
+    "max_abs": 0.0,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer3/prefill",
+    "relative_rmse": 0.00310978339985013,
+    "cosine": 0.999995231628418,
+    "max_abs": 0.03125,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer4/table/semanticFalse",
+    "relative_rmse": 4.080168025666353e-08,
+    "cosine": 0.9999999403953552,
+    "max_abs": 3.0517578125e-05,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer4/table/semanticTrue",
+    "relative_rmse": 8.538264955859631e-05,
+    "cosine": 0.9999999403953552,
+    "max_abs": 0.0625,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer4/prefill",
+    "relative_rmse": 0.002419896889477968,
+    "cosine": 0.9999971389770508,
+    "max_abs": 0.03125,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer5/table/semanticFalse",
+    "relative_rmse": 0.0001990137534448877,
+    "cosine": 0.9999998807907104,
+    "max_abs": 0.125,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer5/table/semanticTrue",
+    "relative_rmse": 0.0,
+    "cosine": 1.0,
+    "max_abs": 0.0,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer5/prefill",
+    "relative_rmse": 0.005269926972687244,
+    "cosine": 0.9999861717224121,
+    "max_abs": 0.03125,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer6/table/semanticFalse",
+    "relative_rmse": 0.00016421469626948237,
+    "cosine": 1.0,
+    "max_abs": 0.0625,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer6/table/semanticTrue",
+    "relative_rmse": 0.0,
+    "cosine": 0.9999999403953552,
+    "max_abs": 0.0,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer6/prefill",
+    "relative_rmse": 0.003985823132097721,
+    "cosine": 0.9999920725822449,
+    "max_abs": 0.03125,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer7/table/semanticFalse",
+    "relative_rmse": 0.0,
+    "cosine": 1.0,
+    "max_abs": 0.0,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer7/table/semanticTrue",
+    "relative_rmse": 2.9232935503387125e-06,
+    "cosine": 0.9999998807907104,
+    "max_abs": 0.001953125,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer7/prefill",
+    "relative_rmse": 0.004827366676181555,
+    "cosine": 0.9999883770942688,
+    "max_abs": 0.03125,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer8/table/semanticFalse",
+    "relative_rmse": 1.5582974128847127e-06,
+    "cosine": 1.0,
+    "max_abs": 0.0009765625,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer8/table/semanticTrue",
+    "relative_rmse": 9.751378371447572e-08,
+    "cosine": 1.0,
+    "max_abs": 6.103515625e-05,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer8/prefill",
+    "relative_rmse": 0.00362756266258657,
+    "cosine": 0.9999933838844299,
+    "max_abs": 0.046875,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer9/table/semanticFalse",
+    "relative_rmse": 0.0,
+    "cosine": 1.0,
+    "max_abs": 0.0,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer9/table/semanticTrue",
+    "relative_rmse": 0.00011224314948776737,
+    "cosine": 1.0,
+    "max_abs": 0.0625,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer9/prefill",
+    "relative_rmse": 0.005552284885197878,
+    "cosine": 0.9999845027923584,
+    "max_abs": 0.046875,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer10/table/semanticFalse",
+    "relative_rmse": 1.3636656149174087e-05,
+    "cosine": 0.9999999403953552,
+    "max_abs": 0.0078125,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer10/table/semanticTrue",
+    "relative_rmse": 2.2044090997042076e-07,
+    "cosine": 1.0000001192092896,
+    "max_abs": 0.0001220703125,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer10/prefill",
+    "relative_rmse": 0.002605846617370844,
+    "cosine": 0.9999966025352478,
+    "max_abs": 0.03125,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer11/table/semanticFalse",
+    "relative_rmse": 1.409600436375058e-08,
+    "cosine": 1.0000001192092896,
+    "max_abs": 7.62939453125e-06,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer11/table/semanticTrue",
+    "relative_rmse": 3.7485763186850818e-06,
+    "cosine": 0.9999999403953552,
+    "max_abs": 0.001953125,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer11/prefill",
+    "relative_rmse": 0.00485283462330699,
+    "cosine": 0.9999881386756897,
+    "max_abs": 0.046875,
+    "limit": 0.03,
+    "pass": true
+  },
+  {
+    "name": "tower/layer12/table/semanticFalse",
+    "relative_rmse": 6.301941539277323e-06,
+    "cosine": 1.0,
+    "max_abs": 0.00390625,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer12/table/semanticTrue",
+    "relative_rmse": 5.0117025239160284e-05,
+    "cosine": 1.0,
+    "max_abs": 0.03125,
+    "limit": 0.01,
+    "pass": true
+  },
+  {
+    "name": "tower/layer12/prefill",
+    "relative_rmse": 0.0046258303336799145,
+    "cosine": 0.99998939037323,
+    "max_abs": 0.0625,
+    "limit": 0.03,
+    "pass": true
+  }
+]

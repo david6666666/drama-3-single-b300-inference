@@ -1,6 +1,6 @@
 {
   "created_utc": "2026-10-15T03:48:35.685328+00:00",
-  "status": "NEW_BASELINE_RUNNING_2X_NOT_ACHIEVED",
+  "status": "NEW_BASELINE_COMPLETE_CANDIDATE_OPTIMIZATION_ONGOING_2X_NOT_ACHIEVED",
   "repositories": {
     "sglang-omni": "e9e016b83e1a5d92b4232f90427a44afac8d84b6",
     "vllm-omni": "d6ed4f4844fbc41573ffc03247e5b2ff0a38d322",
@@ -109,5 +109,19 @@
     "Batched GDN with padded neutral gates failed final-state numerical validation (6.37% RRMS). Replaced with true varlen boundaries.",
     "First varlen diagnostic reused dirty scratch slots as its reference states; corrected test isolation and re-ran.",
     "FI fused MoE N32 layer19 exceeds the 3% operator RRMS diagnostic (3.72%); end-to-end quality is required, no bitwise/lossless claim."
-  ]
+  ],
+  "new_baseline_valid_requests": 4032,
+  "new_baseline_failed_requests": 0,
+  "new_baseline_quality": {
+    "c1": {
+      "wer_pct": 2.2266204849084614,
+      "sim": 62.41136355698109
+    },
+    "c64": {
+      "wer_pct": 1.880257298367145,
+      "sim": 62.738492826620735
+    },
+    "requests_per_group": 192,
+    "complete": true
+  }
 }

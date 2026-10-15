@@ -231,7 +231,7 @@ class Engine:
             )
             self.references = {}
             self.graphs = {}
-            for size in (1, 2, 4, 8, 16, 32, 64):
+            for size in (1, 2, 4, 8, 12, 16, 24, 32, 40, 48, 56, 64):
                 if size <= self.slots:
                     self.graphs[size] = DecodeGraph(self.model, size, requests=self.device_requests)
             self.first_graphs = {
@@ -309,7 +309,7 @@ class Engine:
                 active = live
                 if not active:
                     continue
-                size = 1 << (len(active) - 1).bit_length()
+                size = next(size for size in self.graphs if size >= len(active))
                 graph = self.graphs[size]
                 if len(active) == 1 and self.pending.empty():
                     request = active[0]
