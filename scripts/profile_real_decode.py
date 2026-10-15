@@ -26,6 +26,7 @@ def main():
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch", type=int, default=64)
+    parser.add_argument("--mxfp4-diagnostic", action="store_true")
     args = parser.parse_args()
     if args.batch % 8:
         parser.error("Batch must be a multiple of eight")
@@ -116,6 +117,15 @@ def main():
         rows.append(row)
         print(json.dumps(row), flush=True)
     (args.output / "moe.json").write_text(json.dumps(rows, indent=2) + "\n")
+    if args.mxfp4_diagnostic:
+        from diagnostic_mxfp4_moe import benchmark
+
+        rows = []
+        for index, x in activations.items():
+            row = dict(layer=index, **benchmark(model, model.backbone.layers[index].mlp, x))
+            rows.append(row)
+            (args.output / "mxfp4.json").write_text(json.dumps(rows, indent=2) + "\n")
+            print(json.dumps(row), flush=True)
 
 
 if __name__ == "__main__":

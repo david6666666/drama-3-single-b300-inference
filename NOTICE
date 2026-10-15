@@ -35,3 +35,7 @@ The optional BlockMajorK MoE byte permutation in src/drama3/model.py follows
 vLLM 0.31.0's Apache-2.0 flashinfer_utils.py (Copyright contributors to the
 vLLM project), using FlashInfer's public row-index helper. No vLLM runtime is
 imported for this operation.
+
+The diagnostic MXFP4 MoE preparation follows FlashInfer's Apache-2.0
+tests/moe/trtllm_gen_fused_moe_utils.py contract, invoking its permutation
+helpers directly. Copyright FlashInfer team. This is not a serving backend.
