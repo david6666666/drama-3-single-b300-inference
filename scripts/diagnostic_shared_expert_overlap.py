@@ -28,7 +28,9 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch", type=int, choices=(2, 4, 8, 16, 32, 64), required=True)
     parser.add_argument(
-        "--optimization", choices=("shared-expert", "moe-input"), default="shared-expert"
+        "--optimization",
+        choices=("shared-expert", "moe-input", "moe-no-pdl"),
+        default="shared-expert",
     )
     args = parser.parse_args()
     data = args.corpus.read_bytes()
@@ -37,6 +39,7 @@ def main():
     device = DeviceRequests(model.slots, model.config.eos_token_id, model.max_length)
     model.moe_shared_stream = None
     model.fused_moe_input = False
+    model.moe_pdl = None
     control = DecodeGraph(model, args.batch, requests=device)
     shared_stream = torch.cuda.Stream()
     if args.optimization == "shared-expert":
@@ -44,11 +47,13 @@ def main():
     else:
         if args.batch <= 8:
             parser.error("Fused MoE input applies only to the native FlashInfer batch path")
-        model.fused_moe_input = True
+        model.fused_moe_input = args.optimization == "moe-input"
+        model.moe_pdl = False if args.optimization == "moe-no-pdl" else None
     candidate = DecodeGraph(model, args.batch, requests=device)
     # Prefill and first-frame controls use the original serial computation.
     model.moe_shared_stream = None
     model.fused_moe_input = False
+    model.moe_pdl = None
     prompts = [
         build_drama3_prompt(
             s["text"],

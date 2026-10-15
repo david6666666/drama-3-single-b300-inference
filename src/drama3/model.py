@@ -160,6 +160,10 @@ class DramaModel:
         self.packed_moe_projection = os.environ.get("DRAMA3_PACKED_MOE_PROJECTION") == "1"
         self.batched_table_projection = os.environ.get("DRAMA3_BATCHED_TABLE_PROJECTION") == "1"
         self.fused_moe_input = os.environ.get("DRAMA3_FUSED_MOE_INPUT") == "1"
+        pdl = os.environ.get("DRAMA3_MOE_PDL", "auto")
+        if pdl not in ("auto", "0", "1"):
+            raise ValueError("DRAMA3_MOE_PDL must be auto, 0 or 1")
+        self.moe_pdl = None if pdl == "auto" else pdl == "1"
         self.moe_shared_stream = (
             torch.cuda.Stream() if os.environ.get("DRAMA3_MOE_SHARED_OVERLAP") == "1" else None
         )
@@ -553,6 +557,7 @@ class DramaModel:
                     WeightLayout.BlockMajorK if experts.flashinfer_shuffled else WeightLayout.MajorK
                 ),
                 tune_max_num_tokens=4096,
+                enable_pdl=self.moe_pdl,
             )
             if isinstance(routed, list):
                 routed = routed[0]
