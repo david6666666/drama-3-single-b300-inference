@@ -234,6 +234,7 @@ class Engine:
         self.packed_prefill = os.environ.get("DRAMA3_PACKED_PREFILL") == "1"
         self.batched_multistep = os.environ.get("DRAMA3_BATCHED_MULTISTEP") == "1"
         self.mixed_backbone = os.environ.get("DRAMA3_MIXED_BACKBONE") == "1"
+        self.mixed_span256 = os.environ.get("DRAMA3_MIXED_SPAN256") == "1"
         if self.mixed_backbone and (not self.packed_prefill or self.prefill_max_batch != 8):
             raise ValueError("Mixed backbone currently requires packed prefill and batch limit 8")
         if self.packed_prefill and self.max_length < 512:
@@ -364,9 +365,16 @@ class Engine:
                     )
                     # Larger prompts/capacities use the established serial path.
                     for capacity in range(256, 2049, 256):
-                        self.mixed_graphs[(size, capacity)] = MixedGraph(
-                            self.model, self.device_requests, size, 8, capacity, pool=pool
-                        )
+                        for span in (256, 512) if self.mixed_span256 else (512,):
+                            self.mixed_graphs[(size, capacity, span)] = MixedGraph(
+                                self.model,
+                                self.device_requests,
+                                size,
+                                8,
+                                capacity,
+                                pool=pool,
+                                max_length=span,
+                            )
             self.codec_graphs = streaming_codec(
                 self.codec, self.slots, dtype=getattr(torch, self.codec_precision)
             )
@@ -429,7 +437,13 @@ class Engine:
                                 None,
                             )
                             capacity = ((total + 255) // 256) * 256
-                            mixed_graph = self.mixed_graphs.get((mixed_size, capacity))
+                            span = (
+                                256
+                                if self.mixed_span256
+                                and max([*map(len, prompts), capacity - total]) <= 256
+                                else 512
+                            )
+                            mixed_graph = self.mixed_graphs.get((mixed_size, capacity, span))
                             if (
                                 len(active) > 8
                                 and mixed_graph is not None
