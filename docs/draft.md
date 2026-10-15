@@ -2,8 +2,8 @@
 
 The target is a standalone streaming TTS runtime for `fishaudio/drama-3`.
 The updated acceptance target is at least twice the measured vLLM-Omni
-throughput after PR #8933 at each concurrency, subject to output quality. Until
-the complete comparison exists, the target remains unverified.
+throughput after PR #8933 at each concurrency, subject to output quality.
+The completed [full comparison](full-comparison.md) does not meet that target.
 
 ## Baseline contract
 

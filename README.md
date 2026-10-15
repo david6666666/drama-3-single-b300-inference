@@ -6,15 +6,18 @@ A specialized, single-process streaming inference runtime for
 [fishaudio/drama-3](https://huggingface.co/fishaudio/drama-3), plus reproducible
 B300 comparisons with vLLM-Omni and SGLang-Omni.
 
-**Development status:** the 2× target is **not achieved**. The updated vLLM
-baseline completed all seven concurrency points with three repetitions of
-1088 requests: C1 195.67 frames/s and C64 4510.27 frames/s. See the
-[complete baseline](docs/new-vllm-full-baseline.md). The corrected standalone
-candidate is undergoing the same full measurement on the same B300.
+**Development status:** the 2× target is **not achieved**. Both the updated vLLM
+baseline and corrected standalone candidate completed all seven concurrency
+points with three repetitions of 1088 requests on the same B300. Standalone
+reaches 300.81 versus 195.67 frames/s at C1 (1.537×), and 3451.15 versus
+4510.27 at C64 (0.765×). It leads at C1–C4, is close at C8, and trails at C16–C64.
+See [all four performance metrics and plots](docs/full-comparison.md),
+[complete audio quality](docs/full-quality.md), and
+[the remaining GPU performance gap](docs/performance-gap.md).
 A partial-prefill state-isolation bug invalidates promotion of older concurrent
 candidate results in [the historical comparison](docs/results.md). Regression
 checks now cover partially filled batches of 8/16 and a 192-token prefill span.
-Optimization remains in progress. Following the updated task, the target is at least **2× the new
+Further optimization is required. Following the updated task, the target is at least **2× the new
 vLLM-Omni throughput at each concurrency**, including merged
 [PR #8933](https://github.com/vllm-project/vllm-omni/pull/8933).
 The new baseline is frozen at `d6ed4f4844fbc41573ffc03247e5b2ff0a38d322`.

@@ -1,7 +1,8 @@
 # Full English corpus: corrected feasibility runs
 
-The 2× target is not achieved. The complete three-repetition baseline is
-finished; the corrected candidate comparison is in progress. The candidate points
+The 2× target is not achieved. The complete three-repetition baseline and
+corrected candidate comparison are finished in [full-comparison.md](full-comparison.md).
+The candidate points
 below are one-repetition feasibility measurements on the entire 1088-row
 Seed-TTS English corpus, not a completed cross-runtime speedup claim.
 
@@ -20,9 +21,9 @@ requests. WAVs were scored without dropping high-WER outliers.
 | Same + BF16 GDN state | 3 | 64 | 3458.94 | 159.53 | 376.78 | 0.3920 | 2.060 | 63.914 |
 | Same BF16 + asynchronous codec and PCM thread | 3 | 1 | 306.14 | 34.53 | 45.92 | 0.0710 | 1.541 | 64.315 |
 | Same asynchronous configuration | 3 | 64 | 3547.30 | 156.59 | 373.76 | 0.3758 | 3.835 | 63.626 |
-| Synchronous BF16, prefill capacity 16, admission 12 | 4 | 64 | 3470.68 | 187.44 | 421.91 | 0.3932 | Pending | Pending |
+| Synchronous BF16, prefill capacity 16, admission 12 | 4 | 64 | 3470.68 | 187.44 | 421.91 | 0.3932 | Not scored | Not scored |
 | Synchronous BF16, adaptive GDN tiles, 192-token bucket | 3 | 64 | 3500.60 | 162.32 | 414.62 | 0.3889 | 1.708 | 64.173 |
-| Same, without 192-token bucket | 3 | 64 | 3385.96 | 156.37 | 374.04 | 0.3892 | Pending | Pending |
+| Same, without 192-token bucket | 3 | 64 | 3385.96 | 156.37 | 374.04 | 0.3892 | Not scored | Not scored |
 | 192-token bucket + FlashInfer GDN prefill | 3 | 64 | 3465.39 | 159.62 | 413.86 | 0.3863 | 1.867 | 63.934 |
 | 192-token bucket + FP16 streaming codec | 3 | 1 | 305.72 | 32.96 | 34.15 | 0.0710 | 1.549 | 64.347 |
 | Same FP16 codec | 3 | 64 | 3474.99 | 156.97 | 418.80 | 0.3834 | 1.775 | 64.248 |
@@ -42,8 +43,9 @@ median C1 throughput 195.67 frames/s and C64 throughput 4510.27 frames/s.
 First-repetition quality is C1 WER 1.917%, SIM 64.273; C64 WER 1.842%,
 SIM 63.871, each on all 1088 rows. See [the complete baseline table](new-vllm-full-baseline.md).
 The frozen candidate `dcd20d3`, with the 192-token bucket and synchronous
-codec, is now being measured on the same GPU 0 at all seven concurrency
-points with three repetitions. Its formal acceptance remains pending.
+codec, completed the same GPU 0 measurement at all seven concurrency
+points with three repetitions. Median C1 throughput is 300.81 frames/s and
+C64 throughput is 3451.15 frames/s; the throughput target fails at every point.
 
 The native prefill optimization keeps Fish's FP8 quantization and accumulation
 math, uses 64-row tiles for at least 1024 input tokens, and atomically reduces
@@ -95,7 +97,7 @@ A separate lossless BF16 transposition/split-K GEMV sweep did not produce a
 useful improvement over the existing GEMV on the measured shapes. It is not
 integrated. All diagnostic changes remain separate from the frozen `dcd20d3`
 formal candidate. That candidate's first C1 repetition scored WER 1.541%,
-SIM 64.315 over all 1088 rows; later performance repetitions are still running.
+SIM 64.315 over all 1088 rows. All formal performance repetitions are complete.
 
 Small-batch FP8 expert tile sweeps kept the existing quantization boundaries.
 Selected layer output RRMS stayed below 0.000039. Whole B1 autoregressive

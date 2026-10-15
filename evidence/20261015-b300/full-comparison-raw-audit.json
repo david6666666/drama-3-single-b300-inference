@@ -1,0 +1,387 @@
+{
+  "passed": true,
+  "total_requests": 45696,
+  "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+  "finish_reason_coverage": false,
+  "note": "Frame-limit counts do not establish EOS or truncation reason; raw PCM lacks finish reasons. All such outputs remain in performance and quality.",
+  "runs": [
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c1-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0002863050904124975,
+      "outputs_at_500_frame_limit": 5
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c1-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.00040252204053103924,
+      "outputs_at_500_frame_limit": 2
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c1-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.00040947203524410725,
+      "outputs_at_500_frame_limit": 6
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c2-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0003079540329053998,
+      "outputs_at_500_frame_limit": 9
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c2-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0003385848831385374,
+      "outputs_at_500_frame_limit": 6
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c2-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0002953140065073967,
+      "outputs_at_500_frame_limit": 3
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c4-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0002443450503051281,
+      "outputs_at_500_frame_limit": 3
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c4-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.00034703302662819624,
+      "outputs_at_500_frame_limit": 5
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c4-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0003284638514742255,
+      "outputs_at_500_frame_limit": 6
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c8-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.00026930507738143206,
+      "outputs_at_500_frame_limit": 6
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c8-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0006027590716257691,
+      "outputs_at_500_frame_limit": 0
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c8-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0004318020073696971,
+      "outputs_at_500_frame_limit": 2
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c16-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0020830529974773526,
+      "outputs_at_500_frame_limit": 8
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c16-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.000965770916081965,
+      "outputs_at_500_frame_limit": 6
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c16-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0021105101332068443,
+      "outputs_at_500_frame_limit": 6
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c32-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0018042660085484385,
+      "outputs_at_500_frame_limit": 4
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c32-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0020231219241395593,
+      "outputs_at_500_frame_limit": 7
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c32-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.000832845107652247,
+      "outputs_at_500_frame_limit": 3
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c64-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0026238299906253815,
+      "outputs_at_500_frame_limit": 8
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c64-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0022930579725652933,
+      "outputs_at_500_frame_limit": 6
+    },
+    {
+      "runtime": "vllm-8933-codes1088",
+      "label": "c64-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0014930721372365952,
+      "outputs_at_500_frame_limit": 7
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c1-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.00033063406590372324,
+      "outputs_at_500_frame_limit": 4
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c1-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.00045849208254367113,
+      "outputs_at_500_frame_limit": 7
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c1-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.00042557192500680685,
+      "outputs_at_500_frame_limit": 3
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c2-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0002706649247556925,
+      "outputs_at_500_frame_limit": 2
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c2-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0002957250690087676,
+      "outputs_at_500_frame_limit": 4
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c2-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0002772130537778139,
+      "outputs_at_500_frame_limit": 7
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c4-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0002520439447835088,
+      "outputs_at_500_frame_limit": 2
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c4-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0003159338375553489,
+      "outputs_at_500_frame_limit": 3
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c4-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.00028694397769868374,
+      "outputs_at_500_frame_limit": 4
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c8-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.00032445299439132214,
+      "outputs_at_500_frame_limit": 4
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c8-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.00032140500843524933,
+      "outputs_at_500_frame_limit": 3
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c8-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0005095100495964289,
+      "outputs_at_500_frame_limit": 5
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c16-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0006038800347596407,
+      "outputs_at_500_frame_limit": 3
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c16-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0018632160499691963,
+      "outputs_at_500_frame_limit": 3
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c16-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0021971300011500716,
+      "outputs_at_500_frame_limit": 7
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c32-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.002057249890640378,
+      "outputs_at_500_frame_limit": 7
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c32-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0007151260506361723,
+      "outputs_at_500_frame_limit": 10
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c32-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0010742619633674622,
+      "outputs_at_500_frame_limit": 1
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c64-r0",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0019483629148453474,
+      "outputs_at_500_frame_limit": 5
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c64-r1",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0028079580515623093,
+      "outputs_at_500_frame_limit": 1
+    },
+    {
+      "runtime": "candidate-prefill192-codes1088-formal",
+      "label": "c64-r2",
+      "requests": 1088,
+      "summary_matches_raw_records": true,
+      "request_sample_identity_matches": true,
+      "makespan_minus_request_interval_s": 0.0021907000336796045,
+      "outputs_at_500_frame_limit": 4
+    }
+  ]
+}

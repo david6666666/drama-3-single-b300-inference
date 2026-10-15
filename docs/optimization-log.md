@@ -7,13 +7,14 @@
 requests. The fix reserves padding slots in the primary half and gives them
 disjoint suffix slots. Full-model graph checks for 5/6/7 real requests in an
 eight-row batch now verify that unrelated convolution, GDN and attention states
-are unchanged. Corrected audio and throughput results are pending.
+are unchanged. Corrected audio and throughput results are in
+[the full comparison](full-comparison.md) and [quality report](full-quality.md).
 
 Corrected full-corpus feasibility results are now recorded in
 [full-corpus-results.md](full-corpus-results.md). The historical failures below
 are confounded by the slot bug and cannot isolate an operator's quality effect.
 
-The complete comparison remains in [results.md](results.md). None of the
+The historical comparison remains in [results.md](results.md). None of the
 experiments below establishes the 2× target. These are one-repetition feasibility
 runs on separate B300 devices; they are not controlled three-repetition speedup
 claims. Every listed point completed all 192 requests without transport failure.
@@ -46,8 +47,8 @@ comparison. GPU identity differs, so do not divide these numbers to claim a gain
 Provisional bounds are baseline WER +1 percentage point and SIM −2 points;
 these have not been confirmed by the user. Generation uses stochastic sampling,
 and scheduling changes alter the random draws. A failed run is retained and is
-not discarded as noise. The full 1088-row English corpus is being evaluated to
-reduce dependence on the small subset; no full-corpus verdict is available yet.
+not discarded as noise. The completed 1088-row English comparison is reported
+separately; the historical subset cannot supersede those results.
 
 ## Isolated diagnostics
 

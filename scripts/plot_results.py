@@ -8,6 +8,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
+from matplotlib.ticker import StrMethodFormatter  # noqa: E402
 from report_results import METRICS, load_summary  # noqa: E402
 
 
@@ -72,6 +73,7 @@ def main():
                 label="2× baseline target",
             )
             axis.set_yscale("log", base=2)
+            axis.yaxis.set_major_formatter(StrMethodFormatter("{x:,.0f}"))
             axis.legend(frameon=False, fontsize=9)
         else:
             axis.set_ylim(bottom=0)
