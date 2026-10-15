@@ -1,0 +1,50 @@
+[
+  {
+    "source": "benchmark/c64-r0.jsonl",
+    "artifact": "benchmark/c64-r0.jsonl.gz",
+    "uncompressed_sha256": "baa54d172d6f124d357a53208204e87a3034f6b765e3dc0a25562cbe0a3570e4",
+    "bytes": 1038937
+  },
+  {
+    "source": "benchmark/c64-warmup.json",
+    "artifact": "benchmark/c64-warmup.json",
+    "uncompressed_sha256": "b9f3a60e5c2ab39a9ef23b830782d8f5c55f6109e9cbf6d7a86b3fd1ad8c2cf6",
+    "bytes": 74061
+  },
+  {
+    "source": "benchmark/manifest.json",
+    "artifact": "benchmark/manifest.json",
+    "uncompressed_sha256": "3d1c5dcdb8577b688a8d8057b915b610fbce4bf256c7857f434a4e7811484192",
+    "bytes": 774
+  },
+  {
+    "source": "benchmark/summary.json",
+    "artifact": "benchmark/summary.json",
+    "uncompressed_sha256": "d89fe8e293325ca17d903da18482868026ea88667ef7a43c6bf61202eecf2627",
+    "bytes": 328
+  },
+  {
+    "source": "benchmark-command.json",
+    "artifact": "benchmark-command.json",
+    "uncompressed_sha256": "40a244077ae4db7748ee7981e727c9bff68f8b9f2fb9e1555d586bf6f2a54c3a",
+    "bytes": 493
+  },
+  {
+    "source": "benchmark.log",
+    "artifact": "benchmark.log.gz",
+    "uncompressed_sha256": "063eaab3442159a108d4858ed58f5108f5a703571195f418fe16211502edfccf",
+    "bytes": 274
+  },
+  {
+    "source": "launch.json",
+    "artifact": "launch.json",
+    "uncompressed_sha256": "4f0b0d22b185e5bd6a691559cc5d83d5c5cb6a5549d8ebe742f1cf5273aa8594",
+    "bytes": 2987
+  },
+  {
+    "source": "server.log",
+    "artifact": "server.log.gz",
+    "uncompressed_sha256": "137d31949582e9d4895d539ba51744dbf60de46a25f43d72c909987880bd9f46",
+    "bytes": 82563
+  }
+]
