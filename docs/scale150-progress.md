@@ -183,8 +183,8 @@ isolated estimate of their performance contribution.
 | Last dispatch to final completion, s | 1.9016 | 1.1362 |
 
 Both individual quality groups pass the unchanged C64 bounds, with no excluded
-outliers: [control quality](../evidence/20261016-mixed/results/mixed-control-quality.json)
-and [candidate quality](../evidence/20261016-mixed/results/mixed-candidate-quality.json).
+outliers: [control quality](../evidence/20261016-mixed/results/mixed-control-quality.json.gz)
+and [candidate quality](../evidence/20261016-mixed/results/mixed-candidate-quality.json.gz).
 The observed +7.28% throughput difference is not a repeated fixed-workload
 speedup. The candidate generated 1.733% fewer frames, and 500-frame outputs fell
 from four to one. Final drain shortened by 0.7653 s, about 34% of the makespan
@@ -213,8 +213,8 @@ Its 3997.02 / 4082.76 frames/s is another single feasibility comparison, still
 below baseline. Both groups now have complete WER/SIM for all 1088 outputs:
 control WER 1.950934%, SIM 63.75201; candidate WER 1.833710%, SIM 63.62432.
 Both pass the unchanged single-group quality bounds, with all outliers included:
-[control quality](../evidence/20261016-mixed/results/span-control-quality.json),
-[candidate quality](../evidence/20261016-mixed/results/span-candidate-quality.json).
+[control quality](../evidence/20261016-mixed/results/span-control-quality.json.gz),
+[candidate quality](../evidence/20261016-mixed/results/span-candidate-quality.json.gz).
 This result must not be multiplied by the separate GPU6 difference or described
 as a validated all-concurrency improvement. The earlier asynchronous
 codec failures remain unresolved despite the passing synchronous mixed pair.

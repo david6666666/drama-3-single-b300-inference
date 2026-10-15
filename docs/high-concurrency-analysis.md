@@ -334,8 +334,8 @@ MoE 输入。两臂各运行一次 C64、1088 请求；使用相同语料与客�
 
 证据：[控制指标](../evidence/20261016-mixed/results/mixed-control-gpu6/benchmark/summary.json)、
 [候选指标](../evidence/20261016-mixed/results/mixed-candidate-gpu6/benchmark/summary.json)、
-[控制完整质量](../evidence/20261016-mixed/results/mixed-control-quality.json)、
-[候选完整质量](../evidence/20261016-mixed/results/mixed-candidate-quality.json)。
+[控制完整质量](../evidence/20261016-mixed/results/mixed-control-quality.json.gz)、
+[候选完整质量](../evidence/20261016-mixed/results/mixed-candidate-quality.json.gz)。
 当前尚未提名全并发胜出配置。
 
 后续 span 单变量完整服务对照已在物理 GPU0 完成（`9247e4b`），两臂均已开启
@@ -347,8 +347,8 @@ mixed，分别使用 span 512 与 span 256/长 prompt 回退 512。控制/候选
 仍低于基线，不能宣称完整验收通过，也不能与 GPU6 的差值相乘。
 证据：[span 控制](../evidence/20261016-mixed/results/span-control-gpu0/benchmark/summary.json)、
 [span 候选](../evidence/20261016-mixed/results/span-candidate-gpu0/benchmark/summary.json)、
-[span 控制质量](../evidence/20261016-mixed/results/span-control-quality.json)、
-[span 候选质量](../evidence/20261016-mixed/results/span-candidate-quality.json)。
+[span 控制质量](../evidence/20261016-mixed/results/span-control-quality.json.gz)、
+[span 候选质量](../evidence/20261016-mixed/results/span-candidate-quality.json.gz)。
 
 本轮 mixed prefill GDN 仍为 FLA。历史 FlashInfer GDN 适配器已做边界和独立
 FP32 recurrence 检查，但完整服务仅 3465.39 frames/s，因此当时未选用；不能

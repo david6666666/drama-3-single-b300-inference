@@ -109,7 +109,7 @@
   },
   {
     "source": "codec-private-quality.json",
-    "artifact": "codec-private-quality.json",
+    "artifact": "codec-private-quality.json.gz",
     "uncompressed_sha256": "140a1ed9b801f8d9a8eac2b656742dfa8df21c187e8833dfe1256ef97c76a56d",
     "bytes": 897885
   },
@@ -175,7 +175,7 @@
   },
   {
     "source": "codec-shared-quality.json",
-    "artifact": "codec-shared-quality.json",
+    "artifact": "codec-shared-quality.json.gz",
     "uncompressed_sha256": "22b5b58d651db7c3bf62b730276782f1b7bcba1c2d3b3ee38177c9e6de135aa7",
     "bytes": 893582
   },
@@ -259,7 +259,7 @@
   },
   {
     "source": "mixed-candidate-quality.json",
-    "artifact": "mixed-candidate-quality.json",
+    "artifact": "mixed-candidate-quality.json.gz",
     "uncompressed_sha256": "cedab2c4a508e53561ff97dcaa4626df0f9a50ac1b710865b44cf35146400a9a",
     "bytes": 897956
   },
@@ -319,7 +319,7 @@
   },
   {
     "source": "mixed-control-quality.json",
-    "artifact": "mixed-control-quality.json",
+    "artifact": "mixed-control-quality.json.gz",
     "uncompressed_sha256": "fe4502d6366c5da4fa0829a1ba7a7476644b639594e245c37669402ec0391f79",
     "bytes": 897695
   },
@@ -680,8 +680,8 @@
   {
     "source": "remaining-native-budget.md",
     "artifact": "remaining-native-budget.md",
-    "uncompressed_sha256": "2e4dab796dcdcba3b67324be6cd0334ef6df39d8cdff13f832910b1e0ba37f1c",
-    "bytes": 7833
+    "uncompressed_sha256": "cdca9de8050578227ae4c152f36716c65287f5319b54c3f64a66d943010e91eb",
+    "bytes": 8023
   },
   {
     "source": "run_codec_pair.py",
@@ -763,7 +763,7 @@
   },
   {
     "source": "span-candidate-quality.json",
-    "artifact": "span-candidate-quality.json",
+    "artifact": "span-candidate-quality.json.gz",
     "uncompressed_sha256": "1d09d334d07560462a6c40dbc7016bcf60e4965acc319cbc037a65a79b4cda3f",
     "bytes": 897717
   },
@@ -823,7 +823,7 @@
   },
   {
     "source": "span-control-quality.json",
-    "artifact": "span-control-quality.json",
+    "artifact": "span-control-quality.json.gz",
     "uncompressed_sha256": "f98cb6c8a1a59c36ffadc082b3bbcd297e87958d7a4ba0809d0c696c5b84b069",
     "bytes": 897300
   },
