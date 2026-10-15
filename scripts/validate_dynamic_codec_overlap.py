@@ -143,6 +143,7 @@ def main():
         gate="Exact roster/codes, PCM/completion and final mutable state; no E2E claim.",
         stop="Any divergence fails; dedicated capture must have disjoint observed BLAS ranges.",
         modes=[],
+        passed=False,
     )
 
     def save():
@@ -220,12 +221,16 @@ def main():
         def record(entry, expected=expected_trace, trace=trace, mode=mode):
             if expected is not None:
                 index = len(trace)
-                assert index < len(expected) and entry == expected[index], (
-                    mode,
-                    index,
-                    entry,
-                    expected[index] if index < len(expected) else None,
-                )
+                if index >= len(expected) or entry != expected[index]:
+                    result["first_divergence"] = dict(
+                        mode=mode,
+                        index=index,
+                        actual=entry,
+                        expected=expected[index] if index < len(expected) else None,
+                    )
+                    result["completed_trace"] = trace
+                    save()
+                    raise AssertionError(result["first_divergence"])
             trace.append(entry)
 
         def retire(slots, active=active, frames=frames, record=record):
@@ -303,6 +308,7 @@ def main():
         )
         if mode == "sync":
             expected_trace, expected_pcm = trace, events
+            result["trace"] = trace
             expected_state = [value.clone() for value in tensors]
         differences = [
             dict(
