@@ -159,6 +159,7 @@ class DramaModel:
         self.tuned_prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE_TUNED") == "1"
         self.packed_moe_projection = os.environ.get("DRAMA3_PACKED_MOE_PROJECTION") == "1"
         self.batched_table_projection = os.environ.get("DRAMA3_BATCHED_TABLE_PROJECTION") == "1"
+        self.fused_moe_input = os.environ.get("DRAMA3_FUSED_MOE_INPUT") == "1"
         self.moe_shared_stream = (
             torch.cuda.Stream() if os.environ.get("DRAMA3_MOE_SHARED_OVERLAP") == "1" else None
         )
@@ -522,12 +523,18 @@ class DramaModel:
                     atomic=tuned,
                 )
         else:
-            quantized, scales = quantize_groups(quant_kernel, x, x.shape[-1])
+            if decode and self.fused_moe_input:
+                from drama3.moe_input import prepare_moe_input
+
+                quantized, scales, logits = prepare_moe_input(x, router)
+            else:
+                quantized, scales = quantize_groups(quant_kernel, x, x.shape[-1])
+                scales, logits = scales.T.contiguous(), router.float()
             routed = trtllm_fp8_block_scale_moe(
-                routing_logits=router.float(),
+                routing_logits=logits,
                 routing_bias=None,
                 hidden_states=quantized,
-                hidden_states_scale=scales.T.contiguous(),
+                hidden_states_scale=scales,
                 gemm1_weights=experts.flashinfer_w13,
                 gemm1_weights_scale=experts.flashinfer_w13_scale,
                 gemm2_weights=experts.flashinfer_w2,

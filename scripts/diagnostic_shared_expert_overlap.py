@@ -1,4 +1,4 @@
-"""Compare serial/overlapped native MoE graphs from identical real decode state.
+"""Compare native MoE scheduling/fusion graphs from identical real decode state.
 
 All eight routed experts, quantization boundaries and shared expert operators
 are retained. This is a state/parity and graph timing diagnostic, not serving.
@@ -27,18 +27,28 @@ def main():
     parser.add_argument("--corpus", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch", type=int, choices=(2, 4, 8, 16, 32, 64), required=True)
+    parser.add_argument(
+        "--optimization", choices=("shared-expert", "moe-input"), default="shared-expert"
+    )
     args = parser.parse_args()
     data = args.corpus.read_bytes()
     samples = [json.loads(s) for s in data.splitlines()][: args.batch]
     model = DramaModel(args.checkpoint, slots=state_pool_size(args.batch), max_length=2048)
     device = DeviceRequests(model.slots, model.config.eos_token_id, model.max_length)
     model.moe_shared_stream = None
+    model.fused_moe_input = False
     control = DecodeGraph(model, args.batch, requests=device)
     shared_stream = torch.cuda.Stream()
-    model.moe_shared_stream = shared_stream
+    if args.optimization == "shared-expert":
+        model.moe_shared_stream = shared_stream
+    else:
+        if args.batch <= 8:
+            parser.error("Fused MoE input applies only to the native FlashInfer batch path")
+        model.fused_moe_input = True
     candidate = DecodeGraph(model, args.batch, requests=device)
     # Prefill and first-frame controls use the original serial computation.
     model.moe_shared_stream = None
+    model.fused_moe_input = False
     prompts = [
         build_drama3_prompt(
             s["text"],
@@ -98,6 +108,7 @@ def main():
             ]
             exact_frames = torch.equal(torch.stack(frames), expected_frames)
         row = dict(
+            optimization=args.optimization,
             overlap=overlap,
             batch=args.batch,
             gpu_ms_per_step=begin.elapsed_time(end) / 10,
