@@ -27,6 +27,7 @@ def main():
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--corpus", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--padded-control", action="store_true")
     args = parser.parse_args()
     model = DramaModel(args.checkpoint, slots=32, max_length=512)
     samples = [json.loads(s) for s in args.corpus.read_text().splitlines()][:6]
@@ -44,7 +45,11 @@ def main():
     for count in (3, 5, 6):
         selected = prompts[:count]
         capacity = triton.cdiv(sum(map(len, selected)), 128) * 128
-        graph = PackedPrefillGraph(model, 6, capacity)
+        graph = (
+            BatchedPrefillGraph(model, 1 << (count - 1).bit_length(), 256)
+            if args.padded_control
+            else PackedPrefillGraph(model, 6, capacity)
+        )
         untouched = torch.tensor(list(range(count, 25)), device="cuda")
         original_state = {
             i: (conv[untouched].clone(), state[untouched].clone())
