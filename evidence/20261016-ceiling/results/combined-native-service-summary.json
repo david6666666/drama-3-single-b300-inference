@@ -1,0 +1,187 @@
+{
+  "source_sha": "a607dff26c3ca5423746f7eebec4f5f5a88cd4c0",
+  "concurrency": 64,
+  "requests_per_arm": 1088,
+  "repeats_per_arm": 1,
+  "profile_enabled": false,
+  "limits": {
+    "wer_corpus_max": 0.02950933601272712,
+    "sim_min": 61.88158934120563
+  },
+  "arms": {
+    "control": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 23.50370397605002,
+        "valid": true,
+        "throughput_frames_s": 4353.90949887201,
+        "ttfa_p50_ms": 142.50316802645102,
+        "ttfa_p95_ms": 279.86406967392287,
+        "rtf_mean": 0.3054473168359571
+      },
+      "output": {
+        "acoustic_frames": 102333.0,
+        "audio_samples": 209577984,
+        "audio_duration_s": 4752.335238095238,
+        "at_or_above_500_frames": 4,
+        "rms_below_1e_3": 2,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.017583521728208994,
+          "wer_per_sample_mean": 0.01686112090523855,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.07751641209257179,
+          "wer_per_sample_p95": 0.09090909090909091,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.01263157894736842,
+          "wer_below_50_per_sample_mean": 0.01207631965487788,
+          "n_above_50_pct_wer": 6,
+          "pct_above_50_pct_wer": 0.5514705882352942,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 64.14028173980905,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true
+      },
+      "quality_gate_pass": true,
+      "server_pid": 279238
+    },
+    "candidate": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 22.480973961995915,
+        "valid": true,
+        "throughput_frames_s": 4591.037744827167,
+        "ttfa_p50_ms": 140.7738695270382,
+        "ttfa_p95_ms": 268.0968882865193,
+        "rtf_mean": 0.29591053403594225
+      },
+      "output": {
+        "acoustic_frames": 103211.0,
+        "audio_samples": 211376128,
+        "audio_duration_s": 4793.10947845805,
+        "at_or_above_500_frames": 6,
+        "rms_below_1e_3": 3,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.019258142845181278,
+          "wer_per_sample_mean": 0.018447117414319425,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.08670794577196415,
+          "wer_per_sample_p95": 0.09090909090909091,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.0117458171370627,
+          "wer_below_50_per_sample_mean": 0.011641587523251833,
+          "n_above_50_pct_wer": 9,
+          "pct_above_50_pct_wer": 0.8272058823529412,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 63.693693577804986,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true
+      },
+      "quality_gate_pass": true,
+      "server_pid": 282716
+    }
+  },
+  "qualification": "One feasibility pair only, no statistical speedup claim. Generated output lengths and quality must be considered. The7.23ms local fixed-inputB64 diagnostic used different input state from old8.275ms and is not a new universal ceiling.",
+  "comparison": {
+    "throughput_relative_change": 0.054463292362092464,
+    "makespan_relative_change": -0.04351356769538339,
+    "output_frames_relative_change": 0.00857983250759764,
+    "ttfa_p50_delta_ms": -1.7292984994128346,
+    "ttfa_p95_delta_ms": -11.767181387403582,
+    "wer_delta_percentage_points": 0.16746211169722836,
+    "sim_delta": -0.44658816200406903,
+    "same_audio_sha256": 2,
+    "same_output_frame_count": 47
+  },
+  "process_audit": {
+    "path": "combined-native-process-audit.jsonl",
+    "samples": 151,
+    "sampling_interval_s": 1,
+    "observed_gpu0_pids": [
+      279238,
+      282716
+    ],
+    "expected_server_pids": [
+      279238,
+      282716
+    ],
+    "maximum_simultaneous_gpu0_processes": 1,
+    "foreign_process_observed": false,
+    "sampling_limitation": "One-second polling cannot exclude shorter unobserved interference."
+  },
+  "quality_process_audit": {
+    "path": "combined-native-quality-process-audit.jsonl",
+    "samples": 136,
+    "sampling_interval_s": 1,
+    "observed_gpu0_pids": [
+      285756,
+      288465
+    ],
+    "maximum_simultaneous_gpu0_processes": 1,
+    "post_run_gpu0_empty": true
+  },
+  "target": {
+    "vllm_c64_baseline_frames_s": 4510.271508809941,
+    "required_ratio": 1.5,
+    "target_frames_s": 6765.407263214912,
+    "observed_candidate_vs_vllm": 1.0179071782839382,
+    "achieved": false
+  },
+  "interpretation": "Both full1088 arms pass frozen C64 quality without exclusions. Four-flag combination observed+5.446%frames/s with lower TTFA/RTF in one same-source primaryGPU0 pair; outputframes+0.858%, so not a fixed-output or replicated speedup claim. Individual components and existing layout+conv combinations have native exact gates; this new four-flag package receives full service quality validation here, not a new combined bitwise proof. Default flags remain unchanged. Target1.5x/allconcurrency remains unmet.",
+  "artifacts": {
+    "service_protocol": "combined-native-service-experiment.json",
+    "quality_protocol": "combined-native-quality-experiment.json",
+    "cpu_probes": "combined-native-cpu.json",
+    "service_commands": [
+      "combined-native-control-gpu0-command.json",
+      "combined-native-candidate-gpu0-command.json"
+    ],
+    "quality_files": [
+      "combined-native-control-quality.json",
+      "combined-native-candidate-quality.json"
+    ]
+  }
+}

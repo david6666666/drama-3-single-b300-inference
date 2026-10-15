@@ -1,0 +1,130 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "enabled": false,
+      "lengths": [
+        184,
+        190,
+        152,
+        243,
+        175,
+        177,
+        0,
+        0,
+        159
+      ],
+      "passed": true
+    },
+    {
+      "enabled": false,
+      "lengths": [
+        167,
+        130,
+        169,
+        0,
+        0,
+        0,
+        0,
+        0,
+        46
+      ],
+      "passed": true
+    },
+    {
+      "enabled": false,
+      "lengths": [
+        158,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        98
+      ],
+      "passed": true
+    },
+    {
+      "enabled": false,
+      "lengths": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        256
+      ],
+      "passed": true
+    },
+    {
+      "enabled": true,
+      "lengths": [
+        184,
+        190,
+        152,
+        243,
+        175,
+        177,
+        0,
+        0,
+        159
+      ],
+      "passed": true
+    },
+    {
+      "enabled": true,
+      "lengths": [
+        167,
+        130,
+        169,
+        0,
+        0,
+        0,
+        0,
+        0,
+        46
+      ],
+      "passed": true
+    },
+    {
+      "enabled": true,
+      "lengths": [
+        158,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        98
+      ],
+      "passed": true
+    },
+    {
+      "enabled": true,
+      "lengths": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        256
+      ],
+      "passed": true
+    }
+  ],
+  "cuda_initialized": false,
+  "source_sha": "a607dff26c3ca5423746f7eebec4f5f5a88cd4c0",
+  "existing_tests": "8 passed",
+  "short_padding_probe": "short-padding-cpu.json",
+  "control_max_context": "2048 unchanged in9-case fixedstate validation; max_kv_len capture plan source unchanged."
+}

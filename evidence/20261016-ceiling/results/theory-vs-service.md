@@ -144,3 +144,23 @@ codec 实际账本现在可核实：1289 次有音频的 emit，按 frame bucket
 ## Min-launch 首次动态检查：保留失败，继续定位数值原因
 
 `codec-minlaunch/result.json` 保留最初严格门槛：同一个 80 请求、414 条动态 trace，DP/sync 为 99 次 codec 调用，min_launches/sync 为 95 次；模型 codes/roster/完成顺序相同，但 5 个请求 PCM 和 20 个 codec state tensor 存在差异，原始 bit-exact gate **FAIL**，后续 async/service 未执行。差异可来自合法 batch shape 的 BF16 rounding，也可能是状态问题；此时尚不能区分。`numeric-result.json` 是独立的数值诊断，沿用原 DP cost table，保存 PCM、真实槽与 scratch 分离的误差、首个改变组的输入/状态，不覆盖原始失败。即使最终属于同操作舍入差异，也必须按已确认的完整 WER/SIM 界限验收，不能直接晋级。
+
+
+## 固定状态的争用实验与后续验证
+
+`codec-priority/summary.json` 将相关性推进到一个受控局部因果实验：相同 64 个真实请求/模型与 codec 状态、固定 4 次 B64 decode，以及 3 份来自真实 AR 的 F8 codec 输入。60 次试验全部 codes/PCM/状态精确一致。decode 单独执行约 33.33ms；并行 codec B1/B4/B8 时增至 34.65/35.57/36.92ms。双方总完成时间仍比串行更短，所以撤销并行不是结论。把 model stream 优先级提升到 -1 的差值不足 0.04ms、部分更慢，未见有意义收益；图 flags=1，已验证不是 UseNodePriority 覆盖 launch priority。这个结果证明这组固定工作的资源争用，不能把服务 trace 的 1.67 秒关联全部当成可省时间。
+
+候选下一步是只限制 codec 的 SM 数，保持模型仍可使用全设备。安装的 torch 2.13/cu130 已有 GreenContext；这与两个进程使用 MPS 并不相同，更不是已证明的互斥 SM 分区。冻结上游 fish_omni.yaml 启用 private MPS；.78/.10 是 gpu_memory_utilization，未发现 80/20 的 SM/thread 配额，不能将内存比例当成 SM 隔离。确切 Python MoE 入口没有 SM reserve 参数；内部 cooperative routing 已有独立保留逻辑，不能据接口推断其不存在。
+
+`codec-greencap/tiny-result.json` 发现重要反例：把主 context 捕获的图重放到 32-SM green stream，实际仍使用全部 148 SM；因此只换 replay stream 的测试是无效 SM 限额实验。`tiny-recapture-result.json` 中直接 launch、在 green stream 重新捕获图、在 current green context 捕获图，32/48SM 六组都精确且只触及对应 32/48SM。真正 codec 的首次 green-stream capture 在 cuDNN 卷积失败（`initial-capture-failure.json`），没有生成性能试验；独立同族 BF16 channels-last 卷积 tiny control 又可以精确运行，不能把失败泛化为所有 cuDNN 不兼容。current-green-context 下 warmup + capture 的后续诊断另存，不覆盖最初失败，也未晋级服务。
+
+Min-launch 数值续查 `codec-minlaunch/numeric-result.json` 已完成：最终所有真实 codec 槽 0–63、KV 和模型状态完全一致；之前 20 个 state tensor 的差异全部在 padding scratch 槽 64。五个不同 PCM 的全请求相对 RMS 为 0.317–0.572%、SNR 44.86–49.97dB、最大幅差 160–384 个 PCM16 LSB；其余 75 个请求精确。当前证据符合 batch shape 改变引入的有界 BF16 舍入差异，但尚未通过 eager/FP32 reference 证实来源，原 bit-exact FAIL 保留，WER/SIM 也尚未对该策略完成。
+
+补充：current-context 真实 DAC capture 仍在同一 cuDNN 卷积失败，且 cleanup 出现 PyTorch context stack 断言；`codec-greencap/current-context-capture-failure.json` 保存第二次初始化失败。没有进入任何 paired timing 试验，GPU 进程已退出。后续需要提取真实失败 shape/执行计划/context；tiny 同族卷积成功不能证明整个 DAC 图可在受限 SM context 内运行。
+
+
+## 上游 codec 批次与合批的额外算量
+
+补查已存档的上游 C64/256 请求 stage1 trace，`upstream-codec-trace-accounting.json` 只把 CPU `execute_context_...` user_annotation 当成调度步骤：408 个非空步骤、1557 个 scheduled jobs、569 次实际 cudaGraphLaunch，每步平均 3.816 个任务、每个图调用摊到 2.736 个任务；4463 个空轮询被单列。图输入的 batch/frame shape 未记录，不能据平均数反推 padding。独立框架 rich1088 的实际行/调用为 2.970，但请求集合规模、尾部、dtype 和 instrumentation 不同，不是同工作量的速度比较。这份证据不支持“上游 codec 靠大得多的实际批次获胜”的假设。
+
+`codec-coalescing-accounting.json` 用 rich trace 的同一次 emit 就绪组模拟合批，不延后音频、不跨请求 generation。仅 min-launch 会把调用数 2265→2122，同时 padded codec 帧 119072→127360（+6.96%）；相近 bucket（最大/最小≤4/3）再合批为 1894 次（−16.38%）/129756 padded 帧（+8.97%）。全部 bucket 合为同轮最大长度虽可降至 1332 次，却需 186172 padded 帧（+56.35%）。因此应先验证有限相邻桶策略的净收益，不能用启动数减少直接宣称吞吐提升。所有这些只是 CPU 账本，未通过 GPU 数值或服务验收。
