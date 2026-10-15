@@ -105,3 +105,40 @@ def dp4a_gemv(x, weight, scales, rows=4, warps=4):
         num_warps=warps,
     )
     return output
+
+
+@triton.jit
+def tensor_gemv_kernel(X, W, SCALE, Y, N: tl.constexpr, K: tl.constexpr, TILE_N: tl.constexpr):
+    columns = tl.program_id(0) * TILE_N + tl.arange(0, TILE_N)
+    inner = tl.arange(0, 128)
+    acc = tl.zeros((16, TILE_N), dtype=tl.float32)
+    for block in range(K // 128):
+        x = tl.load(X + block * 128 + inner)
+        a = tl.broadcast_to(x[None, :], (16, 128))
+        b = tl.load(
+            W + columns[None, :] * K + block * 128 + inner[:, None], columns[None, :] < N, 0
+        ).to(X.dtype.element_ty)
+        acc = tl.dot(a, b, acc)
+    first = tl.arange(0, 16) == 0
+    value = tl.sum(tl.where(first[:, None], acc, 0.0), 0)
+    scale = tl.load(SCALE + columns, columns < N, 0.0)
+    tl.store(Y + columns, value * scale, columns < N)
+
+
+def tensor_gemv(x, weight, scales, rows=64, warps=4):
+    n, k = weight.shape
+    if k % 128:
+        raise ValueError("Tensor GEMV needs complete 128-element groups")
+    output = torch.empty((1, n), device=x.device, dtype=x.dtype)
+    tensor_gemv_kernel[(triton.cdiv(n, rows),)](
+        x,
+        weight,
+        scales,
+        output,
+        n,
+        k,
+        rows,
+        num_warps=warps,
+        num_stages=3,
+    )
+    return output
