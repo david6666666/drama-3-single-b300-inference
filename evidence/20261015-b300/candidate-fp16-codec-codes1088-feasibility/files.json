@@ -1,0 +1,62 @@
+[
+  {
+    "source": "benchmark/c1-r0.jsonl",
+    "artifact": "benchmark/c1-r0.jsonl.gz",
+    "uncompressed_sha256": "15914f858d85d9a67ad7c1644ca03358afa63f74ebcd189ba483e93886d2cb25",
+    "bytes": 1051861
+  },
+  {
+    "source": "benchmark/c1-warmup.json",
+    "artifact": "benchmark/c1-warmup.json",
+    "uncompressed_sha256": "b2d5e7be0381b2b154b91adcaf6a56ff56b8ad6039b683aca8264ea298b99fc9",
+    "bytes": 9370
+  },
+  {
+    "source": "benchmark/c64-r0.jsonl",
+    "artifact": "benchmark/c64-r0.jsonl.gz",
+    "uncompressed_sha256": "2ec1d0a19dd41b2b6b68550e7cda2037a38b74755f72c4b32ee3756f7c14fb10",
+    "bytes": 1035492
+  },
+  {
+    "source": "benchmark/c64-warmup.json",
+    "artifact": "benchmark/c64-warmup.json",
+    "uncompressed_sha256": "87dd225e14b2bf4f70984b33e415542f71cac224bbb534df79e90f6913a041d0",
+    "bytes": 73427
+  },
+  {
+    "source": "benchmark/manifest.json",
+    "artifact": "benchmark/manifest.json",
+    "uncompressed_sha256": "d2c80b8092ecc4c0955641aa83e506c8de0c3586731f686225c652e20c8a746f",
+    "bytes": 782
+  },
+  {
+    "source": "benchmark/summary.json",
+    "artifact": "benchmark/summary.json",
+    "uncompressed_sha256": "88ff7fadcc6adcaf614bc57449b805156bbf6b9a072fec19914f017e9c8d31e7",
+    "bytes": 656
+  },
+  {
+    "source": "benchmark-command.json",
+    "artifact": "benchmark-command.json",
+    "uncompressed_sha256": "96ad17b49b295d77d7f3564a9ef7efa0a6ba712b0ad391d34ce804607f61da10",
+    "bytes": 501
+  },
+  {
+    "source": "benchmark.log",
+    "artifact": "benchmark.log.gz",
+    "uncompressed_sha256": "815cb124df724bbf46b3ed0c4677dce3998f4014b13ef45833c36757b0ddae2f",
+    "bytes": 551
+  },
+  {
+    "source": "launch.json",
+    "artifact": "launch.json",
+    "uncompressed_sha256": "8bdcaf9cf789601be20c40ab746cf39c41e5e8f8e6c533aefd629b753d279521",
+    "bytes": 3023
+  },
+  {
+    "source": "server.log",
+    "artifact": "server.log.gz",
+    "uncompressed_sha256": "4041f4d78009e8cf790970377c667053edc025f44fe504a357367239e33f910f",
+    "bytes": 157095
+  }
+]

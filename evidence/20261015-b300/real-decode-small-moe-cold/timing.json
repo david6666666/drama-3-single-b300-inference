@@ -1,0 +1,18 @@
+{
+  "batch": 1,
+  "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+  "prompt_lengths": [
+    150
+  ],
+  "initial_counts": [
+    9
+  ],
+  "initial_done": 0,
+  "final_done": 0,
+  "decode_ms": 2.9405664443969726,
+  "state_dtype": "bfloat16",
+  "moe_layout": "major_k",
+  "packed_projection": true,
+  "small_moe_tiles": "cold",
+  "description": "Ten actual autoregressive steps; completed slots remain in graph"
+}

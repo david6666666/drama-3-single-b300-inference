@@ -12,7 +12,8 @@ the complete comparison exists, the target remains unverified.
   driver, CPU affinity, dataset and sampling before measuring.
 - Concurrency: 1, 2, 4, 8, 16, 32, 64. Closed-loop request replacement.
 - Native FP8 routed experts and BF16 remaining model weights. The new upstream
-  deployment uses BF16 recurrent state; the candidate currently retains FP32.
+  deployment and formal candidate use BF16 recurrent state. The standalone
+  runtime's conservative default remains FP32; the measured configuration is explicit.
 - Temperature 1.0, top-p 0.9, top-k 30, maximum 500 generated frames.
 - Seed-TTS English voice cloning. PR #8933 adds pre-encoded VQ references;
   the new comparison sends both servers identical reference codes and transcript.

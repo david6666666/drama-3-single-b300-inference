@@ -87,6 +87,9 @@ launcher. They are experiments, not recommended production settings.
 | `DRAMA3_PREFILL_CONV` | `torch` | `triton`: causal convolution with exact end state |
 | `DRAMA3_PREFILL_MOE` | `native` | `flashinfer`: failed audio gate |
 | `DRAMA3_PREFILL_MOE_TUNED` | off | `1`: 64-row native tiles and FP32 atomic reduction for large prefills |
+| `DRAMA3_PREFILL_GDN` | `fla` | `flashinfer`: normalized GDN prefill with independent FP32 reference checks |
+| `DRAMA3_PREFILL_BUCKET_192` | off | `1`: add a 192-token prefill graph bucket |
+| `DRAMA3_CODEC_DTYPE` | `bfloat16` | `float16`: separate FP16 decoder, preserving the reference encoder |
 | `DRAMA3_MOE_LAYOUT` | `major_k` | `blocked`: unchanged FP8 bytes, different layout |
 | `DRAMA3_AUTOTUNE_CACHE` | unset | FlashInfer tactic cache path |
 | `DRAMA3_ADMISSION_MIN_BATCH` | `1` | Bounded wait for a larger prefill batch |
