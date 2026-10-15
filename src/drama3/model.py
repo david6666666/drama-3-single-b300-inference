@@ -158,6 +158,7 @@ class DramaModel:
             raise ValueError("DRAMA3_PREFILL_GDN must be fla or flashinfer")
         self.tuned_prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE_TUNED") == "1"
         self.packed_moe_projection = os.environ.get("DRAMA3_PACKED_MOE_PROJECTION") == "1"
+        self.batched_table_projection = os.environ.get("DRAMA3_BATCHED_TABLE_PROJECTION") == "1"
         self.prefill_conv_backend = os.environ.get("DRAMA3_PREFILL_CONV", "torch")
         if self.prefill_conv_backend not in ("torch", "triton"):
             raise ValueError("DRAMA3_PREFILL_CONV must be torch or triton")
@@ -594,7 +595,12 @@ class DramaModel:
         prefill_sequences: int = 1,
     ) -> torch.Tensor:
         if index:
-            hidden = table_projection(hidden, layer, codes, semantic)
+            if self.batched_table_projection and 2 <= len(hidden) <= 8:
+                from drama3.table_projection_batched import table_projection_batched
+
+                hidden = table_projection_batched(hidden, layer, codes, semantic, rows=8)
+            else:
+                hidden = table_projection(hidden, layer, codes, semantic)
         else:
             embedding = layer.semantic_embedding if layer.shared else layer.codebook_embedding
             embedded = torch.where(semantic[:, None], embedding(codes.clamp(0, 4095)), 0.0)
