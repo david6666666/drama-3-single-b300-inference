@@ -16,7 +16,14 @@ import torch.nn.functional as F
 
 from drama3.gdn import decode as gdn_decode
 from drama3.gdn import prefill as gdn_prefill
-from drama3.kernels import add_norm, conv_update, gated_norm, linear, prepare_attention
+from drama3.kernels import (
+    add_norm,
+    combine_experts_add_norm,
+    conv_update,
+    gated_norm,
+    linear,
+    prepare_attention,
+)
 from drama3.packed_prefill import PackedLayout, packed_conv
 
 if TYPE_CHECKING:
@@ -187,6 +194,10 @@ def mixed_backbone(
         normalized = (
             model.norm(hidden, layer.input_layernorm)
             if pending is None
+            else combine_experts_add_norm(
+                *pending, hidden, layer.input_layernorm.weight, layer.input_layernorm.eps
+            )
+            if model.fused_moe_residual
             else add_norm(pending, hidden, layer.input_layernorm.weight, layer.input_layernorm.eps)
         )
         if layer.layer_type == "full_attention":
@@ -211,5 +222,13 @@ def mixed_backbone(
             layer.post_attention_layernorm.weight,
             layer.post_attention_layernorm.eps,
         )
-        pending = model.moe(normalized, layer.mlp, decode=True)
+        pending = (
+            model.moe_parts(normalized, layer.mlp, decode=True)
+            if model.fused_moe_residual
+            else model.moe(normalized, layer.mlp, decode=True)
+        )
+    if model.fused_moe_residual:
+        return combine_experts_add_norm(
+            *pending, hidden, model.backbone.norm.weight, model.backbone.norm.eps
+        )
     return add_norm(pending, hidden, model.backbone.norm.weight, model.backbone.norm.eps)

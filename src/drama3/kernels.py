@@ -446,6 +446,57 @@ def combine_experts(routed, shared, gate):
 
 
 @triton.jit
+def combine_experts_add_norm_kernel(
+    ROUTED,
+    SHARED,
+    GATE,
+    RESIDUAL,
+    W,
+    OUT,
+    STRIDE: tl.constexpr,
+    EPS: tl.constexpr,
+    WIDTH: tl.constexpr,
+):
+    row = tl.program_id(0)
+    col = tl.arange(0, WIDTH)
+    routed = tl.load(ROUTED + row * WIDTH + col).to(tl.float32)
+    shared = tl.load(SHARED + row * WIDTH + col).to(tl.float32)
+    gate = (
+        tl.sigmoid(tl.load(GATE + row * STRIDE).to(tl.float32))
+        .to(SHARED.dtype.element_ty)
+        .to(tl.float32)
+    )
+    # Preserve combine_experts' weighted and combined BF16 boundaries.
+    weighted = (shared * gate).to(SHARED.dtype.element_ty).to(tl.float32)
+    combined = (routed + weighted).to(ROUTED.dtype.element_ty).to(tl.float32)
+    value = combined + tl.load(RESIDUAL + row * WIDTH + col).to(tl.float32)
+    value = value.to(ROUTED.dtype.element_ty).to(tl.float32)
+    tl.store(RESIDUAL + row * WIDTH + col, value)
+    value *= tl.rsqrt(tl.sum(value * value, 0) / WIDTH + EPS)
+    value *= 1.0 + tl.load(W + col).to(tl.float32)
+    tl.store(OUT + row * WIDTH + col, value)
+
+
+def combine_experts_add_norm(routed, shared, gate, residual, weight, epsilon):
+    """Combine native MoE outputs and update/normalize the existing residual."""
+    output = torch.empty_like(routed)
+    combine_experts_add_norm_kernel[(len(routed),)](
+        routed,
+        shared,
+        gate,
+        residual,
+        weight,
+        output,
+        gate.stride(0),
+        epsilon,
+        routed.shape[-1],
+        num_warps=4,
+        enable_fp_fusion=False,
+    )
+    return output
+
+
+@triton.jit
 def sample_partition_kernel(
     L, KEYS, MAXIMUM, SUM, STRIDE: tl.constexpr, WIDTH: tl.constexpr, PARTS: tl.constexpr
 ):

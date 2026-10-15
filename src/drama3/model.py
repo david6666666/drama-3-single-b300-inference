@@ -20,6 +20,7 @@ from drama3.kernels import (
     add_norm,
     attention_metadata,
     combine_experts,
+    combine_experts_add_norm,
     conv_update,
     gated_norm,
     linear,
@@ -160,6 +161,7 @@ class DramaModel:
         self.packed_moe_projection = os.environ.get("DRAMA3_PACKED_MOE_PROJECTION") == "1"
         self.batched_table_projection = os.environ.get("DRAMA3_BATCHED_TABLE_PROJECTION") == "1"
         self.fused_moe_input = os.environ.get("DRAMA3_FUSED_MOE_INPUT") == "1"
+        self.fused_moe_residual = os.environ.get("DRAMA3_FUSED_MOE_RESIDUAL") == "1"
         pdl = os.environ.get("DRAMA3_MOE_PDL", "auto")
         if pdl not in ("auto", "0", "1"):
             raise ValueError("DRAMA3_MOE_PDL must be auto, 0 or 1")
@@ -478,6 +480,10 @@ class DramaModel:
         return linear(out, layer.out_proj.weight)
 
     def moe(self, x: torch.Tensor, layer, decode: bool = False) -> torch.Tensor:
+        return combine_experts(*self.moe_parts(x, layer, decode))
+
+    def moe_parts(self, x: torch.Tensor, layer, decode: bool = False):
+        """Return unchanged native outputs after joining any shared-expert stream."""
         experts = layer.experts
         if self.packed_moe_projection:
             projected = linear(x, layer.packed_input_projection)
@@ -502,7 +508,7 @@ class DramaModel:
             shared = linear(silu_mul(gate_up), layer.shared_expert.down_proj.weight)
         else:
             torch.cuda.current_stream().wait_stream(stream)
-        return combine_experts(routed, shared, shared_gate)
+        return routed, shared, shared_gate
 
     def routed_moe(self, x, router, experts, decode):
         """Unchanged full top-8 expert path, independent of the shared expert."""
@@ -577,6 +583,10 @@ class DramaModel:
             normalized = (
                 self.norm(hidden, layer.input_layernorm)
                 if pending is None
+                else combine_experts_add_norm(
+                    *pending, hidden, layer.input_layernorm.weight, layer.input_layernorm.eps
+                )
+                if self.fused_moe_residual
                 else add_norm(
                     pending, hidden, layer.input_layernorm.weight, layer.input_layernorm.eps
                 )
@@ -605,7 +615,15 @@ class DramaModel:
                 layer.post_attention_layernorm.weight,
                 layer.post_attention_layernorm.eps,
             )
-            pending = self.moe(normalized, layer.mlp, batch is not None)
+            pending = (
+                self.moe_parts(normalized, layer.mlp, batch is not None)
+                if self.fused_moe_residual
+                else self.moe(normalized, layer.mlp, batch is not None)
+            )
+        if self.fused_moe_residual:
+            return combine_experts_add_norm(
+                *pending, hidden, self.backbone.norm.weight, self.backbone.norm.eps
+            )
         return add_norm(pending, hidden, self.backbone.norm.weight, self.backbone.norm.eps)
 
     def tower_layer(
