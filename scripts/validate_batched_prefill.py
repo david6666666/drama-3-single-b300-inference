@@ -30,7 +30,7 @@ def main():
     span = args.span
     model = DramaModel(args.checkpoint, slots=state_pool_size(capacity, capacity), max_length=512)
     torch.manual_seed(42)
-    lengths = torch.tensor([33, 91, 128, 3], device="cuda")
+    lengths = torch.tensor([33, 91, span, 3], device="cuda")
     slots = torch.arange(4, device="cuda").repeat_interleave(span)
     results = []
     for index in (0, 1, 19, 39):
