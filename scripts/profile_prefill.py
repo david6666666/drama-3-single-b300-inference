@@ -57,6 +57,7 @@ def main():
         state_precision=model.state_precision,
         packed_projection=model.packed_moe_projection,
         prefill_conv=model.prefill_conv_backend,
+        tuned_prefill_moe=model.tuned_prefill_moe,
     )
     (args.output / "timing.json").write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result), flush=True)

@@ -149,6 +149,7 @@ class DramaModel:
         state_dtype = getattr(torch, self.state_precision)
         self.moe_layout = os.environ.get("DRAMA3_MOE_LAYOUT", "major_k")
         self.prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE", "native")
+        self.tuned_prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE_TUNED") == "1"
         self.packed_moe_projection = os.environ.get("DRAMA3_PACKED_MOE_PROJECTION") == "1"
         self.prefill_conv_backend = os.environ.get("DRAMA3_PREFILL_CONV", "torch")
         if self.prefill_conv_backend not in ("torch", "triton"):
@@ -450,7 +451,16 @@ class DramaModel:
             if len(x) <= 8:
                 routed = small_batch_moe(x, indices, weights, experts)
             else:
-                routed = native_moe(x, indices, weights, experts)
+                tuned = self.tuned_prefill_moe and len(x) >= 1024
+                routed = native_moe(
+                    x,
+                    indices,
+                    weights,
+                    experts,
+                    block_m=64 if tuned else 16,
+                    group_m=8 if tuned else 1,
+                    atomic=tuned,
+                )
         else:
             quantized, scales = quantize_groups(quant_kernel, x, x.shape[-1])
             routed = trtllm_fp8_block_scale_moe(
