@@ -288,6 +288,7 @@ class Engine:
                 "to isolate model and codec BLAS workspaces"
             )
         self.defer_codec_submit = os.environ.get("DRAMA3_DEFER_CODEC_SUBMIT") == "1"
+        self.coalesce_codec = os.environ.get("DRAMA3_CODEC_COALESCE") == "1"
         if self.defer_codec_submit and not self.async_codec:
             raise ValueError("Deferred codec submission requires DRAMA3_ASYNC_CODEC=1")
         self.codec_submissions = []
@@ -758,7 +759,12 @@ class Engine:
             length = count - request.emitted
             bucket = self.codec_graphs.frame_bucket(length)
             groups.setdefault(bucket, []).append((request, request.emitted, count))
-        for group_index, (length, jobs) in enumerate(groups.items()):
+        planned_groups = groups.items()
+        if getattr(self, "coalesce_codec", False):
+            from drama3.codec_grouping import coalesce_codec_groups
+
+            planned_groups = coalesce_codec_groups(groups, self.codec_graphs)
+        for group_index, (length, jobs) in enumerate(planned_groups):
             start = 0
             selected_batches = self.codec_graphs.split(length, len(jobs))
             for split_index, batch in enumerate(selected_batches):
@@ -789,6 +795,9 @@ class Engine:
                         emit_id=self.codec_trace_sequence,
                         frame_group_id=group_index,
                         frame_bucket=length,
+                        source_frame_buckets=[
+                            self.codec_graphs.frame_bucket(count - left) for _, left, count in chunk
+                        ],
                         requested_jobs=len(jobs),
                         selected_batches=list(selected_batches),
                         split_index=split_index,
