@@ -1,7 +1,7 @@
 # Full English corpus: corrected feasibility runs
 
-The 2× target is not achieved. The complete three-repetition baseline and
-corrected candidate comparison are still in progress. The candidate points
+The 2× target is not achieved. The complete three-repetition baseline is
+finished; the corrected candidate comparison is in progress. The candidate points
 below are one-repetition feasibility measurements on the entire 1088-row
 Seed-TTS English corpus, not a completed cross-runtime speedup claim.
 
@@ -21,6 +21,8 @@ requests. WAVs were scored without dropping high-WER outliers.
 | Same BF16 + asynchronous codec and PCM thread | 3 | 1 | 306.14 | 34.53 | 45.92 | 0.0710 | 1.541 | 64.315 |
 | Same asynchronous configuration | 3 | 64 | 3547.30 | 156.59 | 373.76 | 0.3758 | 3.835 | 63.626 |
 | Synchronous BF16, prefill capacity 16, admission 12 | 4 | 64 | 3470.68 | 187.44 | 421.91 | 0.3932 | Pending | Pending |
+| Synchronous BF16, adaptive GDN tiles, 192-token bucket | 3 | 64 | 3500.60 | 162.32 | 414.62 | 0.3889 | 1.708 | 64.173 |
+| Same, without 192-token bucket | 3 | 64 | 3385.96 | 156.37 | 374.04 | 0.3892 | Pending | Pending |
 
 The FP32 candidate is frozen at `a6e660c`; tuned-MoE candidates at `e9833d5`.
 The GPU differs between some rows, so these values do not establish isolated
@@ -32,11 +34,13 @@ whether the cause is scheduling-dependent sampling or a codec-stream defect.
 The capacity-16 run (`0cc53d9`) has little throughput improvement and worse
 TTFA; its quality evaluation has not been performed.
 
-The new vLLM baseline `d6ed4f4` has completed its three C1 runs on GPU 0:
-median 195.67 frames/s, TTFA p50 46.05 ms, TTFA p95 48.63 ms, mean RTF 0.1107.
-Its first C1 repetition scores WER 1.917%, SIM 64.273 on all 1088 rows.
-Other concurrency points and the C64 quality reference are pending; these
-partial results cannot establish the full acceptance gate.
+The new vLLM baseline `d6ed4f4` has completed all 21 runs on GPU 0:
+median C1 throughput 195.67 frames/s and C64 throughput 4510.27 frames/s.
+First-repetition quality is C1 WER 1.917%, SIM 64.273; C64 WER 1.842%,
+SIM 63.871, each on all 1088 rows. See [the complete baseline table](new-vllm-full-baseline.md).
+The frozen candidate `dcd20d3`, with the 192-token bucket and synchronous
+codec, is now being measured on the same GPU 0 at all seven concurrency
+points with three repetitions. Its formal acceptance remains pending.
 
 The native prefill optimization keeps Fish's FP8 quantization and accumulation
 math, uses 64-row tiles for at least 1024 input tokens, and atomically reduces
@@ -69,6 +73,12 @@ each in a single diagnostic. Generated activations differed between runs;
 these are directional observations, not isolated operator A/B results.
 The tensor-core W8A16 prototype was slower than the existing BF16 path and
 remains diagnostic-only.
+
+An MXFP4/BF16 expert diagnostic reduced selected real-input MoE latency from
+144/123/102 us to 102/89/79 us at layers 0/19/39. Independent decoding of the
+quantized bytes agreed with the FP4 kernel to RRMS 0.0044/0.0042/0.0015, while
+the difference from the existing FP8 operator was 0.75/0.16/0.022. This large
+precision change is not promoted and has no serving or audio-quality claim.
 
 Commands, source SHAs, readiness timings and raw request records are under
 [evidence/20261015-b300](../evidence/20261015-b300). Full-corpus preparation

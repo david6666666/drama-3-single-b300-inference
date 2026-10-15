@@ -1,0 +1,23 @@
+[
+  {
+    "layer": 0,
+    "rrms": 0.7738099098205566,
+    "reference_us": 143.62509846687317,
+    "mxfp4_us": 101.75370848580692,
+    "description": "Diagnostic only; lossy weight quantization; audio quality untested"
+  },
+  {
+    "layer": 19,
+    "rrms": 0.16690535843372345,
+    "reference_us": 121.89936888845342,
+    "mxfp4_us": 86.53609177161907,
+    "description": "Diagnostic only; lossy weight quantization; audio quality untested"
+  },
+  {
+    "layer": 39,
+    "rrms": 0.021218199282884598,
+    "reference_us": 103.57031571237664,
+    "mxfp4_us": 79.61841742197673,
+    "description": "Diagnostic only; lossy weight quantization; audio quality untested"
+  }
+]
