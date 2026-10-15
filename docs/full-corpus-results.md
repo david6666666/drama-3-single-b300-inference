@@ -56,8 +56,14 @@ Additional diagnostics did not justify new serving precision changes:
   and have no full audio-quality result, so are not enabled in serving.
 - FlashInfer GDN prefill requires caller-normalized Q/K on its SM100 dispatch.
   After fixing the diagnostic adapter, outputs were finite but differed from
-  FLA by about 0.46%, above the predefined 0.3% parity threshold. This path is
-  not integrated. Earlier non-finite adapter results are preserved separately.
+  FLA by about 0.46%, above the original 0.3% cross-backend parity threshold.
+  Subsequent independent FP32 recurrence checks found FlashInfer slightly more
+  accurate: output RRMS about 0.327% versus FLA 0.336%, and BF16 final-state
+  RRMS 0.277% versus 0.307% at B8/T256. This new reference evidence justifies
+  an opt-in experiment (`DRAMA3_PREFILL_GDN=flashinfer`), not a relaxation of
+  the audio-quality gate. Both partial-batch isolation and exact bucket-boundary
+  prompts pass. Serving throughput and complete audio quality are pending.
+  Earlier non-finite adapter results and failed cross-backend checks are preserved.
 - BF16 GDN decode tile tests identified larger tiles with exact output/state
   equality in the tested cases. Subsequent candidates use 16 value rows per
   CTA through B32 and 32 above B32; FP32 retains 8. Serving evidence for that
@@ -79,6 +85,12 @@ An MXFP4/BF16 expert diagnostic reduced selected real-input MoE latency from
 quantized bytes agreed with the FP4 kernel to RRMS 0.0044/0.0042/0.0015, while
 the difference from the existing FP8 operator was 0.75/0.16/0.022. This large
 precision change is not promoted and has no serving or audio-quality claim.
+
+A separate lossless BF16 transposition/split-K GEMV sweep did not produce a
+useful improvement over the existing GEMV on the measured shapes. It is not
+integrated. All diagnostic changes remain separate from the frozen `dcd20d3`
+formal candidate. That candidate's first C1 repetition scored WER 1.541%,
+SIM 64.315 over all 1088 rows; later performance repetitions are still running.
 
 Commands, source SHAs, readiness timings and raw request records are under
 [evidence/20261015-b300](../evidence/20261015-b300). Full-corpus preparation
