@@ -73,7 +73,7 @@ class AudioQueue:
             )
             callback(data)
 
-    def submit(self, codes, rows, callbacks, *, ready=None):
+    def submit(self, codes, rows, callbacks, *, ready=None, metadata=None):
         if self.closed or self.failure is not None:
             raise self.failure or RuntimeError("Audio queue is closed")
         # The model stream gathers a private codes tensor before its slot can
@@ -92,7 +92,7 @@ class AudioQueue:
         with (
             torch.cuda.stream(self.stream),
             torch.autocast("cuda", dtype=self.graphs.decoder.dtype),
-            self.profiler.measure("codec_gpu_and_copy", len(codes))
+            self.profiler.measure("codec_gpu_and_copy", len(codes), **(metadata or {}))
             if self.profiler is not None
             else nullcontext(),
         ):

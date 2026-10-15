@@ -54,7 +54,7 @@ class TimelineProfiler:
         self.events = []
 
     @contextmanager
-    def measure(self, stage, batch):
+    def measure(self, stage, batch, **metadata):
         if self.origin is None:
             self.origin = torch.cuda.Event(enable_timing=True)
             self.origin.record()
@@ -67,7 +67,16 @@ class TimelineProfiler:
         finally:
             end.record()
             self.events.append(
-                (stage, batch, stream, before, (time.perf_counter() - before) * 1000, start, end)
+                (
+                    stage,
+                    batch,
+                    stream,
+                    before,
+                    (time.perf_counter() - before) * 1000,
+                    start,
+                    end,
+                    metadata,
+                )
             )
 
     def save(self):
@@ -82,8 +91,9 @@ class TimelineProfiler:
                 gpu_start_ms=self.origin.elapsed_time(start),
                 gpu_end_ms=self.origin.elapsed_time(end),
                 gpu_ms=start.elapsed_time(end),
+                **metadata,
             )
-            for stage, batch, stream, before, cpu_ms, start, end in self.events
+            for stage, batch, stream, before, cpu_ms, start, end, metadata in self.events
         ]
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.path.write_text(

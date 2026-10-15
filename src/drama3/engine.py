@@ -298,6 +298,8 @@ class Engine:
             if profile_path
             else None
         )
+        self.codec_trace_sequence = 0
+        self.codec_trace_submissions = {} if isinstance(self.profiler, TimelineProfiler) else None
         self.thread = threading.Thread(target=self.run, name="drama3-gpu", daemon=False)
         self.thread.start()
 
@@ -462,7 +464,19 @@ class Engine:
                                 and mixed_graph is not None
                                 and all(3 <= len(prompt) <= 512 for prompt in prompts)
                             ):
-                                with self.measure("mixed_backbone", len(active)):
+                                mixed_metadata = (
+                                    dict(
+                                        prompt_tokens=total,
+                                        prompt_count=len(arriving),
+                                        prefill_capacity=capacity,
+                                        prompt_span=span,
+                                        decode_padded_batch=mixed_size,
+                                        steps=1,
+                                    )
+                                    if isinstance(self.profiler, TimelineProfiler)
+                                    else None
+                                )
+                                with self.measure("mixed_backbone", len(active), mixed_metadata):
                                     mixed_hidden, hidden = mixed_graph.run(
                                         active, prompts, [r.slot for r in arriving]
                                     )
@@ -524,7 +538,12 @@ class Engine:
                     )
                     steps = 4 if available >= 4 else 2 if available >= 2 else 1
                     graph = self.multistep_graphs.get((size, steps), graph)
-                with self.measure("decode", len(active)):
+                decode_metadata = (
+                    dict(steps=graph.steps, padded_batch=graph.size)
+                    if isinstance(self.profiler, TimelineProfiler)
+                    else None
+                )
+                with self.measure("decode", len(active), decode_metadata):
                     frames = graph.run(active)
                 self.flush_codec_submissions()
                 active = self.complete_decode(active, frames, free)
@@ -549,6 +568,8 @@ class Engine:
                         for callback, _ in callbacks:
                             callback(self.failure or RuntimeError("Engine stopped"))
                     self.codec_submissions.clear()
+                    if self.codec_trace_submissions is not None:
+                        self.codec_trace_submissions.clear()
             if self.profiler is not None:
                 self.profiler.save()
             for request in active:
@@ -588,7 +609,9 @@ class Engine:
             self.finish_audio(request)
         return survivors
 
-    def measure(self, stage, batch):
+    def measure(self, stage, batch, metadata=None):
+        if isinstance(self.profiler, TimelineProfiler) and batch:
+            return self.profiler.measure(stage, batch, **(metadata or {}))
         return (
             self.profiler.measure(stage, batch)
             if self.profiler is not None and batch
@@ -718,6 +741,9 @@ class Engine:
                     request.emit(None)
 
     def emit_audio_batch(self, requests: list[Request]) -> None:
+        tracing = isinstance(getattr(self, "profiler", None), TimelineProfiler)
+        if tracing and requests:
+            self.codec_trace_sequence += 1
         groups = {}
         for request in requests:
             count = request.frame_count
@@ -726,9 +752,10 @@ class Engine:
             length = count - request.emitted
             bucket = self.codec_graphs.frame_bucket(length)
             groups.setdefault(bucket, []).append((request, request.emitted, count))
-        for length, jobs in groups.items():
+        for group_index, (length, jobs) in enumerate(groups.items()):
             start = 0
-            for batch in self.codec_graphs.split(length, len(jobs)):
+            selected_batches = self.codec_graphs.split(length, len(jobs))
+            for split_index, batch in enumerate(selected_batches):
                 chunk = jobs[start : start + batch]
                 start += batch
                 rows = torch.tensor(
@@ -742,6 +769,32 @@ class Engine:
                     device="cuda",
                 )
                 codes = self.device_requests.gather_codes(rows, length)
+                metadata = None
+                if tracing:
+                    # split() returns planned chunk sizes. The graph executor
+                    # chooses its actual padded batch from len(chunk), which
+                    # can differ from an oversized final planned chunk.
+                    padded = next(
+                        size
+                        for size in self.codec_graphs.batch_buckets[length]
+                        if size >= len(chunk)
+                    )
+                    metadata = dict(
+                        emit_id=self.codec_trace_sequence,
+                        frame_group_id=group_index,
+                        frame_bucket=length,
+                        requested_jobs=len(jobs),
+                        selected_batches=list(selected_batches),
+                        split_index=split_index,
+                        planned_batch=batch,
+                        actual_batch=len(chunk),
+                        padded_batch=padded,
+                        split_policy=self.codec_graphs.split_policy,
+                        slot_ids=[request.slot for request, _, _ in chunk],
+                        request_ids=[request.request_id for request, _, _ in chunk],
+                        left_frames=[left for _, left, _ in chunk],
+                        valid_frames=[count - left for _, left, count in chunk],
+                    )
                 if self.audio_queue is not None:
                     callbacks = []
                     for request, left, count in chunk:
@@ -754,6 +807,10 @@ class Engine:
                         ready = torch.cuda.Event()
                         ready.record()
                         self.codec_submissions.append((codes, rows, callbacks, ready))
+                        if metadata is not None:
+                            self.codec_trace_submissions[id(ready)] = metadata
+                    elif metadata is not None:
+                        self.audio_queue.submit(codes, rows, callbacks, metadata=metadata)
                     else:
                         self.audio_queue.submit(codes, rows, callbacks)
                 else:
@@ -776,7 +833,13 @@ class Engine:
         submissions = getattr(self, "codec_submissions", None)
         while submissions:
             codes, rows, callbacks, ready = submissions[0]
-            self.audio_queue.submit(codes, rows, callbacks, ready=ready)
+            trace = getattr(self, "codec_trace_submissions", None)
+            metadata = trace.get(id(ready)) if trace is not None else None
+            if metadata is None:
+                self.audio_queue.submit(codes, rows, callbacks, ready=ready)
+            else:
+                self.audio_queue.submit(codes, rows, callbacks, ready=ready, metadata=metadata)
+                del trace[id(ready)]
             submissions.pop(0)
 
     def submit(self, request: Request) -> None:
