@@ -233,6 +233,9 @@ class Engine:
         self.prefill_max_batch = int(os.environ.get("DRAMA3_PREFILL_MAX_BATCH", "8"))
         self.packed_prefill = os.environ.get("DRAMA3_PACKED_PREFILL") == "1"
         self.batched_multistep = os.environ.get("DRAMA3_BATCHED_MULTISTEP") == "1"
+        self.mixed_backbone = os.environ.get("DRAMA3_MIXED_BACKBONE") == "1"
+        if self.mixed_backbone and (not self.packed_prefill or self.prefill_max_batch != 8):
+            raise ValueError("Mixed backbone currently requires packed prefill and batch limit 8")
         if self.packed_prefill and self.max_length < 512:
             raise ValueError("Packed prefill currently requires a context of at least 512")
         if self.packed_prefill and os.environ.get("DRAMA3_PREFILL_MOE_TUNED") == "1":
@@ -347,6 +350,23 @@ class Engine:
                     self.packed_prefill_graphs[capacity] = PackedPrefillGraph(
                         self.model, batch, capacity, pool=pool
                     )
+            self.mixed_graphs = {}
+            self.mixed_tower_graphs = {}
+            if self.mixed_backbone:
+                from drama3.mixed_graph import MixedGraph
+
+                pool = torch.cuda.graph_pool_handle()
+                for size in (16, 32, 48, 64):
+                    if size > self.slots:
+                        continue
+                    self.mixed_tower_graphs[size] = DecodeGraph(
+                        self.model, size, first_frame=True, requests=self.device_requests
+                    )
+                    # Larger prompts/capacities use the established serial path.
+                    for capacity in range(256, 2049, 256):
+                        self.mixed_graphs[(size, capacity)] = MixedGraph(
+                            self.model, self.device_requests, size, 8, capacity, pool=pool
+                        )
             self.codec_graphs = streaming_codec(
                 self.codec, self.slots, dtype=getattr(torch, self.codec_precision)
             )
@@ -362,6 +382,15 @@ class Engine:
             while not self.stopping.is_set():
                 if self.audio_queue is not None:
                     self.audio_queue.drain(block=not active)
+                mixed_hidden = None
+                if self.mixed_backbone:
+                    live = []
+                    for request in active:
+                        if request.cancelled.is_set():
+                            free.append(request.slot)
+                        else:
+                            live.append(request)
+                    active = live
                 if free:
                     while len(waiting) < min(self.prefill_max_batch, len(free)):
                         try:
@@ -394,8 +423,36 @@ class Engine:
                         waiting = []
                     if arriving:
                         try:
-                            with self.measure("prefill", len(arriving)):
-                                self.prefill_many(arriving, prompts)
+                            total = sum(map(len, prompts))
+                            mixed_size = next(
+                                (size for size in self.mixed_tower_graphs if size >= len(active)),
+                                None,
+                            )
+                            capacity = ((total + 255) // 256) * 256
+                            mixed_graph = self.mixed_graphs.get((mixed_size, capacity))
+                            if (
+                                len(active) > 8
+                                and mixed_graph is not None
+                                and all(3 <= len(prompt) <= 512 for prompt in prompts)
+                            ):
+                                with self.measure("mixed_backbone", len(active)):
+                                    mixed_hidden, hidden = mixed_graph.run(
+                                        active, prompts, [r.slot for r in arriving]
+                                    )
+                                batch = next(
+                                    size for size in self.first_graphs if size >= len(arriving)
+                                )
+                                with self.measure("first_frame", len(arriving)):
+                                    self.finish_prefill(arriving, hidden[:batch], batch)
+                                # Advance old requests once, then admit the new ones.
+                                with self.measure("mixed_decode_tower", len(active)):
+                                    frames = self.mixed_tower_graphs[mixed_size].run(
+                                        active, mixed_hidden
+                                    )
+                                active = self.complete_decode(active, frames, free)
+                            else:
+                                with self.measure("prefill", len(arriving)):
+                                    self.prefill_many(arriving, prompts)
                         except Exception as error:
                             for request in arriving:
                                 request.emit(error)
@@ -411,7 +468,7 @@ class Engine:
                                 free.append(request.slot)
                             else:
                                 active.append(request)
-                if not active:
+                if mixed_hidden is not None or not active:
                     continue
                 live = []
                 for request in active:
@@ -438,34 +495,7 @@ class Engine:
                     graph = self.multistep_graphs.get((size, steps), graph)
                 with self.measure("decode", len(active)):
                     frames = graph.run(active)
-                if frames.ndim == 2:
-                    frames = frames.unsqueeze(0)
-                main_tokens = frames[:, :, 0].T.cpu().tolist()
-                survivors = []
-                emit = []
-                finished = []
-                for index, request in enumerate(active):
-                    done = False
-                    for main in main_tokens[index]:
-                        done = main == self.model.config.eos_token_id
-                        if not done:
-                            request.frame_count += 1
-                            request.position += 1
-                        done = done or request.frame_count >= request.max_frames
-                        if done:
-                            break
-                    if request.frame_count >= request.next_emit or done:
-                        emit.append(request)
-                    if done:
-                        finished.append(request)
-                        free.append(request.slot)
-                    else:
-                        survivors.append(request)
-                with self.measure("codec_submit" if self.async_codec else "codec", len(emit)):
-                    self.emit_audio_batch(emit)
-                for request in finished:
-                    self.finish_audio(request)
-                active = survivors
+                active = self.complete_decode(active, frames, free)
         except Exception as error:
             self.failure = error
             self.ready.set()
@@ -487,6 +517,36 @@ class Engine:
                 request.emit(self.failure or RuntimeError("Engine stopped"))
             while not self.pending.empty():
                 self.pending.get_nowait().emit(self.failure or RuntimeError("Engine stopped"))
+
+    def complete_decode(self, active, frames, free):
+        if frames.ndim == 2:
+            frames = frames.unsqueeze(0)
+        main_tokens = frames[:, :, 0].T.cpu().tolist()
+        emit = []
+        finished = []
+        survivors = []
+        for index, request in enumerate(active):
+            done = False
+            for main in main_tokens[index]:
+                done = main == self.model.config.eos_token_id
+                if not done:
+                    request.frame_count += 1
+                    request.position += 1
+                done = done or request.frame_count >= request.max_frames
+                if done:
+                    break
+            if request.frame_count >= request.next_emit or done:
+                emit.append(request)
+            if done:
+                finished.append(request)
+                free.append(request.slot)
+            else:
+                survivors.append(request)
+        with self.measure("codec_submit" if self.async_codec else "codec", len(emit)):
+            self.emit_audio_batch(emit)
+        for request in finished:
+            self.finish_audio(request)
+        return survivors
 
     def measure(self, stage, batch):
         return (
