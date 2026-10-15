@@ -19,6 +19,11 @@ def main():
     parser.add_argument("--batch", type=int, default=1)
     parser.add_argument("--max-length", type=int, default=512)
     parser.add_argument("--cold-gemv", action="store_true")
+    parser.add_argument(
+        "--int8-inputs",
+        action="store_true",
+        help="Diagnostic DP4A on large B1 input projections only",
+    )
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
     if args.cold_gemv:
@@ -38,6 +43,34 @@ def main():
 
         kernels.gemv = cold_gemv
     model = DramaModel(args.checkpoint, slots=2 * args.batch, max_length=args.max_length)
+    if args.int8_inputs:
+        import drama3.model as model_module
+        from drama3.int8_gemv import dp4a_gemv, quantize_rows
+
+        selected = []
+        for layer in model.backbone.layers:
+            selected.append(
+                layer.linear_attn.packed_input
+                if layer.layer_type == "linear_attention"
+                else layer.self_attn.packed_qkv
+            )
+        for layer in [*model.tower.shared_layers, *model.tower.residual_layers]:
+            selected.extend(
+                (
+                    layer.transformer_layer.attention.packed_qkv,
+                    layer.transformer_layer.feed_forward.packed_gate_up,
+                )
+            )
+        packed = {w.data_ptr(): quantize_rows(w) for w in selected}
+        original = model_module.linear
+
+        def projected(x, weight):
+            quantized = packed.get(weight.data_ptr()) if len(x) == 1 else None
+            if quantized is None:
+                return original(x, weight)
+            return dp4a_gemv(x, *quantized, rows=4 if weight.shape[0] >= 12288 else 8)
+
+        model_module.linear = projected
     graph = DecodeGraph(model, args.batch)
     graph.positions.fill_(300)
     graph.batch.plan(graph.slots.cpu().tolist(), [300] * args.batch)
@@ -58,6 +91,7 @@ def main():
         "moe_layout": model.moe_layout,
         "prefill_moe": model.prefill_moe,
         "packed_moe_projection": model.packed_moe_projection,
+        "experimental_int8_inputs": args.int8_inputs,
         "decode_ms": start.elapsed_time(end) / 50,
     }
     (args.output / "timing.json").write_text(json.dumps(result, indent=2) + "\n")
