@@ -93,10 +93,15 @@ def main():
                 state_dtype=str(dtype),
                 output_rrms=output_error,
                 state_rrms=state_error,
+                native_output_finite=bool(expected[mask].isfinite().all()),
+                flashinfer_output_finite=bool(actual[mask].isfinite().all()),
+                native_state_finite=bool(expected_state.isfinite().all()),
+                flashinfer_state_finite=bool(state[:batch].isfinite().all()),
                 passed=output_error < 0.003 and state_error < 0.003,
             )
-            row["fla_us"] = triton.testing.do_bench_cudagraph(native) * 1000
-            row["flashinfer_us"] = triton.testing.do_bench_cudagraph(flash) * 1000
+            if row["passed"]:
+                row["fla_us"] = triton.testing.do_bench_cudagraph(native) * 1000
+                row["flashinfer_us"] = triton.testing.do_bench_cudagraph(flash) * 1000
             results.append(row)
             args.output.write_text(json.dumps(results, indent=2) + "\n")
             print(json.dumps(row), flush=True)
