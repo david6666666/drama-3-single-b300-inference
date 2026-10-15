@@ -241,7 +241,32 @@ class Engine:
         self.packed_prefill = os.environ.get("DRAMA3_PACKED_PREFILL") == "1"
         self.batched_multistep = os.environ.get("DRAMA3_BATCHED_MULTISTEP") == "1"
         self.frame_pipeline = os.environ.get("DRAMA3_FRAME_PIPELINE") == "1"
-        self.frame_pipeline_counts = dict(eligible=0, capacity=0, admission=0, audio_boundary=0)
+        self.frame_pipeline_deferred_waiting = (
+            os.environ.get("DRAMA3_FRAME_PIPELINE_DEFERRED_WAITING") == "1"
+        )
+        self.frame_pipeline_counts = dict(
+            eligible=0,
+            capacity=0,
+            pending=0,
+            waiting_runnable=0,
+            waiting_deferred=0,
+            audio_boundary=0,
+        )
+        # These context counters overlap; keep them outside the decision denominator.
+        self.frame_pipeline_waiting_counts = dict(
+            waiting_only=0,
+            pending_only=0,
+            both=0,
+            neither=0,
+            runnable_active_threshold=0,
+            runnable_batch_threshold=0,
+            runnable_deadline=0,
+            eligible_with_deferred_waiting=0,
+            eligible_without_waiting=0,
+            deferred_waiting_size={},
+            deferred_waiting_age_ms_sum=0.0,
+            deferred_waiting_age_ms_max=0.0,
+        )
         self.mixed_backbone = os.environ.get("DRAMA3_MIXED_BACKBONE") == "1"
         self.mixed_span256 = os.environ.get("DRAMA3_MIXED_SPAN256") == "1"
         if self.mixed_backbone and (not self.packed_prefill or self.prefill_max_batch != 8):
@@ -558,17 +583,9 @@ class Engine:
                     steps = 4 if available >= 4 else 2 if available >= 2 else 1
                     graph = self.multistep_graphs.get((size, steps), graph)
                 if self.frame_pipeline:
-                    from drama3.frame_pipeline import pair_blocker
-
-                    blocker = pair_blocker(
-                        active,
-                        waiting=bool(waiting),
-                        pending=not self.pending.empty(),
-                        supported=size in self.pipeline_graphs,
-                    )
-                    self.frame_pipeline_counts[blocker or "eligible"] += 1
-                    if blocker is None:
-                        graph = self.pipeline_graphs[size]
+                    pipeline = self.select_frame_pipeline(active, waiting, free, size)
+                    if pipeline is not None:
+                        graph = pipeline
                 decode_metadata = (
                     dict(steps=graph.steps, padded_batch=graph.size)
                     if isinstance(self.profiler, TimelineProfiler)
@@ -604,13 +621,76 @@ class Engine:
             if self.profiler is not None:
                 self.profiler.save()
             if self.frame_pipeline:
-                print(json.dumps({"frame_pipeline_counts": self.frame_pipeline_counts}), flush=True)
+                print(
+                    json.dumps(
+                        dict(
+                            frame_pipeline_counts=self.frame_pipeline_counts,
+                            frame_pipeline_waiting_counts=self.frame_pipeline_waiting_counts,
+                        )
+                    ),
+                    flush=True,
+                )
             for request in active:
                 request.emit(self.failure or RuntimeError("Engine stopped"))
             for request in waiting:
                 request.emit(self.failure or RuntimeError("Engine stopped"))
             while not self.pending.empty():
                 self.pending.get_nowait().emit(self.failure or RuntimeError("Engine stopped"))
+
+    def select_frame_pipeline(self, active, waiting, free, size):
+        from drama3.frame_pipeline import pair_blocker
+
+        pending = not self.pending.empty()
+        supported = size in self.pipeline_graphs
+        waiting_age = time.monotonic() - waiting[0].queued_at if waiting else 0.0
+        # Recheck after cancellation cleanup: the earlier admission decision may
+        # have become runnable as time passed or the active roster shrank.
+        can_admit = bool(waiting and free)
+        active_ready = can_admit and len(active) < self.admission_min_running
+        batch_ready = can_admit and len(waiting) >= self.admission_min_batch
+        deadline_ready = can_admit and waiting_age >= self.admission_max_wait
+        runnable = active_ready or batch_ready or deadline_ready
+        blocker = pair_blocker(
+            active,
+            waiting=bool(waiting) and (not self.frame_pipeline_deferred_waiting or runnable),
+            pending=pending,
+            supported=supported,
+        )
+        if blocker == "admission":
+            blocker = (
+                "pending" if pending else "waiting_runnable" if runnable else "waiting_deferred"
+            )
+        self.frame_pipeline_counts[blocker or "eligible"] += 1
+        if supported:
+            context = self.frame_pipeline_waiting_counts
+            presence = (
+                "both"
+                if waiting and pending
+                else "waiting_only"
+                if waiting
+                else "pending_only"
+                if pending
+                else "neither"
+            )
+            context[presence] += 1
+            context["runnable_active_threshold"] += int(active_ready)
+            context["runnable_batch_threshold"] += int(batch_ready)
+            context["runnable_deadline"] += int(deadline_ready)
+            if blocker is None:
+                if waiting:
+                    context["eligible_with_deferred_waiting"] += 1
+                    sizes = context["deferred_waiting_size"]
+                    sizes[len(waiting)] = sizes.get(len(waiting), 0) + 1
+                    age_ms = waiting_age * 1000
+                    context["deferred_waiting_age_ms_sum"] += age_ms
+                    context["deferred_waiting_age_ms_max"] = max(
+                        context["deferred_waiting_age_ms_max"], age_ms
+                    )
+                else:
+                    context["eligible_without_waiting"] += 1
+        # If a deadline expires or a request arrives during this bounded pair,
+        # admission is checked after one additional model step, not at a fixed ms bound.
+        return self.pipeline_graphs[size] if blocker is None else None
 
     def complete_decode(self, active, frames, free):
         if frames.ndim == 2:
