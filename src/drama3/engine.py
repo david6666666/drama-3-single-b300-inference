@@ -237,6 +237,8 @@ class Engine:
         self.mixed_span256 = os.environ.get("DRAMA3_MIXED_SPAN256") == "1"
         if self.mixed_backbone and (not self.packed_prefill or self.prefill_max_batch != 8):
             raise ValueError("Mixed backbone currently requires packed prefill and batch limit 8")
+        if self.mixed_backbone and os.environ.get("DRAMA3_PREFILL_MOE") != "flashinfer":
+            raise ValueError("Mixed backbone requires explicit DRAMA3_PREFILL_MOE=flashinfer")
         if self.packed_prefill and self.max_length < 512:
             raise ValueError("Packed prefill currently requires a context of at least 512")
         if self.packed_prefill and os.environ.get("DRAMA3_PREFILL_MOE_TUNED") == "1":
