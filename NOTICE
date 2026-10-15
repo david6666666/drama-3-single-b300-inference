@@ -26,3 +26,8 @@ d6ed4f4844fbc41573ffc03247e5b2ff0a38d322 (PR #8933), Apache-2.0.
 Copyright contributors to the vLLM-Omni project. Modified imports use the
 Fish Speech model containers and direct Torch/Triton operators; no vLLM
 engine or serving pipeline is required. See file headers for adaptations.
+
+The optional BlockMajorK MoE byte permutation in src/drama3/model.py follows
+vLLM 0.31.0's Apache-2.0 flashinfer_utils.py (Copyright contributors to the
+vLLM project), using FlashInfer's public row-index helper. No vLLM runtime is
+imported for this operation.

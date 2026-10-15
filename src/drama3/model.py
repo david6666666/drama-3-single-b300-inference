@@ -11,7 +11,7 @@ import torch
 import torch.nn.functional as F
 from fish_speech.models.text2semantic.fish_omni.fp8_moe import quant_kernel, quantize_groups
 from fish_speech.models.text2semantic.fish_omni.model import FishOmniModel
-from flashinfer.fused_moe import trtllm_fp8_block_scale_moe
+from flashinfer.fused_moe import WeightLayout, trtllm_fp8_block_scale_moe
 from sglang.kernels.ops.attention.fla.chunk import chunk_gated_delta_rule
 
 from drama3.gdn import decode as gdn_decode
@@ -33,6 +33,20 @@ from drama3.kernels import (
 from drama3.kernels import (
     sample_partitioned as sample,
 )
+
+
+def blocked_moe_weight(weight):
+    """Shuffle unchanged FP8 bytes into TRT-LLM's BlockMajorK layout.
+
+    The batched row-gather follows vLLM's Apache-2.0 flashinfer_utils.py;
+    permutation indices come from FlashInfer. Scales retain their logical order.
+    """
+    from flashinfer.utils import get_shuffle_matrix_a_row_indices
+
+    experts, rows, columns = weight.shape
+    order = get_shuffle_matrix_a_row_indices(weight[0].view(torch.uint8), 64).to(weight.device)
+    blocks = weight.view(torch.uint8).view(experts, rows, columns // 128, 128)
+    return blocks.permute(0, 2, 1, 3)[:, :, order, :].contiguous().view(weight.dtype)
 
 
 class AttentionBatch:
@@ -130,6 +144,12 @@ class DramaModel:
         if self.state_precision not in ("float32", "bfloat16"):
             raise ValueError("DRAMA3_GDN_STATE_DTYPE must be float32 or bfloat16")
         state_dtype = getattr(torch, self.state_precision)
+        self.moe_layout = os.environ.get("DRAMA3_MOE_LAYOUT", "major_k")
+        self.prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE", "native")
+        if self.moe_layout not in ("major_k", "blocked"):
+            raise ValueError("DRAMA3_MOE_LAYOUT must be major_k or blocked")
+        if self.prefill_moe not in ("native", "flashinfer"):
+            raise ValueError("DRAMA3_PREFILL_MOE must be native or flashinfer")
         self.weights = FishOmniModel.from_pretrained(
             checkpoint,
             devices=["cuda:0"],
@@ -150,6 +170,11 @@ class DramaModel:
             experts.flashinfer_w13 = torch.cat((up, gate), dim=1)
             gate_scale, up_scale = experts.w13_scale_inv.chunk(2, dim=1)
             experts.flashinfer_w13_scale = torch.cat((up_scale, gate_scale), dim=1)
+            experts.flashinfer_w2 = experts.w2_weight
+            experts.flashinfer_shuffled = self.moe_layout == "blocked"
+            if experts.flashinfer_shuffled:
+                experts.flashinfer_w13 = blocked_moe_weight(experts.flashinfer_w13)
+                experts.flashinfer_w2 = blocked_moe_weight(experts.w2_weight)
             if layer.layer_type == "full_attention":
                 self.allocate_kv(index)
                 attn = layer.self_attn
@@ -251,6 +276,15 @@ class DramaModel:
                 "routers, heads, embeddings and FP32 GDN state are retained",
                 flush=True,
             )
+        tune_cache = os.environ.get("DRAMA3_AUTOTUNE_CACHE")
+        if tune_cache:
+            with flashinfer.autotune(
+                tune_mode=True,
+                cache=tune_cache,
+                tuning_buckets=(16, 32, 64, 128, 256, 512, 1024, 2048, 4096),
+            ):
+                dummy = torch.randn(4096, 2048, device="cuda", dtype=torch.bfloat16)
+                self.moe(dummy, self.backbone.layers[0].mlp, decode=True)
 
     def allocate_kv(self, index: int) -> None:
         shape = (self.slots, self.max_length, 2, 256)
@@ -406,10 +440,9 @@ class DramaModel:
         ).reshape(-1, 4096)
         return linear(out, layer.out_proj.weight)
 
-    @staticmethod
-    def moe(x: torch.Tensor, layer, decode: bool = False) -> torch.Tensor:
+    def moe(self, x: torch.Tensor, layer, decode: bool = False) -> torch.Tensor:
         experts = layer.experts
-        if len(x) <= 8 or not decode:
+        if len(x) <= 8 or (not decode and self.prefill_moe == "native"):
             if len(x) <= 8:
                 weights, indices = route(linear(x, layer.gate.weight))
             else:
@@ -429,7 +462,7 @@ class DramaModel:
                 hidden_states_scale=scales.T.contiguous(),
                 gemm1_weights=experts.flashinfer_w13,
                 gemm1_weights_scale=experts.flashinfer_w13_scale,
-                gemm2_weights=experts.w2_weight,
+                gemm2_weights=experts.flashinfer_w2,
                 gemm2_weights_scale=experts.w2_scale_inv,
                 num_experts=256,
                 top_k=8,
@@ -440,7 +473,11 @@ class DramaModel:
                 local_num_experts=256,
                 routed_scaling_factor=1.0,
                 routing_method_type=4,
-                use_shuffled_weight=False,
+                use_shuffled_weight=experts.flashinfer_shuffled,
+                weight_layout=(
+                    WeightLayout.BlockMajorK if experts.flashinfer_shuffled else WeightLayout.MajorK
+                ),
+                tune_max_num_tokens=4096,
             )
             if isinstance(routed, list):
                 routed = routed[0]
