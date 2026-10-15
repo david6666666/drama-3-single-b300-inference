@@ -97,7 +97,7 @@
     "unique_references": 126,
     "preparation_s": 11.838681191089563
   },
-  "candidate_sha": "5726cbae8076afafb9fe1b2ce53647393578bdf1",
+  "candidate_sha": "4f9718513c6189432d50fe659fa90c7ca2427d8d",
   "runtime_state_dtype": {
     "new_vllm": "bfloat16",
     "candidate": "float32"
@@ -108,7 +108,8 @@
     "candidate-225c6d8 C64 warmup returned one first-frame EOS/empty-audio error. Suite ineligible for acceptance.",
     "Batched GDN with padded neutral gates failed final-state numerical validation (6.37% RRMS). Replaced with true varlen boundaries.",
     "First varlen diagnostic reused dirty scratch slots as its reference states; corrected test isolation and re-ran.",
-    "FI fused MoE N32 layer19 exceeds the 3% operator RRMS diagnostic (3.72%); end-to-end quality is required, no bitwise/lossless claim."
+    "FI fused MoE N32 layer19 exceeds the 3% operator RRMS diagnostic (3.72%); end-to-end quality is required, no bitwise/lossless claim.",
+    "Dense FP8 prototype v2 is not promoted: CUTLASS scale-layout numerical failure at batch >1 and slower diagnostic latency. Default BF16 unaffected."
   ],
   "new_baseline_valid_requests": 4032,
   "new_baseline_failed_requests": 0,
@@ -123,5 +124,23 @@
     },
     "requests_per_group": 192,
     "complete": true
+  },
+  "candidate_valid_requests": 4032,
+  "candidate_failed_requests": 0,
+  "candidate_throughput_2x_gate": "FAIL",
+  "updated_utc": "2026-10-15T04:08:46.762441+00:00",
+  "candidate_quality": {
+    "c1": {
+      "wer_pct": 2.3255813953488373,
+      "sim": 62.054630955060325,
+      "complete": true,
+      "requests": 192
+    },
+    "c64": {
+      "wer_pct": 2.6719445818901533,
+      "sim": 61.85451542337736,
+      "complete": true,
+      "requests": 192
+    }
   }
 }

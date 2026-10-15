@@ -1,0 +1,146 @@
+[
+  {
+    "matrix": "gdn_input",
+    "batch": 1,
+    "relative_rmse": 0.026735100895166397,
+    "native_us": 5.369393844469816,
+    "fp8_us": 10.046698593757522,
+    "lossy": true
+  },
+  {
+    "matrix": "gdn_input",
+    "batch": 2,
+    "relative_rmse": 0.7259992361068726,
+    "native_us": 6.524626243529947,
+    "fp8_us": 13.470383162212034,
+    "lossy": true
+  },
+  {
+    "matrix": "gdn_input",
+    "batch": 8,
+    "relative_rmse": 0.1884680539369583,
+    "native_us": 5.631039987796198,
+    "fp8_us": 10.853525013450643,
+    "lossy": true
+  },
+  {
+    "matrix": "gdn_input",
+    "batch": 32,
+    "relative_rmse": 0.19586847722530365,
+    "native_us": 7.052104487956143,
+    "fp8_us": 13.947220819737208,
+    "lossy": true
+  },
+  {
+    "matrix": "gdn_input",
+    "batch": 64,
+    "relative_rmse": 0.1970050036907196,
+    "native_us": 7.042952423185832,
+    "fp8_us": 12.030408283074697,
+    "lossy": true
+  },
+  {
+    "matrix": "gdn_input",
+    "batch": 256,
+    "relative_rmse": 0.20391899347305298,
+    "native_us": 9.857215349417759,
+    "fp8_us": 20.52270421441996,
+    "lossy": true
+  },
+  {
+    "matrix": "gdn_output",
+    "batch": 1,
+    "relative_rmse": 0.026119321584701538,
+    "native_us": 2.637967995983465,
+    "fp8_us": 4.699718099967886,
+    "lossy": true
+  },
+  {
+    "matrix": "gdn_output",
+    "batch": 2,
+    "relative_rmse": 0.7314349412918091,
+    "native_us": 4.444948832194011,
+    "fp8_us": 16.11000379948754,
+    "lossy": true
+  },
+  {
+    "matrix": "gdn_output",
+    "batch": 8,
+    "relative_rmse": 0.2061084508895874,
+    "native_us": 4.488379835224838,
+    "fp8_us": 13.768081029256185,
+    "lossy": true
+  },
+  {
+    "matrix": "gdn_output",
+    "batch": 32,
+    "relative_rmse": 0.19864585995674133,
+    "native_us": 5.2986056464059015,
+    "fp8_us": 13.978443199784493,
+    "lossy": true
+  },
+  {
+    "matrix": "gdn_output",
+    "batch": 64,
+    "relative_rmse": 0.19718411564826965,
+    "native_us": 5.865022681593634,
+    "fp8_us": 15.992854890369234,
+    "lossy": true
+  },
+  {
+    "matrix": "gdn_output",
+    "batch": 256,
+    "relative_rmse": 0.19621098041534424,
+    "native_us": 6.235750947358473,
+    "fp8_us": 19.932790923726458,
+    "lossy": true
+  },
+  {
+    "matrix": "tower_ffn",
+    "batch": 1,
+    "relative_rmse": 0.026454048231244087,
+    "native_us": 5.549106845315897,
+    "fp8_us": 9.973430713350304,
+    "lossy": true
+  },
+  {
+    "matrix": "tower_ffn",
+    "batch": 2,
+    "relative_rmse": 0.7334275841712952,
+    "native_us": 6.522267072846188,
+    "fp8_us": 13.23785423036403,
+    "lossy": true
+  },
+  {
+    "matrix": "tower_ffn",
+    "batch": 8,
+    "relative_rmse": 0.2197636514902115,
+    "native_us": 5.365998339145741,
+    "fp8_us": 10.800744810372668,
+    "lossy": true
+  },
+  {
+    "matrix": "tower_ffn",
+    "batch": 32,
+    "relative_rmse": 0.19582699239253998,
+    "native_us": 6.234835595732915,
+    "fp8_us": 13.293038276915855,
+    "lossy": true
+  },
+  {
+    "matrix": "tower_ffn",
+    "batch": 64,
+    "relative_rmse": 0.19336646795272827,
+    "native_us": 6.280199884357527,
+    "fp8_us": 11.488653767493462,
+    "lossy": true
+  },
+  {
+    "matrix": "tower_ffn",
+    "batch": 256,
+    "relative_rmse": 0.19743461906909943,
+    "native_us": 9.62537479711278,
+    "fp8_us": 19.481693556968203,
+    "lossy": true
+  }
+]

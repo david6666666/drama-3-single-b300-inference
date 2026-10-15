@@ -6,8 +6,10 @@ A specialized, single-process streaming inference runtime for
 [fishaudio/drama-3](https://huggingface.co/fishaudio/drama-3), plus reproducible
 B300 comparisons with vLLM-Omni and SGLang-Omni.
 
-**Development status:** baseline measurement and candidate validation are in
-progress. Following the updated task, the target is at least **2× the new
+**Development status:** the new baseline and a full candidate comparison are
+complete; the 2× target is **not achieved**. The current BF16 candidate reaches
+1.487× at C1 and 0.638× at C64. See [measured results](docs/results.md).
+Optimization remains in progress. Following the updated task, the target is at least **2× the new
 vLLM-Omni throughput at each concurrency**, including merged
 [PR #8933](https://github.com/vllm-project/vllm-omni/pull/8933).
 The new baseline is frozen at `d6ed4f4844fbc41573ffc03247e5b2ff0a38d322`.

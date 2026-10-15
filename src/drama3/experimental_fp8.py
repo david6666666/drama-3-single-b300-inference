@@ -71,7 +71,7 @@ def linear(x, weight):
     output = gemm_fp8_nt_groupwise(
         activation,
         quantized,
-        activation_scales.T.contiguous().T,
+        activation_scales,
         scales,
         scale_major_mode="K",
         backend="cutlass",
