@@ -26,6 +26,7 @@ from drama3.kernels import (
     route,
     silu_mul,
     small_batch_moe,
+    table_projection,
 )
 from drama3.kernels import (
     sample_partitioned as sample,
@@ -176,6 +177,13 @@ class DramaModel:
             self.allocate_kv(40 + index)
             mlp = layer.transformer_layer.feed_forward
             mlp.packed_gate_up = torch.cat((mlp.w1.weight, mlp.w3.weight))
+            if index:
+                embedding = layer.semantic_embedding if layer.shared else layer.codebook_embedding
+                normed = self.norm(embedding.weight, layer.enorm)
+                layer.code_table = (
+                    normed.double() @ layer.eh_proj.weight[:, :2048].double().T
+                ).float()
+                layer.hidden_projection = layer.eh_proj.weight[:, 2048:].contiguous()
         self.candidates = (
             torch.cat(
                 (
@@ -452,14 +460,19 @@ class DramaModel:
         batch: AttentionBatch | None,
         prefill_sequences: int = 1,
     ) -> torch.Tensor:
-        embedding = layer.semantic_embedding if layer.shared else layer.codebook_embedding
-        embedded = torch.where(semantic[:, None], embedding(codes.clamp(0, 4095)), 0.0)
-        if extra is not None:
-            embedded = embedded + extra
-        hidden = linear(
-            torch.cat((self.norm(embedded, layer.enorm), self.norm(hidden, layer.hnorm)), dim=-1),
-            layer.eh_proj.weight,
-        )
+        if index:
+            hidden = table_projection(hidden, layer, codes, semantic)
+        else:
+            embedding = layer.semantic_embedding if layer.shared else layer.codebook_embedding
+            embedded = torch.where(semantic[:, None], embedding(codes.clamp(0, 4095)), 0.0)
+            if extra is not None:
+                embedded = embedded + extra
+            hidden = linear(
+                torch.cat(
+                    (self.norm(embedded, layer.enorm), self.norm(hidden, layer.hnorm)), dim=-1
+                ),
+                layer.eh_proj.weight,
+            )
         transformer = layer.transformer_layer
         mixed = self.attention(
             self.norm(hidden, transformer.attention_norm),

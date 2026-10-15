@@ -232,6 +232,45 @@ def gemv(x, weight, rows=4):
     return output
 
 
+@triton.jit
+def table_projection_kernel(X, W, NORM, TABLE, CODE, SEMANTIC, OUT, EPS: tl.constexpr):
+    rows = tl.program_id(0) * 4 + tl.arange(0, 4)
+    columns = tl.arange(0, 2048)
+    x = tl.load(X + columns).to(tl.float32)
+    norm = 1.0 + tl.load(NORM + columns).to(tl.float32)
+    normalized = (x * tl.rsqrt(tl.sum(x * x, 0) / 2048 + EPS) * norm).to(X.dtype.element_ty)
+    weights = tl.load(W + rows[:, None] * 2048 + columns[None, :]).to(tl.float32)
+    partial = tl.sum(weights * normalized.to(tl.float32)[None, :], 1)
+    code = tl.minimum(tl.maximum(tl.load(CODE), 0), 4095)
+    semantic = tl.load(SEMANTIC)
+    embedding = tl.load(TABLE + code * 2048 + rows)
+    tl.store(OUT + rows, partial + tl.where(semantic, embedding, 0.0))
+
+
+def table_projection(hidden, layer, codes, semantic):
+    if len(hidden) == 1:
+        output = torch.empty_like(hidden)
+        table_projection_kernel[(512,)](
+            hidden,
+            layer.hidden_projection,
+            layer.hnorm.weight,
+            layer.code_table,
+            codes,
+            semantic,
+            output,
+            layer.hnorm.eps,
+            num_warps=4,
+            enable_fp_fusion=False,
+        )
+        return output
+    import flashinfer
+
+    normalized = flashinfer.norm.gemma_rmsnorm(hidden, layer.hnorm.weight, layer.hnorm.eps)
+    partial = torch.mm(normalized, layer.hidden_projection.T, out_dtype=torch.float32)
+    embedding = layer.code_table[codes.clamp(0, 4095)]
+    return (partial + torch.where(semantic[:, None], embedding, 0.0)).to(hidden.dtype)
+
+
 def linear(x, weight):
     if x.shape[0] == 1 and x.dtype == torch.bfloat16:
         n, k = weight.shape

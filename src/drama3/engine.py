@@ -4,8 +4,10 @@ import asyncio
 import base64
 import hashlib
 import io
+import os
 import queue
 import threading
+from contextlib import nullcontext
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -17,6 +19,7 @@ from fish_speech.models.text2semantic.fish_omni.generate import build_drama3_pro
 
 from drama3.codec import load_codec, streaming_codec
 from drama3.model import AttentionBatch, DramaModel
+from drama3.profiling import StageProfiler
 from drama3.runtime_state import DeviceRequests
 
 
@@ -209,6 +212,8 @@ class Engine:
         self.stopping = threading.Event()
         self.ready = threading.Event()
         self.failure = None
+        profile_path = os.environ.get("DRAMA3_PROFILE_PATH")
+        self.profiler = StageProfiler(profile_path) if profile_path else None
         self.thread = threading.Thread(target=self.run, name="drama3-gpu", daemon=False)
         self.thread.start()
 
@@ -276,7 +281,8 @@ class Engine:
                             free.append(request.slot)
                     if arriving:
                         try:
-                            self.prefill_many(arriving, prompts)
+                            with self.measure("prefill", len(arriving)):
+                                self.prefill_many(arriving, prompts)
                         except Exception as error:
                             for request in arriving:
                                 request.emit(error)
@@ -310,7 +316,8 @@ class Engine:
                     available = min(request.next_emit, request.max_frames) - request.frame_count
                     steps = 4 if available >= 4 else 2 if available >= 2 else 1
                     graph = self.serial_graphs.get(steps, graph)
-                frames = graph.run(active)
+                with self.measure("decode", len(active)):
+                    frames = graph.run(active)
                 if frames.ndim == 2:
                     frames = frames.unsqueeze(0)
                 main_tokens = frames[:, :, 0].T.cpu().tolist()
@@ -334,7 +341,8 @@ class Engine:
                         free.append(request.slot)
                     else:
                         survivors.append(request)
-                self.emit_audio_batch(emit)
+                with self.measure("codec", len(emit)):
+                    self.emit_audio_batch(emit)
                 for request in finished:
                     request.emit(None)
                 active = survivors
@@ -342,10 +350,19 @@ class Engine:
             self.failure = error
             self.ready.set()
         finally:
+            if self.profiler is not None:
+                self.profiler.save()
             for request in active:
                 request.emit(self.failure or RuntimeError("Engine stopped"))
             while not self.pending.empty():
                 self.pending.get_nowait().emit(self.failure or RuntimeError("Engine stopped"))
+
+    def measure(self, stage, batch):
+        return (
+            self.profiler.measure(stage, batch)
+            if self.profiler is not None and batch
+            else nullcontext()
+        )
 
     def prepare_prompt(self, request: Request) -> torch.Tensor:
         codes = []

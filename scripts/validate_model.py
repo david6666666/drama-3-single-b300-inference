@@ -8,6 +8,7 @@ import torch
 import torch.nn.functional as F
 from fish_speech.models.text2semantic.fish_omni.layers import LayerContext
 
+from drama3.kernels import table_projection
 from drama3.model import AttentionBatch, DramaModel
 
 
@@ -98,6 +99,29 @@ def main():
                     actual = model.linear_attention(x, reference, index, slots, True)
                 compare(f"attention/layer{index}/decode{step}", actual, expected, results)
         for index, layer in enumerate([*model.tower.shared_layers, *model.tower.residual_layers]):
+            if index:
+                for semantic_value in (False, True):
+                    hidden = torch.randn(1, 2048, device="cuda", dtype=torch.bfloat16)
+                    ids = torch.tensor([123], device="cuda")
+                    mask = torch.tensor([semantic_value], device="cuda")
+                    embedding = (
+                        layer.semantic_embedding if layer.shared else layer.codebook_embedding
+                    )
+                    embedded = torch.where(mask[:, None], embedding(ids), 0.0)
+                    expected_projection = F.linear(
+                        torch.cat(
+                            (model.norm(embedded, layer.enorm), model.norm(hidden, layer.hnorm)),
+                            dim=-1,
+                        ),
+                        layer.eh_proj.weight,
+                    )
+                    compare(
+                        f"tower/layer{index}/table/semantic{semantic_value}",
+                        table_projection(hidden, layer, ids, mask),
+                        expected_projection,
+                        results,
+                        limit=0.01,
+                    )
             positions = torch.arange(32, device="cuda")
             slots = torch.zeros(32, dtype=torch.int64, device="cuda")
             x = torch.randn(32, 2048, dtype=torch.bfloat16, device="cuda")
