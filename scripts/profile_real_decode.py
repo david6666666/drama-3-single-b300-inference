@@ -27,9 +27,11 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch", type=int, default=64)
     parser.add_argument("--mxfp4-diagnostic", action="store_true")
+    parser.add_argument("--small-moe-diagnostic", action="store_true")
     args = parser.parse_args()
-    if args.batch % 8:
-        parser.error("Batch must be a multiple of eight")
+    if args.batch not in (1, 2, 4) and (args.batch < 8 or args.batch % 8):
+        parser.error("Batch must be 1, 2, 4 or a positive multiple of eight")
+    prefill_batch = min(args.batch, 8)
     args.output.mkdir(parents=True, exist_ok=False)
     data = args.corpus.read_bytes()
     samples = [json.loads(s) for s in data.splitlines()][: args.batch]
@@ -58,15 +60,16 @@ def main():
     model.moe = capture
     graph = DecodeGraph(model, args.batch, requests=device)
     model.moe = original
-    first = DecodeGraph(model, 8, first_frame=True, requests=device)
+    first = DecodeGraph(model, prefill_batch, first_frame=True, requests=device)
     span = max(128, triton.next_power_of_2(max(map(len, prompts))))
-    prefill = BatchedPrefillGraph(model, 8, span)
+    prefill = BatchedPrefillGraph(model, prefill_batch, span)
     for i, prompt in enumerate(prompts):
         history = F.pad(prompt[-16:, 0], (max(0, 16 - len(prompt)), 0), value=-1).to("cuda")
         device.initialize(i, prompt[-1].to("cuda"), history, len(prompt) - 1, 500)
-    for start in range(0, args.batch, 8):
-        hidden = prefill.run(prompts[start : start + 8], list(range(start, start + 8)))
-        first.run(requests[start : start + 8], hidden)
+    for start in range(0, args.batch, prefill_batch):
+        end = start + prefill_batch
+        hidden = prefill.run(prompts[start:end], list(range(start, end)))
+        first.run(requests[start:end], hidden)
     graph.run(requests)
     for _ in range(7):
         graph.graph.replay()
@@ -125,6 +128,15 @@ def main():
             row = dict(layer=index, **benchmark(model, model.backbone.layers[index].mlp, x))
             rows.append(row)
             (args.output / "mxfp4.json").write_text(json.dumps(rows, indent=2) + "\n")
+            print(json.dumps(row), flush=True)
+    if args.small_moe_diagnostic:
+        from diagnostic_small_moe import benchmark
+
+        rows = []
+        for index, x in activations.items():
+            row = dict(layer=index, **benchmark(model, model.backbone.layers[index].mlp, x))
+            rows.append(row)
+            (args.output / "small-moe.json").write_text(json.dumps(rows, indent=2) + "\n")
             print(json.dumps(row), flush=True)
 
 
