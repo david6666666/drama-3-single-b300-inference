@@ -8,7 +8,7 @@ from pathlib import Path
 import torch
 import triton
 
-from drama3.int8_gemv import int8_gemv, quantize_rows
+from drama3.int8_gemv import dp4a_gemv, int8_gemv, quantize_rows
 from drama3.kernels import linear
 from drama3.model import DramaModel
 
@@ -18,6 +18,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--dp4a", action="store_true")
     args = parser.parse_args()
     torch.manual_seed(42)
     model = DramaModel(args.checkpoint, slots=2, max_length=512)
@@ -51,7 +52,8 @@ def main():
         baseline_cold = triton.testing.do_bench(reference) * 1000
         for rows in (1, 2, 4, 8):
             for warps in (4, 8):
-                fn = partial(int8_gemv, x, quantized, scales, rows, warps)
+                kernel = dp4a_gemv if args.dp4a else int8_gemv
+                fn = partial(kernel, x, quantized, scales, rows, warps)
                 actual = fn()
                 error = float(
                     (
@@ -65,6 +67,7 @@ def main():
                     k=k,
                     rows=rows,
                     warps=warps,
+                    dp4a=args.dp4a,
                     rrms=error,
                     passed=bool(actual.isfinite().all()) and error < 0.015,
                     baseline_us=baseline,
