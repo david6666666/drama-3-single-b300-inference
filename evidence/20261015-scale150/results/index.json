@@ -173,6 +173,96 @@
       "bytes": 593
     },
     {
+      "path": "results/fused-moe-sync-control-gpu0/benchmark/c64-r0.jsonl.gz",
+      "sha256": "18b2dfc0ae2773d50685ab54922a9797a443b34ce44b4f02e345231e340bdce9",
+      "bytes": 247065
+    },
+    {
+      "path": "results/fused-moe-sync-control-gpu0/benchmark/c64-warmup.json",
+      "sha256": "0af0bc7ef330d4b6b8dea06c65eef8b07cf4518954f690675539204f44f8d470",
+      "bytes": 75010
+    },
+    {
+      "path": "results/fused-moe-sync-control-gpu0/benchmark/manifest.json",
+      "sha256": "d6c48465cdd543f57c2ad07e577907e7e7e990a39c14170fd4820214f9ca092b",
+      "bytes": 764
+    },
+    {
+      "path": "results/fused-moe-sync-control-gpu0/benchmark/summary.json",
+      "sha256": "116f4d7b06bf848775a5d005bf8632f281c32b8e5a7878b303e8198fd9875a88",
+      "bytes": 328
+    },
+    {
+      "path": "results/fused-moe-sync-control-gpu0/benchmark-command.json",
+      "sha256": "06e5639d7cef17417f5d73676e25effbec4fdf9aa5a6270c1a5732a355b637c5",
+      "bytes": 483
+    },
+    {
+      "path": "results/fused-moe-sync-control-gpu0/benchmark.log.gz",
+      "sha256": "cc8ca5de93ff474d5e2685923e9194dc27e69de5dcdcbbae8ddba63d86c6874a",
+      "bytes": 207
+    },
+    {
+      "path": "results/fused-moe-sync-control-gpu0/launch.json",
+      "sha256": "3652457bd2912f46ecd0a6ee6d56034f5162a084e0c0061dbeb8bad85e51ba6f",
+      "bytes": 3127
+    },
+    {
+      "path": "results/fused-moe-sync-control-gpu0/server.log.gz",
+      "sha256": "ab3d239392471f111c910c685c4e32e2a854574de8cbda2edc554ef0d21c48d2",
+      "bytes": 5028
+    },
+    {
+      "path": "results/fused-moe-sync-control-gpu0-quality.json.gz",
+      "sha256": "16e88bb88394abd5550d8b14de58231ca4c95d104621c51c91b5f06a3d7b3c79",
+      "bytes": 94619
+    },
+    {
+      "path": "results/fused-moe-sync-feasibility-gpu0/benchmark/c64-r0.jsonl.gz",
+      "sha256": "c38dc5c1179353e1ea8258a0808444a1a23bfb23155a27376d96a568d2396e4c",
+      "bytes": 247563
+    },
+    {
+      "path": "results/fused-moe-sync-feasibility-gpu0/benchmark/c64-warmup.json",
+      "sha256": "52ee8d5cc8eb73e980d4118d3a75d7f7883f7b79f597f327c4791cdfd6990f21",
+      "bytes": 74984
+    },
+    {
+      "path": "results/fused-moe-sync-feasibility-gpu0/benchmark/manifest.json",
+      "sha256": "d0f0cdcc5cdc394d8271474e93d64a37305398120af8e87a38a667e11e0564a9",
+      "bytes": 768
+    },
+    {
+      "path": "results/fused-moe-sync-feasibility-gpu0/benchmark/summary.json",
+      "sha256": "12292d85b033cb0a787cf5d40621f8a79de66f604c5ac4b0355c65dbf99a35a6",
+      "bytes": 330
+    },
+    {
+      "path": "results/fused-moe-sync-feasibility-gpu0/benchmark-command.json",
+      "sha256": "0d4d4fe313d342cce0e69e08ee11ccd1df3d06093763fbbc98aeeabd98d415e7",
+      "bytes": 487
+    },
+    {
+      "path": "results/fused-moe-sync-feasibility-gpu0/benchmark.log.gz",
+      "sha256": "927056a547c87c73c69f2be0601278f5a2b0c8ede32a73eeac626552e041ab6c",
+      "bytes": 206
+    },
+    {
+      "path": "results/fused-moe-sync-feasibility-gpu0/launch.json",
+      "sha256": "ac1c4c3986cfa5253c15a84d8984fd03157da952bdb54a9ebc08e02f999919ef",
+      "bytes": 3127
+    },
+    {
+      "path": "results/fused-moe-sync-feasibility-gpu0/server.log.gz",
+      "sha256": "bb83f173afb4b43cc6032078ba07e47e9fbd7715761048664dcab4e5196b61e6",
+      "bytes": 4916
+    },
+    {
+      "path": "results/fused-moe-sync-feasibility-gpu0-quality.json.gz",
+      "sha256": "8b594905b7569c739bab4429697603008a93510dedeb09cc60ed11c00ad8841e",
+      "bytes": 94553
+    },
+    {
       "path": "results/fused-table-feasibility/benchmark-command.json",
       "sha256": "67e34e51b773164aaaf389bc715f4fa3121e2f7f3094450f833108f14b7a7b23",
       "bytes": 478
@@ -301,6 +391,31 @@
       "path": "results/native-c4-fresh-control/summary.json",
       "sha256": "257858c5eb69becae03d620250db1dda93566fcbd96096e4de59033c7bd7b15b",
       "bytes": 327
+    },
+    {
+      "path": "results/native-moe-column-tiles-b64/moe.json",
+      "sha256": "e71d18b5f2968b7cf2f2ef7f08f90212b856676425e200e72feedfe4adc86b5d",
+      "bytes": 345
+    },
+    {
+      "path": "results/native-moe-column-tiles-b64/native-moe-tiles.json",
+      "sha256": "da44f38c7fe8d1daf295fa0fbb5d642e64b87de84c814d49da3359c981074f2f",
+      "bytes": 11469
+    },
+    {
+      "path": "results/native-moe-column-tiles-b64/timing.json",
+      "sha256": "01ed9226335cc45b43ddd40e9d177578b30463775051c9167cf01665d54e6bc8",
+      "bytes": 1457
+    },
+    {
+      "path": "results/native-moe-column-tiles-b64.log.gz",
+      "sha256": "c099b2cb04d9e123dfb8cf5ea2b164e177f951702ca2a83c241dee8b0accfb47",
+      "bytes": 1773
+    },
+    {
+      "path": "results/native-moe-column-tiles-summary.json",
+      "sha256": "8c335c1eae66ac2ea62037c0f4b934d9a7f676c3aa1c89a74e271d1865b7583d",
+      "bytes": 1341
     },
     {
       "path": "results/native-moe-no-pdl-b64.json",

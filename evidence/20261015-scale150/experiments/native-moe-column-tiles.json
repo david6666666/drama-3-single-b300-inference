@@ -1,0 +1,8 @@
+{
+  "source_sha": "c8bd8348d7d3935593090e6c8d312619eb59b528",
+  "hypothesis": "Larger N tiles may reduce CTA waves and overhead for sparse native FP8 expert GEMMs at B64.",
+  "isolated_variable": "Only native Fish GEMM N tile,warp count,pipeline stages; same all8 routes,128-channelFP8 scales,BF16gate/upboundary,FP32downorderedreduction.",
+  "controls": "GPU0 free,OMP4,realprefilledB64inputs,layers0/19/39; same native baseline and currentFlashInfer for contextualcomparison. No productiondispatch change, no cacheflush.",
+  "success": "Finite RRMS<0.003 vs native original before timings; retain difference vs currentFlashInfer separately; service and quality would require independent gates.",
+  "stop": "Numerical failure or fatal runtime/device error; resource-infeasible configurations are recorded and skipped."
+}

@@ -1,0 +1,8 @@
+{
+  "source_sha": "3a45588f9d95e3143cde22ef1372fe3692fa23d1",
+  "hypothesis": "Test the exact native input fusion with synchronous codec after the asynchronous controls failed quality; do not promote the failed async configuration.",
+  "isolated_variable": "DRAMA3_FUSED_MOE_INPUT=0 vs1; synchronous BF16 codec and packed prefill in both arms.",
+  "controls": "Now free formal physicalGPU0,OMP8,C64,1088requests,64warmup,capacity64,no refwarmup,no cacheflush,full saved audioandscoring; one feasibility perarm.",
+  "success": "Complete1088andconfirmedqualityWER<=2.950933601272712percent SIM>=61.88158934120563; any speed observation remains singlefeasibility notthree-repeatclaim.",
+  "stop": "Missing outputsorqualityfailure; preserve failures and do not rerun to pick lucky output."
+}

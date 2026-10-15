@@ -87,6 +87,8 @@ performance claim. The unchanged formal candidate remains in
 | Disable native MoE programmatic dependent launch | Exact codes and state; B64 8.448 → 8.529 ms | Slower in this diagnostic; retain the existing launch policy |
 | Native input fusion with async codec, fresh same-source control | GPU6: control 3751.27 frames/s, WER 8.047%, SIM 62.623; fused 3860.94 frames/s, WER 3.266%, SIM 63.716; all outputs scored | Both fail the C64 WER bound; reject this configuration despite exact operator/replay checks |
 | Packed prefill/codec concurrent replay | B1/F6, B4/F16 and B8/F64 codec work overlaps six real prompt prefills; all model/codec state, hidden output and PCM exact | No data race reproduced in these cases; dynamic service quality remains unresolved |
+| Native input fusion with synchronous codec | GPU0 same-source C64 control/fused: 3596.20 / 3643.99 frames/s; WER 1.608% / 1.742%, SIM 64.155 / 64.115; all 1088 outputs in each arm scored | Both single groups pass quality; small feasibility gain only, far below the throughput target |
+| Larger native FP8 expert column tiles | All 36 tested configurations preserve original native output exactly; wider tiles lose to the original N128 configuration, itself slower than current FlashInfer on these inputs | No serving dispatch change; original-native/current-FlashInfer differences are recorded separately |
 
 The original packed experiment was stopped at its numerical gate. A separately
 declared layer-isolation experiment retains the 0.03 operator threshold and
@@ -131,6 +133,14 @@ configuration is ready for selection. They are retained without outlier
 filtering or retries for a favorable sample. Exact decode/codec and
 prefill/codec replay checks did not reproduce a race; neither establishes the
 cause of the service failures. Synchronous codec isolates the next fusion test.
+
+That synchronous-codec pair at `3a45588` has now completed on the frozen physical
+GPU0. The control's TTFA p50/p95 is 150.844/345.124 ms and mean RTF 0.367997;
+the fused input path is 142.002/344.212 ms and 0.360835. All generated outputs
+were scored, including outliers. This is one feasibility repetition per arm,
+not a completed all-concurrency performance/quality campaign. The 3643.99
+frames/s result remains below the C64 baseline of 4510.27 and target of 6765.41.
+The fusion is opt-in; no winning default or successful README example is nominated.
 
 A separate 384-request event timeline at `1a88b79` excludes warmup using raw
 request timestamps. Mean active decode batch is 49.65; prefill event spans sum

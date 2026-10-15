@@ -1,0 +1,20 @@
+[
+  {
+    "layer": 0,
+    "unique_experts": 209,
+    "max_expert_tokens": 9,
+    "moe_us": 146.1356508559075
+  },
+  {
+    "layer": 19,
+    "unique_experts": 155,
+    "max_expert_tokens": 19,
+    "moe_us": 122.53299204508464
+  },
+  {
+    "layer": 39,
+    "unique_experts": 119,
+    "max_expert_tokens": 26,
+    "moe_us": 107.24030506761768
+  }
+]
