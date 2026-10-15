@@ -162,6 +162,41 @@ class PrefillGraph:
         return self.output.clone()
 
 
+class BatchedPrefillGraph:
+    def __init__(self, model, batch, span):
+        self.model, self.batch, self.span = model, batch, span
+        self.frames = torch.zeros(batch, span, 11, device="cuda", dtype=torch.int64)
+        self.frames[:, :, 0] = model.config.eos_token_id
+        self.slots = torch.arange(model.slots - batch, model.slots, device="cuda")
+        self.lengths = torch.full((batch,), span, device="cuda", dtype=torch.int64)
+        self.graph = torch.cuda.CUDAGraph()
+        stream = torch.cuda.Stream()
+        stream.wait_stream(torch.cuda.current_stream())
+        with torch.cuda.stream(stream):
+            for _ in range(2):
+                self.output = model.prefill_batched(self.frames, self.slots, self.lengths)
+        torch.cuda.current_stream().wait_stream(stream)
+        with torch.cuda.graph(self.graph):
+            self.output = model.prefill_batched(self.frames, self.slots, self.lengths)
+
+    def run(self, prompts, slots):
+        count = len(prompts)
+        if count > self.batch or count != len(slots):
+            raise ValueError("Prefill batch capacity exceeded or slot count differs")
+        lengths = [len(prompt) for prompt in prompts]
+        if min(lengths) < 3 or max(lengths) > self.span:
+            raise ValueError("Prompt does not fit the captured prefill bucket")
+        for index, prompt in enumerate(prompts):
+            self.frames[index, : len(prompt)].copy_(prompt)
+        padding = self.batch - count
+        self.slots.copy_(
+            torch.tensor(slots + list(range(self.model.slots - padding, self.model.slots)))
+        )
+        self.lengths.copy_(torch.tensor(lengths + [3] * padding))
+        self.graph.replay()
+        return self.output.clone()
+
+
 class Engine:
     def __init__(self, checkpoint: str, fish_source: str, slots: int = 64, max_length: int = 2048):
         if slots not in (1, 2, 4, 8, 16, 32, 64):
@@ -194,9 +229,11 @@ class Engine:
             for size in (1, 2, 4, 8, 16, 32, 64):
                 if size <= self.slots:
                     self.graphs[size] = DecodeGraph(self.model, size, requests=self.device_requests)
-            self.first_graph = DecodeGraph(
-                self.model, 1, first_frame=True, requests=self.device_requests
-            )
+            self.first_graphs = {
+                size: DecodeGraph(self.model, size, first_frame=True, requests=self.device_requests)
+                for size in (1, 2, 4, 8)
+                if size <= self.slots
+            }
             self.serial_graphs = {
                 steps: DecodeGraph(self.model, 1, steps=steps, requests=self.device_requests)
                 for steps in (2, 4)
@@ -206,31 +243,55 @@ class Engine:
                 for size in (128, 256, 512)
                 if size <= self.max_length
             }
+            self.batched_prefill_graphs = {
+                (batch, span): BatchedPrefillGraph(self.model, batch, span)
+                for batch in (2, 4, 8)
+                if batch <= self.slots
+                for span in (128, 256, 512)
+                if span <= self.max_length
+            }
             self.codec_graphs = streaming_codec(self.codec, self.slots)
             torch.cuda.synchronize()
             self.ready.set()
             free = list(range(self.slots))
             while not self.stopping.is_set():
                 if free:
-                    try:
-                        request = self.pending.get(timeout=0.01 if not active else 0)
-                    except queue.Empty:
-                        request = None
-                    if request is not None:
+                    arriving, prompts = [], []
+                    for _ in range(min(8, len(free))):
+                        try:
+                            request = self.pending.get(
+                                timeout=0.01 if not active and not arriving else 0
+                            )
+                        except queue.Empty:
+                            break
                         if request.cancelled.is_set():
                             continue
                         request.slot = free.pop()
                         try:
-                            self.prefill(request)
+                            prompt = self.prepare_prompt(request)
+                            arriving.append(request)
+                            prompts.append(prompt)
+                        except Exception as error:
+                            request.emit(error)
+                            free.append(request.slot)
+                    if arriving:
+                        try:
+                            self.prefill_many(arriving, prompts)
+                        except Exception as error:
+                            for request in arriving:
+                                request.emit(error)
+                            raise
+                        for request in arriving:
+                            if request.frame_count == 0:
+                                request.emit(ValueError("The model generated no acoustic frames"))
+                                free.append(request.slot)
+                                continue
                             if request.max_frames == 1:
                                 self.emit_audio(request)
                                 request.emit(None)
                                 free.append(request.slot)
                             else:
                                 active.append(request)
-                        except Exception as error:
-                            request.emit(error)
-                            free.append(request.slot)
                 if not active:
                     continue
                 live = []
@@ -286,7 +347,7 @@ class Engine:
             while not self.pending.empty():
                 self.pending.get_nowait().emit(self.failure or RuntimeError("Engine stopped"))
 
-    def prefill(self, request: Request) -> None:
+    def prepare_prompt(self, request: Request) -> torch.Tensor:
         codes = []
         texts = []
         if request.reference_codes is not None:
@@ -317,23 +378,37 @@ class Engine:
         )
         if len(frames) + request.max_frames > self.max_length:
             raise ValueError("Prompt plus output limit exceeds context capacity")
-        bucket = next((size for size in self.prefill_graphs if 3 <= len(frames) <= size), None)
-        hidden = (
-            self.prefill_graphs[bucket].run(frames, request.slot)
-            if bucket is not None
-            else self.model.prefill(frames, request.slot)
-        )
         request.position = len(frames) - 1
         request.last_frame = frames[-1].to("cuda")
         request.history = F.pad(frames[-16:, 0], (max(0, 16 - len(frames)), 0), value=-1).to("cuda")
         self.device_requests.initialize(
             request.slot, request.last_frame, request.history, request.position, request.max_frames
         )
-        first = self.first_graph.run([request], hidden)[0]
-        if first[0].item() == self.model.config.eos_token_id:
-            raise ValueError("The model generated no acoustic frames")
-        request.frame_count = 1
-        request.position += 1
+        return frames
+
+    def prefill_many(self, requests, prompts):
+        groups = {}
+        for request, frames in zip(requests, prompts, strict=True):
+            bucket = next((size for size in self.prefill_graphs if 3 <= len(frames) <= size), None)
+            # Long prompts use the eager single-sequence fallback.
+            key = bucket if bucket is not None else (None, request.slot)
+            groups.setdefault(key, []).append((request, frames))
+        for key, jobs in groups.items():
+            requests, frames = map(list, zip(*jobs, strict=True))
+            batch = 1 << (len(jobs) - 1).bit_length()
+            if batch > 1:
+                hidden = self.batched_prefill_graphs[(batch, key)].run(
+                    frames, [request.slot for request in requests]
+                )
+            elif isinstance(key, int):
+                hidden = self.prefill_graphs[key].run(frames[0], requests[0].slot)
+            else:
+                hidden = self.model.prefill(frames[0], requests[0].slot)
+            first = self.first_graphs[batch].run(requests, hidden)[:, 0].cpu().tolist()
+            for request, main in zip(requests, first, strict=True):
+                if main != self.model.config.eos_token_id:
+                    request.frame_count = 1
+                    request.position += 1
 
     def decode_audio(self, codes: torch.Tensor) -> torch.Tensor:
         with torch.autocast("cuda", dtype=torch.bfloat16):

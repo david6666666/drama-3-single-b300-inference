@@ -11,10 +11,8 @@ from fish_speech.models.text2semantic.fish_omni.fp8_moe import quant_kernel, qua
 from fish_speech.models.text2semantic.fish_omni.model import FishOmniModel
 from flashinfer.fused_moe import trtllm_fp8_block_scale_moe
 from sglang.kernels.ops.attention.fla.chunk import chunk_gated_delta_rule
-from sglang.kernels.ops.attention.fla.fused_recurrent import (
-    fused_recurrent_gated_delta_rule_packed_decode,
-)
 
+from drama3.gdn import decode as gdn_decode
 from drama3.gdn import prefill as gdn_prefill
 from drama3.kernels import (
     add_norm,
@@ -236,6 +234,7 @@ class DramaModel:
         positions: torch.Tensor,
         slots: torch.Tensor,
         batch: AttentionBatch | None,
+        prefill_sequences: int = 1,
     ) -> torch.Tensor:
         tower = index >= 40
         projected = linear(x, layer.wqkv.weight if tower else layer.packed_qkv)
@@ -279,17 +278,13 @@ class DramaModel:
         v = v.reshape(-1, 2, 256)
         keys[slots, positions] = k
         values[slots, positions] = v
-        out = (
-            F.scaled_dot_product_attention(
-                q.transpose(0, 1).unsqueeze(0),
-                k.transpose(0, 1).unsqueeze(0),
-                v.transpose(0, 1).unsqueeze(0),
-                is_causal=True,
-                enable_gqa=True,
-            )
-            .squeeze(0)
-            .transpose(0, 1)
-        )
+        out = F.scaled_dot_product_attention(
+            q.reshape(prefill_sequences, -1, 16, 256).transpose(1, 2),
+            k.reshape(prefill_sequences, -1, 2, 256).transpose(1, 2),
+            v.reshape(prefill_sequences, -1, 2, 256).transpose(1, 2),
+            is_causal=True,
+            enable_gqa=True,
+        ).transpose(1, 2)
         return linear(
             out.reshape(-1, 4096) * gate.sigmoid(),
             layer.wo.weight if tower else layer.o_proj.weight,
@@ -310,50 +305,53 @@ class DramaModel:
         if decode:
             mixed = conv_update(mixed, conv, layer.conv1d.weight, slots)
             out = torch.empty((len(slots), 1, 32, 128), dtype=x.dtype, device=x.device)
-            fused_recurrent_gated_delta_rule_packed_decode(
-                mixed_qkv=mixed,
-                a=a.contiguous(),
-                b=b.contiguous(),
-                A_log=layer.A_log_fp32,
-                dt_bias=layer.dt_bias_fp32,
-                scale=128**-0.5,
-                initial_state=state,
-                out=out,
-                ssm_state_indices=slots,
-                use_qk_l2norm_in_kernel=True,
-            )
+            gdn_decode(mixed, a, b, layer.A_log_fp32, layer.dt_bias_fp32, state, out, slots)
         else:
-            sequence = mixed.T.unsqueeze(0).contiguous()
+            sequences = len(valid_length) if valid_length is not None else 1
+            span = len(x) // sequences
+            sequence = mixed.reshape(sequences, span, 8192).transpose(1, 2).contiguous()
+            sequence_slots = slots[::span]
             if valid_length is None:
                 conv[slots[:1]] = F.pad(sequence, (max(0, 3 - x.shape[0]), 0))[..., -3:]
             else:
-                indices = valid_length - 3 + torch.arange(3, device=x.device)
-                conv[slots[:1]] = sequence.index_select(-1, indices)
+                indices = valid_length[:, None] - 3 + torch.arange(3, device=x.device)
+                conv[sequence_slots] = sequence.gather(-1, indices[:, None, :].expand(-1, 8192, -1))
             mixed = F.silu(F.conv1d(sequence, layer.conv1d.weight, padding=3, groups=8192))
-            mixed = mixed[..., : x.shape[0]].squeeze(0).T.contiguous()
+            mixed = mixed[..., :span].transpose(1, 2).reshape(-1, 8192).contiguous()
             q, k, v = mixed.split((2048, 2048, 4096), dim=-1)
-            q = q.reshape(1, -1, 16, 128)
-            k = k.reshape(1, -1, 16, 128)
-            v = v.reshape(1, -1, 32, 128)
+            q = q.reshape(sequences, span, 16, 128)
+            k = k.reshape(sequences, span, 16, 128)
+            v = v.reshape(sequences, span, 32, 128)
             decay = -layer.A_log.float().exp() * F.softplus(a.float() + layer.dt_bias.float())
             beta = b.float().sigmoid()
             if valid_length is not None:
                 out = gdn_prefill(
-                    q, k, v, decay.unsqueeze(0), beta.unsqueeze(0), state, slots, valid_length
+                    q,
+                    k,
+                    v,
+                    decay.reshape(sequences, span, 32),
+                    beta.reshape(sequences, span, 32),
+                    state,
+                    slots,
+                    valid_length,
                 )
             else:
+                decay = decay.reshape(sequences, span, 32)
+                beta = beta.reshape(sequences, span, 32)
                 out, _, _ = chunk_gated_delta_rule(
                     q,
                     k,
                     v,
-                    decay.unsqueeze(0),
-                    beta.unsqueeze(0),
+                    decay,
+                    beta,
                     initial_state=state,
-                    initial_state_indices=slots[:1],
+                    initial_state_indices=sequence_slots,
                     use_qk_l2norm_in_kernel=True,
                     inplace_update=True,
                 )
-        out = gated_norm(out, z.contiguous(), layer.norm.weight, layer.norm.eps).reshape(-1, 4096)
+        out = gated_norm(
+            out.reshape(-1, 1, 32, 128), z.contiguous(), layer.norm.weight, layer.norm.eps
+        ).reshape(-1, 4096)
         return linear(out, layer.out_proj.weight)
 
     @staticmethod
@@ -419,7 +417,15 @@ class DramaModel:
                 )
             )
             if layer.layer_type == "full_attention":
-                mixed = self.attention(normalized, layer.self_attn, index, positions, slots, batch)
+                mixed = self.attention(
+                    normalized,
+                    layer.self_attn,
+                    index,
+                    positions,
+                    slots,
+                    batch,
+                    len(valid_length) if valid_length is not None else 1,
+                )
             else:
                 mixed = self.linear_attention(
                     normalized, layer.linear_attn, index, slots, batch is not None, valid_length
@@ -444,6 +450,7 @@ class DramaModel:
         positions: torch.Tensor,
         slots: torch.Tensor,
         batch: AttentionBatch | None,
+        prefill_sequences: int = 1,
     ) -> torch.Tensor:
         embedding = layer.semantic_embedding if layer.shared else layer.codebook_embedding
         embedded = torch.where(semantic[:, None], embedding(codes.clamp(0, 4095)), 0.0)
@@ -461,6 +468,7 @@ class DramaModel:
             positions,
             slots,
             batch,
+            prefill_sequences,
         )
         normalized = add_norm(mixed, hidden, transformer.ffn_norm.weight, transformer.ffn_norm.eps)
         mixed = linear(
@@ -478,6 +486,7 @@ class DramaModel:
         batch: AttentionBatch | None,
         labels: torch.Tensor | None,
         history: torch.Tensor | None = None,
+        prefill_sequences: int = 1,
     ) -> torch.Tensor:
         if labels is None:
             self.sampling_step.add_(1)
@@ -503,6 +512,7 @@ class DramaModel:
                 positions,
                 slots,
                 batch,
+                prefill_sequences,
             )
         codes = [code]
         for index, (layer, head) in enumerate(
@@ -518,10 +528,32 @@ class DramaModel:
                 positions,
                 slots,
                 batch,
+                prefill_sequences,
             )
             if labels is None:
                 codes.append(sample(linear(hidden, head.weight), self.sampling_step, index + 2))
         return torch.stack((main, *codes), dim=-1)
+
+    @torch.inference_mode()
+    def prefill_batched(self, frames, request_slots, lengths):
+        sequences, span, _ = frames.shape
+        for conv, state in self.states.values():
+            conv.index_fill_(0, request_slots, 0)
+            state.index_fill_(0, request_slots, 0)
+        positions = torch.arange(span, device=frames.device).repeat(sequences)
+        slots = request_slots[:, None].expand(-1, span).reshape(-1)
+        hidden = self.backbone_forward(frames.reshape(-1, 11), positions, slots, None, lengths)
+        hidden = hidden.reshape(sequences, span, -1)
+        self.tower_forward(
+            hidden[:, :-1].reshape(-1, 2048),
+            frames[:, :-1].reshape(-1, 11),
+            positions.reshape(sequences, span)[:, :-1].reshape(-1),
+            slots.reshape(sequences, span)[:, :-1].reshape(-1),
+            None,
+            frames[:, 1:].reshape(-1, 11),
+            prefill_sequences=sequences,
+        )
+        return hidden[torch.arange(sequences, device=frames.device), lengths - 1]
 
     @torch.inference_mode()
     def prefill_padded(

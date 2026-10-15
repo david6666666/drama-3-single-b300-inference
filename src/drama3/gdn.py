@@ -12,21 +12,79 @@ from sglang.kernels.ops.attention.fla.chunk_delta_h import (
 from sglang.kernels.ops.attention.fla.chunk_fwd import chunk_gated_delta_rule_fwd_intra
 from sglang.kernels.ops.attention.fla.chunk_o import chunk_fwd_kernel_o
 from sglang.kernels.ops.attention.fla.cumsum import chunk_local_cumsum
+from sglang.kernels.ops.attention.fla.fused_recurrent import (
+    fused_recurrent_gated_delta_rule_packed_decode_kernel,
+)
 from sglang.kernels.ops.attention.fla.l2norm import l2norm_fwd
 
 
+def decode(mixed, a, b, log, bias, state, output, slots):
+    """Eight value rows per CTA improve occupancy while retaining FP32 state."""
+    fused_recurrent_gated_delta_rule_packed_decode_kernel[(16, len(slots) * 32)](
+        mixed_qkv=mixed,
+        a=a,
+        b=b,
+        A_log=log,
+        dt_bias=bias,
+        o=output,
+        h0=state,
+        ht=state,
+        ssm_state_indices=slots,
+        scale=128**-0.5,
+        stride_mixed_qkv_tok=mixed.stride(0),
+        stride_a_tok=a.stride(0),
+        stride_b_tok=b.stride(0),
+        stride_init_state_token=state.stride(0),
+        stride_final_state_token=state.stride(0),
+        stride_indices_seq=slots.stride(0),
+        H=16,
+        HV=32,
+        K=128,
+        V=128,
+        BK=128,
+        BV=8,
+        SOFTPLUS_THRESHOLD=20.0,
+        USE_QK_L2NORM_IN_KERNEL=True,
+        num_warps=1,
+        num_stages=3,
+    )
+
+
 def prefill(q, k, v, decay, beta, state, slots, length):
-    capacity = q.shape[1]
-    chunks = (capacity + 63) // 64
-    boundaries = torch.cat((torch.zeros_like(length), length))
+    sequences, span = q.shape[:2]
+    capacity = sequences * span
+    chunks_per_sequence = (span + 63) // 64
+    if sequences == 1:
+        boundaries = torch.cat((torch.zeros_like(length), length))
+        state_slots = slots[:1]
+        sequence_count = 1
+    else:
+        # Each padded row is two independent variable-length sequences: its
+        # real prefix and an ignored suffix in a scratch state slot. Masking
+        # gates alone changes the chunked recurrence's final-state rounding.
+        starts = torch.arange(sequences, device=q.device, dtype=torch.int64) * span
+        boundaries = torch.cat(
+            (
+                torch.stack((starts, starts + length), dim=1).flatten(),
+                torch.full((1,), capacity, device=q.device, dtype=torch.int64),
+            )
+        )
+        real_slots = slots[::span]
+        scratch = (real_slots + len(state) // 2) % len(state)
+        state_slots = torch.stack((real_slots, scratch), dim=1).flatten()
+        sequence_count = 2 * sequences
+        q, k, v, decay, beta = (
+            tensor.flatten(0, 1).unsqueeze(0) for tensor in (q, k, v, decay, beta)
+        )
+    chunks = sequence_count * chunks_per_sequence
     indices = torch.stack(
         (
-            torch.zeros(chunks, device=q.device, dtype=torch.int64),
-            torch.arange(chunks, device=q.device),
+            torch.arange(sequence_count, device=q.device).repeat_interleave(chunks_per_sequence),
+            torch.arange(chunks_per_sequence, device=q.device).repeat(sequence_count),
         ),
         dim=1,
     )
-    offsets = torch.cat((torch.zeros_like(length), (length + 63) // 64))
+    offsets = torch.arange(sequence_count + 1, device=q.device) * chunks_per_sequence
     q, k, v, decay, beta = (tensor.contiguous() for tensor in (q, k, v, decay, beta))
     q, k = l2norm_fwd(q), l2norm_fwd(k)
     g = chunk_local_cumsum(decay, chunk_size=64, cu_seqlens=boundaries, chunk_indices=indices)
@@ -35,7 +93,9 @@ def prefill(q, k, v, decay, beta, state, slots, length):
     )
     h = torch.empty((1, chunks, 32, 128, 128), dtype=k.dtype, device=k.device)
     updated = torch.empty_like(u)
-    chunk_gated_delta_rule_fwd_kernel_h_blockdim64[lambda meta: (128 // meta["BV"], 32)](
+    chunk_gated_delta_rule_fwd_kernel_h_blockdim64[
+        lambda meta: (128 // meta["BV"], sequence_count * 32)
+    ](
         k=k,
         v=u,
         w=w,
@@ -44,7 +104,7 @@ def prefill(q, k, v, decay, beta, state, slots, length):
         gk=None,
         h=h,
         initial_state=state,
-        initial_state_indices=slots[:1],
+        initial_state_indices=state_slots,
         stride_init_state=state.stride(0),
         cu_seqlens=boundaries,
         chunk_offsets=offsets,
@@ -91,4 +151,4 @@ def prefill(q, k, v, decay, beta, state, slots, length):
         num_warps=4,
         num_stages=2,
     )
-    return output
+    return output.reshape(sequences, span, 32, 128)

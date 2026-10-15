@@ -1,8 +1,8 @@
 # Drama 3 on one B300
 
 The target is a standalone streaming TTS runtime for `fishaudio/drama-3`.
-The acceptance target is at least twice the better measured vLLM-Omni and
-SGLang-Omni throughput at each concurrency, subject to output quality. Until
+The updated acceptance target is at least twice the measured vLLM-Omni
+throughput after PR #8933 at each concurrency, subject to output quality. Until
 the complete comparison exists, the target remains unverified.
 
 ## Baseline contract
@@ -11,11 +11,14 @@ the complete comparison exists, the target remains unverified.
 - Freeze both upstream main revisions, checkpoint revision, dependency lists,
   driver, CPU affinity, dataset and sampling before measuring.
 - Concurrency: 1, 2, 4, 8, 16, 32, 64. Closed-loop request replacement.
-- Native FP8 routed experts, BF16 remaining model weights, FP32 recurrent state.
+- Native FP8 routed experts and BF16 remaining model weights. The new upstream
+  deployment uses BF16 recurrent state; the candidate currently retains FP32.
 - Temperature 1.0, top-p 0.9, top-k 30, maximum 500 generated frames.
-- Seed-TTS English voice cloning. Both servers receive the same reference
-  waveform and transcript. Their APIs differ; vLLM-Omni does not expose the
-  pre-encoded VQ reference API used by the model-card H200 benchmark.
+- Seed-TTS English voice cloning. PR #8933 adds pre-encoded VQ references;
+  the new comparison sends both servers identical reference codes and transcript.
+  Codes are prepared once with the pinned Fish codec in FP32. The old inline
+  waveform tests are retained separately; inline vLLM requests encode references
+  per request, so warming them does not create a production pre-encoded baseline.
 - Report native default configuration first. Separately record any tuned
   baseline; compare the candidate against the stronger valid configuration.
 - Throughput is total returned acoustic frames divided by the measured batch
@@ -47,8 +50,7 @@ the complete comparison exists, the target remains unverified.
 
 Use upstream Seed-TTS WER and speaker-similarity evaluation on saved audio.
 Check numerical parity of each changed operator, prompt construction and
-state transitions. Sampling is stochastic and upstream vLLM codebook heads
-do not implement per-request seeds; identical audio bytes across frameworks
+state transitions. Sampling is stochastic; identical audio bytes across frameworks
 are not a valid universal quality criterion. Preserve audio for listening.
 
 Do not promote from microbenchmarks or partial concurrency coverage. Missing

@@ -1,0 +1,122 @@
+"""Check independent sequence state under padded batched prompt processing."""
+
+import argparse
+import json
+from pathlib import Path
+
+import torch
+
+from drama3.engine import BatchedPrefillGraph
+from drama3.model import DramaModel
+
+
+def rrms(a, b):
+    return float(
+        (
+            (a.float() - b.float()).square().mean() / b.float().square().mean().clamp_min(1e-12)
+        ).sqrt()
+    )
+
+
+@torch.inference_mode()
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--checkpoint", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    args = parser.parse_args()
+    model = DramaModel(args.checkpoint, slots=12, max_length=512)
+    torch.manual_seed(42)
+    lengths = torch.tensor([33, 91, 128, 3], device="cuda")
+    slots = torch.arange(4, device="cuda").repeat_interleave(128)
+    results = []
+    for index in (0, 1, 19, 39):
+        layer = model.backbone.layers[index]
+        x = torch.randn(4, 128, 2048, device="cuda", dtype=torch.bfloat16)
+        if layer.layer_type == "linear_attention":
+            conv, state = model.states[index]
+            conv.zero_()
+            state.zero_()
+            actual = model.linear_attention(
+                x.flatten(0, 1), layer.linear_attn, index, slots, False, lengths
+            ).reshape(4, 128, 2048)
+            for row, length in enumerate(lengths.tolist()):
+                conv[row + 4].zero_()
+                state[row + 4].zero_()
+                expected = model.linear_attention(
+                    x[row, :length],
+                    layer.linear_attn,
+                    index,
+                    torch.full((length,), row + 4, device="cuda"),
+                    False,
+                )
+                for name, a, b in (
+                    ("output", actual[row, :length], expected),
+                    ("conv", conv[row], conv[row + 4]),
+                    ("state", state[row], state[row + 4]),
+                ):
+                    result = {
+                        "layer": index,
+                        "row": row,
+                        "check": name,
+                        "relative_rmse": rrms(a, b),
+                    }
+                    results.append(result)
+                    args.output.write_text(json.dumps(results, indent=2) + "\n")
+                    print(json.dumps(result), flush=True)
+                    assert result["relative_rmse"] < 0.03, result
+    for index, attention in (
+        (3, model.backbone.layers[3].self_attn),
+        (40, model.tower.shared_layers[0].transformer_layer.attention),
+    ):
+        x = torch.randn(4, 128, 2048, device="cuda", dtype=torch.bfloat16)
+        actual = model.attention(
+            x.flatten(0, 1),
+            attention,
+            index,
+            torch.arange(128, device="cuda").repeat(4),
+            slots,
+            None,
+            prefill_sequences=4,
+        ).reshape(4, 128, 2048)
+        for row, length in enumerate(lengths.tolist()):
+            expected = model.attention(
+                x[row, :length],
+                attention,
+                index,
+                torch.arange(length, device="cuda"),
+                torch.full((length,), row + 4, device="cuda"),
+                None,
+            )
+            error = rrms(actual[row, :length], expected)
+            results.append(
+                {"layer": index, "row": row, "check": "attention", "relative_rmse": error}
+            )
+            assert error < 0.03, results[-1]
+    graph = BatchedPrefillGraph(model, 4, 128)
+    prompts = []
+    for length in lengths.tolist():
+        frames = torch.zeros(length, 11, dtype=torch.int64, device="cuda")
+        frames[:, 0] = torch.randint(1000, 10000, (length,), device="cuda")
+        prompts.append(frames)
+    actual = graph.run(prompts, [0, 1, 2, 3])
+    actual_states = {
+        index: (conv[:4].clone(), state[:4].clone())
+        for index, (conv, state) in model.states.items()
+    }
+    expected = model.prefill_batched(graph.frames, torch.arange(4, 8, device="cuda"), lengths)
+    errors = [("hidden", rrms(actual, expected))]
+    for index, (conv, state) in model.states.items():
+        errors.extend(
+            [
+                (f"conv{index}", rrms(actual_states[index][0], conv[4:8])),
+                (f"state{index}", rrms(actual_states[index][1], state[4:8])),
+            ]
+        )
+    assert all(error < 0.03 for _, error in errors), errors
+    results.append({"check": "batched_graph_vs_eager", "errors": errors, "pass": True})
+    args.output.write_text(json.dumps(results, indent=2) + "\n")
+    print("Batched prefill graph validation passed", flush=True)
+
+
+if __name__ == "__main__":
+    main()
