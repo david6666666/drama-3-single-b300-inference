@@ -93,6 +93,9 @@ def main() -> None:
         "gpu": args.gpu,
         "cpu_affinity": sorted(os.sched_getaffinity(0)),
         "omp_threads": 8,
+        "runtime_environment": {
+            key: value for key, value in environment.items() if key.startswith("DRAMA3_")
+        },
         "benchmark_client_sha256": hashlib.sha256(
             (Path(__file__).resolve().parents[1] / "src/drama3/benchmark.py").read_bytes()
         ).hexdigest(),

@@ -70,7 +70,12 @@ def create_app(checkpoint: str, fish_source: str, slots: int, max_length: int) -
         engine = app.state.engine
         if engine.failure is not None or not engine.ready.is_set():
             return JSONResponse({"status": "unavailable"}, status_code=503)
-        return {"status": "ready", "model": "fishaudio/drama-3", "slots": slots}
+        return {
+            "status": "ready",
+            "model": "fishaudio/drama-3",
+            "slots": slots,
+            "dense_precision": engine.model.dense_precision,
+        }
 
     @app.post("/v1/audio/speech")
     async def speech(payload: SpeechRequest):

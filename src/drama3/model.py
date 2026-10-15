@@ -4,6 +4,8 @@ Fish Speech supplies checkpoint containers and the prompt contract. No vLLM or
 SGLang engine, scheduler, model runner, or Omni pipeline is instantiated here.
 """
 
+import os
+
 import flashinfer
 import torch
 import torch.nn.functional as F
@@ -207,6 +209,44 @@ class DramaModel:
         self.cosine = angles.cos()
         self.sine = angles.sin()
         self.sampling_step = torch.zeros((), dtype=torch.int64, device="cuda")
+        self.dense_precision = "bfloat16"
+        if os.environ.get("DRAMA3_EXPERIMENTAL_DENSE_FP8") == "1":
+            from drama3.experimental_fp8 import register
+
+            matrices = []
+            for layer in self.backbone.layers:
+                if layer.layer_type == "full_attention":
+                    matrices.extend((layer.self_attn.packed_qkv, layer.self_attn.o_proj.weight))
+                else:
+                    matrices.extend(
+                        (layer.linear_attn.packed_input, layer.linear_attn.out_proj.weight)
+                    )
+                matrices.extend(
+                    (
+                        layer.mlp.shared_expert.packed_gate_up,
+                        layer.mlp.shared_expert.down_proj.weight,
+                    )
+                )
+            for index, layer in enumerate([*self.tower.shared_layers, *self.tower.residual_layers]):
+                block = layer.transformer_layer
+                matrices.extend(
+                    (
+                        block.attention.wqkv.weight,
+                        block.attention.wo.weight,
+                        block.feed_forward.packed_gate_up,
+                        block.feed_forward.w2.weight,
+                    )
+                )
+                if index == 0:
+                    matrices.append(layer.eh_proj.weight)
+            for weight in matrices:
+                register(weight)
+            self.dense_precision = "experimental_fp8"
+            print(
+                f"EXPERIMENTAL: {len(matrices)} dense projections use lossy FP8 weights; "
+                "routers, heads, embeddings and FP32 GDN state are retained",
+                flush=True,
+            )
 
     def allocate_kv(self, index: int) -> None:
         shape = (self.slots, self.max_length, 2, 256)

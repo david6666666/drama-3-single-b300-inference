@@ -4,6 +4,8 @@ import torch
 import triton
 import triton.language as tl
 
+from drama3 import experimental_fp8
+
 
 @triton.jit
 def conv_update_kernel(X, C, W, S, OUT, X_STRIDE: tl.constexpr, BLOCK: tl.constexpr):
@@ -272,6 +274,8 @@ def table_projection(hidden, layer, codes, semantic):
 
 
 def linear(x, weight):
+    if weight.data_ptr() in experimental_fp8.WEIGHTS:
+        return experimental_fp8.linear(x, weight)
     if x.shape[0] == 1 and x.dtype == torch.bfloat16:
         n, k = weight.shape
         rows = 1 if n <= 1024 else 2 if k == 4096 else 8 if n >= 12288 else 4
