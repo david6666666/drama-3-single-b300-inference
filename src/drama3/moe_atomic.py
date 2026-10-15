@@ -42,7 +42,7 @@ def down_kernel(
     acc = tl.zeros((M, 128), dtype=tl.float32)
     for block in range(4):
         x = tl.load(
-            X + pairs[:, None] * 512 + block * 128 + inner[None, :], pairs[:, None] < PAIRS, 0
+            X + pairs[:, None] * 512 + block * 128 + inner[None, :], pairs[:, None] < PAIRS, 0.0
         )
         w = tl.load(W + expert * 2048 * 512 + columns[None, :] * 512 + block * 128 + inner[:, None])
         xs = tl.load(XS + pairs * 4 + block, pairs < PAIRS, 0)
