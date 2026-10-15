@@ -30,6 +30,7 @@ def main():
     parser.add_argument("--mxfp8-diagnostic", action="store_true")
     parser.add_argument("--small-moe-diagnostic", action="store_true")
     parser.add_argument("--small-moe-backends", action="store_true")
+    parser.add_argument("--routing-distribution", action="store_true")
     parser.add_argument("--small-moe-tiles", choices=("default", "hot", "cold"), default="default")
     args = parser.parse_args()
     if args.batch not in (1, 2, 4) and (args.batch < 8 or args.batch % 8):
@@ -65,7 +66,7 @@ def main():
     activations = {}
 
     def capture(x, layer, decode=False):
-        if decode and indices[id(layer)] in (0, 19, 39):
+        if decode and (args.routing_distribution or indices[id(layer)] in (0, 19, 39)):
             activations[indices[id(layer)]] = x
         return original(x, layer, decode)
 
@@ -119,9 +120,14 @@ def main():
         prof.key_averages().table(sort_by="self_device_time_total", row_limit=40) + "\n"
     )
     rows = []
+    routing_rows = []
     for index, x in activations.items():
         layer = model.backbone.layers[index].mlp
-        router = linear(x, layer.gate.weight)
+        router = (
+            linear(x, layer.packed_input_projection)[:, 1024:1280]
+            if model.packed_moe_projection
+            else linear(x, layer.gate.weight)
+        )
         ids = router.float().topk(8, dim=-1).indices
         counts = torch.bincount(ids.flatten(), minlength=256)
         row = dict(
@@ -132,7 +138,27 @@ def main():
         )
         rows.append(row)
         print(json.dumps(row), flush=True)
+        if args.routing_distribution:
+            probabilities = router.float().softmax(-1)
+            weights = probabilities.gather(1, ids)
+            normalized = weights / weights.sum(-1, keepdim=True)
+            cumulative = normalized.cumsum(-1)
+            routing_rows.append(
+                dict(
+                    layer=index,
+                    unique_experts=row["unique_experts"],
+                    top8_total_probability_mean=float(weights.sum(-1).mean()),
+                    retained_mass_mean={
+                        str(k): float(cumulative[:, k - 1].mean()) for k in (1, 2, 4, 6, 8)
+                    },
+                    experts_for_99pct_mean=float(((cumulative < 0.99).sum(-1) + 1).float().mean()),
+                    ids=ids.cpu().tolist(),
+                    normalized_weights=normalized.cpu().tolist(),
+                )
+            )
     (args.output / "moe.json").write_text(json.dumps(rows, indent=2) + "\n")
+    if args.routing_distribution:
+        (args.output / "routing.json").write_text(json.dumps(routing_rows, indent=2) + "\n")
     if args.small_moe_backends:
         rows = []
         original_threshold = model.small_moe_max_batch
