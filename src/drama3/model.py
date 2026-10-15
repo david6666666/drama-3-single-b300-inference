@@ -33,6 +33,7 @@ from drama3.kernels import (
 from drama3.kernels import (
     sample_partitioned as sample,
 )
+from drama3.prefill_conv import prefill_conv
 
 
 def blocked_moe_weight(weight):
@@ -147,6 +148,9 @@ class DramaModel:
         self.moe_layout = os.environ.get("DRAMA3_MOE_LAYOUT", "major_k")
         self.prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE", "native")
         self.packed_moe_projection = os.environ.get("DRAMA3_PACKED_MOE_PROJECTION") == "1"
+        self.prefill_conv_backend = os.environ.get("DRAMA3_PREFILL_CONV", "torch")
+        if self.prefill_conv_backend not in ("torch", "triton"):
+            raise ValueError("DRAMA3_PREFILL_CONV must be torch or triton")
         if self.moe_layout not in ("major_k", "blocked"):
             raise ValueError("DRAMA3_MOE_LAYOUT must be major_k or blocked")
         if self.prefill_moe not in ("native", "flashinfer"):
@@ -406,15 +410,22 @@ class DramaModel:
         else:
             sequences = len(valid_length) if valid_length is not None else 1
             span = len(x) // sequences
-            sequence = mixed.reshape(sequences, span, 8192).transpose(1, 2).contiguous()
             sequence_slots = slots[::span]
-            if valid_length is None:
-                conv[slots[:1]] = F.pad(sequence, (max(0, 3 - x.shape[0]), 0))[..., -3:]
+            if self.prefill_conv_backend == "triton":
+                mixed = prefill_conv(
+                    mixed, layer.conv1d.weight, conv, sequence_slots, span, valid_length
+                )
             else:
-                indices = valid_length[:, None] - 3 + torch.arange(3, device=x.device)
-                conv[sequence_slots] = sequence.gather(-1, indices[:, None, :].expand(-1, 8192, -1))
-            mixed = F.silu(F.conv1d(sequence, layer.conv1d.weight, padding=3, groups=8192))
-            mixed = mixed[..., :span].transpose(1, 2).reshape(-1, 8192).contiguous()
+                sequence = mixed.reshape(sequences, span, 8192).transpose(1, 2).contiguous()
+                if valid_length is None:
+                    conv[slots[:1]] = F.pad(sequence, (max(0, 3 - x.shape[0]), 0))[..., -3:]
+                else:
+                    indices = valid_length[:, None] - 3 + torch.arange(3, device=x.device)
+                    conv[sequence_slots] = sequence.gather(
+                        -1, indices[:, None, :].expand(-1, 8192, -1)
+                    )
+                mixed = F.silu(F.conv1d(sequence, layer.conv1d.weight, padding=3, groups=8192))
+                mixed = mixed[..., :span].transpose(1, 2).reshape(-1, 8192).contiguous()
             q, k, v = mixed.split((2048, 2048, 4096), dim=-1)
             q = q.reshape(sequences, span, 16, 128)
             k = k.reshape(sequences, span, 16, 128)
