@@ -4,34 +4,7 @@ This describes the implemented Python runtime at the 2026-10-16 snapshot.
 There is no Rust engine in this repository. Source features, defaults and
 measured profiles are distinct; the latest all-concurrency target has not passed.
 
-```mermaid
-flowchart TD
-    Client["Client: text + reference audio or codes"] --> API["FastAPI /v1/audio/speech"]
-    subgraph Host["One process: Python control and delivery"]
-        API --> Queue["Bounded request queue"]
-        Queue --> Engine["Engine: admission, batching, slot lifecycle"]
-        Engine --> Prompt["Fish prompt builder + reference preparation"]
-        Delivery["PCM delivery queue / optional delivery thread"]
-    end
-    subgraph GPU["One B300: persistent state and captured execution"]
-        State["Per-slot KV, GDN, convolution, codes and sampling history"]
-        Prefill["Prompt prefill; optional packed / mixed graph"]
-        Backbone["40-layer backbone: attention + GDN + native top-8 MoE"]
-        Tower["Audio tower + sampling: 10 acoustic codebooks"]
-        Codec["Streaming DAC: persistent convolution / KV history"]
-        Prompt --> Prefill
-        Prefill --> Tower
-        Engine --> Backbone
-        Backbone --> Tower
-        State <--> Backbone
-        State <--> Prefill
-        Tower --> State
-        Tower --> Codec
-    end
-    Codec --> Delivery
-    Delivery --> PCM["44.1 kHz mono 16-bit PCM stream"]
-    PCM --> Client
-```
+![Drama 3 single-B300 architecture](figures/architecture.svg)
 
 ## Module ownership
 

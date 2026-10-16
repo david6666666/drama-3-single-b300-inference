@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title description">
+  <title id="title">Drama 3 · Single B300 architecture</title>
+  <desc id="description">A Python HTTP and CLI serving runtime on one GPU. The engine prepares prompts, admits requests and owns persistent request state. Model execution uses a 40-layer attention and GDN backbone with native FP8 top-8 experts, BF16 projections, CUDA Graphs and an audio tower producing ten codebooks. A stateful DAC decodes new frames into streaming PCM. Mixed execution, frame pipelining and asynchronous codec delivery are opt-in. Dependencies include Fish Speech, FlashInfer, FLA and Triton.</desc>
+  <!-- Editable repository-native diagram. Source anchors: server.py main/create_app;
+       engine.py Engine/DecodeGraph; model.py backbone_forward/tower_forward;
+       runtime_state.py DeviceRequests; codec.py streaming_codec; audio_queue.py AudioQueue.
+       Amber modules are opt-in. No Rust engine or new performance claim is implied. -->
+  <defs>
+    <filter id="card-shadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#1b304c" flood-opacity="0.09"/>
+    </filter>
+    <style>
+      text { font-family: 'Inter', 'Noto Sans', Arial, sans-serif; fill: #1d2b43; }
+      .title { font-size: 34px; font-weight: 750; letter-spacing: -0.8px; }
+      .subtitle { font-size: 14px; fill: #64748b; }
+      .section { font-size: 21px; font-weight: 700; letter-spacing: -0.3px; }
+      .module { font-size: 16px; font-weight: 650; }
+      .small-module { font-size: 14px; font-weight: 650; }
+      .detail { font-size: 13px; fill: #4b607a; }
+      .minor { font-size: 12px; fill: #64748b; }
+      .dep-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #64748b; }
+      .dep-text { font-size: 14px; font-weight: 600; }
+      .blue { fill: #eaf2ff; stroke: #94baf0; stroke-width: 1.3; }
+      .green { fill: #eaf6f1; stroke: #91c8b3; stroke-width: 1.3; }
+      .purple { fill: #f0ebff; stroke: #b59ae9; stroke-width: 1.3; }
+      .amber { fill: #fff6e3; stroke: #e2b253; stroke-width: 1.3; }
+    </style>
+  </defs>
+
+  <rect width="1280" height="720" fill="#f5f7fb"/>
+  <text x="640" y="50" text-anchor="middle" class="title">Drama 3 · Single B300</text>
+  <text x="640" y="77" text-anchor="middle" class="subtitle">Python serving engine · persistent GPU state · streaming audio</text>
+
+  <g id="entry-points">
+    <rect x="40" y="100" width="1200" height="116" rx="17" fill="#ffffff" stroke="#d4ddeb" stroke-width="1.4"/>
+    <text x="640" y="130" text-anchor="middle" class="section">Entry Points</text>
+    <rect x="125" y="149" width="477" height="47" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="363.5" y="178" text-anchor="middle" class="module">HTTP · POST /v1/audio/speech</text>
+    <rect x="678" y="149" width="477" height="47" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="916.5" y="178" text-anchor="middle" class="module">CLI · python -m drama3.server</text>
+  </g>
+
+  <g id="engine-and-scheduling">
+    <rect x="40" y="240" width="365" height="332" rx="18" fill="#f8fbff" stroke="#a9c8f2" stroke-width="1.4"/>
+    <text x="222.5" y="272" text-anchor="middle" class="section">Engine &amp; Scheduling</text>
+
+    <rect x="58" y="296" width="329" height="51" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="222.5" y="317" text-anchor="middle" class="module">Python Engine</text>
+    <text x="222.5" y="337" text-anchor="middle" class="detail">Single GPU-owner thread</text>
+
+    <rect x="58" y="360" width="158" height="50" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="137" y="381" text-anchor="middle" class="small-module" style="font-size:13px">Admission &amp; batching</text>
+    <text x="137" y="400" text-anchor="middle" class="detail">Bounded queue</text>
+    <rect x="229" y="360" width="158" height="50" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="308" y="381" text-anchor="middle" class="small-module">Request slots</text>
+    <text x="308" y="400" text-anchor="middle" class="detail">Cancel · EOS · reuse</text>
+
+    <rect x="58" y="423" width="329" height="50" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="222.5" y="444" text-anchor="middle" class="module">Prompt &amp; reference preparation</text>
+    <text x="222.5" y="463" text-anchor="middle" class="detail">Text + reference audio or encoded codes</text>
+
+    <rect x="58" y="486" width="329" height="67" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="222.5" y="510" text-anchor="middle" class="module">Persistent GPU request state</text>
+    <text x="222.5" y="533" text-anchor="middle" class="detail">KV · GDN · conv · codes · history</text>
+  </g>
+
+  <g id="model-execution">
+    <rect x="425" y="240" width="430" height="332" rx="18" fill="#f6fbf8" stroke="#9ccfba" stroke-width="1.4"/>
+    <text x="640" y="272" text-anchor="middle" class="section">Model Execution</text>
+
+    <rect x="444" y="296" width="392" height="78" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="640" y="320" text-anchor="middle" class="module">40-layer backbone</text>
+    <text x="640" y="342" text-anchor="middle" class="detail">30 GDN + 10 full-attention layers</text>
+    <text x="640" y="362" text-anchor="middle" class="detail">Native FP8 experts · all selected top-8 retained</text>
+
+    <rect x="444" y="387" width="189" height="49" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="538.5" y="408" text-anchor="middle" class="small-module">BF16 projections</text>
+    <text x="538.5" y="426" text-anchor="middle" class="detail">Norms · residuals</text>
+    <rect x="647" y="387" width="189" height="49" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="741.5" y="408" text-anchor="middle" class="small-module">CUDA Graphs</text>
+    <text x="741.5" y="426" text-anchor="middle" class="detail">Prefill / decode buckets</text>
+
+    <rect x="444" y="449" width="392" height="61" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="640" y="471" text-anchor="middle" class="module">Audio tower &amp; sampling</text>
+    <text x="640" y="491" text-anchor="middle" class="detail">4 shared + 9 residual layers · 10 acoustic codebooks</text>
+
+    <rect x="444" y="523" width="392" height="30" rx="9" class="amber"/>
+    <text x="640" y="543" text-anchor="middle" class="detail" style="fill:#7d5b18">Opt-in: mixed backbone · frame pipeline</text>
+  </g>
+
+  <g id="streaming-audio">
+    <rect x="875" y="240" width="365" height="332" rx="18" fill="#fbf9ff" stroke="#bca6e8" stroke-width="1.4"/>
+    <text x="1057.5" y="272" text-anchor="middle" class="section">Streaming Audio</text>
+
+    <rect x="893" y="296" width="329" height="74" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="1057.5" y="320" text-anchor="middle" class="module">Stateful streaming DAC</text>
+    <text x="1057.5" y="342" text-anchor="middle" class="detail">Decode only newly generated frames</text>
+    <text x="1057.5" y="360" text-anchor="middle" class="detail">Persistent convolution / KV history</text>
+
+    <rect x="893" y="383" width="329" height="51" rx="11" class="blue" filter="url(#card-shadow)"/>
+    <text x="1057.5" y="404" text-anchor="middle" class="module">Codec CUDA Graphs</text>
+    <text x="1057.5" y="424" text-anchor="middle" class="detail">Frame and batch buckets</text>
+
+    <rect x="893" y="447" width="329" height="57" rx="11" class="amber" filter="url(#card-shadow)"/>
+    <text x="1057.5" y="469" text-anchor="middle" class="small-module">Opt-in: async codec + delivery</text>
+    <text x="1057.5" y="490" text-anchor="middle" class="detail" style="fill:#7d5b18">Private capture stream · event ordering</text>
+
+    <rect x="893" y="517" width="329" height="36" rx="10" class="blue" filter="url(#card-shadow)"/>
+    <text x="1057.5" y="540" text-anchor="middle" class="small-module">44.1 kHz · mono · 16-bit PCM</text>
+  </g>
+
+  <g id="dependencies">
+    <rect x="40" y="596" width="365" height="65" rx="12" class="green" filter="url(#card-shadow)"/>
+    <text x="222.5" y="618" text-anchor="middle" class="dep-label">EXECUTION RUNTIME</text>
+    <text x="222.5" y="643" text-anchor="middle" class="dep-text">Python · PyTorch · CUDA</text>
+
+    <rect x="425" y="596" width="430" height="65" rx="12" class="green" filter="url(#card-shadow)"/>
+    <text x="640" y="618" text-anchor="middle" class="dep-label">MODEL &amp; OPERATOR DEPENDENCIES</text>
+    <text x="640" y="643" text-anchor="middle" class="dep-text">Fish Speech · FlashInfer · FLA · Triton</text>
+
+    <rect x="875" y="596" width="365" height="65" rx="12" class="green" filter="url(#card-shadow)"/>
+    <text x="1057.5" y="618" text-anchor="middle" class="dep-label">HTTP SERVER</text>
+    <text x="1057.5" y="643" text-anchor="middle" class="dep-text">FastAPI · Uvicorn</text>
+  </g>
+
+  <g id="legend">
+    <rect x="48" y="685" width="17" height="12" rx="3" class="blue"/>
+    <text x="75" y="696" class="minor">Core runtime</text>
+    <rect x="207" y="685" width="17" height="12" rx="3" class="green"/>
+    <text x="234" y="696" class="minor">Imported dependencies</text>
+    <rect x="427" y="685" width="17" height="12" rx="3" class="amber"/>
+    <text x="454" y="696" class="minor">Opt-in · not enabled by the bare serve command</text>
+    <text x="1232" y="696" text-anchor="end" class="minor">One process · one B300</text>
+  </g>
+</svg>
