@@ -1,0 +1,111 @@
+{
+  "status": "FROZEN_SINGLE_EXPERT_EXACT_GATE",
+  "owner": {
+    "kernel_schedule_launch": "/root/vllm_scaling",
+    "validation_resources": "/root/engine_audit",
+    "activation_shared_dsl": "/root/mixed_model"
+  },
+  "hypothesis": "An explicit four-CTA native FC1\u2192activation\u2192FC2 schedule can preserve all existing E4M3/FP32/BF16 boundaries, ordered top8 finalization, and ownership while retaining intermediate values within the cluster. No speed claim follows from component or chain exactness alone.",
+  "fixed": {
+    "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+    "checkpoint": "e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+    "topk": 8,
+    "experts": 256,
+    "hidden": 2048,
+    "intermediate": 512,
+    "mma": [
+      64,
+      8,
+      32
+    ],
+    "scale_K_block": 128,
+    "limits": {
+      "per_CTA_total_shared_bytes": 81920,
+      "local_spill_bytes": 0,
+      "stack_bytes": 0,
+      "actual_shared_bytes": 79488
+    },
+    "native_finalizer": "Installed FI trtllm_moe_run_finalize; original BF16 router weights and expanded rank order0..7; no BF16 partial reductions",
+    "no_new_quantization": true
+  },
+  "single_gate": {
+    "layer": 0,
+    "expert": 205,
+    "oracle": "expert-metadata-rebase/oracle-layer0-real.pt",
+    "valid_rows_order": [
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
+    "inactive_q_and_scale": "zero",
+    "boundaries": [
+      "fc1_bytes[8,1024]E4M3",
+      "fc1_sf[8,8]FP32(block,token)",
+      "act_bytes[8,512]E4M3",
+      "act_sf[4,8]FP32(block,token)",
+      "fc2[8,2048]BF16"
+    ],
+    "finalizer_scope": "Oracle-assisted: candidate only replaces selected tested branches in otherwise native full FC2. Must never label this full MoE candidate."
+  },
+  "full_gate": {
+    "after_single_pass_only": true,
+    "layers": [
+      0,
+      19,
+      39
+    ],
+    "scenarios": [
+      "left_only",
+      "real",
+      "right_only",
+      "rows_reversed",
+      "worst_global288"
+    ],
+    "maximum_padded_rows": 2304,
+    "maximum_tiles": 288,
+    "metadata": "Original native expanded\u2192permuted mapping, expert tiles, absolute mn_limit, ncta and padded; no rerouting or sorted top8",
+    "scales": "Flat capacity buffers; actual scale stride is runtime padded, not maximum capacity",
+    "graph": "One retained candidate+native-finalizer graph perlayer, same addresses across allfive metadata and activation distributions"
+  },
+  "gates_in_order": [
+    "CPU15oracle metadata/boundary/orderedtop8 contract and partial0..8 fixture checks",
+    "Compile fullchain CPU/AOT, actual CUlaunchConfig dynamic+static shared\u226480KiB, no local/stack spill, actual cluster4 evidence",
+    "Freeze candidate/helper/harness/source/checkpoint/oracle/CUBIN/launch/protocol hashes before GPU",
+    "Single real8rows eager exact first, then graph andpartialcases, original inputs/weights/RNG/guards unchanged",
+    "Full15nativeoracles only after single exact, allfive boundaries and original finalizer exact, padding/tail untouched, samegraph metadata reuse",
+    "No timing until separately declared fullchain resource/correctness protocol passes"
+  ],
+  "lifecycle": [
+    "FC1 producer/MMA/epilogue complete before shared activation reads",
+    "Shared activation helper owns no hidden CTA barrier or allocation",
+    "CTA publish then cluster publish before rank gather",
+    "All remote readers finish before source shared storage reuse",
+    "Debug boundaries have distinct durable storage; no overwritten scratch can hide prior-stage differences",
+    "Outer single32-column TMEM allocation, one relinquish, six drained stages borrow, one final dealloc.",
+    "Native1024aligned scratch base; actual launch dynamic78464 plus static1024.",
+    "Explicit STATIC tile rank+4*phase, supported endpointstride1/nonFork only."
+  ],
+  "stop": "Preserve first mismatch and tensors, stop promotion. No tolerance changes, checker permutations, expert dropping, extra quantization or hidden fallback.",
+  "limitations": [
+    "Exact component gates do not prove chain correctness or speed.",
+    "Four physical CTAs retain native group1 MMA and all original arithmetic boundaries.",
+    "Native dynamic register allocations retain the one-CTA-per-SM register-capacity limitation; shared resource fit is not occupancy evidence.",
+    "Debug global boundary exports remain and cannot be timed as a production candidate.",
+    "The original finalizer comparison is oracle-assisted for the other255 experts.",
+    "The fullrouting gate in the template describes future work, not code implemented or authorized in this frozen gate."
+  ],
+  "gpu_uuid": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "candidate_cubin_sha256": "9eb4c4f83850b3743118c50628631dfdcf2707fb607306c377ad9a743ceab0b1",
+  "launch_commands": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python /home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/launch_chain_gate.py"
+  ],
+  "timings_allowed": false,
+  "scope": "Only the bounded one-expert original8routes then partial0..7 gate; no full256 candidate exists yet, no timing or service authorized by this protocol.",
+  "resource_evidence": "chain-resource-audit/result.json"
+}

@@ -8,8 +8,8 @@
   {
     "source": "archive_ceiling.py",
     "artifact": "archive_ceiling.py.gz",
-    "uncompressed_sha256": "7a6d56e911cf3c339b2ec49f8fed7c65d3db730eb536204c13d35567ca49c619",
-    "bytes": 2830
+    "uncompressed_sha256": "e1b100fa82375055425fc76be942a90671b7c0b185abe2680ad84b8c3c442533",
+    "bytes": 2973
   },
   {
     "source": "archived-codec-fragmentation.json",
@@ -2202,6 +2202,108 @@
     "bytes": 819
   },
   {
+    "source": "expert-activation-dsl/SAFE_TO_ARCHIVE.json",
+    "artifact": "expert-activation-dsl/SAFE_TO_ARCHIVE.json",
+    "uncompressed_sha256": "cdca921eebb548e5bcae3129c4142af2ea872a2451d8180a5500329d8b7888cb",
+    "bytes": 1861
+  },
+  {
+    "source": "expert-activation-dsl/activation-helper-aot/cutlass___call___probeProbe_object_at__Tensorgmemo64825620482561_Tensorgmemo64281681_Tensorgmemo641_Tensorgmemo64812810241281_Tensorgmemo64881_Tensorgmemo6416161_CUstream0x0.sm_103a.ptx",
+    "artifact": "expert-activation-dsl/activation-helper-aot/cutlass___call___probeProbe_object_at__Tensorgmemo64825620482561_Tensorgmemo64281681_Tensorgmemo641_Tensorgmemo64812810241281_Tensorgmemo64881_Tensorgmemo6416161_CUstream0x0.sm_103a.ptx.gz",
+    "uncompressed_sha256": "5b69bb68d1ca7afc94e261a062d50c06217192efd4669fa2b29f02f26ebf74b1",
+    "bytes": 13172
+  },
+  {
+    "source": "expert-activation-dsl/activation-helper-aot/host.mlir",
+    "artifact": "expert-activation-dsl/activation-helper-aot/host.mlir.gz",
+    "uncompressed_sha256": "3d398e46987c885e31b370efc95138614c2e113735494cf8af139bafc1d34133",
+    "bytes": 52558
+  },
+  {
+    "source": "expert-activation-dsl/activation-helper-aot-result.json",
+    "artifact": "expert-activation-dsl/activation-helper-aot-result.json",
+    "uncompressed_sha256": "75ec7e97498546dd24ef346fa3d158ef093bd1f13b7d7d35ec260e05d4dab5b8",
+    "bytes": 653
+  },
+  {
+    "source": "expert-activation-dsl/activation_shared_dsl.py",
+    "artifact": "expert-activation-dsl/activation_shared_dsl.py.gz",
+    "uncompressed_sha256": "f73a86fbfde68be1592f4d0bbfc52756081a3c78be6583b2f4090a3ccb49542d",
+    "bytes": 4861
+  },
+  {
+    "source": "expert-activation-dsl/aot.py",
+    "artifact": "expert-activation-dsl/aot.py.gz",
+    "uncompressed_sha256": "fbf1e3c6c9f5270fc18a6cda4136ef88986e7f18ca700b200ef828d2ee6bf03f",
+    "bytes": 1617
+  },
+  {
+    "source": "expert-activation-dsl/exit.json",
+    "artifact": "expert-activation-dsl/exit.json",
+    "uncompressed_sha256": "e0eb5e367daaf45abb1c961cf0b860fd414d5d9132ae4b6314c58d3feced3486",
+    "bytes": 35
+  },
+  {
+    "source": "expert-activation-dsl/launch.py",
+    "artifact": "expert-activation-dsl/launch.py.gz",
+    "uncompressed_sha256": "387dae9100ac79806445c6f50a2a97a2567d1947a4285253e98fd40d9a7dea13",
+    "bytes": 3151
+  },
+  {
+    "source": "expert-activation-dsl/pid.json",
+    "artifact": "expert-activation-dsl/pid.json",
+    "uncompressed_sha256": "d35705a37b8ef2825700fa1249f40148b4ef7466ab07310b15ad3e3c46644e8f",
+    "bytes": 72
+  },
+  {
+    "source": "expert-activation-dsl/probe.py",
+    "artifact": "expert-activation-dsl/probe.py.gz",
+    "uncompressed_sha256": "2e96d60d6a707f85db1186388d004b91e21152eaca40a9a2e7851d538a12bbfb",
+    "bytes": 2717
+  },
+  {
+    "source": "expert-activation-dsl/process-audit.jsonl",
+    "artifact": "expert-activation-dsl/process-audit.jsonl.gz",
+    "uncompressed_sha256": "b75930bf2eaa1ce2189dbf281a9e2bf933108b0f1d8e1ab6fd59b4cee22ca7f3",
+    "bytes": 701
+  },
+  {
+    "source": "expert-activation-dsl/protocol.json",
+    "artifact": "expert-activation-dsl/protocol.json",
+    "uncompressed_sha256": "b2bddae07610d73717bf3b6ef908e885158acfe901baa80bb3919e69df07a2bb",
+    "bytes": 3550
+  },
+  {
+    "source": "expert-activation-dsl/result.json",
+    "artifact": "expert-activation-dsl/result.json.gz",
+    "uncompressed_sha256": "d2afe36f61107681666faf9771e3cf9d922694a6d498dd35cd56bf6914160b39",
+    "bytes": 369400
+  },
+  {
+    "source": "expert-activation-dsl/results.md",
+    "artifact": "expert-activation-dsl/results.md",
+    "uncompressed_sha256": "3f1e7da8cb2e05161eedaddbbc29dd357818be0bba0d3c4dc1c2f2774c0efe15",
+    "bytes": 1360
+  },
+  {
+    "source": "expert-activation-dsl/run.log",
+    "artifact": "expert-activation-dsl/run.log.gz",
+    "uncompressed_sha256": "ccb84e6909d060ea14bd179aecd5d80954ea0b4b71ae502c1b4761f8cb3e8f72",
+    "bytes": 143
+  },
+  {
+    "source": "expert-activation-dsl/run.py",
+    "artifact": "expert-activation-dsl/run.py.gz",
+    "uncompressed_sha256": "e0f8b2c35dad65ebc863a4d2244504d7a0c566ef8c6e1bce588e8f9e3c094fb0",
+    "bytes": 6125
+  },
+  {
+    "source": "expert-activation-dsl/summary.json",
+    "artifact": "expert-activation-dsl/summary.json",
+    "uncompressed_sha256": "7015f333b4852b93c4bdc713d1b34eaeb39fa56c698a40d1a2cd298c0f111330",
+    "bytes": 460
+  },
+  {
     "source": "expert-activation-native/SAFE_TO_ARCHIVE.json",
     "artifact": "expert-activation-native/SAFE_TO_ARCHIVE.json",
     "uncompressed_sha256": "cc9b00be27ab547fdab710cbd5804c7b8c21e9c34cf45465cc5344e35426efbd",
@@ -2862,6 +2964,12 @@
     "bytes": 6209
   },
   {
+    "source": "expert-fc1-native-v3/summary.md",
+    "artifact": "expert-fc1-native-v3/summary.md",
+    "uncompressed_sha256": "4f7dd4f0306ccee026dd07d04a04f7ae415ad3c95e74027d239fdb8c49dcd123",
+    "bytes": 1572
+  },
+  {
     "source": "expert-fc2-expanded/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx",
     "artifact": "expert-fc2-expanded/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx.gz",
     "uncompressed_sha256": "5177119a352f7f19beb591682969490a323b14b1859564d86c54d6273c59f3c9",
@@ -3234,6 +3342,414 @@
     "bytes": 4210
   },
   {
+    "source": "expert-m128-fc2/aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048851.sm_103a.ptx",
+    "artifact": "expert-m128-fc2/aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048851.sm_103a.ptx.gz",
+    "uncompressed_sha256": "9be6dcbf1246368d029067ee92fb23558ad0a4729e7ffe91ac3c756ba0493671",
+    "bytes": 100448
+  },
+  {
+    "source": "expert-m128-fc2/aot/host.mlir",
+    "artifact": "expert-m128-fc2/aot/host.mlir.gz",
+    "uncompressed_sha256": "93d079460200863211faedb7eead8e43843ad1014cfcd04f38227691f8776ce3",
+    "bytes": 230726
+  },
+  {
+    "source": "expert-m128-fc2/aot/resources.txt",
+    "artifact": "expert-m128-fc2/aot/resources.txt.gz",
+    "uncompressed_sha256": "88ab4b01b1495f7a516604968109b1c2ab7c0d51cbb203d48f406972859edf74",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-fc2/common.py",
+    "artifact": "expert-m128-fc2/common.py.gz",
+    "uncompressed_sha256": "48987500452e2633f60ff03580af8e0ca920f6f3da7ece7e9c58db6ab6bf4c1f",
+    "bytes": 5517
+  },
+  {
+    "source": "expert-m128-fc2/epilogue.patch",
+    "artifact": "expert-m128-fc2/epilogue.patch.gz",
+    "uncompressed_sha256": "0e91973c8dd67c90532cf9e185cf2730e7f82429f7c2a11a3fab33edc4719e87",
+    "bytes": 1717
+  },
+  {
+    "source": "expert-m128-fc2/exit.json",
+    "artifact": "expert-m128-fc2/exit.json",
+    "uncompressed_sha256": "37e5352d43e3e250f5c47e4eeeffef04fa5796657f05caba64600d9bd49a883c",
+    "bytes": 39
+  },
+  {
+    "source": "expert-m128-fc2/frozen-inputs.json",
+    "artifact": "expert-m128-fc2/frozen-inputs.json",
+    "uncompressed_sha256": "064ff087557d266926f4475db001614e5e3e9c01ea480a50a020f9d405f9753a",
+    "bytes": 3112
+  },
+  {
+    "source": "expert-m128-fc2/gmem_c_resources_m128_fc2.py",
+    "artifact": "expert-m128-fc2/gmem_c_resources_m128_fc2.py.gz",
+    "uncompressed_sha256": "4eb9d28a69721abbe5a8708c56c6f99ba6b7403c323d3efe16b94da9a6bec1ce",
+    "bytes": 157176
+  },
+  {
+    "source": "expert-m128-fc2/gpu-aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048851.sm_103a.ptx",
+    "artifact": "expert-m128-fc2/gpu-aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048851.sm_103a.ptx.gz",
+    "uncompressed_sha256": "9be6dcbf1246368d029067ee92fb23558ad0a4729e7ffe91ac3c756ba0493671",
+    "bytes": 100448
+  },
+  {
+    "source": "expert-m128-fc2/gpu-result.json",
+    "artifact": "expert-m128-fc2/gpu-result.json",
+    "uncompressed_sha256": "746472a6785355696ffe17077c38674f5785687c6ad2bd0e2c1e59cf0bb7a4cd",
+    "bytes": 4827
+  },
+  {
+    "source": "expert-m128-fc2/gpu.log",
+    "artifact": "expert-m128-fc2/gpu.log.gz",
+    "uncompressed_sha256": "1d2c80841485c706f38d4ace06d0f20a14906b4fd25fb002be6907a38eab114a",
+    "bytes": 2829
+  },
+  {
+    "source": "expert-m128-fc2/launch.log",
+    "artifact": "expert-m128-fc2/launch.log.gz",
+    "uncompressed_sha256": "28d3b9e880a77975493dc7e359144c0295a4f694cfe0af4f928c22307bc5c320",
+    "bytes": 7
+  },
+  {
+    "source": "expert-m128-fc2/launch.py",
+    "artifact": "expert-m128-fc2/launch.py.gz",
+    "uncompressed_sha256": "548fa082cc298b0e7968a8d1b756daafe4890aa5303bbf980c89728fabf3f0a4",
+    "bytes": 3252
+  },
+  {
+    "source": "expert-m128-fc2/pid.json",
+    "artifact": "expert-m128-fc2/pid.json",
+    "uncompressed_sha256": "a67bddcb982176de0e5a248eb6c48843878f3a3d97480f7e79a20bb840e0b8a9",
+    "bytes": 72
+  },
+  {
+    "source": "expert-m128-fc2/probe.py",
+    "artifact": "expert-m128-fc2/probe.py.gz",
+    "uncompressed_sha256": "6dad0f73998ca656bb03b07f8249d46f86fee27d9772edb87a1054062b574be9",
+    "bytes": 2834
+  },
+  {
+    "source": "expert-m128-fc2/process-audit.jsonl",
+    "artifact": "expert-m128-fc2/process-audit.jsonl.gz",
+    "uncompressed_sha256": "cc79942513065d961cbb97298d895ab796f6c975b05d04792358afe9a973823e",
+    "bytes": 374
+  },
+  {
+    "source": "expert-m128-fc2/protocol.json",
+    "artifact": "expert-m128-fc2/protocol.json",
+    "uncompressed_sha256": "9893ebecea4e33c9e6774512bf64bb50c02b04c0447d6fc60a1f41ee39925b18",
+    "bytes": 4186
+  },
+  {
+    "source": "expert-m128-fc2/report.md",
+    "artifact": "expert-m128-fc2/report.md",
+    "uncompressed_sha256": "6ca6808fdd94eb0997588624ff859b92ccb8bf4f71abbb0fb00d2bf978b7e7c1",
+    "bytes": 694
+  },
+  {
+    "source": "expert-m128-fc2/resource-audit/kernel.sass",
+    "artifact": "expert-m128-fc2/resource-audit/kernel.sass.gz",
+    "uncompressed_sha256": "63bf100fc131ce4b2308f85c989ce053beba2e1e19b830f9aa2d1fd4c478e9ea",
+    "bytes": 611941
+  },
+  {
+    "source": "expert-m128-fc2/resource-audit/resource-usage.txt",
+    "artifact": "expert-m128-fc2/resource-audit/resource-usage.txt.gz",
+    "uncompressed_sha256": "88ab4b01b1495f7a516604968109b1c2ab7c0d51cbb203d48f406972859edf74",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-fc2/resource-audit/result.json",
+    "artifact": "expert-m128-fc2/resource-audit/result.json",
+    "uncompressed_sha256": "b561c12026f8bc03c965d79edca065563b99787f2afc9cbbdf07aa4e3c0ee9aa",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-m128-fc2/result.json",
+    "artifact": "expert-m128-fc2/result.json",
+    "uncompressed_sha256": "2a12e7a9848e4c40dddcb67ca319a78a9f215d5608de8576e0e0eb3513d6b63a",
+    "bytes": 6991
+  },
+  {
+    "source": "expert-m128-fc2/run.log",
+    "artifact": "expert-m128-fc2/run.log.gz",
+    "uncompressed_sha256": "a351d5289feb13de2c6bbd24f418fd705a9c431431de298ca777785014fd7fec",
+    "bytes": 3119
+  },
+  {
+    "source": "expert-m128-fc2/run.py",
+    "artifact": "expert-m128-fc2/run.py.gz",
+    "uncompressed_sha256": "f65d5ac322fdd35bfbddc5d0f818d9fa98d4bd792999ebd57497e14cc215792c",
+    "bytes": 3085
+  },
+  {
+    "source": "expert-m128-fc2/summary.json",
+    "artifact": "expert-m128-fc2/summary.json",
+    "uncompressed_sha256": "cac5090d983b9337bd93ac1e50306f97bd6844ec21f911222766daee86e20f5d",
+    "bytes": 658
+  },
+  {
+    "source": "expert-m128-fc2-expanded/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx",
+    "artifact": "expert-m128-fc2-expanded/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "9be6dcbf1246368d029067ee92fb23558ad0a4729e7ffe91ac3c756ba0493671",
+    "bytes": 100448
+  },
+  {
+    "source": "expert-m128-fc2-expanded/cpu-compile/host-module.mlir",
+    "artifact": "expert-m128-fc2-expanded/cpu-compile/host-module.mlir.gz",
+    "uncompressed_sha256": "2d1b9053a43a95deab25f5a76e69feb883cc1465e3ce54797cac6d9957b398e9",
+    "bytes": 230726
+  },
+  {
+    "source": "expert-m128-fc2-expanded/exit.json",
+    "artifact": "expert-m128-fc2-expanded/exit.json",
+    "uncompressed_sha256": "e89df0eae5ec7db81135aed16463968955c578bcc4f2ec43172eff351f080c17",
+    "bytes": 17
+  },
+  {
+    "source": "expert-m128-fc2-expanded/frozen-inputs.json",
+    "artifact": "expert-m128-fc2-expanded/frozen-inputs.json",
+    "uncompressed_sha256": "0148856b618ccd4b8d73482e2b4a8b0c61f71e175f39dcc08759f6083b73e0bd",
+    "bytes": 5782
+  },
+  {
+    "source": "expert-m128-fc2-expanded/gpu-after.txt",
+    "artifact": "expert-m128-fc2-expanded/gpu-after.txt.gz",
+    "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "expert-m128-fc2-expanded/gpu-before.txt",
+    "artifact": "expert-m128-fc2-expanded/gpu-before.txt.gz",
+    "uncompressed_sha256": "d8bab8999fd3cf89014d49d89d2836915aa22555231e857c5ab92f6556e5e19a",
+    "bytes": 448
+  },
+  {
+    "source": "expert-m128-fc2-expanded/gpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx",
+    "artifact": "expert-m128-fc2-expanded/gpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "9be6dcbf1246368d029067ee92fb23558ad0a4729e7ffe91ac3c756ba0493671",
+    "bytes": 100448
+  },
+  {
+    "source": "expert-m128-fc2-expanded/launch.log",
+    "artifact": "expert-m128-fc2-expanded/launch.log.gz",
+    "uncompressed_sha256": "6863a263d09433a240fd5060d245fda5e5208a75e129acf49f73f59a75b76afe",
+    "bytes": 115
+  },
+  {
+    "source": "expert-m128-fc2-expanded/launch.py",
+    "artifact": "expert-m128-fc2-expanded/launch.py.gz",
+    "uncompressed_sha256": "4c1cab51eb5c17224eb9c62d273f657de71b7c6ac8b5fe4bd6b76cffc06c4edb",
+    "bytes": 5224
+  },
+  {
+    "source": "expert-m128-fc2-expanded/prepare.json",
+    "artifact": "expert-m128-fc2-expanded/prepare.json",
+    "uncompressed_sha256": "de4cd0b6649247ef014e2109d54dbbab642f0220bb321d463d8016ce75cf47fe",
+    "bytes": 14236
+  },
+  {
+    "source": "expert-m128-fc2-expanded/prepare.log",
+    "artifact": "expert-m128-fc2-expanded/prepare.log.gz",
+    "uncompressed_sha256": "df29cc0fefb3cb3a051a23d9c7d5fe47aa42ebbfb249f9e31600e8ed9622c632",
+    "bytes": 3039
+  },
+  {
+    "source": "expert-m128-fc2-expanded/probe.py",
+    "artifact": "expert-m128-fc2-expanded/probe.py.gz",
+    "uncompressed_sha256": "fb7f90986776baa166e17c2a6c687a7f53a31ccb49d61c07872566e8bc1aef5d",
+    "bytes": 11108
+  },
+  {
+    "source": "expert-m128-fc2-expanded/process-audit.jsonl",
+    "artifact": "expert-m128-fc2-expanded/process-audit.jsonl.gz",
+    "uncompressed_sha256": "0a1d08e5a30fb7d89bd2f4a59fe7392698ba3f37262c2326c98086fca59b10a5",
+    "bytes": 998
+  },
+  {
+    "source": "expert-m128-fc2-expanded/process.json",
+    "artifact": "expert-m128-fc2-expanded/process.json",
+    "uncompressed_sha256": "555a78f639b5b00250872cb133f86ea2bf2e57c2d7a0cb81354cfb165bcd43ce",
+    "bytes": 98
+  },
+  {
+    "source": "expert-m128-fc2-expanded/protocol.json",
+    "artifact": "expert-m128-fc2-expanded/protocol.json",
+    "uncompressed_sha256": "deb7dedc0d14f83ee862ea8aca672849f556c336a4c83cc3721a4cac69d18870",
+    "bytes": 9974
+  },
+  {
+    "source": "expert-m128-fc2-expanded/report.md",
+    "artifact": "expert-m128-fc2-expanded/report.md",
+    "uncompressed_sha256": "70a7058b40018ecc5588ef148163aaeafaa08ba1da30c224cb10adbf295bf17d",
+    "bytes": 807
+  },
+  {
+    "source": "expert-m128-fc2-expanded/resource-audit/kernel.sass",
+    "artifact": "expert-m128-fc2-expanded/resource-audit/kernel.sass.gz",
+    "uncompressed_sha256": "63bf100fc131ce4b2308f85c989ce053beba2e1e19b830f9aa2d1fd4c478e9ea",
+    "bytes": 611941
+  },
+  {
+    "source": "expert-m128-fc2-expanded/resource-audit/resource-usage.txt",
+    "artifact": "expert-m128-fc2-expanded/resource-audit/resource-usage.txt.gz",
+    "uncompressed_sha256": "88ab4b01b1495f7a516604968109b1c2ab7c0d51cbb203d48f406972859edf74",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-fc2-expanded/resource-audit/result.json",
+    "artifact": "expert-m128-fc2-expanded/resource-audit/result.json",
+    "uncompressed_sha256": "d68ef10e39848169ce97f35b6d593ce77b1312d57a4db75200a3c5d97ff1a2ca",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-m128-fc2-expanded/resource-usage.txt",
+    "artifact": "expert-m128-fc2-expanded/resource-usage.txt.gz",
+    "uncompressed_sha256": "88ab4b01b1495f7a516604968109b1c2ab7c0d51cbb203d48f406972859edf74",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-fc2-expanded/result.json",
+    "artifact": "expert-m128-fc2-expanded/result.json",
+    "uncompressed_sha256": "d26f72cd8033f6fdb98c1d056a24f8e7c2902d6c8620155801b9d49af1e10180",
+    "bytes": 55045
+  },
+  {
+    "source": "expert-m128-fc2-expanded/run.log",
+    "artifact": "expert-m128-fc2-expanded/run.log.gz",
+    "uncompressed_sha256": "81e4ceec36c71b51cb1474ef198307b49da6537db3d7835c67a093b7e9fff0ff",
+    "bytes": 3337
+  },
+  {
+    "source": "expert-m128-fc2-expanded/summary.json",
+    "artifact": "expert-m128-fc2-expanded/summary.json",
+    "uncompressed_sha256": "47edc696ced409611734c1ce2d69ed387891ae0143afdd9619131c2d318230fa",
+    "bytes": 776
+  },
+  {
+    "source": "expert-m128-resource/aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024820.sm_103a.ptx",
+    "artifact": "expert-m128-resource/aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024820.sm_103a.ptx.gz",
+    "uncompressed_sha256": "a6767a011ea530c4e3c3eee400ade79d9c358a47c82e359303f6fde98ccc4940",
+    "bytes": 101386
+  },
+  {
+    "source": "expert-m128-resource/aot/host.mlir",
+    "artifact": "expert-m128-resource/aot/host.mlir.gz",
+    "uncompressed_sha256": "b6779fc984762e704ca413d2029f40a356203c5ec624e6f1cc37a9a09815114c",
+    "bytes": 226566
+  },
+  {
+    "source": "expert-m128-resource/aot/resources.txt",
+    "artifact": "expert-m128-resource/aot/resources.txt.gz",
+    "uncompressed_sha256": "66529fea5eed281efdace8babb84248816c2871a8697cb7812ac28f27062fe99",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-resource/exit.json",
+    "artifact": "expert-m128-resource/exit.json",
+    "uncompressed_sha256": "51657c9dd10df936b60a2cd042ca21e61d2f95a28baf23888626bc8e1e8a653b",
+    "bytes": 39
+  },
+  {
+    "source": "expert-m128-resource/frozen-inputs.json",
+    "artifact": "expert-m128-resource/frozen-inputs.json",
+    "uncompressed_sha256": "b6f990070a7bd91eb26ca03170eb21b9d580d37d1fb1312cc945ccbcb8f908ba",
+    "bytes": 3029
+  },
+  {
+    "source": "expert-m128-resource/gpu-aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024820.sm_103a.ptx",
+    "artifact": "expert-m128-resource/gpu-aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024820.sm_103a.ptx.gz",
+    "uncompressed_sha256": "a6767a011ea530c4e3c3eee400ade79d9c358a47c82e359303f6fde98ccc4940",
+    "bytes": 101386
+  },
+  {
+    "source": "expert-m128-resource/gpu-result.json",
+    "artifact": "expert-m128-resource/gpu-result.json",
+    "uncompressed_sha256": "ee05cc251cf6c23bdc32638d12a5ba8846134fe0745192f9a289c0db723e7f2c",
+    "bytes": 3327
+  },
+  {
+    "source": "expert-m128-resource/gpu.log",
+    "artifact": "expert-m128-resource/gpu.log.gz",
+    "uncompressed_sha256": "3ab9d4d880ea033c6cca3410f8389486969afeae821a9096d75981be0bf26379",
+    "bytes": 3650
+  },
+  {
+    "source": "expert-m128-resource/launch.log",
+    "artifact": "expert-m128-resource/launch.log.gz",
+    "uncompressed_sha256": "0c6868c2c44f053619cef1cc383e1d530743b574ca192ace9168a9ccf46a86e3",
+    "bytes": 7
+  },
+  {
+    "source": "expert-m128-resource/launch.py",
+    "artifact": "expert-m128-resource/launch.py.gz",
+    "uncompressed_sha256": "d54ca84f1fd780e3f7b6a526fe217a5845fc944b4b2924851074177bfa612976",
+    "bytes": 3264
+  },
+  {
+    "source": "expert-m128-resource/pid.json",
+    "artifact": "expert-m128-resource/pid.json",
+    "uncompressed_sha256": "8a59d30ad28e82a98ff2b446d925afb6c41bf835b308119c79e8a5533f57362e",
+    "bytes": 72
+  },
+  {
+    "source": "expert-m128-resource/probe.py",
+    "artifact": "expert-m128-resource/probe.py.gz",
+    "uncompressed_sha256": "daa46497e0aa9526d95a812c03859a65c01841c419ccf3ed6c871cf4cdcf1077",
+    "bytes": 2854
+  },
+  {
+    "source": "expert-m128-resource/process-audit.jsonl",
+    "artifact": "expert-m128-resource/process-audit.jsonl.gz",
+    "uncompressed_sha256": "815b1c2e1cfae0f861592061664e971317a66ac0ba2bf08da0a8eb39662f130e",
+    "bytes": 374
+  },
+  {
+    "source": "expert-m128-resource/protocol.json",
+    "artifact": "expert-m128-resource/protocol.json",
+    "uncompressed_sha256": "77fa031687dac05689848c03a120974f5bfabcd506f33a5804d85eb8c80729d8",
+    "bytes": 4151
+  },
+  {
+    "source": "expert-m128-resource/resource-audit/kernel.sass",
+    "artifact": "expert-m128-resource/resource-audit/kernel.sass.gz",
+    "uncompressed_sha256": "9039ac1589cab28b7cce6514733de38b9dd025438169bc7ae14048b1f5763be2",
+    "bytes": 598597
+  },
+  {
+    "source": "expert-m128-resource/resource-audit/resource-usage.txt",
+    "artifact": "expert-m128-resource/resource-audit/resource-usage.txt.gz",
+    "uncompressed_sha256": "66529fea5eed281efdace8babb84248816c2871a8697cb7812ac28f27062fe99",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-resource/resource-audit/result.json",
+    "artifact": "expert-m128-resource/resource-audit/result.json",
+    "uncompressed_sha256": "a0b0aae30bf0f49b495df2d2546c220eca07fe1fb860f733297690628d143f55",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-m128-resource/result.json",
+    "artifact": "expert-m128-resource/result.json",
+    "uncompressed_sha256": "a05305851d3359548a4429a7702d1ba996bba996ee46e81da69899022ba23a08",
+    "bytes": 7149
+  },
+  {
+    "source": "expert-m128-resource/run.log",
+    "artifact": "expert-m128-resource/run.log.gz",
+    "uncompressed_sha256": "a351d5289feb13de2c6bbd24f418fd705a9c431431de298ca777785014fd7fec",
+    "bytes": 3119
+  },
+  {
+    "source": "expert-m128-resource/run.py",
+    "artifact": "expert-m128-resource/run.py.gz",
+    "uncompressed_sha256": "92b7e6f8626af5e22911ea5cdf7125f2e20b711c24d5589035534a4d8f1759e5",
+    "bytes": 3312
+  },
+  {
     "source": "expert-metadata-rebase/cpu-bounds.json",
     "artifact": "expert-metadata-rebase/cpu-bounds.json",
     "uncompressed_sha256": "6ddaf79adcb773184e176e7b77d30bf64c98f14090e5411691e350af4f7606bd",
@@ -3492,6 +4008,1152 @@
     "bytes": 2611
   },
   {
+    "source": "expert-resident-chain/activation-helper-aot/host.mlir",
+    "artifact": "expert-resident-chain/activation-helper-aot/host.mlir.gz",
+    "uncompressed_sha256": "21df5ceef446e6bf08819beb7f36fa353558abe597158866dea7d0b88450a605",
+    "bytes": 51803
+  },
+  {
+    "source": "expert-resident-chain/activation-helper-aot/kernel.sass",
+    "artifact": "expert-resident-chain/activation-helper-aot/kernel.sass.gz",
+    "uncompressed_sha256": "dd7a31cddc5c106521303ed8e7adfa979862ed560c58f7a75486ae2783ce9de2",
+    "bytes": 56147
+  },
+  {
+    "source": "expert-resident-chain/activation-helper-aot/resources.txt",
+    "artifact": "expert-resident-chain/activation-helper-aot/resources.txt.gz",
+    "uncompressed_sha256": "51133ea95b82794a0958df4ef2ac485d6d6c7d4e74ba8c5ddf5fc46bbafe1fbd",
+    "bytes": 447
+  },
+  {
+    "source": "expert-resident-chain/activation-helper-aot-result.json",
+    "artifact": "expert-resident-chain/activation-helper-aot-result.json",
+    "uncompressed_sha256": "2a1b2dedb65d768db16816d7bce251f6d22257804fb5a61e91f6ae4ba474a369",
+    "bytes": 1595
+  },
+  {
+    "source": "expert-resident-chain/activation-helper-aot.log",
+    "artifact": "expert-resident-chain/activation-helper-aot.log.gz",
+    "uncompressed_sha256": "cc925cedfa62fd275c4b98dd3b91d0fdcb9aebde515da22019c3368bd8f99eeb",
+    "bytes": 653
+  },
+  {
+    "source": "expert-resident-chain/activation_helper_aot.py",
+    "artifact": "expert-resident-chain/activation_helper_aot.py.gz",
+    "uncompressed_sha256": "d8ba4791127f0ea42689bb53623b0078b8e3e78244b96a22c9cf6f91603d995a",
+    "bytes": 3825
+  },
+  {
+    "source": "expert-resident-chain/activation_helper_extract.py",
+    "artifact": "expert-resident-chain/activation_helper_extract.py.gz",
+    "uncompressed_sha256": "227082fa33d46765f054e8c38c0c379a8e52559eed983dc5e97eb183e3c90ca1",
+    "bytes": 1429
+  },
+  {
+    "source": "expert-resident-chain/activation_shared_dsl.py",
+    "artifact": "expert-resident-chain/activation_shared_dsl.py.gz",
+    "uncompressed_sha256": "f73a86fbfde68be1592f4d0bbfc52756081a3c78be6583b2f4090a3ccb49542d",
+    "bytes": 4861
+  },
+  {
+    "source": "expert-resident-chain/chain-aot-result.json",
+    "artifact": "expert-resident-chain/chain-aot-result.json",
+    "uncompressed_sha256": "b3ec685d766899a03be2a6a9783b5e36dd1f0bbf8f081817a68b88c04e2d0760",
+    "bytes": 4349
+  },
+  {
+    "source": "expert-resident-chain/chain-cpu-compile/cutlass_resident_chain_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_.sm_103a.ptx",
+    "artifact": "expert-resident-chain/chain-cpu-compile/cutlass_resident_chain_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_.sm_103a.ptx.gz",
+    "uncompressed_sha256": "5f5d0f478aa0b7a099c8ee9a69826f53a1373bf8df6d97fc1762523d48483ce0",
+    "bytes": 400563
+  },
+  {
+    "source": "expert-resident-chain/chain-cpu-compile/host-module.mlir",
+    "artifact": "expert-resident-chain/chain-cpu-compile/host-module.mlir.gz",
+    "uncompressed_sha256": "0e730af2380d7ba71f3232a91b7a7d41df6916cf95d93ef213647170b569fe17",
+    "bytes": 738038
+  },
+  {
+    "source": "expert-resident-chain/chain-frozen-inputs.json",
+    "artifact": "expert-resident-chain/chain-frozen-inputs.json",
+    "uncompressed_sha256": "cb55c13fc5498bb454f2fd60d8b1d7c761dfae5945977a2c588c630cb395a246",
+    "bytes": 7366
+  },
+  {
+    "source": "expert-resident-chain/chain-gpu-compile/cutlass_resident_chain_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_.sm_103a.ptx",
+    "artifact": "expert-resident-chain/chain-gpu-compile/cutlass_resident_chain_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_.sm_103a.ptx.gz",
+    "uncompressed_sha256": "5f5d0f478aa0b7a099c8ee9a69826f53a1373bf8df6d97fc1762523d48483ce0",
+    "bytes": 400563
+  },
+  {
+    "source": "expert-resident-chain/chain-gpu.log",
+    "artifact": "expert-resident-chain/chain-gpu.log.gz",
+    "uncompressed_sha256": "4ef2c55e4c35915f1904f821e9b94babcb3ac9ef4f98a08378ee55aca28886d4",
+    "bytes": 3472
+  },
+  {
+    "source": "expert-resident-chain/chain-independent-review.json",
+    "artifact": "expert-resident-chain/chain-independent-review.json",
+    "uncompressed_sha256": "0eda4cdb850eed70852aaab274028d20eaf116bb0b1fe9206a0617e11995c349",
+    "bytes": 4099
+  },
+  {
+    "source": "expert-resident-chain/chain-independent-review.md",
+    "artifact": "expert-resident-chain/chain-independent-review.md",
+    "uncompressed_sha256": "2026f34b3340cfec0ca52e210b7cb7f259abe4ca6d5942af478de99385b566ea",
+    "bytes": 5373
+  },
+  {
+    "source": "expert-resident-chain/chain-interface-review.json",
+    "artifact": "expert-resident-chain/chain-interface-review.json",
+    "uncompressed_sha256": "9a54fde3ff18bd00cb4eb36f28d79a14873f1295c58f145cc900715a14865eb9",
+    "bytes": 3686
+  },
+  {
+    "source": "expert-resident-chain/chain-interface-review.md",
+    "artifact": "expert-resident-chain/chain-interface-review.md",
+    "uncompressed_sha256": "1de0fc115f6ad0195af556eb8881d0a8d362c6daf3d9d0bf8343093fcfa3c1e1",
+    "bytes": 3273
+  },
+  {
+    "source": "expert-resident-chain/chain-launch-result.json",
+    "artifact": "expert-resident-chain/chain-launch-result.json",
+    "uncompressed_sha256": "d305a04153719c61d3aa08cab52e3a1014966af6c373a71f4573f6ff1db7cec3",
+    "bytes": 352
+  },
+  {
+    "source": "expert-resident-chain/chain-prepare.log",
+    "artifact": "expert-resident-chain/chain-prepare.log.gz",
+    "uncompressed_sha256": "df29cc0fefb3cb3a051a23d9c7d5fe47aa42ebbfb249f9e31600e8ed9622c632",
+    "bytes": 3039
+  },
+  {
+    "source": "expert-resident-chain/chain-protocol.json",
+    "artifact": "expert-resident-chain/chain-protocol.json",
+    "uncompressed_sha256": "6fc4c75d396a6cded0aa55183da8608eab0238fcfde360167bcbd87fc2812767",
+    "bytes": 5235
+  },
+  {
+    "source": "expert-resident-chain/chain-resource-audit/kernel.sass",
+    "artifact": "expert-resident-chain/chain-resource-audit/kernel.sass.gz",
+    "uncompressed_sha256": "896446ed8892b9924722a365d358b264615af07b8f4733ae369ddc5bdf41ed69",
+    "bytes": 2412821
+  },
+  {
+    "source": "expert-resident-chain/chain-resource-audit/resource-usage.txt",
+    "artifact": "expert-resident-chain/chain-resource-audit/resource-usage.txt.gz",
+    "uncompressed_sha256": "db21af79e181272afaaafad9168e66fc3ffc704b9531f7e674fd7da3b5a25e76",
+    "bytes": 337
+  },
+  {
+    "source": "expert-resident-chain/chain-resource-audit/result.json",
+    "artifact": "expert-resident-chain/chain-resource-audit/result.json",
+    "uncompressed_sha256": "7086342b2273d61bd53ce8370ca87e3818ba82fd125e22bcd801d3d61f138e10",
+    "bytes": 1357
+  },
+  {
+    "source": "expert-resident-chain/chain-resource-usage.txt",
+    "artifact": "expert-resident-chain/chain-resource-usage.txt.gz",
+    "uncompressed_sha256": "db21af79e181272afaaafad9168e66fc3ffc704b9531f7e674fd7da3b5a25e76",
+    "bytes": 337
+  },
+  {
+    "source": "expert-resident-chain/chain_common.py",
+    "artifact": "expert-resident-chain/chain_common.py.gz",
+    "uncompressed_sha256": "5023ff967acac6b85141b5f415754fc88ccbd814b1a0363b9f69be84e3d91133",
+    "bytes": 4970
+  },
+  {
+    "source": "expert-resident-chain/cpu-contract/result.json",
+    "artifact": "expert-resident-chain/cpu-contract/result.json",
+    "uncompressed_sha256": "3ff2d166adba758f664ccd6502542d54b956669a0f04f4a99fbf7005198fc91b",
+    "bytes": 6038
+  },
+  {
+    "source": "expert-resident-chain/dsm-gather-aot/host.mlir",
+    "artifact": "expert-resident-chain/dsm-gather-aot/host.mlir.gz",
+    "uncompressed_sha256": "110acd77d9df51ac604806a2138006f000a3e7799d519bd6f1c0b55d00225c31",
+    "bytes": 49325
+  },
+  {
+    "source": "expert-resident-chain/dsm-gather-aot/kernel.ptx",
+    "artifact": "expert-resident-chain/dsm-gather-aot/kernel.ptx.gz",
+    "uncompressed_sha256": "f4965f8544757e4157f8b498b9493475364ff02379ea86cd71c0c0a231306e89",
+    "bytes": 126
+  },
+  {
+    "source": "expert-resident-chain/dsm-gather-aot/kernel.sass",
+    "artifact": "expert-resident-chain/dsm-gather-aot/kernel.sass.gz",
+    "uncompressed_sha256": "97b926420de8faf780295cede9f7fff495e11d40f9f700344bfcaf59ad77147b",
+    "bytes": 27347
+  },
+  {
+    "source": "expert-resident-chain/dsm-gather-aot/resources.txt",
+    "artifact": "expert-resident-chain/dsm-gather-aot/resources.txt.gz",
+    "uncompressed_sha256": "5f2a4099378634f345af49345314427e970aa35c6de03bdeee45251f0c0f43e7",
+    "bytes": 447
+  },
+  {
+    "source": "expert-resident-chain/dsm-gather-aot-initial-type-failure.json",
+    "artifact": "expert-resident-chain/dsm-gather-aot-initial-type-failure.json",
+    "uncompressed_sha256": "c589b5cc4583a4c6e7c10a6b87d3f011138847ad173320b9316a7ec7d9db1f74",
+    "bytes": 9123
+  },
+  {
+    "source": "expert-resident-chain/dsm-gather-aot-initial-type-failure.log",
+    "artifact": "expert-resident-chain/dsm-gather-aot-initial-type-failure.log.gz",
+    "uncompressed_sha256": "418256cd387b9ddfbc66dea1e56742e58307aec38668d5a0247dc28f844aec68",
+    "bytes": 646
+  },
+  {
+    "source": "expert-resident-chain/dsm-gather-aot-result.json",
+    "artifact": "expert-resident-chain/dsm-gather-aot-result.json",
+    "uncompressed_sha256": "67750dd3721d51833c296a7e0d40c39b32e45223f1667355ef1d1255426e23e2",
+    "bytes": 1886
+  },
+  {
+    "source": "expert-resident-chain/dsm-gather-aot.log",
+    "artifact": "expert-resident-chain/dsm-gather-aot.log.gz",
+    "uncompressed_sha256": "14f476601946ea4582473f4a497bc32a80d76ab7b370f8d17a5a37d4060824f0",
+    "bytes": 1841
+  },
+  {
+    "source": "expert-resident-chain/dsm-helper-manifest.json",
+    "artifact": "expert-resident-chain/dsm-helper-manifest.json",
+    "uncompressed_sha256": "1c0becb7a8e56a92409e9a1f2dd5095c256b55c9600e6854ef19bdd2beb47ef6",
+    "bytes": 709
+  },
+  {
+    "source": "expert-resident-chain/dsm-lifetime-review.md",
+    "artifact": "expert-resident-chain/dsm-lifetime-review.md",
+    "uncompressed_sha256": "7bbf53c139637326e4b7c0f1de9c3ad3fcea3c9443955cf718bd4a20646a64d0",
+    "bytes": 4458
+  },
+  {
+    "source": "expert-resident-chain/fc1-pair-aot-result.json",
+    "artifact": "expert-resident-chain/fc1-pair-aot-result.json",
+    "uncompressed_sha256": "9776cfd8dea7d4f632d2bcda40d802dce8c24e07caecd4750142e748ac08c090",
+    "bytes": 2408
+  },
+  {
+    "source": "expert-resident-chain/fc1-pair-cpu-compile/cutlass_resident_fc1_pair_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgm.sm_103a.ptx",
+    "artifact": "expert-resident-chain/fc1-pair-cpu-compile/cutlass_resident_fc1_pair_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgm.sm_103a.ptx.gz",
+    "uncompressed_sha256": "e50a0ef3d559c0e4cfd1942f69f0d48bfad995f6cfd465b13edc47aae8b4e9a7",
+    "bytes": 137779
+  },
+  {
+    "source": "expert-resident-chain/fc1-pair-cpu-compile/host-module.mlir",
+    "artifact": "expert-resident-chain/fc1-pair-cpu-compile/host-module.mlir.gz",
+    "uncompressed_sha256": "8eb6051b61e2e7460ba1de056147971bc2b07ccdc5053cef5e95d25691f69cf1",
+    "bytes": 291050
+  },
+  {
+    "source": "expert-resident-chain/fc1-pair-prepare.log",
+    "artifact": "expert-resident-chain/fc1-pair-prepare.log.gz",
+    "uncompressed_sha256": "df29cc0fefb3cb3a051a23d9c7d5fe47aa42ebbfb249f9e31600e8ed9622c632",
+    "bytes": 3039
+  },
+  {
+    "source": "expert-resident-chain/fc1-pair-resource-usage.txt",
+    "artifact": "expert-resident-chain/fc1-pair-resource-usage.txt.gz",
+    "uncompressed_sha256": "a9e206dca9903b5900a94c6c25a4b4872df48c8d5eaf1f66c021d31ff5ed04f0",
+    "bytes": 322
+  },
+  {
+    "source": "expert-resident-chain/generate_chain.py",
+    "artifact": "expert-resident-chain/generate_chain.py.gz",
+    "uncompressed_sha256": "07b725a6bd5a3aa2242abb1cc560f9683d11ecff58dbfcec745ef9da818fefde",
+    "bytes": 7426
+  },
+  {
+    "source": "expert-resident-chain/generate_fc1_outer.py",
+    "artifact": "expert-resident-chain/generate_fc1_outer.py.gz",
+    "uncompressed_sha256": "6db082c9fa8df05aebd2ff4a5db6b2be903f89d9013600460986477a4f52d7c8",
+    "bytes": 3848
+  },
+  {
+    "source": "expert-resident-chain/generate_stage_sources.py",
+    "artifact": "expert-resident-chain/generate_stage_sources.py.gz",
+    "uncompressed_sha256": "55ceb9e988d4a44a817702dfe5afa1a2174f973fbb08291138530ae092f6c172",
+    "bytes": 7764
+  },
+  {
+    "source": "expert-resident-chain/initial-1024-alignment-fc1-pair-aot-result.json",
+    "artifact": "expert-resident-chain/initial-1024-alignment-fc1-pair-aot-result.json",
+    "uncompressed_sha256": "b4e2ffdaaf322b2fbe48406ec056268d167609e0f8cd0c10c1c45a2036aec4dd",
+    "bytes": 9948
+  },
+  {
+    "source": "expert-resident-chain/initial-1024-alignment-fc1-pair-prepare.log",
+    "artifact": "expert-resident-chain/initial-1024-alignment-fc1-pair-prepare.log.gz",
+    "uncompressed_sha256": "4cc782a1974753539299f7528a9587ccb227ad5ae4283eeb94f41044480f3801",
+    "bytes": 4415
+  },
+  {
+    "source": "expert-resident-chain/initial-fc1-pair-aot-result.json",
+    "artifact": "expert-resident-chain/initial-fc1-pair-aot-result.json",
+    "uncompressed_sha256": "9a84e489c99336dba9f6d823925dce32be75c585a1a485ab06d31592eee27064",
+    "bytes": 6603
+  },
+  {
+    "source": "expert-resident-chain/initial-fc1-pair-prepare.log",
+    "artifact": "expert-resident-chain/initial-fc1-pair-prepare.log.gz",
+    "uncompressed_sha256": "a0fb8629ad8eeb516d1d2b19b6bf51442475c2fc52df82f8349186d34d3f3326",
+    "bytes": 4392
+  },
+  {
+    "source": "expert-resident-chain/launch_chain_gate.py",
+    "artifact": "expert-resident-chain/launch_chain_gate.py.gz",
+    "uncompressed_sha256": "d79d81a990a241b20ede60a0c341243d658f90b4f5aeb251c008e34afbd1071b",
+    "bytes": 1050
+  },
+  {
+    "source": "expert-resident-chain/parent-lifetime-review.md",
+    "artifact": "expert-resident-chain/parent-lifetime-review.md",
+    "uncompressed_sha256": "0bdfa612bfc7271aa5bb8a731824a978b77bc4478b6fbf9ea0d48e1164b3c549",
+    "bytes": 3057
+  },
+  {
+    "source": "expert-resident-chain/prepare_chain.py",
+    "artifact": "expert-resident-chain/prepare_chain.py.gz",
+    "uncompressed_sha256": "c7ab1e055edfa35064e8f14727baeb7c9c62262ac324d8299fa706e1259a3c48",
+    "bytes": 1575
+  },
+  {
+    "source": "expert-resident-chain/prepare_fc1_pair.py",
+    "artifact": "expert-resident-chain/prepare_fc1_pair.py.gz",
+    "uncompressed_sha256": "d0619a518572aced5141ae6c7d01d4390ea494f41e07611a0e02c7a96d3845bb",
+    "bytes": 2337
+  },
+  {
+    "source": "expert-resident-chain/protocol-template.json",
+    "artifact": "expert-resident-chain/protocol-template.json",
+    "uncompressed_sha256": "7a99394a6e5df69711966fba19e4ff282c3f320002d2a9a00d26c50f4a72477f",
+    "bytes": 3794
+  },
+  {
+    "source": "expert-resident-chain/resident-adapter-source-audit.json",
+    "artifact": "expert-resident-chain/resident-adapter-source-audit.json",
+    "uncompressed_sha256": "de9563135079c24c61bde16ce25397ce69c09c0893f6f33386d1c446ae592313",
+    "bytes": 1669
+  },
+  {
+    "source": "expert-resident-chain/resident-allocator-aot/cutlass___call_____main__Probe_object_at__FakeTensorInt32321_CUstream0x0.sm_103a.ptx",
+    "artifact": "expert-resident-chain/resident-allocator-aot/cutlass___call_____main__Probe_object_at__FakeTensorInt32321_CUstream0x0.sm_103a.ptx.gz",
+    "uncompressed_sha256": "8a06ceaeaa64b27ef3638ba8a0eea5093df382d06b9dab9753503bb6ee62696c",
+    "bytes": 1111
+  },
+  {
+    "source": "expert-resident-chain/resident-allocator-aot/host.mlir",
+    "artifact": "expert-resident-chain/resident-allocator-aot/host.mlir.gz",
+    "uncompressed_sha256": "472d809032e71411d57d1796990696963b82fe6a7a70f3e442e4b9abb97660ab",
+    "bytes": 35657
+  },
+  {
+    "source": "expert-resident-chain/resident-allocator-aot-result.json",
+    "artifact": "expert-resident-chain/resident-allocator-aot-result.json",
+    "uncompressed_sha256": "53c09cc32e8c28275a2e586b2e2713f4d4d6610fa5b73da3d684c755c07e2384",
+    "bytes": 290
+  },
+  {
+    "source": "expert-resident-chain/resident-allocator-aot.log",
+    "artifact": "expert-resident-chain/resident-allocator-aot.log.gz",
+    "uncompressed_sha256": "53c09cc32e8c28275a2e586b2e2713f4d4d6610fa5b73da3d684c755c07e2384",
+    "bytes": 290
+  },
+  {
+    "source": "expert-resident-chain/resident-gmem-c.patch",
+    "artifact": "expert-resident-chain/resident-gmem-c.patch.gz",
+    "uncompressed_sha256": "0dc6ef142ed6f2361fead05eb072d3d6d0057fc64280fdda799838817f4e8c30",
+    "bytes": 2750
+  },
+  {
+    "source": "expert-resident-chain/resident-stage.patch",
+    "artifact": "expert-resident-chain/resident-stage.patch.gz",
+    "uncompressed_sha256": "aaab8370a0456d509fc190725343c89d55c6d60b9a51fa6eec7a07b7ade3b01c",
+    "bytes": 5796
+  },
+  {
+    "source": "expert-resident-chain/resident-static-task-contract.json",
+    "artifact": "expert-resident-chain/resident-static-task-contract.json",
+    "uncompressed_sha256": "fd676ccbf716d480ba6683439481cdd4d3ff7085f798477aa070470bfbb8d3d1",
+    "bytes": 2796
+  },
+  {
+    "source": "expert-resident-chain/resident_allocator_aot.py",
+    "artifact": "expert-resident-chain/resident_allocator_aot.py.gz",
+    "uncompressed_sha256": "ddd7388fcaa1a663bd261596c4e9ef1be5f91d834ec74d9554487615d85ab6a4",
+    "bytes": 2601
+  },
+  {
+    "source": "expert-resident-chain/resident_chain_host.py",
+    "artifact": "expert-resident-chain/resident_chain_host.py.gz",
+    "uncompressed_sha256": "e53966a08a0cb7b301a334089f16025adeb4397e78330a1427337117d77e8bc4",
+    "bytes": 3851
+  },
+  {
+    "source": "expert-resident-chain/resident_chain_kernel.py",
+    "artifact": "expert-resident-chain/resident_chain_kernel.py.gz",
+    "uncompressed_sha256": "0907c3d7ac1cfbd8b55225ec9c7ad1051bdeafe190aa1be500f12741946de0bd",
+    "bytes": 9928
+  },
+  {
+    "source": "expert-resident-chain/resident_descriptors.py",
+    "artifact": "expert-resident-chain/resident_descriptors.py.gz",
+    "uncompressed_sha256": "b338136df08cff6942166579bf1fb1ee5d124243d13be26b9c2a87a8e1962fa9",
+    "bytes": 34564
+  },
+  {
+    "source": "expert-resident-chain/resident_dsm_gather.py",
+    "artifact": "expert-resident-chain/resident_dsm_gather.py.gz",
+    "uncompressed_sha256": "e93d8ade40fa468c633e4ed124ed1357ba49f715d9a01717fbae24b5f6a97d42",
+    "bytes": 3089
+  },
+  {
+    "source": "expert-resident-chain/resident_dsm_gather_aot.py",
+    "artifact": "expert-resident-chain/resident_dsm_gather_aot.py.gz",
+    "uncompressed_sha256": "a865c65acd4e2180b4f9f9c94571eee9a6c408523baea6b627c28ec4cea9ec41",
+    "bytes": 5194
+  },
+  {
+    "source": "expert-resident-chain/resident_fc1_host.py",
+    "artifact": "expert-resident-chain/resident_fc1_host.py.gz",
+    "uncompressed_sha256": "ae98df2a80108de6b8f6e41906c2d5ba28ffee73b77ceda71719bc6cd9b30133",
+    "bytes": 34782
+  },
+  {
+    "source": "expert-resident-chain/resident_fc1_pair.py",
+    "artifact": "expert-resident-chain/resident_fc1_pair.py.gz",
+    "uncompressed_sha256": "f87fc4704283bc829b84c92a5b2da29be67c918ca425d29756c876aca9648cd8",
+    "bytes": 5250
+  },
+  {
+    "source": "expert-resident-chain/resident_fc2_stage.py",
+    "artifact": "expert-resident-chain/resident_fc2_stage.py.gz",
+    "uncompressed_sha256": "9dd684d82fa2363808f5a6692f66baaf9a9d546178e7dd051fe5b4d8cab6b4a6",
+    "bytes": 39334
+  },
+  {
+    "source": "expert-resident-chain/resident_gmem_c.py",
+    "artifact": "expert-resident-chain/resident_gmem_c.py.gz",
+    "uncompressed_sha256": "f78640e5bf4283cc412bc45255bcb5bdf74116079f124a0001ef27fc10a0c1e7",
+    "bytes": 158047
+  },
+  {
+    "source": "expert-resident-chain/resident_native_tasks.py",
+    "artifact": "expert-resident-chain/resident_native_tasks.py.gz",
+    "uncompressed_sha256": "4a6726a811166ecbddf84c245cc164e03473703f03873787303b5f789dff980f",
+    "bytes": 63891
+  },
+  {
+    "source": "expert-resident-chain/resident_resources.py",
+    "artifact": "expert-resident-chain/resident_resources.py.gz",
+    "uncompressed_sha256": "252a0b7f5e2e3d300f6a57bdfdb5ca9a99cabfaf83c70dd6fa8296be6f921413",
+    "bytes": 3990
+  },
+  {
+    "source": "expert-resident-chain/resident_shared_b.py",
+    "artifact": "expert-resident-chain/resident_shared_b.py.gz",
+    "uncompressed_sha256": "37346817142c81cc6763d9ba303425c6f307a6cc6e7357e23dc0ce157c88a8eb",
+    "bytes": 6751
+  },
+  {
+    "source": "expert-resident-chain/resident_shared_b_aot.py",
+    "artifact": "expert-resident-chain/resident_shared_b_aot.py.gz",
+    "uncompressed_sha256": "92d235c9b4b86eae219a1e42fcd726b8d02115ec3583fdd420be2cb743f958b7",
+    "bytes": 5671
+  },
+  {
+    "source": "expert-resident-chain/resident_stage.py",
+    "artifact": "expert-resident-chain/resident_stage.py.gz",
+    "uncompressed_sha256": "127e4fe93305c6fd5f1c0fbd7cacd0e7e0d6b92631c572dc090ce66bc0e96442",
+    "bytes": 38991
+  },
+  {
+    "source": "expert-resident-chain/resource-parser-component-check/kernel.sass",
+    "artifact": "expert-resident-chain/resource-parser-component-check/kernel.sass.gz",
+    "uncompressed_sha256": "dd5d884c346e5e31adc0ca5736cf56ba888fed77517d3f9ae67b54ad0042fc5b",
+    "bytes": 585253
+  },
+  {
+    "source": "expert-resident-chain/resource-parser-component-check/resource-usage.txt",
+    "artifact": "expert-resident-chain/resource-parser-component-check/resource-usage.txt.gz",
+    "uncompressed_sha256": "5136a25d8a24324932d2841c2eeb5d03b88278ded4f77a3feb9a6b1bcc702ddd",
+    "bytes": 322
+  },
+  {
+    "source": "expert-resident-chain/resource-parser-component-check/result.json",
+    "artifact": "expert-resident-chain/resource-parser-component-check/result.json",
+    "uncompressed_sha256": "928b925183b14ed55a15b091fb2ce7cfe088e4b4a5e19f1e499aed638afe05cd",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-resident-chain/resource_audit.py",
+    "artifact": "expert-resident-chain/resource_audit.py.gz",
+    "uncompressed_sha256": "398d7a89ed615fb3b7f3e92607b1f378c371e4f1eea539be6fe53f4d3ab76a6c",
+    "bytes": 4514
+  },
+  {
+    "source": "expert-resident-chain/run_chain_gate.py",
+    "artifact": "expert-resident-chain/run_chain_gate.py.gz",
+    "uncompressed_sha256": "75db0bfe9ba7a4f0b11849b009707edf4d5e0286ee2de05a649980e186acff03",
+    "bytes": 1223
+  },
+  {
+    "source": "expert-resident-chain/shared-b-aot/host.mlir",
+    "artifact": "expert-resident-chain/shared-b-aot/host.mlir.gz",
+    "uncompressed_sha256": "5966b6286d94a1639b1364be962a6208c3b896cfee0ec91bac2f1f7ea52102c3",
+    "bytes": 46339
+  },
+  {
+    "source": "expert-resident-chain/shared-b-aot/kernel.sass",
+    "artifact": "expert-resident-chain/shared-b-aot/kernel.sass.gz",
+    "uncompressed_sha256": "09d40c4452d114611e5c5c49d4e749fe8f7f3b3596f4e4c5fd83f73b651bcd5d",
+    "bytes": 22723
+  },
+  {
+    "source": "expert-resident-chain/shared-b-aot/resources.txt",
+    "artifact": "expert-resident-chain/shared-b-aot/resources.txt.gz",
+    "uncompressed_sha256": "5f746649848f234b37247271e6b48b5ef5b03a3cb590040c951d77e398a5b272",
+    "bytes": 447
+  },
+  {
+    "source": "expert-resident-chain/shared-b-aot-extraction-failure.json",
+    "artifact": "expert-resident-chain/shared-b-aot-extraction-failure.json",
+    "uncompressed_sha256": "3e8001948d7456347b402fcd1eb02706bd41d613967c4008e97b3d9b5627d7c2",
+    "bytes": 1249
+  },
+  {
+    "source": "expert-resident-chain/shared-b-aot-result.json",
+    "artifact": "expert-resident-chain/shared-b-aot-result.json",
+    "uncompressed_sha256": "68910aa4120b843088a943e51d1713755a09f7cbeee621269862fcb2de16f14e",
+    "bytes": 1124
+  },
+  {
+    "source": "expert-resident-chain/shared-b-aot.log",
+    "artifact": "expert-resident-chain/shared-b-aot.log.gz",
+    "uncompressed_sha256": "6cffea362a6f980f33b8bbc94c050c0167ff3c136db188e9ae102079a0c54ad0",
+    "bytes": 3924
+  },
+  {
+    "source": "expert-resident-chain/shared-b-cache/cute_dsl_39505f3386364380b307a78cd57150d6cf0744e9758194dc7a46f3291374134d.mlir",
+    "artifact": "expert-resident-chain/shared-b-cache/cute_dsl_39505f3386364380b307a78cd57150d6cf0744e9758194dc7a46f3291374134d.mlir.gz",
+    "uncompressed_sha256": "a89abbed089a7196a33d79355cf474a9f77ad0aa7985e40c8d9c122627fb9706",
+    "bytes": 790
+  },
+  {
+    "source": "expert-resident-chain/shared-b-contract.md",
+    "artifact": "expert-resident-chain/shared-b-contract.md",
+    "uncompressed_sha256": "765030e4dfef651079d8bb6b410ccd2894baf0d74a025c81028da47898b2f919",
+    "bytes": 4149
+  },
+  {
+    "source": "expert-resident-chain/single-gate/result.json",
+    "artifact": "expert-resident-chain/single-gate/result.json",
+    "uncompressed_sha256": "9067bdefdd74ba150c6d29d7902b79dc67844af3fe1a1b8d800484367f54691f",
+    "bytes": 4128
+  },
+  {
+    "source": "expert-resident-chain/stage-source-manifest.json",
+    "artifact": "expert-resident-chain/stage-source-manifest.json",
+    "uncompressed_sha256": "ca3646c51da85aa0983966e578185e1b01a708cd7657b29c777779de96415919",
+    "bytes": 894
+  },
+  {
+    "source": "expert-resident-chain/validate_chain.py",
+    "artifact": "expert-resident-chain/validate_chain.py.gz",
+    "uncompressed_sha256": "f3e9f3184713940dfcd450f09f85c91edd3bec66ba1d86f7803722a694e779e0",
+    "bytes": 15523
+  },
+  {
+    "source": "expert-resident-chain/validation-report.md",
+    "artifact": "expert-resident-chain/validation-report.md",
+    "uncompressed_sha256": "2cc15f1b1373e5e0507e3b85f5dd031d106fec65d6a4f4fb33ee511bd7b6bf6d",
+    "bytes": 4221
+  },
+  {
+    "source": "expert-resident-chain/validation_contract.py",
+    "artifact": "expert-resident-chain/validation_contract.py.gz",
+    "uncompressed_sha256": "6d32b07ecc92e00ffa90e54ab9cf8b2864509b05f3ea65435d14937668e401e0",
+    "bytes": 9399
+  },
+  {
+    "source": "expert-resident-chain-v2/activation-helper-aot/host.mlir",
+    "artifact": "expert-resident-chain-v2/activation-helper-aot/host.mlir.gz",
+    "uncompressed_sha256": "21df5ceef446e6bf08819beb7f36fa353558abe597158866dea7d0b88450a605",
+    "bytes": 51803
+  },
+  {
+    "source": "expert-resident-chain-v2/activation-helper-aot/kernel.sass",
+    "artifact": "expert-resident-chain-v2/activation-helper-aot/kernel.sass.gz",
+    "uncompressed_sha256": "dd7a31cddc5c106521303ed8e7adfa979862ed560c58f7a75486ae2783ce9de2",
+    "bytes": 56147
+  },
+  {
+    "source": "expert-resident-chain-v2/activation-helper-aot/resources.txt",
+    "artifact": "expert-resident-chain-v2/activation-helper-aot/resources.txt.gz",
+    "uncompressed_sha256": "51133ea95b82794a0958df4ef2ac485d6d6c7d4e74ba8c5ddf5fc46bbafe1fbd",
+    "bytes": 447
+  },
+  {
+    "source": "expert-resident-chain-v2/activation-helper-aot-result.json",
+    "artifact": "expert-resident-chain-v2/activation-helper-aot-result.json",
+    "uncompressed_sha256": "2a1b2dedb65d768db16816d7bce251f6d22257804fb5a61e91f6ae4ba474a369",
+    "bytes": 1595
+  },
+  {
+    "source": "expert-resident-chain-v2/activation-helper-aot.log",
+    "artifact": "expert-resident-chain-v2/activation-helper-aot.log.gz",
+    "uncompressed_sha256": "cc925cedfa62fd275c4b98dd3b91d0fdcb9aebde515da22019c3368bd8f99eeb",
+    "bytes": 653
+  },
+  {
+    "source": "expert-resident-chain-v2/activation_helper_aot.py",
+    "artifact": "expert-resident-chain-v2/activation_helper_aot.py.gz",
+    "uncompressed_sha256": "d8ba4791127f0ea42689bb53623b0078b8e3e78244b96a22c9cf6f91603d995a",
+    "bytes": 3825
+  },
+  {
+    "source": "expert-resident-chain-v2/activation_helper_extract.py",
+    "artifact": "expert-resident-chain-v2/activation_helper_extract.py.gz",
+    "uncompressed_sha256": "227082fa33d46765f054e8c38c0c379a8e52559eed983dc5e97eb183e3c90ca1",
+    "bytes": 1429
+  },
+  {
+    "source": "expert-resident-chain-v2/activation_shared_dsl.py",
+    "artifact": "expert-resident-chain-v2/activation_shared_dsl.py.gz",
+    "uncompressed_sha256": "f73a86fbfde68be1592f4d0bbfc52756081a3c78be6583b2f4090a3ccb49542d",
+    "bytes": 4861
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-aot-result.json",
+    "artifact": "expert-resident-chain-v2/chain-aot-result.json",
+    "uncompressed_sha256": "b3ec685d766899a03be2a6a9783b5e36dd1f0bbf8f081817a68b88c04e2d0760",
+    "bytes": 4349
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-cpu-compile/cutlass_resident_chain_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_.sm_103a.ptx",
+    "artifact": "expert-resident-chain-v2/chain-cpu-compile/cutlass_resident_chain_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_.sm_103a.ptx.gz",
+    "uncompressed_sha256": "5f5d0f478aa0b7a099c8ee9a69826f53a1373bf8df6d97fc1762523d48483ce0",
+    "bytes": 400563
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-cpu-compile/host-module.mlir",
+    "artifact": "expert-resident-chain-v2/chain-cpu-compile/host-module.mlir.gz",
+    "uncompressed_sha256": "0e730af2380d7ba71f3232a91b7a7d41df6916cf95d93ef213647170b569fe17",
+    "bytes": 738038
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-frozen-inputs.json",
+    "artifact": "expert-resident-chain-v2/chain-frozen-inputs.json",
+    "uncompressed_sha256": "4869b7f96653e23ba9841239b518feef444dc6f9ff7b05decc65fa28b22cf453",
+    "bytes": 7471
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-gpu-compile/cutlass_resident_chain_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_.sm_103a.ptx",
+    "artifact": "expert-resident-chain-v2/chain-gpu-compile/cutlass_resident_chain_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_.sm_103a.ptx.gz",
+    "uncompressed_sha256": "5f5d0f478aa0b7a099c8ee9a69826f53a1373bf8df6d97fc1762523d48483ce0",
+    "bytes": 400563
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-gpu.log",
+    "artifact": "expert-resident-chain-v2/chain-gpu.log.gz",
+    "uncompressed_sha256": "2b4fdffba2ce3ce1dd80512b650b749129045e55661382dd7ab662933b5689c1",
+    "bytes": 6147
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-independent-review.json",
+    "artifact": "expert-resident-chain-v2/chain-independent-review.json",
+    "uncompressed_sha256": "0eda4cdb850eed70852aaab274028d20eaf116bb0b1fe9206a0617e11995c349",
+    "bytes": 4099
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-independent-review.md",
+    "artifact": "expert-resident-chain-v2/chain-independent-review.md",
+    "uncompressed_sha256": "2026f34b3340cfec0ca52e210b7cb7f259abe4ca6d5942af478de99385b566ea",
+    "bytes": 5373
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-interface-review.json",
+    "artifact": "expert-resident-chain-v2/chain-interface-review.json",
+    "uncompressed_sha256": "270e76a6475b4164fcbd03ac54d6b0587bd95691306c129b17720d4bfd625381",
+    "bytes": 3589
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-interface-review.md",
+    "artifact": "expert-resident-chain-v2/chain-interface-review.md",
+    "uncompressed_sha256": "81b6b28a92aed676403cad5caba024db8c3d27c5b76b4104ff0cb726c7a892ae",
+    "bytes": 2709
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-launch-result.json",
+    "artifact": "expert-resident-chain-v2/chain-launch-result.json",
+    "uncompressed_sha256": "15e0fe2af720d065ee6a165dc2dd70ef21eebe5a9200801044ca7d38f5efef1b",
+    "bytes": 355
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-prepare.log",
+    "artifact": "expert-resident-chain-v2/chain-prepare.log.gz",
+    "uncompressed_sha256": "df29cc0fefb3cb3a051a23d9c7d5fe47aa42ebbfb249f9e31600e8ed9622c632",
+    "bytes": 3039
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-protocol.json",
+    "artifact": "expert-resident-chain-v2/chain-protocol.json",
+    "uncompressed_sha256": "48745392d5c259f271f9d812a53a890427b3ca25424843dd5c9a0e8e6066bc21",
+    "bytes": 5388
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-resource-audit/kernel.sass",
+    "artifact": "expert-resident-chain-v2/chain-resource-audit/kernel.sass.gz",
+    "uncompressed_sha256": "896446ed8892b9924722a365d358b264615af07b8f4733ae369ddc5bdf41ed69",
+    "bytes": 2412821
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-resource-audit/resource-usage.txt",
+    "artifact": "expert-resident-chain-v2/chain-resource-audit/resource-usage.txt.gz",
+    "uncompressed_sha256": "db21af79e181272afaaafad9168e66fc3ffc704b9531f7e674fd7da3b5a25e76",
+    "bytes": 337
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-resource-audit/result.json",
+    "artifact": "expert-resident-chain-v2/chain-resource-audit/result.json",
+    "uncompressed_sha256": "7086342b2273d61bd53ce8370ca87e3818ba82fd125e22bcd801d3d61f138e10",
+    "bytes": 1357
+  },
+  {
+    "source": "expert-resident-chain-v2/chain-resource-usage.txt",
+    "artifact": "expert-resident-chain-v2/chain-resource-usage.txt.gz",
+    "uncompressed_sha256": "db21af79e181272afaaafad9168e66fc3ffc704b9531f7e674fd7da3b5a25e76",
+    "bytes": 337
+  },
+  {
+    "source": "expert-resident-chain-v2/chain_common.py",
+    "artifact": "expert-resident-chain-v2/chain_common.py.gz",
+    "uncompressed_sha256": "965b6854349a1c7dd629f537a373a2063d185339cfc607f601b2d5cb2576308a",
+    "bytes": 5048
+  },
+  {
+    "source": "expert-resident-chain-v2/cpu-contract/result.json",
+    "artifact": "expert-resident-chain-v2/cpu-contract/result.json",
+    "uncompressed_sha256": "3ff2d166adba758f664ccd6502542d54b956669a0f04f4a99fbf7005198fc91b",
+    "bytes": 6038
+  },
+  {
+    "source": "expert-resident-chain-v2/dsm-gather-aot/host.mlir",
+    "artifact": "expert-resident-chain-v2/dsm-gather-aot/host.mlir.gz",
+    "uncompressed_sha256": "110acd77d9df51ac604806a2138006f000a3e7799d519bd6f1c0b55d00225c31",
+    "bytes": 49325
+  },
+  {
+    "source": "expert-resident-chain-v2/dsm-gather-aot/kernel.ptx",
+    "artifact": "expert-resident-chain-v2/dsm-gather-aot/kernel.ptx.gz",
+    "uncompressed_sha256": "f4965f8544757e4157f8b498b9493475364ff02379ea86cd71c0c0a231306e89",
+    "bytes": 126
+  },
+  {
+    "source": "expert-resident-chain-v2/dsm-gather-aot/kernel.sass",
+    "artifact": "expert-resident-chain-v2/dsm-gather-aot/kernel.sass.gz",
+    "uncompressed_sha256": "97b926420de8faf780295cede9f7fff495e11d40f9f700344bfcaf59ad77147b",
+    "bytes": 27347
+  },
+  {
+    "source": "expert-resident-chain-v2/dsm-gather-aot/resources.txt",
+    "artifact": "expert-resident-chain-v2/dsm-gather-aot/resources.txt.gz",
+    "uncompressed_sha256": "5f2a4099378634f345af49345314427e970aa35c6de03bdeee45251f0c0f43e7",
+    "bytes": 447
+  },
+  {
+    "source": "expert-resident-chain-v2/dsm-gather-aot-initial-type-failure.json",
+    "artifact": "expert-resident-chain-v2/dsm-gather-aot-initial-type-failure.json",
+    "uncompressed_sha256": "c589b5cc4583a4c6e7c10a6b87d3f011138847ad173320b9316a7ec7d9db1f74",
+    "bytes": 9123
+  },
+  {
+    "source": "expert-resident-chain-v2/dsm-gather-aot-initial-type-failure.log",
+    "artifact": "expert-resident-chain-v2/dsm-gather-aot-initial-type-failure.log.gz",
+    "uncompressed_sha256": "418256cd387b9ddfbc66dea1e56742e58307aec38668d5a0247dc28f844aec68",
+    "bytes": 646
+  },
+  {
+    "source": "expert-resident-chain-v2/dsm-gather-aot-result.json",
+    "artifact": "expert-resident-chain-v2/dsm-gather-aot-result.json",
+    "uncompressed_sha256": "67750dd3721d51833c296a7e0d40c39b32e45223f1667355ef1d1255426e23e2",
+    "bytes": 1886
+  },
+  {
+    "source": "expert-resident-chain-v2/dsm-gather-aot.log",
+    "artifact": "expert-resident-chain-v2/dsm-gather-aot.log.gz",
+    "uncompressed_sha256": "14f476601946ea4582473f4a497bc32a80d76ab7b370f8d17a5a37d4060824f0",
+    "bytes": 1841
+  },
+  {
+    "source": "expert-resident-chain-v2/dsm-helper-manifest.json",
+    "artifact": "expert-resident-chain-v2/dsm-helper-manifest.json",
+    "uncompressed_sha256": "1c0becb7a8e56a92409e9a1f2dd5095c256b55c9600e6854ef19bdd2beb47ef6",
+    "bytes": 709
+  },
+  {
+    "source": "expert-resident-chain-v2/dsm-lifetime-review.md",
+    "artifact": "expert-resident-chain-v2/dsm-lifetime-review.md",
+    "uncompressed_sha256": "7bbf53c139637326e4b7c0f1de9c3ad3fcea3c9443955cf718bd4a20646a64d0",
+    "bytes": 4458
+  },
+  {
+    "source": "expert-resident-chain-v2/fc1-pair-aot-result.json",
+    "artifact": "expert-resident-chain-v2/fc1-pair-aot-result.json",
+    "uncompressed_sha256": "9776cfd8dea7d4f632d2bcda40d802dce8c24e07caecd4750142e748ac08c090",
+    "bytes": 2408
+  },
+  {
+    "source": "expert-resident-chain-v2/fc1-pair-cpu-compile/cutlass_resident_fc1_pair_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgm.sm_103a.ptx",
+    "artifact": "expert-resident-chain-v2/fc1-pair-cpu-compile/cutlass_resident_fc1_pair_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgm.sm_103a.ptx.gz",
+    "uncompressed_sha256": "e50a0ef3d559c0e4cfd1942f69f0d48bfad995f6cfd465b13edc47aae8b4e9a7",
+    "bytes": 137779
+  },
+  {
+    "source": "expert-resident-chain-v2/fc1-pair-cpu-compile/host-module.mlir",
+    "artifact": "expert-resident-chain-v2/fc1-pair-cpu-compile/host-module.mlir.gz",
+    "uncompressed_sha256": "8eb6051b61e2e7460ba1de056147971bc2b07ccdc5053cef5e95d25691f69cf1",
+    "bytes": 291050
+  },
+  {
+    "source": "expert-resident-chain-v2/fc1-pair-prepare.log",
+    "artifact": "expert-resident-chain-v2/fc1-pair-prepare.log.gz",
+    "uncompressed_sha256": "df29cc0fefb3cb3a051a23d9c7d5fe47aa42ebbfb249f9e31600e8ed9622c632",
+    "bytes": 3039
+  },
+  {
+    "source": "expert-resident-chain-v2/fc1-pair-resource-usage.txt",
+    "artifact": "expert-resident-chain-v2/fc1-pair-resource-usage.txt.gz",
+    "uncompressed_sha256": "a9e206dca9903b5900a94c6c25a4b4872df48c8d5eaf1f66c021d31ff5ed04f0",
+    "bytes": 322
+  },
+  {
+    "source": "expert-resident-chain-v2/generate_chain.py",
+    "artifact": "expert-resident-chain-v2/generate_chain.py.gz",
+    "uncompressed_sha256": "07b725a6bd5a3aa2242abb1cc560f9683d11ecff58dbfcec745ef9da818fefde",
+    "bytes": 7426
+  },
+  {
+    "source": "expert-resident-chain-v2/generate_fc1_outer.py",
+    "artifact": "expert-resident-chain-v2/generate_fc1_outer.py.gz",
+    "uncompressed_sha256": "6db082c9fa8df05aebd2ff4a5db6b2be903f89d9013600460986477a4f52d7c8",
+    "bytes": 3848
+  },
+  {
+    "source": "expert-resident-chain-v2/generate_stage_sources.py",
+    "artifact": "expert-resident-chain-v2/generate_stage_sources.py.gz",
+    "uncompressed_sha256": "55ceb9e988d4a44a817702dfe5afa1a2174f973fbb08291138530ae092f6c172",
+    "bytes": 7764
+  },
+  {
+    "source": "expert-resident-chain-v2/initial-1024-alignment-fc1-pair-aot-result.json",
+    "artifact": "expert-resident-chain-v2/initial-1024-alignment-fc1-pair-aot-result.json",
+    "uncompressed_sha256": "b4e2ffdaaf322b2fbe48406ec056268d167609e0f8cd0c10c1c45a2036aec4dd",
+    "bytes": 9948
+  },
+  {
+    "source": "expert-resident-chain-v2/initial-1024-alignment-fc1-pair-prepare.log",
+    "artifact": "expert-resident-chain-v2/initial-1024-alignment-fc1-pair-prepare.log.gz",
+    "uncompressed_sha256": "4cc782a1974753539299f7528a9587ccb227ad5ae4283eeb94f41044480f3801",
+    "bytes": 4415
+  },
+  {
+    "source": "expert-resident-chain-v2/initial-fc1-pair-aot-result.json",
+    "artifact": "expert-resident-chain-v2/initial-fc1-pair-aot-result.json",
+    "uncompressed_sha256": "9a84e489c99336dba9f6d823925dce32be75c585a1a485ab06d31592eee27064",
+    "bytes": 6603
+  },
+  {
+    "source": "expert-resident-chain-v2/initial-fc1-pair-prepare.log",
+    "artifact": "expert-resident-chain-v2/initial-fc1-pair-prepare.log.gz",
+    "uncompressed_sha256": "a0fb8629ad8eeb516d1d2b19b6bf51442475c2fc52df82f8349186d34d3f3326",
+    "bytes": 4392
+  },
+  {
+    "source": "expert-resident-chain-v2/launch_chain_gate.py",
+    "artifact": "expert-resident-chain-v2/launch_chain_gate.py.gz",
+    "uncompressed_sha256": "d79d81a990a241b20ede60a0c341243d658f90b4f5aeb251c008e34afbd1071b",
+    "bytes": 1050
+  },
+  {
+    "source": "expert-resident-chain-v2/parent-lifetime-review.md",
+    "artifact": "expert-resident-chain-v2/parent-lifetime-review.md",
+    "uncompressed_sha256": "0bdfa612bfc7271aa5bb8a731824a978b77bc4478b6fbf9ea0d48e1164b3c549",
+    "bytes": 3057
+  },
+  {
+    "source": "expert-resident-chain-v2/prepare_chain.py",
+    "artifact": "expert-resident-chain-v2/prepare_chain.py.gz",
+    "uncompressed_sha256": "c7ab1e055edfa35064e8f14727baeb7c9c62262ac324d8299fa706e1259a3c48",
+    "bytes": 1575
+  },
+  {
+    "source": "expert-resident-chain-v2/prepare_fc1_pair.py",
+    "artifact": "expert-resident-chain-v2/prepare_fc1_pair.py.gz",
+    "uncompressed_sha256": "d0619a518572aced5141ae6c7d01d4390ea494f41e07611a0e02c7a96d3845bb",
+    "bytes": 2337
+  },
+  {
+    "source": "expert-resident-chain-v2/protocol-template.json",
+    "artifact": "expert-resident-chain-v2/protocol-template.json",
+    "uncompressed_sha256": "7a99394a6e5df69711966fba19e4ff282c3f320002d2a9a00d26c50f4a72477f",
+    "bytes": 3794
+  },
+  {
+    "source": "expert-resident-chain-v2/resident-adapter-source-audit.json",
+    "artifact": "expert-resident-chain-v2/resident-adapter-source-audit.json",
+    "uncompressed_sha256": "de9563135079c24c61bde16ce25397ce69c09c0893f6f33386d1c446ae592313",
+    "bytes": 1669
+  },
+  {
+    "source": "expert-resident-chain-v2/resident-allocator-aot/cutlass___call_____main__Probe_object_at__FakeTensorInt32321_CUstream0x0.sm_103a.ptx",
+    "artifact": "expert-resident-chain-v2/resident-allocator-aot/cutlass___call_____main__Probe_object_at__FakeTensorInt32321_CUstream0x0.sm_103a.ptx.gz",
+    "uncompressed_sha256": "8a06ceaeaa64b27ef3638ba8a0eea5093df382d06b9dab9753503bb6ee62696c",
+    "bytes": 1111
+  },
+  {
+    "source": "expert-resident-chain-v2/resident-allocator-aot/host.mlir",
+    "artifact": "expert-resident-chain-v2/resident-allocator-aot/host.mlir.gz",
+    "uncompressed_sha256": "472d809032e71411d57d1796990696963b82fe6a7a70f3e442e4b9abb97660ab",
+    "bytes": 35657
+  },
+  {
+    "source": "expert-resident-chain-v2/resident-allocator-aot-result.json",
+    "artifact": "expert-resident-chain-v2/resident-allocator-aot-result.json",
+    "uncompressed_sha256": "53c09cc32e8c28275a2e586b2e2713f4d4d6610fa5b73da3d684c755c07e2384",
+    "bytes": 290
+  },
+  {
+    "source": "expert-resident-chain-v2/resident-allocator-aot.log",
+    "artifact": "expert-resident-chain-v2/resident-allocator-aot.log.gz",
+    "uncompressed_sha256": "53c09cc32e8c28275a2e586b2e2713f4d4d6610fa5b73da3d684c755c07e2384",
+    "bytes": 290
+  },
+  {
+    "source": "expert-resident-chain-v2/resident-gmem-c.patch",
+    "artifact": "expert-resident-chain-v2/resident-gmem-c.patch.gz",
+    "uncompressed_sha256": "0dc6ef142ed6f2361fead05eb072d3d6d0057fc64280fdda799838817f4e8c30",
+    "bytes": 2750
+  },
+  {
+    "source": "expert-resident-chain-v2/resident-stage.patch",
+    "artifact": "expert-resident-chain-v2/resident-stage.patch.gz",
+    "uncompressed_sha256": "aaab8370a0456d509fc190725343c89d55c6d60b9a51fa6eec7a07b7ade3b01c",
+    "bytes": 5796
+  },
+  {
+    "source": "expert-resident-chain-v2/resident-static-task-contract.json",
+    "artifact": "expert-resident-chain-v2/resident-static-task-contract.json",
+    "uncompressed_sha256": "fd676ccbf716d480ba6683439481cdd4d3ff7085f798477aa070470bfbb8d3d1",
+    "bytes": 2796
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_allocator_aot.py",
+    "artifact": "expert-resident-chain-v2/resident_allocator_aot.py.gz",
+    "uncompressed_sha256": "ddd7388fcaa1a663bd261596c4e9ef1be5f91d834ec74d9554487615d85ab6a4",
+    "bytes": 2601
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_chain_host.py",
+    "artifact": "expert-resident-chain-v2/resident_chain_host.py.gz",
+    "uncompressed_sha256": "e53966a08a0cb7b301a334089f16025adeb4397e78330a1427337117d77e8bc4",
+    "bytes": 3851
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_chain_kernel.py",
+    "artifact": "expert-resident-chain-v2/resident_chain_kernel.py.gz",
+    "uncompressed_sha256": "0907c3d7ac1cfbd8b55225ec9c7ad1051bdeafe190aa1be500f12741946de0bd",
+    "bytes": 9928
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_descriptors.py",
+    "artifact": "expert-resident-chain-v2/resident_descriptors.py.gz",
+    "uncompressed_sha256": "b338136df08cff6942166579bf1fb1ee5d124243d13be26b9c2a87a8e1962fa9",
+    "bytes": 34564
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_dsm_gather.py",
+    "artifact": "expert-resident-chain-v2/resident_dsm_gather.py.gz",
+    "uncompressed_sha256": "e93d8ade40fa468c633e4ed124ed1357ba49f715d9a01717fbae24b5f6a97d42",
+    "bytes": 3089
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_dsm_gather_aot.py",
+    "artifact": "expert-resident-chain-v2/resident_dsm_gather_aot.py.gz",
+    "uncompressed_sha256": "a865c65acd4e2180b4f9f9c94571eee9a6c408523baea6b627c28ec4cea9ec41",
+    "bytes": 5194
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_fc1_host.py",
+    "artifact": "expert-resident-chain-v2/resident_fc1_host.py.gz",
+    "uncompressed_sha256": "ae98df2a80108de6b8f6e41906c2d5ba28ffee73b77ceda71719bc6cd9b30133",
+    "bytes": 34782
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_fc1_pair.py",
+    "artifact": "expert-resident-chain-v2/resident_fc1_pair.py.gz",
+    "uncompressed_sha256": "f87fc4704283bc829b84c92a5b2da29be67c918ca425d29756c876aca9648cd8",
+    "bytes": 5250
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_fc2_stage.py",
+    "artifact": "expert-resident-chain-v2/resident_fc2_stage.py.gz",
+    "uncompressed_sha256": "9dd684d82fa2363808f5a6692f66baaf9a9d546178e7dd051fe5b4d8cab6b4a6",
+    "bytes": 39334
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_gmem_c.py",
+    "artifact": "expert-resident-chain-v2/resident_gmem_c.py.gz",
+    "uncompressed_sha256": "f78640e5bf4283cc412bc45255bcb5bdf74116079f124a0001ef27fc10a0c1e7",
+    "bytes": 158047
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_native_tasks.py",
+    "artifact": "expert-resident-chain-v2/resident_native_tasks.py.gz",
+    "uncompressed_sha256": "4a6726a811166ecbddf84c245cc164e03473703f03873787303b5f789dff980f",
+    "bytes": 63891
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_resources.py",
+    "artifact": "expert-resident-chain-v2/resident_resources.py.gz",
+    "uncompressed_sha256": "252a0b7f5e2e3d300f6a57bdfdb5ca9a99cabfaf83c70dd6fa8296be6f921413",
+    "bytes": 3990
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_shared_b.py",
+    "artifact": "expert-resident-chain-v2/resident_shared_b.py.gz",
+    "uncompressed_sha256": "37346817142c81cc6763d9ba303425c6f307a6cc6e7357e23dc0ce157c88a8eb",
+    "bytes": 6751
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_shared_b_aot.py",
+    "artifact": "expert-resident-chain-v2/resident_shared_b_aot.py.gz",
+    "uncompressed_sha256": "92d235c9b4b86eae219a1e42fcd726b8d02115ec3583fdd420be2cb743f958b7",
+    "bytes": 5671
+  },
+  {
+    "source": "expert-resident-chain-v2/resident_stage.py",
+    "artifact": "expert-resident-chain-v2/resident_stage.py.gz",
+    "uncompressed_sha256": "127e4fe93305c6fd5f1c0fbd7cacd0e7e0d6b92631c572dc090ce66bc0e96442",
+    "bytes": 38991
+  },
+  {
+    "source": "expert-resident-chain-v2/resource-parser-component-check/kernel.sass",
+    "artifact": "expert-resident-chain-v2/resource-parser-component-check/kernel.sass.gz",
+    "uncompressed_sha256": "dd5d884c346e5e31adc0ca5736cf56ba888fed77517d3f9ae67b54ad0042fc5b",
+    "bytes": 585253
+  },
+  {
+    "source": "expert-resident-chain-v2/resource-parser-component-check/resource-usage.txt",
+    "artifact": "expert-resident-chain-v2/resource-parser-component-check/resource-usage.txt.gz",
+    "uncompressed_sha256": "5136a25d8a24324932d2841c2eeb5d03b88278ded4f77a3feb9a6b1bcc702ddd",
+    "bytes": 322
+  },
+  {
+    "source": "expert-resident-chain-v2/resource-parser-component-check/result.json",
+    "artifact": "expert-resident-chain-v2/resource-parser-component-check/result.json",
+    "uncompressed_sha256": "928b925183b14ed55a15b091fb2ce7cfe088e4b4a5e19f1e499aed638afe05cd",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-resident-chain-v2/resource_audit.py",
+    "artifact": "expert-resident-chain-v2/resource_audit.py.gz",
+    "uncompressed_sha256": "398d7a89ed615fb3b7f3e92607b1f378c371e4f1eea539be6fe53f4d3ab76a6c",
+    "bytes": 4514
+  },
+  {
+    "source": "expert-resident-chain-v2/run_chain_gate.py",
+    "artifact": "expert-resident-chain-v2/run_chain_gate.py.gz",
+    "uncompressed_sha256": "75db0bfe9ba7a4f0b11849b009707edf4d5e0286ee2de05a649980e186acff03",
+    "bytes": 1223
+  },
+  {
+    "source": "expert-resident-chain-v2/shared-b-aot/host.mlir",
+    "artifact": "expert-resident-chain-v2/shared-b-aot/host.mlir.gz",
+    "uncompressed_sha256": "5966b6286d94a1639b1364be962a6208c3b896cfee0ec91bac2f1f7ea52102c3",
+    "bytes": 46339
+  },
+  {
+    "source": "expert-resident-chain-v2/shared-b-aot/kernel.sass",
+    "artifact": "expert-resident-chain-v2/shared-b-aot/kernel.sass.gz",
+    "uncompressed_sha256": "09d40c4452d114611e5c5c49d4e749fe8f7f3b3596f4e4c5fd83f73b651bcd5d",
+    "bytes": 22723
+  },
+  {
+    "source": "expert-resident-chain-v2/shared-b-aot/resources.txt",
+    "artifact": "expert-resident-chain-v2/shared-b-aot/resources.txt.gz",
+    "uncompressed_sha256": "5f746649848f234b37247271e6b48b5ef5b03a3cb590040c951d77e398a5b272",
+    "bytes": 447
+  },
+  {
+    "source": "expert-resident-chain-v2/shared-b-aot-extraction-failure.json",
+    "artifact": "expert-resident-chain-v2/shared-b-aot-extraction-failure.json",
+    "uncompressed_sha256": "3e8001948d7456347b402fcd1eb02706bd41d613967c4008e97b3d9b5627d7c2",
+    "bytes": 1249
+  },
+  {
+    "source": "expert-resident-chain-v2/shared-b-aot-result.json",
+    "artifact": "expert-resident-chain-v2/shared-b-aot-result.json",
+    "uncompressed_sha256": "68910aa4120b843088a943e51d1713755a09f7cbeee621269862fcb2de16f14e",
+    "bytes": 1124
+  },
+  {
+    "source": "expert-resident-chain-v2/shared-b-aot.log",
+    "artifact": "expert-resident-chain-v2/shared-b-aot.log.gz",
+    "uncompressed_sha256": "6cffea362a6f980f33b8bbc94c050c0167ff3c136db188e9ae102079a0c54ad0",
+    "bytes": 3924
+  },
+  {
+    "source": "expert-resident-chain-v2/shared-b-cache/cute_dsl_39505f3386364380b307a78cd57150d6cf0744e9758194dc7a46f3291374134d.mlir",
+    "artifact": "expert-resident-chain-v2/shared-b-cache/cute_dsl_39505f3386364380b307a78cd57150d6cf0744e9758194dc7a46f3291374134d.mlir.gz",
+    "uncompressed_sha256": "a89abbed089a7196a33d79355cf474a9f77ad0aa7985e40c8d9c122627fb9706",
+    "bytes": 790
+  },
+  {
+    "source": "expert-resident-chain-v2/shared-b-contract.md",
+    "artifact": "expert-resident-chain-v2/shared-b-contract.md",
+    "uncompressed_sha256": "765030e4dfef651079d8bb6b410ccd2894baf0d74a025c81028da47898b2f919",
+    "bytes": 4149
+  },
+  {
+    "source": "expert-resident-chain-v2/single-gate/result.json",
+    "artifact": "expert-resident-chain-v2/single-gate/result.json.gz",
+    "uncompressed_sha256": "d18eec7975bc81b26603769c89e1da3d7ed71e2c020a8d8c28720daec6c17fd5",
+    "bytes": 77858
+  },
+  {
+    "source": "expert-resident-chain-v2/stage-source-manifest.json",
+    "artifact": "expert-resident-chain-v2/stage-source-manifest.json",
+    "uncompressed_sha256": "ca3646c51da85aa0983966e578185e1b01a708cd7657b29c777779de96415919",
+    "bytes": 894
+  },
+  {
+    "source": "expert-resident-chain-v2/summary.md",
+    "artifact": "expert-resident-chain-v2/summary.md",
+    "uncompressed_sha256": "8a9e04a920738a99b621204fb1bd4b0f82af66bdc1b36e7a0a903a9541e94903",
+    "bytes": 1966
+  },
+  {
+    "source": "expert-resident-chain-v2/validate_chain.py",
+    "artifact": "expert-resident-chain-v2/validate_chain.py.gz",
+    "uncompressed_sha256": "f3e9f3184713940dfcd450f09f85c91edd3bec66ba1d86f7803722a694e779e0",
+    "bytes": 15523
+  },
+  {
+    "source": "expert-resident-chain-v2/validation-report.md",
+    "artifact": "expert-resident-chain-v2/validation-report.md",
+    "uncompressed_sha256": "2cc15f1b1373e5e0507e3b85f5dd031d106fec65d6a4f4fb33ee511bd7b6bf6d",
+    "bytes": 4221
+  },
+  {
+    "source": "expert-resident-chain-v2/validation_contract.py",
+    "artifact": "expert-resident-chain-v2/validation_contract.py.gz",
+    "uncompressed_sha256": "6d32b07ecc92e00ffa90e54ab9cf8b2864509b05f3ea65435d14937668e401e0",
+    "bytes": 9399
+  },
+  {
     "source": "expert-resident-cluster-plan.md",
     "artifact": "expert-resident-cluster-plan.md",
     "uncompressed_sha256": "f497d8f8a64aa48143975b37b8f94dea7a973fbbc97e2939f9543d453bbcfd22",
@@ -3518,8 +5180,8 @@
   {
     "source": "expert-resident-implementation-plan.md",
     "artifact": "expert-resident-implementation-plan.md",
-    "uncompressed_sha256": "e51c5a849acea82227d848eec486caef6ff7eec1186d02cecf9880bf2a4f3d67",
-    "bytes": 9761
+    "uncompressed_sha256": "2281494fb357f5a3b34efc60e7498752a88cdd656c3ab5c1b2a7a66e80581b1d",
+    "bytes": 11112
   },
   {
     "source": "expert_pipeline_cpu_audit.py",
@@ -4262,8 +5924,8 @@
   {
     "source": "gdn-fused-prefill/analyze.py",
     "artifact": "gdn-fused-prefill/analyze.py.gz",
-    "uncompressed_sha256": "36d45fdb50c9a64d2ad630e82439e8df8978c5ade522f6a97c0f2e35593b5084",
-    "bytes": 4787
+    "uncompressed_sha256": "60175eaeca0fcf237a378e1cd90ae0ddb4c4f41b2a8b08b9e32182547e4b3c53",
+    "bytes": 4958
   },
   {
     "source": "gdn-fused-prefill/cpu-aot-o64.json",
@@ -4312,6 +5974,18 @@
     "artifact": "gdn-fused-prefill/fused_ho.py.gz",
     "uncompressed_sha256": "cce70cc375d1845f04d862621f93e3313e0bbc5644478582ae96696cfe27621b",
     "bytes": 4897
+  },
+  {
+    "source": "gdn-fused-prefill/independent-review-checks.json",
+    "artifact": "gdn-fused-prefill/independent-review-checks.json",
+    "uncompressed_sha256": "69cd0d5e7e6f66545ea5b9f5465f317ff314e2613cc198770aa43891607b8b88",
+    "bytes": 18913
+  },
+  {
+    "source": "gdn-fused-prefill/independent-review.md",
+    "artifact": "gdn-fused-prefill/independent-review.md",
+    "uncompressed_sha256": "f3dfd67d780b656c1bfa4596c2ed6cc1ac8c1d74c8e3ff4827c33cec5154d691",
+    "bytes": 3880
   },
   {
     "source": "gdn-fused-prefill/launch.py",
@@ -4424,8 +6098,8 @@
   {
     "source": "gdn-fused-prefill/report.md",
     "artifact": "gdn-fused-prefill/report.md",
-    "uncompressed_sha256": "deb5e634ce4a0c37d885c552896ea2993712b8fbb9ebc42f1b35ef475651bf15",
-    "bytes": 2964
+    "uncompressed_sha256": "221d4d185a3087d1034da7fe846e6a1b9c5501a957e662d4a3b654dcc5c1740a",
+    "bytes": 3135
   },
   {
     "source": "gdn-fused-prefill/result.json",
@@ -4634,8 +6308,8 @@
   {
     "source": "gdn-fused-prefill-o64/report.md",
     "artifact": "gdn-fused-prefill-o64/report.md",
-    "uncompressed_sha256": "2251746c58c8d0c9b7bb5408f9d20cd0a0e91c5a9ab62c5d80a0098379662de4",
-    "bytes": 2519
+    "uncompressed_sha256": "49b76379b27e213b17891ae8182da02a2bfdb4ef2b10e3387883f0c11256786a",
+    "bytes": 2647
   },
   {
     "source": "gdn-fused-prefill-o64/result.json",

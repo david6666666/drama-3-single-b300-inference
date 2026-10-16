@@ -1,0 +1,29 @@
+{
+  "status": "CPU_AOT_PASS",
+  "gpu_launched": false,
+  "source_sha256": "37346817142c81cc6763d9ba303425c6f307a6cc6e7357e23dc0ce157c88a8eb",
+  "scope": "Component staging-body AOT + CPU layout/config contract; full task-pipeline composite not executed.",
+  "resolved_contract": {
+    "tile_n": 8,
+    "tile_k": 128,
+    "num_bytes_b_smem_per_stage": 1024,
+    "num_load_b_warps": 1,
+    "load_b_warp_idx": 8,
+    "num_load_sfab_warps": 1,
+    "load_sfab_warp_idx": 12,
+    "num_epilogue_warps": 4,
+    "cluster_m": 1
+  },
+  "new_pipeline_types": {
+    "smem_b": "PipelineType.AsyncUmma",
+    "smem_dsfp8_sfab": "PipelineType.AsyncAsync"
+  },
+  "cpu_geometry_cases": 36,
+  "cuda_initialized": false,
+  "artifacts": {
+    "shared-b-aot/kernel.fatbin": "bec4c4544b51f56a2c903ced166590f9b336b629420b9bab1b62f06bd611c6dd",
+    "shared-b-aot/host.mlir": "5966b6286d94a1639b1364be962a6208c3b896cfee0ec91bac2f1f7ea52102c3",
+    "shared-b-aot/resources.txt": "5f746649848f234b37247271e6b48b5ef5b03a3cb590040c951d77e398a5b272",
+    "shared-b-aot/kernel.sass": "09d40c4452d114611e5c5c49d4e749fe8f7f3b3596f4e4c5fd83f73b651bcd5d"
+  }
+}

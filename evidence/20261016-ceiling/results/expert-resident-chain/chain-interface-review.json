@@ -1,0 +1,33 @@
+{
+  "status": "CPU_REVIEW_NO_SOURCE_BLOCKER",
+  "gpu_launched": false,
+  "files": {
+    "resident_chain_kernel.py": "0907c3d7ac1cfbd8b55225ec9c7ad1051bdeafe190aa1be500f12741946de0bd",
+    "resident_chain_host.py": "e53966a08a0cb7b301a334089f16025adeb4397e78330a1427337117d77e8bc4",
+    "resident_fc2_stage.py": "9dd684d82fa2363808f5a6692f66baaf9a9d546178e7dd051fe5b4d8cab6b4a6",
+    "resident_resources.py": "252a0b7f5e2e3d300f6a57bdfdb5ca9a99cabfaf83c70dd6fa8296be6f921413",
+    "resident_shared_b.py": "37346817142c81cc6763d9ba303425c6f307a6cc6e7357e23dc0ce157c88a8eb",
+    "resident_dsm_gather.py": "e93d8ade40fa468c633e4ed124ed1357ba49f715d9a01717fbae24b5f6a97d42",
+    "activation_shared_dsl.py": "f73a86fbfde68be1592f4d0bbfc52756081a3c78be6583b2f4090a3ccb49542d",
+    "chain_common.py": "5023ff967acac6b85141b5f415754fc88ccbd814b1a0363b9f69be84e3d91133"
+  },
+  "observations": [
+    "FC1 up/gate original FP8 bytes and scales stay in disjoint pinned storage until every activation warp completes; full-gather alias is written only after full CTA and ordered cluster barrier.",
+    "Activation Tensor strides match validated helper: [8,256] (256,1), [2,8] (8,1), local output [8,128] (128,1), [8] (1).",
+    "Four local scale ranks gather to [K128 block, token]; FC2 stage indexes stage_info.loop_offset with same K128 block order. Weight scale index retains expert/output-tile/Kblock.",
+    "B uses one complete LoadB warp, 32 AsyncThread producer arrivals, native single UMMA consumer; all lanes stage two16B chunks and async-proxy fence before commit.",
+    "SF uses one complete LoadSfAb warp, 32 AsyncThread arrivals, cfg.num_epilogue_warps ×32 consumers (actual full M64 chain: eight warps /256; the standalone staging AOT used pre-layout four warps /128); all32 scale stage elements initialized, one lane writes weight scale unchanged.",
+    "For cfg.cluster_m=1, installed Task CtaLeader signaling tests actual_rank % cta_v_size==0, so all four outer ranks signal their local native pipelines; no accidental rank0-only barrier.",
+    "Rows beyond valid_rows are not read from uninitialized local activation; full gathered invalid rows zero, FC2 B invalid rows zero and SF unused32 slots zero. Global boundary outputs preserve invalid rows through masks.",
+    "Native body may skip on uniform ncta0, but outer activation/DSM barriers and single TMEM allocation/deallocation remain outside that conditional.",
+    "Outer calls one alloc/relinquish before stages, retains TMEM through two FC1/four FC2 stages, then one final dealloc; helper and adapters add no TMEM calls.",
+    "Full/global activation debug exports are not used as FC2 operands. Shared arrays remain pinned across all4FC2 phases; stage scratch bounds exclude them.",
+    "chain_common.prepare now asserts exact selected-expert input shapes/dtypes/contiguity and valid_rows integer0..8; this prevents accidental full-routing metadata use through that entrypoint."
+  ],
+  "scope_limits": [
+    "Current implementation is deliberately only one selected expert token tile0..8; chain_common.prepare enforces that shape/domain. It is not a full256expert serving operator.",
+    "Complete chain actual resource audit and native oracle exact gate are still pending; componentAOT and standalone activation pass do not establish whole-chain pass.",
+    "Actual asynchronous MMA/task drain, stage barrier reinitialization, dynamic register transitions and final TMA output completion need completechain execution; source review only confirms intended placement."
+  ],
+  "full_chain_aot_observation": "chain-aot-result.json reports CPU_AOT_PASS; final full-chain resource ledger and GPU exact gate remain separate."
+}

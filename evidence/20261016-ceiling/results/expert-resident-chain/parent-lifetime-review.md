@@ -1,0 +1,15 @@
+# Parent CPU review: native stages cannot be concatenated unchanged
+
+Scope: CPU/source review only. No new GPU execution or performance claim. Component exactness does not qualify the composite kernel. The main implementer accepted the TMEM correction before any composite GPU launch.
+
+The extracted native `_batched_gemm_kernel_bf16_body` allocates TMEM, immediately relinquishes allocation permission, runs one homogeneous task graph, then deallocates. Calling this body again inside the same CTA would allocate after permission was relinquished, which the [official PTX ISA9.0 allocation contract](https://docs.nvidia.com/cuda/pdf/ptx_isa_9.0.pdf) prohibits. Sequential host kernel launches do not expose this issue because they create distinct CTAs.
+
+The composite implementation therefore needs outer-owned TMEM: allocate once, relinquish once, lend the same address to every drained stage, and deallocate once after the last consumer. Assert that both stage allocators/configured fixed offsets fit the reserved columns; do not infer size from only one component. A repeated-allocation alternative would require retaining permission and nonincreasing allocation sizes; it is unnecessary for this bounded prototype.
+
+The installed CUTLASS4.7.1 `TaskManager.run/_run_impl` and `Task.run_body` use selected-warp dispatch and contain no kernel exit. That supports outer convergence after a task stage, but does not prove the new resource graph deadlock-free. All participating producer, MMA, epilogue and padding roles must finish before shared-memory barriers are reinitialized. Inactive token rows and empty work must have a uniform cluster lifetime.
+
+Native BF16 DSFP8 TMA output commit waits for its bulk shared-memory reads and synchronizes its epilogue warpgroup. This provides a component scratch-read completion mechanism, not a substitute for outer full-CTA convergence or cluster producer/consumer barriers. Shared activation publication and remote DSM read completion need their own explicit synchronization before data is recycled. Generic shared writes consumed by async TMA/MMA require the appropriate proxy fence.
+
+Dynamic register budgets are part of the phase transition. FC1's eight epilogue warps request160 registers/thread, with other roles requesting48. FC2 uses a different role partition. The stage transition must execute each role's required decrease/increase, and the compiled complete kernel's resource audit must account for these requests. A static cubin register header cannot prove residency. No blind max-register cap or arithmetic change is justified by this review.
+
+The original native stage is installed at `flashinfer/prims_ts/batched_gemm/batched_gemm_kernel.py`; task implementation is the process-only CUTLASS overlay's `cutlass/experimental/task_scheduling/{task_manager,task}.py`. Exact dependency files are hashed by stage generation and the upcoming composite freeze. This review is a checklist for the actual generated implementation, not a claim that the proposed lifetime fixes are already validated on GPU.

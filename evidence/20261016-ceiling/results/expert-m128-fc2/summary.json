@@ -1,0 +1,23 @@
+{
+  "status": "ONE_EXPERT_FC2_EXACT_PASS",
+  "checks": 39,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "native_model_arithmetic_preserved": true,
+  "mma": [
+    128,
+    8,
+    32
+  ],
+  "native_mma": [
+    64,
+    8,
+    32
+  ],
+  "scale_block_k": 128,
+  "total_shared_bytes": 74664,
+  "actual_threads_from_ptx": 384,
+  "dynamic_register_budget_note": "Four epilogue warps request160, eight other warps48:32768registers/CTA; possible two-CTA register capacity, not measured residency or throughput.",
+  "timing_allowed": false,
+  "service_target_achieved": false,
+  "scope": "One expert205 at layer0, changing valid0..8, eager andgraph"
+}

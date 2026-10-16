@@ -1,0 +1,12 @@
+{
+  "status": "CPU_AOT_PASS_ONLY",
+  "gpu_launched": false,
+  "files": {
+    "resident_dsm_gather.py": "e93d8ade40fa468c633e4ed124ed1357ba49f715d9a01717fbae24b5f6a97d42",
+    "resident_dsm_gather_aot.py": "a865c65acd4e2180b4f9f9c94571eee9a6c408523baea6b627c28ec4cea9ec41",
+    "dsm-lifetime-review.md": "7bbf53c139637326e4b7c0f1de9c3ad3fcea3c9443955cf718bd4a20646a64d0",
+    "dsm-gather-aot-result.json": "67750dd3721d51833c296a7e0d40c39b32e45223f1667355ef1d1255426e23e2",
+    "dsm-gather-aot-initial-type-failure.json": "c589b5cc4583a4c6e7c10a6b87d3f011138847ad173320b9316a7ec7d9db1f74",
+    "dsm-gather-aot-initial-type-failure.log": "418256cd387b9ddfbc66dea1e56742e58307aec38668d5a0247dc28f844aec68"
+  }
+}

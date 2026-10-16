@@ -1,0 +1,18 @@
+{
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/probe.py": "daa46497e0aa9526d95a812c03859a65c01841c419ccf3ed6c871cf4cdcf1077",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/run.py": "92b7e6f8626af5e22911ea5cdf7125f2e20b711c24d5589035534a4d8f1759e5",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/launch.py": "d54ca84f1fd780e3f7b6a526fe217a5845fc944b4b2924851074177bfa612976",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/protocol.json": "77fa031687dac05689848c03a120974f5bfabcd506f33a5804d85eb8c80729d8",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/result.json": "a05305851d3359548a4429a7702d1ba996bba996ee46e81da69899022ba23a08",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/inputs.pt": "7c5e0570c8c3df63bb5636c645b5bf3e71c000f6ef17f25f72710991e8d338f7",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-real.pt": "68699d4a96078075bd881a3d966b1943aabb3cd25194942af47a1ba161d0f588",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native-v3/common.py": "30715933be4ae59335cd5b2732c3a75f8d468f3e12e35cddf6d04fabc7a12357",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native-v3/gmem_c_resources_native_v3.py": "ac1bc91e625f1ab0deb2c5fd728bb22589dc20693e50af5ce9aaaf357cfb3c86",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/aot/host.mlir": "b6779fc984762e704ca413d2029f40a356203c5ec624e6f1cc37a9a09815114c",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024820.sm_103a.cubin": "9b756d39c78a04d9d9440888bd94138af232545124cd56f69a2dd7c85dce77c4",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/aot/resources.txt": "66529fea5eed281efdace8babb84248816c2871a8697cb7812ac28f27062fe99",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024820.sm_103a.ptx": "a6767a011ea530c4e3c3eee400ade79d9c358a47c82e359303f6fde98ccc4940",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/resource-audit/resource-usage.txt": "66529fea5eed281efdace8babb84248816c2871a8697cb7812ac28f27062fe99",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/resource-audit/kernel.sass": "9039ac1589cab28b7cce6514733de38b9dd025438169bc7ae14048b1f5763be2",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/resource-audit/result.json": "a0b0aae30bf0f49b495df2d2546c220eca07fe1fb860f733297690628d143f55"
+}

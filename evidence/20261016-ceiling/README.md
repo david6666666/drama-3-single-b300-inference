@@ -317,3 +317,43 @@ complete quality records and failures are indexed by [files.json](results/files.
 Gzip files retain the original uncompressed SHA256. Full WAVs and large tensor
 captures remain under `/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016`;
 they are not duplicated into Git. No successful README example is added.
+
+
+## Resident-chain composition and M128 resource experiment
+
+The complete FC1→native activation→FC2 resident prototype passes489 exact
+checks for one selected layer0/expert205 at valid row counts0–8: five native
+boundaries, eager/graph, guards, input/weight/metadata/RNG ownership and an
+explicitly oracle-assisted native finalizer. Its actual compiled launch uses
+78,464dynamic+1,024static bytes perCTA, zero spills, and one outer-owned TMEM
+allocation through all stages. This is **one-expert correctness only**;
+full256 routing, nondebug timing and service acceptance remain separate.
+The initial attempt failed at the host ABI before executing its candidate kernel;
+[the failure](results/expert-resident-chain/chain-launch-result.json) and
+[the corrected single-expert result](results/expert-resident-chain-v2/summary.md)
+are both retained. The independent CuTe activation helper also passes2066 checks;
+its earlier C++ helper result was not reused as proof for the new implementation.
+
+A separate M128 experiment targets the resource limitation of the native M64
+two-epilogue organization. The first FC1 gate fails: four TMEM slices were stored
+as adjacent channels. A CPU-only mapping diagnostic identifies the fixed
+32-channel permutation, without passing the original checker or changing its
+expected values. FC2 uses the corresponding corrected four-slice BF16-to-shared
+store, preserving K32 reductions, K128 scale boundaries, original FP8 weight
+bytes/scales and native BF16 output conversion. It passes39 single-expert checks
+and306 expanded checks across all256 experts at layers0/19/39 and15 original
+routing distributions, including graph reuse with changing metadata.
+See [FC2 expanded evidence](results/expert-m128-fc2-expanded/report.md).
+
+M128's actual384-thread kernels request four160-register epilogue warps plus
+eight48-register roles, a32,768-register budget perCTA versus53,248 for the M64
+512-thread organization. The FC2 launch uses74,664bytes shared, with zero spills.
+This leaves theoretical register capacity for two CTAs perSM; it is not measured
+occupancy, an arithmetic upper bound or a performance result. Complete MoE-body
+comparison and full service evaluation are still required.
+
+The GDN H/O negative results were independently recomputed from raw evidence.
+The reports now correctly describe pre/post GPU process checks; no continuous
+process audit establishes full-interval exclusivity for those two runs. This
+correction does not turn either failed continuation gate into a performance win.
+See [independent review](results/gdn-fused-prefill/independent-review.md).

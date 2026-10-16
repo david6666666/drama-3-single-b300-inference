@@ -61,3 +61,12 @@ Each cluster still reads the same original3MiB of weights per expert/token8 grou
 2. Connect one expert's stages with native boundaries and native ordered finalization; validate eager and retained CUDA Graph storage ownership.
 3. Compile the minimal four-CTA composite kernel with actual shared/register/TMEM/cluster limits and no spill. Re-run the same boundary checks; then multiple experts and changing histograms using all15 immutable native oracles.
 4. Only after exact passes measure **complete MoE**, including routing, stage synchronization, output writes and finalization, against the original native fullcall. At least5% local net improvement is required before broader runtime validation; this local gate does not replace the user's all-concurrency1.5× service goal or WER/SIM gates.
+
+
+## Implemented bounded composition update
+
+The current actual outer uses four physical CTAs, with original group-1 MMA in each. Each rank computes FC1 output tile rank then rank+4 (its up128/gate128). After exact native activation and ordered DSM publication/read-completion barriers, each rank computes four FC2 tiles rank+4*phase. These are disjoint interleaved 128-column pieces totaling 512 output columns per rank; they preserve the native ordered K128 accumulation.
+
+The outer allocates TMEM32 once, relinquishes allocation permission once, and lends the same base to all six fully drained native stage invocations. No intermediate stage may allocate or deallocate TMEM. The outer deallocates once after the final stage and full-CTA convergence. This avoids illegal allocation after relinquishment. Each stage asserts its required TMEM capacity is at most 32 columns. Native dynamic role-register changes are retained at every stage boundary.
+
+The explicit outer shared allocation is 78,080 bytes aligned to 1024, including native scratch [0:72704), FC1 [72704:74816), local activation [76928:77984), and outer TMEM-pointer storage at78016. Full activation [72704:76928) aliases FC1 only after every activation consumer has finished. Full-chain actual AOT resource and exact results must replace component-only estimates before any promotion.

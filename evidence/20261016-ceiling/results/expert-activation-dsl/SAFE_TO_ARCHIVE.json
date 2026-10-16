@@ -1,0 +1,21 @@
+{
+  "safe_to_archive": true,
+  "files": {
+    "aot.py": "fbf1e3c6c9f5270fc18a6cda4136ef88986e7f18ca700b200ef828d2ee6bf03f",
+    "results.md": "3f1e7da8cb2e05161eedaddbbc29dd357818be0bba0d3c4dc1c2f2774c0efe15",
+    "exit.json": "e0eb5e367daaf45abb1c961cf0b860fd414d5d9132ae4b6314c58d3feced3486",
+    "protocol.json": "b2bddae07610d73717bf3b6ef908e885158acfe901baa80bb3919e69df07a2bb",
+    "launch.py": "387dae9100ac79806445c6f50a2a97a2567d1947a4285253e98fd40d9a7dea13",
+    "pid.json": "d35705a37b8ef2825700fa1249f40148b4ef7466ab07310b15ad3e3c46644e8f",
+    "process-audit.jsonl": "b75930bf2eaa1ce2189dbf281a9e2bf933108b0f1d8e1ab6fd59b4cee22ca7f3",
+    "summary.json": "7015f333b4852b93c4bdc713d1b34eaeb39fa56c698a40d1a2cd298c0f111330",
+    "activation-helper-aot-result.json": "75ec7e97498546dd24ef346fa3d158ef093bd1f13b7d7d35ec260e05d4dab5b8",
+    "probe.py": "2e96d60d6a707f85db1186388d004b91e21152eaca40a9a2e7851d538a12bbfb",
+    "run.py": "e0f8b2c35dad65ebc863a4d2244504d7a0c566ef8c6e1bce588e8f9e3c094fb0",
+    "result.json": "d2afe36f61107681666faf9771e3cf9d922694a6d498dd35cd56bf6914160b39",
+    "run.log": "ccb84e6909d060ea14bd179aecd5d80954ea0b4b71ae502c1b4761f8cb3e8f72",
+    "activation-helper-aot/host.mlir": "3d398e46987c885e31b370efc95138614c2e113735494cf8af139bafc1d34133",
+    "activation-helper-aot/cutlass___call___probeProbe_object_at__Tensorgmemo64825620482561_Tensorgmemo64281681_Tensorgmemo641_Tensorgmemo64812810241281_Tensorgmemo64881_Tensorgmemo6416161_CUstream0x0.sm_103a.ptx": "5b69bb68d1ca7afc94e261a062d50c06217192efd4669fa2b29f02f26ebf74b1",
+    "activation-helper-aot/cutlass___call___probeProbe_object_at__Tensorgmemo64825620482561_Tensorgmemo64281681_Tensorgmemo641_Tensorgmemo64812810241281_Tensorgmemo64881_Tensorgmemo6416161_CUstream0x0.sm_103a.cubin": "b38c36e37d0b65ec17ffd1ac532d918f651fd07e7781d8df3105cdc5b6a3017b"
+  }
+}

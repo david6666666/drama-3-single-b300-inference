@@ -1,3 +1,11 @@
+Latest integration update: the complete resident chain passes489 exact checks
+for one selected expert, including partial tiles and graph replay. A separate
+M128 FC2 passes306 expanded native checks while reducing the declared consumer
+register footprint. Full routing/body timing and service gains remain unproved;
+the C64 target and best complete-quality observation are unchanged. Initial host
+and layout failures, resource limits and the GDN process-audit correction are
+preserved in the [evidence](../evidence/20261016-ceiling/README.md).
+
 Latest component update: corrected native FC1/FC2 and shared activation now
 pass expanded arithmetic/ownership gates; the complete resident MoE chain is
 still under implementation. Two exact native GDN H/O fusion variants fail their

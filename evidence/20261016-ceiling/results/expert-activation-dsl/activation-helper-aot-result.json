@@ -1,0 +1,12 @@
+{
+  "status": "CPU_AOT_PASS",
+  "gpu_launched": false,
+  "source_sha256": "f73a86fbfde68be1592f4d0bbfc52756081a3c78be6583b2f4090a3ccb49542d",
+  "harness_sha256": "fbf1e3c6c9f5270fc18a6cda4136ef88986e7f18ca700b200ef828d2ee6bf03f",
+  "seconds": 0.08601705601904541,
+  "kernel_info": "OrderedDict({'kernel_cutlass_kernel_probeProbe_object_at__tensorptri8gmemalign16o64825620482561_tensorptrf32gmemalign16o64281681_tensorptri32gmemalign16o641_tensorptri8gmemalign16o64812810241281_tensor_0': {}})",
+  "cuda_initialized": false,
+  "artifacts": {
+    "activation-helper-aot/host.mlir": "3d398e46987c885e31b370efc95138614c2e113735494cf8af139bafc1d34133"
+  }
+}

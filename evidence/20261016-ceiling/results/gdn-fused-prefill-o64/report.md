@@ -2,7 +2,7 @@
 
 This separate artifact follows the V32 fusion's exact-but-slower result. It preserves the original O V64 tile, using8 warps and combining two H V32 slices into V64. The H K64+K64 and O BK128 arithmetic/rounding boundaries remain explicit. No runtime or installed package is modified. The motivation is source-backed: V32 duplicated O's QK matrix twice as often as the native V64 path. This is one structural follow-up, not a tile sweep.
 
-All57 synthetic,522 actual layer/fullgraph and1026 timed-trajectory checks pass bit-exact. Real coverage is three mixed shapes×30 GDN layers and every captured output,111 mutable state tensors and RNG. Timing uses three alternating A/B repetitions per shape,20 consecutive graph replays per measurement, same initial state restored outside events, on exclusive GPU0 and frozen e7cda1e.
+All57 synthetic,522 actual layer/fullgraph and1026 timed-trajectory checks pass bit-exact. Real coverage is three mixed shapes×30 GDN layers and every captured output,111 mutable state tensors and RNG. Timing uses three alternating A/B repetitions per shape,20 consecutive graph replays per measurement, same initial state restored outside events, on GPU0 and frozen e7cda1e. Pre/post process checks were clear and task-owned memory was released; no continuous process audit establishes full-interval exclusivity.
 
 |Mixed shape|Native median ms|Fused median ms|Time change|
 |---|---:|---:|---:|

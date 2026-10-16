@@ -1,0 +1,28 @@
+{
+  "status": "CPU_IMPORT_ALLOCATOR_STATIC_CONTRACT_AND_ACTUAL_CHAIN_AOT_PASS",
+  "original_task_sha256": "a266785511f8e296ef379ba35944d415a38a3885088cc88d72e185c2b3e2b309",
+  "original_tasks_sha256": "83644ccc63e4b43f6799523dd1851b261898d98d443ee86670a5fad8ed0a825b",
+  "task_body_original_lines": [
+    3034,
+    3073
+  ],
+  "task_body_change": "Original bounded static adapter invoking installed primitives; rejects persistent workqueue, interleaved producer stride and fork pipelines. No vendored method.",
+  "factory_change": "Only Task import replaced with ArtifactTask; relative imports preserved",
+  "reserved_stage_bytes": 72704,
+  "outer_required_alignment": 1024,
+  "native_max_dynamic_stage_bytes": 72616,
+  "runtime_or_installed_files_modified": false,
+  "gpu_run": false,
+  "cuda_initialized": false,
+  "namespace": "flashinfer.prims_ts.batched_gemm.resident_native_tasks",
+  "reserved_stage_boundary_alignment": 128,
+  "note": "Native stage A/B/C allocations require1024-byte outer base alignment. Extent72704 remains128-byte aligned; it need not be1024-multiple. Explicitly coordinated with main kernel owner.",
+  "proprietary_source_vendored": false,
+  "prior_copied_source_private": "/home/zjy/code/hsliu/private-artifact-audits/drama3-ceiling-20261016/resident-copied-task",
+  "private_audit_exclude_from_public_archive": true,
+  "actual_chain_cubin_sha256": "9eb4c4f83850b3743118c50628631dfdcf2707fb607306c377ad9a743ceab0b1",
+  "current_files": {
+    "resident_resources.py": "252a0b7f5e2e3d300f6a57bdfdb5ca9a99cabfaf83c70dd6fa8296be6f921413",
+    "resident_native_tasks.py": "4a6726a811166ecbddf84c245cc164e03473703f03873787303b5f789dff980f"
+  }
+}
