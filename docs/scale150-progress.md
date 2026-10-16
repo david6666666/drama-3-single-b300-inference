@@ -1,46 +1,14 @@
-A separately qualified inverse-row adapter now removes redundant expansion and
-slot copies. Its complete mixed graph passes2430 exact checks and three paired
-rounds: all nine comparisons reduce latency6.23–6.77%. This is a local graph
-result, not service throughput; general-shape scheduling integration and full
-quality validation remain pending. The earlier expanded adapter failure is
-preserved. Transparent compressed allocation passes3417 native MoE checks, but its fixed
-three-body sequence observes only0.099% lower latency and fails the predeclared5%
-continuation gate. It is not integrated.
+# Concurrency optimization campaign at pause
 
-Eight current NCU node records now confirm nearly2× actual CTA residency for
-M128, but FC1 has fewer eligible warps and lower instruction issue activity;
-DRAM/L2 traffic barely changes. Caching one repeated scale-route address passes
-1516 exact checks but still misses the5% complete-MoE continuation gate. A separate
-ordered-finalizer/RMSNorm fusion passes1355 checks but saves less than its2.5µs
-operator budget. Neither changes serving performance. Original mixed inputs do
-pass74120 causal-prefix row-pair comparisons across40 layers. A separate
-compact-native-parts gate passes5393 checks. Complete mixed execution passes957
-exact checks but its first AB100 screen improves only3.89–4.36%, below the5%
-continuation threshold; it remains outside the runtime. See the newest sections in the
-[diagnostic evidence](../evidence/20261016-ceiling/README.md).
+Status: **PAUSED at user request on 2026-10-16; acceptance remains INCONCLUSIVE.**
+The all-concurrency target has not been achieved. The final documentation snapshot
+is in [current results](current-results.md). No new optimization run is scheduled.
 
-Latest update: full resident MoE and M128 global-buffer implementations pass
-native arithmetic checks, but both fail their declared local performance gate.
-Resident fusion is14–37% slower in the three real routing cases; M128 reduces
-latency by only0.57–2.87%, below the required5% per real case. Neither is promoted
-to the runtime. The previous occupancy inference from source register hints is
-withdrawn after disassembly; actual machine code has different resource policies.
-The best complete-quality C64 observation remains4726.771 frames/s and the target
-remains6765.407. Full results and preserved failures are in the
-[evidence](../evidence/20261016-ceiling/README.md).
-
-A subsequent PDL-enabled M128 candidate passes1498 exact checks but misses
-the continuation threshold in two of three real cases in its first timing round.
-Pressure-case timing, three repetitions and service integration are not run.
-The metadata-ready follow-up now passes1516 exact checks but reduces complete
-MoE latency by only2.73–4.15% in its three-real-case screen; it also stops.
-Two bounded cuBLASLt projection algorithms pass84 eager and84 graph byte/ownership
-checks but are essentially equal to F.linear, so neither replaces it. No service
-result is added and the6765.407 target remains unchanged.
-
-# Current concurrency optimization campaign
-
-Status: **INCONCLUSIVE; the all-concurrency target has not been achieved.**
+The latest row-reuse integration passes 9974 exact checks in 30 cases, followed
+by complete quality on both 1088-request service arms. Its same-source C64 pair
+observes 4674.81 → 4534.13 frames/s (−3.01%): the throughput continuation gate
+fails, so the feature remains default-off and no three-round trial follows.
+See [the final pair](../evidence/20261016-ceiling/results/native-row-reuse-service/summary.md).
 The latest user requirement supersedes the earlier 2× target: each concurrency
 must achieve at least 1.5× vLLM-Omni `d6ed4f4844fbc41573ffc03247e5b2ff0a38d322`.
 WER may rise by at most one percentage point and SIM may fall by at most two
@@ -307,13 +275,13 @@ are unchanged. C64 remains below both the 4510.27 baseline and 6765.41 target.
 [Full pair and raw quality](../evidence/20261016-mixed/results/service-feasibility-summary.json).
 
 
-## Documentation after acceptance
+## Documentation at the user-requested pause
 
-After the full target and quality matrix pass, update the main README with a
-source-accurate architecture diagram, the retained runtime optimizations and
-standalone/vLLM-Omni/SGLang-Omni results at every tested concurrency. Report
-throughput, TTFA p50/p95 and mean RTF together with exact revisions, precision,
-workload and complete quality coverage. Historical or single-run observations
-must stay distinguished from the final repeated comparison. The architecture
-must show the actual Python engine and direct GPU operators; Rust is not yet an
-implemented component. This requested publication remains pending acceptance.
+The user requested publication of current results before target completion on
+2026-10-16. The README now includes the implemented architecture, optimization
+status, the repeated standalone/vLLM matrix, the separate historical SGLang
+matrix, and the latest C64 feasibility pair. All four requested metrics and
+source/workload limitations are explicit; missing comparisons are not estimated.
+This documentation is a current-results snapshot, not a successful acceptance
+example. An OmniRSI success example remains conditional on every frozen gate
+passing. No further optimization experiment is scheduled until the user resumes.

@@ -1,0 +1,22 @@
+{
+  "status": "CPU_REVIEW_COMPLETE_NO_GPU",
+  "source_hashes": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-fp8-simt-cpu-audit/fixed_subwarp8.cu": "fbadcc85fec2387cf24f0091cb839a9c7080d0d608580512141653a16e28341b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-fp8-simt-cpu-audit/kernel.sass": "bf8a4d284149e958cfe6f1e55d66647ff23ac367f5d3047a9922b4258e771d5f",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-fp8-simt-cpu-audit/resource-usage.txt": "d62a43847fea35b0267a21de852954adaaf2621b09fefe56a65a5bd6392d9998",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/independent_cpu_layout.py": "ca7756371033af16e0149f0a9eec47b23d73b004cb1e0c4e54a651237e8bbe5d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/shared_activation.cu": "84fbc06ed358c794dceb59e7c0197873a798fe132fd8bf52b0ef4f2d07f9a46d"
+  },
+  "mac": 64424509440,
+  "conversion_fma_minimum_warp_instructions": 6543114240,
+  "reported_steady_loop_warp_instructions": 9563013120,
+  "conditional_issue_model": {
+    "sm": 148,
+    "warp_issues_per_sm_cycle": 4,
+    "clock_ghz": 2.05,
+    "minimum_ms": 5.391491628213579,
+    "steady_loop_ms": 7.87987237969677
+  },
+  "numeric_gate": "NOT_RUN; native unscaled UMMA partials unavailable",
+  "recommendation": "Fixed subwarp source has weak instruction budget; preserve native quantization boundaries and do not infer exactness from FP64 final reference alone."
+}

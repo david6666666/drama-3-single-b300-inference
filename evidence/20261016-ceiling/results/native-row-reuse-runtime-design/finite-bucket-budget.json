@@ -1,0 +1,3001 @@
+{
+  "status": "CPU_FINITE_BUCKET_DESIGN",
+  "buckets": [
+    [
+      64,
+      768,
+      256,
+      576
+    ],
+    [
+      64,
+      1024,
+      256,
+      832
+    ],
+    [
+      64,
+      1280,
+      256,
+      1088
+    ],
+    [
+      64,
+      1536,
+      256,
+      1088
+    ],
+    [
+      64,
+      1536,
+      256,
+      1344
+    ]
+  ],
+  "additional_graphs": 5,
+  "attention_workspace_bytes": 671088640,
+  "eligible_proxy_groups": 122,
+  "all_proxy_groups": 196,
+  "eligible_real_count6_groups": 55,
+  "all_real_count6_groups": 64,
+  "main_D64_P1024_batch6_total": 33,
+  "main_D64_P1024_batch6_eligible": 26,
+  "original_moe_rows": 222064,
+  "removed_moe_rows": 34560,
+  "eligible_mixed_ms": 3224.3841972351074,
+  "all_mixed_ms": 4946.3534145355225,
+  "mapping_cpu_array": {
+    "median_ms": 0.078674,
+    "p95_ms": 0.142697,
+    "max_ms": 0.156237,
+    "sum_over_all196_ms": 14.503491
+  },
+  "records": [
+    {
+      "group": 2,
+      "original_key": [
+        16,
+        1536,
+        256,
+        1152
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 8,
+      "removed_rows": 0,
+      "mixed_ms": 28.50387191772461,
+      "unique": 1136
+    },
+    {
+      "group": 3,
+      "original_key": [
+        32,
+        1536,
+        256,
+        1152
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 8,
+      "removed_rows": 0,
+      "mixed_ms": 28.995136260986328,
+      "unique": 1133
+    },
+    {
+      "group": 4,
+      "original_key": [
+        32,
+        1536,
+        256,
+        1024
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 8,
+      "removed_rows": 0,
+      "mixed_ms": 28.64521598815918,
+      "unique": 1001
+    },
+    {
+      "group": 5,
+      "original_key": [
+        48,
+        1536,
+        256,
+        1216
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 8,
+      "removed_rows": 0,
+      "mixed_ms": 29.107295989990234,
+      "unique": 1182
+    },
+    {
+      "group": 6,
+      "original_key": [
+        48,
+        1536,
+        256,
+        1152
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 8,
+      "removed_rows": 0,
+      "mixed_ms": 29.05753517150879,
+      "unique": 1112
+    },
+    {
+      "group": 7,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 512,
+      "mixed_ms": 29.560768127441406,
+      "unique": 997
+    },
+    {
+      "group": 8,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.49283218383789,
+      "unique": 923
+    },
+    {
+      "group": 9,
+      "original_key": [
+        64,
+        512,
+        256,
+        576
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 19.878463745117188,
+      "unique": 526
+    },
+    {
+      "group": 10,
+      "original_key": [
+        64,
+        512,
+        256,
+        576
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 2,
+      "removed_rows": 0,
+      "mixed_ms": 19.135744094848633,
+      "unique": 551
+    },
+    {
+      "group": 11,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 24.463071823120117,
+      "unique": 729
+    },
+    {
+      "group": 12,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.68012809753418,
+      "unique": 728
+    },
+    {
+      "group": 13,
+      "original_key": [
+        64,
+        1280,
+        256,
+        896
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 256,
+      "mixed_ms": 26.59075164794922,
+      "unique": 837
+    },
+    {
+      "group": 14,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 512,
+      "mixed_ms": 29.689504623413086,
+      "unique": 987
+    },
+    {
+      "group": 15,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 512,
+      "mixed_ms": 30.5446720123291,
+      "unique": 1076
+    },
+    {
+      "group": 16,
+      "original_key": [
+        64,
+        1024,
+        256,
+        640
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 23.538272857666016,
+      "unique": 620
+    },
+    {
+      "group": 17,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 24.721376419067383,
+      "unique": 582
+    },
+    {
+      "group": 18,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 22.276287078857422,
+      "unique": 632
+    },
+    {
+      "group": 19,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 6,
+      "removed_rows": 0,
+      "mixed_ms": 23.409343719482422,
+      "unique": 843
+    },
+    {
+      "group": 20,
+      "original_key": [
+        64,
+        1024,
+        256,
+        832
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 25.298463821411133,
+      "unique": 808
+    },
+    {
+      "group": 21,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.54537582397461,
+      "unique": 945
+    },
+    {
+      "group": 22,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 6,
+      "removed_rows": 0,
+      "mixed_ms": 23.374496459960938,
+      "unique": 874
+    },
+    {
+      "group": 23,
+      "original_key": [
+        64,
+        1024,
+        256,
+        832
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.660959243774414,
+      "unique": 772
+    },
+    {
+      "group": 24,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 6,
+      "removed_rows": 0,
+      "mixed_ms": 23.66659164428711,
+      "unique": 861
+    },
+    {
+      "group": 25,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 27.100448608398438,
+      "unique": 1027
+    },
+    {
+      "group": 26,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.529983520507812,
+      "unique": 1077
+    },
+    {
+      "group": 27,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1216
+      ],
+      "selected_compact": 1344,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 256,
+      "mixed_ms": 31.480863571166992,
+      "unique": 1188
+    },
+    {
+      "group": 28,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 23.628671646118164,
+      "unique": 875
+    },
+    {
+      "group": 29,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 512,
+      "mixed_ms": 29.6911678314209,
+      "unique": 1012
+    },
+    {
+      "group": 30,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 22.799840927124023,
+      "unique": 622
+    },
+    {
+      "group": 31,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.55695915222168,
+      "unique": 945
+    },
+    {
+      "group": 32,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.32271957397461,
+      "unique": 727
+    },
+    {
+      "group": 33,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 23.556703567504883,
+      "unique": 856
+    },
+    {
+      "group": 34,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 26.60256004333496,
+      "unique": 723
+    },
+    {
+      "group": 35,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 24.49158477783203,
+      "unique": 860
+    },
+    {
+      "group": 36,
+      "original_key": [
+        64,
+        1024,
+        512,
+        832
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 24.51308822631836,
+      "unique": 770
+    },
+    {
+      "group": 37,
+      "original_key": [
+        64,
+        768,
+        256,
+        704
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 23.598751068115234,
+      "unique": 666
+    },
+    {
+      "group": 38,
+      "original_key": [
+        64,
+        512,
+        256,
+        576
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 19.475744247436523,
+      "unique": 526
+    },
+    {
+      "group": 39,
+      "original_key": [
+        64,
+        1280,
+        256,
+        896
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.716032028198242,
+      "unique": 836
+    },
+    {
+      "group": 40,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 25.445344924926758,
+      "unique": 757
+    },
+    {
+      "group": 41,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 22.592735290527344,
+      "unique": 629
+    },
+    {
+      "group": 42,
+      "original_key": [
+        64,
+        1280,
+        256,
+        896
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.509408950805664,
+      "unique": 848
+    },
+    {
+      "group": 43,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 6,
+      "removed_rows": 0,
+      "mixed_ms": 23.537952423095703,
+      "unique": 870
+    },
+    {
+      "group": 44,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 23.88128089904785,
+      "unique": 632
+    },
+    {
+      "group": 45,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1216
+      ],
+      "selected_compact": 1344,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 30.384511947631836,
+      "unique": 1176
+    },
+    {
+      "group": 46,
+      "original_key": [
+        64,
+        1280,
+        256,
+        768
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.639936447143555,
+      "unique": 767
+    },
+    {
+      "group": 47,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 27.561983108520508,
+      "unique": 938
+    },
+    {
+      "group": 48,
+      "original_key": [
+        64,
+        1280,
+        256,
+        832
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 27.060352325439453,
+      "unique": 815
+    },
+    {
+      "group": 49,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.46873664855957,
+      "unique": 914
+    },
+    {
+      "group": 50,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 22.717056274414062,
+      "unique": 624
+    },
+    {
+      "group": 51,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 24.584575653076172,
+      "unique": 760
+    },
+    {
+      "group": 52,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 27.101375579833984,
+      "unique": 955
+    },
+    {
+      "group": 53,
+      "original_key": [
+        64,
+        768,
+        256,
+        704
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 22.617183685302734,
+      "unique": 652
+    },
+    {
+      "group": 54,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 28.828927993774414,
+      "unique": 963
+    },
+    {
+      "group": 55,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 24.027328491210938,
+      "unique": 622
+    },
+    {
+      "group": 56,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 24.506271362304688,
+      "unique": 850
+    },
+    {
+      "group": 57,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.686464309692383,
+      "unique": 949
+    },
+    {
+      "group": 58,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.923423767089844,
+      "unique": 925
+    },
+    {
+      "group": 59,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.504287719726562,
+      "unique": 977
+    },
+    {
+      "group": 60,
+      "original_key": [
+        64,
+        1024,
+        256,
+        704
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.599807739257812,
+      "unique": 664
+    },
+    {
+      "group": 61,
+      "original_key": [
+        64,
+        512,
+        256,
+        576
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 2,
+      "removed_rows": 0,
+      "mixed_ms": 18.942655563354492,
+      "unique": 551
+    },
+    {
+      "group": 62,
+      "original_key": [
+        64,
+        1024,
+        256,
+        704
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.215103149414062,
+      "unique": 694
+    },
+    {
+      "group": 63,
+      "original_key": [
+        64,
+        512,
+        256,
+        576
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 21.25916862487793,
+      "unique": 526
+    },
+    {
+      "group": 64,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 27.887935638427734,
+      "unique": 973
+    },
+    {
+      "group": 65,
+      "original_key": [
+        64,
+        768,
+        256,
+        704
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 25.632640838623047,
+      "unique": 653
+    },
+    {
+      "group": 66,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1152
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 6,
+      "removed_rows": 0,
+      "mixed_ms": 26.550975799560547,
+      "unique": 1091
+    },
+    {
+      "group": 67,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 27.481792449951172,
+      "unique": 971
+    },
+    {
+      "group": 68,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 24.082111358642578,
+      "unique": 635
+    },
+    {
+      "group": 69,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.691360473632812,
+      "unique": 898
+    },
+    {
+      "group": 70,
+      "original_key": [
+        64,
+        1024,
+        256,
+        704
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 26.22470474243164,
+      "unique": 667
+    },
+    {
+      "group": 71,
+      "original_key": [
+        64,
+        1024,
+        256,
+        704
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 23.439071655273438,
+      "unique": 699
+    },
+    {
+      "group": 72,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 23.95574378967285,
+      "unique": 887
+    },
+    {
+      "group": 73,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.971519470214844,
+      "unique": 908
+    },
+    {
+      "group": 74,
+      "original_key": [
+        64,
+        1024,
+        256,
+        832
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 23.394079208374023,
+      "unique": 810
+    },
+    {
+      "group": 75,
+      "original_key": [
+        64,
+        1280,
+        256,
+        832
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.603967666625977,
+      "unique": 781
+    },
+    {
+      "group": 76,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 26.00307273864746,
+      "unique": 602
+    },
+    {
+      "group": 77,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 25.07539176940918,
+      "unique": 869
+    },
+    {
+      "group": 78,
+      "original_key": [
+        64,
+        512,
+        256,
+        448
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 2,
+      "removed_rows": 0,
+      "mixed_ms": 20.132352828979492,
+      "unique": 426
+    },
+    {
+      "group": 79,
+      "original_key": [
+        64,
+        1024,
+        256,
+        640
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.421279907226562,
+      "unique": 584
+    },
+    {
+      "group": 80,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 6,
+      "removed_rows": 0,
+      "mixed_ms": 23.98249626159668,
+      "unique": 864
+    },
+    {
+      "group": 81,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 28.17158317565918,
+      "unique": 1062
+    },
+    {
+      "group": 82,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.811935424804688,
+      "unique": 900
+    },
+    {
+      "group": 83,
+      "original_key": [
+        64,
+        768,
+        256,
+        704
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 24.13417625427246,
+      "unique": 645
+    },
+    {
+      "group": 84,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 24.15862464904785,
+      "unique": 727
+    },
+    {
+      "group": 85,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 512,
+      "mixed_ms": 29.596960067749023,
+      "unique": 1042
+    },
+    {
+      "group": 86,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.340383529663086,
+      "unique": 723
+    },
+    {
+      "group": 87,
+      "original_key": [
+        64,
+        768,
+        256,
+        832
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 26.304895401000977,
+      "unique": 782
+    },
+    {
+      "group": 88,
+      "original_key": [
+        64,
+        512,
+        256,
+        448
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 20.12700843811035,
+      "unique": 407
+    },
+    {
+      "group": 89,
+      "original_key": [
+        64,
+        1024,
+        256,
+        704
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 24.212543487548828,
+      "unique": 648
+    },
+    {
+      "group": 90,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.616960525512695,
+      "unique": 959
+    },
+    {
+      "group": 91,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.609567642211914,
+      "unique": 931
+    },
+    {
+      "group": 92,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 23.599903106689453,
+      "unique": 861
+    },
+    {
+      "group": 93,
+      "original_key": [
+        64,
+        512,
+        256,
+        576
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 19.27836799621582,
+      "unique": 526
+    },
+    {
+      "group": 94,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1152
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 7,
+      "removed_rows": 0,
+      "mixed_ms": 26.99190330505371,
+      "unique": 1094
+    },
+    {
+      "group": 95,
+      "original_key": [
+        64,
+        1024,
+        256,
+        704
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.47996711730957,
+      "unique": 701
+    },
+    {
+      "group": 96,
+      "original_key": [
+        64,
+        512,
+        256,
+        448
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 19.643999099731445,
+      "unique": 407
+    },
+    {
+      "group": 97,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.696544647216797,
+      "unique": 992
+    },
+    {
+      "group": 98,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 24.689472198486328,
+      "unique": 765
+    },
+    {
+      "group": 99,
+      "original_key": [
+        64,
+        1024,
+        256,
+        640
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.94611167907715,
+      "unique": 578
+    },
+    {
+      "group": 100,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 27.13724708557129,
+      "unique": 952
+    },
+    {
+      "group": 101,
+      "original_key": [
+        64,
+        256,
+        256,
+        320
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 1,
+      "removed_rows": 0,
+      "mixed_ms": 18.007648468017578,
+      "unique": 320
+    },
+    {
+      "group": 102,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 23.70902442932129,
+      "unique": 732
+    },
+    {
+      "group": 103,
+      "original_key": [
+        64,
+        1024,
+        256,
+        640
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.469152450561523,
+      "unique": 624
+    },
+    {
+      "group": 104,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 27.673696517944336,
+      "unique": 956
+    },
+    {
+      "group": 105,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1152
+      ],
+      "selected_compact": 1344,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 256,
+      "mixed_ms": 29.60531234741211,
+      "unique": 1150
+    },
+    {
+      "group": 106,
+      "original_key": [
+        64,
+        1280,
+        256,
+        832
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 27.411039352416992,
+      "unique": 775
+    },
+    {
+      "group": 107,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 23.72697639465332,
+      "unique": 883
+    },
+    {
+      "group": 108,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 27.797216415405273,
+      "unique": 896
+    },
+    {
+      "group": 109,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.510784149169922,
+      "unique": 935
+    },
+    {
+      "group": 110,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 22.67977523803711,
+      "unique": 624
+    },
+    {
+      "group": 111,
+      "original_key": [
+        64,
+        256,
+        256,
+        320
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 1,
+      "removed_rows": 0,
+      "mixed_ms": 18.566240310668945,
+      "unique": 320
+    },
+    {
+      "group": 112,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 28.357696533203125,
+      "unique": 920
+    },
+    {
+      "group": 113,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.531103134155273,
+      "unique": 1048
+    },
+    {
+      "group": 114,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 26.7741756439209,
+      "unique": 615
+    },
+    {
+      "group": 115,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.271167755126953,
+      "unique": 760
+    },
+    {
+      "group": 116,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 29.18604850769043,
+      "unique": 930
+    },
+    {
+      "group": 117,
+      "original_key": [
+        64,
+        1280,
+        256,
+        832
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 28.273727416992188,
+      "unique": 780
+    },
+    {
+      "group": 118,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 512,
+      "mixed_ms": 29.580575942993164,
+      "unique": 984
+    },
+    {
+      "group": 119,
+      "original_key": [
+        64,
+        768,
+        256,
+        832
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 23.233503341674805,
+      "unique": 782
+    },
+    {
+      "group": 120,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.63849639892578,
+      "unique": 957
+    },
+    {
+      "group": 121,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 22.365760803222656,
+      "unique": 615
+    },
+    {
+      "group": 122,
+      "original_key": [
+        64,
+        512,
+        256,
+        448
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 18.733247756958008,
+      "unique": 414
+    },
+    {
+      "group": 123,
+      "original_key": [
+        64,
+        1280,
+        256,
+        832
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.694591522216797,
+      "unique": 828
+    },
+    {
+      "group": 124,
+      "original_key": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "selected_compact": 576,
+      "eligible": true,
+      "count": 4,
+      "removed_rows": 256,
+      "mixed_ms": 22.740800857543945,
+      "unique": 524
+    },
+    {
+      "group": 125,
+      "original_key": [
+        64,
+        1280,
+        256,
+        832
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 27.158655166625977,
+      "unique": 807
+    },
+    {
+      "group": 126,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 23.422016143798828,
+      "unique": 870
+    },
+    {
+      "group": 127,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 512,
+      "mixed_ms": 29.695199966430664,
+      "unique": 1032
+    },
+    {
+      "group": 128,
+      "original_key": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "selected_compact": 576,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 22.306943893432617,
+      "unique": 525
+    },
+    {
+      "group": 129,
+      "original_key": [
+        64,
+        1024,
+        256,
+        704
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 28.516416549682617,
+      "unique": 701
+    },
+    {
+      "group": 130,
+      "original_key": [
+        64,
+        256,
+        256,
+        320
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 1,
+      "removed_rows": 0,
+      "mixed_ms": 18.040096282958984,
+      "unique": 320
+    },
+    {
+      "group": 131,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 256,
+      "mixed_ms": 26.565631866455078,
+      "unique": 936
+    },
+    {
+      "group": 132,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 28.04300880432129,
+      "unique": 905
+    },
+    {
+      "group": 133,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 22.551359176635742,
+      "unique": 622
+    },
+    {
+      "group": 134,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.48899269104004,
+      "unique": 755
+    },
+    {
+      "group": 135,
+      "original_key": [
+        64,
+        768,
+        256,
+        704
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 22.73302459716797,
+      "unique": 649
+    },
+    {
+      "group": 136,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.81475257873535,
+      "unique": 1064
+    },
+    {
+      "group": 137,
+      "original_key": [
+        64,
+        512,
+        256,
+        448
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 18.777568817138672,
+      "unique": 414
+    },
+    {
+      "group": 138,
+      "original_key": [
+        64,
+        768,
+        256,
+        704
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 22.343616485595703,
+      "unique": 645
+    },
+    {
+      "group": 139,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.535295486450195,
+      "unique": 1063
+    },
+    {
+      "group": 140,
+      "original_key": [
+        64,
+        768,
+        256,
+        832
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 24.043136596679688,
+      "unique": 782
+    },
+    {
+      "group": 141,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 23.429887771606445,
+      "unique": 639
+    },
+    {
+      "group": 142,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 23.98476791381836,
+      "unique": 878
+    },
+    {
+      "group": 143,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.719776153564453,
+      "unique": 953
+    },
+    {
+      "group": 144,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 22.65337562561035,
+      "unique": 624
+    },
+    {
+      "group": 145,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 6,
+      "removed_rows": 0,
+      "mixed_ms": 26.14441680908203,
+      "unique": 863
+    },
+    {
+      "group": 146,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.392032623291016,
+      "unique": 705
+    },
+    {
+      "group": 147,
+      "original_key": [
+        64,
+        1280,
+        256,
+        832
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.664064407348633,
+      "unique": 831
+    },
+    {
+      "group": 148,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 6,
+      "removed_rows": 0,
+      "mixed_ms": 23.6592960357666,
+      "unique": 861
+    },
+    {
+      "group": 149,
+      "original_key": [
+        64,
+        1024,
+        256,
+        640
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.34707260131836,
+      "unique": 590
+    },
+    {
+      "group": 150,
+      "original_key": [
+        64,
+        512,
+        256,
+        448
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 22.008991241455078,
+      "unique": 423
+    },
+    {
+      "group": 151,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1216
+      ],
+      "selected_compact": 1344,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 256,
+      "mixed_ms": 29.56342315673828,
+      "unique": 1210
+    },
+    {
+      "group": 152,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 24.284767150878906,
+      "unique": 722
+    },
+    {
+      "group": 153,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 24.120447158813477,
+      "unique": 617
+    },
+    {
+      "group": 154,
+      "original_key": [
+        64,
+        1024,
+        256,
+        832
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 23.466848373413086,
+      "unique": 828
+    },
+    {
+      "group": 155,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 24.89695930480957,
+      "unique": 765
+    },
+    {
+      "group": 156,
+      "original_key": [
+        64,
+        768,
+        256,
+        640
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 23.361568450927734,
+      "unique": 638
+    },
+    {
+      "group": 157,
+      "original_key": [
+        64,
+        1024,
+        256,
+        640
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.40006446838379,
+      "unique": 603
+    },
+    {
+      "group": 158,
+      "original_key": [
+        64,
+        512,
+        256,
+        384
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 2,
+      "removed_rows": 0,
+      "mixed_ms": 19.831071853637695,
+      "unique": 374
+    },
+    {
+      "group": 159,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 28.841951370239258,
+      "unique": 979
+    },
+    {
+      "group": 160,
+      "original_key": [
+        64,
+        1024,
+        256,
+        704
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.385663986206055,
+      "unique": 701
+    },
+    {
+      "group": 161,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 23.829439163208008,
+      "unique": 709
+    },
+    {
+      "group": 162,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1152
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 6,
+      "removed_rows": 0,
+      "mixed_ms": 28.651391983032227,
+      "unique": 1098
+    },
+    {
+      "group": 163,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 25.518400192260742,
+      "unique": 766
+    },
+    {
+      "group": 164,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 24.616256713867188,
+      "unique": 741
+    },
+    {
+      "group": 165,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.507360458374023,
+      "unique": 762
+    },
+    {
+      "group": 166,
+      "original_key": [
+        64,
+        1024,
+        256,
+        704
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.37379264831543,
+      "unique": 700
+    },
+    {
+      "group": 167,
+      "original_key": [
+        64,
+        768,
+        256,
+        768
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 4,
+      "removed_rows": 0,
+      "mixed_ms": 24.0251522064209,
+      "unique": 757
+    },
+    {
+      "group": 168,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.69705581665039,
+      "unique": 915
+    },
+    {
+      "group": 169,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 512,
+      "mixed_ms": 29.619264602661133,
+      "unique": 991
+    },
+    {
+      "group": 170,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.684480667114258,
+      "unique": 938
+    },
+    {
+      "group": 171,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 24.144800186157227,
+      "unique": 761
+    },
+    {
+      "group": 172,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 512,
+      "mixed_ms": 30.897823333740234,
+      "unique": 1030
+    },
+    {
+      "group": 173,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 512,
+      "mixed_ms": 32.38460922241211,
+      "unique": 1033
+    },
+    {
+      "group": 174,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.549663543701172,
+      "unique": 948
+    },
+    {
+      "group": 175,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 24.303552627563477,
+      "unique": 745
+    },
+    {
+      "group": 176,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1280
+      ],
+      "selected_compact": 1344,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 256,
+      "mixed_ms": 29.58940887451172,
+      "unique": 1274
+    },
+    {
+      "group": 177,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 26.743839263916016,
+      "unique": 936
+    },
+    {
+      "group": 178,
+      "original_key": [
+        64,
+        512,
+        256,
+        576
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 3,
+      "removed_rows": 0,
+      "mixed_ms": 19.329856872558594,
+      "unique": 526
+    },
+    {
+      "group": 179,
+      "original_key": [
+        64,
+        1280,
+        256,
+        1024
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.59097671508789,
+      "unique": 970
+    },
+    {
+      "group": 180,
+      "original_key": [
+        64,
+        512,
+        256,
+        576
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 2,
+      "removed_rows": 0,
+      "mixed_ms": 19.080448150634766,
+      "unique": 551
+    },
+    {
+      "group": 181,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 29.386816024780273,
+      "unique": 934
+    },
+    {
+      "group": 182,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 23.437055587768555,
+      "unique": 726
+    },
+    {
+      "group": 183,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.397855758666992,
+      "unique": 718
+    },
+    {
+      "group": 184,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.47420883178711,
+      "unique": 740
+    },
+    {
+      "group": 185,
+      "original_key": [
+        64,
+        1280,
+        256,
+        832
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.44585609436035,
+      "unique": 817
+    },
+    {
+      "group": 186,
+      "original_key": [
+        64,
+        1280,
+        256,
+        832
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 28.93494415283203,
+      "unique": 828
+    },
+    {
+      "group": 187,
+      "original_key": [
+        64,
+        1024,
+        256,
+        704
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.467872619628906,
+      "unique": 651
+    },
+    {
+      "group": 188,
+      "original_key": [
+        64,
+        1280,
+        256,
+        896
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.537439346313477,
+      "unique": 844
+    },
+    {
+      "group": 189,
+      "original_key": [
+        64,
+        1280,
+        256,
+        896
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 7,
+      "removed_rows": 256,
+      "mixed_ms": 26.877952575683594,
+      "unique": 880
+    },
+    {
+      "group": 190,
+      "original_key": [
+        64,
+        1536,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 512,
+      "mixed_ms": 32.227073669433594,
+      "unique": 935
+    },
+    {
+      "group": 191,
+      "original_key": [
+        64,
+        1024,
+        256,
+        896
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 5,
+      "removed_rows": 0,
+      "mixed_ms": 24.33465576171875,
+      "unique": 875
+    },
+    {
+      "group": 192,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 512,
+      "mixed_ms": 29.497024536132812,
+      "unique": 1066
+    },
+    {
+      "group": 193,
+      "original_key": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 8,
+      "removed_rows": 512,
+      "mixed_ms": 29.50979232788086,
+      "unique": 1061
+    },
+    {
+      "group": 194,
+      "original_key": [
+        64,
+        1024,
+        256,
+        704
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 5,
+      "removed_rows": 256,
+      "mixed_ms": 24.591392517089844,
+      "unique": 686
+    },
+    {
+      "group": 195,
+      "original_key": [
+        64,
+        1280,
+        256,
+        960
+      ],
+      "selected_compact": 1088,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 32.03526306152344,
+      "unique": 960
+    },
+    {
+      "group": 196,
+      "original_key": [
+        64,
+        1024,
+        256,
+        768
+      ],
+      "selected_compact": 832,
+      "eligible": true,
+      "count": 6,
+      "removed_rows": 256,
+      "mixed_ms": 23.608800888061523,
+      "unique": 721
+    },
+    {
+      "group": 197,
+      "original_key": [
+        64,
+        512,
+        256,
+        576
+      ],
+      "selected_compact": null,
+      "eligible": false,
+      "count": 2,
+      "removed_rows": 0,
+      "mixed_ms": 21.1461124420166,
+      "unique": 551
+    }
+  ],
+  "limitations": [
+    "FIFO membership proxy only, not live admission request IDs.",
+    "CPU mapping construction measured including tensorcreation, no H2D or service critical-path measurement.",
+    "Actual selection chooses smallest prebuilt64-alignedK coveringceil64(unique); it does not instantiate every exactceil64 bucket.",
+    "No per-group GPU gain inferred from3highalias cases."
+  ]
+}

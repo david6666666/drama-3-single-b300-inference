@@ -1,0 +1,151 @@
+{
+  "status": "CPU_CAUSAL_PADDING_INPUT_MISMATCH",
+  "slot_head_statistics": [
+    {
+      "slot": 143,
+      "head": 2,
+      "changed": 14963,
+      "max_abs": 25.498817443847656,
+      "rrms": 0.9988855719566345
+    },
+    {
+      "slot": 143,
+      "head": 6,
+      "changed": 16379,
+      "max_abs": 67.03125,
+      "rrms": 0.9217050671577454
+    },
+    {
+      "slot": 143,
+      "head": 7,
+      "changed": 16377,
+      "max_abs": 84.4375,
+      "rrms": 0.90353924036026
+    },
+    {
+      "slot": 143,
+      "head": 14,
+      "changed": 121,
+      "max_abs": 3.814697265625e-06,
+      "rrms": 1.300110596957893e-07
+    },
+    {
+      "slot": 143,
+      "head": 15,
+      "changed": 16379,
+      "max_abs": 176.84375,
+      "rrms": 0.9525455832481384
+    },
+    {
+      "slot": 143,
+      "head": 20,
+      "changed": 16379,
+      "max_abs": 75.625,
+      "rrms": 0.9205484390258789
+    },
+    {
+      "slot": 143,
+      "head": 23,
+      "changed": 16376,
+      "max_abs": 71.126953125,
+      "rrms": 0.9429039359092712
+    },
+    {
+      "slot": 143,
+      "head": 24,
+      "changed": 16030,
+      "max_abs": 0.2734375,
+      "rrms": 0.028420666232705116
+    },
+    {
+      "slot": 143,
+      "head": 25,
+      "changed": 16383,
+      "max_abs": 43.9375,
+      "rrms": 0.9522343277931213
+    },
+    {
+      "slot": 143,
+      "head": 26,
+      "changed": 16383,
+      "max_abs": 65.109375,
+      "rrms": 0.947787880897522
+    },
+    {
+      "slot": 143,
+      "head": 27,
+      "changed": 16383,
+      "max_abs": 56.03125,
+      "rrms": 0.9661994576454163
+    }
+  ],
+  "padding_input_reconstruction": {
+    "case": "real_P1536_K1344_variant0",
+    "real_rows": 1367,
+    "padding_rows": 169,
+    "different_row_count": 53,
+    "different_prefill_rows": [
+      1367,
+      1368,
+      1369,
+      1370,
+      1371,
+      1372,
+      1373,
+      1374,
+      1375,
+      1376,
+      1377,
+      1378,
+      1379,
+      1380,
+      1381,
+      1382,
+      1383,
+      1384,
+      1385,
+      1386,
+      1387,
+      1388,
+      1389,
+      1390,
+      1391,
+      1392,
+      1393,
+      1394,
+      1395,
+      1396,
+      1397,
+      1398,
+      1399,
+      1400,
+      1401,
+      1402,
+      1403,
+      1405,
+      1406,
+      1407,
+      1408,
+      1409,
+      1410,
+      1411,
+      1412,
+      1413,
+      1414,
+      1415,
+      1417,
+      1418,
+      1419,
+      1420,
+      1421
+    ],
+    "all_differences_private_padding": true,
+    "first_prior_P1536_real_rows": 1422,
+    "second_prior_P1536_real_rows": 1326
+  },
+  "real_state_differences": 0,
+  "nonparticipating_state_differences": 0,
+  "cuda_initialized": false,
+  "scope": "CPU reconstruction from exact immutable cases and production prepare writes; first failed GPU state artifact unchanged. No new GPU run.",
+  "inspected_tensor_scope": "Only first failing state/gdn/0; later111state checks were not executed after the stop"
+}

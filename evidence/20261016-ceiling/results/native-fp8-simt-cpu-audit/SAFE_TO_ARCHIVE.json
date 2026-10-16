@@ -1,0 +1,87 @@
+{
+  "status": "CPU_AOT_BUDGET_REJECTED_NO_GPU",
+  "gpu_executed": false,
+  "production_changed": false,
+  "all_concurrency_target_met": false,
+  "native_exact_scope": "384 selected FC2 BF16 CPU-simulated values only; FC1 raw/full MoE not established",
+  "ownership_checks": 147523,
+  "optimistic_issue_ms": 5.439250904447755,
+  "files": {
+    ".ruff_cache/.gitignore": {
+      "sha256": "9e3a60f1e6ec4ae60215c11d54b171392745ec25e9dded433d5bd921363af316",
+      "bytes": 35
+    },
+    ".ruff_cache/0.17.0/12189152743910440461": {
+      "sha256": "f6ac041836d8fc886fd4f50526c977e8db03d3071ead42ea201f0e7871cdf508",
+      "bytes": 212
+    },
+    ".ruff_cache/CACHEDIR.TAG": {
+      "sha256": "5953156d7e0c564a427251316eaf26f8870e6483ae2197f916b630e4f93e31ae",
+      "bytes": 43
+    },
+    "aot.log": {
+      "sha256": "70eb1b4dfc6b3a811f3efb5abd9cf8fb8a84ea7a09b43e4df8e55a58b4124908",
+      "bytes": 646
+    },
+    "cpu-result.json": {
+      "sha256": "053df84ede1a4bff09f3e07244de55da08dffdaafda6e1cee622d17b0feb2a4c",
+      "bytes": 754309
+    },
+    "cpu.log": {
+      "sha256": "b97c0e0709933a2afc2306b4da350af5553802e772f08f7734aef09b6ca34117",
+      "bytes": 4501
+    },
+    "cpu_audit.py": {
+      "sha256": "8f2822c5266eefaf17a5795ce951c84f9f75051266089c05d194ac4adc6ab8ff",
+      "bytes": 14384
+    },
+    "fixed_subwarp8.cu": {
+      "sha256": "fbadcc85fec2387cf24f0091cb839a9c7080d0d608580512141653a16e28341b",
+      "bytes": 4165
+    },
+    "fixed_subwarp8.cubin": {
+      "sha256": "09e2065e75f6ee38e85532a27366ff93bd2ff41182633abade91cf4947770fcf",
+      "bytes": 85296
+    },
+    "fixed_subwarp8.ptx": {
+      "sha256": "2e7c556bff4e1f667a3c6c3c70a666b594b4c4ac8af22283fa9a951d7edd48d7",
+      "bytes": 101152
+    },
+    "initial-aot-no-explicit-outer-ftz/aot.log": {
+      "sha256": "ccd4b6398a0a27ed2e891888cf3e5f6e842b6283f76ab9aea08f833b5ad15801",
+      "bytes": 647
+    },
+    "initial-aot-no-explicit-outer-ftz/fixed_subwarp8.cu": {
+      "sha256": "0dadb6e8da57c7a6511c82f2f2f6e7dca573d6d66ded0e9a82dbf6c642e02909",
+      "bytes": 3861
+    },
+    "initial-aot-no-explicit-outer-ftz/fixed_subwarp8.cubin": {
+      "sha256": "677caf697b105619838637a9d22690de5cd9474f8b061279fca0285f85754f13",
+      "bytes": 84736
+    },
+    "initial-aot-no-explicit-outer-ftz/fixed_subwarp8.ptx": {
+      "sha256": "d33d5acebbf8abd8fce86b32560027cf3b4cdbfde91514afe0de1b380a78d640",
+      "bytes": 99640
+    },
+    "initial-aot-no-explicit-outer-ftz/kernel.sass": {
+      "sha256": "4c13a5b3979ff8a3e351e6790b0128cbf64288ea58d88e3b0da7a48d96c9fded",
+      "bytes": 211774
+    },
+    "initial-aot-no-explicit-outer-ftz/resource-usage.txt": {
+      "sha256": "d62a43847fea35b0267a21de852954adaaf2621b09fefe56a65a5bd6392d9998",
+      "bytes": 272
+    },
+    "kernel.sass": {
+      "sha256": "bf8a4d284149e958cfe6f1e55d66647ff23ac367f5d3047a9922b4258e771d5f",
+      "bytes": 211774
+    },
+    "report.md": {
+      "sha256": "9a0a954feb95ff947a86b6cc0e94e7c5a825ed8018296d05ead338f49090a3e7",
+      "bytes": 6719
+    },
+    "resource-usage.txt": {
+      "sha256": "d62a43847fea35b0267a21de852954adaaf2621b09fefe56a65a5bd6392d9998",
+      "bytes": 272
+    }
+  }
+}

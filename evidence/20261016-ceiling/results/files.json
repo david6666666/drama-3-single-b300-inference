@@ -8,8 +8,8 @@
   {
     "source": "archive_ceiling.py",
     "artifact": "archive_ceiling.py.gz",
-    "uncompressed_sha256": "bfffab4772cc55d2ffac1fcf73dff3508d8d4323d017fd70b206270719f7033c",
-    "bytes": 4169
+    "uncompressed_sha256": "d95c07e56a8072630925b30b8cf60c1d89abcc45886435a60cfc3e783793360f",
+    "bytes": 4392
   },
   {
     "source": "archived-codec-fragmentation.json",
@@ -11052,6 +11052,12 @@
     "bytes": 4999
   },
   {
+    "source": "native-compressed-moe-independent-review.json",
+    "artifact": "native-compressed-moe-independent-review.json",
+    "uncompressed_sha256": "48d91fcfe6ee2ec8a3f6e20a0795bf4d0d4fdb5a12ae8ca6765eeb087d2d6bf2",
+    "bytes": 1822
+  },
+  {
     "source": "native-compressed-vmm/build.json",
     "artifact": "native-compressed-vmm/build.json",
     "uncompressed_sha256": "ab3ea8e7ce103e12197aa5e38fb0ea7ba9ed8d782d41fbd6d9a63d503f2b4bf4",
@@ -11434,6 +11440,108 @@
     "artifact": "native-finalize-norm-v3/summary.md",
     "uncompressed_sha256": "c8b206415c6624eafcec5c463825da790fdec299abfdc1bec7049c1a5da13284",
     "bytes": 3869
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/SAFE_TO_ARCHIVE.json",
+    "artifact": "native-fp8-simt-cpu-audit/SAFE_TO_ARCHIVE.json",
+    "uncompressed_sha256": "0a7980180ee63eb63f116a119938c6815e423b2bffd3b5d4b1dd9e512295b976",
+    "bytes": 3160
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/aot.log",
+    "artifact": "native-fp8-simt-cpu-audit/aot.log.gz",
+    "uncompressed_sha256": "70eb1b4dfc6b3a811f3efb5abd9cf8fb8a84ea7a09b43e4df8e55a58b4124908",
+    "bytes": 646
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/cpu-result.json",
+    "artifact": "native-fp8-simt-cpu-audit/cpu-result.json.gz",
+    "uncompressed_sha256": "053df84ede1a4bff09f3e07244de55da08dffdaafda6e1cee622d17b0feb2a4c",
+    "bytes": 754309
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/cpu.log",
+    "artifact": "native-fp8-simt-cpu-audit/cpu.log.gz",
+    "uncompressed_sha256": "b97c0e0709933a2afc2306b4da350af5553802e772f08f7734aef09b6ca34117",
+    "bytes": 4501
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/cpu_audit.py",
+    "artifact": "native-fp8-simt-cpu-audit/cpu_audit.py.gz",
+    "uncompressed_sha256": "8f2822c5266eefaf17a5795ce951c84f9f75051266089c05d194ac4adc6ab8ff",
+    "bytes": 14384
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/fixed_subwarp8.cu",
+    "artifact": "native-fp8-simt-cpu-audit/fixed_subwarp8.cu.gz",
+    "uncompressed_sha256": "fbadcc85fec2387cf24f0091cb839a9c7080d0d608580512141653a16e28341b",
+    "bytes": 4165
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/fixed_subwarp8.ptx",
+    "artifact": "native-fp8-simt-cpu-audit/fixed_subwarp8.ptx.gz",
+    "uncompressed_sha256": "2e7c556bff4e1f667a3c6c3c70a666b594b4c4ac8af22283fa9a951d7edd48d7",
+    "bytes": 101152
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/initial-aot-no-explicit-outer-ftz/aot.log",
+    "artifact": "native-fp8-simt-cpu-audit/initial-aot-no-explicit-outer-ftz/aot.log.gz",
+    "uncompressed_sha256": "ccd4b6398a0a27ed2e891888cf3e5f6e842b6283f76ab9aea08f833b5ad15801",
+    "bytes": 647
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/initial-aot-no-explicit-outer-ftz/fixed_subwarp8.cu",
+    "artifact": "native-fp8-simt-cpu-audit/initial-aot-no-explicit-outer-ftz/fixed_subwarp8.cu.gz",
+    "uncompressed_sha256": "0dadb6e8da57c7a6511c82f2f2f6e7dca573d6d66ded0e9a82dbf6c642e02909",
+    "bytes": 3861
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/initial-aot-no-explicit-outer-ftz/fixed_subwarp8.ptx",
+    "artifact": "native-fp8-simt-cpu-audit/initial-aot-no-explicit-outer-ftz/fixed_subwarp8.ptx.gz",
+    "uncompressed_sha256": "d33d5acebbf8abd8fce86b32560027cf3b4cdbfde91514afe0de1b380a78d640",
+    "bytes": 99640
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/initial-aot-no-explicit-outer-ftz/kernel.sass",
+    "artifact": "native-fp8-simt-cpu-audit/initial-aot-no-explicit-outer-ftz/kernel.sass.gz",
+    "uncompressed_sha256": "4c13a5b3979ff8a3e351e6790b0128cbf64288ea58d88e3b0da7a48d96c9fded",
+    "bytes": 211774
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/initial-aot-no-explicit-outer-ftz/resource-usage.txt",
+    "artifact": "native-fp8-simt-cpu-audit/initial-aot-no-explicit-outer-ftz/resource-usage.txt.gz",
+    "uncompressed_sha256": "d62a43847fea35b0267a21de852954adaaf2621b09fefe56a65a5bd6392d9998",
+    "bytes": 272
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/kernel.sass",
+    "artifact": "native-fp8-simt-cpu-audit/kernel.sass.gz",
+    "uncompressed_sha256": "bf8a4d284149e958cfe6f1e55d66647ff23ac367f5d3047a9922b4258e771d5f",
+    "bytes": 211774
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/report.md",
+    "artifact": "native-fp8-simt-cpu-audit/report.md",
+    "uncompressed_sha256": "9a0a954feb95ff947a86b6cc0e94e7c5a825ed8018296d05ead338f49090a3e7",
+    "bytes": 6719
+  },
+  {
+    "source": "native-fp8-simt-cpu-audit/resource-usage.txt",
+    "artifact": "native-fp8-simt-cpu-audit/resource-usage.txt.gz",
+    "uncompressed_sha256": "d62a43847fea35b0267a21de852954adaaf2621b09fefe56a65a5bd6392d9998",
+    "bytes": 272
+  },
+  {
+    "source": "native-fp8-simt-independent-review.json",
+    "artifact": "native-fp8-simt-independent-review.json",
+    "uncompressed_sha256": "2b03f5142ef052b5dfd09d4d22f7dbe60ad3df8522acb2342f8594832974576c",
+    "bytes": 1503
+  },
+  {
+    "source": "native-fp8-simt-independent-review.md",
+    "artifact": "native-fp8-simt-independent-review.md",
+    "uncompressed_sha256": "0b32156a7dab2fd53176b6db261fd0a402f57d8585a01f2775efebbf61ddb311",
+    "bytes": 5739
   },
   {
     "source": "native-frame-pipeline-review.md",
@@ -12340,6 +12448,576 @@
     "artifact": "native-row-reuse-mixed/summary.json",
     "uncompressed_sha256": "5f8b1261992d92a65f27d31c63755a7292e095231f2e26ea0fdd13ac776e7177",
     "bytes": 1420
+  },
+  {
+    "source": "native-row-reuse-runtime-design/archive-manifest.json",
+    "artifact": "native-row-reuse-runtime-design/archive-manifest.json",
+    "uncompressed_sha256": "41433b12b913dac45361e0240082d08382f30a0e7f6e21e81c660f7eec52f55e",
+    "bytes": 2197
+  },
+  {
+    "source": "native-row-reuse-runtime-design/compare_mapping_arrays_cpu.py",
+    "artifact": "native-row-reuse-runtime-design/compare_mapping_arrays_cpu.py.gz",
+    "uncompressed_sha256": "947432ecea2fb4077ca19ff34eb66e5af464a1574e2b20e327cb5dac490e7166",
+    "bytes": 3309
+  },
+  {
+    "source": "native-row-reuse-runtime-design/compare_mapping_cpu.py",
+    "artifact": "native-row-reuse-runtime-design/compare_mapping_cpu.py.gz",
+    "uncompressed_sha256": "aaa20f9b418bdf748f6fa5824882bb9a51c81b111e52491a7d634c114f2622bd",
+    "bytes": 3183
+  },
+  {
+    "source": "native-row-reuse-runtime-design/cpu-array-budget.json",
+    "artifact": "native-row-reuse-runtime-design/cpu-array-budget.json",
+    "uncompressed_sha256": "f4a2f911ffdae37f311fb04ab4d5324ddf32494e9fd6721f20790095c30043c4",
+    "bytes": 39085
+  },
+  {
+    "source": "native-row-reuse-runtime-design/cpu-budget.json",
+    "artifact": "native-row-reuse-runtime-design/cpu-budget.json.gz",
+    "uncompressed_sha256": "26b2b204fa634183c99792c2fc4c790bdb58418479213433d52b95cdbdc85b60",
+    "bytes": 87269
+  },
+  {
+    "source": "native-row-reuse-runtime-design/cpu-vectorized-budget.json",
+    "artifact": "native-row-reuse-runtime-design/cpu-vectorized-budget.json",
+    "uncompressed_sha256": "1ceb19b41f63f3fcd5a68afe7997e64406206f8f7c0c3145474316f4d68b71ec",
+    "bytes": 39261
+  },
+  {
+    "source": "native-row-reuse-runtime-design/cpu_budget.py",
+    "artifact": "native-row-reuse-runtime-design/cpu_budget.py.gz",
+    "uncompressed_sha256": "cd6561688079b256ea38104b10c92a22c689bd40c464bf407ef1b005c4b8b0f9",
+    "bytes": 6944
+  },
+  {
+    "source": "native-row-reuse-runtime-design/expanded-exact-protocol.json",
+    "artifact": "native-row-reuse-runtime-design/expanded-exact-protocol.json",
+    "uncompressed_sha256": "b0b4d982a2e83528043583846fbe085b79fcff6126c0200c3a20eac1e4650f32",
+    "bytes": 2606
+  },
+  {
+    "source": "native-row-reuse-runtime-design/finite-bucket-budget.json",
+    "artifact": "native-row-reuse-runtime-design/finite-bucket-budget.json",
+    "uncompressed_sha256": "1dacd1f548c7bf93a0f00bc5e0affe8fd3fe1c9ece99530dbcdc7177ae22d8e4",
+    "bytes": 55130
+  },
+  {
+    "source": "native-row-reuse-runtime-design/implementation-proposal.md",
+    "artifact": "native-row-reuse-runtime-design/implementation-proposal.md",
+    "uncompressed_sha256": "b60cd281096dcb14412f9ae5ab22512f5755ae007cd7841c19ab12dbb5932557",
+    "bytes": 4175
+  },
+  {
+    "source": "native-row-reuse-runtime-design/runtime-cpu-budget.json",
+    "artifact": "native-row-reuse-runtime-design/runtime-cpu-budget.json",
+    "uncompressed_sha256": "7d4384a26a0a97ca57d39c291321c3a8e708625e22f95fc9186a9a45a291b7af",
+    "bytes": 58537
+  },
+  {
+    "source": "native-row-reuse-runtime-design/runtime-cpu-check.json",
+    "artifact": "native-row-reuse-runtime-design/runtime-cpu-check.json",
+    "uncompressed_sha256": "e33228f881a6ed272f4264c2f33550aaee89df0bbe5c875ebc0561fd881337ed",
+    "bytes": 1342
+  },
+  {
+    "source": "native-row-reuse-runtime-design/summary.json",
+    "artifact": "native-row-reuse-runtime-design/summary.json",
+    "uncompressed_sha256": "648da05932171fe38d2462bd5c6c28f00780a78627ac1c0e7f400a92bc0e4121",
+    "bytes": 1424
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/archive-manifest.json",
+    "artifact": "native-row-reuse-runtime-exact/archive-manifest.json",
+    "uncompressed_sha256": "75576a373cfdcc184fef2d4c98dc0112b3a6807219809262478ca7ef09f23e86",
+    "bytes": 2807
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/common.py",
+    "artifact": "native-row-reuse-runtime-exact/common.py.gz",
+    "uncompressed_sha256": "c005761e042730058b09e79a0800b239b9d4ba0ed37939d6e5cab8ccfd816e27",
+    "bytes": 9617
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/cpu-check.json",
+    "artifact": "native-row-reuse-runtime-exact/cpu-check.json",
+    "uncompressed_sha256": "2e7af8848ae244532b2228e411bc613a512bcf50475e3b7b8eb12c5bbb60effd",
+    "bytes": 7088
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/cpu-failure-diagnosis.json",
+    "artifact": "native-row-reuse-runtime-exact/cpu-failure-diagnosis.json",
+    "uncompressed_sha256": "ec09dc87e4f89f1fb7c32349f842abc177752073ada1485833ffba873617d295",
+    "bytes": 2910
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/driver.py",
+    "artifact": "native-row-reuse-runtime-exact/driver.py.gz",
+    "uncompressed_sha256": "aa15f339c6be0594d6810cfc2c4cc4bcae2d704bb15f38d8987fc749c196ef15",
+    "bytes": 18205
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/freeze.py",
+    "artifact": "native-row-reuse-runtime-exact/freeze.py.gz",
+    "uncompressed_sha256": "ee3648300ff4528b841af7f93338fda631f959bc2cd8233d104828403eec7cd7",
+    "bytes": 3423
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/frozen-manifest.json",
+    "artifact": "native-row-reuse-runtime-exact/frozen-manifest.json",
+    "uncompressed_sha256": "928ceb78b1ad81bc9362c122d4e34c61f2dc85097f5405b02d16b661026f9f7e",
+    "bytes": 7648
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/gpu.log",
+    "artifact": "native-row-reuse-runtime-exact/gpu.log.gz",
+    "uncompressed_sha256": "017537db13f0a3f7b9c09583d68bfc884ee9cbd77b781c61144c105f34df64f0",
+    "bytes": 4192
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/launch.py",
+    "artifact": "native-row-reuse-runtime-exact/launch.py.gz",
+    "uncompressed_sha256": "7cc2adba491a26321a73129236b14940b53f2939f20d87223458ac661a566e57",
+    "bytes": 2282
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/pid.json",
+    "artifact": "native-row-reuse-runtime-exact/pid.json",
+    "uncompressed_sha256": "402fa260e8545c4f91f8bb373e8d699869cf12f62db3825399affb8caa64a53f",
+    "bytes": 33
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/postflight.json",
+    "artifact": "native-row-reuse-runtime-exact/postflight.json",
+    "uncompressed_sha256": "c14c8064bdc832512dda47e9ef7a6bf28682442617a141de89967ddb99586f65",
+    "bytes": 144
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/preflight.json",
+    "artifact": "native-row-reuse-runtime-exact/preflight.json",
+    "uncompressed_sha256": "effeeea84e8a58e471c946a8a337f554faada19c6d7ed4c870fdc5516f91ec8e",
+    "bytes": 1932
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/protocol.json",
+    "artifact": "native-row-reuse-runtime-exact/protocol.json",
+    "uncompressed_sha256": "010a3e31831b7b30ecb29bd3e48bf18a67ddbe1bab782836655240a10b80cf21",
+    "bytes": 18519
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/result.json",
+    "artifact": "native-row-reuse-runtime-exact/result.json.gz",
+    "uncompressed_sha256": "44d1314a4ee27842d59e4452af1ef9160d11e93275cd6ed75d40fb37f6281944",
+    "bytes": 451689
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/summary.json",
+    "artifact": "native-row-reuse-runtime-exact/summary.json",
+    "uncompressed_sha256": "9b4be12c3bac19be6bf8ee92e2f8983ce650afca1068f33b404fbdf632fec093",
+    "bytes": 1455
+  },
+  {
+    "source": "native-row-reuse-runtime-exact/summary.md",
+    "artifact": "native-row-reuse-runtime-exact/summary.md",
+    "uncompressed_sha256": "7936cca801622752b9899512d0e90e93effd13679af169023ef60a91b1354ab3",
+    "bytes": 886
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/archive-manifest.json",
+    "artifact": "native-row-reuse-runtime-exact-v2/archive-manifest.json",
+    "uncompressed_sha256": "ca91f92303ef11cb84e98c285a38464cca8bb3a74ef9f6a06fec4eb18830bf07",
+    "bytes": 2811
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/common.py",
+    "artifact": "native-row-reuse-runtime-exact-v2/common.py.gz",
+    "uncompressed_sha256": "c005761e042730058b09e79a0800b239b9d4ba0ed37939d6e5cab8ccfd816e27",
+    "bytes": 9617
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/cpu-check.json",
+    "artifact": "native-row-reuse-runtime-exact-v2/cpu-check.json",
+    "uncompressed_sha256": "2e7af8848ae244532b2228e411bc613a512bcf50475e3b7b8eb12c5bbb60effd",
+    "bytes": 7088
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/driver.py",
+    "artifact": "native-row-reuse-runtime-exact-v2/driver.py.gz",
+    "uncompressed_sha256": "46de3941bed7a51a11d874eb24bb16cd5e17e8e7bb4e874448814e4938f32ed4",
+    "bytes": 21849
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/freeze.py",
+    "artifact": "native-row-reuse-runtime-exact-v2/freeze.py.gz",
+    "uncompressed_sha256": "7e6e0db3cfd871589aa33cf975ca0581cb5cff2e9f44318548900545cb7a8fc8",
+    "bytes": 3832
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/frozen-manifest.json",
+    "artifact": "native-row-reuse-runtime-exact-v2/frozen-manifest.json",
+    "uncompressed_sha256": "eb7c3596c870b1ad8205999a0ac216975a7d9c11f8dee24745a013d884013452",
+    "bytes": 7666
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/gpu.log",
+    "artifact": "native-row-reuse-runtime-exact-v2/gpu.log.gz",
+    "uncompressed_sha256": "74665cd4c27bcd765a44fc44fabd532ab7eb36ad946e2d779cb99914de0b543e",
+    "bytes": 5089
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/harness-diff-check.json",
+    "artifact": "native-row-reuse-runtime-exact-v2/harness-diff-check.json",
+    "uncompressed_sha256": "56b52718b2e4bad4a4c7b56c31f9fc8feb08945eabc30ec78d0b7ba4421b6f8e",
+    "bytes": 641
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/launch.py",
+    "artifact": "native-row-reuse-runtime-exact-v2/launch.py.gz",
+    "uncompressed_sha256": "7cc2adba491a26321a73129236b14940b53f2939f20d87223458ac661a566e57",
+    "bytes": 2282
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/pid.json",
+    "artifact": "native-row-reuse-runtime-exact-v2/pid.json",
+    "uncompressed_sha256": "7b34f3e1bf417ef46d48a90e274331b9112422b410fa26a73c994fb03ca9061a",
+    "bytes": 33
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/postflight.json",
+    "artifact": "native-row-reuse-runtime-exact-v2/postflight.json",
+    "uncompressed_sha256": "74b79eebf1e7f7e7cee95a1a5b04a9436fa2ef63ae11a383b8c2d7c2669452ca",
+    "bytes": 201
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/preflight.json",
+    "artifact": "native-row-reuse-runtime-exact-v2/preflight.json",
+    "uncompressed_sha256": "51f47bd1629a5562773cdf844df44568a27ddff59a82bbb219cdc7f9e9739c04",
+    "bytes": 1992
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/protocol.json",
+    "artifact": "native-row-reuse-runtime-exact-v2/protocol.json",
+    "uncompressed_sha256": "f9764d0a943b65b5a63be1afd5feb845477069937b8e548bf95cb1fe8c1e8ef1",
+    "bytes": 18947
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/result.json",
+    "artifact": "native-row-reuse-runtime-exact-v2/result.json.gz",
+    "uncompressed_sha256": "b5ce6436e15a281875be47abcccbd92740a35c40f39175452bc7c53192323abd",
+    "bytes": 2341242
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/summary.json",
+    "artifact": "native-row-reuse-runtime-exact-v2/summary.json",
+    "uncompressed_sha256": "3ce34b17167bd26d974f356b42767f83d901aac3f1efc663dbc7c2dc5bf3c5d7",
+    "bytes": 2575
+  },
+  {
+    "source": "native-row-reuse-runtime-exact-v2/summary.md",
+    "artifact": "native-row-reuse-runtime-exact-v2/summary.md",
+    "uncompressed_sha256": "2220a6930f51fd02bcb1fbcadfe7341acf4a44cd437b7de9134384fcd307ff80",
+    "bytes": 1612
+  },
+  {
+    "source": "native-row-reuse-service/README.md",
+    "artifact": "native-row-reuse-service/README.md",
+    "uncompressed_sha256": "bcd5eba482beea3b767ff8a7bfc157de79efb9cc26a6d36ca297b7faa61c7b80",
+    "bytes": 2142
+  },
+  {
+    "source": "native-row-reuse-service/SAFE_TO_ARCHIVE.json",
+    "artifact": "native-row-reuse-service/SAFE_TO_ARCHIVE.json",
+    "uncompressed_sha256": "00ccd83ee36c03af60bb86367b7ebde99416e0a4111ce0e0a6ba893c291e40d5",
+    "bytes": 454
+  },
+  {
+    "source": "native-row-reuse-service/candidate-gpu6/benchmark/c64-r0.jsonl",
+    "artifact": "native-row-reuse-service/candidate-gpu6/benchmark/c64-r0.jsonl.gz",
+    "uncompressed_sha256": "aa8a4374adc51d29053080021591532d78a9c1a79d282779719ace1c3b567a5c",
+    "bytes": 1037464
+  },
+  {
+    "source": "native-row-reuse-service/candidate-gpu6/benchmark/c64-warmup.json",
+    "artifact": "native-row-reuse-service/candidate-gpu6/benchmark/c64-warmup.json.gz",
+    "uncompressed_sha256": "75634e96302274776a1474d3b26e8161e9fae194852c4dfc8e54ba1e67d8ab02",
+    "bytes": 75322
+  },
+  {
+    "source": "native-row-reuse-service/candidate-gpu6/benchmark/manifest.json",
+    "artifact": "native-row-reuse-service/candidate-gpu6/benchmark/manifest.json",
+    "uncompressed_sha256": "1ed9e669ef16306652c63812f0634915c4b3c80babcc45952ee8fbcd1beb314f",
+    "bytes": 775
+  },
+  {
+    "source": "native-row-reuse-service/candidate-gpu6/benchmark/summary.json",
+    "artifact": "native-row-reuse-service/candidate-gpu6/benchmark/summary.json",
+    "uncompressed_sha256": "f22016a1f75cf7156cf43f2e206c5ed80ed8a453b7b92a50b8705938c7c6707c",
+    "bytes": 329
+  },
+  {
+    "source": "native-row-reuse-service/candidate-gpu6/benchmark-command.json",
+    "artifact": "native-row-reuse-service/candidate-gpu6/benchmark-command.json",
+    "uncompressed_sha256": "3be7591e438ab2d90f23452078a89910095c60f4e983178c88dadf3be1f85c36",
+    "bytes": 494
+  },
+  {
+    "source": "native-row-reuse-service/candidate-gpu6/benchmark.log",
+    "artifact": "native-row-reuse-service/candidate-gpu6/benchmark.log.gz",
+    "uncompressed_sha256": "e4af96470908e102e8b9958ecc24fb00f776f5cc8067424fe732e1dc07a6f774",
+    "bytes": 275
+  },
+  {
+    "source": "native-row-reuse-service/candidate-gpu6/launch.json",
+    "artifact": "native-row-reuse-service/candidate-gpu6/launch.json",
+    "uncompressed_sha256": "d4177a7e225fa96eb623d8f8317b790d30f736373b05c7b8969ba4cfdd6a35e4",
+    "bytes": 3845
+  },
+  {
+    "source": "native-row-reuse-service/candidate-gpu6/server.log",
+    "artifact": "native-row-reuse-service/candidate-gpu6/server.log.gz",
+    "uncompressed_sha256": "95ab6e7cf59e4feaa334303f0ba9065d049de0e1525ccf1ff3c2d449b27ce556",
+    "bytes": 83615
+  },
+  {
+    "source": "native-row-reuse-service/candidate-quality-runner/command.json",
+    "artifact": "native-row-reuse-service/candidate-quality-runner/command.json",
+    "uncompressed_sha256": "147eacd8efa9e604e6e76612e2c5fd3aab1209e1c65d2cd802fd0a8cdb7771e5",
+    "bytes": 748
+  },
+  {
+    "source": "native-row-reuse-service/candidate-quality-runner/process-audit.jsonl",
+    "artifact": "native-row-reuse-service/candidate-quality-runner/process-audit.jsonl.gz",
+    "uncompressed_sha256": "45660a997cb4beedb8dc31f1837980bb6f9e077af98f5e2713b4b3f1bb3537a6",
+    "bytes": 18756
+  },
+  {
+    "source": "native-row-reuse-service/candidate-quality-runner/result.json",
+    "artifact": "native-row-reuse-service/candidate-quality-runner/result.json",
+    "uncompressed_sha256": "b31cab15fea7348381dbefb9eb08fcdaaa5e17b54380d44fd58e138ba96bb11e",
+    "bytes": 1252
+  },
+  {
+    "source": "native-row-reuse-service/candidate-quality-runner/stdout.log",
+    "artifact": "native-row-reuse-service/candidate-quality-runner/stdout.log.gz",
+    "uncompressed_sha256": "bd95838d3bd7061b39478007282bcd5d9b71580172406611c010682a50b94c48",
+    "bytes": 43928
+  },
+  {
+    "source": "native-row-reuse-service/candidate-quality.json",
+    "artifact": "native-row-reuse-service/candidate-quality.json.gz",
+    "uncompressed_sha256": "42265d6eba647e4b24e6e58f91216abf1a4f30e5d785892c09bac78d0827f9a2",
+    "bytes": 897711
+  },
+  {
+    "source": "native-row-reuse-service/candidate-service-runner/command.json",
+    "artifact": "native-row-reuse-service/candidate-service-runner/command.json",
+    "uncompressed_sha256": "14ac3177e13e321ac3fccb1892faea1ddc1450be7b787f0bfc08f1ca408f82e1",
+    "bytes": 1060
+  },
+  {
+    "source": "native-row-reuse-service/candidate-service-runner/process-audit.jsonl",
+    "artifact": "native-row-reuse-service/candidate-service-runner/process-audit.jsonl.gz",
+    "uncompressed_sha256": "84286a29c684d0eaa393565a20b38836efa8a4f1f4ba1a73b0f42f69c042d0ad",
+    "bytes": 19464
+  },
+  {
+    "source": "native-row-reuse-service/candidate-service-runner/result.json",
+    "artifact": "native-row-reuse-service/candidate-service-runner/result.json",
+    "uncompressed_sha256": "1556c0eb49b5174e16bf88c085f1c6362ae977e1b907fd3db9f86eda39918e5b",
+    "bytes": 1594
+  },
+  {
+    "source": "native-row-reuse-service/candidate-service-runner/stdout.log",
+    "artifact": "native-row-reuse-service/candidate-service-runner/stdout.log.gz",
+    "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "native-row-reuse-service/common.py",
+    "artifact": "native-row-reuse-service/common.py.gz",
+    "uncompressed_sha256": "7f47982b38b907db07e386a8835029d193b4d339831a34115c01be1c5e08e6fb",
+    "bytes": 13250
+  },
+  {
+    "source": "native-row-reuse-service/control-gpu6/benchmark/c64-r0.jsonl",
+    "artifact": "native-row-reuse-service/control-gpu6/benchmark/c64-r0.jsonl.gz",
+    "uncompressed_sha256": "743829c5342d9374f0094a2e1850fb86577c2c72719376e41b4cef5ae02803fd",
+    "bytes": 1035622
+  },
+  {
+    "source": "native-row-reuse-service/control-gpu6/benchmark/c64-warmup.json",
+    "artifact": "native-row-reuse-service/control-gpu6/benchmark/c64-warmup.json.gz",
+    "uncompressed_sha256": "be3b1bb9bab9587f8f37cd15abe1c1203d206f158f6ca1afbdb84818a92f3411",
+    "bytes": 75142
+  },
+  {
+    "source": "native-row-reuse-service/control-gpu6/benchmark/manifest.json",
+    "artifact": "native-row-reuse-service/control-gpu6/benchmark/manifest.json",
+    "uncompressed_sha256": "5c1872ef9237e41872743302d6217ecacde7f45d1396efb35704ca081d633c54",
+    "bytes": 773
+  },
+  {
+    "source": "native-row-reuse-service/control-gpu6/benchmark/summary.json",
+    "artifact": "native-row-reuse-service/control-gpu6/benchmark/summary.json",
+    "uncompressed_sha256": "2eb552e8d93a010a82ccbf44706b8e0e304d0d85f5a76103ddca82b8f6ab0b1a",
+    "bytes": 328
+  },
+  {
+    "source": "native-row-reuse-service/control-gpu6/benchmark-command.json",
+    "artifact": "native-row-reuse-service/control-gpu6/benchmark-command.json",
+    "uncompressed_sha256": "a485a6689fad37c6055b88c5a8c179d3ed551c0960d5e5fdf2c47351d4be675b",
+    "bytes": 492
+  },
+  {
+    "source": "native-row-reuse-service/control-gpu6/benchmark.log",
+    "artifact": "native-row-reuse-service/control-gpu6/benchmark.log.gz",
+    "uncompressed_sha256": "57371376c8d63ffadf1782cf0d823c9cf226bf96a45b1514aa8d1af64c4ead8a",
+    "bytes": 274
+  },
+  {
+    "source": "native-row-reuse-service/control-gpu6/launch.json",
+    "artifact": "native-row-reuse-service/control-gpu6/launch.json",
+    "uncompressed_sha256": "173362a09cce51fc37d8cf38242fd5f9c2cca18cd7657be8975ba833844f7ebe",
+    "bytes": 3844
+  },
+  {
+    "source": "native-row-reuse-service/control-gpu6/server.log",
+    "artifact": "native-row-reuse-service/control-gpu6/server.log.gz",
+    "uncompressed_sha256": "0b23e46a9825aa974f99eccc2832e00cb89680bccc071768afac218f764b9ec3",
+    "bytes": 83403
+  },
+  {
+    "source": "native-row-reuse-service/control-quality-runner/command.json",
+    "artifact": "native-row-reuse-service/control-quality-runner/command.json",
+    "uncompressed_sha256": "b6ba9df5cd05604ffad30b9bd03596a6d2963d0cb4465b2d9b708cf9ee81b13d",
+    "bytes": 744
+  },
+  {
+    "source": "native-row-reuse-service/control-quality-runner/process-audit.jsonl",
+    "artifact": "native-row-reuse-service/control-quality-runner/process-audit.jsonl.gz",
+    "uncompressed_sha256": "1d42fc2d1ec44503d1f42306a58a1a19261bc1fdc5022ea9b5ea4fa5814934ac",
+    "bytes": 21594
+  },
+  {
+    "source": "native-row-reuse-service/control-quality-runner/result.json",
+    "artifact": "native-row-reuse-service/control-quality-runner/result.json",
+    "uncompressed_sha256": "4cedec2e215ee52b67ff0272b1e97e5e921c0bc6827cc24661b60c30a2982be8",
+    "bytes": 1248
+  },
+  {
+    "source": "native-row-reuse-service/control-quality-runner/stdout.log",
+    "artifact": "native-row-reuse-service/control-quality-runner/stdout.log.gz",
+    "uncompressed_sha256": "667edcd2c84a3aaa551becd97bad4ec412980d780910223f2b24e02cc7f75ccc",
+    "bytes": 43928
+  },
+  {
+    "source": "native-row-reuse-service/control-quality.json",
+    "artifact": "native-row-reuse-service/control-quality.json.gz",
+    "uncompressed_sha256": "98c000f0a3b39acd527e01d94f16981bf27bd7541d5c1dcd1df75bf9d201389d",
+    "bytes": 898035
+  },
+  {
+    "source": "native-row-reuse-service/control-service-runner/command.json",
+    "artifact": "native-row-reuse-service/control-service-runner/command.json",
+    "uncompressed_sha256": "ab795678a3c2cc0bd32166b706a6f22b0f0145c27556add06bdb5d882c1655ce",
+    "bytes": 1058
+  },
+  {
+    "source": "native-row-reuse-service/control-service-runner/process-audit.jsonl",
+    "artifact": "native-row-reuse-service/control-service-runner/process-audit.jsonl.gz",
+    "uncompressed_sha256": "34ba3245156b61718002bb66798b22447e49d70606c7150a31589a9175748d8a",
+    "bytes": 20242
+  },
+  {
+    "source": "native-row-reuse-service/control-service-runner/result.json",
+    "artifact": "native-row-reuse-service/control-service-runner/result.json",
+    "uncompressed_sha256": "057fd0b822d36472df226e3b8531be9f4f2b4e420003918741514fab850f3277",
+    "bytes": 1592
+  },
+  {
+    "source": "native-row-reuse-service/control-service-runner/stdout.log",
+    "artifact": "native-row-reuse-service/control-service-runner/stdout.log.gz",
+    "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "native-row-reuse-service/cpu-check.json",
+    "artifact": "native-row-reuse-service/cpu-check.json",
+    "uncompressed_sha256": "d2a044f5f5ca4582ba344ba71c12a73bc865a4bf0658a9236bb9fb0b84a29415",
+    "bytes": 3171
+  },
+  {
+    "source": "native-row-reuse-service/cpu_check.py",
+    "artifact": "native-row-reuse-service/cpu_check.py.gz",
+    "uncompressed_sha256": "25f3ad2f34799d84dbc1aedcb7f80b767ac9dc554267a11f30b5e133d630002c",
+    "bytes": 5459
+  },
+  {
+    "source": "native-row-reuse-service/failed-exact-refusal.json",
+    "artifact": "native-row-reuse-service/failed-exact-refusal.json",
+    "uncompressed_sha256": "0d29063c77aa81d64ca58c3bf77691192dfd98ea2fe389661e744cfdd0fbd373",
+    "bytes": 355
+  },
+  {
+    "source": "native-row-reuse-service/frozen-inputs.json",
+    "artifact": "native-row-reuse-service/frozen-inputs.json.gz",
+    "uncompressed_sha256": "4112733297daa157b2cc57add1ff18366044e97e4daabbf15fe0b0212a199e02",
+    "bytes": 302591
+  },
+  {
+    "source": "native-row-reuse-service/pair-result.json",
+    "artifact": "native-row-reuse-service/pair-result.json",
+    "uncompressed_sha256": "3215ba355e1ade2ce7282ce6c88b36688567386ec1d69a3fbaeff76faa4897de",
+    "bytes": 4054
+  },
+  {
+    "source": "native-row-reuse-service/prepare_protocol.py",
+    "artifact": "native-row-reuse-service/prepare_protocol.py.gz",
+    "uncompressed_sha256": "63ffb723926a5ed14dcab59835bf54397c4454404f55047c42230b66f372275b",
+    "bytes": 8129
+  },
+  {
+    "source": "native-row-reuse-service/protocol-draft.json",
+    "artifact": "native-row-reuse-service/protocol-draft.json",
+    "uncompressed_sha256": "c76bf9c96edab1363f06fba8b7316e72b7db7bf57c1d5a2144ccf93537dba355",
+    "bytes": 8501
+  },
+  {
+    "source": "native-row-reuse-service/protocol.json",
+    "artifact": "native-row-reuse-service/protocol.json",
+    "uncompressed_sha256": "ea1140320ae126666a2cf255d23495b04ef505db176216405a6b4ca4b9f795c4",
+    "bytes": 8566
+  },
+  {
+    "source": "native-row-reuse-service/quality-result.json",
+    "artifact": "native-row-reuse-service/quality-result.json",
+    "uncompressed_sha256": "5b8c3a7c20e9bc4213a7f61710c90bbcafb925fffa47ec5ff1b0c7b33b1dbdff",
+    "bytes": 2901
+  },
+  {
+    "source": "native-row-reuse-service/run_experiment.py",
+    "artifact": "native-row-reuse-service/run_experiment.py.gz",
+    "uncompressed_sha256": "ba495a760b5c88e16acea689843dcc842c51f9abfe48db1e5f83c04b4e7da60e",
+    "bytes": 4958
+  },
+  {
+    "source": "native-row-reuse-service/summarize.py",
+    "artifact": "native-row-reuse-service/summarize.py.gz",
+    "uncompressed_sha256": "7406880dc6d834cd11d38d93f5187458f1792599127aafbf8b731a88311fa3fe",
+    "bytes": 11455
+  },
+  {
+    "source": "native-row-reuse-service/summary.json",
+    "artifact": "native-row-reuse-service/summary.json",
+    "uncompressed_sha256": "9907812a2f69d1a271fac7d977c553f0dfb71d40d657fde2ae8a19dd86dae71d",
+    "bytes": 6992
+  },
+  {
+    "source": "native-row-reuse-service/summary.md",
+    "artifact": "native-row-reuse-service/summary.md",
+    "uncompressed_sha256": "ed60bb199599acd7e1bcb40fd591a261344ae6eab18848a81bfa442e22b25810",
+    "bytes": 2262
   },
   {
     "source": "native-small-expert-memory-audit.md",
@@ -13606,6 +14284,18 @@
     "artifact": "runtime-pr-body.md",
     "uncompressed_sha256": "6b1f0a0534b089a97031ba07023a92dd4e3140d479749e16f17cc1d7f980b14c",
     "bytes": 1864
+  },
+  {
+    "source": "runtime-row-reuse-independent-review/result.json",
+    "artifact": "runtime-row-reuse-independent-review/result.json",
+    "uncompressed_sha256": "a9fcd78c76da28f42ed2e5ba672f63aefea56147bc87be7fb651758aa5a5be09",
+    "bytes": 4298
+  },
+  {
+    "source": "runtime-row-reuse-independent-review/review.md",
+    "artifact": "runtime-row-reuse-independent-review/review.md",
+    "uncompressed_sha256": "59abfc87be7d62055dd120e7d12a899174d99c1c903deb326063d2738e75bac9",
+    "bytes": 3477
   },
   {
     "source": "sf-tile-cache-independent-review.json",

@@ -1,0 +1,14 @@
+{
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/compare_mapping_arrays_cpu.py": "947432ecea2fb4077ca19ff34eb66e5af464a1574e2b20e327cb5dac490e7166",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/compare_mapping_cpu.py": "aaa20f9b418bdf748f6fa5824882bb9a51c81b111e52491a7d634c114f2622bd",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/cpu-array-budget.json": "f4a2f911ffdae37f311fb04ab4d5324ddf32494e9fd6721f20790095c30043c4",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/cpu-budget.json": "26b2b204fa634183c99792c2fc4c790bdb58418479213433d52b95cdbdc85b60",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/cpu-vectorized-budget.json": "1ceb19b41f63f3fcd5a68afe7997e64406206f8f7c0c3145474316f4d68b71ec",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/cpu_budget.py": "cd6561688079b256ea38104b10c92a22c689bd40c464bf407ef1b005c4b8b0f9",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/expanded-exact-protocol.json": "b0b4d982a2e83528043583846fbe085b79fcff6126c0200c3a20eac1e4650f32",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/finite-bucket-budget.json": "1dacd1f548c7bf93a0f00bc5e0affe8fd3fe1c9ece99530dbcdc7177ae22d8e4",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/implementation-proposal.md": "b60cd281096dcb14412f9ae5ab22512f5755ae007cd7841c19ab12dbb5932557",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/runtime-cpu-budget.json": "7d4384a26a0a97ca57d39c291321c3a8e708625e22f95fc9186a9a45a291b7af",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/runtime-cpu-check.json": "e33228f881a6ed272f4264c2f33550aaee89df0bbe5c875ebc0561fd881337ed",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/summary.json": "648da05932171fe38d2462bd5c6c28f00780a78627ac1c0e7f400a92bc0e4121"
+}

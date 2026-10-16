@@ -1,0 +1,58 @@
+{
+  "status": "SAFE_TO_ARCHIVE_CPU_DESIGN",
+  "runtime_sha": "345c6a18f200853489a9ac8a86bbe0682ebe484d",
+  "cpu_suite": "103 PASS with CUDA uninitialized",
+  "scope": "CPU finite-bucket planning, exact causal mapping, source review and pre-GPU protocol; GPU evidence is independent runtime-exact-v2.",
+  "five_buckets": [
+    [
+      64,
+      768,
+      256,
+      576
+    ],
+    [
+      64,
+      1024,
+      256,
+      832
+    ],
+    [
+      64,
+      1280,
+      256,
+      1088
+    ],
+    [
+      64,
+      1536,
+      256,
+      1088
+    ],
+    [
+      64,
+      1536,
+      256,
+      1344
+    ]
+  ],
+  "eligible_FIFO_proxy_groups": 122,
+  "all_FIFO_proxy_groups": 196,
+  "eligible_batch6_proxy_groups": 55,
+  "all_batch6_proxy_groups": 64,
+  "removed_rows": 34560,
+  "all_rows": 222064,
+  "mapping_build_and_bind_ms": {
+    "p50": 0.104118,
+    "p95": 0.178116,
+    "maximum": 0.190736,
+    "sum_over_supported171": 16.643546
+  },
+  "host_scope": "Build+snapshot+matches binding; H2D excluded here but included in service wall time.",
+  "capture_attention_workspace_lower_bound_bytes": 671088640,
+  "limitations": [
+    "FIFO proxy is not actual admission coverage.",
+    "Five extra attention workspaces are a lower accounting, not measured service peak.",
+    "Local6.25% mixed result does not apply to all mixed calls or fullservice.",
+    "No new precision, expert pruning or cross-admission state reuse."
+  ]
+}

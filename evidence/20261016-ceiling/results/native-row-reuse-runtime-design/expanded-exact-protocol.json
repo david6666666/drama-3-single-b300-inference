@@ -1,0 +1,23 @@
+{
+  "status": "PROPOSED_CPU_ONLY_NOT_GPU_AUTHORIZATION",
+  "source": "Runtime codex-drama3-scale-150; freeze a new DCO SHA after review",
+  "controls": {
+    "precision": "Unchanged native BF16/FP8/fulltop8; same existing nativeflags/router1",
+    "difference": "Only defaultoff rowreuse and internal graph-pool buffer integration",
+    "device": "GPU6 after ownership preflight; no clock/cache changes",
+    "prepare": "Captureallgraphsbeforeinitializingrealstate; reportready/capture/peakmemory separately"
+  },
+  "gates": [
+    "Allfive prebuiltK/F variants, actualrealprompts including mainstreamD64/P1024 batch6 andP1280 batch6; everycandidate comparison checks fulloutputs,all111states,CPU/CUDA RNG andpersistentmetadata.",
+    "Construct graphsets in ascending and reversebucket capture order, each with original+compact mixed variants in the same pool. Interleave original\u2192compact\u2192differentcompact\u2192original, resetidentical111state before each comparison.",
+    "Consume publicrun() clonedoutputs and retain them across later differentgraph replays; verify those prioroutputs unchanged. Compact input/norm allocations are poolmanaged ratherthan40externalbuffers.",
+    "Interleave existingdecode/framepipeline graphs using their actualseparate pools; do not artificially move them into sharedmixedpool. Preserve returnedclones andallstates/RNG withrestoredreference.",
+    "Active rows fewerthanD64, main56/58/63 pluslowpartial49; differentarrivalcounts, realandreservedstateownership; reusedprefillslots preloadedwithdifferentstate beforefreshreset.",
+    "Syntheticboundary cases clearlylabelled: promptlength3,maximumspan256, varyinglengths andpartialbatch withretainedpadding. Noqualityclaim fromsyntheticcases.",
+    "Noalias/unique>availableK/unsupportedshape selectsoriginalgraph; cancellationremovesrequestbeforebuildingnewplan. Same-lengthchangedconditioning withstaleplan rejects beforewritinggraphmetadata.",
+    "Reuse capturedgraph while reversingrequest/slotorder andchangingreference groups. Noaliasownerreferencesdecode/padding, allinverseentries point tokeptcanonicalrows; surpluscompactrows duplicateoriginalrow0 only.",
+    "Any numericorownership failure savesfirsttensors/logandstops; no timing/service promotion or relaxedtolerance."
+  ],
+  "success": "All complete production graph checks byteexact, every prioroutputclone survives interleaving, frozenfilehashes unchanged, cleanup andnoGPUjobleft.",
+  "continuation": "Only afterrootreview/freeze andexpandedexactPASS discussone same-source servicefeasibility+allWER/SIM; no automatic launch fromCPUdesign."
+}

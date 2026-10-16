@@ -1,0 +1,34 @@
+{
+  "status": "INDEPENDENT_CPU_REVIEW_PASS",
+  "original_results_unchanged": true,
+  "checks": 3417,
+  "exact": true,
+  "timing_arithmetic_recomputed": true,
+  "sequence_latency_reduction": 0.000992258216476638,
+  "original5pct_gate_passed": false,
+  "per_layer_1pct_regression_gate_passed": true,
+  "allocator_post": {
+    "live": 0,
+    "destroyed": 12,
+    "cleanup_errors": 0
+  },
+  "sampled_exit": {
+    "time": 1792123959.1866956,
+    "processes": [],
+    "memory_mib": 4
+  },
+  "small_source_manifest_entries_checked": 16,
+  "large_weight_binary_manifest_scope": "Manifest digest verified; multiGB payloads not rehashed in this independent CPU arithmetic review",
+  "limitations": [
+    "Single AB screen, no repeat/service/quality claim.",
+    "Three real layer bodies use fixed independent inputs, not a three-layer actual network chain.",
+    "Actual compression capability flag1 is not measured compression ratio; DRAM bytes not measured."
+  ],
+  "input_hashes": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-moe/protocol.json": "fbf8720fc224939a923f3ae2a49f032ca98ff4fb173b29dc1740d65c0fdb877f",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-moe/frozen-inputs.json": "a913a6ae9604ba4648b73491bcf02b4704e8c17f08e6b120bc5a462cdfd2a83c",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-moe/gpu/result.json": "72acaff0cfcb0859412468fdfc23b79a00b8d98577c6b357080c6f8711bbaf2a",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-moe/summary.json": "73d8183f5d5a0d87591c3924362e31a9b54a112633581e66c167a83b272e444b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-moe/launch-result.json": "389d8c1f2541f525aac6d9066bee8cb0de7e20827105a9dd3d230ba03e5e8200"
+  }
+}

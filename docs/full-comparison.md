@@ -1,6 +1,6 @@
 # Measured streaming performance
 
-**The 2× target is not achieved.** The standalone runtime leads at C1–C4,
+**The current 1.5× target is not achieved.** The standalone runtime leads at C1–C4,
 is close at C8, and trails the updated vLLM baseline at C16–C64.
 
 Both runtimes completed 21 valid runs: 1088 requests × seven concurrency points
@@ -44,7 +44,7 @@ This table alone does not establish acceptance. Complete quality coverage, match
 workloads and the recorded experiment controls must also pass. Missing evidence is
 INCONCLUSIVE, never PASS.
 
-Throughput-only 2× gate: **FAIL**. Quality is a separate required gate.
+Throughput-only 1.5× gate across all concurrency levels: **FAIL**. Quality is a separate required gate.
 
 ![Four requested metrics and repetition ranges](figures/full-comparison.png)
 

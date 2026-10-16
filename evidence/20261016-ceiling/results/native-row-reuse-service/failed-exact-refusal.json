@@ -1,0 +1,8 @@
+{
+  "status": "FAILED_PRODUCTION_EXACT_CORRECTLY_REJECTED",
+  "gate": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/result.json",
+  "gate_sha256": "44d1314a4ee27842d59e4452af1ef9160d11e93275cd6ed75d40fb37f6281944",
+  "error": "expanded exact gate has not passed",
+  "protocol_frozen": false,
+  "gpu_used": false
+}

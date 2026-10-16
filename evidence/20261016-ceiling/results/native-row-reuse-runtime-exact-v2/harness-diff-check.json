@@ -1,0 +1,16 @@
+{
+  "status": "CPU_HARNESS_DIFF_PASS",
+  "changed_functions": [
+    "main"
+  ],
+  "common_and_launcher_byte_identical": true,
+  "unchanged_source_sha": "345c6a18f200853489a9ac8a86bbe0682ebe484d",
+  "changes": [
+    "Bind identical fullprefill EOS/zero before normalprepare",
+    "Invoke original input-only requests.load/row_metadata to compare every actual input buffer before and after replay",
+    "One original/original fullstate deterministic check on prior failing case"
+  ],
+  "numeric_gates_unchanged": true,
+  "original_failure_preserved": true,
+  "diff_sha256": "fbfb0051f862186842aedcfe43940cd2e4539ac2b0238951889ec2c2b342f146"
+}

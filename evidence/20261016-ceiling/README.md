@@ -728,3 +728,90 @@ isolated source change relative to its prior candidate; comparison to vendor
 native is a complete implementation comparison. Separate historical screens
 cannot be subtracted to attribute the difference to scale caching. See the
 [raw result and loaded binary identities](results/expert-m128-sf-tile-cache/GPU-summary.md).
+
+
+## Finite production prefix reuse: complete graph correctness passes
+
+Source `345c6a1` adds default-off `DRAMA3_MIXED_ROW_REUSE=1`, requiring the
+existing mixed backbone, span256 and fused native MoE residual. Five graphs are
+built before readiness: D64/P768/K576, P1024/K832, P1280/K1088 and
+P1536/K1088 orK1344. Unsupported shapes or insufficient equal-prefix rows use the
+original graph. Full eleven-column causal prefixes are compared on CPU; immutable
+prompt bytes reject stale same-length conditioning before any graph input write.
+All decode/padding rows and original top8 arithmetic remain.
+
+The first production gate passes eight real cases before detecting unequal GDN
+state only in private padding slot143. Its two arms had different padding input
+histories: a reused original graph retained55 prior prompt rows,53 byte-different,
+while the compact graph still held initial EOS/zero rows. The original failure
+and complete tensors are retained. Production code is unchanged by the fix: a
+separately frozen v2 harness initializes identical full inputs in both arms and
+checks their complete bytes before and after replay, retaining every state check.
+
+The corrected gate passes **9974/9974 checks in30 cases**, including original
+A/A determinism, all five compact buckets, ascending/reverse capture order,
+interleaved original/compact graphs sharing a pool, complete111 model/request
+states,106 nonparticipating state tensors and prior returned-output clones.
+Changed slots, partial active batches, prompt boundaries, cancellation before
+admission, stale conditioning and all original fallback paths are included.
+Ordinary decode/frame-pipeline graphs retain their real separate pools.
+
+Production temporary tensors use the existing graph pool rather than retaining
+forty artifact-private copies. Five attention workspaces alone add640MiB; the
+correctness harness's125.13GB allocated peak includes two graph sets and state
+snapshots and is not a serving-memory measurement. CPU plan construction plus
+full-content binding costs median0.104ms/p950.178ms in171 supported-shape proxy
+groups; H2D and other preparation are outside this CPU probe. Actual service
+walltime must include all of them. This gate qualifies correctness only; C64
+throughput, full quality and all-concurrency acceptance remain separate.
+
+
+See [production design](results/native-row-reuse-runtime-design/implementation-proposal.md),
+[preserved first failure](results/native-row-reuse-runtime-exact/summary.md) and
+[complete corrected gate](results/native-row-reuse-runtime-exact-v2/summary.md).
+
+
+## Final service result and user-requested pause (2026-10-16)
+
+Optimization is paused. The complete production prefix gate passes 9974 checks
+across 30 cases, but the subsequent full service feasibility pair fails its
+throughput gate. All 1088 outputs in both arms are scored; none are filtered.
+
+| Row reuse | Frames/s | TTFA p50 / p95 ms | Mean RTF | WER % | SIM |
+|---|---:|---:|---:|---:|---:|
+| Off | 4674.814977 | 148.562946 / 274.704463 | 0.290890 | 1.465293 | 64.188428 |
+| On | 4534.131006 | 151.265127 / 273.353699 | 0.290618 | 1.682994 | 64.202021 |
+
+Source `345c6a18f200853489a9ac8a86bbe0682ebe484d`, same GPU6/C64/1088 requests,
+one AB pair. Candidate/control throughput 0.969905981 misses the frozen 1.01
+continuation gate. Both quality groups pass the unchanged same-C vLLM bounds.
+No three-round service trial follows, and row reuse remains default-off.
+The single best complete-quality observation stays 4726.771495 frames/s,
+below the 6765.407263 target. All-concurrency acceptance remains INCONCLUSIVE.
+
+The candidate activates in 130/200 lifetime opportunities, removes 36096 rows,
+and records 29.439 ms CPU plan construction. Output lengths differ and the
+last-dispatch-to-completion tail rises from 1.046 to 1.844 s. This client accounting
+does not establish a GPU cause; the full tail remains included. A local graph
+latency reduction is therefore not promoted to a service speedup.
+
+All 1808 frozen dependency hashes were rechecked. Four service/quality runners
+exit successfully and record empty selected-GPU state after cleanup. Sampled
+ownership cannot rule out subsecond interference. See
+[summary](results/native-row-reuse-service/summary.md),
+[complete results](results/native-row-reuse-service/summary.json),
+[protocol](results/native-row-reuse-service/protocol.json) and
+[archive status](results/native-row-reuse-service/SAFE_TO_ARCHIVE.json).
+
+The fixed eight-lane SIMT mapping is closed at CPU/AOT analysis without a GPU
+run: the conditional instruction-issue budget is already about 5.44 ms for the
+conversion/FMA subset, before other work, versus an approximately 4 ms historical
+native GEMM budget. This is a mapping-specific estimate, not a universal physical
+limit. Only 384 selected FC2 BF16 outputs were checked against native values;
+FC1's original FP8 epilogue/full MoE equality is not established. See the
+[CPU report](results/native-fp8-simt-cpu-audit/report.md) and
+[independent review](results/native-fp8-simt-independent-review.md).
+
+README architecture and the available three-framework tables now document
+current results at the user's request. The historical SGLang workload is labeled
+separately; neither a matched three-way victory nor the target is claimed.

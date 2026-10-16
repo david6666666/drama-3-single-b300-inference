@@ -1,0 +1,6 @@
+{
+  "returncode": 0,
+  "gpu_after": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf, 4, 27",
+  "compute_apps_after": "1144000, GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d, 2918\n",
+  "owned_pid_absent": true
+}

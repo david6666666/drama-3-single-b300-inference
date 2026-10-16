@@ -1,0 +1,18 @@
+{
+  "status": "CPU_PASS",
+  "pytest_exit": 0,
+  "cuda_initialized": false,
+  "base_head": "0dd72e518167c7a888db9b63f0fb90cc2087f187",
+  "files": {
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/row_reuse.py": "fc419821e780bcc5e773dce1f49bf12972b9367efa7a3512373f72fc80c787cd",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/kernels.py": "f6abc83d45c50b689af360553ffad8aef7dcb4d107ef3cf28cf757f5edf8c8ee",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/mixed_model.py": "6de442f61aee988f5999d7520e594666d1fbea6909e0e7287a8b2b0de4096676",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/mixed_graph.py": "a8d8c4bcb5b87653ece99af0658625b0f23f8de9bff38cca00ec332b3d11a48e",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/engine.py": "5a510376fa08b53a6cc7636ebcac99f3dec952895a4b972ff52cf6bea9567674",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/tests/test_row_reuse.py": "bc709de42f9fb4086a148b52df8e8e270d9640367308301eb330b4410af22966"
+  },
+  "limitations": [
+    "Runtime source not frozen/committed yet. No GPU executed on this integration. Previous artifact uses different temporary-buffer lifetimes."
+  ],
+  "final_comment_only_change": "Shorten planning-counter comment after103-pass fullCPU suite; no executable AST change."
+}

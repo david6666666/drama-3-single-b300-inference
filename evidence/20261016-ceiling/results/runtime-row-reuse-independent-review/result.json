@@ -1,0 +1,197 @@
+{
+  "status": "CPU_INDEPENDENT_REVIEW_PASS",
+  "gpu_initialized": false,
+  "checks": [
+    {
+      "shape": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "variant": "identical",
+      "unique": 237,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "variant": "suffix_change",
+      "unique": 272,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "variant": "reversed",
+      "unique": 272,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1024,
+        256,
+        832
+      ],
+      "variant": "identical",
+      "unique": 297,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1024,
+        256,
+        832
+      ],
+      "variant": "suffix_change",
+      "unique": 332,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1024,
+        256,
+        832
+      ],
+      "variant": "reversed",
+      "unique": 332,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "variant": "identical",
+      "unique": 350,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "variant": "suffix_change",
+      "unique": 385,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "variant": "reversed",
+      "unique": 385,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "variant": "identical",
+      "unique": 410,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "variant": "suffix_change",
+      "unique": 445,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "variant": "reversed",
+      "unique": 445,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1536,
+        256,
+        1344
+      ],
+      "variant": "identical",
+      "unique": 410,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1536,
+        256,
+        1344
+      ],
+      "variant": "suffix_change",
+      "unique": 445,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    },
+    {
+      "shape": [
+        64,
+        1536,
+        256,
+        1344
+      ],
+      "variant": "reversed",
+      "unique": 445,
+      "canonical_exact": true,
+      "stale_numpy_write_rejected": true
+    }
+  ],
+  "source_sha256": {
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/row_reuse.py": "fc419821e780bcc5e773dce1f49bf12972b9367efa7a3512373f72fc80c787cd",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/mixed_graph.py": "a8d8c4bcb5b87653ece99af0658625b0f23f8de9bff38cca00ec332b3d11a48e",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/mixed_model.py": "64345f319229f75bd1bc9136f9fca9c70530e78712cc89e8aba2dd35b357e874",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/engine.py": "c708749821b6ccdc49a831742a19a6775baf4bc84f67a725c389df222ac6917a",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/kernels.py": "f6abc83d45c50b689af360553ffad8aef7dcb4d107ef3cf28cf757f5edf8c8ee"
+  },
+  "limitations": [
+    "Current runtime files are uncommitted and not yet GPU-qualified.",
+    "CPU address/ownership proof does not prove graph-pool allocator safety or bit-exact math for all5 compact shapes."
+  ]
+}

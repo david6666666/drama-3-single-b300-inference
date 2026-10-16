@@ -1,0 +1,18 @@
+{
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/ascending_real_P1536_K1344_variant0_state_gdn_0-failure.pt": "5779bef4aabfa937fa9d4225eded2878c7c6ec35fa70a7ba6dd75c3a995fae74",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/common.py": "c005761e042730058b09e79a0800b239b9d4ba0ed37939d6e5cab8ccfd816e27",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/cpu-check.json": "2e7af8848ae244532b2228e411bc613a512bcf50475e3b7b8eb12c5bbb60effd",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/cpu-failure-diagnosis.json": "ec09dc87e4f89f1fb7c32349f842abc177752073ada1485833ffba873617d295",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/driver.py": "aa15f339c6be0594d6810cfc2c4cc4bcae2d704bb15f38d8987fc749c196ef15",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/freeze.py": "ee3648300ff4528b841af7f93338fda631f959bc2cd8233d104828403eec7cd7",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/frozen-manifest.json": "928ceb78b1ad81bc9362c122d4e34c61f2dc85097f5405b02d16b661026f9f7e",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/gpu.log": "017537db13f0a3f7b9c09583d68bfc884ee9cbd77b781c61144c105f34df64f0",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/launch.py": "7cc2adba491a26321a73129236b14940b53f2939f20d87223458ac661a566e57",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/pid.json": "402fa260e8545c4f91f8bb373e8d699869cf12f62db3825399affb8caa64a53f",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/postflight.json": "c14c8064bdc832512dda47e9ef7a6bf28682442617a141de89967ddb99586f65",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/preflight.json": "effeeea84e8a58e471c946a8a337f554faada19c6d7ed4c870fdc5516f91ec8e",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/protocol.json": "010a3e31831b7b30ecb29bd3e48bf18a67ddbe1bab782836655240a10b80cf21",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/result.json": "44d1314a4ee27842d59e4452af1ef9160d11e93275cd6ed75d40fb37f6281944",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/summary.json": "9b4be12c3bac19be6bf8ee92e2f8983ce650afca1068f33b404fbdf632fec093",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact/summary.md": "7936cca801622752b9899512d0e90e93effd13679af169023ef60a91b1354ab3"
+}

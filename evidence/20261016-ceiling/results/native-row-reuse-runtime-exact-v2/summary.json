@@ -1,0 +1,91 @@
+{
+  "status": "SAFE_TO_ARCHIVE_EXACT_PASS",
+  "source_sha": "345c6a18f200853489a9ac8a86bbe0682ebe484d",
+  "checks": 9974,
+  "cases": 30,
+  "all111_states": true,
+  "nonparticipating_state_tensors_per_mixed_case": 106,
+  "five_bucket_coverage": [
+    [
+      64,
+      768,
+      256,
+      576
+    ],
+    [
+      64,
+      1024,
+      256,
+      832
+    ],
+    [
+      64,
+      1280,
+      256,
+      1088
+    ],
+    [
+      64,
+      1536,
+      256,
+      1088
+    ],
+    [
+      64,
+      1536,
+      256,
+      1344
+    ]
+  ],
+  "capture_orders": [
+    "ascending",
+    "descending"
+  ],
+  "original_AA_passed": true,
+  "pool_interleaving_passed": true,
+  "retained_outputs_passed": true,
+  "frozen_files_rechecked": 43,
+  "runtime_source_clean": true,
+  "result_sha256": "b5ce6436e15a281875be47abcccbd92740a35c40f39175452bc7c53192323abd",
+  "protocol_sha256": "f9764d0a943b65b5a63be1afd5feb845477069937b8e548bf95cb1fe8c1e8ef1",
+  "manifest_sha256": "eb7c3596c870b1ad8205999a0ac216975a7d9c11f8dee24745a013d884013452",
+  "preparation": {
+    "model_load_wall_seconds": 11.395537629025057,
+    "other_graphs_capture_wall_seconds": 7.201284704031423,
+    "ascending_capture_wall_seconds": 1.2291945460019633,
+    "ascending_pool": [
+      0,
+      1
+    ],
+    "descending_capture_wall_seconds": 1.0930453969631344,
+    "descending_pool": [
+      0,
+      2
+    ],
+    "real_initialize_and_snapshot_wall_seconds": 0.3267414839938283
+  },
+  "peak_allocated_bytes": 125128046080,
+  "peak_reserved_bytes": 126777032704,
+  "memory_scope": "Two graphsets plus all-state validation snapshots; not service incremental graph cost.",
+  "performance": "NOT_RUN",
+  "quality": "NOT_RUN",
+  "original_failure": {
+    "path": "../native-row-reuse-runtime-exact/result.json",
+    "preserved": true,
+    "cause": "Unequal actual private padding frame inputs between reused original and fresh candidate; runtime prepare preserves padding.",
+    "affected_interval": [
+      1367,
+      1422
+    ],
+    "byte_different_rows": 53,
+    "total_interval_rows": 55,
+    "saved_tensor_scope": "GDN0 only, slot143 and11heads; laterstatechecks stopped.",
+    "correction": "Bind identical EOS/zero fullprefill before normalprepare, materialize unchanged production input-only metadata for pre/post identity, add original A/A; no runtime or precision/gate change."
+  },
+  "postflight": {
+    "returncode": 0,
+    "gpu_after": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf, 4, 27",
+    "compute_apps_after": "1144000, GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d, 2918\n",
+    "owned_pid_absent": true
+  }
+}
