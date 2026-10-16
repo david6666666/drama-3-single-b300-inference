@@ -4,8 +4,10 @@ Sources were pinned on **2026-10-16**. This report replaces the README's earlier
 mixture of old full-matrix measurements and newer standalone C64 observations.
 All three frameworks use the same 1088 pre-encoded-reference requests per planned
 run. The vLLM C64 third repetition stalled, and SGLang C2 stopped after an HTTP
-500 in its second repetition. Both rows remain incomplete; neither is replaced
-with an older version or an aggregate from fewer than three successful runs.
+500 in its second repetition. Their three-run audits remain incomplete. At the
+user's request, the performance display now reuses the two complete vLLM C64
+runs and the one complete SGLang C2 run, with their actual repeat counts marked.
+No new experiments were run for this update. Source versions and inputs are unchanged.
 The SGLang adapter was corrected to pass its supported `references[].vq_codes`
 field; this is a benchmark-client correction, not a change to the model.
 
@@ -91,10 +93,12 @@ Sources, inputs, capacities, sampling and warmup policy remained unchanged.
 The new SGLang process is an explicit session boundary; its serving/RNG history
 differs from the interrupted process, and each row records its source session.
 
-The following individual observations are **diagnostic only**, not formal
-three-run estimates. For the failed SGLang group, throughput uses returned audio
-and the whole group makespan; TTFA/RTF and quality cover its 1087 successful
-outputs only. They are not substituted for the missing C2 row:
+These individual observations preserve the evidence for the incomplete three-run
+rows. The three complete groups below now supply the marked performance display
+rows; they are still not formal three-run estimates. The failed SGLang group remains
+**diagnostic only** and is excluded from the display aggregates and SGLang ratio
+baseline. Its throughput uses returned audio and the whole group makespan;
+TTFA/RTF and quality cover only its 1087 successful outputs:
 
 | Framework / run | Success / failed | frames/s | TTFA p50 (ms) | TTFA p95 (ms) | RTF (mean) | WER (%) | SIM |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -105,40 +109,51 @@ outputs only. They are not substituted for the missing C2 row:
 
 ## Performance
 
-| C | Framework | Throughput (frames/s) | TTFA p50 (ms) | TTFA p95 (ms) | RTF (mean) |
-|---:|---|---:|---:|---:|---:|
-| 1 | drama-3-single-b300-inference | 309.17 | 32.83 | 44.68 | 0.0702 |
-| 1 | vllm-omni | 195.89 | 47.29 | 49.76 | 0.1106 |
-| 1 | sglang-omni | 169.80 | 79.38 | 82.82 | 0.1278 |
-| 2 | drama-3-single-b300-inference | 479.42 | 47.22 | 58.04 | 0.0908 |
-| 2 | vllm-omni | 346.29 | 54.25 | 60.56 | 0.1251 |
-| 2 | sglang-omni | —‡ | —‡ | —‡ | —‡ |
-| 4 | drama-3-single-b300-inference | 785.51 | 44.07 | 60.33 | 0.1104 |
-| 4 | vllm-omni | 631.60 | 58.93 | 66.82 | 0.1371 |
-| 4 | sglang-omni | 485.32 | 99.71 | 137.73 | 0.1788 |
-| 8 | drama-3-single-b300-inference | 1153.25 | 53.87 | 79.31 | 0.1500 |
-| 8 | vllm-omni | 1105.75 | 65.53 | 77.70 | 0.1564 |
-| 8 | sglang-omni | 715.78 | 132.30 | 180.38 | 0.2421 |
-| 16 | drama-3-single-b300-inference | 1857.42 | 74.94 | 100.39 | 0.1858 |
-| 16 | vllm-omni | 1846.24 | 77.44 | 90.50 | 0.1861 |
-| 16 | sglang-omni | 1002.32 | 184.97 | 248.58 | 0.3444 |
-| 32 | drama-3-single-b300-inference | 2652.72 | 96.38 | 127.34 | 0.2551 |
-| 32 | vllm-omni | 2878.10 | 95.60 | 113.42 | 0.2348 |
-| 32 | sglang-omni | 1389.46 | 256.62 | 337.24 | 0.4916 |
-| 64 | drama-3-single-b300-inference | 4662.02 | 147.71 | 275.61 | 0.2918 |
-| 64 | vllm-omni | —† | —† | —† | —† |
-| 64 | sglang-omni | 1886.22 | 384.36 | 619.29 | 0.7058 |
+| C | Framework | Throughput (frames/s) | Throughput / SGLang | TTFA p50 (ms) | TTFA p95 (ms) | RTF (mean) |
+|---:|---|---:|---:|---:|---:|---:|
+| 1 | drama-3-single-b300-inference | 309.17 | 1.82× | 32.83 | 44.68 | 0.0702 |
+| 1 | vllm-omni | 195.89 | 1.15× | 47.29 | 49.76 | 0.1106 |
+| 1 | sglang-omni | 169.80 | 1.00× | 79.38 | 82.82 | 0.1278 |
+| 2 | drama-3-single-b300-inference | 479.42 | 1.62×‡ | 47.22 | 58.04 | 0.0908 |
+| 2 | vllm-omni | 346.29 | 1.17×‡ | 54.25 | 60.56 | 0.1251 |
+| 2 | sglang-omni | 295.39‡ | 1.00×‡ | 87.57 | 112.38 | 0.1470 |
+| 4 | drama-3-single-b300-inference | 785.51 | 1.62× | 44.07 | 60.33 | 0.1104 |
+| 4 | vllm-omni | 631.60 | 1.30× | 58.93 | 66.82 | 0.1371 |
+| 4 | sglang-omni | 485.32 | 1.00× | 99.71 | 137.73 | 0.1788 |
+| 8 | drama-3-single-b300-inference | 1153.25 | 1.61× | 53.87 | 79.31 | 0.1500 |
+| 8 | vllm-omni | 1105.75 | 1.54× | 65.53 | 77.70 | 0.1564 |
+| 8 | sglang-omni | 715.78 | 1.00× | 132.30 | 180.38 | 0.2421 |
+| 16 | drama-3-single-b300-inference | 1857.42 | 1.85× | 74.94 | 100.39 | 0.1858 |
+| 16 | vllm-omni | 1846.24 | 1.84× | 77.44 | 90.50 | 0.1861 |
+| 16 | sglang-omni | 1002.32 | 1.00× | 184.97 | 248.58 | 0.3444 |
+| 32 | drama-3-single-b300-inference | 2652.72 | 1.91× | 96.38 | 127.34 | 0.2551 |
+| 32 | vllm-omni | 2878.10 | 2.07× | 95.60 | 113.42 | 0.2348 |
+| 32 | sglang-omni | 1389.46 | 1.00× | 256.62 | 337.24 | 0.4916 |
+| 64 | drama-3-single-b300-inference | 4662.02 | 2.47× | 147.71 | 275.61 | 0.2918 |
+| 64 | vllm-omni | 4640.83† | 2.46×† | 155.54 | 273.34 | 0.2862 |
+| 64 | sglang-omni | 1886.22 | 1.00× | 384.36 | 619.29 | 0.7058 |
 
-`—†` and `—‡` denote the incomplete vLLM C64 and SGLang C2 rows described above. Each numeric row is the independent median of three complete 1088-request groups.
+Rows use independent medians of three complete 1088-request groups, except:
+
+- † vLLM C64: the independent median of the two complete groups, `c64-r0` and `c64-r1` (for two values, their arithmetic mean). The timed-out third group remains recorded and contributes no invented measurement.
+- ‡ SGLang C2: the one complete group, `c2-r0`. Its throughput is also the denominator for all C2 ratios; the failed second group and unattempted third group remain recorded.
+
+`Throughput / SGLang` = the row's unrounded throughput / the unrounded SGLang
+throughput at the same concurrency. It is a ratio of these descriptive aggregates,
+not a median of paired-run ratios. The [JSON report](current-results.json) keeps
+these 21 display rows under `performance_table`, including repeat counts and
+source labels; the original 19 formal rows, incomplete-row audit and quality
+acceptance status remain unchanged. No new experiments were run.
+
 Throughput = total returned PCM samples / 2048 / full group makespan.
 TTFA p50/p95 = per-run percentiles of dispatch-to-first-PCM time, then medians
-across runs. RTF = each request's dispatch-to-last-PCM time / audio duration;
-the table reports the median of the three run means. Audio is mono PCM16 at
+across the included complete runs. RTF = each request's dispatch-to-last-PCM time /
+audio duration; the table aggregates those run means in the same way. Audio is mono PCM16 at
 44.1 kHz. Initial fill, final drain and frame-capped outputs are included.
 Raw PCM does not expose EOS reasons. Generated lengths and random-number
 schedules differ; no equal-output or bitwise-equivalence claim is made.
 
-Observed throughput ranges across the three repetitions (not confidence intervals):
+The original three-run audit remains below (ranges are not confidence intervals):
 
 | C | Standalone frames/s range | vLLM-Omni frames/s range | SGLang-Omni frames/s range |
 |---:|---:|---:|---:|

@@ -54,43 +54,43 @@ plus its transcript, or pre-encoded reference codes; see [API and state flow](do
 ## Performance
 
 <!-- latest-performance:start -->
-Measured on **one B300**, using the same 1088 English requests and pre-encoded
-references at each concurrency. Numeric rows are **medians of three complete runs**;
-RTF is the median of run means. Two incomplete rows are marked below.
+Recorded on **one B300**, using the same 1088 English requests and pre-encoded
+references at each concurrency. Rows use **three-run medians**, except † (two runs)
+and ‡ (one run), which reuse existing complete records. RTF aggregates run means.
 Versions pinned on 2026-10-16:
 standalone [33f6d72](https://github.com/david6666666/drama-3-single-b300-inference/commit/33f6d7237196520be9f457d86df161264cbb087e), vLLM-Omni [aa9c9a2](https://github.com/vllm-project/vllm-omni/commit/aa9c9a2d2ce3ff8640f1b4ab8937a6194b0ead4d), SGLang-Omni [2c23b68](https://github.com/sgl-project/sglang-omni/commit/2c23b68f4f763c14cfb845eadb4883a5e791b701).
 
-| C | Framework | Throughput (frames/s) | TTFA p50 (ms) | TTFA p95 (ms) | RTF (mean) |
-|---:|---|---:|---:|---:|---:|
-| 1 | drama-3-single-b300-inference | 309.17 | 32.83 | 44.68 | 0.0702 |
-| 1 | vllm-omni | 195.89 | 47.29 | 49.76 | 0.1106 |
-| 1 | sglang-omni | 169.80 | 79.38 | 82.82 | 0.1278 |
-| 2 | drama-3-single-b300-inference | 479.42 | 47.22 | 58.04 | 0.0908 |
-| 2 | vllm-omni | 346.29 | 54.25 | 60.56 | 0.1251 |
-| 2 | sglang-omni | —‡ | —‡ | —‡ | —‡ |
-| 4 | drama-3-single-b300-inference | 785.51 | 44.07 | 60.33 | 0.1104 |
-| 4 | vllm-omni | 631.60 | 58.93 | 66.82 | 0.1371 |
-| 4 | sglang-omni | 485.32 | 99.71 | 137.73 | 0.1788 |
-| 8 | drama-3-single-b300-inference | 1153.25 | 53.87 | 79.31 | 0.1500 |
-| 8 | vllm-omni | 1105.75 | 65.53 | 77.70 | 0.1564 |
-| 8 | sglang-omni | 715.78 | 132.30 | 180.38 | 0.2421 |
-| 16 | drama-3-single-b300-inference | 1857.42 | 74.94 | 100.39 | 0.1858 |
-| 16 | vllm-omni | 1846.24 | 77.44 | 90.50 | 0.1861 |
-| 16 | sglang-omni | 1002.32 | 184.97 | 248.58 | 0.3444 |
-| 32 | drama-3-single-b300-inference | 2652.72 | 96.38 | 127.34 | 0.2551 |
-| 32 | vllm-omni | 2878.10 | 95.60 | 113.42 | 0.2348 |
-| 32 | sglang-omni | 1389.46 | 256.62 | 337.24 | 0.4916 |
-| 64 | drama-3-single-b300-inference | 4662.02 | 147.71 | 275.61 | 0.2918 |
-| 64 | vllm-omni | —† | —† | —† | —† |
-| 64 | sglang-omni | 1886.22 | 384.36 | 619.29 | 0.7058 |
+| C | Framework | Throughput (frames/s) | Throughput / SGLang | TTFA p50 (ms) | TTFA p95 (ms) | RTF (mean) |
+|---:|---|---:|---:|---:|---:|---:|
+| 1 | drama-3-single-b300-inference | 309.17 | 1.82× | 32.83 | 44.68 | 0.0702 |
+| 1 | vllm-omni | 195.89 | 1.15× | 47.29 | 49.76 | 0.1106 |
+| 1 | sglang-omni | 169.80 | 1.00× | 79.38 | 82.82 | 0.1278 |
+| 2 | drama-3-single-b300-inference | 479.42 | 1.62×‡ | 47.22 | 58.04 | 0.0908 |
+| 2 | vllm-omni | 346.29 | 1.17×‡ | 54.25 | 60.56 | 0.1251 |
+| 2 | sglang-omni | 295.39‡ | 1.00×‡ | 87.57 | 112.38 | 0.1470 |
+| 4 | drama-3-single-b300-inference | 785.51 | 1.62× | 44.07 | 60.33 | 0.1104 |
+| 4 | vllm-omni | 631.60 | 1.30× | 58.93 | 66.82 | 0.1371 |
+| 4 | sglang-omni | 485.32 | 1.00× | 99.71 | 137.73 | 0.1788 |
+| 8 | drama-3-single-b300-inference | 1153.25 | 1.61× | 53.87 | 79.31 | 0.1500 |
+| 8 | vllm-omni | 1105.75 | 1.54× | 65.53 | 77.70 | 0.1564 |
+| 8 | sglang-omni | 715.78 | 1.00× | 132.30 | 180.38 | 0.2421 |
+| 16 | drama-3-single-b300-inference | 1857.42 | 1.85× | 74.94 | 100.39 | 0.1858 |
+| 16 | vllm-omni | 1846.24 | 1.84× | 77.44 | 90.50 | 0.1861 |
+| 16 | sglang-omni | 1002.32 | 1.00× | 184.97 | 248.58 | 0.3444 |
+| 32 | drama-3-single-b300-inference | 2652.72 | 1.91× | 96.38 | 127.34 | 0.2551 |
+| 32 | vllm-omni | 2878.10 | 2.07× | 95.60 | 113.42 | 0.2348 |
+| 32 | sglang-omni | 1389.46 | 1.00× | 256.62 | 337.24 | 0.4916 |
+| 64 | drama-3-single-b300-inference | 4662.02 | 2.47× | 147.71 | 275.61 | 0.2918 |
+| 64 | vllm-omni | 4640.83† | 2.46×† | 155.54 | 273.34 | 0.2862 |
+| 64 | sglang-omni | 1886.22 | 1.00× | 384.36 | 619.29 | 0.7058 |
 
-† vLLM C64 completed two runs (4551.91 and 4729.74 frames/s); its third run
-stalled and reached the 300-second request timeout.
+† vLLM C64 uses the median of its two complete runs (4551.91 and 4729.74 frames/s);
+the third run timed out. ‡ SGLang C2 and all C2 ratios use its one complete run;
+the second run had an HTTP 500 and the third was not attempted. No new runs were made.
 
-‡ SGLang C2 stopped after an HTTP 500 (no audio frames) in its second run;
-that run had 1087 successes / 1 failure, and the third run was not attempted.
-Neither incomplete row has a three-run estimate. C4–C64 used a new SGLang server
-with the same configuration; see the session boundaries in the report.
+`Throughput / SGLang` divides each row's unrounded throughput by SGLang's at the
+same concurrency (SGLang = 1.00×). C4–C64 used a new SGLang server with the same
+configuration; session boundaries and failure records remain in the report.
 
 `C` is the number of concurrent requests. Throughput counts returned audio frames
 (2048 samples); TTFA measures time to first

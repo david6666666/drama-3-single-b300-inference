@@ -3915,5 +3915,472 @@
   },
   "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
   "comparison_scope": "Latest frozen source on existing final-path environments, not latest rebuilt dependencies. Same workload/client/GPU/CPU affinity; native framework capacity, scheduler and codec differences remain explicit. No equal-output-length or identical RNG schedule claim.",
-  "standalone_profile": "configs/benchmark-native-b300.env"
+  "standalone_profile": "configs/benchmark-native-b300.env",
+  "performance_table": {
+    "updated_at": "2026-10-17T06:49:15.719486+08:00",
+    "scope": "Descriptive display using existing complete runs; original three-run audit and all failures are unchanged.",
+    "new_experiments_run": false,
+    "ratio_definition": "Unrounded displayed-row throughput divided by unrounded SGLang throughput at the same concurrency; not a median of paired-run ratios.",
+    "rows": [
+      {
+        "framework": "standalone",
+        "concurrency": 1,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c1-r0",
+          "c1-r1",
+          "c1-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 309.16835677667984,
+          "ttfa_p50_ms": 32.82944695092738,
+          "ttfa_p95_ms": 44.677666295319796,
+          "rtf_mean": 0.07022001580418244
+        },
+        "sglang_baseline_throughput_frames_s": 169.79837079777414,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.8207969565555613
+      },
+      {
+        "framework": "vllm",
+        "concurrency": 1,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c1-r0",
+          "c1-r1",
+          "c1-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 195.890742291089,
+          "ttfa_p50_ms": 47.285930486395955,
+          "ttfa_p95_ms": 49.76375993574038,
+          "rtf_mean": 0.11056096134451433
+        },
+        "sglang_baseline_throughput_frames_s": 169.79837079777414,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.1536667953333324
+      },
+      {
+        "framework": "sglang",
+        "concurrency": 1,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c1-r0",
+          "c1-r1",
+          "c1-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 169.79837079777414,
+          "ttfa_p50_ms": 79.37973999651149,
+          "ttfa_p95_ms": 82.81960497843102,
+          "rtf_mean": 0.12775226072777437
+        },
+        "sglang_baseline_throughput_frames_s": 169.79837079777414,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.0
+      },
+      {
+        "framework": "standalone",
+        "concurrency": 2,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c2-r0",
+          "c2-r1",
+          "c2-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 479.42474323825365,
+          "ttfa_p50_ms": 47.2202540258877,
+          "ttfa_p95_ms": 58.042828307952725,
+          "rtf_mean": 0.09083051879098863
+        },
+        "sglang_baseline_throughput_frames_s": 295.3893745851223,
+        "sglang_baseline_complete_runs": 1,
+        "throughput_vs_sglang": 1.6230263661704525
+      },
+      {
+        "framework": "vllm",
+        "concurrency": 2,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c2-r0",
+          "c2-r1",
+          "c2-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 346.2925072487647,
+          "ttfa_p50_ms": 54.25254144938663,
+          "ttfa_p95_ms": 60.555541858775534,
+          "rtf_mean": 0.12509465357852598
+        },
+        "sglang_baseline_throughput_frames_s": 295.3893745851223,
+        "sglang_baseline_complete_runs": 1,
+        "throughput_vs_sglang": 1.1723255372172288
+      },
+      {
+        "framework": "sglang",
+        "concurrency": 2,
+        "observed_complete_runs": 1,
+        "formal_three_run_row": false,
+        "source_collection": "diagnostic_groups",
+        "source_labels": [
+          "c2-r0"
+        ],
+        "aggregation": "single_complete_run",
+        "metrics": {
+          "throughput_frames_s": 295.3893745851223,
+          "ttfa_p50_ms": 87.57121197413653,
+          "ttfa_p95_ms": 112.38493390846996,
+          "rtf_mean": 0.1470061566117537
+        },
+        "sglang_baseline_throughput_frames_s": 295.3893745851223,
+        "sglang_baseline_complete_runs": 1,
+        "throughput_vs_sglang": 1.0
+      },
+      {
+        "framework": "standalone",
+        "concurrency": 4,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c4-r0",
+          "c4-r1",
+          "c4-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 785.5054750182353,
+          "ttfa_p50_ms": 44.07091345638037,
+          "ttfa_p95_ms": 60.33189591253176,
+          "rtf_mean": 0.1104351031620464
+        },
+        "sglang_baseline_throughput_frames_s": 485.3234442319618,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.618519534454636
+      },
+      {
+        "framework": "vllm",
+        "concurrency": 4,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c4-r0",
+          "c4-r1",
+          "c4-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 631.6021835933087,
+          "ttfa_p50_ms": 58.9276070240885,
+          "ttfa_p95_ms": 66.82480705785565,
+          "rtf_mean": 0.13707795728237945
+        },
+        "sglang_baseline_throughput_frames_s": 485.3234442319618,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.3014046428209072
+      },
+      {
+        "framework": "sglang",
+        "concurrency": 4,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c4-r0",
+          "c4-r1",
+          "c4-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 485.3234442319618,
+          "ttfa_p50_ms": 99.70845503266901,
+          "ttfa_p95_ms": 137.72942969226276,
+          "rtf_mean": 0.17880597007753352
+        },
+        "sglang_baseline_throughput_frames_s": 485.3234442319618,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.0
+      },
+      {
+        "framework": "standalone",
+        "concurrency": 8,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c8-r0",
+          "c8-r1",
+          "c8-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 1153.2515429855619,
+          "ttfa_p50_ms": 53.868700459133834,
+          "ttfa_p95_ms": 79.30674095987342,
+          "rtf_mean": 0.14999235631757782
+        },
+        "sglang_baseline_throughput_frames_s": 715.7777016476293,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.6111867418207124
+      },
+      {
+        "framework": "vllm",
+        "concurrency": 8,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c8-r0",
+          "c8-r1",
+          "c8-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 1105.7535657296764,
+          "ttfa_p50_ms": 65.52567798644304,
+          "ttfa_p95_ms": 77.69979705335571,
+          "rtf_mean": 0.15644193453159203
+        },
+        "sglang_baseline_throughput_frames_s": 715.7777016476293,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.544828182247606
+      },
+      {
+        "framework": "sglang",
+        "concurrency": 8,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c8-r0",
+          "c8-r1",
+          "c8-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 715.7777016476293,
+          "ttfa_p50_ms": 132.30209349421784,
+          "ttfa_p95_ms": 180.38023724802767,
+          "rtf_mean": 0.24209302876010644
+        },
+        "sglang_baseline_throughput_frames_s": 715.7777016476293,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.0
+      },
+      {
+        "framework": "standalone",
+        "concurrency": 16,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c16-r0",
+          "c16-r1",
+          "c16-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 1857.4159719108345,
+          "ttfa_p50_ms": 74.93990298826247,
+          "ttfa_p95_ms": 100.39395190542562,
+          "rtf_mean": 0.1857695658357071
+        },
+        "sglang_baseline_throughput_frames_s": 1002.32320385813,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.8531108177095892
+      },
+      {
+        "framework": "vllm",
+        "concurrency": 16,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c16-r0",
+          "c16-r1",
+          "c16-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 1846.2394575685464,
+          "ttfa_p50_ms": 77.44403003016487,
+          "ttfa_p95_ms": 90.49803435918875,
+          "rtf_mean": 0.1861195745435948
+        },
+        "sglang_baseline_throughput_frames_s": 1002.32320385813,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.8419602085056241
+      },
+      {
+        "framework": "sglang",
+        "concurrency": 16,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c16-r0",
+          "c16-r1",
+          "c16-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 1002.32320385813,
+          "ttfa_p50_ms": 184.96610957663506,
+          "ttfa_p95_ms": 248.5797346220351,
+          "rtf_mean": 0.34440968049682835
+        },
+        "sglang_baseline_throughput_frames_s": 1002.32320385813,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.0
+      },
+      {
+        "framework": "standalone",
+        "concurrency": 32,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c32-r0",
+          "c32-r1",
+          "c32-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 2652.7184304053562,
+          "ttfa_p50_ms": 96.37714899145067,
+          "ttfa_p95_ms": 127.33764434815382,
+          "rtf_mean": 0.25510203147270627
+        },
+        "sglang_baseline_throughput_frames_s": 1389.4551496339197,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.9091788828910878
+      },
+      {
+        "framework": "vllm",
+        "concurrency": 32,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c32-r0",
+          "c32-r1",
+          "c32-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 2878.0974838339507,
+          "ttfa_p50_ms": 95.60220601269975,
+          "ttfa_p95_ms": 113.42115762527098,
+          "rtf_mean": 0.23481203898753217
+        },
+        "sglang_baseline_throughput_frames_s": 1389.4551496339197,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 2.0713856683983245
+      },
+      {
+        "framework": "sglang",
+        "concurrency": 32,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c32-r0",
+          "c32-r1",
+          "c32-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 1389.4551496339197,
+          "ttfa_p50_ms": 256.62232254398987,
+          "ttfa_p95_ms": 337.2390986885875,
+          "rtf_mean": 0.4915634634738691
+        },
+        "sglang_baseline_throughput_frames_s": 1389.4551496339197,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.0
+      },
+      {
+        "framework": "standalone",
+        "concurrency": 64,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c64-r0",
+          "c64-r1",
+          "c64-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 4662.019643467603,
+          "ttfa_p50_ms": 147.71220093825832,
+          "ttfa_p95_ms": 275.6082287640263,
+          "rtf_mean": 0.2917694151799722
+        },
+        "sglang_baseline_throughput_frames_s": 1886.2224127826892,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 2.471617139036038
+      },
+      {
+        "framework": "vllm",
+        "concurrency": 64,
+        "observed_complete_runs": 2,
+        "formal_three_run_row": false,
+        "source_collection": "diagnostic_groups",
+        "source_labels": [
+          "c64-r0",
+          "c64-r1"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 4640.825329717853,
+          "ttfa_p50_ms": 155.54050452192314,
+          "ttfa_p95_ms": 273.3364778920077,
+          "rtf_mean": 0.28615783289818486
+        },
+        "sglang_baseline_throughput_frames_s": 1886.2224127826892,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 2.460380757999465
+      },
+      {
+        "framework": "sglang",
+        "concurrency": 64,
+        "observed_complete_runs": 3,
+        "formal_three_run_row": true,
+        "source_collection": "rows",
+        "source_labels": [
+          "c64-r0",
+          "c64-r1",
+          "c64-r2"
+        ],
+        "aggregation": "independent_median_of_complete_run_metrics",
+        "metrics": {
+          "throughput_frames_s": 1886.2224127826892,
+          "ttfa_p50_ms": 384.35749552445486,
+          "ttfa_p95_ms": 619.2930913530282,
+          "rtf_mean": 0.7058111256194403
+        },
+        "sglang_baseline_throughput_frames_s": 1886.2224127826892,
+        "sglang_baseline_complete_runs": 3,
+        "throughput_vs_sglang": 1.0
+      }
+    ]
+  }
 }
