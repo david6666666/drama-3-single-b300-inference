@@ -1,0 +1,253 @@
+{
+  "source_sha": "69d636ef11875add6e4edf7c9bb028b9574143a3",
+  "driver_sha256": "e546181e8729d6c66ab421cfd7a2d58472a17ff2ff1093fa8e49f5d97fb3ec9f",
+  "hypothesis": "Selecting nativecuDNN algorithms once during capture may improve fullcodec cost on actualBF16shapes; unchanged arithmetic precision andweights.",
+  "isolated_variable": "cuDNN benchmark False versus True, default benchmark_limit10. Each arm capture executes serially in a newly created Python/native thread so its C++ thread-local cuDNN plan cache starts empty. Both arms use the same cached native BF16 Linear matrices.",
+  "controls": "Same module/originalparameterSHA256, BF16autocast, cacheclone/norms/scales/attention/source/input/state/GPU0; candidategraph records selectedalgorithms, no sharedcacheflush or clockchanges.",
+  "gate": "All audio samples and all28conv/KV state tensors exact across B1/B4/B8 and three successive real reference-code windows before timing; untouchedslotsincluded. >=5% median local complete codec reduction for B4/B8 to expand.",
+  "stop": "First exact mismatch, mutation or compilation failure; no timing/promotion. Local pass still requires allshapes/dynamic modelcodec ownership and full1088 WER/SIM/service.",
+  "input": "First8 real corpus reference code streams, windows0:8,8:16,16:24. Not generated serving codes.",
+  "gpu_uuid": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "cpu_probe": "AST parse passed; pinned installed PyTorch source confirms thread-local cache and cache lookup before benchmark branch. No CUDA initialized by probe.",
+  "compiler_scope": "Bothsameexistingtorch.compile defaults; onlycuDNN benchmarkselection changes. Selectedalgorithms may alter reduction order; original exactgate preserved iffails.",
+  "prior_failure": "Original same-thread codec-cudnn-select run is cache-confounded; original result and correction preserved. No global cache flush.",
+  "cache_source": "https://raw.githubusercontent.com/pytorch/pytorch/cf30153c4c131c8164ee7798e5022d810682e2cb/aten/src/ATen/native/cudnn/Conv_v8.cpp",
+  "status": "EXACT_FAIL",
+  "checks": [
+    {
+      "name": "parameter_identity_dtype_sha256_unchanged",
+      "passed": true
+    },
+    {
+      "name": "conv_state_key_order",
+      "passed": true
+    },
+    {
+      "name": "kv_state_key_order",
+      "passed": true
+    },
+    {
+      "name": "b1_p0_audio",
+      "passed": false,
+      "max_abs": 0.00390625
+    }
+  ],
+  "cases": [],
+  "capture_thread": {
+    "control": {
+      "python_id": 136794748081856,
+      "native_id": 503717
+    },
+    "candidate": {
+      "python_id": 136794748081856,
+      "native_id": 504322
+    }
+  },
+  "cached_linears": [
+    {
+      "name": "layers.0.attention.wqkv",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.0.attention.wo",
+      "elements": 1048576,
+      "bias": false
+    },
+    {
+      "name": "layers.0.feed_forward.w1",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.0.feed_forward.w3",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.0.feed_forward.w2",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.1.attention.wqkv",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.1.attention.wo",
+      "elements": 1048576,
+      "bias": false
+    },
+    {
+      "name": "layers.1.feed_forward.w1",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.1.feed_forward.w3",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.1.feed_forward.w2",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.2.attention.wqkv",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.2.attention.wo",
+      "elements": 1048576,
+      "bias": false
+    },
+    {
+      "name": "layers.2.feed_forward.w1",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.2.feed_forward.w3",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.2.feed_forward.w2",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.3.attention.wqkv",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.3.attention.wo",
+      "elements": 1048576,
+      "bias": false
+    },
+    {
+      "name": "layers.3.feed_forward.w1",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.3.feed_forward.w3",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.3.feed_forward.w2",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.4.attention.wqkv",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.4.attention.wo",
+      "elements": 1048576,
+      "bias": false
+    },
+    {
+      "name": "layers.4.feed_forward.w1",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.4.feed_forward.w3",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.4.feed_forward.w2",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.5.attention.wqkv",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.5.attention.wo",
+      "elements": 1048576,
+      "bias": false
+    },
+    {
+      "name": "layers.5.feed_forward.w1",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.5.feed_forward.w3",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.5.feed_forward.w2",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.6.attention.wqkv",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.6.attention.wo",
+      "elements": 1048576,
+      "bias": false
+    },
+    {
+      "name": "layers.6.feed_forward.w1",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.6.feed_forward.w3",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.6.feed_forward.w2",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.7.attention.wqkv",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.7.attention.wo",
+      "elements": 1048576,
+      "bias": false
+    },
+    {
+      "name": "layers.7.feed_forward.w1",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.7.feed_forward.w3",
+      "elements": 3145728,
+      "bias": false
+    },
+    {
+      "name": "layers.7.feed_forward.w2",
+      "elements": 3145728,
+      "bias": false
+    }
+  ],
+  "preparation_s": {
+    "control": 18.910727821988985,
+    "candidate": 3.2192163359140977
+  },
+  "total_preparation_s": 26.354540816973895
+}

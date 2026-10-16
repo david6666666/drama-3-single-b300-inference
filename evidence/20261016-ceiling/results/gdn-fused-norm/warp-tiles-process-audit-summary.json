@@ -1,0 +1,35 @@
+{
+  "first": {
+    "samples": 6,
+    "max_target_processes": 1,
+    "target_process_lines": [
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 477826, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 1028 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 477826, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 1108 MiB"
+    ]
+  },
+  "expanded": {
+    "samples": 25,
+    "max_target_processes": 1,
+    "target_process_lines": [
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 484927, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 100198 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 484927, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 100576 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 484927, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 136816 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 484927, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 36058 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 484927, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 39038 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 484927, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 80522 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 484927, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 80910 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 484927, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 81124 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 484927, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 81158 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 484927, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 82068 MiB"
+    ]
+  },
+  "timing": {
+    "samples": 8,
+    "max_target_processes": 1,
+    "target_process_lines": [
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 488957, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 3260 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 488957, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 6612 MiB",
+      "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 488957, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 6762 MiB"
+    ]
+  }
+}

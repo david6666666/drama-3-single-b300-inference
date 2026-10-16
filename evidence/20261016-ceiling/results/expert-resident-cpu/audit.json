@@ -1,0 +1,235 @@
+{
+  "cpu_only": true,
+  "framework_source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "oracle_provenance": "Successful 1373-check metadata-rebase experiment; archived actual FI IDs, B64=63 real + 1 reserved padding",
+  "layers": [
+    {
+      "layer": 0,
+      "active_experts": 206,
+      "token8_groups": 208,
+      "max_expert_tokens": 9,
+      "four_cta_per_token8_ctas": 832,
+      "cta_waves_if_one_cta_per_SM": 5.621621621621622,
+      "cta_waves_if_two_ctas_per_SM": 2.810810810810811,
+      "selected_eight_route_expert": 205,
+      "selected_expanded_indices": [
+        2,
+        11,
+        30,
+        186,
+        193,
+        378,
+        457,
+        499
+      ],
+      "selected_token_indices": [
+        0,
+        1,
+        3,
+        23,
+        24,
+        47,
+        57,
+        62
+      ],
+      "selected_original_k": [
+        2,
+        3,
+        6,
+        2,
+        1,
+        2,
+        1,
+        3
+      ],
+      "active_weight_bytes": 648019968,
+      "token8_group_weight_bytes_requested_if_no_cache": 654311424,
+      "extra_weight_request_fraction_vs_one_per_expert": 0.009708737864077666,
+      "logical_padded_intermediate_write_read_bytes": 5271552,
+      "logical_padded_intermediate_fraction_of_active_weights": 0.008134860436893205,
+      "cross_CTA_activation_replica_bytes_total": 2635776,
+      "warning": "Logical request counts are not measured DRAM. Cache behavior may retain repeated expert weights."
+    },
+    {
+      "layer": 19,
+      "active_experts": 159,
+      "token8_groups": 168,
+      "max_expert_tokens": 19,
+      "four_cta_per_token8_ctas": 672,
+      "cta_waves_if_one_cta_per_SM": 4.54054054054054,
+      "cta_waves_if_two_ctas_per_SM": 2.27027027027027,
+      "selected_eight_route_expert": 4,
+      "selected_expanded_indices": [
+        151,
+        156,
+        201,
+        227,
+        431,
+        467,
+        474,
+        490
+      ],
+      "selected_token_indices": [
+        18,
+        19,
+        25,
+        28,
+        53,
+        58,
+        59,
+        61
+      ],
+      "selected_original_k": [
+        7,
+        4,
+        1,
+        3,
+        7,
+        3,
+        2,
+        2
+      ],
+      "active_weight_bytes": 500170752,
+      "token8_group_weight_bytes_requested_if_no_cache": 528482304,
+      "extra_weight_request_fraction_vs_one_per_expert": 0.05660377358490565,
+      "logical_padded_intermediate_write_read_bytes": 4257792,
+      "logical_padded_intermediate_fraction_of_active_weights": 0.008512676886792452,
+      "cross_CTA_activation_replica_bytes_total": 2128896,
+      "warning": "Logical request counts are not measured DRAM. Cache behavior may retain repeated expert weights."
+    },
+    {
+      "layer": 39,
+      "active_experts": 115,
+      "token8_groups": 146,
+      "max_expert_tokens": 28,
+      "four_cta_per_token8_ctas": 584,
+      "cta_waves_if_one_cta_per_SM": 3.945945945945946,
+      "cta_waves_if_two_ctas_per_SM": 1.972972972972973,
+      "selected_eight_route_expert": 229,
+      "selected_expanded_indices": [
+        146,
+        179,
+        209,
+        230,
+        322,
+        403,
+        408,
+        416
+      ],
+      "selected_token_indices": [
+        18,
+        22,
+        26,
+        28,
+        40,
+        50,
+        51,
+        52
+      ],
+      "selected_original_k": [
+        2,
+        3,
+        1,
+        6,
+        2,
+        3,
+        0,
+        0
+      ],
+      "active_weight_bytes": 361758720,
+      "token8_group_weight_bytes_requested_if_no_cache": 459276288,
+      "extra_weight_request_fraction_vs_one_per_expert": 0.26956521739130435,
+      "logical_padded_intermediate_write_read_bytes": 3700224,
+      "logical_padded_intermediate_fraction_of_active_weights": 0.010228430706521739,
+      "cross_CTA_activation_replica_bytes_total": 1850112,
+      "warning": "Logical request counts are not measured DRAM. Cache behavior may retain repeated expert weights."
+    }
+  ],
+  "ncu_conditional_budgets": [
+    {
+      "layer": 0,
+      "native_serial_sum_us": 118.304,
+      "kernel_names": [
+        "bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100f",
+        "bmm_Bfloat16_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_rgTma_clmp_dynB_sm100f"
+      ],
+      "same_measured_bytes_at100pct_peak_us": 86.0710976,
+      "conditional_saved_at100pct_peak_us": 32.2329024,
+      "same_measured_bytes_at90pct_peak_us": 95.63455288888889,
+      "conditional_saved_at90pct_peak_us": 22.66944711111111,
+      "conditional_time_reduction_fraction_at90pct": 0.19162029272984105,
+      "warning": "Diagnostic arithmetic only. NCU can serialize PDL. Different inputs/source from successful oracles; not a bound for unprofiled service and not an achievable forecast."
+    },
+    {
+      "layer": 19,
+      "native_serial_sum_us": 98.336,
+      "kernel_names": [
+        "bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100f",
+        "bmm_Bfloat16_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_rgTma_clmp_dynB_sm100f"
+      ],
+      "same_measured_bytes_at100pct_peak_us": 67.5563808,
+      "conditional_saved_at100pct_peak_us": 30.7796192,
+      "same_measured_bytes_at90pct_peak_us": 75.06264533333334,
+      "conditional_saved_at90pct_peak_us": 23.273354666666663,
+      "conditional_time_reduction_fraction_at90pct": 0.23667176483349606,
+      "warning": "Diagnostic arithmetic only. NCU can serialize PDL. Different inputs/source from successful oracles; not a bound for unprofiled service and not an achievable forecast."
+    },
+    {
+      "layer": 39,
+      "native_serial_sum_us": 76.8,
+      "kernel_names": [
+        "bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100f",
+        "bmm_Bfloat16_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_rgTma_clmp_dynB_sm100f"
+      ],
+      "same_measured_bytes_at100pct_peak_us": 48.198623999999995,
+      "conditional_saved_at100pct_peak_us": 28.601376000000002,
+      "same_measured_bytes_at90pct_peak_us": 53.55402666666666,
+      "conditional_saved_at90pct_peak_us": 23.24597333333334,
+      "conditional_time_reduction_fraction_at90pct": 0.3026819444444445,
+      "warning": "Diagnostic arithmetic only. NCU can serialize PDL. Different inputs/source from successful oracles; not a bound for unprofiled service and not an achievable forecast."
+    }
+  ],
+  "source_hashes": {
+    "/home/zjy/code/hsliu/artifacts/drama3-mixed-20261016/ncu/real-moe-metrics-base.csv": "74efcf4d705a51b12aa7b253b56602901c796e80099d9783cc709710879bd0c0",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-real.pt": "68699d4a96078075bd881a3d966b1943aabb3cd25194942af47a1ba161d0f588",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-real.pt": "a0c7a5e703f16909f540d639e7a3278424fcf849e759923e92512c207bc65a45",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-real.pt": "000b490cbced0e7d48e78118710a4bb551a295d339db5e6fcdc4d0fb9e6d2b80",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/tmem_c_resources.py": "43798cf14b6ae83f0e55fef76f117c2c084aacdb16caeff16e20ef2ba9f22a61",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/smem_deepseek_sf_resources.py": "e4ddc21e760ea969c2b22b15b5248ab8ab680b382c0dc35e8c23bcd13e8e0b8e",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/gmem_c_resources.py": "e2b4f48cc1dd44ac0a3e99aa1e47f4ea03f0aa00da3068d0141530f1f484f30a",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/data/csrc/fused_moe/trtllm_backend/trtllm_fused_moe_dev_kernel.cu": "4fec8e6380aaab32cb073b70f943cbc9e3c16cc0171c7c3aabcdcae478ab9e69",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-cpu/audit.py": "f2b4688984d261e159c6ecb30b632f8a08bf966077833bbedbd0b5557a8c3096"
+  },
+  "resource_design": {
+    "not_compiled_not_measured": true,
+    "ctas_per_cluster": 4,
+    "threads_per_cta_proposed": 256,
+    "token_tile": 8,
+    "mma_preserved": "m64n8k32, four K32 instructions per original K128 block",
+    "fc1_owned_channels_per_cta": "up128 + gate128; four M64 subtiles",
+    "fc2_owned_channels_per_cta": 512,
+    "fc2_streamed_output_channels": 128,
+    "weight_bytes_per_expert_token8": 3145728,
+    "weight_bytes_per_cta": 786432,
+    "fc1_weight_TMA_tiles_16KiB_per_cta": 32,
+    "fc2_weight_TMA_tiles_16KiB_per_cta": 16,
+    "weight_TMA_tiles_per_cluster": 192,
+    "native_weight_TMA_tiles_per_expert_token8": 192,
+    "fc1_weight_stages_bytes": 65536,
+    "fc1_input_stages_bytes": 2048,
+    "fc1_byte_and_scale_scratch_bytes": 2112,
+    "complete_activation_local_replica_bytes": 4224,
+    "minimal_logical_shared_bytes_before_scale_staging_and_barriers": 73920,
+    "additional_scale_staging_estimate_bytes": 288,
+    "shared_budget_for_first_compile_bytes": 81920,
+    "two_CTA_per_SM_shared_limit_before_system_overhead_bytes": 116736,
+    "two_CTA_per_SM_register_limit_for256threads": 128,
+    "FC1_logical_FP32_persistent_accumulator_bytes": 8192,
+    "FC1_accumulator_FP32_registers_per128consumer_threads": 16,
+    "FC2_FP32_persistent_accumulator_bytes_streamed_tile": 4096,
+    "minimum_nonexclusive_TMEM_allocation_bytes": 16384,
+    "remote_DSM_bytes_per_cluster_with_replication": 12672,
+    "correctness_dependencies": "cluster publication, DSM completion before source reuse, local shared-to-MMA fence; original FC2 K128 order 0..3"
+  },
+  "cuda_initialized": false
+}

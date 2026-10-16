@@ -1,0 +1,57 @@
+{
+  "hypothesis": "Installed Prims-TS FC1 with resource-bounded staging reproduces frozen native FC1 E4M3 bytes and FP32 scales, establishing a usable arithmetic building block for future expert-resident fusion",
+  "isolated_variable": "FC1 body implementation only: frozen native byte/scale oracle versus Prims-TS m64n8k32 with4 staging buffers",
+  "fixed": {
+    "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+    "layer": 0,
+    "expert": 205,
+    "real_routes": 8,
+    "original_global_topk": 8,
+    "all_reference_experts": 256,
+    "input": "Extract existing native q/scale rows; no re-quantization or rerouting",
+    "native_tactic": [
+      8,
+      5
+    ],
+    "FC1_weights": "original E4M3, original FP32 scales, up512 then gate512",
+    "K_order": "16 K128 blocks, each4 nativeK32 MMA; FP32 block scaling; native FP8 output boundary",
+    "candidate_tile": [
+      128,
+      8,
+      128
+    ],
+    "candidate_mma": [
+      64,
+      8,
+      32
+    ],
+    "cluster_size": 1,
+    "pdl": false,
+    "why_pdl_off": "Standalone arithmetic correctness, no preceding/following kernel dependency; no timing comparison",
+    "cutlass": "4.7.1 process-only overlay; original standalone4.6.2 and nativeFI installation unchanged",
+    "shared_limit_bytes": 81920,
+    "actual_total_shared_bytes": 73592
+  },
+  "gates": [
+    "CPU/AOT compile, CUDA uninitialized; resource\u226480KiB",
+    "GPU CUBIN hash exactly matches frozenCPU CUBIN",
+    "All8192FC1 bytes and64FP32 scales bitwise match archivednative oracle",
+    "Input/weight/unparticipating storage and CUDA RNG unchanged",
+    "Only after exactpass same-inputCUDAgraph replay also exact"
+  ],
+  "stop": "First numerical mismatch preservesFAIL and differences; no timing, cluster build, new tolerance or runtime promotion",
+  "benefit_limit": "FC1-only arithmetic probe never claimsservicegain. Future4-CTA resident design keeps192weightTMA tiles/expertgroup butreducesproducerparallelism; bandwidth mayworsen.",
+  "commands": {
+    "argv": [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/run.py"
+    ],
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+      "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-metadata-rebase-95fcb0e/src",
+      "OMP_NUM_THREADS": "4",
+      "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/hf_modules"
+    }
+  },
+  "owner": "/root/vllm_scaling"
+}

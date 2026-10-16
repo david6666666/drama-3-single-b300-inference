@@ -1,0 +1,505 @@
+{
+  "scope": "CPU only. Actual request PCM arrival traces and lifetime selector counters; no current internal GPU stage timeline exists for these4arms.",
+  "driver_sha256": "5b6ddcbb925cf6e19e4f891b7aa6b8a07adb74535c8ff7578db01b9c41b6aab5",
+  "target_frames_s": 6765.407263214912,
+  "runs": {
+    "pipeline-admission-control-gpu6": {
+      "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+      "input_sha256": "b2104b2a5cd739212fd8af6f186f1c455c43fab87826c1c28be2089455855d95",
+      "summary": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 23.281069074990228,
+        "valid": true,
+        "throughput_frames_s": 4481.280462849354,
+        "ttfa_p50_ms": 136.51514146476984,
+        "ttfa_p95_ms": 267.08516566431274,
+        "rtf_mean": 0.29268396708115957
+      },
+      "frames": 104329.0,
+      "warmup_frames": 5790.0,
+      "phase": {
+        "fill": {
+          "duration_s": 0.0057904720306396484,
+          "delivered_frames": 0,
+          "delivery_frames_s": 0.0,
+          "client_inflight_time_weighted": 29.99845182254138,
+          "client_full64_deficit_equivalent_s": 0.0030763283393753227,
+          "algebraic_gap_to_target_s": 0.0057904720306396484
+        },
+        "intake": {
+          "duration_s": 21.280349056934938,
+          "delivered_frames": 99732.0,
+          "delivery_frames_s": 4686.577261170389,
+          "client_inflight_time_weighted": 63.981645840196286,
+          "client_full64_deficit_equivalent_s": 0.00610285823859158,
+          "algebraic_gap_to_target_s": 6.5388861826648235
+        },
+        "drain": {
+          "duration_s": 1.9929986610077322,
+          "delivered_frames": 4597.0,
+          "delivery_frames_s": 2306.574555185898,
+          "client_inflight_time_weighted": 16.82131968907539,
+          "client_full64_deficit_equivalent_s": 1.4691726044966344,
+          "algebraic_gap_to_target_s": 1.3135125900072537
+        }
+      },
+      "counts": {
+        "frame_pipeline_counts": {
+          "eligible": 139,
+          "capacity": 370,
+          "pending": 0,
+          "waiting_runnable": 0,
+          "waiting_deferred": 1245,
+          "audio_boundary": 148
+        },
+        "frame_pipeline_waiting_counts": {
+          "waiting_only": 1245,
+          "pending_only": 0,
+          "both": 0,
+          "neither": 287,
+          "runnable_active_threshold": 0,
+          "runnable_batch_threshold": 0,
+          "runnable_deadline": 0,
+          "eligible_with_deferred_waiting": 0,
+          "eligible_without_waiting": 139,
+          "deferred_waiting_size": {},
+          "deferred_waiting_age_ms_sum": 0.0,
+          "deferred_waiting_age_ms_max": 0.0
+        }
+      },
+      "all_client_inflight_time_weighted": 59.935652176783485,
+      "mean_first_audio_client_population": 7.063612203690504,
+      "completion_after_last_audio_s": {
+        "n": 1088,
+        "mean": 0.00030271479772636667,
+        "p50": 3.289501182734966e-05,
+        "p95": 0.00029872884042560964,
+        "maximum": 0.035252823028713465
+      },
+      "client_refill_gap_s": {
+        "n": 1024,
+        "mean": 0.00038142863991197373,
+        "p50": 0.00031558453338220716,
+        "p95": 0.0007767885923385619,
+        "maximum": 0.004047855036333203
+      },
+      "refill_pairing_nonnegative": true,
+      "required_gain": 0.5097040498360663,
+      "required_time_reduction_s": 7.860120129719636,
+      "required_time_reduction_fraction": 0.33761852191587705,
+      "full64_equivalent_delivery_step_ms": 14.281632343829374,
+      "target_full64_equivalent_step_ms": 9.459888741359716,
+      "full64_equivalent_step_gap_ms": 4.821743602469658,
+      "last_finishes": [
+        {
+          "request_id": "c64-r0-01023",
+          "frames": 500.0,
+          "completion_after_last_dispatch_s": 1.9929986610077322
+        },
+        {
+          "request_id": "c64-r0-00973",
+          "frames": 500.0,
+          "completion_after_last_dispatch_s": 1.7842380090150982
+        },
+        {
+          "request_id": "c64-r0-01078",
+          "frames": 178.0,
+          "completion_after_last_dispatch_s": 1.1618960140040144
+        },
+        {
+          "request_id": "c64-r0-01081",
+          "frames": 144.0,
+          "completion_after_last_dispatch_s": 1.0594791320618242
+        },
+        {
+          "request_id": "c64-r0-01079",
+          "frames": 137.0,
+          "completion_after_last_dispatch_s": 0.9854354819981381
+        }
+      ],
+      "limits": "Client in-flight includes waiting/prefill/decoding/codec/delivery and cannot identify live GPUdecodebatch. Counters include64warmup plus1088measured and exclude mixed/prefill. Algebraic step equivalent and target gap are delivery accounting, not measured model step latency. Raw PCM finish reason unavailable; no inferred count of executed EOS/padded rows."
+    },
+    "pipeline-admission-candidate-gpu6": {
+      "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+      "input_sha256": "383ea2bb1da996099a19bf9e9603b18dd58a4c23ce155e5ca700228b518ef49d",
+      "summary": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 22.20926234300714,
+        "valid": true,
+        "throughput_frames_s": 4583.673173280921,
+        "ttfa_p50_ms": 146.27732400549576,
+        "ttfa_p95_ms": 274.84844140708003,
+        "rtf_mean": 0.2895720557859185
+      },
+      "frames": 101800.0,
+      "warmup_frames": 5790.0,
+      "phase": {
+        "fill": {
+          "duration_s": 0.006846072967164218,
+          "delivered_frames": 0,
+          "delivery_frames_s": 0.0,
+          "client_inflight_time_weighted": 29.604654022741624,
+          "client_full64_deficit_equivalent_s": 0.0036792663795495173,
+          "algebraic_gap_to_target_s": 0.006846072967164218
+        },
+        "intake": {
+          "duration_s": 20.603927758987993,
+          "delivered_frames": 97679.0,
+          "delivery_frames_s": 4740.795111620879,
+          "client_inflight_time_weighted": 63.980554022435115,
+          "client_full64_deficit_equivalent_s": 0.0062603674523415975,
+          "algebraic_gap_to_target_s": 6.165920378249309
+        },
+        "drain": {
+          "duration_s": 1.5965407269541174,
+          "delivered_frames": 4121.0,
+          "delivery_frames_s": 2581.205684531487,
+          "client_inflight_time_weighted": 19.729641960147063,
+          "client_full64_deficit_equivalent_s": 1.1043660876166541,
+          "algebraic_gap_to_target_s": 0.9874125784675019
+        }
+      },
+      "counts": {
+        "frame_pipeline_counts": {
+          "eligible": 625,
+          "capacity": 218,
+          "pending": 0,
+          "waiting_runnable": 0,
+          "waiting_deferred": 0,
+          "audio_boundary": 403
+        },
+        "frame_pipeline_waiting_counts": {
+          "waiting_only": 788,
+          "pending_only": 0,
+          "both": 0,
+          "neither": 240,
+          "runnable_active_threshold": 0,
+          "runnable_batch_threshold": 0,
+          "runnable_deadline": 0,
+          "eligible_with_deferred_waiting": 483,
+          "eligible_without_waiting": 142,
+          "deferred_waiting_size": {
+            "1": 107,
+            "2": 115,
+            "3": 96,
+            "5": 77,
+            "4": 88
+          },
+          "deferred_waiting_age_ms_sum": 26253.860951401293,
+          "deferred_waiting_age_ms_max": 99.74744194187224
+        }
+      },
+      "all_client_inflight_time_weighted": 60.78864520140297,
+      "mean_first_audio_client_population": 7.774268422652545,
+      "completion_after_last_audio_s": {
+        "n": 1088,
+        "mean": 0.0004996219949509181,
+        "p50": 3.058451693505049e-05,
+        "p95": 0.0006287083204369942,
+        "maximum": 0.034099743934348226
+      },
+      "client_refill_gap_s": {
+        "n": 1024,
+        "mean": 0.00039127296577134985,
+        "p50": 0.0003211640869267285,
+        "p95": 0.0008175307011697439,
+        "maximum": 0.004166270955465734
+      },
+      "refill_pairing_nonnegative": true,
+      "required_gain": 0.4759794181338499,
+      "required_time_reduction_s": 7.162126813781841,
+      "required_time_reduction_fraction": 0.32248377740636325,
+      "full64_equivalent_delivery_step_ms": 13.962601080083074,
+      "target_full64_equivalent_step_ms": 9.459888741359716,
+      "full64_equivalent_step_gap_ms": 4.502712338723358,
+      "last_finishes": [
+        {
+          "request_id": "c64-r0-00973",
+          "frames": 493.0,
+          "completion_after_last_dispatch_s": 1.5965407269541174
+        },
+        {
+          "request_id": "c64-r0-00843",
+          "frames": 500.0,
+          "completion_after_last_dispatch_s": 1.0690366140333936
+        },
+        {
+          "request_id": "c64-r0-01078",
+          "frames": 151.0,
+          "completion_after_last_dispatch_s": 1.0356699760304764
+        },
+        {
+          "request_id": "c64-r0-01062",
+          "frames": 160.0,
+          "completion_after_last_dispatch_s": 0.9702018359676003
+        },
+        {
+          "request_id": "c64-r0-01081",
+          "frames": 128.0,
+          "completion_after_last_dispatch_s": 0.9370301839662716
+        }
+      ],
+      "limits": "Client in-flight includes waiting/prefill/decoding/codec/delivery and cannot identify live GPUdecodebatch. Counters include64warmup plus1088measured and exclude mixed/prefill. Algebraic step equivalent and target gap are delivery accounting, not measured model step latency. Raw PCM finish reason unavailable; no inferred count of executed EOS/padded rows."
+    },
+    "codec-cache-control-gpu6": {
+      "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+      "input_sha256": "30efc8b2288c50974ae152a1ea85ee25ff0254f0d3117df2b75ab037bc44afd0",
+      "summary": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 21.47956593707204,
+        "valid": true,
+        "throughput_frames_s": 4726.77149517109,
+        "ttfa_p50_ms": 145.6451045232825,
+        "ttfa_p95_ms": 273.6818287463342,
+        "rtf_mean": 0.28813005589917623
+      },
+      "frames": 101529.0,
+      "warmup_frames": 5790.0,
+      "phase": {
+        "fill": {
+          "duration_s": 0.005911004031077027,
+          "delivered_frames": 0,
+          "delivery_frames_s": 0.0,
+          "client_inflight_time_weighted": 29.494745459874476,
+          "client_full64_deficit_equivalent_s": 0.003186885916875326,
+          "algebraic_gap_to_target_s": 0.005911004031077027
+        },
+        "intake": {
+          "duration_s": 20.49147227895446,
+          "delivered_frames": 97664.0,
+          "delivery_frames_s": 4766.080185478168,
+          "client_inflight_time_weighted": 63.98120234041907,
+          "client_full64_deficit_equivalent_s": 0.0060186206283106,
+          "algebraic_gap_to_target_s": 6.055682059639533
+        },
+        "drain": {
+          "duration_s": 0.9813851470826194,
+          "delivered_frames": 3865.0,
+          "delivery_frames_s": 3938.311081525487,
+          "client_inflight_time_weighted": 30.429498811181755,
+          "client_full64_deficit_equivalent_s": 0.5147748632316507,
+          "algebraic_gap_to_target_s": 0.4100965535614427
+        }
+      },
+      "counts": {
+        "frame_pipeline_counts": {
+          "eligible": 603,
+          "capacity": 142,
+          "pending": 0,
+          "waiting_runnable": 0,
+          "waiting_deferred": 0,
+          "audio_boundary": 456
+        },
+        "frame_pipeline_waiting_counts": {
+          "waiting_only": 812,
+          "pending_only": 0,
+          "both": 0,
+          "neither": 247,
+          "runnable_active_threshold": 0,
+          "runnable_batch_threshold": 0,
+          "runnable_deadline": 0,
+          "eligible_with_deferred_waiting": 467,
+          "eligible_without_waiting": 136,
+          "deferred_waiting_size": {
+            "1": 77,
+            "2": 122,
+            "3": 102,
+            "5": 59,
+            "4": 107
+          },
+          "deferred_waiting_age_ms_sum": 25510.981731233187,
+          "deferred_waiting_age_ms_max": 99.9676879728213
+        }
+      },
+      "all_client_inflight_time_weighted": 62.438702676324205,
+      "mean_first_audio_client_population": 7.96245377365648,
+      "completion_after_last_audio_s": {
+        "n": 1088,
+        "mean": 0.0003706174345151179,
+        "p50": 3.3079530112445354e-05,
+        "p95": 0.000236997450701891,
+        "maximum": 0.0298662279965356
+      },
+      "client_refill_gap_s": {
+        "n": 1024,
+        "mean": 0.0003761637892694125,
+        "p50": 0.00032069499138742685,
+        "p95": 0.0007290825364179909,
+        "maximum": 0.003778312006033957
+      },
+      "refill_pairing_nonnegative": true,
+      "required_gain": 0.43129560422510593,
+      "required_time_reduction_s": 6.4724871242359345,
+      "required_time_reduction_fraction": 0.3013323054664214,
+      "full64_equivalent_delivery_step_ms": 13.539897171966732,
+      "target_full64_equivalent_step_ms": 9.459888741359716,
+      "full64_equivalent_step_gap_ms": 4.080008430607016,
+      "last_finishes": [
+        {
+          "request_id": "c64-r0-01078",
+          "frames": 153.0,
+          "completion_after_last_dispatch_s": 0.9813851470826194
+        },
+        {
+          "request_id": "c64-r0-01074",
+          "frames": 143.0,
+          "completion_after_last_dispatch_s": 0.9331773170270026
+        },
+        {
+          "request_id": "c64-r0-00832",
+          "frames": 500.0,
+          "completion_after_last_dispatch_s": 0.917235121014528
+        },
+        {
+          "request_id": "c64-r0-01081",
+          "frames": 131.0,
+          "completion_after_last_dispatch_s": 0.909010617993772
+        },
+        {
+          "request_id": "c64-r0-01067",
+          "frames": 140.0,
+          "completion_after_last_dispatch_s": 0.9083982590818778
+        }
+      ],
+      "limits": "Client in-flight includes waiting/prefill/decoding/codec/delivery and cannot identify live GPUdecodebatch. Counters include64warmup plus1088measured and exclude mixed/prefill. Algebraic step equivalent and target gap are delivery accounting, not measured model step latency. Raw PCM finish reason unavailable; no inferred count of executed EOS/padded rows."
+    },
+    "codec-cache-candidate-gpu6": {
+      "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+      "input_sha256": "7a9fba0e264a72a84d5d7d7f29ecb10c326fa54119842379a147042253cb3d7f",
+      "summary": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 22.7071168650873,
+        "valid": true,
+        "throughput_frames_s": 4585.126355696841,
+        "ttfa_p50_ms": 142.86383602302521,
+        "ttfa_p95_ms": 276.59537523867937,
+        "rtf_mean": 0.2882576588899596
+      },
+      "frames": 104115.0,
+      "warmup_frames": 5790.0,
+      "phase": {
+        "fill": {
+          "duration_s": 0.0058854949893429875,
+          "delivered_frames": 0,
+          "delivery_frames_s": 0.0,
+          "client_inflight_time_weighted": 30.05865216795065,
+          "client_full64_deficit_equivalent_s": 0.00312127550932928,
+          "algebraic_gap_to_target_s": 0.0058854949893429875
+        },
+        "intake": {
+          "duration_s": 20.872758127981797,
+          "delivered_frames": 99355.0,
+          "delivery_frames_s": 4760.032162055562,
+          "client_inflight_time_weighted": 63.98112995092399,
+          "client_full64_deficit_equivalent_s": 0.006154218284791568,
+          "algebraic_gap_to_target_s": 6.187019910828756
+        },
+        "drain": {
+          "duration_s": 1.8265232359990478,
+          "delivered_frames": 4760.0,
+          "delivery_frames_s": 2606.0440437794036,
+          "client_inflight_time_weighted": 19.05346535052781,
+          "client_full64_deficit_equivalent_s": 1.2827482799202699,
+          "algebraic_gap_to_target_s": 1.1229440108604187
+        }
+      },
+      "counts": {
+        "frame_pipeline_counts": {
+          "eligible": 599,
+          "capacity": 301,
+          "pending": 0,
+          "waiting_runnable": 0,
+          "waiting_deferred": 0,
+          "audio_boundary": 487
+        },
+        "frame_pipeline_waiting_counts": {
+          "waiting_only": 813,
+          "pending_only": 0,
+          "both": 0,
+          "neither": 273,
+          "runnable_active_threshold": 0,
+          "runnable_batch_threshold": 0,
+          "runnable_deadline": 0,
+          "eligible_with_deferred_waiting": 467,
+          "eligible_without_waiting": 132,
+          "deferred_waiting_size": {
+            "1": 97,
+            "2": 120,
+            "3": 116,
+            "5": 58,
+            "4": 76
+          },
+          "deferred_waiting_age_ms_sum": 24825.05477766972,
+          "deferred_waiting_age_ms_max": 99.88797106780112
+        }
+      },
+      "all_client_inflight_time_weighted": 60.3581187475373,
+      "mean_first_audio_client_population": 7.534107488268803,
+      "completion_after_last_audio_s": {
+        "n": 1088,
+        "mean": 0.00036175451746470676,
+        "p50": 3.132456913590431e-05,
+        "p95": 0.00044335487182251937,
+        "maximum": 0.031301698996685445
+      },
+      "client_refill_gap_s": {
+        "n": 1024,
+        "mean": 0.000384638642799473,
+        "p50": 0.00031872442923486233,
+        "p95": 0.0007878582284320145,
+        "maximum": 0.0038546909345313907
+      },
+      "refill_pairing_nonnegative": true,
+      "required_gain": 0.4755116300795412,
+      "required_time_reduction_s": 7.3177994227956304,
+      "required_time_reduction_fraction": 0.3222689814067461,
+      "full64_equivalent_delivery_step_ms": 13.958175857134776,
+      "target_full64_equivalent_step_ms": 9.459888741359716,
+      "full64_equivalent_step_gap_ms": 4.49828711577506,
+      "last_finishes": [
+        {
+          "request_id": "c64-r0-00988",
+          "frames": 500.0,
+          "completion_after_last_dispatch_s": 1.8265232359990478
+        },
+        {
+          "request_id": "c64-r0-00994",
+          "frames": 395.0,
+          "completion_after_last_dispatch_s": 1.551900729071349
+        },
+        {
+          "request_id": "c64-r0-00884",
+          "frames": 482.0,
+          "completion_after_last_dispatch_s": 1.2596418390749022
+        },
+        {
+          "request_id": "c64-r0-00864",
+          "frames": 500.0,
+          "completion_after_last_dispatch_s": 1.175635794061236
+        },
+        {
+          "request_id": "c64-r0-01078",
+          "frames": 171.0,
+          "completion_after_last_dispatch_s": 1.1274420589907095
+        }
+      ],
+      "limits": "Client in-flight includes waiting/prefill/decoding/codec/delivery and cannot identify live GPUdecodebatch. Counters include64warmup plus1088measured and exclude mixed/prefill. Algebraic step equivalent and target gap are delivery accounting, not measured model step latency. Raw PCM finish reason unavailable; no inferred count of executed EOS/padded rows."
+    }
+  }
+}

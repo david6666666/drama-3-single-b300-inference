@@ -1,0 +1,5 @@
+# Correction: warm native plan-cache confounds selection comparison
+
+The original result is preserved as executed. It does not establish that fresh cuDNN benchmark selection has no benefit. Both graph families were constructed on the same host thread, control first. In the installed PyTorch commit, the cache key omits benchmark and run_single_conv returns a cached plan before the benchmark branch. Therefore candidate capture can reuse control plans. Input-alignment differences can cause some misses; identical kernels do not demonstrate a complete fresh search.
+
+Pinned primary source: https://raw.githubusercontent.com/pytorch/pytorch/cf30153c4c131c8164ee7798e5022d810682e2cb/aten/src/ATen/native/cudnn/Conv_v8.cpp (CacheKeyWrapper; _get_benchmark_cache; run_single_conv). The cache is thread-local. A separately declared comparison constructs each arm in a newly created thread, serially, without clearing shared caches; correctness is still required before timing. Native thread IDs may be reused after thread exit, but newly constructed thread-local C++ storage does not inherit the old thread cache.

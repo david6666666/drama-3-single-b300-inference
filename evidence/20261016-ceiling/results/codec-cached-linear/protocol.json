@@ -1,0 +1,14 @@
+{
+  "source_sha": "69d636ef11875add6e4edf7c9bb028b9574143a3",
+  "driver_sha256": "425ef565372bbe7441c67b5ed9afca51f5b700bb008e664fd0b7750b3765118c",
+  "hypothesis": "Cache unchanged nativeBF16 Linear weight casts only in a decoder-owned clone of the post-module transformer; remove40 per-replay casts while preserving originalFP32 codec reference path.",
+  "isolated_variable": "Candidate decoder.transformer is a private clone with only40nn.Linear matrices precast to existingBF16autocast dtype. All norms/gamma/buffers and othermodelmodules preserve nativeprecision.",
+  "controls": "Same immutable codec module and original parameter dtype/storage/SHA256, native BF16autocast, unchangednorm/scales/conv/attention, separate full state and private capture streams, GPU0, no cacheflush/clockchange.",
+  "gate": "All audio samples and all28conv/KV state tensors exact across B1/B4/B8 and three successive real reference-code windows before timing; untouchedslotsincluded. >=5% median local complete codec reduction for B4/B8 to expand.",
+  "stop": "First exact mismatch, mutation or compilation failure; no timing/promotion. Local pass still requires allshapes/dynamic modelcodec ownership and full1088 WER/SIM/service.",
+  "input": "First8 real corpus reference code streams, windows0:8,8:16,16:24. Not generated serving codes.",
+  "gpu_uuid": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "cpu_probe": "AST parse passed; no CUDAinitialized inpreparation.",
+  "compiler_scope": "Both arms use existing compile_transformer defaults, no freezing/concat change.",
+  "prior_failure": "Sibling codec-constant-fold records ineffective freezing40casts retained and original metadata version-counter failure; no result overwritten."
+}

@@ -1,0 +1,27 @@
+{
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "cpu_validation": {
+    "command": "PYTHONPATH=src /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/pytest -q tests/test_frame_pipeline.py tests/test_frame_pipeline_admission.py tests/test_benchmark.py",
+    "result": "73 passed in 1.24s",
+    "scope": "Executed against working branch immediately before root freeze; source file bytes match frozen commit.",
+    "files": {
+      "src/drama3/engine.py": "f582912ae1102a1584e1fc634628975458408f112224d1a1b4d30d8283a487e1",
+      "tests/test_frame_pipeline_admission.py": "9fa5af5901ec574b4cf19fde4c4cc5fec6542e8c25c56fd5d14832ea80b5d980"
+    }
+  },
+  "actual_runtime_environment_difference": {
+    "DRAMA3_FRAME_PIPELINE_DEFERRED_WAITING": [
+      "0",
+      "1"
+    ]
+  },
+  "source_status": [
+    "",
+    ""
+  ],
+  "startup_seconds": [
+    64.03344879194628,
+    52.030748251010664
+  ],
+  "native_graph_gate": "frame-pipeline-production-v2-validation.json:3689 exact; graph/model files unchanged from a7118fb"
+}

@@ -1,0 +1,37 @@
+{
+  "source_sha": "463d837cd51fb62196378835a33731cb659a66c8",
+  "artifacts_sha256": {
+    "fused_norm_warp_tiles.py": "45024261e7a1d6779ce58c3e85b5cd308509a129c7e6a97d4ee5f43e72522f22",
+    "validate_warp_tiles_expanded.py": "cad6dc0ec40efd6e48593da9700570aa9004cd7552f4856085e1ba67ede7f01f",
+    "run_warp_tiles_expanded.py": "12bab3bb786e36c2121c29ea68e4473edcf834e925aea5555638f2967df107ac",
+    "warp-tiles-compiler-audit.md": "e63897a5d2a2dfa28606576a2614eef30cc14fd9c9f5362991b74e5cf2300f05",
+    "C3-warp-tiles.ptx": "896b61bbeadfb40de4811dd00b66dad84ebc432cb570f87e40c39e8818b07bce",
+    "validate_first_layer.py": "1aeb4d7eb01d6eae151c1978904fc8560b9ce3f2981e3b521587e165f77dadb8"
+  },
+  "hypothesis": "Four independent nativeV32 warp subtiles preserve original Q/K and K-dot reduction/FMA trees; a separate exact native norm layout fuses postprocessing without numerical change.",
+  "scope": "All30 real native GDN layers for B64live64/58 and B48live40, originalV16 fallback B32/B8/B1; both dump and no-dump kernel variants; then8step fullgraph codes and all state tensors exact. No timing or runtime edits.",
+  "gate": "Fresh nativeA matches saved state/raw/norm; C3 fullstate/raw/norm match A bitwise; allfinite and unrelated slots exact. First difference stops expansion and preserves artifacts. Later all30layers/partialcases/fullgraph exact before anytiming. Combined recurrence+zcopy+norm local improvement must>=5% beforepromotion.",
+  "gpu_uuid": "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442",
+  "before_processes": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf, 482793, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 105788 MiB\n",
+  "flags": {
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_PREFILL_GDN": "fla",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_PREFILL_MOE": "flashinfer",
+    "DRAMA3_FUSED_MOE_INPUT": "1",
+    "DRAMA3_COMPACT_GDN": "1",
+    "DRAMA3_FUSED_MIXED_LAYOUT": "1",
+    "DRAMA3_PACKED_CONV_GUARD": "1",
+    "DRAMA3_SHORT_PADDING_CONTEXT": "1",
+    "DRAMA3_FUSED_MOE_RESIDUAL": "1",
+    "DRAMA3_RESERVED_PADDING_ROUTER": "0",
+    "DRAMA3_CODEC_SMS": "0",
+    "DRAMA3_FRAME_PIPELINE": "0"
+  },
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/gdn-fused-norm/validate_warp_tiles_expanded.py"
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "concurrency": 64,
+  "requests_per_arm": 1088,
+  "repeats_per_arm": 1,
+  "profile_enabled": false,
+  "limits": {
+    "wer_corpus_max": 0.02950933601272712,
+    "sim_min": 61.88158934120563
+  },
+  "arms": {
+    "control": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 21.47956593707204,
+        "valid": true,
+        "throughput_frames_s": 4726.77149517109,
+        "ttfa_p50_ms": 145.6451045232825,
+        "ttfa_p95_ms": 273.6818287463342,
+        "rtf_mean": 0.28813005589917623
+      },
+      "output": {
+        "acoustic_frames": 101529.0,
+        "audio_samples": 207931392,
+        "audio_duration_s": 4714.9975510204085,
+        "at_or_above_500_frames": 4,
+        "rms_below_1e_3": 2,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.01599263166708532,
+          "wer_per_sample_mean": 0.015304250783401327,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.06541802713794717,
+          "wer_per_sample_p95": 0.09090909090909091,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.012117132278694043,
+          "wer_below_50_per_sample_mean": 0.011786990366229322,
+          "n_above_50_pct_wer": 5,
+          "pct_above_50_pct_wer": 0.4595588235294118,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 64.41275850157527,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true
+      },
+      "quality_gate_pass": true,
+      "server_pid": 482793,
+      "startup_to_readiness_s": 50.03182313404977,
+      "warmup_requests": 64,
+      "warmup_success": true,
+      "clean_shutdown": true,
+      "waiting_context": {
+        "waiting_only": 812,
+        "pending_only": 0,
+        "both": 0,
+        "neither": 247,
+        "runnable_active_threshold": 0,
+        "runnable_batch_threshold": 0,
+        "runnable_deadline": 0,
+        "eligible_with_deferred_waiting": 467,
+        "eligible_without_waiting": 136,
+        "deferred_waiting_size": {
+          "1": 77,
+          "2": 122,
+          "3": 102,
+          "5": 59,
+          "4": 107
+        },
+        "deferred_waiting_age_ms_sum": 25510.981731233187,
+        "deferred_waiting_age_ms_max": 99.9676879728213
+      },
+      "pipeline_decisions": {
+        "eligible": 603,
+        "capacity": 142,
+        "pending": 0,
+        "waiting_runnable": 0,
+        "waiting_deferred": 0,
+        "audio_boundary": 456
+      },
+      "pipeline_fraction_of_ordinary_decode_launches": 0.5020815986677769,
+      "pipeline_counter_scope": "Entire server lifetime:64 warmup +1088 measured requests; excludes mixed/prefill branches. Not benchmark-only pair coverage.",
+      "observed_process_memory_mib": {
+        "startup_samples": 40,
+        "service_samples": 23,
+        "startup_peak": 105760,
+        "service_peak": 105788,
+        "service_median": 105788,
+        "limitation": "One-second nvidia-smi process sampling. Readiness boundary approximated from prelaunch wall clock plus recorded process-to-health time; cannot resolve subsecond clone transients or allocator peak."
+      }
+    },
+    "candidate": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 22.7071168650873,
+        "valid": true,
+        "throughput_frames_s": 4585.126355696841,
+        "ttfa_p50_ms": 142.86383602302521,
+        "ttfa_p95_ms": 276.59537523867937,
+        "rtf_mean": 0.2882576588899596
+      },
+      "output": {
+        "acoustic_frames": 104115.0,
+        "audio_samples": 213227520,
+        "audio_duration_s": 4835.091156462585,
+        "at_or_above_500_frames": 7,
+        "rms_below_1e_3": 2,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.020179184459516036,
+          "wer_per_sample_mean": 0.019557770660711835,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.08999179262849745,
+          "wer_per_sample_p95": 0.1,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.012586585571887143,
+          "wer_below_50_per_sample_mean": 0.012456341928075014,
+          "n_above_50_pct_wer": 9,
+          "pct_above_50_pct_wer": 0.8272058823529412,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 63.86089451267617,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true
+      },
+      "quality_gate_pass": true,
+      "server_pid": 485471,
+      "startup_to_readiness_s": 68.03917572495993,
+      "warmup_requests": 64,
+      "warmup_success": true,
+      "clean_shutdown": true,
+      "waiting_context": {
+        "waiting_only": 813,
+        "pending_only": 0,
+        "both": 0,
+        "neither": 273,
+        "runnable_active_threshold": 0,
+        "runnable_batch_threshold": 0,
+        "runnable_deadline": 0,
+        "eligible_with_deferred_waiting": 467,
+        "eligible_without_waiting": 132,
+        "deferred_waiting_size": {
+          "1": 97,
+          "2": 120,
+          "3": 116,
+          "5": 58,
+          "4": 76
+        },
+        "deferred_waiting_age_ms_sum": 24825.05477766972,
+        "deferred_waiting_age_ms_max": 99.88797106780112
+      },
+      "pipeline_decisions": {
+        "eligible": 599,
+        "capacity": 301,
+        "pending": 0,
+        "waiting_runnable": 0,
+        "waiting_deferred": 0,
+        "audio_boundary": 487
+      },
+      "pipeline_fraction_of_ordinary_decode_launches": 0.43186733958183127,
+      "pipeline_counter_scope": "Entire server lifetime:64 warmup +1088 measured requests; excludes mixed/prefill branches. Not benchmark-only pair coverage.",
+      "observed_process_memory_mib": {
+        "startup_samples": 57,
+        "service_samples": 23,
+        "startup_peak": 107030,
+        "service_peak": 107058,
+        "service_median": 107058,
+        "limitation": "One-second nvidia-smi process sampling. Readiness boundary approximated from prelaunch wall clock plus recorded process-to-health time; cannot resolve subsecond clone transients or allocator peak."
+      }
+    }
+  },
+  "qualification": "One feasibility pair, no replicated or fixed-output speedup claim. Production pipeline3689 exact checks passed before service, including separately synthetic first-EOS. Only CODEC_CACHED_LINEAR changes; both FRAME_PIPELINE1/DEFERRED_WAITING1, router1/five native flags. Codec gate46 captured shapes and4\u00d7414 dynamic trace/all80 PCM/fullstate exact. DP partitions are not held fixed. Both arms require complete unfiltered1088 WER/SIM.",
+  "artifacts": {
+    "service_protocol": "codec-cache-service-experiment.json",
+    "quality_protocol": "codec-cache-quality-experiment.json",
+    "native_gate": "codec-cache-dynamic/result.json",
+    "native_micro": "codec-cached-linear/result.json"
+  },
+  "sampler_limitation": "Both arms capture identical FRAME_PIPELINE1 graphs. Global sampling_step is not reset or independently measured after capture; later admission and pairing alter step/row schedules. Outputs are scored unfiltered; no fixed-seed or fixed-output speedup claim.",
+  "comparison": {
+    "eligible_decisions_delta": -4,
+    "eligible_fraction_delta": -0.07021425908594564,
+    "throughput_relative_change": -0.029966572240472167,
+    "makespan_relative_change": 0.057149708314012226,
+    "output_frames_relative_change": 0.02547055521082653,
+    "ttfa_p50_delta_ms": -2.7812685002572834,
+    "ttfa_p95_delta_ms": 2.9135464923451764,
+    "wer_delta_percentage_points": 0.41865527924307144,
+    "sim_delta": -0.5518639888991004,
+    "same_audio_sha256": 51,
+    "same_output_frame_count": 101
+  },
+  "service_process_audit": {
+    "path": "codec-cache-service-process-audit.jsonl",
+    "samples": 153,
+    "sampling_interval_s": 1,
+    "observed_gpu6_pids": [
+      482793,
+      485471
+    ],
+    "maximum_simultaneous_gpu6_processes": 1,
+    "sampling_limitation": "One-second polling cannot exclude shorter unobserved interference.",
+    "expected_server_pids": [
+      482793,
+      485471
+    ],
+    "foreign_process_observed": false
+  },
+  "quality_process_audit": {
+    "path": "codec-cache-quality-process-audit.jsonl",
+    "samples": 147,
+    "sampling_interval_s": 1,
+    "observed_gpu6_pids": [
+      488769,
+      491390
+    ],
+    "maximum_simultaneous_gpu6_processes": 1,
+    "sampling_limitation": "One-second polling cannot exclude shorter unobserved interference."
+  },
+  "target": {
+    "vllm_c64_baseline_frames_s": 4510.271508809941,
+    "required_ratio": 1.5,
+    "target_frames_s": 6765.407263214912,
+    "observed_candidate_vs_vllm": 1.016596527889881,
+    "achieved": false
+  },
+  "post_run_gpu6_empty": true,
+  "interpretation": "Same-source native cached-codec Linear feasibility with only CODEC_CACHED_LINEAR0->1; pipeline and deferred waiting both1. Exact native gate passed, but service schedule and output lengths can differ. One pair is not a repeated or fixed-work speedup claim. Actual shutdown eligibility is recorded including warmup; source remains default off. Full unfiltered quality and all failures retained; no1.5x goal claim.",
+  "actual_runtime_environment_difference": {
+    "DRAMA3_CODEC_CACHED_LINEAR": [
+      "0",
+      "1"
+    ]
+  },
+  "protocol_correction": {
+    "created_utc": "2026-10-16T00:09:16.850476+00:00",
+    "artifact": "codec-cache-service-experiment.json",
+    "field": "hypothesis",
+    "original_phrase": "40 repeat BF16-to-FP32 casts",
+    "correct_phrase": "40 repeat FP32-to-BF16 autocast weight conversions",
+    "evidence": "Frozen source-codec-cache/src/drama3/codec.py:103-111 deep-copies decoder.transformer, then casts Linear modules to dtype=bfloat16; source FP32 weights remain unchanged. User-visible computation was always native BF16 autocast.",
+    "scope": "Documentation direction typo only. Executed flags, source SHA, checkpoints, gate and computation are unchanged. Original driver/protocol/hash preserved."
+  }
+}

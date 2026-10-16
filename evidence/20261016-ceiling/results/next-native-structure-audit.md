@@ -24,13 +24,15 @@
 
 ## 1. 原生按专家驻留的FC1→activation→FC2
 
+精度契约更正：安装版FI DeepSeek路径的FC1输出是E4M3＋FP32 scale，并非BF16；activation再量化E4M3，FC2才输出BF16。先前版本已保存在`next-native-structure-audit.before-fc1-contract-correction.md`，不可按旧BF16边界实现。最小原型与分组复用vendor GEMM的较低成本路线见`expert-pipeline-first-layer-plan.md`，该计划优先做2×128分组可行性，再考虑自写tensor-core主体。
+
 当前 `model.py:513–573` 每层调用同一原生FI block-scale MoE；profile显示路由后分别执行两次GEMM和独立`activationDeepSeekKernel`。既有majorK/blocked及tile/autotune实验已经做过；这里的变化是**跨两个GEMM的中间数据生命周期**，不是重新扫tile。
 
-最小原型仅替换一个真实B64层的专家主体：沿用FI原生top8及permuted row metadata，每个专家/专家tile在持久CTA/CTA cluster中完成FC1，将原生BF16输出、SwiGLU和128元素FP8 quant/scale保留在共享内存或明确受控中间区，再执行FC2，最后仍走原生finalize。所有真实专家继续计算，原权重字节/scale不变。输出tile若需要跨CTA访问同一activation，需要明确cluster同步或生产者/消费者barrier；不能假设普通CTA共享内存跨block可见。
+最小原型仅替换一个真实B64层的专家主体：沿用FI原生top8及permuted row metadata，每个专家/专家tile在持久CTA/CTA cluster中完成FC1，将原生FC1 E4M3字节/FP32 scale、反量化后FP32 SwiGLU、第二次128元素FP8 quant/scale保留在共享内存或明确受控中间区，再执行FC2，最后仍走原生finalize。所有真实专家继续计算，原权重字节/scale不变。输出tile若需要跨CTA访问同一activation，需要明确cluster同步或生产者/消费者barrier；不能假设普通CTA共享内存跨block可见。
 
 可能收益来自少一次全局activation往返、少launch/跨kernel依赖，以及小M expert中两个阶段的供数协调。**3MiB左右/专家的FC1+FC2权重仍必须读，不能把整个约4ms GEMM项当成可省成本。** 当前读量已接近独立权重一次，所以若只是把数据搬运换成更低占用的大kernel，可能更慢。混合1344行要单独判断，先限制原型B64，已有原生路径fallback。
 
-验证门：先从已存真实层0/19/39输入和FI路由导出参考中间结果；逐项比较量化bytes/scale、FC1 BF16边界、SwiGLU中间FP8、FC2和finalize。相同top8、dtype但改变FMA归约次序仍可能非bitexact，必须量化误差并保留失败，不能默称“无损”。然后全40层B64、partial58/63和混合回放，所有真实/非参与状态、RNG、EOS/maxframes/cancel/slot-generation；最后同源服务与完整质量。第一门先看相同固定状态真实GEMM主体是否有实质净收益，而不是盲做全框架重写。
+验证门：先从已存真实层0/19/39输入和FI路由导出参考中间结果；逐项比较输入FP8 bytes/scale、FC1 E4M3/FP32 scale边界、SwiGLU后E4M3/FP32 scale、FC2 BF16和finalize。相同top8、dtype但改变FMA归约次序仍可能非bitexact，必须量化误差并保留失败，不能默称“无损”。然后全40层B64、partial58/63和混合回放，所有真实/非参与状态、RNG、EOS/maxframes/cancel/slot-generation；最后同源服务与完整质量。第一门先看相同固定状态真实GEMM主体是否有实质净收益，而不是盲做全框架重写。
 
 ## 2. 批内逐层前缀DAG：独立复算后有机会，但不是27.9%服务收益
 
@@ -85,3 +87,8 @@ batch6 offset0的182组中181组有共享，最大3个分支；共享长度为64
 先为两条大结构完成**真实输入的一层隔离原型**：MoE持久主体、GDN/前缀branch。选择是否进入完整框架依据本地正确性与未profile实际净时长，而不是理论份额。与此同时finalize融合可作为小且独立的补充；token调度先补成员/cost账本。已测布局、tile、priority、SM reserve不再盲重复；必要的新shape只因新结构改变才验证。
 
 所有路径保持默认关闭与完整fallback；过程结果分别标注bitexact、原生但有舍入差异、完整WER/SIM及吞吐，失败证据不覆盖。服务依次要求同冻结source/hardware/env、全1088输出与尾部、完整质量；想声称A/B提升再做至少3次重复，并继续覆盖所有并发。局部1–5%不是最终目标，多个方案也不能将预算简单相加：共享同一访存/调度成本会互相重叠。最终目标继续保持INCONCLUSIVE，接着用实测反馈选择下一结构。
+
+
+## 后续单层可行性结果
+
+原生2×128专家分组已完成：`expert-partition/summary.md`。135项FP8中间值/FC2/finalizer/graph ownership检查精确，但三个真实层的完整分组路径比native慢17.59%–24.68%，未达到5%局部收益门，不晋级服务。并行比串行分组快6.15%–10.50%不足以证明相对native获益。额外q/scale/logits拷贝与重复metadata构建尚无组件profile，不能将全部回退归因于某项。下一步仅CPU审查共享一次原生routing/metadata的launcher，原用户目标不变。

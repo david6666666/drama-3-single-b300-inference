@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/run_pipeline_service_and_quality.py"
+  ],
+  "source_sha": "a7118fb7eb748d08c3b774fa6c9189b6eab0d9cc",
+  "scripts": {
+    "run_pipeline_service_and_quality.py": "1dc16563142d83a6eec6fcad3b63ec00c14dd36348b53567ae0bace7945da066",
+    "run_pipeline_native_pair.py": "27514ea63561f1c835c1c58d83c7e5a4a49fb437c17f58790850af71b1205ad8",
+    "run_pipeline_native_quality.py": "8eec507c12b86b5f74a7018ebe29dc977076c7a4399fb0453188d4269a9f2b0c"
+  }
+}

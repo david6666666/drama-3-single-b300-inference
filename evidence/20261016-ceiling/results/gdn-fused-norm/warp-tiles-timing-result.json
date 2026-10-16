@@ -1,0 +1,57 @@
+{
+  "status": "LOCAL_GAIN_FAIL",
+  "component": "all30layers B64 recurrence+zcontiguous+gatednorm, real frozen inputs",
+  "timing_run": true,
+  "initial_exact": true,
+  "orders": [
+    [
+      "a",
+      "c"
+    ],
+    [
+      "c",
+      "a"
+    ],
+    [
+      "a",
+      "c"
+    ],
+    [
+      "c",
+      "a"
+    ],
+    [
+      "a",
+      "c"
+    ],
+    [
+      "c",
+      "a"
+    ]
+  ],
+  "replays_per_sample": 100,
+  "warmup_replays_per_sample": 10,
+  "measurements_ms": {
+    "a": [
+      1.0181942749023438,
+      1.017685089111328,
+      1.0191830444335936,
+      1.0189743804931641,
+      1.01889404296875,
+      1.018661117553711
+    ],
+    "c": [
+      1.0838428497314454,
+      1.0837145233154297,
+      1.0831932830810547,
+      1.083632354736328,
+      1.083776321411133,
+      1.0834454345703124
+    ]
+  },
+  "state_and_outputs_exact_after_every_repeat": true,
+  "control_median_ms": 1.0187775802612307,
+  "candidate_median_ms": 1.0836734390258789,
+  "reduction_fraction": -0.06369973193560852,
+  "local_gate_pass": false
+}

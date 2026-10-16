@@ -1,0 +1,78 @@
+{
+  "status": "LOCAL_GAIN_FAIL",
+  "source_sha": "69d636ef11875add6e4edf7c9bb028b9574143a3",
+  "exact_checks": 273,
+  "all_checks_passed": true,
+  "parameters_unchanged": true,
+  "cases": [
+    {
+      "batch": 1,
+      "frames": 8,
+      "timing_ms": {
+        "control": [
+          0.9687359929084778,
+          0.9667840003967285,
+          0.9647359848022461
+        ],
+        "candidate": [
+          0.9646080136299133,
+          0.9667840003967285,
+          0.9646080136299133
+        ]
+      },
+      "relative_reduction": 0.0022507475981421443
+    },
+    {
+      "batch": 4,
+      "frames": 8,
+      "timing_ms": {
+        "control": [
+          1.376255989074707,
+          1.264639973640442,
+          1.2677119970321655
+        ],
+        "candidate": [
+          1.3056000471115112,
+          1.265504002571106,
+          1.2642560005187988
+        ]
+      },
+      "relative_reduction": 0.0017417161517984114
+    },
+    {
+      "batch": 8,
+      "frames": 8,
+      "timing_ms": {
+        "control": [
+          1.8595839738845825,
+          1.7283200025558472,
+          1.7274880409240723
+        ],
+        "candidate": [
+          1.7991679906845093,
+          1.7172479629516602,
+          1.7172479629516602
+        ]
+      },
+      "relative_reduction": 0.00640624397554479
+    }
+  ],
+  "b4_profile": {
+    "control": {
+      "kernel_count": 285,
+      "parameter_cast_launches": 40,
+      "parameter_cast_us": 140.829
+    },
+    "candidate": {
+      "kernel_count": 285,
+      "parameter_cast_launches": 40,
+      "parameter_cast_us": 140.395
+    }
+  },
+  "limitations": [
+    "One localfeasibility process, not a repeated service claim.",
+    "Real referencecode windows are valid codec inputs, not generated outputs from the fullbenchmark.",
+    "Preparation and all rawtimings retained separately.",
+    "Dynamicfullstate/allshapes/service quality remain required for any production use."
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "hypothesis": "One global native routing pass plus one descriptor-rebase kernel removes duplicate routing overhead enough for native two-way expert pipeline to exceed original full MoE",
+  "variable": "local metadata construction only: two existing native populates vs one shared rebase kernel",
+  "fixed": {
+    "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+    "layers": [
+      0,
+      19,
+      39
+    ],
+    "gpu_uuid": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+    "split": "two contiguous128 expert groups",
+    "all_experts": 256,
+    "topk": 8,
+    "tactic": [
+      8,
+      5
+    ],
+    "pdl": true,
+    "grid_bounds": "native176 perpartition; global288",
+    "input_preparation": "existing native Triton producer writes same stable tensors in every arm",
+    "reference": "original installed fullnative call",
+    "extension": "artifact-local launcher removes only two finalized-output checks; numeric native object files unchanged and copied",
+    "no_sweep": true
+  },
+  "correctness": "CPU83 bounds/actual cases and3 invalid rejection cases; exact effective FP8 bytes/scales/FC2/orderedfinalizer; real/changedhistogram/emptyhalf/worst288 scenarios; graphs changehistogram; all gates before timing",
+  "success": "At least5% complete local MoE gain against original native, never only against split control",
+  "stop": "First semantic mismatch archivesFAIL and stops timing; no runtimepromotion",
+  "commands": {
+    "argv": [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/driver.py"
+    ],
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+      "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-metadata-rebase-95fcb0e/src",
+      "OMP_NUM_THREADS": "4",
+      "TRITON_CACHE_DIR": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/triton-cache",
+      "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/hf_modules"
+    }
+  },
+  "driver_sha256": "fe1314084a092cb72673a5a36ed6a5a8b500d3806efc2cfe3ede45f50c4c6fdd",
+  "extension": {
+    "namespace": "drama3_metadata_rebase_native",
+    "source_changes": "Exactly two prepared DeepSeek finalized-output assertions removed; no numeric kernel changes.",
+    "native_objects_copied": true,
+    "installed_sources_modified": false,
+    "inputs_sha256": {
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/data/csrc/trtllm_fused_moe_kernel_launcher.cu": "b7702908482a41e65ff4156c0626ebe11bf1b39faf805bd2f0e7181f6f92b81e",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/build.ninja": "bcae5f6766db8f358137295e1870228ce27afa58ea16c77d9485abf1a480ce5c",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/kernels_quantization.cuda.o": "bd3836263b63cf54a69cff108724d6018bed9cb4edcb461baeecbdb0c9ef4821",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/common_envUtils.o": "469d28f41db5414841b765238f46ef321976ec9e9ed76c5c7d6605d83e70d7dd",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/common_logger.o": "ec3ef87a5e436fdd8f61639fdc4214818d417baf9031ed82e3011918f3524d50",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/common_stringUtils.o": "12c7f4097afdcf348c3b49f134990a4ecf338b516c7f6b2ce320cdc8cef69ac6",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/common_tllmException.o": "0cc3a3e5dc3054a69030d224cb316b23c476cf529a2459ee94d1dc8cbb69e5ba",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/common_memoryUtils.cuda.o": "27d0187fd1767d2b4726154e912964a4cd7b25f464519c6cd51e7a6737b617d5",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/csrc_trtllm_fused_moe_runner.cuda.o": "6aac4262b1b0b65e4cc93daafaf652a1db2bb1b1a26fbfd6204e96a2897bb8f3",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_runner.cuda.o": "ca5ec5c091e51cf87734886f7a48076d4e8c7e41754ce17f0de2d6eb5ef24869",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_deepseek.cuda.o": "e280a7ea07b5755be3838d4d63b8ecbb9f728a93dfb6bf08c9cf67fb5cfa5155",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_llama4.cuda.o": "609aa9c6f36650a3806f9dc4e2f14557711a9a53ead2877bbb5d43aa154903b0",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_custom_block.cuda.o": "1e0502d0da40d050bf34358a5bdfda6e3b222594ed48c81e8837f366f88569fc",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_custom_cluster.cuda.o": "f6442b54cbab7ce25fdbc9a78c096b51e9db3395725af8df5892327c3cc22ccc",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_custom_cluster_large.cuda.o": "cb54ab31ab8567c4f9d21d61e7f81a9b4f8fa42a42eb556f71ab81cc52d2dc16",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_custom_entry.cuda.o": "b6cb91aa39b8f5e029a7d82ff72f705192b08226e5c55ac80077b066fcef1d04",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_common.cuda.o": "3e55839cb5e871b93c732ef8930330b60e0c5ddf7626df1f73391525e8069b0b",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_dev_kernel.cuda.o": "97b7a31856aecd9cf14f0b95d18ac6c37b1586bc3abc8100fef45f9e703e515a",
+      "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/csrc_trtllm_batched_gemm_runner.cuda.o": "2d8008dbc3e5ef91f9c0742cddf216609c6e2462fb4a0e39ae3eda49a9e533dd"
+    },
+    "candidate_launcher_sha256": "efa03cb33d94d059d0d7a809568781579eecd0e3d2b627e96e4f1276a3433082",
+    "ninja_sha256": "2b9ed5679e3b7ccd5bfd72663fe4a6e06148e6c4db2e2a5d6f13c51be91236ad",
+    "command": [
+      "ninja",
+      "-j",
+      "2",
+      "-f",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/extension/build.ninja"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 101.79316643404309,
+    "installed_source_hash_unchanged": true,
+    "so_sha256": "43c14f43b679107ea591f4fc73c95faaa84c1f6d4b1e9c5a171fc56079a016b3"
+  }
+}

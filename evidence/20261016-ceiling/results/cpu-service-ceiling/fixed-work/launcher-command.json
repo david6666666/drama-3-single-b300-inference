@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/cpu-service-ceiling/fixed-work/run.py"
+  ],
+  "hashes": {
+    "driver.py": "dfb0b37034c703d556efd8011adcda98df30940a527ec362ddc000bad7cb6122",
+    "fixed_profile.py": "9de03ca6ac2f3b411df217ca10fd9d67ade1f5b498ff96a28d3286d3ac087a05",
+    "run.py": "6de6c6e5faedc281f7f79774c444420e5d39098abd4dea158d14ec09ca52a0ec"
+  }
+}

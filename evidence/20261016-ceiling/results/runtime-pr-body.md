@@ -1,16 +1,15 @@
-The runtime now shares backbone work between prefill and decode, isolates asynchronous codec capture workspaces, and provides opt-in native packed-GDN, mixed-layout, empty-convolution and reserved-padding optimizations. Full top-8 experts, checkpoint FP8 weights/scales and BF16 dense/GDN computation are retained.
+The standalone B300 Drama3 engine still misses the frozen all-concurrency1.5× throughput target. Best complete one-run C64 quality-qualified observation remains4591.038 frames/s versus4510.272 vLLM baseline and6765.407 target; this PR remains draft.
 
-**The all-concurrency 1.5× target remains unmet; this PR is draft.** The frozen [acceptance issue #10](https://github.com/ThinkFlowLab/OmniRSI/issues/10) requires all 1088 requests at C1/2/4/8/16/32/64, three repetitions, WER at most same-concurrency baseline +1 percentage point and SIM at least baseline −2. Baseline quality covers all 21 groups / 22,848 outputs. No candidate has completed the required passing matrix.
+Native full top-8 experts, checkpoint FP8 expert weights/scales, BF16 dense/GDN and complete1088-output WER/SIM gates remain unchanged. Changes are opt-in. Ordered DCO commits retain both initial failures and their corrections.
 
-Latest same-source GPU0 C64 feasibility (`a607dff`): control **4353.910** → four-change candidate **4591.038 frames/s**; candidate TTFA p50/p95 **140.774/268.097 ms**, mean RTF **0.295911**, WER **1.925814%**, SIM **63.693694**. Both full 1088-output quality groups pass. This is one pair, with candidate output frames +0.858%; the observed +5.446% is not a repeated or fixed-work speedup claim. It is only 1.0179× the frozen vLLM baseline and below **6765.407 frames/s**.
+Latest evidence: [immutable archive](https://github.com/david6666666/drama-3-single-b300-inference/tree/171acc82460f479b56372a57d9f7de7a154795aa/evidence/20261016-ceiling).
 
-Validation and retained limitations:
+- Reserved-padding routing passes2574 exact production checks; actual requests and original quantization remain intact.
+- Native MoE residual fusion passes2374 exact checks after preserving the baseline BF16 FMA contraction.
+- Native two-frame pipeline passes3689 exact production checks, including slot reuse and a separately labeled synthetic first-EOS case. The callback buffer lifetime fix and validator captured-buffer correction retain their original failed records. Full service/quality is still being evaluated separately.
+- Complete codec coalescing pair:4513.299→4414.243 frames/s; both1088-output quality groups pass, throughput regresses.
+- Complete48-SM codec pair:4412.554→4470.317 frames/s; WER1.909068%→1.565771%, SIM63.902018→64.244919. Output frames and DP partitions can differ; no fixed-work or repeated speedup claim.
 
-- 8 CPU tests pass. Compact GDN passes 2099 exact checks, layout and empty-convolution changes pass 339 checks each and 339 combined, and explicit reserved-padding contexts pass 1023 checks across nine cases.
-- Earlier compact/layout/conv service alone regresses full throughput despite passing quality; deferred codec submission raises frames/s with more generated frames, longer makespan and worse TTFA. Both results remain unpromoted and preserved.
-- Dynamic private-capture replay preserves all 414 schedule entries, codes, PCM and states; shared capture reproduces corruption. All new async service configurations retain dedicated capture.
-- The full asynchronous interval ledger separates required mixed prompt work, partial decode, codec contention and drain. An isolated ~7734 frames/s B64 result is a workload-specific reference, not a hardware ceiling or service guarantee.
-- A restored-state contention probe passes all 60 code/PCM/state checks. Concurrent completion beats serial, but model-high stream priority has no material benefit. Codec partitioning and resource limits remain experimental.
-- The initial minimum-launch codec exact gate and MoE residual fusion exact gate failed; original failures are retained. Corrections and numerical diagnosis are separate from service qualification. All experimental switches remain off by default.
+Validation:52 CPU tests for benchmark and pipeline boundaries; frozen dynamic state/PCM gates; complete unfiltered quality for both new codec pairs; archive hashes verified. All-concurrency three-repeat acceptance remains incomplete; no success example or winning configuration is nominated.
 
-See [the analysis](https://github.com/david6666666/drama-3-single-b300-inference/blob/ab2d9015d6b0115530e675f25bbf5f188b1d65b1/docs/high-concurrency-analysis.md) and [indexed full evidence](https://github.com/david6666666/drama-3-single-b300-inference/tree/ab2d9015d6b0115530e675f25bbf5f188b1d65b1/evidence/20261016-ceiling). Raw per-request metrics, complete quality, immutable source/commands and uncertainty are retained. No successful README example is added before all frozen gates pass.
+Acceptance issue: https://github.com/ThinkFlowLab/OmniRSI/issues/10

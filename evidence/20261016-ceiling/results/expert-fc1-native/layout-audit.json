@@ -1,0 +1,47 @@
+{
+  "status": "CPU_LAYOUT_LOCALIZATION_ONLY_ORIGINAL_GPU_EXACT_FAIL_UNCHANGED",
+  "permutation": "within each16-byte block: candidate [b0,b8,b1,b9,...,b7,b15]; deinterleave to original b0..b15",
+  "raw_byte_mismatches": 4230,
+  "raw_fp8": {
+    "maxabs": 800.0,
+    "rrms": 1.2961994409561157,
+    "changed_values": 4230,
+    "rms": 133.00982666015625
+  },
+  "raw_signed_zero_mismatches": 0,
+  "raw_zero_vs_nonzero_mismatches": 3264,
+  "raw_nonzero_sign_mismatches": 447,
+  "corrected_layout_byte_mismatches": 0,
+  "corrected_layout_fp8": {
+    "maxabs": 0.0,
+    "rrms": 0.0,
+    "changed_values": 0,
+    "rms": 0.0
+  },
+  "scale": {
+    "maxabs": 9.313225746154785e-10,
+    "rrms": 6.760766524394057e-08,
+    "changed_values": 35,
+    "rms": 4.471015224716268e-10
+  },
+  "scale_ulp_histogram": {
+    "-1": 4,
+    "0": 29,
+    "1": 30,
+    "2": 1
+  },
+  "raw_dequantized": {
+    "maxabs": 7.076764106750488,
+    "rrms": 1.2879396677017212,
+    "changed_values": 4447,
+    "rms": 0.8307701945304871
+  },
+  "layout_corrected_dequantized": {
+    "maxabs": 4.76837158203125e-07,
+    "rrms": 7.063926688033462e-08,
+    "changed_values": 1489,
+    "rms": 4.556502020136577e-08
+  },
+  "cuda_initialized": false,
+  "not_proven": "Source-level native packing/scale contract and corrected GPU execution have not been validated."
+}

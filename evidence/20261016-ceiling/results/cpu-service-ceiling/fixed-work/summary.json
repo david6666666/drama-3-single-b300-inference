@@ -1,0 +1,885 @@
+{
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "source_status": "",
+  "gpu_uuid": "619f7fdc-5f98-8c37-fe89-0465d6130baf",
+  "input_sha256": {
+    "result.json": "ff665613e3e042ea8fe8f5a34784428ad7e0231d31db443a665fc48a45052751",
+    "experiment.json": "7f2ce5e8c85a18f96cd216bee9d93b5b0bf813abb0783b4621ea0b3de5a0980b",
+    "driver.py": "dfb0b37034c703d556efd8011adcda98df30940a527ec362ddc000bad7cb6122",
+    "fixed_profile.py": "9de03ca6ac2f3b411df217ca10fd9d67ade1f5b498ff96a28d3286d3ac087a05",
+    "current-pipeline-service-ledger.json": "7e48a17756450262cb30e9e264e7ba46bce1217316850ef2cc55bb8eccdd5a72"
+  },
+  "passed": true,
+  "normal_matches_archived": true,
+  "exact_check_count": 4177,
+  "failed_checks": [],
+  "operation_counts": {
+    "initialize": 80,
+    "prefill": 13,
+    "first_frame": 13,
+    "decode": 184,
+    "codec": 99
+  },
+  "modes": [
+    {
+      "mode": "model_only",
+      "backend": "normal",
+      "events_enabled": true,
+      "wall_ms": 1685.654528089799,
+      "device_span_ms": 1685.629150390625,
+      "unions_ms": {
+        "model": 1684.810428019613,
+        "codec": 0,
+        "combined": 1684.810428019613,
+        "overlap": 0.0,
+        "outside_recorded": 0.8187223710119724
+      },
+      "stage_summary": {
+        "initialize": {
+          "calls": 80,
+          "summed_gpu_ms": 0.7434240039438009,
+          "summed_cpu_submit_ms": 2.0723013440147042,
+          "summed_graph_replay_cpu_ms": 0,
+          "actual_rows": 80,
+          "padded_rows": 80
+        },
+        "prefill": {
+          "calls": 13,
+          "summed_gpu_ms": 375.12768363952637,
+          "summed_cpu_submit_ms": 0.8247840451076627,
+          "summed_graph_replay_cpu_ms": 0.3984529757872224,
+          "actual_rows": 80,
+          "padded_rows": 80
+        },
+        "first_frame": {
+          "calls": 13,
+          "summed_gpu_ms": 14.709440112113953,
+          "summed_cpu_submit_ms": 0.4178648814558983,
+          "summed_graph_replay_cpu_ms": 0.03863079473376274,
+          "actual_rows": 80,
+          "padded_rows": 104
+        },
+        "decode": {
+          "calls": 184,
+          "summed_gpu_ms": 1294.2295973300934,
+          "summed_cpu_submit_ms": 527.2008805768564,
+          "summed_graph_replay_cpu_ms": 125.95752230845392,
+          "actual_rows": 6000,
+          "padded_rows": 6667
+        }
+      },
+      "passed": true
+    },
+    {
+      "mode": "codec_only",
+      "backend": "normal",
+      "events_enabled": true,
+      "wall_ms": 176.0644739260897,
+      "device_span_ms": 176.05372619628906,
+      "unions_ms": {
+        "model": 0,
+        "codec": 175.56900022923946,
+        "combined": 175.56900022923946,
+        "overlap": 0.0,
+        "outside_recorded": 0.4847259670495987
+      },
+      "stage_summary": {
+        "codec": {
+          "calls": 99,
+          "summed_gpu_ms": 175.56896036863327,
+          "summed_cpu_submit_ms": 8.630460943095386,
+          "summed_graph_replay_cpu_ms": 0,
+          "actual_rows": 457,
+          "padded_rows": 457
+        }
+      },
+      "passed": true
+    },
+    {
+      "mode": "codec_only",
+      "backend": "cached",
+      "events_enabled": true,
+      "wall_ms": 164.21802004333586,
+      "device_span_ms": 164.2079620361328,
+      "unions_ms": {
+        "model": 0,
+        "codec": 163.9224734120071,
+        "combined": 163.9224734120071,
+        "overlap": 0.0,
+        "outside_recorded": 0.28548862412571907
+      },
+      "stage_summary": {
+        "codec": {
+          "calls": 99,
+          "summed_gpu_ms": 163.9224317073822,
+          "summed_cpu_submit_ms": 6.160845747217536,
+          "summed_graph_replay_cpu_ms": 0,
+          "actual_rows": 457,
+          "padded_rows": 457
+        }
+      },
+      "passed": true
+    },
+    {
+      "mode": "serialized",
+      "backend": "normal",
+      "events_enabled": true,
+      "wall_ms": 1861.7097430396825,
+      "device_span_ms": 1861.680419921875,
+      "unions_ms": {
+        "model": 1685.0744922477752,
+        "codec": 175.11903762817383,
+        "combined": 1860.193529875949,
+        "overlap": 0.0,
+        "outside_recorded": 1.4868900459259748
+      },
+      "stage_summary": {
+        "initialize": {
+          "calls": 80,
+          "summed_gpu_ms": 0.7255039969459176,
+          "summed_cpu_submit_ms": 59.425612445920706,
+          "summed_graph_replay_cpu_ms": 0,
+          "actual_rows": 80,
+          "padded_rows": 80
+        },
+        "prefill": {
+          "calls": 13,
+          "summed_gpu_ms": 374.94428634643555,
+          "summed_cpu_submit_ms": 11.129622696898878,
+          "summed_graph_replay_cpu_ms": 0.38456288166344166,
+          "actual_rows": 80,
+          "padded_rows": 80
+        },
+        "first_frame": {
+          "calls": 13,
+          "summed_gpu_ms": 14.709856033325195,
+          "summed_cpu_submit_ms": 5.575518240220845,
+          "summed_graph_replay_cpu_ms": 0.042650033719837666,
+          "actual_rows": 80,
+          "padded_rows": 104
+        },
+        "decode": {
+          "calls": 184,
+          "summed_gpu_ms": 1294.6945297718048,
+          "summed_cpu_submit_ms": 481.30017681978643,
+          "summed_graph_replay_cpu_ms": 54.970481782220304,
+          "actual_rows": 6000,
+          "padded_rows": 6667
+        },
+        "codec": {
+          "calls": 99,
+          "summed_gpu_ms": 175.11910474300385,
+          "summed_cpu_submit_ms": 680.883749271743,
+          "summed_graph_replay_cpu_ms": 0,
+          "actual_rows": 457,
+          "padded_rows": 457
+        }
+      },
+      "passed": true
+    },
+    {
+      "mode": "serialized",
+      "backend": "cached",
+      "events_enabled": true,
+      "wall_ms": 1850.0998739618808,
+      "device_span_ms": 1850.07275390625,
+      "unions_ms": {
+        "model": 1685.0714146830142,
+        "codec": 163.45779418945312,
+        "combined": 1848.5292088724673,
+        "overlap": 0.0,
+        "outside_recorded": 1.5435450337827206
+      },
+      "stage_summary": {
+        "initialize": {
+          "calls": 80,
+          "summed_gpu_ms": 0.7450240012258291,
+          "summed_cpu_submit_ms": 59.32838108856231,
+          "summed_graph_replay_cpu_ms": 0,
+          "actual_rows": 80,
+          "padded_rows": 80
+        },
+        "prefill": {
+          "calls": 13,
+          "summed_gpu_ms": 374.9785919189453,
+          "summed_cpu_submit_ms": 11.16632530465722,
+          "summed_graph_replay_cpu_ms": 0.4132338799536228,
+          "actual_rows": 80,
+          "padded_rows": 80
+        },
+        "first_frame": {
+          "calls": 13,
+          "summed_gpu_ms": 14.701312065124512,
+          "summed_cpu_submit_ms": 5.587648949585855,
+          "summed_graph_replay_cpu_ms": 0.044871121644973755,
+          "actual_rows": 80,
+          "padded_rows": 104
+        },
+        "decode": {
+          "calls": 184,
+          "summed_gpu_ms": 1294.6462087631226,
+          "summed_cpu_submit_ms": 478.2048302004114,
+          "summed_graph_replay_cpu_ms": 54.3255495140329,
+          "actual_rows": 6000,
+          "padded_rows": 6667
+        },
+        "codec": {
+          "calls": 99,
+          "summed_gpu_ms": 163.4583038687706,
+          "summed_cpu_submit_ms": 678.107870509848,
+          "summed_graph_replay_cpu_ms": 0,
+          "actual_rows": 457,
+          "padded_rows": 457
+        }
+      },
+      "passed": true
+    },
+    {
+      "mode": "overlapped",
+      "backend": "normal",
+      "events_enabled": false,
+      "wall_ms": 1805.7552760001272,
+      "device_span_ms": 1805.7281494140625,
+      "unions_ms": {
+        "model": 0,
+        "codec": 0,
+        "combined": 0,
+        "overlap": 0,
+        "outside_recorded": 1805.7281494140625
+      },
+      "stage_summary": {},
+      "passed": true
+    },
+    {
+      "mode": "overlapped",
+      "backend": "normal",
+      "events_enabled": true,
+      "wall_ms": 1807.9957750160247,
+      "device_span_ms": 1807.9686279296875,
+      "unions_ms": {
+        "model": 1805.596001541242,
+        "codec": 350.4560852050781,
+        "combined": 1806.8870782013983,
+        "overlap": 349.1650085449219,
+        "outside_recorded": 1.0815497282892466
+      },
+      "stage_summary": {
+        "initialize": {
+          "calls": 80,
+          "summed_gpu_ms": 0.7401599963195622,
+          "summed_cpu_submit_ms": 2.141070202924311,
+          "summed_graph_replay_cpu_ms": 0,
+          "actual_rows": 80,
+          "padded_rows": 80
+        },
+        "prefill": {
+          "calls": 13,
+          "summed_gpu_ms": 377.9548168182373,
+          "summed_cpu_submit_ms": 0.7848752429708838,
+          "summed_graph_replay_cpu_ms": 0.32607419416308403,
+          "actual_rows": 80,
+          "padded_rows": 80
+        },
+        "first_frame": {
+          "calls": 13,
+          "summed_gpu_ms": 14.71129596233368,
+          "summed_cpu_submit_ms": 0.4434618167579174,
+          "summed_graph_replay_cpu_ms": 0.051075941883027554,
+          "actual_rows": 80,
+          "padded_rows": 104
+        },
+        "decode": {
+          "calls": 184,
+          "summed_gpu_ms": 1412.1900162696838,
+          "summed_cpu_submit_ms": 637.6540082274005,
+          "summed_graph_replay_cpu_ms": 43.19583473261446,
+          "actual_rows": 6000,
+          "padded_rows": 6667
+        },
+        "codec": {
+          "calls": 99,
+          "summed_gpu_ms": 350.45583975315094,
+          "summed_cpu_submit_ms": 7.5474141631275415,
+          "summed_graph_replay_cpu_ms": 0,
+          "actual_rows": 457,
+          "padded_rows": 457
+        }
+      },
+      "passed": true
+    },
+    {
+      "mode": "overlapped",
+      "backend": "cached",
+      "events_enabled": true,
+      "wall_ms": 1800.720238010399,
+      "device_span_ms": 1800.692626953125,
+      "unions_ms": {
+        "model": 1798.3773765563965,
+        "codec": 318.969539642334,
+        "combined": 1799.5381126403809,
+        "overlap": 317.8088035583496,
+        "outside_recorded": 1.1545143127441406
+      },
+      "stage_summary": {
+        "initialize": {
+          "calls": 80,
+          "summed_gpu_ms": 0.7620799941942096,
+          "summed_cpu_submit_ms": 2.1968078799545765,
+          "summed_graph_replay_cpu_ms": 0,
+          "actual_rows": 80,
+          "padded_rows": 80
+        },
+        "prefill": {
+          "calls": 13,
+          "summed_gpu_ms": 377.755069732666,
+          "summed_cpu_submit_ms": 0.8345231181010604,
+          "summed_graph_replay_cpu_ms": 0.3762490814551711,
+          "actual_rows": 80,
+          "padded_rows": 80
+        },
+        "first_frame": {
+          "calls": 13,
+          "summed_gpu_ms": 14.72326397895813,
+          "summed_cpu_submit_ms": 0.4375369753688574,
+          "summed_graph_replay_cpu_ms": 0.04135887138545513,
+          "actual_rows": 80,
+          "padded_rows": 104
+        },
+        "decode": {
+          "calls": 184,
+          "summed_gpu_ms": 1405.1371200084686,
+          "summed_cpu_submit_ms": 636.1850936664268,
+          "summed_graph_replay_cpu_ms": 43.14868652727455,
+          "actual_rows": 6000,
+          "padded_rows": 6667
+        },
+        "codec": {
+          "calls": 99,
+          "summed_gpu_ms": 318.9694082736969,
+          "summed_cpu_submit_ms": 7.9973924439400434,
+          "summed_graph_replay_cpu_ms": 0,
+          "actual_rows": 457,
+          "padded_rows": 457
+        }
+      },
+      "passed": true
+    }
+  ],
+  "codec_only_cache": {
+    "before_ms": 176.0644739260897,
+    "after_ms": 164.21802004333586,
+    "delta_ms": -11.846453882753849,
+    "relative_change": -0.06728474869795076
+  },
+  "serialized_cache": {
+    "before_ms": 1861.7097430396825,
+    "after_ms": 1850.0998739618808,
+    "delta_ms": -11.609869077801704,
+    "relative_change": -0.006236132738310696
+  },
+  "overlap_cache": {
+    "before_ms": 1807.9957750160247,
+    "after_ms": 1800.720238010399,
+    "delta_ms": -7.275537005625665,
+    "relative_change": -0.004024089605829562
+  },
+  "normal_serial_to_overlap": {
+    "before_ms": 1861.7097430396825,
+    "after_ms": 1807.9957750160247,
+    "delta_ms": -53.7139680236578,
+    "relative_change": -0.02885195623242376
+  },
+  "model_span_with_codec": {
+    "before_ms": 1684.810428019613,
+    "after_ms": 1805.596001541242,
+    "delta_ms": 120.78557352162898,
+    "relative_change": 0.07169089857996935
+  },
+  "codec_span_with_model": {
+    "before_ms": 175.56900022923946,
+    "after_ms": 350.4560852050781,
+    "delta_ms": 174.88708497583866,
+    "relative_change": 0.9961159700601447
+  },
+  "ideal_zero_codec_wall_allowance_ms": 122.34124692622572,
+  "observer": {
+    "unobserved_wall_ms": 1805.7552760001272,
+    "event_observed_wall_ms": 1807.9957750160247,
+    "wall_change_fraction": 0.001240754517334297,
+    "limitation": "One sequential diagnostic pair, not replicated causal overhead. Both retain identical asynchronous frame/metadata verification copies and pinned PCM D2H work; only stage events differ. No per-step CPU outputs/metadata reads in timed replay."
+  },
+  "paired_event_groups": [
+    {
+      "before": [
+        "model_only",
+        "normal"
+      ],
+      "after": [
+        "overlapped",
+        "normal"
+      ],
+      "groups": [
+        {
+          "stage": "initialize",
+          "padded_batch": null,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 80,
+          "before_ms": 0.7434240039438009,
+          "after_ms": 0.7401599963195622,
+          "delta_ms": -0.0032640076242387295,
+          "relative_change": -0.0043905061000498735
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 1792,
+          "frame_bucket": null,
+          "calls": 1,
+          "before_ms": 35.55891036987305,
+          "after_ms": 35.49942398071289,
+          "delta_ms": -0.05948638916015625,
+          "relative_change": -0.0016728968503645358
+        },
+        {
+          "stage": "first_frame",
+          "padded_batch": 8,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 13,
+          "before_ms": 14.709440112113953,
+          "after_ms": 14.71129596233368,
+          "delta_ms": 0.0018558502197265625,
+          "relative_change": 0.00012616729158843043
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 8,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 28,
+          "before_ms": 147.06876707077026,
+          "after_ms": 153.0287685394287,
+          "delta_ms": 5.960001468658447,
+          "relative_change": 0.04052526982694071
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 1536,
+          "frame_bucket": null,
+          "calls": 5,
+          "before_ms": 160.3278751373291,
+          "after_ms": 163.27139282226562,
+          "delta_ms": 2.9435176849365234,
+          "relative_change": 0.018359363163861886
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 16,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 19,
+          "before_ms": 111.25532865524292,
+          "after_ms": 116.84502506256104,
+          "delta_ms": 5.589696407318115,
+          "relative_change": 0.050242055593035184
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 768,
+          "frame_bucket": null,
+          "calls": 3,
+          "before_ms": 73.2288646697998,
+          "after_ms": 73.20495986938477,
+          "delta_ms": -0.023904800415039062,
+          "relative_change": -0.00032643958803446615
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 1024,
+          "frame_bucket": null,
+          "calls": 1,
+          "before_ms": 28.239648818969727,
+          "after_ms": 28.23321533203125,
+          "delta_ms": -0.0064334869384765625,
+          "relative_change": -0.00022781752633393992
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 32,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 34,
+          "before_ms": 240.23283195495605,
+          "after_ms": 262.6637110710144,
+          "delta_ms": 22.43087911605835,
+          "relative_change": 0.09337141361370693
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 256,
+          "frame_bucket": null,
+          "calls": 1,
+          "before_ms": 18.789888381958008,
+          "after_ms": 18.78495979309082,
+          "delta_ms": -0.0049285888671875,
+          "relative_change": -0.0002623000609157655
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 1280,
+          "frame_bucket": null,
+          "calls": 2,
+          "before_ms": 58.98249626159668,
+          "after_ms": 58.96086502075195,
+          "delta_ms": -0.021631240844726562,
+          "relative_change": -0.00036674000281011754
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 48,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 27,
+          "before_ms": 218.7277750968933,
+          "after_ms": 240.71087789535522,
+          "delta_ms": 21.983102798461914,
+          "relative_change": 0.10050439542359779
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 64,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 58,
+          "before_ms": 509.89113426208496,
+          "after_ms": 567.9242897033691,
+          "delta_ms": 58.03315544128418,
+          "relative_change": 0.11381479602556688
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 4,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 4,
+          "before_ms": 16.837152004241943,
+          "after_ms": 18.43712043762207,
+          "delta_ms": 1.599968433380127,
+          "relative_change": 0.09502607287604414
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 2,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 13,
+          "before_ms": 47.22275233268738,
+          "after_ms": 48.91123151779175,
+          "delta_ms": 1.6884791851043701,
+          "relative_change": 0.03575562841422131
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 1,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 1,
+          "before_ms": 2.9938559532165527,
+          "after_ms": 3.668992042541504,
+          "delta_ms": 0.6751360893249512,
+          "relative_change": 0.22550720538160673
+        }
+      ]
+    },
+    {
+      "before": [
+        "overlapped",
+        "normal"
+      ],
+      "after": [
+        "overlapped",
+        "cached"
+      ],
+      "groups": [
+        {
+          "stage": "initialize",
+          "padded_batch": null,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 80,
+          "before_ms": 0.7401599963195622,
+          "after_ms": 0.7620799941942096,
+          "delta_ms": 0.02191999787464738,
+          "relative_change": 0.02961521560695579
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 1792,
+          "frame_bucket": null,
+          "calls": 1,
+          "before_ms": 35.49942398071289,
+          "after_ms": 35.520511627197266,
+          "delta_ms": 0.021087646484375,
+          "relative_change": 0.000594027849461165
+        },
+        {
+          "stage": "first_frame",
+          "padded_batch": 8,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 13,
+          "before_ms": 14.71129596233368,
+          "after_ms": 14.72326397895813,
+          "delta_ms": 0.011968016624450684,
+          "relative_change": 0.0008135256509755884
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 8,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 28,
+          "before_ms": 153.0287685394287,
+          "after_ms": 152.69481563568115,
+          "delta_ms": -0.3339529037475586,
+          "relative_change": -0.0021822883823411354
+        },
+        {
+          "stage": "codec",
+          "padded_batch": null,
+          "prefill_capacity": null,
+          "frame_bucket": 6,
+          "calls": 16,
+          "before_ms": 51.200639963150024,
+          "after_ms": 45.6834876537323,
+          "delta_ms": -5.517152309417725,
+          "relative_change": -0.10775553417669215
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 1536,
+          "frame_bucket": null,
+          "calls": 5,
+          "before_ms": 163.27139282226562,
+          "after_ms": 163.0381736755371,
+          "delta_ms": -0.23321914672851562,
+          "relative_change": -0.0014284140209570584
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 16,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 19,
+          "before_ms": 116.84502506256104,
+          "after_ms": 115.99871826171875,
+          "delta_ms": -0.8463068008422852,
+          "relative_change": -0.007242985316569195
+        },
+        {
+          "stage": "codec",
+          "padded_batch": null,
+          "prefill_capacity": null,
+          "frame_bucket": 8,
+          "calls": 15,
+          "before_ms": 53.422144174575806,
+          "after_ms": 49.21756887435913,
+          "delta_ms": -4.204575300216675,
+          "relative_change": -0.07870472750919044
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 768,
+          "frame_bucket": null,
+          "calls": 3,
+          "before_ms": 73.20495986938477,
+          "after_ms": 73.21708869934082,
+          "delta_ms": 0.012128829956054688,
+          "relative_change": 0.0001656831719831775
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 1024,
+          "frame_bucket": null,
+          "calls": 1,
+          "before_ms": 28.23321533203125,
+          "after_ms": 28.23535919189453,
+          "delta_ms": 0.00214385986328125,
+          "relative_change": 7.593396069371927e-05
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 32,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 34,
+          "before_ms": 262.6637110710144,
+          "after_ms": 261.0084481239319,
+          "delta_ms": -1.6552629470825195,
+          "relative_change": -0.006301833398809298
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 256,
+          "frame_bucket": null,
+          "calls": 1,
+          "before_ms": 18.78495979309082,
+          "after_ms": 18.79100799560547,
+          "delta_ms": 0.0060482025146484375,
+          "relative_change": 0.0003219704796426637
+        },
+        {
+          "stage": "prefill",
+          "padded_batch": null,
+          "prefill_capacity": 1280,
+          "frame_bucket": null,
+          "calls": 2,
+          "before_ms": 58.96086502075195,
+          "after_ms": 58.95292854309082,
+          "delta_ms": -0.007936477661132812,
+          "relative_change": -0.00013460585522850899
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 48,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 27,
+          "before_ms": 240.71087789535522,
+          "after_ms": 238.91580820083618,
+          "delta_ms": -1.795069694519043,
+          "relative_change": -0.007457368400689446
+        },
+        {
+          "stage": "codec",
+          "padded_batch": null,
+          "prefill_capacity": null,
+          "frame_bucket": 12,
+          "calls": 12,
+          "before_ms": 48.60432016849518,
+          "after_ms": 44.84041607379913,
+          "delta_ms": -3.763904094696045,
+          "relative_change": -0.07743970251302412
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 64,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 58,
+          "before_ms": 567.9242897033691,
+          "after_ms": 565.9500494003296,
+          "delta_ms": -1.9742403030395508,
+          "relative_change": -0.003476238538891674
+        },
+        {
+          "stage": "codec",
+          "padded_batch": null,
+          "prefill_capacity": null,
+          "frame_bucket": 10,
+          "calls": 7,
+          "before_ms": 20.379552125930786,
+          "after_ms": 18.196799755096436,
+          "delta_ms": -2.1827523708343506,
+          "relative_change": -0.10710502160923518
+        },
+        {
+          "stage": "codec",
+          "padded_batch": null,
+          "prefill_capacity": null,
+          "frame_bucket": 16,
+          "calls": 20,
+          "before_ms": 76.89670324325562,
+          "after_ms": 68.80230367183685,
+          "delta_ms": -8.094399571418762,
+          "relative_change": -0.10526328477064717
+        },
+        {
+          "stage": "codec",
+          "padded_batch": null,
+          "prefill_capacity": null,
+          "frame_bucket": 24,
+          "calls": 17,
+          "before_ms": 63.15455996990204,
+          "after_ms": 58.48156750202179,
+          "delta_ms": -4.672992467880249,
+          "relative_change": -0.07399295427135089
+        },
+        {
+          "stage": "codec",
+          "padded_batch": null,
+          "prefill_capacity": null,
+          "frame_bucket": 32,
+          "calls": 9,
+          "before_ms": 29.018335938453674,
+          "after_ms": 26.60256063938141,
+          "delta_ms": -2.4157752990722656,
+          "relative_change": -0.08324995975634142
+        },
+        {
+          "stage": "codec",
+          "padded_batch": null,
+          "prefill_capacity": null,
+          "frame_bucket": 64,
+          "calls": 3,
+          "before_ms": 7.779584169387817,
+          "after_ms": 7.144704103469849,
+          "delta_ms": -0.6348800659179688,
+          "relative_change": -0.0816084834477635
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 4,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 4,
+          "before_ms": 18.43712043762207,
+          "after_ms": 18.27846384048462,
+          "delta_ms": -0.15865659713745117,
+          "relative_change": -0.00860528072560085
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 2,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 13,
+          "before_ms": 48.91123151779175,
+          "after_ms": 48.6843204498291,
+          "delta_ms": -0.22691106796264648,
+          "relative_change": -0.004639242581330305
+        },
+        {
+          "stage": "decode",
+          "padded_batch": 1,
+          "prefill_capacity": null,
+          "frame_bucket": null,
+          "calls": 1,
+          "before_ms": 3.668992042541504,
+          "after_ms": 3.6064960956573486,
+          "delta_ms": -0.06249594688415527,
+          "relative_change": -0.01703354658705236
+        }
+      ]
+    }
+  ],
+  "scope": "Exact archived80-request/414-entry schedule. Fixed GPU graph work with native model and codec inputs prestaged onGPU. GPU-to-GPU input copies replace native wrapper CPU tensor creation/H2D; this intentionally isolates GPUsequence, not fullEngine host throughput. Packed prefill/single-step decode, no mixed/pipeline/HTTP/Python completion loop. PCM conversion and pinned D2H copy retained; no callback/thread delivery in timed work.",
+  "limitations": [
+    "One sequential diagnostic per mode; not a replicated performance estimate or service result.",
+    "Fixed packed-prefill/single-step fixture contains no mixed or frame pipeline; current full-service timeline supplies those fractions separately.",
+    "Stage events include input copies, graph work and retained validation copies. Codec events retain PCM conversion and pinned D2H.",
+    "CPU submit timing can include CUDA queue backpressure/allocator wait. It does not measure Python-only work; no CPU per-step outputs or metadata are read in timed modes.",
+    "Model-only and omitted-codec arithmetic are diagnostic counterfactuals, never serving proposals."
+  ]
+}

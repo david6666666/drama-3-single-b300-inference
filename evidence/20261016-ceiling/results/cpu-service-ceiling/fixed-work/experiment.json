@@ -1,0 +1,48 @@
+{
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "driver_sha256": "dfb0b37034c703d556efd8011adcda98df30940a527ec362ddc000bad7cb6122",
+  "support_sha256": "9de03ca6ac2f3b411df217ca10fd9d67ade1f5b498ff96a28d3286d3ac087a05",
+  "hypothesis": "Fixed native80request work isolates whether codec overlap slows model spans, and whether native cached Linear weights improve the same work.",
+  "isolated_variable": "Model-only, codec-only normal/cached, serialized normal/cached, overlapped normal/cached; one extra no-events overlap run. Original DP table, graph inputs and complete generated code trajectory fixed.",
+  "controls": "Same physicalGPU6/model/checkpoint/seed/graphs/state/source/nativeprecision; same archived80request414trace initialstate; original packedsingle-stepfixture, no current mixed/pipeline; no cacheflush or clockchange.",
+  "gate": "Prior all46shape/native dynamic gate mustPASS. Untimed normal serial must match archived414trace/all80PCM. Each fixed GPUwork mode compares every model output+request metadata, allcodec PCM calls, fullmodel/codecstate and torchRNG after completion; omitted subsystem stays initial. Input GPUstaging, not Engine host control. No service speed/quality claim.",
+  "stop": "First exact mismatch or initialization failure; preserve failed record separately. No serving promotion.",
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/cpu-service-ceiling/fixed-work/driver.py",
+    "--checkpoint",
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+    "--fish-source",
+    "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "--corpus",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+    "--output",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/cpu-service-ceiling/fixed-work/result.json",
+    "--capture",
+    "dedicated"
+  ],
+  "environment": {
+    "DRAMA3_PREFILL_MOE": "flashinfer",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_FUSED_MOE_INPUT": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM": "1",
+    "DRAMA3_CODEC_SPLIT_POLICY": "dp",
+    "DRAMA3_CODEC_COALESCE": "0",
+    "DRAMA3_CODEC_SMS": "0",
+    "DRAMA3_FUSED_MIXED_LAYOUT": "0",
+    "DRAMA3_PACKED_CONV_GUARD": "0",
+    "DRAMA3_DEFER_CODEC_SUBMIT": "0"
+  },
+  "gpu_uuid": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf",
+  "before_gpu": "",
+  "storage": {
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python": "/dev/vda4 ext4   /",
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2": "/dev/vda4 ext4   /",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/cpu-service-ceiling/fixed-work": "/dev/vda4 ext4   /"
+  },
+  "scope": "Packed prefill and single-step decode; cannot attribute current mixed/pipeline fraction. Prestaged GPUinputs replace CPU input staging; PCM conversion and pinned D2H retained, callbacks/transport omitted. Every source/driver immutable during run. State restores/checks excluded from timers.",
+  "observer": "Event durations resolved once after finaljoin. Per-op frame/metadata verificationGPUcopies retained botharms. One overlap runwithout stage events measuresobserver sensitivity; single diagnostic only, no replicates/winner."
+}

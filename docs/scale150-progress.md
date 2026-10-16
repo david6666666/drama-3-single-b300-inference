@@ -18,6 +18,20 @@ quantization. Existing precision-reduction diagnostics remain historical
 rejections. Operator layout, fusion and scheduling experiments must still pass
 the unchanged performance and audio-quality gates.
 
+## Latest C64 investigation
+
+The best complete-quality single observation is now 4726.771 frames/s on
+`e7cda1e`, with TTFA p50/p95 145.645/273.682 ms, mean RTF 0.288130,
+WER 1.599263% and SIM 64.412759. It is the cache-off control of one native
+pipeline/deferred-admission feasibility pair, not a repeated winner. The
+cache-on arm scores all outputs too but observes 4585.126 frames/s; it stays
+experimental. All-concurrency three-repeat acceptance is still incomplete.
+
+A current nonblocking timeline and fixed-work replay explain why codec-local
+speedups do not close the service gap. Native model execution remains the
+main budget; new resident-expert work is an unqualified operator prototype.
+See [complete results, failures and limitations](../evidence/20261016-ceiling/README.md).
+
 ## Complete baseline quality
 
 All 21 vLLM performance groups now have complete WER/SIM scoring: 22,848 saved

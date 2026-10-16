@@ -1,0 +1,14 @@
+{
+  "source_sha": "69d636ef11875add6e4edf7c9bb028b9574143a3",
+  "driver_sha256": "7b5d0d129ec1bca8c917983faec56ce785c938108b30609b38846436cdc3c93b",
+  "hypothesis": "Selecting nativecuDNN algorithms once during capture may improve fullcodec cost on actualBF16shapes; unchanged arithmetic precision andweights.",
+  "isolated_variable": "torch.backends.cudnn.benchmarkFalse->True during candidatecapture; benchmark_limit default10. Botharmscache all40Linearweights atnativeBF16.",
+  "controls": "Same module/originalparameterSHA256, BF16autocast, cacheclone/norms/scales/attention/source/input/state/GPU0; candidategraph records selectedalgorithms, no sharedcacheflush or clockchanges.",
+  "gate": "All audio samples and all28conv/KV state tensors exact across B1/B4/B8 and three successive real reference-code windows before timing; untouchedslotsincluded. >=5% median local complete codec reduction for B4/B8 to expand.",
+  "stop": "First exact mismatch, mutation or compilation failure; no timing/promotion. Local pass still requires allshapes/dynamic modelcodec ownership and full1088 WER/SIM/service.",
+  "input": "First8 real corpus reference code streams, windows0:8,8:16,16:24. Not generated serving codes.",
+  "gpu_uuid": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "cpu_probe": "AST parse passed; no CUDAinitialized inpreparation.",
+  "compiler_scope": "Bothsameexistingtorch.compile defaults; onlycuDNN benchmarkselection changes. Selectedalgorithms may alter reduction order; original exactgate preserved iffails.",
+  "prior_failure": "No previous run for this declared operatorselection candidate; cachedlinear prerequisite passed273local/46shape/414dynamic exactchecks."
+}

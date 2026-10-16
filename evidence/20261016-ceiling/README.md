@@ -142,6 +142,141 @@ Both arms score all1088 outputs: control WER1.858829%/SIM64.022896; candidate
 WER1.515532%/SIM64.251073. Both meet quality bounds, but no performance promotion
 follows. See [complete coalescing result](results/coalescing-native-service-summary.json).
 
+The complete native two-frame service pair (`a7118fb`, GPU6) observes
+4576.835→4580.030 frames/s (+0.070%), while makespan grows1.186% and output
+frames grow1.256%. Candidate TTFA p50/p95 is136.530/264.625ms and meanRTF0.291691.
+Both unfiltered1088-output quality groups pass: WER2.118396%/2.277485% and
+SIM64.359429/63.907606. This does not establish a useful service gain. Only159
+of1710 ordinary launch decisions use pairs (9.30%, including64 warmup requests);
+1216 are blocked by `waiting or pending`,193 by capacity and142 by audio
+boundaries. The existing combined counter cannot determine how many blocked
+requests were merely queued versus runnable. A CPU source audit identifies that
+an unready waiting group can block a pair even though the normal admission
+policy would continue decoding. See [service evidence](results/pipeline-service-summary.json)
+and [admission audit](results/pipeline-admission-audit.md).
+
+The artifact-only fused GDN recurrence/norm candidate is **not promoted**. Its
+original exact check fails; preserving FMA behavior and declaring an independent
+FP64 diagnostic lets one initial fixture pass. A new real fixture then fails
+before wider layer coverage: per-head raw RRMS1.449e-3 and norm3.653e-4 exceed
+the predeclared1e-4 diagnostic bound; one norm head also fails the independent
+reference-error bound. The process stops without timing or a full-graph claim.
+Whole-state averages had concealed these local differences. Original failures,
+first-fixture pass and expanded failure all remain in
+[the expanded result](results/gdn-fused-norm/expanded-result.json).
+
+The subsequent admission predicate (`95fcb0e`) distinguishes queued waiting
+from runnable admission while preserving pending/audio/max-frame boundaries.
+Both arms capture identical two-frame graphs; only
+`DRAMA3_FRAME_PIPELINE_DEFERRED_WAITING` changes. The full pair observes
+4481.280→4583.673 frames/s (+2.285%), output frames−2.424% and makespan−4.604%.
+TTFA p50/p95 changes136.515/267.085→146.277/274.848ms; meanRTF0.292684→0.289572.
+Both1088-output quality groups pass: WER1.992799%/1.833710%,
+SIM64.041274/64.120952. Pair use rises139/1902→625/1246 ordinary launches,
+including warmup. All1245 old waiting rejections are measured non-runnable
+waiting-only cases; the candidate selects483 pairs with deferred waiting.
+This supports the coverage hypothesis, while the one-pair service gain remains
+small and trades off first-audio latency. See
+[complete admission result](results/pipeline-admission-service-summary.json).
+
+`DRAMA3_CODEC_CACHED_LINEAR=1` (`e7cda1e`) keeps a private transformer copy whose
+40 Linear matrices cache exactly the native BF16 autocast values. Original codec
+parameters, FP32 norms/layer scales and reference encoding stay untouched; the
+retained BF16 matrix cache is208MiB. A native codec profile exposes40 repeated
+FP32→BF16 casts per graph,624MiB logical traffic and about141µs atB4/F8.
+Compiler freezing alone retains all40 casts and fails its local performance gate.
+Explicit caching removes them, passes273 exact local checks and observes
+B1/B4/B8 F8 graph reductions12.9%/9.2%/8.1%. These are isolated feasibility
+measurements, not service improvements.
+
+Production source then passes all46 captured-shape PCM/full-state checks and
+fixed dynamic80-request replay: all414 trace entries,80 full PCM outputs and
+complete model/codec state match across normal-sync and cached-sync/poll/thread.
+Private capture workspaces remain disjoint; the normal result also matches the
+archived native reference. Generated dynamic input covers28 actual codec shapes.
+The46-shape extension uses real reference codes, repeating a final valid code
+where a window exceeds the recorded reference. Complete service quality remains
+separate. See [local cache result](results/codec-cached-linear/summary.json) and
+[production dynamic gate](results/codec-cache-dynamic/result.json.gz).
+
+A native two-way expert partition passes135 exact intermediate/routing/output
+checks but fails its local performance gate: despite overlap, complete execution
+is17.59–24.68% slower than the original native MoE across three real layers.
+Its extra metadata builds and static CTA grids are retained in the accounting.
+The subsequent shared-routing rebase passes1373 exact checks but remains10.90–15.82% slower than native across the same three layers; it is also rejected for service. See [shared metadata](results/expert-metadata-rebase/summary.md). Cheap last-frame
+and causal n-gram two-code proposals are rejected by a CPU-only census: the best
+observed generated-prefix match rate is0.1011%, insufficient to amortize native
+verification/state rollback. Neither result is evidence that the final service
+target is impossible. See [MoE result](results/expert-partition/summary.md) and
+[proposal audit](results/native-speculation-feasibility.md).
+
+
+### Completed cache service and native fusion outcomes
+
+The private cached-Linear full C64 pair (`e7cda1e`, GPU6) observes
+**4726.771→4585.126 frames/s**, TTFA p50/p95
+145.645/273.682→142.864/276.595ms and RTF0.288130→0.288258.
+Both arms score all1088 outputs and meet the user quality bounds:
+WER1.599263%/2.017918%, SIM64.412759/63.860895. Output frames grow2.547%
+and makespan5.715%; this one pair establishes neither a repeated regression nor
+a fixed-work improvement. The cache stays default off. Sampled process memory
+increases105788→107058MiB (one-second polling, not a true allocator peak), while
+process-to-readiness is50.032→68.039s. The best complete-quality observation is
+now the4726.771 control, only1.0480× the frozen vLLM baseline. It still requires
+43.13% additional throughput to reach6765.407. See
+[complete cache service](results/codec-cache-service-summary.json).
+
+A follow-up GDN implementation preserves native reduction/FMA layout with four
+V32 warps. All180 real layer cases and six full-graph cases×eight steps match
+codes and all111 state tensors exactly. Complete recurrence+copy+norm timing
+is1.018778→1.083673ms (6.37% slower); production uses182 registers/thread.
+One CPU layout-lifetime experiment increases allocation to185 and is stopped
+before GPU execution. Removing launches is insufficient when fusion increases
+resource pressure. Historical exact/numeric failures remain intact. See
+[GDN outcome](results/gdn-fused-norm/warp-tiles-result-report.md).
+
+The initial cuDNN-selection comparison is cache-confounded: native thread-local
+plan lookup precedes the benchmark branch. A new thread per arm isolates that
+cache. Fresh selection changes the first native BF16 PCM (maxabs0.00390625),
+fails the original exact gate, and receives no timing or promotion. This does
+not constitute a user WER/SIM failure. Both original result and correction are
+retained in [the fresh selection result](results/codec-cudnn-fresh-thread/summary.md).
+
+A fresh current-source (`e7cda1e`) nonblocking timeline completes1088 requests
+with model union21.289s, codec union6.679s, overlap5.709s, codec-only0.970s
+and neither0.613s. Mixed backbones account for4.946s over196 calls;
+continuous-intake decode averages60.252 active rows by event time. Pair-aware
+analysis holds both active count and graph steps fixed. These profiled numbers
+are diagnostic, not a new acceptance group. They support prioritizing native
+model execution rather than expecting exposed host/codec gaps to close the
+whole target deficit. See [current timeline](results/current-pipeline-timeline-results.md)
+and [delivery-phase accounting](results/cpu-service-ceiling/findings.md).
+
+Fixed native work then isolates contention without changing generated lengths:
+80 real requests,414 trace entries,99 identical codec groups and4177 exact
+checks all pass. Model-only wall is1685.655ms; codec-only176.064ms normal versus
+164.218ms cached. Serialized work1861.710→1850.100ms and overlapped work
+1807.996→1800.720ms show that the local codec reduction becomes only0.402%
+of combined overlap time in this fixture. Normal overlap stretches model event
+union by120.786ms relative to model-only, but still beats serialization by2.89%.
+Turning overlap off would be a regression here. The fixture excludes mixed
+prefill, frame pairs, Engine callbacks and HTTP; it is a causal work diagnostic,
+not service throughput. See [fixed-work report](results/cpu-service-ceiling/fixed-work/results.md).
+
+A CPU prefix audit finds34.42% potentially duplicate prompt rows under ideal
+cold reuse. Current FIFO admission grouping suggests only6.57% from prefixes
+completed in earlier groups; the remaining27.86% requires same-group state
+forking. Existing prefill resets state and attends only local K/V, so a simple
+cache dictionary is incorrect. Extra whole-model traversals and new recurrent
+rounding boundaries require a dedicated suffix path; no GPU gain is claimed.
+See [prefix audit](results/reference-prefix/feasibility.md).
+
+The first FC1 arithmetic prototype is retained as an exact failure. A CPU
+source/layout audit maps all8192 candidate FP8 bytes to native order, but this
+is not a corrected GPU pass:35/64 scales still differ by up to two ULP. The
+failure is preserved while a separate corrected prototype is developed. It
+has no timing or service promotion. See [FC1 localization](results/expert-fc1-native/layout-audit.json).
+
 Source SHAs, experiment hypotheses, commands, raw per-request summaries,
 complete quality records and failures are indexed by [files.json](results/files.json).
 Gzip files retain the original uncompressed SHA256. Full WAVs and large tensor

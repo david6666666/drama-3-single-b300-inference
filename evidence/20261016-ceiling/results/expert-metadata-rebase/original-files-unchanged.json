@@ -1,0 +1,24 @@
+{
+  "all_unchanged": true,
+  "files": {
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/data/csrc/trtllm_fused_moe_kernel_launcher.cu": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/build.ninja": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/kernels_quantization.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/common_envUtils.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/common_logger.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/common_stringUtils.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/common_tllmException.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/common_memoryUtils.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/csrc_trtllm_fused_moe_runner.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_runner.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_deepseek.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_llama4.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_custom_block.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_custom_cluster.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_custom_cluster_large.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_custom_entry.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_routing_common.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/trtllm_backend_trtllm_fused_moe_dev_kernel.cuda.o": true,
+    "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/csrc_trtllm_batched_gemm_runner.cuda.o": true
+  }
+}

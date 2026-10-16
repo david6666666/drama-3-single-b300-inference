@@ -1,0 +1,20 @@
+{
+  "cpu_only": true,
+  "gpu_work_launched": false,
+  "runtime_modified": false,
+  "files": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-pipeline-first-layer-plan.md": "f1c5b394ed9dea3abd4bb0a36598b3e60d5b7e10d840c49dc1cef7dd80f4b578",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert_pipeline_cpu_audit.py": "39bb2bdce4c5ea955379450c0ace0cd0f4bc881d6dbf60825df7fe2db3500dc5",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-pipeline-cpu-audit.json": "bf521ced4a32a75ec7f9aa13a9103480181f6d0cddf6a4177c5b53618c1e2a78",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/next-native-structure-audit.md": "8e6c42c30bd718fbdc186b61005f57d11cc671fa84a9347ff39c1ef5b850f4bc",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/next-native-structure-audit.before-fc1-contract-correction.md": "4ab31b8b6d4e5f08e6ab271f70729cc5278c8316019b7b1326eae6133e39f5bc",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/fused_moe/core.py": "c929dbfc28eaab218b349a32f94c3fc0fe85a18fae1ab10362f22a8fc0fb3a63",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/fused_moe/shared/inputs.py": "f9bbc0be9df8ec492c3c128c7d62fd93aa4b12fca8f672774903a2b1e2d4e61c",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/fused_moe/backends/trtllm/sm100_runner.py": "9ae2ae0f475697b137710028c71517db08bb6ee7c2bdd5a7e40a2849c91df3e8",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/data/csrc/trtllm_fused_moe_runner.cu": "a446c0d7739dbe91190f4cc56608eafd08fbfd85fec4a055fd8556e5f58b6362",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/data/csrc/trtllm_fused_moe_kernel_launcher.cu": "b7702908482a41e65ff4156c0626ebe11bf1b39faf805bd2f0e7181f6f92b81e",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/data/csrc/fused_moe/trtllm_backend/trtllm_fused_moe_dev_kernel.cu": "4fec8e6380aaab32cb073b70f943cbc9e3c16cc0171c7c3aabcdcae478ab9e69",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/data/include/flashinfer/trtllm/fused_moe/runner.h": "75a6542d3dbcb8b4ee451b35c598bc2831c6ba3ae3f80483e0daaffc2f2550ae",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/data/include/flashinfer/trtllm/fused_moe/RoutingKernel.cuh": "56f281b209e7846b2d6b510cf963ae705a1f639619d49563c6ac8d0e6549667a"
+  }
+}

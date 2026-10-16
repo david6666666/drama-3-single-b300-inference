@@ -27,6 +27,10 @@ The confirmed quality bounds are **WER increase ≤1 percentage point and SIM
 decrease ≤2**, relative to vLLM at the same concurrency. The frozen
 [acceptance issue](https://github.com/ThinkFlowLab/OmniRSI/issues/10) requires all
 1088 outputs in each of three repetitions at C1/2/4/8/16/32/64.
+A newer native C64 feasibility run scores all 1088 outputs and observes
+4726.77 frames/s, still below the 6765.41 target. This single observation does
+not replace the repeated all-concurrency comparison above; see the
+[latest diagnostics and rejected candidates](evidence/20261016-ceiling/README.md).
 See the [current optimization campaign](docs/scale150-progress.md) for complete
 baseline quality, profiling findings and rejected experiments.
 Recent feasibility runs, failed quality gates and experimental options are

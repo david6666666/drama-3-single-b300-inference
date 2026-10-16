@@ -1,0 +1,1466 @@
+{
+  "status": "COMPLETE",
+  "source_sha": "171acc82460f479b56372a57d9f7de7a154795aa",
+  "source_status": "",
+  "driver_sha256": "5402d3fe333e8f8a8845f9e4031bdc896c52c6d409e53e24cc04bf1588643481",
+  "input_sha256": "ca318671ad7f8a4476655ec45d803ee6ad25230b3d9e042eb1a6cbb646e013cc",
+  "pid": 454788,
+  "cases": [
+    {
+      "layer": 0,
+      "real_rows": 63,
+      "padding_rows": 1,
+      "checks_pending": false,
+      "tactics": [
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          5
+        ]
+      ],
+      "preparation_seconds": 2.4929419559193775,
+      "exact_gate": "PASS",
+      "raw_ms": [
+        {
+          "native": 0.12677119970321654,
+          "serial": 0.15892479419708253,
+          "parallel": 0.1491968035697937
+        },
+        {
+          "parallel": 0.14883840084075928,
+          "serial": 0.15897599458694459,
+          "native": 0.12718080282211303
+        },
+        {
+          "native": 0.12687360048294066,
+          "serial": 0.15902719497680665,
+          "parallel": 0.14929920434951782
+        },
+        {
+          "parallel": 0.1493023991584778,
+          "serial": 0.15892479419708253,
+          "native": 0.12698240280151368
+        },
+        {
+          "native": 0.12728480100631714,
+          "serial": 0.15892319679260253,
+          "parallel": 0.14903680086135865
+        },
+        {
+          "parallel": 0.14904320240020752,
+          "serial": 0.1586176037788391,
+          "native": 0.12687360048294066
+        },
+        {
+          "native": 0.12687360048294066,
+          "serial": 0.1588736057281494,
+          "parallel": 0.14940160512924194
+        },
+        {
+          "parallel": 0.1491968035697937,
+          "serial": 0.15903040170669555,
+          "native": 0.12697600126266478
+        },
+        {
+          "native": 0.12697600126266478,
+          "serial": 0.159332799911499,
+          "parallel": 0.14929920434951782
+        },
+        {
+          "parallel": 0.1491968035697937,
+          "serial": 0.1591312050819397,
+          "native": 0.12697600126266478
+        },
+        {
+          "native": 0.12697600126266478,
+          "serial": 0.15872000455856322,
+          "parallel": 0.14909440279006958
+        },
+        {
+          "parallel": 0.14888960123062134,
+          "serial": 0.15902719497680665,
+          "native": 0.12666879892349242
+        },
+        {
+          "native": 0.12677119970321654,
+          "serial": 0.15912959575653077,
+          "parallel": 0.14909440279006958
+        },
+        {
+          "parallel": 0.1491968035697937,
+          "serial": 0.15892479419708253,
+          "native": 0.12666879892349242
+        },
+        {
+          "native": 0.12677119970321654,
+          "serial": 0.15928319692611695,
+          "parallel": 0.14873600006103516
+        }
+      ],
+      "median_ms": {
+        "native": 0.12687360048294066,
+        "serial": 0.15897599458694459,
+        "parallel": 0.1491968035697937
+      },
+      "parallel_gain_vs_native": -0.17594836910027323,
+      "parallel_gain_vs_serial": 0.06151363319071801
+    },
+    {
+      "layer": 19,
+      "real_rows": 63,
+      "padding_rows": 1,
+      "checks_pending": false,
+      "tactics": [
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          5
+        ]
+      ],
+      "preparation_seconds": 4.768373674945906,
+      "exact_gate": "PASS",
+      "raw_ms": [
+        {
+          "native": 0.1067088007926941,
+          "serial": 0.14018559455871582,
+          "parallel": 0.12753759622573851
+        },
+        {
+          "parallel": 0.12774239778518676,
+          "serial": 0.14054399728775024,
+          "native": 0.10690560340881347
+        },
+        {
+          "native": 0.10690560340881347,
+          "serial": 0.13957120180130006,
+          "parallel": 0.1275904059410095
+        },
+        {
+          "parallel": 0.12779680490493775,
+          "serial": 0.13998080492019654,
+          "native": 0.10680320262908935
+        },
+        {
+          "native": 0.10700960159301758,
+          "serial": 0.1404960036277771,
+          "parallel": 0.12743680477142333
+        },
+        {
+          "parallel": 0.12758400440216064,
+          "serial": 0.14039039611816406,
+          "native": 0.10700800418853759
+        },
+        {
+          "native": 0.10680639743804932,
+          "serial": 0.14029120206832885,
+          "parallel": 0.12779519557952881
+        },
+        {
+          "parallel": 0.12769440412521363,
+          "serial": 0.14039039611816406,
+          "native": 0.10680320262908935
+        },
+        {
+          "native": 0.10721280574798583,
+          "serial": 0.14013439416885376,
+          "parallel": 0.12753920555114745
+        },
+        {
+          "parallel": 0.12789759635925294,
+          "serial": 0.14028799533843994,
+          "native": 0.10691200494766236
+        },
+        {
+          "native": 0.10670080184936523,
+          "serial": 0.1406000018119812,
+          "parallel": 0.12728320360183715
+        },
+        {
+          "parallel": 0.12758879661560057,
+          "serial": 0.140392005443573,
+          "native": 0.10700160264968872
+        },
+        {
+          "native": 0.10690560340881347,
+          "serial": 0.14049279689788818,
+          "parallel": 0.1276927947998047
+        },
+        {
+          "parallel": 0.12779519557952881,
+          "serial": 0.14008159637451173,
+          "native": 0.10680480003356933
+        },
+        {
+          "native": 0.10670080184936523,
+          "serial": 0.14054399728775024,
+          "parallel": 0.12748639583587645
+        }
+      ],
+      "median_ms": {
+        "native": 0.10690560340881347,
+        "serial": 0.14039039611816406,
+        "parallel": 0.1275904059410095
+      },
+      "parallel_gain_vs_native": -0.19348660755504188,
+      "parallel_gain_vs_serial": 0.091174257862917
+    },
+    {
+      "layer": 39,
+      "real_rows": 63,
+      "padding_rows": 1,
+      "checks_pending": false,
+      "tactics": [
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          5
+        ]
+      ],
+      "preparation_seconds": 7.033848949940875,
+      "exact_gate": "PASS",
+      "raw_ms": [
+        {
+          "native": 0.08755199909210205,
+          "serial": 0.12164959907531739,
+          "parallel": 0.10967040061950684
+        },
+        {
+          "parallel": 0.10905599594116211,
+          "serial": 0.12180639505386352,
+          "native": 0.08765439987182617
+        },
+        {
+          "native": 0.08724480271339416,
+          "serial": 0.12175519466400146,
+          "parallel": 0.10885759592056274
+        },
+        {
+          "parallel": 0.10885119438171387,
+          "serial": 0.12216800451278687,
+          "native": 0.08744159936904908
+        },
+        {
+          "native": 0.08770560026168824,
+          "serial": 0.12206079959869384,
+          "parallel": 0.10895520448684692
+        },
+        {
+          "parallel": 0.10921119451522827,
+          "serial": 0.12216320037841796,
+          "native": 0.08765439987182617
+        },
+        {
+          "native": 0.08755199909210205,
+          "serial": 0.12211359739303589,
+          "parallel": 0.10926239490509033
+        },
+        {
+          "parallel": 0.10960960388183594,
+          "serial": 0.12175359725952148,
+          "native": 0.08755199909210205
+        },
+        {
+          "native": 0.08755199909210205,
+          "serial": 0.12205920219421387,
+          "parallel": 0.108951997756958
+        },
+        {
+          "parallel": 0.10915679931640625,
+          "serial": 0.1219599962234497,
+          "native": 0.08765439987182617
+        },
+        {
+          "native": 0.08765439987182617,
+          "serial": 0.12185759544372558,
+          "parallel": 0.10967040061950684
+        },
+        {
+          "parallel": 0.1096735954284668,
+          "serial": 0.12175199985504151,
+          "native": 0.08745120167732238
+        },
+        {
+          "native": 0.08724799752235413,
+          "serial": 0.12195839881896972,
+          "parallel": 0.10894720554351807
+        },
+        {
+          "parallel": 0.10884959697723388,
+          "serial": 0.12170239686965942,
+          "native": 0.08765439987182617
+        },
+        {
+          "native": 0.0871936023235321,
+          "serial": 0.12216320037841796,
+          "parallel": 0.1094704031944275
+        }
+      ],
+      "median_ms": {
+        "native": 0.08755199909210205,
+        "serial": 0.12195839881896972,
+        "parallel": 0.10915679931640625
+      },
+      "parallel_gain_vs_native": -0.24676535599805782,
+      "parallel_gain_vs_serial": 0.10496693648434718
+    }
+  ],
+  "checks": [
+    {
+      "name": "L0/native_vs_archived",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/native_route_ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int16"
+    },
+    {
+      "name": "L0/fixed_tactic_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/prepared_vs_ordinary_0_256",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/map_range_0_256",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/no_finalize_fc2_0_256",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/prepared_vs_ordinary_0_128",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/map_range_0_128",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/no_finalize_fc2_0_128",
+      "exact": true,
+      "shape": [
+        250,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/prepared_vs_ordinary_128_128",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/map_range_128_128",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/no_finalize_fc2_128_128",
+      "exact": true,
+      "shape": [
+        262,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/partition0_fc1_bytes",
+      "exact": true,
+      "shape": [
+        250,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/partition0_activation_bytes",
+      "exact": true,
+      "shape": [
+        250,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/partition0_fc2_bf16",
+      "exact": true,
+      "shape": [
+        250,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/partition0_fc1_scale",
+      "exact": true,
+      "shape": [
+        250,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/partition0_activation_scale",
+      "exact": true,
+      "shape": [
+        250,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/partition1_fc1_bytes",
+      "exact": true,
+      "shape": [
+        262,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/partition1_activation_bytes",
+      "exact": true,
+      "shape": [
+        262,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/partition1_fc2_bf16",
+      "exact": true,
+      "shape": [
+        262,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/partition1_fc1_scale",
+      "exact": true,
+      "shape": [
+        262,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/partition1_activation_scale",
+      "exact": true,
+      "shape": [
+        262,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/one_owner",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/partition0_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/partition1_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/ordered_finalize_single",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/ordered_finalize_partition",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/graph_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/graph_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/graph_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/serial_disjoint_fc2_maps",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/parallel_disjoint_fc2_maps",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/replay_change_32_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/replay_change_33_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/replay_change_34_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/replay_change_35_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/replay_change_36_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/replay_change_37_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/replay_change_38_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/replay_change_39_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/replay_change_40_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/routing_weights_untouched",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/routing_ids_restored",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/input_weight_hashes_untouched",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/rng_untouched",
+      "exact": true,
+      "shape": [
+        16
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/native_vs_archived",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/native_route_ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int16"
+    },
+    {
+      "name": "L19/fixed_tactic_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/prepared_vs_ordinary_0_256",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/map_range_0_256",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L19/no_finalize_fc2_0_256",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/prepared_vs_ordinary_0_128",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/map_range_0_128",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L19/no_finalize_fc2_0_128",
+      "exact": true,
+      "shape": [
+        227,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/prepared_vs_ordinary_128_128",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/map_range_128_128",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L19/no_finalize_fc2_128_128",
+      "exact": true,
+      "shape": [
+        285,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/partition0_fc1_bytes",
+      "exact": true,
+      "shape": [
+        227,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/partition0_activation_bytes",
+      "exact": true,
+      "shape": [
+        227,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/partition0_fc2_bf16",
+      "exact": true,
+      "shape": [
+        227,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/partition0_fc1_scale",
+      "exact": true,
+      "shape": [
+        227,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/partition0_activation_scale",
+      "exact": true,
+      "shape": [
+        227,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/partition1_fc1_bytes",
+      "exact": true,
+      "shape": [
+        285,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/partition1_activation_bytes",
+      "exact": true,
+      "shape": [
+        285,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/partition1_fc2_bf16",
+      "exact": true,
+      "shape": [
+        285,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/partition1_fc1_scale",
+      "exact": true,
+      "shape": [
+        285,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/partition1_activation_scale",
+      "exact": true,
+      "shape": [
+        285,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/one_owner",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L19/partition0_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L19/partition1_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L19/ordered_finalize_single",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/ordered_finalize_partition",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/graph_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/graph_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/graph_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/serial_disjoint_fc2_maps",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L19/parallel_disjoint_fc2_maps",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L19/replay_change_77_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/replay_change_78_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/replay_change_79_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/replay_change_80_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/replay_change_81_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/replay_change_82_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/replay_change_83_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/replay_change_84_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/replay_change_85_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/routing_weights_untouched",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/routing_ids_restored",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/input_weight_hashes_untouched",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L19/rng_untouched",
+      "exact": true,
+      "shape": [
+        16
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/native_vs_archived",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/native_route_ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int16"
+    },
+    {
+      "name": "L39/fixed_tactic_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/prepared_vs_ordinary_0_256",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/map_range_0_256",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L39/no_finalize_fc2_0_256",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/prepared_vs_ordinary_0_128",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/map_range_0_128",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L39/no_finalize_fc2_0_128",
+      "exact": true,
+      "shape": [
+        206,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/prepared_vs_ordinary_128_128",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/map_range_128_128",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L39/no_finalize_fc2_128_128",
+      "exact": true,
+      "shape": [
+        306,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/partition0_fc1_bytes",
+      "exact": true,
+      "shape": [
+        206,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/partition0_activation_bytes",
+      "exact": true,
+      "shape": [
+        206,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/partition0_fc2_bf16",
+      "exact": true,
+      "shape": [
+        206,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/partition0_fc1_scale",
+      "exact": true,
+      "shape": [
+        206,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/partition0_activation_scale",
+      "exact": true,
+      "shape": [
+        206,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/partition1_fc1_bytes",
+      "exact": true,
+      "shape": [
+        306,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/partition1_activation_bytes",
+      "exact": true,
+      "shape": [
+        306,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/partition1_fc2_bf16",
+      "exact": true,
+      "shape": [
+        306,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/partition1_fc1_scale",
+      "exact": true,
+      "shape": [
+        306,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/partition1_activation_scale",
+      "exact": true,
+      "shape": [
+        306,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/one_owner",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L39/partition0_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L39/partition1_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L39/ordered_finalize_single",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/ordered_finalize_partition",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/graph_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/graph_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/graph_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/serial_disjoint_fc2_maps",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L39/parallel_disjoint_fc2_maps",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L39/replay_change_122_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/replay_change_123_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/replay_change_124_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/replay_change_125_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/replay_change_126_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/replay_change_127_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/replay_change_128_native",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/replay_change_129_serial",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/replay_change_130_parallel",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/routing_weights_untouched",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/routing_ids_restored",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/input_weight_hashes_untouched",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L39/rng_untouched",
+      "exact": true,
+      "shape": [
+        16
+      ],
+      "dtype": "torch.uint8"
+    }
+  ],
+  "timings_allowed": true,
+  "gpu_uuid": "bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "device_name": "NVIDIA B300 SXM6 AC",
+  "torch_version": "2.13.0+cu130",
+  "cuda_visible_devices": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "all_exact": true,
+  "proposal_gate_pass": false,
+  "duration_seconds": 8.403280996950343,
+  "limits": [
+    "Three layers of actual partial B64 (63 real + 1 reserved row), no service/fullmodel claim.",
+    "Complete layer includes input quantization, live native canonical routing, IDs cast/copy, partition routing metadata, ordered finalization.",
+    "Partition graph retains extra q/scale/logits copies for stable pointer binding; any measured loss includes them.",
+    "No model state or sampling instantiated; input/weight hashes, replay ownership and Torch CUDA RNG checked."
+  ]
+}
