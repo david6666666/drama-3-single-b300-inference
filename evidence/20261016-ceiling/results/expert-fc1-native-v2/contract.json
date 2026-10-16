@@ -1,0 +1,17 @@
+{
+  "original_failure": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/result.json",
+  "immutable_native_oracle": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-real.pt",
+  "original_installed_source": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/gmem_c_resources.py",
+  "original_source_sha256": "e2b4f48cc1dd44ac0a3e99aa1e47f4ea03f0aa00da3068d0141530f1f484f30a",
+  "corrections": [
+    "TMEM16x256b: val0 logical row base16+lane8, val1 row+8; preserve packed converter and scatter low/high byte directly",
+    "native SASS2c50..2c70: q=448*rcp.approx(amax), dq=rcp.approx(q), matching quant/dequant boundary"
+  ],
+  "oracle_validator": "Unmodified raw byte/scales bitwise comparison; no output permutation in checker",
+  "evidence": [
+    "expert-fc1-native/independent-layout-audit.md",
+    "expert-fc1-native/layout-audit.json",
+    "native-fc1.sass"
+  ],
+  "no_timing": true
+}

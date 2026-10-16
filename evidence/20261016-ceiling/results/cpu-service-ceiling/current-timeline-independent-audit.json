@@ -1,7 +1,7 @@
 {
   "passed": true,
   "input_sha256": {
-    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/current-pipeline-service-ledger.json": "7e48a17756450262cb30e9e264e7ba46bce1217316850ef2cc55bb8eccdd5a72",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/current-pipeline-service-ledger.json": "dd75b703e752bfc804e914b68202c4e16d0c95d8cad5bda006dddde65a563f44",
     "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/current-pipeline-timeline.json": "2d0828417bb445cacde1c9da8db691a0b66cd6888e711d3ecdcd73b6d284776a"
   },
   "checks": [

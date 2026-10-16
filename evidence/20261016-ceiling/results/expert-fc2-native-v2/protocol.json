@@ -1,0 +1,53 @@
+{
+  "hypothesis": "Source-backed logical BF16 shared-memory scatter corrects the archived16-element store interleave without changing arithmetic; originalFC2FAIL remains retained. Native activation input, noFC1candidate.",
+  "isolated_variable": "Artifact-local BF16 DSFP8 TMA pair helper only: logicalrow0=(base//16)*16+(base%16)//2 and row1+8; originalconversion,arithmetic,TMAcommit/barriers retained. Same stage4 config as initialFAIL.",
+  "fixed": {
+    "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+    "layer": 0,
+    "expert": 205,
+    "real_routes": 8,
+    "original_global_topk": 8,
+    "native_tactic": [
+      8,
+      5
+    ],
+    "input": "Archived native activation E4M3 bytes[8,512], FP32 scales[4,8], original w2[1,2048,512] and scales[1,16,4]; no re-quantization or rerouting",
+    "K_order": "4 K128 blocks, each4 native K32 MMA, native FP32 scaling, BF16 output boundary",
+    "candidate_tile": [
+      128,
+      8,
+      128
+    ],
+    "candidate_mma": [
+      64,
+      8,
+      32
+    ],
+    "cluster_size": 1,
+    "shared_limit_bytes": 81920,
+    "actual_total_shared_bytes": 74664,
+    "cutlass": "4.7.1 process-only overlay; standalone4.6.2 and FI installation unchanged"
+  },
+  "gates": [
+    "CPU AOT no CUDA initialization; actual shared\u226480KiB; LOCAL/STACK0 and no local operations",
+    "GPU CUBIN hash matches frozen CPU CUBIN",
+    "All16384 BF16 output values bitwise equal native oracle",
+    "All input/weight/metadata storage and CUDA RNG unchanged",
+    "Only if exact passes: same-input CUDA graph replay exact"
+  ],
+  "stop": "First mismatch retained with actual/reference tensors; no timing, tolerance changes, fullcluster or runtime promotion",
+  "limitations": "One expert/layer/shape arithmetic feasibility only, no end-to-end or performance claim.",
+  "commands": {
+    "argv": [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native-v2/run.py"
+    ],
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442",
+      "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-metadata-rebase-95fcb0e/src",
+      "OMP_NUM_THREADS": "4",
+      "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/hf_modules"
+    }
+  },
+  "owner": "/root/engine_audit"
+}

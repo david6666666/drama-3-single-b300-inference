@@ -1,0 +1,76 @@
+{
+  "scope": "artifact-only packed GDN H/O fusion; complete MixedGraph diagnostic, not service",
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "synthetic_exact_checks": 57,
+  "real_exact_checks": 522,
+  "timed_trajectory_exact_checks": 1026,
+  "real_layer_cases": 90,
+  "real_graph_cases": 3,
+  "timing_repetitions": 3,
+  "replays_per_measurement": 20,
+  "all_exact": true,
+  "cases": [
+    {
+      "case": "d58p6",
+      "native_median_ms": 26.35557861328125,
+      "fused_median_ms": 26.49036560058594,
+      "time_increase_fraction": 0.0051141729529993185,
+      "native_ms": [
+        26.359136962890624,
+        26.349588012695314,
+        26.35557861328125
+      ],
+      "fused_ms": [
+        26.49036560058594,
+        26.4948974609375,
+        26.488430786132813
+      ]
+    },
+    {
+      "case": "d40p3",
+      "native_median_ms": 18.262635803222658,
+      "fused_median_ms": 18.2865966796875,
+      "time_increase_fraction": 0.0013120163334041646,
+      "native_ms": [
+        18.262635803222658,
+        18.26177062988281,
+        18.262701416015624
+      ],
+      "fused_ms": [
+        18.2865966796875,
+        18.288052368164063,
+        18.281024169921874
+      ]
+    },
+    {
+      "case": "d12p1",
+      "native_median_ms": 15.425816345214844,
+      "fused_median_ms": 15.449295043945312,
+      "time_increase_fraction": 0.0015220393011972089,
+      "native_ms": [
+        15.426348876953124,
+        15.425816345214844,
+        15.423281860351562
+      ],
+      "fused_ms": [
+        15.449295043945312,
+        15.455189514160157,
+        15.442575073242187
+      ]
+    }
+  ],
+  "production_registers_per_thread": 245,
+  "production_spill_bytes": 0,
+  "production_dynamic_shared_bytes": 115492,
+  "production_static_shared_bytes": 1024,
+  "production_tmem_columns": 256,
+  "runtime_promoted": false,
+  "all_concurrency_target_met": false,
+  "files": {
+    "result.json": "9fffb7b360fedf6104166b0edc348a73c5c81ec4af4bd6be5c05728cc4851e5e",
+    "real-result.json": "887fd8b4170ce264993e9dc22514dc7c4e886c70eaae203b92dfb49f19138169",
+    "timing-result.json": "9c2b03f43951c6d5694c6e847c3c1147bac66a21b0f4f17b0216394c65018f93",
+    "fused_ho.py": "cce70cc375d1845f04d862621f93e3313e0bbc5644478582ae96696cfe27621b"
+  },
+  "local_performance_pass": false
+}

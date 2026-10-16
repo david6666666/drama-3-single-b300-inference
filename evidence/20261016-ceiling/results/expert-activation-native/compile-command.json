@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/usr/local/cuda/bin/nvcc",
+    "-std=c++17",
+    "-O3",
+    "-use_fast_math",
+    "--generate-code=arch=compute_103a,code=sm_103a",
+    "-Xcompiler=-fPIC",
+    "-shared",
+    "-lineinfo",
+    "-Xptxas=-v",
+    "-I/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/data/cutlass/include",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/shared_activation.cu",
+    "-o",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/shared_activation.so"
+  ],
+  "returncode": 0,
+  "no_gpu_launch": true,
+  "source_sha256": "84fbc06ed358c794dceb59e7c0197873a798fe132fd8bf52b0ef4f2d07f9a46d",
+  "binary_sha256": "97693503ca30470033a1833461e60aacc14d77e8e9c9711ec090029a1b2db0e2"
+}

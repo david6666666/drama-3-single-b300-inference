@@ -1,0 +1,16 @@
+{
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/common.py": "cd1004374af2bdab455bb1438d7560702fb4abfbbfb28801fb45a58766a58ccf",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/prepare.py": "33567c88c8af6e77664d9ce0fdf66c359dd0164ef101495d5d2a5c8d203c85e3",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/prepare-result.json": "e8ffc80be12e73d3629ba395f3cbbe00378fd01ef636f652c69027ddf6c3886e",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/inputs.pt": "d96580143d87ac96464c6c9baeb44a704ff9101c57e9bcfe57c0a213955bf57b",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/run.py": "7f601a0d8ad50d8ee5d68e7ab4129bb79db9b46af1ee1fe158cb2e03649e4453",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/launch.py": "42e006b97498e96174a60d3a82b3bb52502fce3268b3502be87d9e3a5ee5f104",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/protocol.json": "e81d2995a0f992ec0f1586ec13ef86449c201477256443f3548bdb8a9df92d21",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/resource-usage.txt": "6c3c76d3b98f650b273c4a91d03eb3bb2975cf7cda19c14fad572e1359bd9215",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/candidate-fc2.sass": "efa0d8c74da9b69ae9ff5b0d79e087453252c1fdd0ca42da0f424ba0177a77a2",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/compile-artifacts/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048851.sm_103a.ptx": "a09f2174dfcf8873f6977112b5b8901ae0dc244c42a63fd7a11b48bc13e422b4",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/compile-artifacts/host-module.mlir": "c98cefd9d5f5af911c1ef958bfd05317d246216316fbc975ad6bdc42f6ab613f",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native/compile-artifacts/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048851.sm_103a.cubin": "7bf81f8d8ab8f822c106bedbc8235adb642fe86130340bf6ab18fa424130b1b7",
+  "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/gmem_c_resources.py": "e2b4f48cc1dd44ac0a3e99aa1e47f4ea03f0aa00da3068d0141530f1f484f30a",
+  "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/moe/tensor_adapter.py": "860c207e76e8bc1e755f5c1ed9b1437870fbe7ddfa4c8030f23caa9512750aee"
+}

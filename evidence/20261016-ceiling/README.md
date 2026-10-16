@@ -277,6 +277,41 @@ is not a corrected GPU pass:35/64 scales still differ by up to two ULP. The
 failure is preserved while a separate corrected prototype is developed. It
 has no timing or service promotion. See [FC1 localization](results/expert-fc1-native/layout-audit.json).
 
+The corrected FC1 v2 passes its42 single-expert checks, while a subsequent
+expanded test exposes a separate zero-input scale mismatch. Native SASS shows
+that the candidate's `max(amax,1e-12)` floor is not part of the native FC1
+quantizer. FC1 v3 removes that floor and handles the native zero boundary;
+all438 expanded checks pass across15 real layer/routing fixtures plus native
+zero and near-threshold synthetic references. Native FP8 checkpoint bytes,
+scales, original top8 and K128/K32 arithmetic stay unchanged. Both previous
+failures remain authoritative historical results. See
+[FC1 v3](results/expert-fc1-native-v3/result.json.gz).
+
+FC2's first failure is likewise a physical16-element store permutation;
+the corrected logical BF16 store passes40 single-expert and306 expanded checks
+across15 native fixtures. A genuinely new shared-memory activation device body
+passes2063 checks, including partial0–8 rows, capture, guards and independently
+generated native exceptional-value references. The component checks cover
+routing counts0–64 and changing graph metadata, but do not establish a complete
+resident chain or a speedup. Current FC1/FC2 shared usage is73592/74664B;
+FC1's dynamic register roles consume53248 registers/CTA despite a smaller
+static header, precluding a two-CTA register budget. See
+[FC2 expansion](results/expert-fc2-expanded/report.md),
+[shared activation](results/expert-activation-native/results.md) and
+[resident implementation contract](results/expert-resident-implementation-plan.md).
+
+A separate native GDN H/O fusion preserves BF16 intermediate boundaries and
+passes57 synthetic,522 real-layer/fullgraph and1026 timed-trajectory checks per
+variant. Three alternating timing repetitions per mixed shape show that the
+V32 variant is0.13–0.51% slower. Preserving O's V64 tile avoids duplicated QK
+work, but the main D58/P6 shape is still0.248% slower and the smaller shapes
+are essentially flat. Both fail their local continuation condition and remain
+artifact-only. Shared/TMEM allocation and loss of chunk parallelism offset a
+simple intermediate-traffic argument; no hardware stall attribution is claimed.
+See [V32 result](results/gdn-fused-prefill/report.md) and
+[V64 result](results/gdn-fused-prefill-o64/report.md). No new service throughput
+or task-quality group is claimed by these component experiments.
+
 Source SHAs, experiment hypotheses, commands, raw per-request summaries,
 complete quality records and failures are indexed by [files.json](results/files.json).
 Gzip files retain the original uncompressed SHA256. Full WAVs and large tensor

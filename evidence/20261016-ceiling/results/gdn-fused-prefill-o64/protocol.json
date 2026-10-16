@@ -1,0 +1,35 @@
+{
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "hypothesis": "Native H recurrence and O in one kernel can avoid H/updated-v global traffic while preserving all BF16 boundaries and ordered dot arithmetic. First arithmetic gate only.",
+  "variable": "H+O fusion; O BV64 preserved, H tile32->64 with8 warps (same K64 arithmetic order). No autotuning.",
+  "controls": "Same inputs, original SGLang kernels/exp functions, original BF16 intermediates, FP32 interchunk state, all rows including partial and empty.",
+  "success": "Every eager and captured output, H, updated-v and all final/untouched states bit exact; input/RNG unchanged.",
+  "stop": "First mismatch or process/kernel error; preserve FAIL; no timing.",
+  "gpu_uuid": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "feasibility_repetitions": 1,
+  "timings_allowed": false,
+  "synthetic_only": true,
+  "frozen_files": {
+    "run.py": "08c24bfca0fb5c6e1bd61f0feb86e6fb455a0ed1705b544340b334dda37b75cd",
+    "fused_ho.py": "cce70cc375d1845f04d862621f93e3313e0bbc5644478582ae96696cfe27621b",
+    "prepare.py": "bad9d7f09a7267f2224d0ff50e6dda68ce129ee3a662b5a7145ff04cb47b8fcd",
+    "cpu-aot.json": "9dc97617e955b4c3ea87f60393bd22468ac1239d8336243862bba6836f7084b3",
+    "production.cubin": "0dd4b7014b22346f376d396198cecf5590f2c13c41bd1b07c923f9149f821d3f",
+    "debug.cubin": "dfc269f0ed1e1d36b122cbe1149b3478ba72f4e061079cd1ca29a6ee4dd0fcf0"
+  },
+  "prelaunch_compute_apps": "",
+  "aot_resources": {
+    "registers_per_thread": 206,
+    "dynamic_shared_bytes": 132884,
+    "static_shared_bytes": 1024,
+    "local_bytes": 0,
+    "stack_bytes": 0,
+    "tmem_columns": 512
+  },
+  "storage": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/gdn-fused-prefill-o64": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/vda4 ext4   rw,relatime,discard,errors=remount-ro,commit=30\n",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/vda4 ext4   rw,relatime,discard,errors=remount-ro,commit=30\n",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache": "TARGET SOURCE    FSTYPE OPTIONS\n/      /dev/vda4 ext4   rw,relatime,discard,errors=remount-ro,commit=30\n"
+  },
+  "time": 1792112118.2948072
+}

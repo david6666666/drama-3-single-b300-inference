@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "cases": 137,
+  "checks": 2063,
+  "failed_checks": 0,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "source_status_after": "",
+  "gpu_uuid": "619f7fdc-5f98-8c37-fe89-0465d6130baf",
+  "timing_allowed": false,
+  "gpu_released": true,
+  "prior_failure": {
+    "path": "result.json",
+    "stage": "pre_candidate_kernel_UUID_prefix_check",
+    "preserved": true
+  },
+  "test_scope": "Single untimed arithmetic/layout feasibility. No runtime edits, service or performance claims. Original native host helper is used only to create additional synthetic zero/NaN oracles.",
+  "hashes": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/run-v2.py": "e8932e26ba45da13bbc6ab63d6c1cdaf46a343e4cefb123b6c760729b7ba4cc6",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/shared_activation.cu": "84fbc06ed358c794dceb59e7c0197873a798fe132fd8bf52b0ef4f2d07f9a46d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/shared_activation.so": "97693503ca30470033a1833461e60aacc14d77e8e9c9711ec090029a1b2db0e2",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/inputs.pt": "a1631ff7a6b04a89d3e30b449e55e9fad2b033167f1df008a2f541f98e8bac2b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/cpu-contract.json": "e3487e09e7a03c1591d1f3a238d88f1862b4e1b4ff48ef690e114b5c434b7cda",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/compile-command.json": "537192b326fb03de608bf7e3caf3ececbe6629224434680e7cdb099a3f8728fc",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/extension/drama3_metadata_rebase_native.so": "43c14f43b679107ea591f4fc73c95faaa84c1f6d4b1e9c5a171fc56079a016b3"
+  }
+}

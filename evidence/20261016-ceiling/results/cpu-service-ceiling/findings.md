@@ -80,4 +80,4 @@ This resolves the apparent codec paradox without claiming the earlier complete-s
 
 No proven candidate yet supplies the missing multi-millisecond equivalent per full64 step. The isolated B64 rate (~7734 fps) exceeds 6765 but omits mandatory prompts, context variation, partial batches and audio; it neither proves the service target achievable nor proves it impossible. Current evidence directs further native kernel/dataflow work rather than claiming a theoretical ceiling or changing the user's quality/computation contract.
 
-Independent timeline review: [15 accounting checks pass](current-timeline-review.md). The legacy 815 field is extra graph steps, not request rows; initial prefill includes its first tower. Original parent ledger/raw remain unchanged.
+Independent timeline review: [15 accounting checks pass](current-timeline-review.md). The legacy 815 field is extra graph steps, not request rows; initial prefill includes its first tower. The parent corrected these labels and preserved the old ledger separately; raw events remain unchanged.

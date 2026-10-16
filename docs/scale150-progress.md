@@ -1,3 +1,11 @@
+Latest component update: corrected native FC1/FC2 and shared activation now
+pass expanded arithmetic/ownership gates; the complete resident MoE chain is
+still under implementation. Two exact native GDN H/O fusion variants fail their
+local performance continuation gate and are not promoted. These experiments do
+not change the best complete-quality C64 observation4726.771frames/s or the
+6765.407 target. Details and all failures are retained in the
+[component evidence](../evidence/20261016-ceiling/README.md).
+
 # Current concurrency optimization campaign
 
 Status: **INCONCLUSIVE; the all-concurrency target has not been achieved.**
