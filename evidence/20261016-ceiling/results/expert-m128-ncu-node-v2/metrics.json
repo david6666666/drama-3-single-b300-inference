@@ -1,0 +1,27 @@
+{
+  "chip": "gb110",
+  "offline_only": true,
+  "cuda_visible_devices": "",
+  "count": 17,
+  "metrics": [
+    "gpu__time_duration.sum",
+    "dram__bytes_read.sum",
+    "dram__bytes_write.sum",
+    "dram__throughput.avg.pct_of_peak_sustained_elapsed",
+    "sm__cycles_active.avg.pct_of_peak_sustained_elapsed",
+    "sm__pipe_tensor_cycles_active.avg.pct_of_peak_sustained_elapsed",
+    "lts__t_sectors_op_read.sum",
+    "lts__t_sectors_op_write.sum",
+    "lts__t_sector_hit_rate.pct",
+    "sm__ctas_active.avg.per_cycle_active",
+    "sm__warps_active.avg.pct_of_peak_sustained_active",
+    "smsp__warps_eligible.avg.per_cycle_active",
+    "smsp__issue_active.avg.pct_of_peak_sustained_active",
+    "smsp__average_warps_issue_stalled_barrier_per_issue_active.ratio",
+    "smsp__average_warps_issue_stalled_long_scoreboard_per_issue_active.ratio",
+    "smsp__average_warps_issue_stalled_short_scoreboard_per_issue_active.ratio",
+    "smsp__average_warps_issue_stalled_membar_per_issue_active.ratio"
+  ],
+  "query_sha256": "b80acaba50fecd9b38ffdcb91145c5a7e069578822bac0c246b1c3a56cfb2942",
+  "support": "All exact metric suffixes present in installed NCU offline gb110 catalog; not a hardware collection or pass-count test."
+}

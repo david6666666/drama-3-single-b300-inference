@@ -1,0 +1,117 @@
+{
+  "old_sample_is_not_current_fixture": true,
+  "old_router_counts_provenance": "torch.topk recomputation from BF16 router; not actual FI routing IDs; tie ordering unproven",
+  "old_90pct_scenario": [
+    {
+      "layer": 0,
+      "projection": "FC1",
+      "measured_us": 76.32,
+      "dram_read_write_bytes": 442014464.0,
+      "reported_peak_inferred_TBps": 7.666923656313258,
+      "conditional_time_at_90pct_inferred_peak_us": 64.05792000000001,
+      "conditional_savings_us": 12.262079999999983,
+      "conditional_reduction_pct": 16.066666666666652
+    },
+    {
+      "layer": 0,
+      "projection": "FC2",
+      "measured_us": 41.984,
+      "dram_read_write_bytes": 217707264.0,
+      "reported_peak_inferred_TBps": 7.6606318618955145,
+      "conditional_time_at_90pct_inferred_peak_us": 31.576632888888888,
+      "conditional_savings_us": 10.407367111111114,
+      "conditional_reduction_pct": 24.788888888888895
+    },
+    {
+      "layer": 19,
+      "projection": "FC1",
+      "measured_us": 61.984,
+      "dram_read_write_bytes": 344848128.0,
+      "reported_peak_inferred_TBps": 7.666394271985911,
+      "conditional_time_at_90pct_inferred_peak_us": 49.97976533333333,
+      "conditional_savings_us": 12.004234666666669,
+      "conditional_reduction_pct": 19.366666666666667
+    },
+    {
+      "layer": 19,
+      "projection": "FC2",
+      "measured_us": 36.352,
+      "dram_read_write_bytes": 172927232.0,
+      "reported_peak_inferred_TBps": 7.66025946338255,
+      "conditional_time_at_90pct_inferred_peak_us": 25.082879999999996,
+      "conditional_savings_us": 11.269120000000001,
+      "conditional_reduction_pct": 31.000000000000007
+    },
+    {
+      "layer": 39,
+      "projection": "FC1",
+      "measured_us": 48.32,
+      "dram_read_write_bytes": 246301952.0,
+      "reported_peak_inferred_TBps": 7.661669336046179,
+      "conditional_time_at_90pct_inferred_peak_us": 35.71921777777778,
+      "conditional_savings_us": 12.600782222222222,
+      "conditional_reduction_pct": 26.077777777777776
+    },
+    {
+      "layer": 39,
+      "projection": "FC2",
+      "measured_us": 28.48,
+      "dram_read_write_bytes": 123036672.0,
+      "reported_peak_inferred_TBps": 7.665202031881724,
+      "conditional_time_at_90pct_inferred_peak_us": 17.834808888888887,
+      "conditional_savings_us": 10.645191111111114,
+      "conditional_reduction_pct": 37.37777777777779
+    }
+  ],
+  "current_complete_call_reference_single_AB_100replays": [
+    {
+      "layer": 0,
+      "native_complete_us": 120.7481575012207,
+      "candidate_complete_us": 117.45247840881348,
+      "observed_single_screen_delta_us": 3.2956790924072266,
+      "5pct_budget_us": 6.037407875061035,
+      "10pct_budget_us": 12.07481575012207,
+      "remaining_from_candidate_to_native_5pct_us": 2.7417287826538086,
+      "remaining_from_candidate_to_native_10pct_us": 8.779136657714844,
+      "formal_performance_claim": false
+    },
+    {
+      "layer": 19,
+      "native_complete_us": 99.42527770996094,
+      "candidate_complete_us": 96.26015663146973,
+      "observed_single_screen_delta_us": 3.165121078491211,
+      "5pct_budget_us": 4.971263885498047,
+      "10pct_budget_us": 9.942527770996094,
+      "remaining_from_candidate_to_native_5pct_us": 1.806142807006836,
+      "remaining_from_candidate_to_native_10pct_us": 6.777406692504883,
+      "formal_performance_claim": false
+    },
+    {
+      "layer": 39,
+      "native_complete_us": 79.94368076324463,
+      "candidate_complete_us": 76.62975788116455,
+      "observed_single_screen_delta_us": 3.313922882080078,
+      "5pct_budget_us": 3.9971840381622314,
+      "10pct_budget_us": 7.994368076324463,
+      "remaining_from_candidate_to_native_5pct_us": 0.6832611560821533,
+      "remaining_from_candidate_to_native_10pct_us": 4.680445194244385,
+      "formal_performance_claim": false
+    }
+  ],
+  "current_actual_native_routes": {
+    "0": {
+      "experts": 206,
+      "token8_tiles": 208,
+      "logical_fp8_weight_bytes": 648019968
+    },
+    "39": {
+      "experts": 115,
+      "token8_tiles": 146,
+      "logical_fp8_weight_bytes": 361758720
+    }
+  },
+  "not_a_lower_bound": "Logical unique weights are not mandatory HBM bytes when graph warm cache can retain weights. No current bandwidth headroom is inferred until actual current counters exist.",
+  "phase_tail_budget_us": null,
+  "pdl_overlap_budget_us": null,
+  "source": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b"
+}

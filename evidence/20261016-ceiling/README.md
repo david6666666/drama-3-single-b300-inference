@@ -482,3 +482,144 @@ See [dtype provenance](results/native-lt-dtype-contract/summary.md) and
 The best complete-quality C64 observation remains4726.771frames/s. These local
 negative results do not prove6765.407 impossible, and they do not satisfy the
 all-concurrency1.5× performance and WER/SIM acceptance requirements.
+
+## Current hardware counters and a bounded route-address experiment
+
+Exactly eight NCU node records on GPU2 cover L0/real and L39/real, FC1/FC2,
+native versus metadata-ready M128. All404 correctness/ownership checks pass;
+each selected kernel uses four replay passes, clock/cache control remain off,
+and original predecessors/PDL remain in the complete graph. Node replay still
+serializes launches: these timings are not complete-call, overlap or service
+measurements. Binary NCU reports remain in the local artifact directory;
+the exported metric CSV, commands, source, hashes and summaries are archived here.
+The first launcher stopped after two records because NCU2026.3 emitted `.ncu-repz`
+instead of `.ncu-rep`; v2 imports those two and samples only the remaining six.
+No data were silently replaced or resampled.
+
+| FC1 observation | L0 native → candidate | L39 native → candidate |
+|---|---:|---:|
+| Active CTAs per active SM cycle |1.00 → 1.95|1.00 → 1.94|
+| Eligible warps per active cycle |0.30 → 0.20|0.36 → 0.26|
+| Issue-active percent |22.71 → 16.41|26.83 → 20.08|
+| DRAM reads MB |432.35 → 432.25|241.24 → 246.83|
+
+Higher residency is real, but it does not yield proportionally more issuable
+work. Across all four paired nodes, DRAM read changes range from−0.154% to+2.318%;
+there is no large repeated-weight traffic saving. Long-scoreboard ratios point
+toward investigating ordinary load dependencies, but their issue-active
+normalization and aggregation cannot identify a particular load or establish
+TMA starvation. See [all17 metrics and limits](results/expert-m128-ncu-node-v2/summary.md).
+
+A specific source audit found that the FC1 scale producer reloads the same
+route-map row for each of16 K128 blocks. The artifact caches that row once per
+work tile while preserving the live metadata, masks, PDL and all FP8/FP32/BF16
+boundaries. AOT confirms the repeated load disappears, FC2 is unchanged, register
+and shared-memory allocation stay the same and there are no spills. All1516
+exact checks pass. One AB complete-call screen gives120.871→117.194µs,
+99.385→96.603µs and80.055→76.704µs, improvements3.04%/2.80%/4.19% versus the
+original vendor baseline. All miss the5% continuation gate; no repetitions,
+stress timing or runtime integration follows. Separate runs against the old
+candidate cannot be subtracted to claim an isolated route-cache gain.
+See [route-cache evidence](results/expert-m128-route-cache/summary.md) and
+[the memory/dependency audit](results/native-small-expert-memory-audit.md).
+
+## Original mixed causal-prefix identities and compact native parts pass
+
+The native e7cda1e mixed path preserves byte-identical normalized MoE input rows
+for three reconstructed real prompt cases: one group, its reversed order/slots
+through the same graph, and a changed-reference group. All74120 row-pair/layer
+comparisons across40 layers are exact;3360 nonshared control comparisons differ.
+The matcher requires complete causal11-column prefix identity, exact position,
+conditioning and original zero initial state. Decode and original padding rows
+are not merged. The group membership is a FIFO proxy whose token totals match
+the recorded timeline, not a recovered actual admission list.
+
+A separate compact→native parts→expand gate now passes5393 checks. It retains
+every decode and original padding row, compacts1600 rows to fixed capacity1088,
+calls the unchanged native `model.moe_parts`, and expands all three outputs.
+All40 layers in three real cases pass eager and same-graph byte comparisons of
+FP8 bytes/scales/logits, canonical top8, routed/shared outputs and shared gate.
+All111 model/request states, read weights, guards and RNG remain unchanged.
+The120 reconstructed full-input hashes match the earlier observer. The first
+harness's scalar-byte-view failure is preserved; v2 changes only that comparator
+and exercises scalar/signed-zero/empty CPU tests before rerunning the whole gate.
+
+This component gate is followed by a separate complete mixed-graph screen below.
+Read the [CPU row budget](results/native-row-reuse-audit/proposal.md),
+[actual alias checks](results/native-row-reuse-audit/alias-results.md) and
+[compact native-parts checks](results/native-row-reuse-exact-v2/results.md).
+Theoretical removed prompt rows are not a service speedup, especially while
+participating expert weights still require their first reads. Raw hidden tensors
+remain local; published manifests retain their hashes and original paths.
+
+## Ordered finalizer plus residual normalization: exact, below its budget
+
+A separate GPU4 operator artifact fuses native top8 finalization into the existing
+shared-expert combination/residual RMSNorm while preserving every rounding
+boundary. All1355 provenance, tensor, graph, guard and RNG checks pass over15
+original FC2 fixtures and changing physical/missing-row maps. One AB100-replay
+screen saves1.057/1.036/1.801µs for the three real layers, below the predeclared
+2.5µs per-call gate. This is not complete-MoE or model timing, and no integration
+or serving test follows. Both graphs include an identical residual restore.
+
+Original setup failures are retained, including an occupied-GPU preflight, UUID
+spelling check and a wrong native-reference ABI boolean. The archived native
+output check caught that unweighted control before candidate comparison; after
+correcting `use_routing_scales_on_input=False`, the unchanged strict checks pass.
+See [finalizer result and all failure provenance](results/native-finalize-norm-v3/summary.md).
+The best complete-quality C64 observation remains4726.771frames/s;6765.407 and
+all seven concurrency/quality gates are still unmet.
+
+## Instruction sampling remains unresolved; tower counts are not a savings budget
+
+The separately frozen PC-sampling run stops after one native FC1 record with
+INCONCLUSIVE status. It passes80 exact checks and records4815 samples,3503 long
+scoreboard samples, with no reported overflow or dropped bytes. The report uses
+loaded program addresses while the frozen disassembly uses function-relative
+offsets. All445 sampled addresses fail the direct-offset mapping gate;21 return
+no SASS instruction. The two pass fields also disagree. No base is guessed from
+instruction text or minimum sampled address, and the candidate is NOT_RUN.
+A later CPU audit finds an explicit report-owned function base, but the21
+missing PCs remain outside the function and the pass discrepancy is unresolved.
+No attribution to a specific load or native/candidate comparison is established.
+See the [preserved report](results/expert-m128-fc1-pcsampling/summary.md) and
+[read-only mapping follow-up](results/expert-m128-fc1-pcsampling/pc-base-independent-audit.md).
+
+A CPU-only audit of the older three-replay B64 trace identifies a1.332ms tower
+span,373 kernels and only0.014ms of uncovered gaps. Summed kernel time overlaps
+and must not be subtracted from wall time. The whole13-layer FFN sequence costs
+0.388ms, including both GEMMs; saving0.3ms would require removing77% of that
+whole segment while retaining its arithmetic. The223 intercepted model-linear
+calls omit12 direct tower matrix operations. This audit finds no justified
+new small-fusion budget above0.3ms and makes no current-service roofline claim.
+See the [scope and complete accounting](results/native-tower-budget-audit/summary.md).
+
+## Full mixed causal-prefix compaction: exact, below continuation threshold
+
+The unchanged native MixedGraph is compared with an artifact that gathers1088
+rows, runs the original full-top8 MoE and expands its three parts to1600 rows
+at each of40 layers. Attention, GDN updates, teacher-forced tower, graph output
+and all111 model/request state tensors remain byte exact in957 checks across
+three real proxy cases, including reversed order and changed conditioning.
+Each warmup and timed replay restores the same complete initial state before
+its start event. The graph includes gather/expand/backbone/teacher; independent
+postgraph sampling towers, codec and host preparation are outside this boundary.
+
+| Real proxy case | Native median ms | Candidate median ms | Reduction |
+|---|---:|---:|---:|
+|190|29.130736|27.997727|3.889%|
+|190, reversed order and reused slots|29.136928|27.994192|3.922%|
+|192, changed conditioning|29.300735|28.023808|4.358%|
+
+This is one AB100 screen per case, not three independent repetitions. All three
+miss the frozen5% gate. No runtime integration or service comparison follows.
+The candidate retains704027456 extra buffer bytes. Removing redundant adapter
+copies is a separate hypothesis; it does not retroactively qualify this result.
+See [exact results, state restoration and timing scope](results/native-row-reuse-mixed/results.md).
+
+The separate [full-prefix DAG CPU audit](results/prefix-dag-cpu-audit/summary.md)
+explains why exact MoE-row sharing does not automatically share recurrent state:
+a common25-row prefix ends inside the native64-row GDN chunk, and the teacher's
+next-row labels shorten its safe common prefix. A full per-layer fork remains a
+new implementation. Its optimistic row-linear estimates are not measured gains;
+the entire current mixed-plus-prefill interval is smaller than the service gap.

@@ -1,0 +1,17 @@
+{
+  "status": "CPU_EXTENSION_FIX_PASS",
+  "report_suffixes_each_accepted": true,
+  "duplicate_rejected": true,
+  "missing_rejected": true,
+  "reused_raw2records_valid": true,
+  "unchanged_profile_driver": true,
+  "frozen_count": 150,
+  "hashes": {
+    "profile_driver.py": "e275f03f0ab0399bfd263bd0492a9f3c756e5d076c2256561b40ce2da2121320",
+    "launch.py": "69a41ad9e8584d1bb2438bf98bad875e8efeae420eb225388d1d0c8426bd0bf9",
+    "protocol.json": "d66862fbbb097829af7ed251d68dcc0de55542e3b5418714026f719500be4199",
+    "frozen-inputs.json": "6cea52e9c00460ba4711b2f57dc1c67822162f7873960747b30ed6fb592663ea",
+    "metrics.json": "9a2fbbc22d4a53a6f21da377683e90303cb7a3eefde761ac5269463c3aca38cc"
+  },
+  "gpu_work": false
+}

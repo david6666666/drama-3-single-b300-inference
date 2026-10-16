@@ -1,3 +1,15 @@
+Eight current NCU node records now confirm nearly2× actual CTA residency for
+M128, but FC1 has fewer eligible warps and lower instruction issue activity;
+DRAM/L2 traffic barely changes. Caching one repeated scale-route address passes
+1516 exact checks but still misses the5% complete-MoE continuation gate. A separate
+ordered-finalizer/RMSNorm fusion passes1355 checks but saves less than its2.5µs
+operator budget. Neither changes serving performance. Original mixed inputs do
+pass74120 causal-prefix row-pair comparisons across40 layers. A separate
+compact-native-parts gate passes5393 checks. Complete mixed execution passes957
+exact checks but its first AB100 screen improves only3.89–4.36%, below the5%
+continuation threshold; it remains outside the runtime. See the newest sections in the
+[diagnostic evidence](../evidence/20261016-ceiling/README.md).
+
 Latest update: full resident MoE and M128 global-buffer implementations pass
 native arithmetic checks, but both fail their declared local performance gate.
 Resident fusion is14–37% slower in the three real routing cases; M128 reduces

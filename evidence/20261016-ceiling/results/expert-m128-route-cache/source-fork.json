@@ -1,0 +1,17 @@
+{
+  "parent": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready",
+  "original_sources": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_driver.py": "fec83b2e9f69865b17ef8a263921d9b2d5a47839f6e304c152cf2dbea2664d14",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_gate.py": "e5e87746a853bcbcf418552d8821f6b5303dd266ed316b2c2c74af006dc0f6e4",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/launch.py": "9e3ccdc67bf3501fe26da2965b7ad79a945e4e974548c7137412e4eddf64e5d1",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_ready_config.py": "43b0cb3a051baa70bd86a2602dcbffc9bd1f8850ee9b7f569a26cbf19f94520a",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_ready_kernel.py": "23dd6ecfedda65839d9f986d45f7781f59e730b9e0ab4eaea0ca3270ed678041",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_ready_graph.py": "4107f0e0ad89dde8ef6be6f8c07c65220adcd2e0136aad9d639db1bb9e03a38b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/body_common.py": "fe6642d1d5ec154236674e4f8a8c875fea720507d4716ecb235cc05809deb331",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/gmem_c_resources_m128_body.py": "4b8fc3fe4483977105bd197caef5afbfaec938aef1f736b449ecd5eeca6da4d5"
+  },
+  "native_scale_source": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/smem_deepseek_sf_resources.py",
+  "native_scale_sha256": "e4ddc21e760ea969c2b22b15b5248ab8ab680b382c0dc35e8c23bcd13e8e0b8e",
+  "candidate_source_sha256": "68e54224fd532f4dc82e38b3d6394fd6682f50481ca806d21a47f7e7eb71e276",
+  "gpu_used": false
+}

@@ -1,0 +1,4 @@
+{
+  "reason": "Host module contains candidate CUBIN as a constant byte string, so whole text cannot be equal when FC1 changes. Only embedded kernels_binary line is excluded from host launch comparison; full CUBIN hashes and all launch/resource checks remain.",
+  "kernel_changed_by_this_fix": false
+}

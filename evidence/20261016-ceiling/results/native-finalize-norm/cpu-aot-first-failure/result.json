@@ -1,0 +1,5 @@
+{
+  "status": "CPU_AOT_FAIL",
+  "cuda_initialized": false,
+  "reason": "Zero-result inline_asm griddepcontrol.wait triggered ConvertTritonGPUToLLVM assertion resultNumber < getNumResults; replace with installed triton.language.extra.cuda.gdc_wait builtin that supplies dummy int32 result. No GPU execution."
+}

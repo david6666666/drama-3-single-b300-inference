@@ -1,0 +1,14 @@
+{
+  "status": "CPU_PC_VALIDATOR_PASS",
+  "checks": 7,
+  "gpu_used": false,
+  "source_count": 147,
+  "profile_driver_unchanged": true,
+  "hashes": {
+    "profile_driver.py": "e275f03f0ab0399bfd263bd0492a9f3c756e5d076c2256561b40ce2da2121320",
+    "launch.py": "f4ec313f31ef8c1d0a0c8cfb689d2c36672095368eca04820041be690a0c043c",
+    "extract_pc.py": "6b61f80625be9972c9913c0991dcfbe5da0171c853e6940fba0d0bc10cd35cda",
+    "protocol.json": "a38aafc453dbf19935094c8d2059add92bc44e19fdebd858590618963b8ffd80",
+    "frozen-inputs.json": "950508eff3fa34888767cc4df9e14ccdb3f13e870af8b635f79379b34995cea6"
+  }
+}

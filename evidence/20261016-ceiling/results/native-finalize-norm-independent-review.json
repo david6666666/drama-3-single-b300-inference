@@ -1,0 +1,289 @@
+{
+  "status": "V3_NATIVE_EXACT_PASS_PERFORMANCE_SCREEN_FAIL",
+  "gpu_used": false,
+  "cuda_initialized": false,
+  "fixture_mapping_domain_checks": [
+    {
+      "layer": 0,
+      "scenario": "left_only",
+      "map_min": 0,
+      "map_max": 1010,
+      "unique_rows": 512,
+      "fc2_absmax": 7.6875,
+      "prob_absmax": 1.0,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 0,
+      "scenario": "real",
+      "map_min": 0,
+      "map_max": 1661,
+      "unique_rows": 512,
+      "fc2_absmax": 6.59375,
+      "prob_absmax": 1.0,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 0,
+      "scenario": "right_only",
+      "map_min": 0,
+      "map_max": 1037,
+      "unique_rows": 512,
+      "fc2_absmax": 7.46875,
+      "prob_absmax": 1.0,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 0,
+      "scenario": "rows_reversed",
+      "map_min": 0,
+      "map_max": 1661,
+      "unique_rows": 512,
+      "fc2_absmax": 12.625,
+      "prob_absmax": 1.0,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 0,
+      "scenario": "worst_global288",
+      "map_min": 0,
+      "map_max": 2296,
+      "unique_rows": 512,
+      "fc2_absmax": 8.8125,
+      "prob_absmax": 0.6328125,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 19,
+      "scenario": "left_only",
+      "map_min": 0,
+      "map_max": 865,
+      "unique_rows": 512,
+      "fc2_absmax": 1.78125,
+      "prob_absmax": 0.390625,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 19,
+      "scenario": "real",
+      "map_min": 0,
+      "map_max": 1340,
+      "unique_rows": 512,
+      "fc2_absmax": 2.25,
+      "prob_absmax": 0.3671875,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 19,
+      "scenario": "right_only",
+      "map_min": 0,
+      "map_max": 906,
+      "unique_rows": 512,
+      "fc2_absmax": 2.125,
+      "prob_absmax": 0.369140625,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 19,
+      "scenario": "rows_reversed",
+      "map_min": 0,
+      "map_max": 1340,
+      "unique_rows": 512,
+      "fc2_absmax": 9.5625,
+      "prob_absmax": 0.3671875,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 19,
+      "scenario": "worst_global288",
+      "map_min": 0,
+      "map_max": 2296,
+      "unique_rows": 512,
+      "fc2_absmax": 8.5625,
+      "prob_absmax": 0.6328125,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 39,
+      "scenario": "left_only",
+      "map_min": 0,
+      "map_max": 864,
+      "unique_rows": 512,
+      "fc2_absmax": 932.0,
+      "prob_absmax": 0.369140625,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 39,
+      "scenario": "real",
+      "map_min": 0,
+      "map_max": 1160,
+      "unique_rows": 512,
+      "fc2_absmax": 932.0,
+      "prob_absmax": 0.2578125,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 39,
+      "scenario": "right_only",
+      "map_min": 0,
+      "map_max": 888,
+      "unique_rows": 512,
+      "fc2_absmax": 788.0,
+      "prob_absmax": 0.33984375,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 39,
+      "scenario": "rows_reversed",
+      "map_min": 0,
+      "map_max": 1160,
+      "unique_rows": 512,
+      "fc2_absmax": 1456.0,
+      "prob_absmax": 0.2578125,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    },
+    {
+      "layer": 39,
+      "scenario": "worst_global288",
+      "map_min": 0,
+      "map_max": 2296,
+      "unique_rows": 512,
+      "fc2_absmax": 888.0,
+      "prob_absmax": 0.6328125,
+      "missing_sentinel_test_domain": [
+        -1
+      ]
+    }
+  ],
+  "confirmed": [
+    "top8 original order and explicit FP32 FMA then BF16 cast",
+    "existing residual BF16 FMA/cast/FP32 normalization boundaries retained in source",
+    "same fixed tensor addresses across15fixtures and4mapvariants through reused graphs",
+    "all15actual archived maps and reversed physical maps within2304 rows and512unique",
+    "all15native FC2 and routing weights finite BF16",
+    "same residual copy included in both timed graphs",
+    "operator-only scope, real shared/residual not captured"
+  ],
+  "remaining_before_freeze": [],
+  "reviewed_initial_source_hashes": {
+    "fused_finalize.py": "677b7d5d62cd3fde858625d4e3b7ef62952638090aca5444f46ef738717e60b7",
+    "driver.py": "7324a5b2ef538c569defeaf3580fc55926195ddf05d366ef2121ea76d16f5777",
+    "protocol.json": "4d991470570113b01c0d13b865ebecbf775710f5d3893a4ccbf3e21b3681e73e",
+    "kernel.ptx": "5056925a8f8086e8d1f630056a28ddc07c710e0bdee4d99d7157a8361ed78529",
+    "kernel.cubin": "93303781ce4f63b580f3a921b1bcec0d4c76ed5f2807d938389b386bb747031d"
+  },
+  "source_hashes": {
+    "fused_finalize.py": "677b7d5d62cd3fde858625d4e3b7ef62952638090aca5444f46ef738717e60b7",
+    "driver.py": "7324a5b2ef538c569defeaf3580fc55926195ddf05d366ef2121ea76d16f5777",
+    "protocol.json": "e79f415162ea86a7163bac1b890f9a0ee240bf4f659eeb06e574e4c94a98949a",
+    "kernel.ptx": "5056925a8f8086e8d1f630056a28ddc07c710e0bdee4d99d7157a8361ed78529",
+    "kernel.cubin": "93303781ce4f63b580f3a921b1bcec0d4c76ed5f2807d938389b386bb747031d"
+  },
+  "resolved_before_freeze": [
+    "Post-timing output/residual/native-archive/read-only/guards/RNG checks added",
+    "Actual raw graph nodes/edges captured using _CudaBackend, no real FC2 overlap claim",
+    "Protocol limits mapping to -1 or valid positive row and declares runtime alias validation out of scope"
+  ],
+  "remaining_validation_limits": [
+    "Native exact gate must still pass; matching source expressions do not prove compiled reduction tree equivalence",
+    "AOT top8 is fma.rn.f32.bf16 after compiler folding, with explicit subsequent BF16 routed cast; exact native gate is authoritative",
+    "Current graph predecessor is residual copy, not live native FC2; no real PDL overlap claim",
+    "Shared/gate/residual are deterministic native-input/router-derived values, not captured actual shared-expert outputs",
+    "Runtime workspace alias safety and complete-model accuracy remain future gates"
+  ],
+  "final_frozen_files_match": true,
+  "frozen_count": 24,
+  "initial_review_missed_defect": "Original native reference passed use_routing_scales_on_input=True for unweighted FC2 output; root discovered this on first native_archive hardware control failure. Previous no-blocker statement did not catch this ABI mistake.",
+  "v2_failure_classification": "Harness reference/control mismatch before candidate comparison or timing, not fusion numeric degradation.",
+  "v3_correction": {
+    "old_args": [
+      true,
+      true
+    ],
+    "new_args": [
+      true,
+      false
+    ],
+    "names": [
+      "enable_pdl",
+      "use_routing_scales_on_input"
+    ],
+    "kernel_identical_to_v2": true,
+    "driver_sha256": "88cbeb4e06e3f9be51a482d8629d888d8826804d95c869c272e76534722ae919",
+    "source_anchors": [
+      "flashinfer/data/csrc/trtllm_fused_moe_kernel_launcher.cu:3051-3055 signature",
+      "same:2714-2715 true nulls expertWeightsPtr",
+      "flashinfer/prims_ts/moe/runner.py:2384-2395 uses enable_pdl,False for block-scale FC2"
+    ],
+    "hardware_result_not_inferred": true
+  },
+  "v3_independent_result": {
+    "status": "FEASIBILITY_FAIL",
+    "exact_checks": 1355,
+    "all_exact_pass": true,
+    "timing_gate_all_failed": true,
+    "threshold_saved_us": 2.5,
+    "timing": [
+      {
+        "layer": 0,
+        "microseconds": {
+          "native": 8.240000009536743,
+          "fused": 7.182719707489014
+        },
+        "saved_microseconds": 1.0572803020477295,
+        "gate": false
+      },
+      {
+        "layer": 19,
+        "microseconds": {
+          "native": 8.218880295753479,
+          "fused": 7.182400226593018
+        },
+        "saved_microseconds": 1.0364800691604614,
+        "gate": false
+      },
+      {
+        "layer": 39,
+        "microseconds": {
+          "native": 8.30623984336853,
+          "fused": 6.505280137062073
+        },
+        "saved_microseconds": 1.8009597063064575,
+        "gate": false
+      }
+    ],
+    "full_model_timing": "NOT_RUN",
+    "result_sha256": "261d92148a9dd5021f20baf4b982c0ce4a0ca32f9dd2b3f88a2c701a2c7de066",
+    "native_control_abi_fixed": true,
+    "initial_control_failure_not_candidate_numeric_failure": true
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "status": "CPU_TOPOLOGY_AND_READINESS_CONTRACT_PASS",
+  "gpu_used": false,
+  "checks": [
+    {
+      "name": "full_body/replay_before_seal",
+      "passed": true
+    },
+    {
+      "name": "full_body/instantiate_before_seal",
+      "passed": true
+    },
+    {
+      "name": "full_body/restricted_outside_capture",
+      "passed": true
+    },
+    {
+      "name": "full_body/prefix_not_caller_subset",
+      "passed": true
+    },
+    {
+      "name": "full_body/native_edges_preserved",
+      "passed": true
+    },
+    {
+      "name": "full_body/full_scope",
+      "passed": true
+    },
+    {
+      "name": "full_body/all_producer_full_edge_0",
+      "passed": true
+    },
+    {
+      "name": "full_body/all_producer_full_edge_1",
+      "passed": true
+    },
+    {
+      "name": "full_body/sealed_replay",
+      "passed": true
+    },
+    {
+      "name": "full_body/cannot_recapture",
+      "passed": true
+    },
+    {
+      "name": "full_body/different_generation_replay",
+      "passed": true
+    },
+    {
+      "name": "gemm_empty_probe/replay_before_seal",
+      "passed": true
+    },
+    {
+      "name": "gemm_empty_probe/instantiate_before_seal",
+      "passed": true
+    },
+    {
+      "name": "gemm_empty_probe/restricted_outside_capture",
+      "passed": true
+    },
+    {
+      "name": "gemm_empty_probe/prefix_not_caller_subset",
+      "passed": true
+    },
+    {
+      "name": "gemm_empty_probe/native_edges_preserved",
+      "passed": true
+    },
+    {
+      "name": "gemm_empty_probe/full_scope",
+      "passed": true
+    },
+    {
+      "name": "gemm_empty_probe/all_producer_full_edge_0",
+      "passed": true
+    },
+    {
+      "name": "gemm_empty_probe/all_producer_full_edge_1",
+      "passed": true
+    },
+    {
+      "name": "gemm_empty_probe/sealed_replay",
+      "passed": true
+    },
+    {
+      "name": "gemm_empty_probe/cannot_recapture",
+      "passed": true
+    },
+    {
+      "name": "gemm_empty_probe/different_generation_replay",
+      "passed": true
+    },
+    {
+      "name": "omitted_metadata_producer",
+      "passed": true
+    },
+    {
+      "name": "wrong_graph_identity",
+      "passed": true
+    },
+    {
+      "name": "programmatic_is_not_full_metadata_edge",
+      "passed": true
+    },
+    {
+      "name": "activation_full_edge_cannot_replace_programmatic",
+      "passed": true
+    },
+    {
+      "name": "fc1_to_activation_missing",
+      "passed": true
+    },
+    {
+      "name": "fc2_to_finalize_missing",
+      "passed": true
+    },
+    {
+      "name": "wrong_programmatic_source_port",
+      "passed": true
+    },
+    {
+      "name": "wrong_programmatic_target_port",
+      "passed": true
+    },
+    {
+      "name": "extra_full_activation_dependency",
+      "passed": true
+    },
+    {
+      "name": "metadata_must_precede_fc1",
+      "passed": true
+    },
+    {
+      "name": "wrong_fc2_kernel",
+      "passed": true
+    },
+    {
+      "name": "unrecorded_graph_change_before_seal",
+      "passed": true
+    },
+    {
+      "name": "sealed_graph_mutation",
+      "passed": true
+    },
+    {
+      "name": "validator_before_capture_fc2",
+      "passed": true
+    },
+    {
+      "name": "changed_io_before_seal",
+      "passed": true
+    },
+    {
+      "name": "changed_io_before_instantiate",
+      "passed": true
+    },
+    {
+      "name": "eager_metadata_not_completed",
+      "passed": true
+    },
+    {
+      "name": "unready_eager_did_not_launch",
+      "passed": true
+    },
+    {
+      "name": "eager_permit_cannot_authorize_capture",
+      "passed": true
+    },
+    {
+      "name": "ready_eager_single_launch",
+      "passed": true
+    },
+    {
+      "name": "eager_permit_reuse",
+      "passed": true
+    },
+    {
+      "name": "owner_leaf_survives_container_rebinding",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Mock topology does not prove actual CUDA capture/API behavior or kernel correctness.",
+    "GPU complete/empty native gates remain required before any timing."
+  ]
+}

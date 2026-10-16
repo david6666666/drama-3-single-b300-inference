@@ -1,0 +1,21 @@
+{
+  "status": "CPU_PREPARATION_PASS",
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "offline_metric_suffixes": 17,
+  "metric_query_cuda_visible_devices": "",
+  "syntax": true,
+  "driver_actual_import_without_cuda_init": true,
+  "driver_frozen_directory_unchanged": true,
+  "csv_schema_positive_two_records": true,
+  "csv_negative_wrong_count": true,
+  "csv_negative_missing_metric": true,
+  "gpu_sampling_started": false,
+  "frozen_source_count": 137,
+  "hashes": {
+    "profile_driver.py": "e275f03f0ab0399bfd263bd0492a9f3c756e5d076c2256561b40ce2da2121320",
+    "launch.py": "6c7f4695b13f8587486ab30f46d5d9aae8c07e647e544db3a4c0941c6d2c3ff1",
+    "protocol.json": "9d4c5a845b975a6b9ea8f286dc1751df8573b33e2f47d82cbb8cef41a622fc31",
+    "frozen-inputs.json": "47bfb2f0bab9b239127e8e6292df0aa3c48b8ad2a1a68148167110844b6dd90e",
+    "metrics.json": "9a2fbbc22d4a53a6f21da377683e90303cb7a3eefde761ac5269463c3aca38cc"
+  }
+}

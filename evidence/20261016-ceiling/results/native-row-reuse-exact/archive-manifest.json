@@ -1,0 +1,86 @@
+{
+  "status": "SAFE_TO_ARCHIVE",
+  "files": {
+    "capture-result.json": {
+      "sha256": "df53d53be228c63260f7523755a5a11e0c67f89f2b24fa987a1957e419c15b18",
+      "bytes": 189228
+    },
+    "capture_inputs.py": {
+      "sha256": "e2f80f22a39855ffaa09d22dd335164e7ef7849692710bc0f66d9a0aecc668c0",
+      "bytes": 13403
+    },
+    "check_mapping.py": {
+      "sha256": "c9ba0a066bb951f67fc1ee0c31b0f49c59707bdd1371873e844f55810b81e610",
+      "bytes": 2109
+    },
+    "command.json": {
+      "sha256": "d67ee0fb8df1bf7b9f16c1b164c877170c7ae37c4eb551def20da01beb818a59",
+      "bytes": 2107
+    },
+    "exact_gate.py": {
+      "sha256": "e6bd39d2ef16d5322d29d8da47f5f0c1d70d1d49b90f1ff1a1c73337203fa967",
+      "bytes": 12978
+    },
+    "gate.log": {
+      "sha256": "a15d298bc9bbc37451ee2635200ac9d5301e57215732874b933ef165b63696ee",
+      "bytes": 5359
+    },
+    "gate.pid": {
+      "sha256": "b8dc295191c85476ab0f4790fff8a2ef1017dad3fd84fae817e4a073cde164aa",
+      "bytes": 7
+    },
+    "harness-failure.json": {
+      "sha256": "ac49f8aa3baa41ad0c2b9d45288bf24c5a8f7766b8db046e26416d00ec82318b",
+      "bytes": 911
+    },
+    "launch.py": {
+      "sha256": "dbde3b1abed73c798498012eb571e8016ebc0b6503710e94e3a7513332ddbca4",
+      "bytes": 1695
+    },
+    "mapping-cpu.json": {
+      "sha256": "029dde0582dc56c7463ae64e9ab9d214db23c7973a2aeddcd2bd2b26c1b79388",
+      "bytes": 968
+    },
+    "protocol.json": {
+      "sha256": "f332eec15cd7b571800a4b49c6d1f152e762309a9af7491715362ec7a5e18088",
+      "bytes": 12630
+    },
+    "proxy190-inputs.pt": {
+      "sha256": "fec9c988c9f2bd2482126fd12e29330d8795ece537fa09a156081eae6fb1bc6b",
+      "bytes": 194041
+    },
+    "proxy190-moe-inputs.pt": {
+      "sha256": "ef35cb5a6083092ae8aeb06388b58efeff5d6e95e70832b941ac806003acc0a7",
+      "bytes": 262145661
+    },
+    "proxy190_reversed_reused_graph-inputs.pt": {
+      "sha256": "4e951ccadb9032aa3760a212302d1b38b2e30cddbfe8825c37f6b7fb02baf948",
+      "bytes": 194455
+    },
+    "proxy190_reversed_reused_graph-moe-inputs.pt": {
+      "sha256": "12d3cb2e1434d4825efc9e00e02e8c93d7e67fe1215a23c99350379b6c724218",
+      "bytes": 262145943
+    },
+    "proxy192_changed_conditioning_reused_graph-inputs.pt": {
+      "sha256": "54e09e511f2db5ab9921694e36cefb35dd6aafeb08bd37a0e9e70e5f078c7929",
+      "bytes": 192883
+    },
+    "proxy192_changed_conditioning_reused_graph-moe-inputs.pt": {
+      "sha256": "43d49288fad966450d3c00bbc6bf5208ecc199cd993abd84fff6860751627f81",
+      "bytes": 262146027
+    },
+    "result.json": {
+      "sha256": "2e1eef87f59978f467c401de9469d5dc3653718f02ee6d24c7016bc431e4401e",
+      "bytes": 1028615
+    },
+    "results.md": {
+      "sha256": "f2878c3b32c656cad751d3bff04197f8e6af48fff73f43c0831e4d0ffcbc64da",
+      "bytes": 833
+    },
+    "summary.json": {
+      "sha256": "3d4c998f5b6a79b9fa4b0e28c1224f321fb5373cb04982ed062d638b26ea73ef",
+      "bytes": 996
+    }
+  },
+  "raw_inputs_note": "Three250MiB tensors perversion; can reference original manifest/path to avoid large repository blobs."
+}

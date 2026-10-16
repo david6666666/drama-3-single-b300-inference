@@ -1,0 +1,1593 @@
+{
+  "pre": {
+    "graph": {
+      "identity": [
+        745516640,
+        1
+      ],
+      "nodes": [
+        {
+          "identity": 745565328,
+          "kind": "kernel",
+          "kernel": "_ZN3moe3dev7routing18routingPrecomputed67_GLOBAL__N__951651f7_34_trtllm_fused_moe_routing_common_cu_65d5346e36routingIndicesMultiTileClusterKernelINS2_12KernelParamsI13__nv_bfloat16Li256ELi8EEEiEEvNS3_19MultiTileKernelArgsIT_T0_Li8EEE",
+          "function": 229421056,
+          "grid": [
+            8,
+            1,
+            1
+          ],
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "shared_bytes": 0
+        },
+        {
+          "identity": 745567384,
+          "kind": "kernel",
+          "kernel": "bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100f",
+          "function": 231700464,
+          "grid": [
+            8,
+            288,
+            1
+          ],
+          "block": [
+            512,
+            1,
+            1
+          ],
+          "shared_bytes": 148400
+        },
+        {
+          "identity": 745569440,
+          "kind": "kernel",
+          "kernel": "_ZN3moe3dev10activation24activationDeepSeekKernelINS1_12KernelParamsIN7cutlass12float_e4m3_tELi2ELb1EEEEEvT_",
+          "function": 249091168,
+          "grid": [
+            4,
+            32,
+            8
+          ],
+          "block": [
+            128,
+            1,
+            1
+          ],
+          "shared_bytes": 0
+        },
+        {
+          "identity": 745571496,
+          "kind": "kernel",
+          "kernel": "bmm_Bfloat16_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_rgTma_clmp_dynB_sm100f",
+          "function": 231656640,
+          "grid": [
+            16,
+            288,
+            1
+          ],
+          "block": [
+            512,
+            1,
+            1
+          ],
+          "shared_bytes": 148400
+        },
+        {
+          "identity": 745573552,
+          "kind": "kernel",
+          "kernel": "_ZN3moe3dev8finalize14finalizeKernelINS1_12KernelParamsIN7cutlass10bfloat16_tES5_Li4ELb1EEEEEvT_",
+          "function": 246145424,
+          "grid": [
+            8,
+            64,
+            1
+          ],
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "shared_bytes": 0
+        }
+      ],
+      "edges": [
+        {
+          "source": 745565328,
+          "target": 745567384,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        },
+        {
+          "source": 745567384,
+          "target": 745569440,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        },
+        {
+          "source": 745569440,
+          "target": 745571496,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        },
+        {
+          "source": 745571496,
+          "target": 745573552,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        }
+      ]
+    },
+    "owners": {
+      "tile": {
+        "object_id": 137490498333552,
+        "ptr": 137488438263808,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "mn": {
+        "object_id": 137490498338272,
+        "ptr": 137488438265344,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "route": {
+        "object_id": 137490466769648,
+        "ptr": 137488438266880,
+        "bytes": 9220,
+        "shape": [
+          2305
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "ncta": {
+        "object_id": 137490466769728,
+        "ptr": 137488438276608,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "padded": {
+        "object_id": 137490466769808,
+        "ptr": 137488438277120,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "valid": {
+        "object_id": 137490466769568,
+        "ptr": 137488438277632,
+        "bytes": 2304,
+        "shape": [
+          2304
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.bool",
+        "device": "cuda:0"
+      },
+      "mapping": {
+        "object_id": 137490466769488,
+        "ptr": 137488438280192,
+        "bytes": 4096,
+        "shape": [
+          512
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int64",
+        "device": "cuda:0"
+      },
+      "expanded": {
+        "object_id": 137490498338032,
+        "ptr": 137488438284288,
+        "bytes": 2048,
+        "shape": [
+          512
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "q": {
+        "object_id": 137490466769408,
+        "ptr": 137488438286336,
+        "bytes": 131072,
+        "shape": [
+          64,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.float8_e4m3fn",
+        "device": "cuda:0"
+      },
+      "s": {
+        "object_id": 137490466769328,
+        "ptr": 137488438417408,
+        "bytes": 4096,
+        "shape": [
+          16,
+          64
+        ],
+        "stride": [
+          64,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "ids": {
+        "object_id": 137490466769248,
+        "ptr": 137488438421504,
+        "bytes": 2048,
+        "shape": [
+          64,
+          8
+        ],
+        "stride": [
+          8,
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "weights": {
+        "object_id": 137490466769168,
+        "ptr": 137488438423552,
+        "bytes": 1024,
+        "shape": [
+          64,
+          8
+        ],
+        "stride": [
+          8,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "w1": {
+        "object_id": 137490466772368,
+        "ptr": 137487271854080,
+        "bytes": 536870912,
+        "shape": [
+          256,
+          1024,
+          2048
+        ],
+        "stride": [
+          2097152,
+          2048,
+          1
+        ],
+        "dtype": "torch.float8_e4m3fn",
+        "device": "cuda:0"
+      },
+      "s1": {
+        "object_id": 137490466770368,
+        "ptr": 137488437870592,
+        "bytes": 131072,
+        "shape": [
+          256,
+          8,
+          16
+        ],
+        "stride": [
+          128,
+          16,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "w2": {
+        "object_id": 137490466770848,
+        "ptr": 137488439967744,
+        "bytes": 268435456,
+        "shape": [
+          256,
+          2048,
+          512
+        ],
+        "stride": [
+          1048576,
+          512,
+          1
+        ],
+        "dtype": "torch.float8_e4m3fn",
+        "device": "cuda:0"
+      },
+      "s2": {
+        "object_id": 137490466771088,
+        "ptr": 137488438001664,
+        "bytes": 65536,
+        "shape": [
+          256,
+          16,
+          4
+        ],
+        "stride": [
+          64,
+          4,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "guard_fc1": {
+        "object_id": 137490466769008,
+        "ptr": 137488708403200,
+        "bytes": 2359424,
+        "shape": [
+          2359424
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "fc1": {
+        "object_id": 137490466768848,
+        "ptr": 137488708403264,
+        "bytes": 2359296,
+        "shape": [
+          2304,
+          1024
+        ],
+        "stride": [
+          1024,
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "guard_fc1scale": {
+        "object_id": 137490466768928,
+        "ptr": 137488438424576,
+        "bytes": 74240,
+        "shape": [
+          18560
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "fc1scale": {
+        "object_id": 137490466768688,
+        "ptr": 137488438424832,
+        "bytes": 73728,
+        "shape": [
+          18432
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "guard_act": {
+        "object_id": 137490466768768,
+        "ptr": 137488710763008,
+        "bytes": 1179776,
+        "shape": [
+          1179776
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "act": {
+        "object_id": 137490466768528,
+        "ptr": 137488710763072,
+        "bytes": 1179648,
+        "shape": [
+          2304,
+          512
+        ],
+        "stride": [
+          512,
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "guard_actscale": {
+        "object_id": 137490466768608,
+        "ptr": 137488438498816,
+        "bytes": 37376,
+        "shape": [
+          9344
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "actscale": {
+        "object_id": 137490466768368,
+        "ptr": 137488438499072,
+        "bytes": 36864,
+        "shape": [
+          9216
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "guard_fc2": {
+        "object_id": 137490466768448,
+        "ptr": 137488711943168,
+        "bytes": 9437440,
+        "shape": [
+          4718720
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "fc2": {
+        "object_id": 137490466768208,
+        "ptr": 137488711943296,
+        "bytes": 9437184,
+        "shape": [
+          2304,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "guard_out": {
+        "object_id": 137490466768288,
+        "ptr": 137488438536192,
+        "bytes": 262400,
+        "shape": [
+          131200
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "out": {
+        "object_id": 137490466768048,
+        "ptr": 137488438536320,
+        "bytes": 262144,
+        "shape": [
+          64,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "live_tile": {
+        "object_id": 137490466767328,
+        "ptr": 137488439076352,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "live_mn": {
+        "object_id": 137490466767248,
+        "ptr": 137488439077888,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "live_route": {
+        "object_id": 137490466767648,
+        "ptr": 137488439063552,
+        "bytes": 9220,
+        "shape": [
+          2305
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "live_ncta": {
+        "object_id": 137490466767168,
+        "ptr": 137488439079424,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "live_padded": {
+        "object_id": 137490466767808,
+        "ptr": 137488439060992,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "live_expanded": {
+        "object_id": 137490466767728,
+        "ptr": 137488439061504,
+        "bytes": 2048,
+        "shape": [
+          512
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "native_output": {
+        "object_id": 137490689146816,
+        "ptr": 137488438798848,
+        "bytes": 262144,
+        "shape": [
+          64,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "native_workspace_0": {
+        "object_id": 137490687106480,
+        "ptr": 137488721380864,
+        "bytes": 2359296,
+        "shape": [
+          2304,
+          1024
+        ],
+        "stride": [
+          1024,
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "native_workspace_1": {
+        "object_id": 137490466772448,
+        "ptr": 137488439079936,
+        "bytes": 73728,
+        "shape": [
+          8,
+          2304
+        ],
+        "stride": [
+          2304,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "native_workspace_2": {
+        "object_id": 137490466772608,
+        "ptr": 137488723740160,
+        "bytes": 1179648,
+        "shape": [
+          2304,
+          512
+        ],
+        "stride": [
+          512,
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "native_workspace_3": {
+        "object_id": 137490466772688,
+        "ptr": 137488439153664,
+        "bytes": 36864,
+        "shape": [
+          4,
+          2304
+        ],
+        "stride": [
+          2304,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "native_workspace_4": {
+        "object_id": 137490466772768,
+        "ptr": 137488733569024,
+        "bytes": 9437184,
+        "shape": [
+          2304,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "native_workspace_5": {
+        "object_id": 137490466772848,
+        "ptr": 0,
+        "bytes": 0,
+        "shape": [
+          0
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int8",
+        "device": "cuda:0"
+      },
+      "native_workspace_6": {
+        "object_id": 137490466772928,
+        "ptr": 0,
+        "bytes": 0,
+        "shape": [
+          0
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int8",
+        "device": "cuda:0"
+      },
+      "owner_metadata_tile": {
+        "object_id": 137490466767328,
+        "ptr": 137488439076352,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "owner_metadata_mn": {
+        "object_id": 137490466767248,
+        "ptr": 137488439077888,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "owner_metadata_route": {
+        "object_id": 137490466767648,
+        "ptr": 137488439063552,
+        "bytes": 9220,
+        "shape": [
+          2305
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "owner_metadata_ncta": {
+        "object_id": 137490466767168,
+        "ptr": 137488439079424,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "owner_metadata_padded": {
+        "object_id": 137490466767808,
+        "ptr": 137488439060992,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "owner_metadata_expanded": {
+        "object_id": 137490466767728,
+        "ptr": 137488439061504,
+        "bytes": 2048,
+        "shape": [
+          512
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      }
+    }
+  },
+  "post": {
+    "graph": {
+      "identity": [
+        745516640,
+        1
+      ],
+      "nodes": [
+        {
+          "identity": 745565328,
+          "kind": "kernel",
+          "kernel": "_ZN3moe3dev7routing18routingPrecomputed67_GLOBAL__N__951651f7_34_trtllm_fused_moe_routing_common_cu_65d5346e36routingIndicesMultiTileClusterKernelINS2_12KernelParamsI13__nv_bfloat16Li256ELi8EEEiEEvNS3_19MultiTileKernelArgsIT_T0_Li8EEE",
+          "function": 229421056,
+          "grid": [
+            8,
+            1,
+            1
+          ],
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "shared_bytes": 0
+        },
+        {
+          "identity": 745567384,
+          "kind": "kernel",
+          "kernel": "bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100f",
+          "function": 231700464,
+          "grid": [
+            8,
+            288,
+            1
+          ],
+          "block": [
+            512,
+            1,
+            1
+          ],
+          "shared_bytes": 148400
+        },
+        {
+          "identity": 745569440,
+          "kind": "kernel",
+          "kernel": "_ZN3moe3dev10activation24activationDeepSeekKernelINS1_12KernelParamsIN7cutlass12float_e4m3_tELi2ELb1EEEEEvT_",
+          "function": 249091168,
+          "grid": [
+            4,
+            32,
+            8
+          ],
+          "block": [
+            128,
+            1,
+            1
+          ],
+          "shared_bytes": 0
+        },
+        {
+          "identity": 745571496,
+          "kind": "kernel",
+          "kernel": "bmm_Bfloat16_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_rgTma_clmp_dynB_sm100f",
+          "function": 231656640,
+          "grid": [
+            16,
+            288,
+            1
+          ],
+          "block": [
+            512,
+            1,
+            1
+          ],
+          "shared_bytes": 148400
+        },
+        {
+          "identity": 745573552,
+          "kind": "kernel",
+          "kernel": "_ZN3moe3dev8finalize14finalizeKernelINS1_12KernelParamsIN7cutlass10bfloat16_tES5_Li4ELb1EEEEEvT_",
+          "function": 246145424,
+          "grid": [
+            8,
+            64,
+            1
+          ],
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "shared_bytes": 0
+        }
+      ],
+      "edges": [
+        {
+          "source": 745565328,
+          "target": 745567384,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        },
+        {
+          "source": 745567384,
+          "target": 745569440,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        },
+        {
+          "source": 745569440,
+          "target": 745571496,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        },
+        {
+          "source": 745571496,
+          "target": 745573552,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        }
+      ]
+    },
+    "owners": {
+      "tile": {
+        "object_id": 137490498333552,
+        "ptr": 137488438263808,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "mn": {
+        "object_id": 137490498338272,
+        "ptr": 137488438265344,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "route": {
+        "object_id": 137490466769648,
+        "ptr": 137488438266880,
+        "bytes": 9220,
+        "shape": [
+          2305
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "ncta": {
+        "object_id": 137490466769728,
+        "ptr": 137488438276608,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "padded": {
+        "object_id": 137490466769808,
+        "ptr": 137488438277120,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "valid": {
+        "object_id": 137490466769568,
+        "ptr": 137488438277632,
+        "bytes": 2304,
+        "shape": [
+          2304
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.bool",
+        "device": "cuda:0"
+      },
+      "mapping": {
+        "object_id": 137490466769488,
+        "ptr": 137488438280192,
+        "bytes": 4096,
+        "shape": [
+          512
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int64",
+        "device": "cuda:0"
+      },
+      "expanded": {
+        "object_id": 137490498338032,
+        "ptr": 137488438284288,
+        "bytes": 2048,
+        "shape": [
+          512
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "q": {
+        "object_id": 137490466769408,
+        "ptr": 137488438286336,
+        "bytes": 131072,
+        "shape": [
+          64,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.float8_e4m3fn",
+        "device": "cuda:0"
+      },
+      "s": {
+        "object_id": 137490466769328,
+        "ptr": 137488438417408,
+        "bytes": 4096,
+        "shape": [
+          16,
+          64
+        ],
+        "stride": [
+          64,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "ids": {
+        "object_id": 137490466769248,
+        "ptr": 137488438421504,
+        "bytes": 2048,
+        "shape": [
+          64,
+          8
+        ],
+        "stride": [
+          8,
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "weights": {
+        "object_id": 137490466769168,
+        "ptr": 137488438423552,
+        "bytes": 1024,
+        "shape": [
+          64,
+          8
+        ],
+        "stride": [
+          8,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "w1": {
+        "object_id": 137490466772368,
+        "ptr": 137487271854080,
+        "bytes": 536870912,
+        "shape": [
+          256,
+          1024,
+          2048
+        ],
+        "stride": [
+          2097152,
+          2048,
+          1
+        ],
+        "dtype": "torch.float8_e4m3fn",
+        "device": "cuda:0"
+      },
+      "s1": {
+        "object_id": 137490466770368,
+        "ptr": 137488437870592,
+        "bytes": 131072,
+        "shape": [
+          256,
+          8,
+          16
+        ],
+        "stride": [
+          128,
+          16,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "w2": {
+        "object_id": 137490466770848,
+        "ptr": 137488439967744,
+        "bytes": 268435456,
+        "shape": [
+          256,
+          2048,
+          512
+        ],
+        "stride": [
+          1048576,
+          512,
+          1
+        ],
+        "dtype": "torch.float8_e4m3fn",
+        "device": "cuda:0"
+      },
+      "s2": {
+        "object_id": 137490466771088,
+        "ptr": 137488438001664,
+        "bytes": 65536,
+        "shape": [
+          256,
+          16,
+          4
+        ],
+        "stride": [
+          64,
+          4,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "guard_fc1": {
+        "object_id": 137490466769008,
+        "ptr": 137488708403200,
+        "bytes": 2359424,
+        "shape": [
+          2359424
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "fc1": {
+        "object_id": 137490466768848,
+        "ptr": 137488708403264,
+        "bytes": 2359296,
+        "shape": [
+          2304,
+          1024
+        ],
+        "stride": [
+          1024,
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "guard_fc1scale": {
+        "object_id": 137490466768928,
+        "ptr": 137488438424576,
+        "bytes": 74240,
+        "shape": [
+          18560
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "fc1scale": {
+        "object_id": 137490466768688,
+        "ptr": 137488438424832,
+        "bytes": 73728,
+        "shape": [
+          18432
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "guard_act": {
+        "object_id": 137490466768768,
+        "ptr": 137488710763008,
+        "bytes": 1179776,
+        "shape": [
+          1179776
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "act": {
+        "object_id": 137490466768528,
+        "ptr": 137488710763072,
+        "bytes": 1179648,
+        "shape": [
+          2304,
+          512
+        ],
+        "stride": [
+          512,
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "guard_actscale": {
+        "object_id": 137490466768608,
+        "ptr": 137488438498816,
+        "bytes": 37376,
+        "shape": [
+          9344
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "actscale": {
+        "object_id": 137490466768368,
+        "ptr": 137488438499072,
+        "bytes": 36864,
+        "shape": [
+          9216
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "guard_fc2": {
+        "object_id": 137490466768448,
+        "ptr": 137488711943168,
+        "bytes": 9437440,
+        "shape": [
+          4718720
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "fc2": {
+        "object_id": 137490466768208,
+        "ptr": 137488711943296,
+        "bytes": 9437184,
+        "shape": [
+          2304,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "guard_out": {
+        "object_id": 137490466768288,
+        "ptr": 137488438536192,
+        "bytes": 262400,
+        "shape": [
+          131200
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "out": {
+        "object_id": 137490466768048,
+        "ptr": 137488438536320,
+        "bytes": 262144,
+        "shape": [
+          64,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "live_tile": {
+        "object_id": 137490466767328,
+        "ptr": 137488439076352,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "live_mn": {
+        "object_id": 137490466767248,
+        "ptr": 137488439077888,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "live_route": {
+        "object_id": 137490466767648,
+        "ptr": 137488439063552,
+        "bytes": 9220,
+        "shape": [
+          2305
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "live_ncta": {
+        "object_id": 137490466767168,
+        "ptr": 137488439079424,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "live_padded": {
+        "object_id": 137490466767808,
+        "ptr": 137488439060992,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "live_expanded": {
+        "object_id": 137490466767728,
+        "ptr": 137488439061504,
+        "bytes": 2048,
+        "shape": [
+          512
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "native_output": {
+        "object_id": 137490689146816,
+        "ptr": 137488438798848,
+        "bytes": 262144,
+        "shape": [
+          64,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "native_workspace_0": {
+        "object_id": 137490687106480,
+        "ptr": 137488721380864,
+        "bytes": 2359296,
+        "shape": [
+          2304,
+          1024
+        ],
+        "stride": [
+          1024,
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "native_workspace_1": {
+        "object_id": 137490466772448,
+        "ptr": 137488439079936,
+        "bytes": 73728,
+        "shape": [
+          8,
+          2304
+        ],
+        "stride": [
+          2304,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "native_workspace_2": {
+        "object_id": 137490466772608,
+        "ptr": 137488723740160,
+        "bytes": 1179648,
+        "shape": [
+          2304,
+          512
+        ],
+        "stride": [
+          512,
+          1
+        ],
+        "dtype": "torch.uint8",
+        "device": "cuda:0"
+      },
+      "native_workspace_3": {
+        "object_id": 137490466772688,
+        "ptr": 137488439153664,
+        "bytes": 36864,
+        "shape": [
+          4,
+          2304
+        ],
+        "stride": [
+          2304,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cuda:0"
+      },
+      "native_workspace_4": {
+        "object_id": 137490466772768,
+        "ptr": 137488733569024,
+        "bytes": 9437184,
+        "shape": [
+          2304,
+          2048
+        ],
+        "stride": [
+          2048,
+          1
+        ],
+        "dtype": "torch.bfloat16",
+        "device": "cuda:0"
+      },
+      "native_workspace_5": {
+        "object_id": 137490466772848,
+        "ptr": 0,
+        "bytes": 0,
+        "shape": [
+          0
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int8",
+        "device": "cuda:0"
+      },
+      "native_workspace_6": {
+        "object_id": 137490466772928,
+        "ptr": 0,
+        "bytes": 0,
+        "shape": [
+          0
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int8",
+        "device": "cuda:0"
+      },
+      "owner_metadata_tile": {
+        "object_id": 137490466767328,
+        "ptr": 137488439076352,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "owner_metadata_mn": {
+        "object_id": 137490466767248,
+        "ptr": 137488439077888,
+        "bytes": 1152,
+        "shape": [
+          288
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "owner_metadata_route": {
+        "object_id": 137490466767648,
+        "ptr": 137488439063552,
+        "bytes": 9220,
+        "shape": [
+          2305
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "owner_metadata_ncta": {
+        "object_id": 137490466767168,
+        "ptr": 137488439079424,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "owner_metadata_padded": {
+        "object_id": 137490466767808,
+        "ptr": 137488439060992,
+        "bytes": 4,
+        "shape": [
+          1
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      },
+      "owner_metadata_expanded": {
+        "object_id": 137490466767728,
+        "ptr": 137488439061504,
+        "bytes": 2048,
+        "shape": [
+          512
+        ],
+        "stride": [
+          1
+        ],
+        "dtype": "torch.int32",
+        "device": "cuda:0"
+      }
+    }
+  },
+  "note": "Topology/launch attributes and tensor storage identity; kernelParams payload is not fingerprinted."
+}

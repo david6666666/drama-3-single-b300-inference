@@ -1,0 +1,43 @@
+{
+  "status": "INCONCLUSIVE",
+  "executed_records": 1,
+  "planned_maximum_records": 2,
+  "candidate": "NOT_RUN_PROTOCOL_STOP",
+  "native_exact_checks": 80,
+  "native_exact_status": "NCU_SINGLE_GRAPH_REPLAY_EXACT_PASS",
+  "total_samples": 4815,
+  "long_scoreboard_samples": 3503,
+  "sampled_pc_count": 445,
+  "report_sass_available_pc_count": 424,
+  "statistics": {
+    "profiler__replayer_passes": 1,
+    "smsp__pcsamp_aggregated_passes": 2,
+    "smsp__pcsamp_buffer_overflow": 0,
+    "smsp__pcsamp_dropped_bytes": 0,
+    "smsp__pcsamp_buffer_size_bytes": 33554432,
+    "smsp__pcsamp_interval": 7,
+    "smsp__pcsamp_interval_cycles": 4096
+  },
+  "reason_groups": [
+    "PC correlation IDs are loaded addresses; frozen cuobjdump addresses are function-relative offsets. The declared exact-offset check rejects them, without inferring a VA base.",
+    "21 sampled PCs return no SASS through sass_by_pc.",
+    "NCU reports one total replay pass in the log and profiler__replayer_passes, but pcsamp_aggregated_passes is 2; no unsupported explanation is substituted."
+  ],
+  "cpu_mapping_recovery": "A separate read-only metadata audit may resolve address identity. Original sampling result remains preserved and no additional GPU records are authorized by this result.",
+  "source_hash_checks": {
+    "files": 147,
+    "all_match": true
+  },
+  "ownership": {
+    "pre": [],
+    "post": [],
+    "sampled_audits": 9,
+    "foreign_context_observations": 0,
+    "scope": "Sampled process audit, not continuous exclusivity proof."
+  },
+  "performance_claim": false,
+  "native_candidate_comparison": "NOT_AVAILABLE",
+  "runtime_change": false,
+  "gpu_released": true,
+  "lint": "Four pre-execution findings retained without source edits: two import-order warnings, implicit subprocess check=False, broad exception during cleanup."
+}

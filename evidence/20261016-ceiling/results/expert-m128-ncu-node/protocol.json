@@ -1,0 +1,133 @@
+{
+  "status": "FROZEN_NCU_NODE_DIAGNOSTIC",
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "gpu_uuid": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "watchdog_seconds": 600,
+  "maximum_replay_passes": 4,
+  "cases": [
+    [
+      0,
+      "native"
+    ],
+    [
+      0,
+      "candidate"
+    ],
+    [
+      39,
+      "native"
+    ],
+    [
+      39,
+      "candidate"
+    ]
+  ],
+  "ncu": "/usr/local/cuda/bin/ncu",
+  "python": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+  "ncu_options": [
+    "--config-file",
+    "off",
+    "--devices",
+    "0",
+    "--target-processes",
+    "application-only",
+    "--profile-from-start",
+    "off",
+    "--replay-mode",
+    "kernel",
+    "--graph-profiling",
+    "node",
+    "--launch-count",
+    "2",
+    "--cache-control",
+    "none",
+    "--clock-control",
+    "none",
+    "--pipeline-boost-state",
+    "dynamic",
+    "--import-sass",
+    "no",
+    "--kernel-name-base",
+    "function"
+  ],
+  "metrics": [
+    "gpu__time_duration.sum",
+    "dram__bytes_read.sum",
+    "dram__bytes_write.sum",
+    "dram__throughput.avg.pct_of_peak_sustained_elapsed",
+    "sm__cycles_active.avg.pct_of_peak_sustained_elapsed",
+    "sm__pipe_tensor_cycles_active.avg.pct_of_peak_sustained_elapsed",
+    "lts__t_sectors_op_read.sum",
+    "lts__t_sectors_op_write.sum",
+    "lts__t_sector_hit_rate.pct",
+    "sm__ctas_active.avg.per_cycle_active",
+    "sm__warps_active.avg.pct_of_peak_sustained_active",
+    "smsp__warps_eligible.avg.per_cycle_active",
+    "smsp__issue_active.avg.pct_of_peak_sustained_active",
+    "smsp__average_warps_issue_stalled_barrier_per_issue_active.ratio",
+    "smsp__average_warps_issue_stalled_long_scoreboard_per_issue_active.ratio",
+    "smsp__average_warps_issue_stalled_short_scoreboard_per_issue_active.ratio",
+    "smsp__average_warps_issue_stalled_membar_per_issue_active.ratio"
+  ],
+  "kernel_filters": {
+    "native": "regex:^bmm_(E4m3|Bfloat16)_E4m3E4m3_Fp32_t128x8x128",
+    "candidate": "regex:^kernel_cutlass_(batched_gemm_kernel_bf16|metadata_ready_fc2_kernel)_"
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+    "OMP_NUM_THREADS": "4",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/hf_modules",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "boundary": {
+    "included": [
+      "live native routing metadata generation",
+      "FC1",
+      "original native activation/FP8 boundary",
+      "FC2",
+      "original ordered top8 finalization",
+      "explicit full graph edges"
+    ],
+    "excluded_common": [
+      "input quantization",
+      "logits to top8 routing"
+    ],
+    "scope": "Original physical B64 with63 live rows and original padding; layers0,19,39 x5 native routing distributions. No service/model claim."
+  },
+  "baseline": {
+    "implementation": "original vendor prepared native complete MoE",
+    "tactic": [
+      8,
+      5
+    ],
+    "enable_pdl": true
+  },
+  "candidate": {
+    "implementation": "M128 FC1/native activation/metadata-ready M128 FC2/native ordered finalizer",
+    "enable_pdl": true,
+    "native_experts": 256,
+    "top_k": 8
+  },
+  "graph_contract": {
+    "full": "Controlled callback node deltas close over the complete capture; all metadata nodes precede FC1; original FC1\u2192activation\u2192FC2\u2192finalizer PROGRAMMATIC edges retain ports1\u21920; add DEFAULT ports0\u21920 from every metadata producer to FC2; seal before instantiate, private graph/owners retained.",
+    "empty": "Separate gemm_empty_probe; six complete live metadata tensors copied from retained mutable source buffers inside graph. ncta/padded0 then positive restoration then zero again on same graph, fixed nonzero grids. No native activation/finalizer; saved activation/scales ready before invocation. Not a full-MoE timing graph.",
+    "eager": "Metadata callback followed by own event completion; single-use permit outside capture, full chain completed before permit release.",
+    "limitations": "Trusted callbacks; snapshot verifies topology/launch attributes, not raw kernel argument payloads. No external raw graph mutation; retained storage identity is fixed while tensor contents may change."
+  },
+  "profiling_scope": {
+    "selected_records": 8,
+    "selected_kernels_each_process": 2,
+    "complete_graph_replays_each_process": 1,
+    "warmup_replays": 5,
+    "all_predecessors_preserved": true,
+    "native_pdl": true,
+    "candidate_pdl": true,
+    "node_replay_serializes": true,
+    "whole_graph_authorized": false,
+    "performance_claim": false,
+    "stress_performance": "NOT_RUN"
+  },
+  "ownership": "GPU2 idle before every process; process-group scoped sampling each2s; terminate only own group on failure; post must become empty within5s. Other GPUs untouched.",
+  "stop": "First exact/hash/owner/metric/count/timeout failure; no silent metric substitutions, retries, whole-graph or source changes. If recorded passes>4 stop before next process, preserving collected case."
+}

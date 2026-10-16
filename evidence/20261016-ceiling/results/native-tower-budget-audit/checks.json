@@ -1,0 +1,9 @@
+{
+  "status": "CPU_AUDIT_SELF_CHECK_PASS",
+  "gpu_used": false,
+  "files": {
+    "summary.md": "3e84f04c5429c6a5793eb1d6706d71b4015236477bde4026fd76eab85c46db03",
+    "result.json": "80d93c6940716fbc859c888889fdd2e790afaef9e26c8101eb2fe9ae22a0506c",
+    "analyze.py": "91e53f3db1bd5f64f0595c1d0cbbc932d9d79834e5e839fdce1df5eac06fd1d6"
+  }
+}

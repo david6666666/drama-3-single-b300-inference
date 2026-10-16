@@ -1,0 +1,140 @@
+{
+  "status": "FAIL",
+  "checks": [
+    {
+      "name": "hash/fused_finalize.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/driver.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/kernels.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer0-left_only.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer0-real.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer0-right_only.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer0-rows_reversed.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer0-worst_global288.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer19-left_only.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer19-real.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer19-right_only.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer19-rows_reversed.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer19-worst_global288.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer39-left_only.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer39-real.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer39-right_only.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer39-rows_reversed.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/oracle-layer39-worst_global288.pt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/launch.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/cpu_probe.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/cpu-probe.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/kernel.ptx",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/kernel.cubin",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "hash/metadata_ready_graph.py",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "gpu_uuid",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L0/left_only/native_archive",
+      "passed": false,
+      "detail": null
+    }
+  ],
+  "native_model_or_service_claim": false,
+  "pid": 917351,
+  "timing": [],
+  "performance_gate": null,
+  "exception": "Traceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-finalize-norm-v2/driver.py\", line 299, in <module>\n    main()\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-finalize-norm-v2/driver.py\", line 165, in main\n    exact(name + \"/native_archive\", native, d[\"routed\"].cuda())\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-finalize-norm-v2/driver.py\", line 56, in exact\n    require(name, okay)\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-finalize-norm-v2/driver.py\", line 40, in require\n    raise AssertionError(name)\nAssertionError: L0/left_only/native_archive\n"
+}

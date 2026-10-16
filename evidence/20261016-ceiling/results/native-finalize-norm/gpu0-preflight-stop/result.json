@@ -1,0 +1,5 @@
+{
+  "status": "STOPPED_BEFORE_LAUNCH",
+  "reason": "GPU0 foreign process observed at preflight, PID907254; no task child or GPU work launched and foreign process untouched.",
+  "next": "Use idle GPU4 for both arms, no changes to numerical/performance gate."
+}

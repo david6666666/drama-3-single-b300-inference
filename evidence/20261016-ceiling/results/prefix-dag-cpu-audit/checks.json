@@ -1,0 +1,9 @@
+{
+  "status": "CPU_DERIVATION_CHECK_PASS",
+  "gpu_used": false,
+  "source_files": {
+    "summary.md": "654ebcdab1059cc566fae90fa039003fae05a3a5564ebf323c5233fe13cbf71f",
+    "result.json": "7969c8475135793f0fc321fcf185a4602884224a1aaa5b2630663ff58c05a8b1",
+    "analyze.py": "1e2fed6e52a4a4f8cd6a944c6c19c15af5c846dee814f6b42c87de773930aea7"
+  }
+}

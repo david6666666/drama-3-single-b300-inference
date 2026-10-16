@@ -1,0 +1,13 @@
+{
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/ncu-fc1-pcsampling-plan/plan.json": "949b1a4fcdfb6edcb43d7be859109c6a96354d9df0d5eb8df4988d55385e1f40",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/ncu-fc1-pcsampling-plan/report-api-cpu-check.json": "f219aa9fe7dacf0f9639893d62c5627a05dac637ad1a039a1057c149549b476b",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/ncu-fc1-pcsampling-plan/source-metric-query.txt": "498546f03dff452958cdd53b80a3d09b4bb6b4650ec444da7a594f93f58cb99f",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/ncu-fc1-pcsampling-plan/candidate-fc1.sass": "461e643847a5e541b2eff0dae75f6c83af5d8bd7302fd4afe78942b391c06623",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/ncu-fc1-pcsampling-plan/plan.md": "623d601565c25608250be5e5d0c0d174ec84a89379e3f079128d1f76ff72ede2",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/ncu-fc1-pcsampling-plan/query-command.json": "c909b0a83acd47d4c7dcb2f537e6164e015529cbb41634a6832b54a4b4cf864c",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/ncu-fc1-pcsampling-plan/instruction-reference.json": "84ea5013d421155fbbb8292d0759d6d493d84537d3e8e8a982e0096e9eb0fb38",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/ncu-fc1-pcsampling-plan/warpsampling-metric-query.txt": "40f5b9b3de62246e6fa531b1cda9e7f61a38a1e0dea5ddf830fc74954f851166",
+  "/home/zjy/.cache/flashinfer/cubins/1d145b82ac60add55ea213863523f12d63005651/batched_gemm-09795a1-31ee4e5/Bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100f.cubin": "f9562335760b5d98fbac45a85bed51247e02eac09e9e5a38713b0c0b6e7917fe",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/register-lowering-audit/vendor-native-fc1.sass": "b3ff29aa91586ea8419922b6c31cedbc397fd68b62cf578822e5d25c3fa88c75",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-ncu-node-v2/L0-candidate/gpu-profile-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.cubin": "7c9bea320d547429ee935f7f43834afd931c0457dd2853cd277af1559984c4aa"
+}

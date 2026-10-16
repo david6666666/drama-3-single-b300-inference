@@ -1,0 +1,44 @@
+{
+  "status": "EXACT_PASS_NO_TIMING",
+  "checks": 5393,
+  "layers": 40,
+  "cases": 3,
+  "modes": [
+    "eager",
+    "same_per_layer_graph_replayed_three_cases"
+  ],
+  "result_sha256": "0657dcd4571c6fa4da37d660aaa5535a1ad316a4219a9f65a6c964aea3441d0b",
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "full_rows": 1600,
+  "compact_rows": 1088,
+  "source_inputs_reproduced": [
+    {
+      "case": "proxy190",
+      "input_sha_matches": 40,
+      "layer_count": 40
+    },
+    {
+      "case": "proxy190_reversed_reused_graph",
+      "input_sha_matches": 40,
+      "layer_count": 40
+    },
+    {
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "input_sha_matches": 40,
+      "layer_count": 40
+    }
+  ],
+  "native_function_unchanged": true,
+  "states_byte_exact": 111,
+  "read_weight_tensors_byte_exact": 240,
+  "input_files_bytes": 786437631,
+  "previous_failure": {
+    "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-exact/result.json",
+    "status": "FAIL",
+    "cause": "Harness zero-dimensional byte view error; no numerical mismatch",
+    "preserved": true
+  },
+  "gpu_after": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf, 4, 0",
+  "source_status": "",
+  "process_running": false
+}

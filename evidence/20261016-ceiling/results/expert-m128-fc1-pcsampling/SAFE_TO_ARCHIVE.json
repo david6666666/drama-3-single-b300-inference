@@ -1,0 +1,44 @@
+{
+  "status": "SAFE_TO_ARCHIVE_INCONCLUSIVE",
+  "gpu_running": false,
+  "candidate_not_run": true,
+  "source_files_changed_after_freeze": false,
+  "files": {
+    "summary.json": {
+      "sha256": "540d4456c22f671ac9c001539f6d91005153ece7c45964c1efbf7cec398e7f93",
+      "bytes": 1823
+    },
+    "summary.md": {
+      "sha256": "f37b084d9820a02422d83d9b04aa05ac1b30fe888c05c11a23d739cd55bfbdfe",
+      "bytes": 2193
+    },
+    "protocol.json": {
+      "sha256": "a38aafc453dbf19935094c8d2059add92bc44e19fdebd858590618963b8ffd80",
+      "bytes": 5907
+    },
+    "frozen-inputs.json": {
+      "sha256": "950508eff3fa34888767cc4df9e14ccdb3f13e870af8b635f79379b34995cea6",
+      "bytes": 29657
+    },
+    "launch-result.json": {
+      "sha256": "78009bdf6d257c4e51f8122e809f1f8c0e0ed1d67b9da8e9c7dc1c07f8cb03d8",
+      "bytes": 17272
+    },
+    "L0-native-pc-result.json": {
+      "sha256": "c9c152cd954a875c9b5d77db5f3c8e2290d0a40bcd44a39b9580a53331b7bc06",
+      "bytes": 349331
+    },
+    "L0-native-ncu.ncu-repz": {
+      "sha256": "8004f2f2bec6de511e276cf2fdf7d7accaad80d0d70a6e4a336d2a6380b0bab8",
+      "bytes": 73642
+    },
+    "L0-native/result.json": {
+      "sha256": "5043b89a5526e439e7d4f98674f95ec839a37d12ed9a60753e58c2297cc9fc2c",
+      "bytes": 13044
+    },
+    "L0-native/graph.json": {
+      "sha256": "646f95777d064fd178ef19517e1d9071058509611d931352d08ea95e64669b3d",
+      "bytes": 33832
+    }
+  }
+}
