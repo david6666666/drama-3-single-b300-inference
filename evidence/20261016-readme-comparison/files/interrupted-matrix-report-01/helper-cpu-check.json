@@ -1,0 +1,127 @@
+{
+  "status": "CPU_SYNTHETIC_INTERRUPTED_REPORT_CHECK_PASS",
+  "scope": "Synthetic fixtures only; no measured GPU result inferred. archive() never called; no GPU/repository writes.",
+  "checks": [
+    {
+      "name": "62_complete_groups_67456_requests_not63",
+      "passed": true
+    },
+    {
+      "name": "20_formal_rows_one_incomplete_row_two_diagnostics",
+      "passed": true
+    },
+    {
+      "name": "vllm_c64_no_formal_metric_or_median",
+      "passed": true
+    },
+    {
+      "name": "both_diagnostic_c64_runs_retained_unaggregated",
+      "passed": true
+    },
+    {
+      "name": "c64_quality_comparison_unavailable",
+      "passed": true
+    },
+    {
+      "name": "other_concurrencies_have_three_run_median_and_range",
+      "passed": true
+    },
+    {
+      "name": "bad_quality_retained_and_no_optimization_acceptance",
+      "passed": true
+    },
+    {
+      "name": "failed_unique_request_count_not_invented",
+      "passed": true
+    },
+    {
+      "name": "aggregation_does_not_write",
+      "passed": true
+    },
+    {
+      "name": "other_report_directory_refused",
+      "passed": true
+    },
+    {
+      "name": "missing_quality_refused",
+      "passed": true
+    },
+    {
+      "name": "wrong_attempt_refused",
+      "passed": true
+    },
+    {
+      "name": "wrong_continuation_hash_refused",
+      "passed": true
+    },
+    {
+      "name": "vllm_service_not_relabelled_fullpass",
+      "passed": true
+    },
+    {
+      "name": "vllm_failure_scope_required",
+      "passed": true
+    },
+    {
+      "name": "arbitrary_missing_group_refused",
+      "passed": true
+    },
+    {
+      "name": "duplicate_quality_label_refused",
+      "passed": true
+    },
+    {
+      "name": "fabricated_c64_r2_refused",
+      "passed": true
+    },
+    {
+      "name": "nonfinite_diagnostic_refused",
+      "passed": true
+    },
+    {
+      "name": "changed_failure_hash_refused",
+      "passed": true
+    },
+    {
+      "name": "changed_diagnostic_raw_refused",
+      "passed": true
+    },
+    {
+      "name": "unclean_final_stage_refused",
+      "passed": true
+    },
+    {
+      "name": "archive_plan_no_writes",
+      "passed": true
+    },
+    {
+      "name": "both_failures_pilots_and_initial_probe_preserved",
+      "passed": true
+    },
+    {
+      "name": "raw_quality_and_logs_gzip",
+      "passed": true
+    },
+    {
+      "name": "worktrees_model_audio_caches_excluded",
+      "passed": true
+    },
+    {
+      "name": "archive_false_63group_summary_refused",
+      "passed": true
+    },
+    {
+      "name": "archive_existing_destination_refused",
+      "passed": true
+    },
+    {
+      "name": "archive_never_executed",
+      "passed": true
+    }
+  ],
+  "sources": {
+    "summarize_matrix.py": "47076b4ade3afca59d0f7b2e7b800458cc459fa78cbc274520901831912aa69e",
+    "archive_comparison.py": "5ec562e87d9a159b431a23f18d94137fb727a66d1214cc041b2789c1e2a0b52c",
+    "check_helpers.py": "5164579c113d489bd4fc9d6f746c5950116a33eeacaa528288d6a604b43e8d6b"
+  }
+}

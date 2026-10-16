@@ -1,0 +1,206 @@
+{
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/sglang/result.json": {
+    "sha256": "32ee19d80e6ef18b86e345867bff65725c1f4f5b3c6a90e743417bcd8c3c31aa",
+    "bytes": 3440
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/standalone/result.json": {
+    "sha256": "6a4bf17004193fc7f881c558e1d83da454f8aed6d894ea4b6e5de9730cfe7ae0",
+    "bytes": 3547
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/vllm/result.json": {
+    "sha256": "dc46fc3802d68d82979aea006af8c4e6903c635439cddfa10d515c4de5af9245",
+    "bytes": 3427
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/archive_comparison.py": {
+    "sha256": "5ec562e87d9a159b431a23f18d94137fb727a66d1214cc041b2789c1e2a0b52c",
+    "bytes": 9206
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/check_helpers.py": {
+    "sha256": "5164579c113d489bd4fc9d6f746c5950116a33eeacaa528288d6a604b43e8d6b",
+    "bytes": 11501
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/continuation.py": {
+    "sha256": "1468e23376e12f2e5cb1a9ba20125980eb0570c3c43a4653c879ecfdb858b11f",
+    "bytes": 5875
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/cpu-check.json": {
+    "sha256": "9836046554d1322e9073c9abb8527092aba800ed4fa7b0dea26ccfb7b2eeb9f1",
+    "bytes": 749
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/cpu_check.py": {
+    "sha256": "d9c5db558ba63f148b1d82dcba7aba1357958a6616dbb9ad88bc026acb68397e",
+    "bytes": 2054
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/helper-cpu-check.json": {
+    "sha256": "71570a4eb8ab135292da884d26d899ae24c13b9a66dd94c6d8945ccb2e6677d5",
+    "bytes": 2979
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/independent-review.json": {
+    "sha256": "b3ce0bf667efc801336b59c92fbbc84b5691cf236c1e512ddfb92ebe27d9f07d",
+    "bytes": 2703
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/prepare_protocol.py": {
+    "sha256": "3a3e68e38a5fe0cad5893109a73a9bb1091c337332482d930509393dd60b8289",
+    "bytes": 5823
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/protocol.json": {
+    "sha256": "a7a82576212dd21f904a63036a10eca1f52e5133a31b161de84d336debcd9c30",
+    "bytes": 3643
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/summarize_matrix.py": {
+    "sha256": "47076b4ade3afca59d0f7b2e7b800458cc459fa78cbc274520901831912aa69e",
+    "bytes": 11772
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/validate_existing_groups.py": {
+    "sha256": "8d2c16824988a542257766e70c117e8c34cbcdd23aeda9a388eb12fab48ab064",
+    "bytes": 6300
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/validator-cpu-check.json": {
+    "sha256": "0b74338a399b19193a06b21d8a5a4cb27d825373e9d863d1b1e305ff33071166",
+    "bytes": 1784
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/vllm-completed-service-audit.json": {
+    "sha256": "ae34060d8521416b0397f915089586d5ecbb63188d4e3126f235b86dca1d65fe",
+    "bytes": 8070
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/standalone/result.json": {
+    "sha256": "5f8896f8658fb37284f886b9ad98622c891bd658828af63bd1cd537d3c804d0f",
+    "bytes": 16451
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/result.json": {
+    "sha256": "7d3f41e3286477bb52544d3f8e386ff89ad37501cae234771c0aab72fdeb9051",
+    "bytes": 2883
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c1-r0.jsonl": {
+    "sha256": "8376d96f7dba40893ce8c81b22db6d7b322fd07b0b07bbf1258236a2a1597388",
+    "bytes": 991571
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c1-r1.jsonl": {
+    "sha256": "78904d9968880cd0326ea51a1a8b605a34cdaa19cbadf2685636e34c1b0150ac",
+    "bytes": 984274
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c1-r2.jsonl": {
+    "sha256": "4dec2ed3a0b37d5838d9bc5e1373af3c3eed3d488b1ed0277faf3ea1019782e7",
+    "bytes": 993517
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c1-warmup.json": {
+    "sha256": "68607c4434a63acfbe8d54af828c1a7ab35b8fe7c2111b36eb15f1a3df6fb711",
+    "bytes": 8833
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c16-r0.jsonl": {
+    "sha256": "badbe6bc4b2a5199257b7c4cacc0246e37e1e44656716136b8d3721fb4fc5006",
+    "bytes": 982942
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c16-r1.jsonl": {
+    "sha256": "a1a9a94b105bccd0e0b65edbcb5d4e3732f27ae88b3dd010208d68e3c14ffb46",
+    "bytes": 983547
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c16-r2.jsonl": {
+    "sha256": "ed9704a818ae7af384d8a99ba001c8937c06e40ee6cdd4c165197e9d1a05dddc",
+    "bytes": 982010
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c16-warmup.json": {
+    "sha256": "512fde5472742486470f36bea57e35ff4d881da4d4edb2ff25cec3b8691d31ba",
+    "bytes": 17646
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c2-r0.jsonl": {
+    "sha256": "3cd1f15571ebba3b3755895087e4631020ea09ac875912464469e33da8abcde1",
+    "bytes": 985506
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c2-r1.jsonl": {
+    "sha256": "243fb10919a7f25f8e9ed892b8d7ef8fc4e510e93cb3c404e0c1f9793e67e111",
+    "bytes": 982103
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c2-r2.jsonl": {
+    "sha256": "99d6a23ab801b95bed0f5b22106048810ab6babba3d4ee77df91cd3ff7c9dd74",
+    "bytes": 985286
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c2-warmup.json": {
+    "sha256": "d1c2a55e80d7650abbb58c1223fd2bc83abd6726bd3dc04c68556ade7e963495",
+    "bytes": 8769
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c32-r0.jsonl": {
+    "sha256": "3b9ecfb5205f79b3892cbe1296043662d82b655cc1511bf0943f10cb98297625",
+    "bytes": 970672
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c32-r1.jsonl": {
+    "sha256": "346ed17d4a0192574fe490f66c94e944e6599f07c236dcec0bd0b5c5787974a2",
+    "bytes": 970597
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c32-r2.jsonl": {
+    "sha256": "e45eae7de8bb9839165b9140c69d8ae620ed2f9ce8caa57693eddf4d060c5dbd",
+    "bytes": 969444
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c32-warmup.json": {
+    "sha256": "602cce1042e613a5c641a776907cf675473807ddf3a47a4550ed00d86c29caef",
+    "bytes": 34533
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c4-r0.jsonl": {
+    "sha256": "6287c43475791d04377592dac699738ee39327e2913d21ceadbc9ae9b05f5f1e",
+    "bytes": 986114
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c4-r1.jsonl": {
+    "sha256": "c6294d28d19d77395634b23a60cb134a934114e3490874a96b3d15f3dca4aba3",
+    "bytes": 991547
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c4-r2.jsonl": {
+    "sha256": "8828361f500f34d578103fca156a4a28244d52ff82a50f0703f890fa348f2424",
+    "bytes": 988863
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c4-warmup.json": {
+    "sha256": "39a409410d9bd9ce633852d0c6a3e2705ac1ecb56be18b40f24410cdb0acf7d4",
+    "bytes": 8697
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c64-r0.jsonl": {
+    "sha256": "cb961d3d557a2e5e95fc089665976794d37eb71dbbecf1f395ad5d4726e73861",
+    "bytes": 984305
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c64-r1.jsonl": {
+    "sha256": "68bb985e0c0cd9400d052dba98e2973bb4de6479ff6e31fcf31696f59c284a97",
+    "bytes": 972019
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c64-warmup.json": {
+    "sha256": "b7d12b48b1ead3f257f898adff36c18d0049d206b70c5e6fae0a02aaf0daaabe",
+    "bytes": 70801
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c8-r0.jsonl": {
+    "sha256": "2aaca6058006379315756f06ffb1e4125a814119f1ac802da23984cf16d2ccf6",
+    "bytes": 989068
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c8-r1.jsonl": {
+    "sha256": "c7bf2fc9ec963b87415dc3464e8989c3aab480147ea1e2abaaf46c3a541de410",
+    "bytes": 982827
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c8-r2.jsonl": {
+    "sha256": "97de1294e38bf12a07e65aa20bc0ebaf38dc20d8292c5161afc9b339d81e6c5c",
+    "bytes": 989110
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/c8-warmup.json": {
+    "sha256": "f36d44b1c18c57a7985c4fd77ecc4b558529bd390b307185323bf8cf65a17496",
+    "bytes": 8699
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/manifest.json": {
+    "sha256": "5b76816ac227385eda5ca73134d2ed59a11a434b7c0fe22daf15a1760571684f",
+    "bytes": 823
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service/benchmark/summary.json": {
+    "sha256": "70d667e02a4cf658ca64a0e52ec8c6801f4236af532b8ea7eb8331d1fe8e4908",
+    "bytes": 6494
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service-runner/result.json": {
+    "sha256": "c3b3d0d8e41432cfb91a80884c3302289bd212a3d14a83d104c55567268b961d",
+    "bytes": 105281
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/stop-observation.json": {
+    "sha256": "3aa71787fce4ed121deeaedcf37fb3a35ed55e4b7bb8acd2d564e1d7580b652d",
+    "bytes": 13586
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/process_control_recovery.py": {
+    "sha256": "6622cfc8be752f43c684e3fcbd6ef11653e563e18ff6f6b257c87981ca96d28b",
+    "bytes": 9916
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/vllm-stop-audit.json": {
+    "sha256": "d706431871c047bfb6d017bcc3d384ddf9d866a173447925fafab8a1369e966e",
+    "bytes": 4777
+  }
+}

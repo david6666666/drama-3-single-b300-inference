@@ -1,0 +1,62 @@
+{
+  "status": "FROZEN_AWAITING_EXPLICIT_EXECUTION_APPROVAL",
+  "attempt_id": "remaining-sglang-report-01",
+  "purpose": "Preserve both upstream service failures, score every available SGLang output, and measure only concurrency groups never attempted. No optimization or retry of failed/existing groups.",
+  "protocol_sha256": "7381a4cfc3f55bdc6c181d64e0991d93d9c05461f9b56db17a7579bc921c5e1a",
+  "manifest_sha256": "3c368cff001d2950f34b1b2c6429622ba55a4c63f84d2ce5fa4e23e6d3c5f4b7",
+  "matrix_protocol_sha256": "cd87f7beadbfcef71637481e3dbc430e80ea761537b708f2fb337be206124666",
+  "matrix_manifest_sha256": "8dd5c7ee923519ab75064d9d697789bfff976d5e3d2bd4f31c1fe4d51a95eaea",
+  "continuation_protocol_sha256": "a7a82576212dd21f904a63036a10eca1f52e5133a31b161de84d336debcd9c30",
+  "continuation_manifest_sha256": "fbd7dc76a6c0ca1a7d0267a43ac88d4fe2a5057b6bc308a823439facae308e36",
+  "order": [
+    "existing-quality",
+    "remaining"
+  ],
+  "saved_labels": [
+    "c1-r0",
+    "c1-r1",
+    "c1-r2",
+    "c2-r0",
+    "c2-r1"
+  ],
+  "remaining_concurrency": [
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "remaining_labels": [
+    "c4-r0",
+    "c4-r1",
+    "c4-r2",
+    "c8-r0",
+    "c8-r1",
+    "c8-r2",
+    "c16-r0",
+    "c16-r1",
+    "c16-r2",
+    "c32-r0",
+    "c32-r1",
+    "c32-r2",
+    "c64-r0",
+    "c64-r1",
+    "c64-r2"
+  ],
+  "never_retry": "Do not rerun C1 or any C2 request/group. C2-r1 remains invalid; C2-r2 remains NOT_RUN. vLLM c64-r2 remains incomplete.",
+  "lifecycle_boundary": "The unattempted C4..C64 groups use a fresh SGLang server, original capture/startup, and original max(8,C) warmups. RNG and prior service history differ from the interrupted lifecycle. This is an explicitly segmented campaign, not one uninterrupted server for all21 groups. Source, native kernels, model, sampling, capacity and all request controls remain unchanged.",
+  "inherited_controls": "Exact base source/venv/corpus/checkpoint/Fish/quality assets, physical GPU6 UUID, affinity0..239, OMP8, SGLang capacity64, original defaults and FP8/top8, maxframes500/temp1/topp.9/topk30, freshTCP/no retries/full tail and all audio are unchanged. Reuse original run_baseline.py and evaluate_audio.py; no package/source edits. UUID-scoped30s monitoring and token/starttime cleanup unchanged.",
+  "partial_quality_policy": "Pass all1088 source records of c2-r1 to the original scorer. Preserve exact failed HTTP500 record with is_success=false/error and SIM=null; score1087 existing audio outputs. Record skipped1/complete=false. Conditional1087 WER/SIM are diagnostic only, never complete1088 quality or formal performance. Validate all4352 outputs from4 full groups normally. No request filtering or replacement.",
+  "formal_reporting": "If remaining15 groups finish, 19 formal three-repeat rows are available. SGLang C2 and vLLM C64 stay failed/incomplete. There are60 complete valid groups(65280 outputs), plus1087 valid audio outputs from one invalid group, total66367 scored audio outputs. SG C2-r2 NOT_RUN. Three complete groups outside formal rows are diagnostic-only. Never claim all63 groups passed.",
+  "preserved_failure": {
+    "sglang_audit": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang-stop-audit.json",
+    "sglang_audit_sha256": "4f779383ef68efdba300392b282012a98150399ba0e9a0085a65159f1866537b",
+    "vllm_audit_sha256": "d706431871c047bfb6d017bcc3d384ddf9d866a173447925fafab8a1369e966e"
+  },
+  "watchdog_seconds": {
+    "service": 14400,
+    "quality": 14400
+  },
+  "failure_policy": "Any new request/model/monitor/validation failure stops. No automatic retry, tuning, outlier removal or threshold change.",
+  "requires": "New root execution-approval.json bound to this exact protocol.json and frozen-inputs.json. Prior approvals are insufficient."
+}

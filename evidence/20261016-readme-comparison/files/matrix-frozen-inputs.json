@@ -1,0 +1,26 @@
+{
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/run_matrix.py": {
+    "sha256": "76619fcf03a7e53c99d2c9c040df4e9143f790355c7b084b28f3bb74a0e2edcc",
+    "bytes": 4016
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/matrix-protocol.json": {
+    "sha256": "f2716987be418f410d8751dc664ce16ec81bef6bbf21b5cedaa553543cd63410",
+    "bytes": 840
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/matrix-cpu-check.json": {
+    "sha256": "0da137a939c999a85e357464e42a1f5c8dc58a5285e79b86956941b2f5c17d11",
+    "bytes": 249
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/summarize_matrix.py": {
+    "sha256": "9b04e6d8c6768458f1da8d3778b0549b8b10bda5d0132cfe7deae6e19c24eee3",
+    "bytes": 7637
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/matrix-summary-cpu-check.json": {
+    "sha256": "7b3269c63749d4ec497f15e575d53bf610e95b6a44c75c89b8ab47e3bab7e343",
+    "bytes": 933
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/independent-controller-review.json": {
+    "sha256": "0e115f7501b0ce7405f01c2819fd2ea6ae812eafb370d63cb9d6d4ba134371fa",
+    "bytes": 10264
+  }
+}

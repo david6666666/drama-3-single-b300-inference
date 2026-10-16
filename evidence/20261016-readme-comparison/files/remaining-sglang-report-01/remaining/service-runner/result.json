@@ -1,0 +1,163 @@
+{
+  "status": "PASS",
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/scripts/run_baseline.py",
+    "--backend",
+    "sglang",
+    "--source",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang",
+    "--venv",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-sglang",
+    "--bench-python",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "--checkpoint",
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+    "--corpus",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+    "--output",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/remaining/service",
+    "--gpu",
+    "6",
+    "--port",
+    "18148",
+    "--capacity",
+    "64",
+    "--requests",
+    "1088",
+    "--repeats",
+    "3",
+    "--concurrency",
+    "4",
+    "8",
+    "16",
+    "32",
+    "64",
+    "--skip-reference-warmup"
+  ],
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang:/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "CUDA_VISIBLE_DEVICES": "6",
+    "OMP_NUM_THREADS": "8",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-hf-modules"
+  },
+  "token": "309c231b2488487ba39874eb1d2721c5",
+  "sampling_interval_seconds": 1,
+  "query_timeout_seconds": 30,
+  "limitation": "The monitor sleeps one second between UUID-scoped queries; each query may take up to 30 seconds. Successful poll timestamps retain actual gaps. No missing observation is treated as proof of exclusivity. Short interference and instantaneous memory peaks can be missed. Any query timeout still stops the run; other GPU jobs are untouched.",
+  "cleanup": [],
+  "runner": {
+    "pid": 3885043,
+    "ppid": 3884953,
+    "starttime": 89973375,
+    "uid": 1012,
+    "state": "R"
+  },
+  "error": null,
+  "elapsed_seconds": 1854.626990941004,
+  "exit_code": 0,
+  "owned_processes": {
+    "3885043": {
+      "pid": 3885043,
+      "ppid": 3884953,
+      "starttime": 89973375,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "309c231b2488487ba39874eb1d2721c5",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "3885052": {
+      "pid": 3885052,
+      "ppid": 3885043,
+      "starttime": 89973379,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "309c231b2488487ba39874eb1d2721c5",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sgl-omni"
+    },
+    "3885396": {
+      "pid": 3885396,
+      "ppid": 3885052,
+      "starttime": 89973952,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "309c231b2488487ba39874eb1d2721c5",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "3885398": {
+      "pid": 3885398,
+      "ppid": 3885052,
+      "starttime": 89973963,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "309c231b2488487ba39874eb1d2721c5",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "3885399": {
+      "pid": 3885399,
+      "ppid": 3885052,
+      "starttime": 89973963,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "309c231b2488487ba39874eb1d2721c5",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "3885400": {
+      "pid": 3885400,
+      "ppid": 3885052,
+      "starttime": 89973963,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "309c231b2488487ba39874eb1d2721c5",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "3889529": {
+      "pid": 3889529,
+      "ppid": 3885043,
+      "starttime": 89979782,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "309c231b2488487ba39874eb1d2721c5",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    }
+  },
+  "post_gpu": []
+}

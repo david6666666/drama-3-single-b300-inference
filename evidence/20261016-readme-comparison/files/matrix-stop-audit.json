@@ -1,0 +1,62 @@
+{
+  "status": "MATRIX_STOPPED_MONITOR_QUERY_TIMEOUT",
+  "protocol_sha256": "7381a4cfc3f55bdc6c181d64e0991d93d9c05461f9b56db17a7579bc921c5e1a",
+  "matrix_protocol_sha256": "f2716987be418f410d8751dc664ce16ec81bef6bbf21b5cedaa553543cd63410",
+  "error": "TimeoutExpired: Command '['nvidia-smi', '--query-compute-apps=gpu_uuid,pid,process_name,used_gpu_memory', '--format=csv,noheader,nounits']' timed out after 10 seconds",
+  "completed_groups": [
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      4,
+      0
+    ]
+  ],
+  "completed_requests": 7616,
+  "complete_matrix": false,
+  "quality_scoring_run": false,
+  "last_successful_audit": {
+    "elapsed_seconds": 2074.5622598779155,
+    "gpu_processes": [
+      {
+        "uuid": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf",
+        "pid": 2598559,
+        "name": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+        "memory_mib": 105764
+      }
+    ]
+  },
+  "cleanup": [
+    {
+      "action": "SIGTERM own runner process group",
+      "pid": 2598547
+    }
+  ],
+  "post_gpu": [],
+  "monitor_duration_seconds": 2087.0377658249345,
+  "interpretation": "The frozen process-monitor query timed out. No model/request failure or external GPU process was established by this error. The interrupted group and all completed groups remain preserved; no rerun, filtering, resumed matrix or quality acceptance is inferred.",
+  "raw_result_sha256": "255f2b41f54b51e79a059c8e62f8fdffcfb7b0367ce1b0e381babf5301339a23",
+  "raw_audit_sha256": "1df8069e30867e0025b34cd1a6b77e16ca7aa16f789647766c6f87fd79d327f0",
+  "source_files_untouched": true
+}

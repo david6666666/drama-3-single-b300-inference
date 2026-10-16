@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title description">
   <title id="title">Drama 3 · Single B300 architecture</title>
-  <desc id="description">A Python HTTP and CLI serving runtime on one GPU. The engine prepares prompts, admits requests and owns persistent request state. Model execution uses a 40-layer attention and GDN backbone with native FP8 top-8 experts, BF16 projections, CUDA Graphs and an audio tower producing ten codebooks. A stateful DAC decodes new frames into streaming PCM. Mixed execution, frame pipelining and asynchronous codec delivery are opt-in. Dependencies include Fish Speech, FlashInfer, FLA and Triton.</desc>
+  <desc id="description">A Python HTTP and CLI serving runtime on one GPU. The engine prepares prompts, admits requests and owns persistent request state. Model execution uses a 40-layer attention and GDN backbone with native FP8 top-8 experts, BF16 projections, CUDA Graphs and an audio tower producing nine residual codebooks after the backbone-derived semantic/codebook 0. A stateful DAC decodes new frames into streaming PCM. Mixed execution, frame pipelining and asynchronous codec delivery are opt-in. Dependencies include Fish Speech, FlashInfer, FLA and Triton.</desc>
   <!-- Editable repository-native diagram. Source anchors: server.py main/create_app;
        engine.py Engine/DecodeGraph; model.py backbone_forward/tower_forward;
        runtime_state.py DeviceRequests; codec.py streaming_codec; audio_queue.py AudioQueue.
@@ -82,7 +82,7 @@
 
     <rect x="444" y="449" width="392" height="61" rx="11" class="blue" filter="url(#card-shadow)"/>
     <text x="640" y="471" text-anchor="middle" class="module">Audio tower &amp; sampling</text>
-    <text x="640" y="491" text-anchor="middle" class="detail">4 shared + 9 residual layers · 10 acoustic codebooks</text>
+    <text x="640" y="491" text-anchor="middle" class="detail">4 shared + 9 residual layers · codebooks 1–9</text>
 
     <rect x="444" y="523" width="392" height="30" rx="9" class="amber"/>
     <text x="640" y="543" text-anchor="middle" class="detail" style="fill:#7d5b18">Opt-in: mixed backbone · frame pipeline</text>

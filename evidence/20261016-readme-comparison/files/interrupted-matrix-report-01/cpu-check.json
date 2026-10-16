@@ -1,0 +1,21 @@
+{
+  "status": "CPU_CONTINUATION_PASS",
+  "checks": 9,
+  "details": [
+    "AST:continuation.py",
+    "AST:prepare_protocol.py",
+    "AST:cpu_check.py",
+    "CPU-only draft",
+    "20 existing vLLM and 21 planned SGLang labels",
+    "default dry-run:vllm-quality",
+    "draft execution refused before output/GPU:vllm-quality",
+    "default dry-run:sglang",
+    "draft execution refused before output/GPU:sglang"
+  ],
+  "gpu_workloads_launched": false,
+  "source_sha256": {
+    "continuation.py": "1468e23376e12f2e5cb1a9ba20125980eb0570c3c43a4653c879ecfdb858b11f",
+    "prepare_protocol.py": "3a3e68e38a5fe0cad5893109a73a9bb1091c337332482d930509393dd60b8289",
+    "cpu_check.py": "d9c5db558ba63f148b1d82dcba7aba1357958a6616dbb9ad88bc026acb68397e"
+  }
+}

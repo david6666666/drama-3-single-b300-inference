@@ -1,0 +1,9 @@
+{
+  "approved_by": "root",
+  "gpu_execution": true,
+  "phase": "feasibility",
+  "protocol_sha256": "7381a4cfc3f55bdc6c181d64e0991d93d9c05461f9b56db17a7579bc921c5e1a",
+  "manifest_sha256": "3c368cff001d2950f34b1b2c6429622ba55a4c63f84d2ce5fa4e23e6d3c5f4b7",
+  "reviewed_utc": "2026-10-16T12:00:34.865752+00:00",
+  "basis": "User latest-code matched comparison request; fixed native model configurations, valid complete service and full audio quality; no optimization search. Root reviewed controller, adapter, source bindings, fixed controls, scoped cleanup and CPU reports."
+}

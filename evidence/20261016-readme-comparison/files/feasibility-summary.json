@@ -1,0 +1,75 @@
+{
+  "status": "ALL_THREE_COMPLETE_VALID_SERVICE_AND_QUALITY",
+  "scope": "One C64 run each; feasibility only, not 3-repeat matrix statistics",
+  "rows": [
+    {
+      "backend": "standalone",
+      "service": {
+        "label": "c64-r0",
+        "requests": 1088,
+        "frames": 102375.0,
+        "makespan_s": 22.616879266919568,
+        "jsonl_sha256": "cb042bf6ed28921c7e388b1380ae745629f3cb3244e4e36f8eff3e1cf0fae8a3",
+        "throughput_frames_s": 4526.486558635795,
+        "ttfa_p50_ms": 148.19037303095683,
+        "ttfa_p95_ms": 272.809033939841,
+        "rtf_mean": 0.2921514978452739
+      },
+      "quality": {
+        "label": "c64-r0",
+        "requests": 1088,
+        "wer_percent": 1.6662480113874236,
+        "sim_mean": 64.11069595978103,
+        "errors": 199,
+        "reference_words": 11943
+      },
+      "result_sha256": "6a4bf17004193fc7f881c558e1d83da454f8aed6d894ea4b6e5de9730cfe7ae0"
+    },
+    {
+      "backend": "vllm",
+      "service": {
+        "label": "c64-r0",
+        "requests": 1088,
+        "frames": 103843.0,
+        "makespan_s": 22.67477197397966,
+        "jsonl_sha256": "efc7adfe95ea98b94ac67d884d897163e34da5b6383b11fb90bb5c10bea92e9a",
+        "throughput_frames_s": 4579.671192246811,
+        "ttfa_p50_ms": 158.30290399026126,
+        "ttfa_p95_ms": 259.7133914649021,
+        "rtf_mean": 0.28719524397860396
+      },
+      "quality": {
+        "label": "c64-r0",
+        "requests": 1088,
+        "wer_percent": 1.9425604956878506,
+        "sim_mean": 64.04080595864968,
+        "errors": 232,
+        "reference_words": 11943
+      },
+      "result_sha256": "dc46fc3802d68d82979aea006af8c4e6903c635439cddfa10d515c4de5af9245"
+    },
+    {
+      "backend": "sglang",
+      "service": {
+        "label": "c64-r0",
+        "requests": 1088,
+        "frames": 101749.0,
+        "makespan_s": 57.14660826604813,
+        "jsonl_sha256": "4a2411f1d6ace709725b81dfccd4166560cf881287dff78f2bd74cbb49a4d752",
+        "throughput_frames_s": 1780.4906203059995,
+        "ttfa_p50_ms": 414.8734185146168,
+        "ttfa_p95_ms": 1488.2020360499148,
+        "rtf_mean": 0.7649140248556794
+      },
+      "quality": {
+        "label": "c64-r0",
+        "requests": 1088,
+        "wer_percent": 1.4318010550113038,
+        "sim_mean": 64.20673730618813,
+        "errors": 171,
+        "reference_words": 11943
+      },
+      "result_sha256": "32ee19d80e6ef18b86e345867bff65725c1f4f5b3c6a90e743417bcd8c3c31aa"
+    }
+  ]
+}

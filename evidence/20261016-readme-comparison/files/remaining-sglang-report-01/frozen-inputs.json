@@ -1,0 +1,134 @@
+{
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/result.json": {
+    "sha256": "861ca045100bd7753f009849708a7053c7f720d602e9bd5dc55f57bc72877508",
+    "bytes": 3147
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/c1-r0.jsonl": {
+    "sha256": "bd65f42e73677fcd37738a20e03efe8d3182bbaa8250ed47d44047644db48bb6",
+    "bytes": 1122325
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/c1-r1.jsonl": {
+    "sha256": "0bccdf31a0ba9f60374b39b20004ec6fe11329ebf28f909a729586982ec34758",
+    "bytes": 1117870
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/c1-r2.jsonl": {
+    "sha256": "c74166588e63d8d3988b8c27bc67a91f809ba14ae79cedc12eca39e850134e72",
+    "bytes": 1119232
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/c1-warmup.json": {
+    "sha256": "ece085d39a3e86570161952103f2bf8ec45b19a21c65c57d48e932f308b9aee8",
+    "bytes": 9649
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/c2-r0.jsonl": {
+    "sha256": "4396e438485bafb36d626c69f385e5a01e408c77bf7653c6bfabb2ca4e127652",
+    "bytes": 1119397
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/c2-r1.jsonl": {
+    "sha256": "6d36b126069f54d5f71f855745ed071e4d08669872a63de9610bafda5b1da85a",
+    "bytes": 1124228
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/c2-warmup.json": {
+    "sha256": "bab297841b08078795e09225647a28519cf5c03a50c137f0066ba477e3e108d8",
+    "bytes": 9684
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/manifest.json": {
+    "sha256": "ad9ff77866c08415803d6bcc9d4715d219b71c25c0883a8f43e5f66fb62e1f65",
+    "bytes": 829
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/summary.json": {
+    "sha256": "02ad1a52e129463efdc58419f901359568c1f0ce93ba1d5a4c6368583e60b08d",
+    "bytes": 1627
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service-runner/result.json": {
+    "sha256": "1ecb11a78c44a0a4f5876517edcf8e87b89af4db8bf6959578435853678fb009",
+    "bytes": 5092
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang-continuation-cpu-assessment.json": {
+    "sha256": "7294e91457ac95098319c297562aca733d25630f094905939ef6746ff2578667",
+    "bytes": 2640
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang-stop-audit.json": {
+    "sha256": "4f779383ef68efdba300392b282012a98150399ba0e9a0085a65159f1866537b",
+    "bytes": 3053
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/vllm-quality/result.json": {
+    "sha256": "0fced31081815628304882597187391145c9582f4246dee7ace31e8ac9995636",
+    "bytes": 15073
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/standalone/result.json": {
+    "sha256": "5f8896f8658fb37284f886b9ad98622c891bd658828af63bd1cd537d3c804d0f",
+    "bytes": 16451
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/result.json": {
+    "sha256": "7d3f41e3286477bb52544d3f8e386ff89ad37501cae234771c0aab72fdeb9051",
+    "bytes": 2883
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service-runner/result.json": {
+    "sha256": "c3b3d0d8e41432cfb91a80884c3302289bd212a3d14a83d104c55567268b961d",
+    "bytes": 105281
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/process_control_recovery.py": {
+    "sha256": "6622cfc8be752f43c684e3fcbd6ef11653e563e18ff6f6b257c87981ca96d28b",
+    "bytes": 9916
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/vllm-stop-audit.json": {
+    "sha256": "d706431871c047bfb6d017bcc3d384ddf9d866a173447925fafab8a1369e966e",
+    "bytes": 4777
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/archive_comparison.py": {
+    "sha256": "48c5bafd06dade880c13264a2986991421ca960fb82d0390e01cbd71af6308d9",
+    "bytes": 9989
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/check_helpers.py": {
+    "sha256": "da3dcb267287baf125cc8a1efd664c4ad375003a7f1669186528edf2dea00c89",
+    "bytes": 14119
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/check_validators_cpu.py": {
+    "sha256": "055495c6849a8b141f8e092063f9d78f83b00dbf4690a76ffd9ba7d7f57f8920",
+    "bytes": 11085
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/continuation.py": {
+    "sha256": "5ff1b423e8f0719fa87d4dfe42f45d59d5360cdccd80add064d0713ab861cf59",
+    "bytes": 6277
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/cpu-check.json": {
+    "sha256": "d42fc778d1cffd51d21896d6bf007d5d897ab2ecc06ec5ed9dd9e12310ccab17",
+    "bytes": 811
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/cpu_check.py": {
+    "sha256": "9bdb1dcc897e4a76b681a0780cab2d209f13aaac427b7db3f74bc3ba1c5c4e09",
+    "bytes": 2445
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/helper-cpu-check.json": {
+    "sha256": "958fb953f514c4dfa4a8f5ddc3ae9cbfdb8ef6493e0c97d9083a3ef87992fa6b",
+    "bytes": 3629
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/independent-review.json": {
+    "sha256": "2e3775ce6e97761e9cc770f7bb7375c5b2929e863a1efb3e0746528999889f30",
+    "bytes": 4163
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/prepare_protocol.py": {
+    "sha256": "18c774b63cc92ae35789a87118ec76250337f2c630f0338e67b344b490083482",
+    "bytes": 7050
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/protocol.json": {
+    "sha256": "aec223d3b64b4e67b956f6e35e5bb3c3cc7a72da98b0fc99c20eb6c5cef8dd60",
+    "bytes": 3814
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/saved-service-audit.json": {
+    "sha256": "e654e304b25d948a7cc5f72a750f4b914b3aa6d54ef87174bdfec41f8068c362",
+    "bytes": 3606
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/summarize_matrix.py": {
+    "sha256": "957999419807da190ae6a114dac7eccd4b527a20554b061682178bb5e740bba8",
+    "bytes": 15397
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/validator-cpu-check.json": {
+    "sha256": "f42638ca7feff2fa0bad79dc6dd6c0c7f353c7153a5dc4e8071d6a107c45ac4c",
+    "bytes": 2938
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/remaining-sglang-report-01/validators.py": {
+    "sha256": "bed87b9c767d11a97c8d92a95835ab319573b3989484ecae31ea367e0363f2f4",
+    "bytes": 15586
+  }
+}

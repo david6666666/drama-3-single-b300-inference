@@ -1,0 +1,9 @@
+{
+  "approved_by": "root",
+  "gpu_execution": true,
+  "protocol_sha256": "f2716987be418f410d8751dc664ce16ec81bef6bbf21b5cedaa553543cd63410",
+  "manifest_sha256": "9b36e10de20f3b780a97aa30b1b94983990cf56c9872d7c513fd2be96cdedf74",
+  "reviewed_utc": "2026-10-16T12:06:16.110726+00:00",
+  "condition": "All three frozen feasibility service and full1088 quality reports must have COMPLETE_VALID_SERVICE_AND_QUALITY before any matrix execution, as enforced by run_matrix.py. Same fixed configs, no automatic tuning or discarded failures.",
+  "basis": "User latest-source three-framework comparison request; root plus independent controller review passed."
+}

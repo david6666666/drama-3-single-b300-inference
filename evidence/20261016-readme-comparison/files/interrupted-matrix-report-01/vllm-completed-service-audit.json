@@ -1,0 +1,233 @@
+{
+  "status": "PASS_COMPLETED_GROUPS_ONLY",
+  "planned_groups": 21,
+  "interrupted_group": "c64-r2",
+  "full_matrix_valid": false,
+  "groups_checked": 20,
+  "requests_checked": 21760,
+  "all_wav_pcm_hashes_verified": true,
+  "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+  "summary_sha256": "70d667e02a4cf658ca64a0e52ec8c6801f4236af532b8ea7eb8331d1fe8e4908",
+  "groups": [
+    {
+      "label": "c1-r0",
+      "requests": 1088,
+      "frames": 104042.0,
+      "makespan_s": 532.199604535941,
+      "jsonl_sha256": "8376d96f7dba40893ce8c81b22db6d7b322fd07b0b07bbf1258236a2a1597388",
+      "throughput_frames_s": 195.49432038890913,
+      "ttfa_p50_ms": 47.52434545662254,
+      "ttfa_p95_ms": 50.1705578295514,
+      "rtf_mean": 0.11067510310914595
+    },
+    {
+      "label": "c1-r1",
+      "requests": 1088,
+      "frames": 101582.0,
+      "makespan_s": 518.5645774370059,
+      "jsonl_sha256": "78904d9968880cd0326ea51a1a8b605a34cdaa19cbadf2685636e34c1b0150ac",
+      "throughput_frames_s": 195.890742291089,
+      "ttfa_p50_ms": 46.60886252531782,
+      "ttfa_p95_ms": 49.26661287317984,
+      "rtf_mean": 0.11043626059493508
+    },
+    {
+      "label": "c1-r2",
+      "requests": 1088,
+      "frames": 105433.0,
+      "makespan_s": 538.0540168139851,
+      "jsonl_sha256": "4dec2ed3a0b37d5838d9bc5e1373af3c3eed3d488b1ed0277faf3ea1019782e7",
+      "throughput_frames_s": 195.95244474580343,
+      "ttfa_p50_ms": 47.285930486395955,
+      "ttfa_p95_ms": 49.76375993574038,
+      "rtf_mean": 0.11056096134451433
+    },
+    {
+      "label": "c2-r0",
+      "requests": 1088,
+      "frames": 104497.0,
+      "makespan_s": 301.5555603989633,
+      "jsonl_sha256": "3cd1f15571ebba3b3755895087e4631020ea09ac875912464469e33da8abcde1",
+      "throughput_frames_s": 346.5265235426223,
+      "ttfa_p50_ms": 54.36050897696987,
+      "ttfa_p95_ms": 60.590013349428766,
+      "rtf_mean": 0.12509465357852598
+    },
+    {
+      "label": "c2-r1",
+      "requests": 1088,
+      "frames": 102698.0,
+      "makespan_s": 296.56431441707537,
+      "jsonl_sha256": "243fb10919a7f25f8e9ed892b8d7ef8fc4e510e93cb3c404e0c1f9793e67e111",
+      "throughput_frames_s": 346.2925072487647,
+      "ttfa_p50_ms": 54.180743056349456,
+      "ttfa_p95_ms": 60.1047614472918,
+      "rtf_mean": 0.1250719011606121
+    },
+    {
+      "label": "c2-r2",
+      "requests": 1088,
+      "frames": 103033.0,
+      "makespan_s": 297.638844121946,
+      "jsonl_sha256": "99d6a23ab801b95bed0f5b22106048810ab6babba3d4ee77df91cd3ff7c9dd74",
+      "throughput_frames_s": 346.1678542125577,
+      "ttfa_p50_ms": 54.25254144938663,
+      "ttfa_p95_ms": 60.555541858775534,
+      "rtf_mean": 0.12514742007462576
+    },
+    {
+      "label": "c4-r0",
+      "requests": 1088,
+      "frames": 102727.0,
+      "makespan_s": 162.64509950799402,
+      "jsonl_sha256": "6287c43475791d04377592dac699738ee39327e2913d21ceadbc9ae9b05f5f1e",
+      "throughput_frames_s": 631.6021835933087,
+      "ttfa_p50_ms": 58.9276070240885,
+      "ttfa_p95_ms": 66.82480705785565,
+      "rtf_mean": 0.13707795728237945
+    },
+    {
+      "label": "c4-r1",
+      "requests": 1088,
+      "frames": 102034.0,
+      "makespan_s": 161.86107599793468,
+      "jsonl_sha256": "c6294d28d19d77395634b23a60cb134a934114e3490874a96b3d15f3dca4aba3",
+      "throughput_frames_s": 630.3800921309947,
+      "ttfa_p50_ms": 58.943836542312056,
+      "ttfa_p95_ms": 67.97445198753849,
+      "rtf_mean": 0.13734132708928987
+    },
+    {
+      "label": "c4-r2",
+      "requests": 1088,
+      "frames": 103464.0,
+      "makespan_s": 163.61072822997812,
+      "jsonl_sha256": "8828361f500f34d578103fca156a4a28244d52ff82a50f0703f890fa348f2424",
+      "throughput_frames_s": 632.3790690214804,
+      "ttfa_p50_ms": 58.83354350226,
+      "ttfa_p95_ms": 66.81028769235127,
+      "rtf_mean": 0.13703031597798612
+    },
+    {
+      "label": "c8-r0",
+      "requests": 1088,
+      "frames": 103328.0,
+      "makespan_s": 93.44577598699834,
+      "jsonl_sha256": "2aaca6058006379315756f06ffb1e4125a814119f1ac802da23984cf16d2ccf6",
+      "throughput_frames_s": 1105.7535657296764,
+      "ttfa_p50_ms": 65.6822359887883,
+      "ttfa_p95_ms": 77.22720317542553,
+      "rtf_mean": 0.15644193453159203
+    },
+    {
+      "label": "c8-r1",
+      "requests": 1088,
+      "frames": 101881.0,
+      "makespan_s": 92.19537110195961,
+      "jsonl_sha256": "c7bf2fc9ec963b87415dc3464e8989c3aab480147ea1e2abaaf46c3a541de410",
+      "throughput_frames_s": 1105.0554792748649,
+      "ttfa_p50_ms": 65.2385909925215,
+      "ttfa_p95_ms": 77.69979705335571,
+      "rtf_mean": 0.15662755650452145
+    },
+    {
+      "label": "c8-r2",
+      "requests": 1088,
+      "frames": 103747.0,
+      "makespan_s": 93.70910863997415,
+      "jsonl_sha256": "97de1294e38bf12a07e65aa20bc0ebaf38dc20d8292c5161afc9b339d81e6c5c",
+      "throughput_frames_s": 1107.1175631238896,
+      "ttfa_p50_ms": 65.52567798644304,
+      "ttfa_p95_ms": 77.73173422319813,
+      "rtf_mean": 0.15637043490327174
+    },
+    {
+      "label": "c16-r0",
+      "requests": 1088,
+      "frames": 102805.0,
+      "makespan_s": 55.68345946597401,
+      "jsonl_sha256": "badbe6bc4b2a5199257b7c4cacc0246e37e1e44656716136b8d3721fb4fc5006",
+      "throughput_frames_s": 1846.2394575685464,
+      "ttfa_p50_ms": 77.81893550418317,
+      "ttfa_p95_ms": 90.49803435918875,
+      "rtf_mean": 0.18654294681203
+    },
+    {
+      "label": "c16-r1",
+      "requests": 1088,
+      "frames": 103698.0,
+      "makespan_s": 56.20947160793003,
+      "jsonl_sha256": "a1a9a94b105bccd0e0b65edbcb5d4e3732f27ae88b3dd010208d68e3c14ffb46",
+      "throughput_frames_s": 1844.8492226240799,
+      "ttfa_p50_ms": 77.16951303882524,
+      "ttfa_p95_ms": 89.51137470430693,
+      "rtf_mean": 0.18604455593074723
+    },
+    {
+      "label": "c16-r2",
+      "requests": 1088,
+      "frames": 103206.0,
+      "makespan_s": 55.82981944002677,
+      "jsonl_sha256": "ed9704a818ae7af384d8a99ba001c8937c06e40ee6cdd4c165197e9d1a05dddc",
+      "throughput_frames_s": 1848.5820128948374,
+      "ttfa_p50_ms": 77.44403003016487,
+      "ttfa_p95_ms": 91.05034151580183,
+      "rtf_mean": 0.1861195745435948
+    },
+    {
+      "label": "c32-r0",
+      "requests": 1088,
+      "frames": 103048.0,
+      "makespan_s": 36.58373670501169,
+      "jsonl_sha256": "3b9ecfb5205f79b3892cbe1296043662d82b655cc1511bf0943f10cb98297625",
+      "throughput_frames_s": 2816.770764312964,
+      "ttfa_p50_ms": 95.60220601269975,
+      "ttfa_p95_ms": 112.06327453837724,
+      "rtf_mean": 0.2350023790230104
+    },
+    {
+      "label": "c32-r1",
+      "requests": 1088,
+      "frames": 104897.0,
+      "makespan_s": 36.12892564793583,
+      "jsonl_sha256": "346ed17d4a0192574fe490f66c94e944e6599f07c236dcec0bd0b5c5787974a2",
+      "throughput_frames_s": 2903.407674564857,
+      "ttfa_p50_ms": 96.06426896061748,
+      "ttfa_p95_ms": 113.42115762527098,
+      "rtf_mean": 0.23474717283619978
+    },
+    {
+      "label": "c32-r2",
+      "requests": 1088,
+      "frames": 104307.0,
+      "makespan_s": 36.24164941802155,
+      "jsonl_sha256": "e45eae7de8bb9839165b9140c69d8ae620ed2f9ce8caa57693eddf4d060c5dbd",
+      "throughput_frames_s": 2878.0974838339507,
+      "ttfa_p50_ms": 95.50771146314219,
+      "ttfa_p95_ms": 114.600797672756,
+      "rtf_mean": 0.23481203898753217
+    },
+    {
+      "label": "c64-r0",
+      "requests": 1088,
+      "frames": 105789.0,
+      "makespan_s": 23.240581580088474,
+      "jsonl_sha256": "cb961d3d557a2e5e95fc089665976794d37eb71dbbecf1f395ad5d4726e73861",
+      "throughput_frames_s": 4551.908463884374,
+      "ttfa_p50_ms": 154.99749954324216,
+      "ttfa_p95_ms": 263.80355791188776,
+      "rtf_mean": 0.28596826567768086
+    },
+    {
+      "label": "c64-r1",
+      "requests": 1088,
+      "frames": 104920.0,
+      "makespan_s": 22.183027248014696,
+      "jsonl_sha256": "68bb985e0c0cd9400d052dba98e2973bb4de6479ff6e31fcf31696f59c284a97",
+      "throughput_frames_s": 4729.74219555133,
+      "ttfa_p50_ms": 156.08350950060412,
+      "ttfa_p95_ms": 282.8693978721276,
+      "rtf_mean": 0.2863474001186889
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/scripts/evaluate_audio.py",
+    "--upstream",
+    "/home/zjy/code/hsliu/drama3-sources/sglang-omni",
+    "--assets",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-models.json",
+    "--corpus",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+    "--benchmark",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/standalone/service/benchmark",
+    "--labels",
+    "c1-r0",
+    "c1-r1",
+    "c1-r2",
+    "c2-r0",
+    "c2-r1",
+    "c2-r2",
+    "c4-r0",
+    "c4-r1",
+    "c4-r2",
+    "c8-r0",
+    "c8-r1",
+    "c8-r2",
+    "c16-r0",
+    "c16-r1",
+    "c16-r2",
+    "c32-r0",
+    "c32-r1",
+    "c32-r2",
+    "c64-r0",
+    "c64-r1",
+    "c64-r2",
+    "--output",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/standalone/quality.json",
+    "--batch-size",
+    "8"
+  ],
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "CUDA_VISIBLE_DEVICES": "6",
+    "OMP_NUM_THREADS": "8",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-hf-modules"
+  },
+  "token": "4e24e9cd6a784014a3f833c87d0b3930",
+  "sampling_interval_seconds": 1,
+  "query_timeout_seconds": 30,
+  "limitation": "The monitor sleeps one second between UUID-scoped queries; each query may take up to 30 seconds. Successful poll timestamps retain actual gaps. No missing observation is treated as proof of exclusivity. Short interference and instantaneous memory peaks can be missed. Any query timeout still stops the run; other GPU jobs are untouched.",
+  "cleanup": [],
+  "runner": {
+    "pid": 3016408,
+    "ppid": 2820489,
+    "starttime": 88711170,
+    "uid": 1012,
+    "state": "R"
+  },
+  "error": null,
+  "elapsed_seconds": 1968.0634569439571,
+  "exit_code": 0,
+  "owned_processes": {
+    "3016408": {
+      "pid": 3016408,
+      "ppid": 2820489,
+      "starttime": 88711170,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "4e24e9cd6a784014a3f833c87d0b3930",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    }
+  },
+  "post_gpu": []
+}

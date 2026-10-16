@@ -1,0 +1,62 @@
+{
+  "status": "MATRIX_STOPPED_SGLANG_HTTP500_NO_AUDIO",
+  "utc": "2026-10-16T17:01:02Z",
+  "attempt_id": "interrupted-matrix-report-01",
+  "backend": "sglang",
+  "failed_group": "c2-r1",
+  "complete_valid_groups": 4,
+  "complete_valid_group_requests": 4352,
+  "failed_group_attempted_requests": 1088,
+  "failed_group_successes": 1087,
+  "failed_group_failures": 1,
+  "failed_records": [
+    {
+      "request_id": "c2-r1-00351",
+      "sample_id": "common_voice_en_19770519-common_voice_en_19770516",
+      "success": false,
+      "dispatch_s": 898313.33429624,
+      "http_status": 500,
+      "error": "HTTP 500: {\"error\":{\"message\":\"Request speech-f8b5c838-1439-46ed-af6d-ab20f6d13079: Drama 3 generated no audio frames\",\"type\":\"server_error\",\"param\":null,\"code\":null}}",
+      "completion_s": 0.029670375981368124
+    }
+  ],
+  "failed_group_formal_metrics_valid": false,
+  "subsequent_groups": "NOT_RUN",
+  "quality": "NOT_RUN: stop-on-service-failure; no filtering of failed group",
+  "retry_performed": false,
+  "runtime_modified": false,
+  "cause_scope": "Native server returned HTTP500 with Drama 3 generated no audio frames. The specific model/scheduler cause was not investigated or attributed.",
+  "controller_error": "RuntimeError: command exited 1",
+  "cleanup": [],
+  "post_gpu": [],
+  "files": {
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/result.json": {
+      "sha256": "861ca045100bd7753f009849708a7053c7f720d602e9bd5dc55f57bc72877508",
+      "bytes": 3147
+    },
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service-runner/result.json": {
+      "sha256": "1ecb11a78c44a0a4f5876517edcf8e87b89af4db8bf6959578435853678fb009",
+      "bytes": 5092
+    },
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/server.log": {
+      "sha256": "37979cf11c727f7c526d99d9c928988482d41dfaa1e9e572dde032c17c7a9f40",
+      "bytes": 4787286
+    },
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark.log": {
+      "sha256": "ac017a2e513d50d5a22d70cf50acdc259e79d6ebdaae21b6991482d24f4a0e07",
+      "bytes": 2532
+    },
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/summary.json": {
+      "sha256": "02ad1a52e129463efdc58419f901359568c1f0ce93ba1d5a4c6368583e60b08d",
+      "bytes": 1627
+    },
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/manifest.json": {
+      "sha256": "ad9ff77866c08415803d6bcc9d4715d219b71c25c0883a8f43e5f66fb62e1f65",
+      "bytes": 829
+    },
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/interrupted-matrix-report-01/sglang/service/benchmark/c2-r1.jsonl": {
+      "sha256": "6d36b126069f54d5f71f855745ed071e4d08669872a63de9610bafda5b1da85a",
+      "bytes": 1124228
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "status": "CPU_INDEPENDENT_REVIEW_NO_BLOCKER",
+  "scope": "Read-only controller/validator review and owned new helper CPU schema correction. No GPU launched; no old frozen artifact or repository changes. New helper fixtures are synthetic, not final campaign measurements.",
+  "checks": [
+    {
+      "name": "partial_API_matches_actual_service_audit_and_quality_return_AST",
+      "passed": true
+    },
+    {
+      "name": "partial_successful_only_keys_no_full_coverage_alias",
+      "passed": true
+    },
+    {
+      "name": "helper37_CPU_checks_bound_to_current_sources",
+      "passed": true
+    },
+    {
+      "name": "controller10_CPU_checks_bound_to_current_sources",
+      "passed": true
+    },
+    {
+      "name": "validator30_CPU_checks_bound_to_current_source",
+      "passed": true
+    },
+    {
+      "name": "controller_dry_run_by_default_and_new_bound_approval_required",
+      "passed": true
+    },
+    {
+      "name": "serial_saved_quality_then_never_attempted_C4_to64_only",
+      "passed": true
+    },
+    {
+      "name": "eight_hash_bindings_and_original_failure_identities_preserved",
+      "passed": true
+    },
+    {
+      "name": "original_frozen_source_client_profile_scorer_and_monitor_reused",
+      "passed": true
+    },
+    {
+      "name": "scoped_UID_token_starttime_MPS_cleanup_no_external_signals",
+      "passed": true
+    },
+    {
+      "name": "19_formal_rows_two_incomplete_four_diagnostic_groups",
+      "passed": true
+    },
+    {
+      "name": "60_full_groups_plus1087_partial_scores_distinguished",
+      "passed": true
+    },
+    {
+      "name": "SG_new_server_RNG_history_boundary_explicit",
+      "passed": true
+    },
+    {
+      "name": "archive_default_dry_run_no_overwrite_all_stops_preserved_no_audio_weights_worktrees",
+      "passed": true
+    }
+  ],
+  "partial_API": {
+    "service_actual_keys": [
+      "all_successful_wav_pcm_hashes_verified",
+      "complete_groups",
+      "corpus_sha256",
+      "failed_records",
+      "full_matrix_valid",
+      "groups",
+      "groups_checked",
+      "known_failure",
+      "manifest_sha256",
+      "partial_groups",
+      "planned_groups",
+      "requests_checked",
+      "status",
+      "successful_audio_checked",
+      "summary_sha256"
+    ],
+    "quality_actual_return_keys": [
+      "all_successful_sim_records_present",
+      "complete_groups",
+      "corpus_sha256",
+      "failed_records",
+      "full_matrix_valid",
+      "groups",
+      "groups_checked",
+      "known_failure_sim",
+      "partial_groups",
+      "quality_sha256",
+      "requests_checked",
+      "scored_requests",
+      "service_summary_sha256",
+      "status",
+      "unfiltered_wer"
+    ],
+    "successful_audio_checked": 5439,
+    "quality_expected_scored_requests": 5439,
+    "known_failure_sim": null
+  },
+  "helper_tests": 37,
+  "controller_tests": 10,
+  "validator_tests": 30,
+  "remaining_limits": [
+    "Final actual quality and remaining service are not completed by this CPU review.",
+    "Summary fails until all declared segments and hashes are present; no all63-groups or optimization-acceptance PASS.",
+    "Inherited monitor polling cannot prove continuous GPU exclusivity; no new monitoring claim."
+  ],
+  "files_sha256": {
+    "continuation.py": "5ff1b423e8f0719fa87d4dfe42f45d59d5360cdccd80add064d0713ab861cf59",
+    "prepare_protocol.py": "18c774b63cc92ae35789a87118ec76250337f2c630f0338e67b344b490083482",
+    "validators.py": "bed87b9c767d11a97c8d92a95835ab319573b3989484ecae31ea367e0363f2f4",
+    "summarize_matrix.py": "957999419807da190ae6a114dac7eccd4b527a20554b061682178bb5e740bba8",
+    "archive_comparison.py": "48c5bafd06dade880c13264a2986991421ca960fb82d0390e01cbd71af6308d9",
+    "check_helpers.py": "da3dcb267287baf125cc8a1efd664c4ad375003a7f1669186528edf2dea00c89",
+    "helper-cpu-check.json": "958fb953f514c4dfa4a8f5ddc3ae9cbfdb8ef6493e0c97d9083a3ef87992fa6b",
+    "cpu-check.json": "d42fc778d1cffd51d21896d6bf007d5d897ab2ecc06ec5ed9dd9e12310ccab17",
+    "validator-cpu-check.json": "f42638ca7feff2fa0bad79dc6dd6c0c7f353c7153a5dc4e8071d6a107c45ac4c",
+    "saved-service-audit.json": "e654e304b25d948a7cc5f72a750f4b914b3aa6d54ef87174bdfec41f8068c362"
+  }
+}

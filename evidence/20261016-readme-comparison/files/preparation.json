@@ -1,0 +1,446 @@
+{
+  "status": "CPU_PREPARATION_PASS",
+  "cuda_visible_devices": "",
+  "source_identities": {
+    "standalone": {
+      "sha": "33f6d7237196520be9f457d86df161264cbb087e",
+      "status": "",
+      "branch": "codex-drama3-readme-frozen-20261016"
+    },
+    "vllm": {
+      "sha": "aa9c9a2d2ce3ff8640f1b4ab8937a6194b0ead4d",
+      "status": "",
+      "branch": "codex-drama3-readme-baseline-20261016"
+    },
+    "sglang": {
+      "sha": "2c23b68f4f763c14cfb845eadb4883a5e791b701",
+      "status": "",
+      "branch": "codex-drama3-readme-baseline-20261016"
+    }
+  },
+  "imports": {
+    "standalone": {
+      "status": "CPU_IMPORT_PASS",
+      "backend": "standalone",
+      "executable": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "prefix": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone",
+      "python": "3.12.3 (main, Jan  8 2026, 11:30:50) [GCC 13.3.0]",
+      "sys_path": [
+        "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages",
+        "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src",
+        "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+        "/usr/lib/python312.zip",
+        "/usr/lib/python3.12",
+        "/usr/lib/python3.12/lib-dynload",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages",
+        "/home/zjy/code/hsliu/drama-3-single-b300-inference/src",
+        "__editable__.fish_speech-3.0.0.finder.__path_hook__",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+        "OMP_NUM_THREADS": "8",
+        "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/cpu-probes/hf_modules",
+        "HF_HUB_OFFLINE": "1",
+        "TRANSFORMERS_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "modules": {
+        "drama3": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/__init__.py",
+          "path": [
+            "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3"
+          ],
+          "expected_root": "source-standalone/src",
+          "expected_root_matches": true
+        },
+        "drama3.benchmark": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/benchmark.py",
+          "path": [],
+          "expected_root": "source-standalone/src",
+          "expected_root_matches": true
+        },
+        "drama3.server": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/server.py",
+          "path": [],
+          "expected_root": "source-standalone/src",
+          "expected_root_matches": true
+        },
+        "drama3.model": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/model.py",
+          "path": [],
+          "expected_root": "source-standalone/src",
+          "expected_root_matches": true
+        },
+        "fish_speech": {
+          "file": null,
+          "path": [
+            "/home/zjy/code/hsliu/drama3-sources/fish-speech/fish_speech",
+            "/home/zjy/code/hsliu/drama3-sources/fish-speech/fish_speech",
+            "__editable__.fish_speech-3.0.0.finder.__path_hook__"
+          ],
+          "expected_root": "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+          "expected_root_matches": true
+        },
+        "fish_speech.models.text2semantic.fish_omni.model": {
+          "file": "/home/zjy/code/hsliu/drama3-sources/fish-speech/fish_speech/models/text2semantic/fish_omni/model.py",
+          "path": [],
+          "expected_root": "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+          "expected_root_matches": true
+        },
+        "fish_speech.models.text2semantic.fish_omni.generate": {
+          "file": "/home/zjy/code/hsliu/drama3-sources/fish-speech/fish_speech/models/text2semantic/fish_omni/generate.py",
+          "path": [],
+          "expected_root": "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+          "expected_root_matches": true
+        },
+        "flashinfer": {
+          "file": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/__init__.py",
+          "path": [
+            "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer"
+          ],
+          "expected_root": null,
+          "expected_root_matches": true
+        },
+        "sglang": {
+          "file": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/sglang/__init__.py",
+          "path": [
+            "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/sglang"
+          ],
+          "expected_root": null,
+          "expected_root_matches": true
+        }
+      },
+      "packages": {
+        "torch": "2.13.0",
+        "vllm": null,
+        "vllm-omni": null,
+        "sglang": "0.5.21",
+        "sglang-omni": null,
+        "flashinfer-python": "0.7.0.post1",
+        "triton": "3.7.1",
+        "transformers": "5.12.1",
+        "numpy": "2.3.5",
+        "aiohttp": "3.14.5",
+        "fastapi": "0.143.0",
+        "uvicorn": "0.54.0",
+        "nvidia-cutlass-dsl": "4.6.2"
+      },
+      "errors": [],
+      "cuda_initialized": false
+    },
+    "vllm": {
+      "status": "CPU_IMPORT_PASS",
+      "backend": "vllm",
+      "executable": "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/bin/python",
+      "prefix": "/home/zjy/code/hsliu/venvs/codex-drama3-vllm",
+      "python": "3.12.3 (main, Jan  8 2026, 11:30:50) [GCC 13.3.0]",
+      "sys_path": [
+        "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/cv2",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages",
+        "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm",
+        "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src",
+        "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+        "/usr/lib/python312.zip",
+        "/usr/lib/python3.12",
+        "/usr/lib/python3.12/lib-dynload",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages",
+        "__editable__.vllm_omni-0.1.dev1+ge7c007cc3.finder.__path_hook__",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/setuptools/_vendor"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm:/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+        "OMP_NUM_THREADS": "8",
+        "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/cpu-probes/hf_modules",
+        "HF_HUB_OFFLINE": "1",
+        "TRANSFORMERS_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "modules": {
+        "drama3.benchmark": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/benchmark.py",
+          "path": [],
+          "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src",
+          "expected_root_matches": true
+        },
+        "vllm": {
+          "file": "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/vllm/__init__.py",
+          "path": [
+            "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/vllm"
+          ],
+          "expected_root": null,
+          "expected_root_matches": true
+        },
+        "vllm.entrypoints.cli.main": {
+          "file": "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py",
+          "path": [],
+          "expected_root": null,
+          "expected_root_matches": true
+        },
+        "vllm_omni": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm/vllm_omni/__init__.py",
+          "path": [
+            "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm/vllm_omni"
+          ],
+          "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm",
+          "expected_root_matches": true
+        },
+        "vllm_omni.entrypoints.cli.main": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm/vllm_omni/entrypoints/cli/main.py",
+          "path": [],
+          "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm",
+          "expected_root_matches": true
+        },
+        "vllm_omni.model_executor.models.fish_omni.fish_omni_model": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm/vllm_omni/model_executor/models/fish_omni/fish_omni_model.py",
+          "path": [],
+          "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm",
+          "expected_root_matches": true
+        }
+      },
+      "packages": {
+        "torch": "2.13.0+cu130",
+        "vllm": "0.31.0",
+        "vllm-omni": "0.1.dev1+ge7c007cc3",
+        "sglang": null,
+        "sglang-omni": null,
+        "flashinfer-python": "0.7.0.post1",
+        "triton": "3.7.1",
+        "transformers": "5.14.1",
+        "numpy": "2.3.5",
+        "aiohttp": "3.14.5",
+        "fastapi": "0.136.3",
+        "uvicorn": "0.54.0",
+        "nvidia-cutlass-dsl": "4.7.1"
+      },
+      "errors": [],
+      "cuda_initialized": false
+    },
+    "sglang": {
+      "status": "CPU_IMPORT_PASS",
+      "backend": "sglang",
+      "executable": "/home/zjy/code/hsliu/venvs/codex-drama3-sglang/bin/python",
+      "prefix": "/home/zjy/code/hsliu/venvs/codex-drama3-sglang",
+      "python": "3.12.3 (main, Jan  8 2026, 11:30:50) [GCC 13.3.0]",
+      "sys_path": [
+        "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-sglang/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-sglang/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages",
+        "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang",
+        "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src",
+        "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+        "/usr/lib/python312.zip",
+        "/usr/lib/python3.12",
+        "/usr/lib/python3.12/lib-dynload",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-sglang/lib/python3.12/site-packages",
+        "/home/zjy/code/hsliu/drama-3-single-b300-inference/src",
+        "__editable__.fish_speech-3.0.0.finder.__path_hook__",
+        "__editable__.sglang_omni-0.1.8.finder.__path_hook__",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-sglang/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl"
+      ],
+      "environment": {
+        "CUDA_VISIBLE_DEVICES": "",
+        "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang:/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+        "OMP_NUM_THREADS": "8",
+        "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/cpu-probes/hf_modules",
+        "HF_HUB_OFFLINE": "1",
+        "TRANSFORMERS_OFFLINE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "modules": {
+        "drama3.benchmark": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/benchmark.py",
+          "path": [],
+          "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src",
+          "expected_root_matches": true
+        },
+        "sglang_omni": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang/sglang_omni/__init__.py",
+          "path": [
+            "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang/sglang_omni"
+          ],
+          "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang",
+          "expected_root_matches": true
+        },
+        "sglang_omni.cli": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang/sglang_omni/cli/__init__.py",
+          "path": [
+            "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang/sglang_omni/cli"
+          ],
+          "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang",
+          "expected_root_matches": true
+        },
+        "sglang_omni.models.fishaudio_drama3.config": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang/sglang_omni/models/fishaudio_drama3/config.py",
+          "path": [],
+          "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang",
+          "expected_root_matches": true
+        },
+        "sglang_omni.models.fishaudio_drama3.speech_request": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang/sglang_omni/models/fishaudio_drama3/speech_request.py",
+          "path": [],
+          "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang",
+          "expected_root_matches": true
+        },
+        "sglang_omni.models.fishaudio_drama3.sglang_model": {
+          "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang/sglang_omni/models/fishaudio_drama3/sglang_model.py",
+          "path": [],
+          "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang",
+          "expected_root_matches": true
+        },
+        "sglang": {
+          "file": "/home/zjy/code/hsliu/venvs/codex-drama3-sglang/lib/python3.12/site-packages/sglang/__init__.py",
+          "path": [
+            "/home/zjy/code/hsliu/venvs/codex-drama3-sglang/lib/python3.12/site-packages/sglang"
+          ],
+          "expected_root": null,
+          "expected_root_matches": true
+        }
+      },
+      "packages": {
+        "torch": "2.13.0",
+        "vllm": null,
+        "vllm-omni": null,
+        "sglang": "0.5.21",
+        "sglang-omni": "0.1.8",
+        "flashinfer-python": "0.6.18",
+        "triton": "3.7.1",
+        "transformers": "5.12.1",
+        "numpy": "2.3.5",
+        "aiohttp": "3.14.5",
+        "fastapi": "0.143.0",
+        "uvicorn": "0.54.0",
+        "nvidia-cutlass-dsl": "4.6.2"
+      },
+      "errors": [],
+      "cuda_initialized": false
+    }
+  },
+  "mounts": {
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/\",\n         \"source\": \"/dev/vda4\",\n         \"fstype\": \"ext4\",\n         \"options\": \"rw,relatime,discard,errors=remount-ro,commit=30\"\n      }\n   ]\n}\n",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-vllm": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/\",\n         \"source\": \"/dev/vda4\",\n         \"fstype\": \"ext4\",\n         \"options\": \"rw,relatime,discard,errors=remount-ro,commit=30\"\n      }\n   ]\n}\n",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-sglang": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/\",\n         \"source\": \"/dev/vda4\",\n         \"fstype\": \"ext4\",\n         \"options\": \"rw,relatime,discard,errors=remount-ro,commit=30\"\n      }\n   ]\n}\n",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/\",\n         \"source\": \"/dev/vda4\",\n         \"fstype\": \"ext4\",\n         \"options\": \"rw,relatime,discard,errors=remount-ro,commit=30\"\n      }\n   ]\n}\n",
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/\",\n         \"source\": \"/dev/vda4\",\n         \"fstype\": \"ext4\",\n         \"options\": \"rw,relatime,discard,errors=remount-ro,commit=30\"\n      }\n   ]\n}\n",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-hf-modules": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/\",\n         \"source\": \"/dev/vda4\",\n         \"fstype\": \"ext4\",\n         \"options\": \"rw,relatime,discard,errors=remount-ro,commit=30\"\n      }\n   ]\n}\n"
+  },
+  "disk_free_bytes": 644315516928,
+  "checkpoint_files": {
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/.gitattributes": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/blobs/52373fe24473b1aa44333d318f578ae6bf04b49b",
+      "bytes": 1570,
+      "mtime_ns": 1791965229573603067,
+      "inode": 69741038
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/LICENSE": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/blobs/3109ed8be76ee63f8b79e8752deef2bce2886675",
+      "bytes": 19685,
+      "mtime_ns": 1791965229572603086,
+      "inode": 69741009
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/README.md": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/blobs/36dbd4e7e57dfa0a74b8978eb52e5fc1ec9af63f",
+      "bytes": 7513,
+      "mtime_ns": 1791965229564603243,
+      "inode": 69741036
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/chat_template.jinja": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/blobs/a585dec894e63da457d9440ec6aa7caa16d20860",
+      "bytes": 7756,
+      "mtime_ns": 1791965229570603125,
+      "inode": 69741070
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/codec.pth": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/blobs/c4/c4b342c0f006a5714f52b5a8474de93b7c784a379424d1ea97caa77a77a63810",
+      "bytes": 1871099728,
+      "mtime_ns": 1791965305194306220,
+      "inode": 69740864
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/config.json": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/blobs/7d55fb1de30150d0353349b9e1779cbfaa1e836c",
+      "bytes": 5535,
+      "mtime_ns": 1791965229580602930,
+      "inode": 69741124
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/model-00001-of-00008.safetensors": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/blobs/80/80e5c9d9c425774991f682b0e29ffaee28c07d087b16cf8e7c49c27458807bc5",
+      "bytes": 5000202800,
+      "mtime_ns": 1791965304946310303,
+      "inode": 69740862
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/model-00002-of-00008.safetensors": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/blobs/55/55bdb1756d5c7ce5bd0cf339f1fddf487513d07fb2fd13eb00581bcb753c6a6e",
+      "bytes": 5000496824,
+      "mtime_ns": 1791965304145323486,
+      "inode": 69740860
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/model-00003-of-00008.safetensors": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/blobs/2d/2dc2a4c7daeb46e40e3e28ca9242f9695a53cd26eab1df1951e1340a9e72f6a6",
+      "bytes": 5000988520,
+      "mtime_ns": 1791965306815279530,
+      "inode": 69741748
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/model-00004-of-00008.safetensors": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/blobs/19/19168527cce6b7ece9699fb6ac40f6eb3fb1f91ba7e9a896fd44942743961562",
+      "bytes": 5000496392,
+      "mtime_ns": 1791965311738198394,
+      "inode": 69741901
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/model-00005-of-00008.safetensors": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/blobs/3b/3b32c0abf409a2cacccc83dcb31871106133639cbbb5ca3bea6d363ca993143e",
+      "bytes": 5000227096,
+      "mtime_ns": 1791965306418286068,
+      "inode": 69742026
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/model-00006-of-00008.safetensors": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/blobs/d0/d07dfac68a4619212e674c1f61b2ba84923ce3fa6796ee2a0287909efa09c2af",
+      "bytes": 4984792768,
+      "mtime_ns": 1791965307145274095,
+      "inode": 69742034
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/model-00007-of-00008.safetensors": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/blobs/be/be5e8de8f6fa5c4dae5c896489163378744cecfe14c9bfa353da30e621d36323",
+      "bytes": 4977946704,
+      "mtime_ns": 1791965305910294433,
+      "inode": 69742107
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/model-00008-of-00008.safetensors": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/blobs/d6/d64bb2fc7a459da188bb893c719166a218dd1c78fc95dd72afe0a15466517c70",
+      "bytes": 4638423240,
+      "mtime_ns": 1791965319876064021,
+      "inode": 69801607
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/model.safetensors.index.json": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/blobs/8e282a0cd1e03bdfb85f37c34484cea4b2d99b17",
+      "bytes": 6880197,
+      "mtime_ns": 1791965308173257161,
+      "inode": 69801612
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/special_tokens_map.json": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/blobs/aaac48f459bc88b562c2079a64d5b13aa23d2685",
+      "bytes": 102779,
+      "mtime_ns": 1791965308850246006,
+      "inode": 69801615
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/tokenizer.json": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/blobs/7c/7cd2fc50235c6f5dba6677bc44f72782165506497d36d29db5a78934e33336ef",
+      "bytes": 20791070,
+      "mtime_ns": 1791965310811213681,
+      "inode": 69801618
+    },
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/tokenizer_config.json": {
+      "resolved": "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/blobs/f6d3655491f93602f82a61a6ad6fa0658d737f63",
+      "bytes": 103580,
+      "mtime_ns": 1791965311397204018,
+      "inode": 69801622
+    }
+  },
+  "checkpoint_identity_scope": "Pinned HF revision and local resolved file/stat identities; no new full-weight SHA pass.",
+  "client_review_sha256": "e7536f2cf8bc2743b69df4cf84bede3e285e1d99a51d1580812e144630d0a816"
+}

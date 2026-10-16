@@ -1,0 +1,7 @@
+{
+  "approved_by": "root",
+  "gpu_execution": true,
+  "protocol_sha256": "cd87f7beadbfcef71637481e3dbc430e80ea761537b708f2fb337be206124666",
+  "manifest_sha256": "8dd5c7ee923519ab75064d9d697789bfff976d5e3d2bd4f31c1fe4d51a95eaea",
+  "scope": "Execute frozen recovery-attempt-01, all three frameworks serially, 21 performance and 21 full-quality groups per framework. Same model/source/profile/requests/physical GPU. Preserve original stopped attempt; no splicing, tuning, retry, or exclusion. CPU and independent review passed. Authorization derives from ongoing user-requested corrected latest-code comparison."
+}

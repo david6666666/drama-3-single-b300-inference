@@ -1,0 +1,41 @@
+{
+  "service": {
+    "status": "PASS",
+    "groups_checked": 1,
+    "requests_checked": 1088,
+    "all_wav_pcm_hashes_verified": true,
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+    "summary_sha256": "2eb552e8d93a010a82ccbf44706b8e0e304d0d85f5a76103ddca82b8f6ab0b1a",
+    "groups": [
+      {
+        "label": "c64-r0",
+        "requests": 1088,
+        "frames": 102266.0,
+        "makespan_s": 21.87594600301236,
+        "jsonl_sha256": "743829c5342d9374f0094a2e1850fb86577c2c72719376e41b4cef5ae02803fd",
+        "throughput_frames_s": 4674.814976500572,
+        "ttfa_p50_ms": 148.56294594937935,
+        "ttfa_p95_ms": 274.7044634073923,
+        "rtf_mean": 0.2908903989859991
+      }
+    ]
+  },
+  "quality": {
+    "status": "PASS",
+    "groups_checked": 1,
+    "requests_checked": 1088,
+    "unfiltered_wer": true,
+    "all_sim_records_present": true,
+    "quality_sha256": "98c000f0a3b39acd527e01d94f16981bf27bd7541d5c1dcd1df75bf9d201389d",
+    "groups": [
+      {
+        "label": "c64-r0",
+        "requests": 1088,
+        "wer_percent": 1.4652934773507493,
+        "sim_mean": 64.18842814473764,
+        "errors": 175,
+        "reference_words": 11943
+      }
+    ]
+  }
+}

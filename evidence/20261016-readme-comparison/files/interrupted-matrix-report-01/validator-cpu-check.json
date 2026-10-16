@@ -1,0 +1,56 @@
+{
+  "status": "CPU_VALIDATION_PASS",
+  "gpu_workload": false,
+  "actual_complete_groups": 20,
+  "actual_requests": 21760,
+  "incomplete_group_not_accepted": "c64-r2",
+  "checks": [
+    {
+      "name": "actual_20_groups_21760_wav_pcm_and_metrics",
+      "passed": true
+    },
+    {
+      "name": "changed_repeats",
+      "passed": true,
+      "rejection": "benchmark shape differs"
+    },
+    {
+      "name": "changed_concurrency",
+      "passed": true,
+      "rejection": "benchmark shape differs"
+    },
+    {
+      "name": "wrong_backend",
+      "passed": true,
+      "rejection": "partial validator is only for this vLLM interruption"
+    },
+    {
+      "name": "missing_group",
+      "passed": true,
+      "rejection": "expected exactly the original 20-group prefix; no gaps, retries or reordering"
+    },
+    {
+      "name": "duplicate_group",
+      "passed": true,
+      "rejection": "expected exactly the original 20-group prefix; no gaps, retries or reordering"
+    },
+    {
+      "name": "reordered_groups",
+      "passed": true,
+      "rejection": "expected exactly the original 20-group prefix; no gaps, retries or reordering"
+    },
+    {
+      "name": "unexpected_21st_summary",
+      "passed": true,
+      "rejection": "expected exactly the original 20-group prefix; no gaps, retries or reordering"
+    },
+    {
+      "name": "unreviewed_interrupted_jsonl",
+      "passed": true,
+      "rejection": "interrupted group now has records; must review rather than silently exclude it"
+    }
+  ],
+  "validator_sha256": "8d2c16824988a542257766e70c117e8c34cbcdd23aeda9a388eb12fab48ab064",
+  "source_full_validator_sha256": "4d1f88b112100b59d96e90aeaa57a41cac8386ea1603113a022152fbc9356ea3",
+  "audit_sha256": "ae34060d8521416b0397f915089586d5ecbb63188d4e3126f235b86dca1d65fe"
+}

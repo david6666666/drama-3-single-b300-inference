@@ -1,0 +1,159 @@
+{
+  "status": "CPU_SYNTHETIC_REMAINING_REPORT_CHECK_PASS",
+  "scope": "Synthetic fixtures only; no actual GPU performance inferred. archive() never called; no GPU/repository writes.",
+  "checks": [
+    {
+      "name": "partial_fixture_actual_keys_without_full_coverage_aliases",
+      "passed": true
+    },
+    {
+      "name": "60full65280_plus1087partial66367",
+      "passed": true
+    },
+    {
+      "name": "19formal2incomplete4diagnostic",
+      "passed": true
+    },
+    {
+      "name": "failed_rows_have_no_formal_median",
+      "passed": true
+    },
+    {
+      "name": "partial_diagnostic_explicit1087success1failure",
+      "passed": true
+    },
+    {
+      "name": "unattempted_sglang_c2r2_not_replaced",
+      "passed": true
+    },
+    {
+      "name": "c64_quality_comparison_unavailable",
+      "passed": true
+    },
+    {
+      "name": "three_run_medians_only",
+      "passed": true
+    },
+    {
+      "name": "bad_quality_reported_without_acceptance",
+      "passed": true
+    },
+    {
+      "name": "SG_two_sessions_row_provenance",
+      "passed": true
+    },
+    {
+      "name": "aggregation_does_not_write",
+      "passed": true
+    },
+    {
+      "name": "old_report_directory_refused",
+      "passed": true
+    },
+    {
+      "name": "quality_not_finished_refused",
+      "passed": true
+    },
+    {
+      "name": "wrong_eighth_binding_refused",
+      "passed": true
+    },
+    {
+      "name": "partial_service_not_fullPASS",
+      "passed": true
+    },
+    {
+      "name": "partial_quality_not_fullPASS",
+      "passed": true
+    },
+    {
+      "name": "partial_failure_count_preserved",
+      "passed": true
+    },
+    {
+      "name": "partial_audio_count_preserved",
+      "passed": true
+    },
+    {
+      "name": "partial_service_audio_count_preserved",
+      "passed": true
+    },
+    {
+      "name": "partial_successful_pcm_audit_required",
+      "passed": true
+    },
+    {
+      "name": "partial_successful_sim_audit_required",
+      "passed": true
+    },
+    {
+      "name": "partial_failure_sim_must_remain_null",
+      "passed": true
+    },
+    {
+      "name": "missing_complete_group_refused",
+      "passed": true
+    },
+    {
+      "name": "duplicate_quality_label_refused",
+      "passed": true
+    },
+    {
+      "name": "invented_c2r2_refused",
+      "passed": true
+    },
+    {
+      "name": "nonfinite_partial_metrics_refused",
+      "passed": true
+    },
+    {
+      "name": "changed_preserved_failure_refused",
+      "passed": true
+    },
+    {
+      "name": "failed_output_cannot_receive_fabricated_score",
+      "passed": true
+    },
+    {
+      "name": "remaining_cannot_retry_C2",
+      "passed": true
+    },
+    {
+      "name": "archive_plan_no_writes",
+      "passed": true
+    },
+    {
+      "name": "all_three_failures_and_pilots_preserved",
+      "passed": true
+    },
+    {
+      "name": "failed_group_raw_and_partial_quality_preserved",
+      "passed": true
+    },
+    {
+      "name": "raw_quality_logs_gzip",
+      "passed": true
+    },
+    {
+      "name": "worktrees_weights_audio_caches_excluded",
+      "passed": true
+    },
+    {
+      "name": "archive_false_complete_matrix_refused",
+      "passed": true
+    },
+    {
+      "name": "archive_overwrite_refused",
+      "passed": true
+    },
+    {
+      "name": "archive_not_executed",
+      "passed": true
+    }
+  ],
+  "sources": {
+    "summarize_matrix.py": "957999419807da190ae6a114dac7eccd4b527a20554b061682178bb5e740bba8",
+    "archive_comparison.py": "48c5bafd06dade880c13264a2986991421ca960fb82d0390e01cbd71af6308d9",
+    "check_helpers.py": "da3dcb267287baf125cc8a1efd664c4ad375003a7f1669186528edf2dea00c89"
+  }
+}

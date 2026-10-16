@@ -1,0 +1,1288 @@
+[
+  {
+    "request_id": "c32-warmup-00020",
+    "sample_id": "common_voice_en_153872-common_voice_en_153873",
+    "success": true,
+    "dispatch_s": 892911.994887873,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.17307256709318608,
+    "last_audio_s": 0.5074312870856375,
+    "completion_s": 0.5077816300326958,
+    "audio_samples": 90112,
+    "acoustic_frames": 44.0,
+    "audio_duration_s": 2.043356009070295,
+    "rtf": 0.24833229492716408,
+    "transport_chunks": 5,
+    "chunk_arrivals_s": [
+      0.17307256709318608,
+      0.24033305409830064,
+      0.3486423200229183,
+      0.48630242806393653,
+      0.5074312870856375
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      8192
+    ],
+    "audio_sha256": "99b41226a7df275d3697aa9b827ab2be8d521f9939913c687107f6a4699177f5",
+    "rms": 0.07028039953646674,
+    "peak": 0.7099609375,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00000",
+    "sample_id": "common_voice_en_10119832-common_voice_en_10119840",
+    "success": true,
+    "dispatch_s": 892911.992143712,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.1540191009407863,
+    "last_audio_s": 0.5110547019867226,
+    "completion_s": 0.5110635119490325,
+    "audio_samples": 94208,
+    "acoustic_frames": 46.0,
+    "audio_duration_s": 2.136235827664399,
+    "rtf": 0.23923140664927045,
+    "transport_chunks": 5,
+    "chunk_arrivals_s": [
+      0.1540191009407863,
+      0.2214860749663785,
+      0.3234210320515558,
+      0.45939737104345113,
+      0.5110547019867226
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      16384
+    ],
+    "audio_sha256": "540b2af0e418d538d1c02e686b722f67e63b806768620ccafbc091867977cf6d",
+    "rms": 0.056500979448221675,
+    "peak": 0.50341796875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00003",
+    "sample_id": "common_voice_en_103675-common_voice_en_103677",
+    "success": true,
+    "dispatch_s": 892911.992908629,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.16755983303301036,
+    "last_audio_s": 0.5249914469895884,
+    "completion_s": 0.5252070130081847,
+    "audio_samples": 96256,
+    "acoustic_frames": 47.0,
+    "audio_duration_s": 2.182675736961451,
+    "rtf": 0.2405265418492442,
+    "transport_chunks": 5,
+    "chunk_arrivals_s": [
+      0.16755983303301036,
+      0.23451732494868338,
+      0.3375004540430382,
+      0.470025044050999,
+      0.5249914469895884
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      20480
+    ],
+    "audio_sha256": "dbef164d598f798809e1bbe29e10b096932aef0944a6ca5f5a9d48943429e91b",
+    "rms": 0.02879096036889048,
+    "peak": 0.12890625,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00024",
+    "sample_id": "common_voice_en_15735839-common_voice_en_15735837",
+    "success": true,
+    "dispatch_s": 892911.995267047,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.17428845504764467,
+    "last_audio_s": 0.5393433050485328,
+    "completion_s": 0.5395029910141602,
+    "audio_samples": 98304,
+    "acoustic_frames": 48.0,
+    "audio_duration_s": 2.2291156462585033,
+    "rtf": 0.2419539362858103,
+    "transport_chunks": 5,
+    "chunk_arrivals_s": [
+      0.17428845504764467,
+      0.24142564402427524,
+      0.3477799940155819,
+      0.4827255110722035,
+      0.5393433050485328
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      24576
+    ],
+    "audio_sha256": "561d67c4a902fef83f36fdeea322b0313c9abb257a63ffa452aa29330967da46",
+    "rms": 0.02340615200820495,
+    "peak": 0.346923828125,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00009",
+    "sample_id": "common_voice_en_1205005-common_voice_en_1205008",
+    "success": true,
+    "dispatch_s": 892911.993592397,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.16716344002634287,
+    "last_audio_s": 0.6073941570939496,
+    "completion_s": 0.6075920440489426,
+    "audio_samples": 116736,
+    "acoustic_frames": 57.0,
+    "audio_duration_s": 2.647074829931973,
+    "rtf": 0.22945862739723116,
+    "transport_chunks": 5,
+    "chunk_arrivals_s": [
+      0.16716344002634287,
+      0.23417160206008703,
+      0.3373197070322931,
+      0.47250098909717053,
+      0.6073941570939496
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      61440
+    ],
+    "audio_sha256": "82b4d795dfa0cc1855da630416e8a145737a470448b4e0fcb56d25bd96c85f27",
+    "rms": 0.07814923580536634,
+    "peak": 0.412841796875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00005",
+    "sample_id": "common_voice_en_10933823-common_voice_en_10933825",
+    "success": true,
+    "dispatch_s": 892911.993175124,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.1673651459859684,
+    "last_audio_s": 0.6237283200025558,
+    "completion_s": 0.623870377894491,
+    "audio_samples": 120832,
+    "acoustic_frames": 59.0,
+    "audio_duration_s": 2.7399546485260773,
+    "rtf": 0.2276418408377972,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.1673651459859684,
+      0.23437194793950766,
+      0.3374146759742871,
+      0.47247732093092054,
+      0.623715640977025,
+      0.6237283200025558
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      50745,
+      18887
+    ],
+    "audio_sha256": "8b3dec3a7bee460a7055c7095c37c6db8d0c1cb5c150bc1ddefda0f6228f17bf",
+    "rms": 0.014013466752773499,
+    "peak": 0.11932373046875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00026",
+    "sample_id": "common_voice_en_15903802-common_voice_en_15903815",
+    "success": true,
+    "dispatch_s": 892911.995527552,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.17415927699767053,
+    "last_audio_s": 0.630373704014346,
+    "completion_s": 0.6305181210627779,
+    "audio_samples": 120832,
+    "acoustic_frames": 59.0,
+    "audio_duration_s": 2.7399546485260773,
+    "rtf": 0.2300672036135515,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.17415927699767053,
+      0.24129110702779144,
+      0.34769244596827775,
+      0.48268219199962914,
+      0.6303646840387955,
+      0.630373704014346
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      50617,
+      19015
+    ],
+    "audio_sha256": "0b3b28ecdc5064587ea44c19e0449184ab7bc4a547e35086ca72dea3354b45a6",
+    "rms": 0.02125404809900689,
+    "peak": 0.14501953125,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00031",
+    "sample_id": "common_voice_en_17161-common_voice_en_17159",
+    "success": true,
+    "dispatch_s": 892911.996068163,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.1742464250419289,
+    "last_audio_s": 0.6853312470484525,
+    "completion_s": 0.6854889839887619,
+    "audio_samples": 131072,
+    "acoustic_frames": 64.0,
+    "audio_duration_s": 2.972154195011338,
+    "rtf": 0.2305840148531857,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.1742464250419289,
+      0.24367990402970463,
+      0.3486785580171272,
+      0.4847242049872875,
+      0.685322507051751,
+      0.6853312470484525
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      50745,
+      39367
+    ],
+    "audio_sha256": "297d54fbc8806e17ea2a05dfdc36a520c6b93269d158c89d4381bc0ff70d5275",
+    "rms": 0.09245847315522505,
+    "peak": 0.65380859375,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00027",
+    "sample_id": "common_voice_en_16666041-common_voice_en_16666040",
+    "success": true,
+    "dispatch_s": 892911.995625741,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.1741122470702976,
+    "last_audio_s": 0.6862549299839884,
+    "completion_s": 0.6862585400231183,
+    "audio_samples": 131072,
+    "acoustic_frames": 64.0,
+    "audio_duration_s": 2.972154195011338,
+    "rtf": 0.2308947937949668,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.1741122470702976,
+      0.2441799050429836,
+      0.34920528798829764,
+      0.4852693850407377,
+      0.6862288410775363,
+      0.6862549299839884
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      50745,
+      39367
+    ],
+    "audio_sha256": "cadedfd1bf5bf95168f141c15b4771e5ebfbf06780bf67882465b15da6093a8a",
+    "rms": 0.06494350556699255,
+    "peak": 0.405029296875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00028",
+    "sample_id": "common_voice_en_167249-common_voice_en_167246",
+    "success": true,
+    "dispatch_s": 892911.995764568,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.1740254700416699,
+    "last_audio_s": 0.6863760689739138,
+    "completion_s": 0.6864553770283237,
+    "audio_samples": 131072,
+    "acoustic_frames": 64.0,
+    "audio_duration_s": 2.972154195011338,
+    "rtf": 0.23093555177116087,
+    "transport_chunks": 5,
+    "chunk_arrivals_s": [
+      0.1740254700416699,
+      0.2440953169716522,
+      0.34915755002293736,
+      0.4852194470586255,
+      0.6863760689739138
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      90112
+    ],
+    "audio_sha256": "d54a0898d1b5031d411f063f6508c0148612a9e65202e243397bcd0762a3dd7c",
+    "rms": 0.0077251711462181395,
+    "peak": 0.07611083984375,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00001",
+    "sample_id": "common_voice_en_10119832-common_voice_en_10119847",
+    "success": true,
+    "dispatch_s": 892911.992628284,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.16047973791137338,
+    "last_audio_s": 0.6749718679348007,
+    "completion_s": 0.6903964870143682,
+    "audio_samples": 135168,
+    "acoustic_frames": 66.0,
+    "audio_duration_s": 3.0650340136054424,
+    "rtf": 0.22021676266516269,
+    "transport_chunks": 5,
+    "chunk_arrivals_s": [
+      0.16047973791137338,
+      0.228130217990838,
+      0.32990619691554457,
+      0.4704252559458837,
+      0.6749718679348007
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304
+    ],
+    "audio_sha256": "54e2a7769ecd79208ba6c579cf72348bf6403d764a7298905ec95a63f63f36e8",
+    "rms": 0.07092061791841861,
+    "peak": 0.6337890625,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00014",
+    "sample_id": "common_voice_en_137148-common_voice_en_137152",
+    "success": true,
+    "dispatch_s": 892911.994231416,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.16676103696227074,
+    "last_audio_s": 0.6976915389532223,
+    "completion_s": 0.6978545759338886,
+    "audio_samples": 137216,
+    "acoustic_frames": 67.0,
+    "audio_duration_s": 3.111473922902494,
+    "rtf": 0.22423184517721773,
+    "transport_chunks": 7,
+    "chunk_arrivals_s": [
+      0.16676103696227074,
+      0.23382854694500566,
+      0.33709168096538633,
+      0.47555091499816626,
+      0.47555977501906455,
+      0.6882141859969124,
+      0.6976915389532223
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      50745,
+      14791,
+      98304,
+      4096
+    ],
+    "audio_sha256": "fc7984d15b84409a84319bec330e0da3db18a8ff9699c43aa09293ba74c67345",
+    "rms": 0.03207199071520954,
+    "peak": 0.37109375,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00017",
+    "sample_id": "common_voice_en_1416089-common_voice_en_1416093",
+    "success": true,
+    "dispatch_s": 892911.99451136,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.17328603309579194,
+    "last_audio_s": 0.7057008090196177,
+    "completion_s": 0.7058362170355394,
+    "audio_samples": 137216,
+    "acoustic_frames": 67.0,
+    "audio_duration_s": 3.111473922902494,
+    "rtf": 0.22680595322531735,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.17328603309579194,
+      0.23912452498916537,
+      0.34277702309191227,
+      0.4842507540015504,
+      0.68898691306822,
+      0.7057008090196177
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      4096
+    ],
+    "audio_sha256": "25a4505a62ab60721982095fdd24171193f8b7e6b47e0049feab84508e0d51bf",
+    "rms": 0.02666716379703052,
+    "peak": 0.25634765625,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00016",
+    "sample_id": "common_voice_en_1416089-common_voice_en_1416090",
+    "success": true,
+    "dispatch_s": 892911.994419642,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.17331094201654196,
+    "last_audio_s": 0.7137620670255274,
+    "completion_s": 0.7138912749942392,
+    "audio_samples": 139264,
+    "acoustic_frames": 68.0,
+    "audio_duration_s": 3.1579138321995464,
+    "rtf": 0.2260232878261845,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.17331094201654196,
+      0.23915347398724407,
+      0.34278125094715506,
+      0.4842471139272675,
+      0.6889576530084014,
+      0.7137620670255274
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      8192
+    ],
+    "audio_sha256": "361946e2ce3a0ce2f5dc592d5c148d13bd92faddf1f2ac3b442e79775a36ccf5",
+    "rms": 0.02191249809425948,
+    "peak": 0.1302490234375,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00029",
+    "sample_id": "common_voice_en_167249-common_voice_en_167247",
+    "success": true,
+    "dispatch_s": 892911.995860507,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.1743372529745102,
+    "last_audio_s": 0.7343416339717805,
+    "completion_s": 0.7344721519621089,
+    "audio_samples": 145408,
+    "acoustic_frames": 71.0,
+    "audio_duration_s": 3.297233560090703,
+    "rtf": 0.22271447278110917,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.1743372529745102,
+      0.24376259301789105,
+      0.3469942769734189,
+      0.48193853395059705,
+      0.69083308998961,
+      0.7343416339717805
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      20480
+    ],
+    "audio_sha256": "d50f2c2b398d39dfcc98789ea31701252b892fae20c41ac6a08d734d0bbca795",
+    "rms": 0.007386608441288386,
+    "peak": 0.09173583984375,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00018",
+    "sample_id": "common_voice_en_15265-common_voice_en_15266",
+    "success": true,
+    "dispatch_s": 892911.994604758,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.17325795406941324,
+    "last_audio_s": 0.7588806439889595,
+    "completion_s": 0.7590127009898424,
+    "audio_samples": 151552,
+    "acoustic_frames": 74.0,
+    "audio_duration_s": 3.436553287981859,
+    "rtf": 0.22082609533304157,
+    "transport_chunks": 7,
+    "chunk_arrivals_s": [
+      0.17325795406941324,
+      0.24048541102092713,
+      0.3441244090208784,
+      0.48387551098130643,
+      0.6926713290158659,
+      0.6926810579607263,
+      0.7588806439889595
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      47161,
+      51143,
+      32768
+    ],
+    "audio_sha256": "12774a990989cd7a9584aa5929760b4ea773c9b6d9e5de8f27052f732e832b47",
+    "rms": 0.06673342197894358,
+    "peak": 0.5380859375,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00004",
+    "sample_id": "common_voice_en_10933823-common_voice_en_10933822",
+    "success": true,
+    "dispatch_s": 892911.993049066,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.16744117497000843,
+    "last_audio_s": 0.7746266459580511,
+    "completion_s": 0.7747545939637348,
+    "audio_samples": 157696,
+    "acoustic_frames": 77.0,
+    "audio_duration_s": 3.575873015873016,
+    "rtf": 0.21662588199288538,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.16744117497000843,
+      0.23443957697600126,
+      0.3374567759456113,
+      0.4724938808940351,
+      0.6770981219597161,
+      0.7746266459580511
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      45056
+    ],
+    "audio_sha256": "d8e46c7c955a662e31cccdc1bb311b86e2ec0a32e92c2995c461ff91b5fcdb8f",
+    "rms": 0.018796755673050017,
+    "peak": 0.1551513671875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00025",
+    "sample_id": "common_voice_en_15903802-common_voice_en_15903807",
+    "success": true,
+    "dispatch_s": 892911.995348736,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.17427723505534232,
+    "last_audio_s": 0.7863847790285945,
+    "completion_s": 0.7865150771103799,
+    "audio_samples": 159744,
+    "acoustic_frames": 78.0,
+    "audio_duration_s": 3.622312925170068,
+    "rtf": 0.21709465616962775,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.17427723505534232,
+      0.24140721408184618,
+      0.347792613087222,
+      0.4827662790194154,
+      0.6915679660160094,
+      0.7863847790285945
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      49152
+    ],
+    "audio_sha256": "b60609e6c99189c9d62a84ec8ee27fabcc3472c133d197f78a3c9b1bc49424e0",
+    "rms": 0.03458836706193227,
+    "peak": 0.284423828125,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00023",
+    "sample_id": "common_voice_en_15734837-common_voice_en_15734838",
+    "success": true,
+    "dispatch_s": 892911.995177188,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.17296546907164156,
+    "last_audio_s": 0.7947880920255557,
+    "completion_s": 0.7949477090733126,
+    "audio_samples": 161792,
+    "acoustic_frames": 79.0,
+    "audio_duration_s": 3.6687528344671203,
+    "rtf": 0.21663713198629725,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.17296546907164156,
+      0.24184199806768447,
+      0.3482731550466269,
+      0.4859253850299865,
+      0.6913815110456198,
+      0.7947880920255557
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      53248
+    ],
+    "audio_sha256": "5b6e8cad8f49b3ef73ce1a0fea41df5d00cba096b7d8b5ed3c29634190e53aae",
+    "rms": 0.08677091828425186,
+    "peak": 0.68408203125,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00019",
+    "sample_id": "common_voice_en_15265-common_voice_en_15268",
+    "success": true,
+    "dispatch_s": 892911.994711797,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.17319730401504785,
+    "last_audio_s": 0.8094446640461683,
+    "completion_s": 0.8095686020096764,
+    "audio_samples": 165888,
+    "acoustic_frames": 81.0,
+    "audio_duration_s": 3.7616326530612243,
+    "rtf": 0.21518439962164848,
+    "transport_chunks": 7,
+    "chunk_arrivals_s": [
+      0.17319730401504785,
+      0.2404457819648087,
+      0.34410906804259866,
+      0.48386099096387625,
+      0.6926832670578733,
+      0.6926944369915873,
+      0.8094446640461683
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      50745,
+      47559,
+      61440
+    ],
+    "audio_sha256": "da4943815b8a185757823b81ff8562f987506436c7d7d98e497190c3eafd891d",
+    "rms": 0.0376191971271557,
+    "peak": 0.338623046875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00013",
+    "sample_id": "common_voice_en_125386-common_voice_en_125389",
+    "success": true,
+    "dispatch_s": 892911.994140626,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.1668022070080042,
+    "last_audio_s": 0.8172717170091346,
+    "completion_s": 0.8174156049499288,
+    "audio_samples": 169984,
+    "acoustic_frames": 83.0,
+    "audio_duration_s": 3.8545124716553287,
+    "rtf": 0.21202985410452063,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.1668022070080042,
+      0.23383913899306208,
+      0.33710741193499416,
+      0.4755155979655683,
+      0.6818728189682588,
+      0.8172717170091346
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      69632
+    ],
+    "audio_sha256": "6e4ed78c2a789d35427276d83b0696f52266329956a63a7be9f227ce706ae131",
+    "rms": 0.0442001071274144,
+    "peak": 0.5087890625,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00012",
+    "sample_id": "common_voice_en_125386-common_voice_en_125388",
+    "success": true,
+    "dispatch_s": 892911.994045799,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.16684848500881344,
+    "last_audio_s": 0.8239128889981657,
+    "completion_s": 0.8240749560063705,
+    "audio_samples": 172032,
+    "acoustic_frames": 84.0,
+    "audio_duration_s": 3.900952380952381,
+    "rtf": 0.2112081380488462,
+    "transport_chunks": 6,
+    "chunk_arrivals_s": [
+      0.16684848500881344,
+      0.2338801969308406,
+      0.33712791092693806,
+      0.4755016069393605,
+      0.6818440479692072,
+      0.8239128889981657
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      73728
+    ],
+    "audio_sha256": "cfe40962725cfb806b9448f6daf1f0f6c5aaa8a8b30e175d31a52ea55f1ab4b1",
+    "rms": 0.03409066761363611,
+    "peak": 0.384033203125,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00008",
+    "sample_id": "common_voice_en_1205005-common_voice_en_1205007",
+    "success": true,
+    "dispatch_s": 892911.993505388,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.16720115998759866,
+    "last_audio_s": 0.8258401349885389,
+    "completion_s": 0.8259758329950273,
+    "audio_samples": 172032,
+    "acoustic_frames": 84.0,
+    "audio_duration_s": 3.900952380952381,
+    "rtf": 0.21170218304149557,
+    "transport_chunks": 7,
+    "chunk_arrivals_s": [
+      0.16720115998759866,
+      0.23420541093219072,
+      0.3373271969612688,
+      0.472449560998939,
+      0.6828760999487713,
+      0.6828838699730113,
+      0.8258401349885389
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      94329,
+      3975,
+      73728
+    ],
+    "audio_sha256": "9c4ff04d5a9ae102a95d8c8cfffc850d033e95c46fa67984b4424989fee47d32",
+    "rms": 0.05361776873337079,
+    "peak": 0.431640625,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00015",
+    "sample_id": "common_voice_en_13900-common_voice_en_13901",
+    "success": true,
+    "dispatch_s": 892911.994327994,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.16673457704018801,
+    "last_audio_s": 0.8577871230663732,
+    "completion_s": 0.8579399500740692,
+    "audio_samples": 182272,
+    "acoustic_frames": 89.0,
+    "audio_duration_s": 4.133151927437642,
+    "rtf": 0.20753825122469197,
+    "transport_chunks": 7,
+    "chunk_arrivals_s": [
+      0.16673457704018801,
+      0.2337805690476671,
+      0.3370720010716468,
+      0.4755162560613826,
+      0.6884817910613492,
+      0.688490551081486,
+      0.8577871230663732
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      50745,
+      47559,
+      94208
+    ],
+    "audio_sha256": "bf6f0a26638f786193f2720f0abd90790461c40b874099100ee82326898365dd",
+    "rms": 0.10162565498144209,
+    "peak": 0.83642578125,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00021",
+    "sample_id": "common_voice_en_153872-common_voice_en_153874",
+    "success": true,
+    "dispatch_s": 892911.994983472,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.1730409769807011,
+    "last_audio_s": 0.8834795219590887,
+    "completion_s": 0.8836223689140752,
+    "audio_samples": 188416,
+    "acoustic_frames": 92.0,
+    "audio_duration_s": 4.272471655328798,
+    "rtf": 0.20678417394698867,
+    "transport_chunks": 7,
+    "chunk_arrivals_s": [
+      0.1730409769807011,
+      0.24189619591925293,
+      0.34831507492344826,
+      0.48331504000816494,
+      0.6920587389031425,
+      0.6920696789165959,
+      0.8834795219590887
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      50745,
+      47559,
+      106496
+    ],
+    "audio_sha256": "a9d429898ea9999a0529c819b016aa16943314744f2b44a9eacae72871d7f06b",
+    "rms": 0.05039912733250843,
+    "peak": 0.60302734375,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00007",
+    "sample_id": "common_voice_en_120405-common_voice_en_120406",
+    "success": true,
+    "dispatch_s": 892911.9934024,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.1672455589286983,
+    "last_audio_s": 0.9144949959591031,
+    "completion_s": 0.9185065249912441,
+    "audio_samples": 200704,
+    "acoustic_frames": 98.0,
+    "audio_duration_s": 4.551111111111111,
+    "rtf": 0.20093884188554512,
+    "transport_chunks": 8,
+    "chunk_arrivals_s": [
+      0.1672455589286983,
+      0.23425285995472223,
+      0.3373535058926791,
+      0.4724535408895463,
+      0.6828463909914717,
+      0.6828561499714851,
+      0.9144849069416523,
+      0.9144949959591031
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      50745,
+      47559,
+      130959,
+      113
+    ],
+    "audio_sha256": "829942d7a287a5921511d52a1f3d6f3a4cf266842661476c3dc4a4b3aeae9d56",
+    "rms": 0.17161809518882526,
+    "peak": 0.91796875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00010",
+    "sample_id": "common_voice_en_123125-common_voice_en_123126",
+    "success": true,
+    "dispatch_s": 892911.993813863,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.16698152292519808,
+    "last_audio_s": 0.9253243949497119,
+    "completion_s": 0.9254586829338223,
+    "audio_samples": 202752,
+    "acoustic_frames": 99.0,
+    "audio_duration_s": 4.597551020408163,
+    "rtf": 0.20126462780777646,
+    "transport_chunks": 8,
+    "chunk_arrivals_s": [
+      0.16698152292519808,
+      0.23400597495492548,
+      0.33717959001660347,
+      0.47551142598968,
+      0.681818097946234,
+      0.913762088981457,
+      0.9137741379672661,
+      0.9253243949497119
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      50745,
+      80327,
+      4096
+    ],
+    "audio_sha256": "abd27cf9679e0e59117c48fcbc6973648033a67825508e4ffbae18fc2d9ecf14",
+    "rms": 0.02661481797284201,
+    "peak": 0.4072265625,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00030",
+    "sample_id": "common_voice_en_17147545-common_voice_en_17147546",
+    "success": true,
+    "dispatch_s": 892911.995955255,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.17430465400684625,
+    "last_audio_s": 1.0196348970057443,
+    "completion_s": 1.0199523819610476,
+    "audio_samples": 231424,
+    "acoustic_frames": 113.0,
+    "audio_duration_s": 5.2477097505668935,
+    "rtf": 0.19430093230586853,
+    "transport_chunks": 9,
+    "chunk_arrivals_s": [
+      0.17430465400684625,
+      0.24373503297101706,
+      0.3469902379438281,
+      0.4819429840426892,
+      0.6908460690174252,
+      0.6908546290360391,
+      0.917629400966689,
+      0.9176442610332742,
+      1.0196348970057443
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      50745,
+      47559,
+      65476,
+      65596,
+      61440
+    ],
+    "audio_sha256": "211e4cb0647f089e5d11b1ae971a1b8f3a11f5c34414a543e7ae24ba567bab2a",
+    "rms": 0.037473443029675896,
+    "peak": 0.2235107421875,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00002",
+    "sample_id": "common_voice_en_103675-common_voice_en_103676",
+    "success": true,
+    "dispatch_s": 892911.992758601,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.16760479204822332,
+    "last_audio_s": 1.1787946480326355,
+    "completion_s": 1.1791040630778298,
+    "audio_samples": 288768,
+    "acoustic_frames": 141.0,
+    "audio_duration_s": 6.548027210884354,
+    "rtf": 0.18002286949467816,
+    "transport_chunks": 9,
+    "chunk_arrivals_s": [
+      0.16760479204822332,
+      0.23459826502949,
+      0.3375236049760133,
+      0.47005945397540927,
+      0.6747042550705373,
+      0.9121660380624235,
+      0.9121751070488244,
+      1.1787776490673423,
+      1.1787946480326355
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      101497,
+      29575,
+      130959,
+      45169
+    ],
+    "audio_sha256": "8362f260d9af4749cda3124d061d0e378766118ad3ca34dd143932f2f150ca1c",
+    "rms": 0.022648038624551916,
+    "peak": 0.152587890625,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00022",
+    "sample_id": "common_voice_en_155313-common_voice_en_155315",
+    "success": true,
+    "dispatch_s": 892911.99508337,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.17300709802657366,
+    "last_audio_s": 1.1868943449808285,
+    "completion_s": 1.1871523610316217,
+    "audio_samples": 290816,
+    "acoustic_frames": 142.0,
+    "audio_duration_s": 6.594467120181406,
+    "rtf": 0.17998335928440848,
+    "transport_chunks": 9,
+    "chunk_arrivals_s": [
+      0.17300709802657366,
+      0.24187171703670174,
+      0.34829167497809976,
+      0.4833054910413921,
+      0.6920893390197307,
+      0.9186543739633635,
+      0.9186620740219951,
+      1.1868804859695956,
+      1.1868943449808285
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      101497,
+      29575,
+      130959,
+      49265
+    ],
+    "audio_sha256": "5c13a60f9cc435d4b115beb3ca47fcdea8995ec768a46b06eec2755c9e529891",
+    "rms": 0.02867594939997769,
+    "peak": 0.2587890625,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00011",
+    "sample_id": "common_voice_en_123125-common_voice_en_123127",
+    "success": true,
+    "dispatch_s": 892911.993917041,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.16693082405254245,
+    "last_audio_s": 1.2110407300060615,
+    "completion_s": 1.2112538360524923,
+    "audio_samples": 301056,
+    "acoustic_frames": 147.0,
+    "audio_duration_s": 6.826666666666667,
+    "rtf": 0.17739854443448166,
+    "transport_chunks": 9,
+    "chunk_arrivals_s": [
+      0.16693082405254245,
+      0.233955406001769,
+      0.33717847103253007,
+      0.47553511697333306,
+      0.6818504680413753,
+      0.9138145090546459,
+      0.9138218279695138,
+      1.211026730015874,
+      1.2110407300060615
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      101497,
+      29575,
+      130959,
+      69745
+    ],
+    "audio_sha256": "f497ef1948b385fa82b1ff4db97bfcc3bb499adac6cede21b3eed1b7003dfcd0",
+    "rms": 0.024786139841626323,
+    "peak": 0.311767578125,
+    "finish_reason": "unavailable_in_raw_pcm"
+  },
+  {
+    "request_id": "c32-warmup-00006",
+    "sample_id": "common_voice_en_120405-common_voice_en_120402",
+    "success": true,
+    "dispatch_s": 892911.993299252,
+    "http_status": 200,
+    "audio_headers": {
+      "x-audio-sample-rate": "44100",
+      "x-audio-channels": "1"
+    },
+    "ttfa_s": 0.1672981670126319,
+    "last_audio_s": 1.3852071369765326,
+    "completion_s": 1.385420672944747,
+    "audio_samples": 374784,
+    "acoustic_frames": 183.0,
+    "audio_duration_s": 8.498503401360544,
+    "rtf": 0.16299424399298018,
+    "transport_chunks": 10,
+    "chunk_arrivals_s": [
+      0.1672981670126319,
+      0.23429886903613806,
+      0.3373768760357052,
+      0.47245603997725993,
+      0.6828443900449201,
+      0.9114641989581287,
+      0.9114743099780753,
+      1.2794867970515043,
+      1.279505915939808,
+      1.3852071369765326
+    ],
+    "chunk_bytes": [
+      24576,
+      32768,
+      49152,
+      65536,
+      98304,
+      101497,
+      29575,
+      130959,
+      131185,
+      86016
+    ],
+    "audio_sha256": "9c1bd194391936a6835966c53ee55c0123c6571ea797d29b245e60c6f6a2ff08",
+    "rms": 0.11824702793465629,
+    "peak": 0.64501953125,
+    "finish_reason": "unavailable_in_raw_pcm"
+  }
+]

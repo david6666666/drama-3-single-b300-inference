@@ -1,0 +1,90 @@
+{
+  "status": "CPU_IMPORT_PASS",
+  "backend": "vllm",
+  "executable": "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/bin/python",
+  "prefix": "/home/zjy/code/hsliu/venvs/codex-drama3-vllm",
+  "python": "3.12.3 (main, Jan  8 2026, 11:30:50) [GCC 13.3.0]",
+  "sys_path": [
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/cv2",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src",
+    "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "/usr/lib/python312.zip",
+    "/usr/lib/python3.12",
+    "/usr/lib/python3.12/lib-dynload",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages",
+    "__editable__.vllm_omni-0.1.dev1+ge7c007cc3.finder.__path_hook__",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/setuptools/_vendor"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm:/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "OMP_NUM_THREADS": "8",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/cpu-probes/hf_modules",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "modules": {
+    "drama3.benchmark": {
+      "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/benchmark.py",
+      "path": [],
+      "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src",
+      "expected_root_matches": true
+    },
+    "vllm": {
+      "file": "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/vllm/__init__.py",
+      "path": [
+        "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/vllm"
+      ],
+      "expected_root": null,
+      "expected_root_matches": true
+    },
+    "vllm.entrypoints.cli.main": {
+      "file": "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py",
+      "path": [],
+      "expected_root": null,
+      "expected_root_matches": true
+    },
+    "vllm_omni": {
+      "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm/vllm_omni/__init__.py",
+      "path": [
+        "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm/vllm_omni"
+      ],
+      "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm",
+      "expected_root_matches": true
+    },
+    "vllm_omni.entrypoints.cli.main": {
+      "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm/vllm_omni/entrypoints/cli/main.py",
+      "path": [],
+      "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm",
+      "expected_root_matches": true
+    },
+    "vllm_omni.model_executor.models.fish_omni.fish_omni_model": {
+      "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm/vllm_omni/model_executor/models/fish_omni/fish_omni_model.py",
+      "path": [],
+      "expected_root": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm",
+      "expected_root_matches": true
+    }
+  },
+  "packages": {
+    "torch": "2.13.0+cu130",
+    "vllm": "0.31.0",
+    "vllm-omni": "0.1.dev1+ge7c007cc3",
+    "sglang": null,
+    "sglang-omni": null,
+    "flashinfer-python": "0.7.0.post1",
+    "triton": "3.7.1",
+    "transformers": "5.14.1",
+    "numpy": "2.3.5",
+    "aiohttp": "3.14.5",
+    "fastapi": "0.136.3",
+    "uvicorn": "0.54.0",
+    "nvidia-cutlass-dsl": "4.7.1"
+  },
+  "errors": [],
+  "cuda_initialized": false
+}

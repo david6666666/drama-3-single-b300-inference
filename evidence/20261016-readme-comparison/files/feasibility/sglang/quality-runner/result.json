@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/scripts/evaluate_audio.py",
+    "--upstream",
+    "/home/zjy/code/hsliu/drama3-sources/sglang-omni",
+    "--assets",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-models.json",
+    "--corpus",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+    "--benchmark",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/sglang/service/benchmark",
+    "--labels",
+    "c64-r0",
+    "--output",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/sglang/quality.json",
+    "--batch-size",
+    "8"
+  ],
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "CUDA_VISIBLE_DEVICES": "6",
+    "OMP_NUM_THREADS": "8",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-hf-modules"
+  },
+  "token": "c894ee4668d34ce5a1dc422056d40456",
+  "sampling_interval_seconds": 1,
+  "limitation": "One-second polling cannot exclude shorter interference or observe true instantaneous memory peaks. Only the selected physical UUID is checked; other GPU jobs are untouched.",
+  "cleanup": [],
+  "runner": {
+    "pid": 2584350,
+    "ppid": 2560387,
+    "starttime": 88151513,
+    "uid": 1012,
+    "state": "R"
+  },
+  "error": null,
+  "elapsed_seconds": 80.79096218000632,
+  "exit_code": 0,
+  "owned_processes": {
+    "2584350": {
+      "pid": 2584350,
+      "ppid": 2560387,
+      "starttime": 88151513,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "c894ee4668d34ce5a1dc422056d40456",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    }
+  },
+  "post_gpu": []
+}

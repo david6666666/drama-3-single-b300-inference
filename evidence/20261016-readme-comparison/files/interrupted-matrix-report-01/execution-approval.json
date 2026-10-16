@@ -1,0 +1,9 @@
+{
+  "approved_by": "root",
+  "gpu_execution": true,
+  "protocol_sha256": "a7a82576212dd21f904a63036a10eca1f52e5133a31b161de84d336debcd9c30",
+  "manifest_sha256": "fbd7dc76a6c0ca1a7d0267a43ac88d4fe2a5057b6bc308a823439facae308e36",
+  "approved_at": "2026-10-16T15:44:59.610002+00:00",
+  "scope": "Score exactly 20 preserved complete vLLM groups, then run and score original SGLang 21 groups serially on GPU6. Preserve incomplete vLLM C64 without retry or formal three-repeat aggregate. No source/profile changes or optimization.",
+  "review": "51 frozen inputs verified; controller, partial validator, summary/archive reviewed; CPU tests and independent review passed."
+}

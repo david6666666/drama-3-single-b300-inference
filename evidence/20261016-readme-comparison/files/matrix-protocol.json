@@ -1,0 +1,16 @@
+{
+  "status": "FROZEN_AWAITING_EXPLICIT_EXECUTION_APPROVAL",
+  "base_protocol_sha256": "7381a4cfc3f55bdc6c181d64e0991d93d9c05461f9b56db17a7579bc921c5e1a",
+  "base_manifest_sha256": "3c368cff001d2950f34b1b2c6429622ba55a4c63f84d2ce5fa4e23e6d3c5f4b7",
+  "scope": "Continuation only after three valid full C64 feasibility and quality results. Exact base source/dependencies/corpus/profile/GPU/affinity/client/quality methods unchanged. C1/2/4/8/16/32/64 x3; one server/config for21groups; full quality on all21 groups. No speed/score threshold or auto tuning.",
+  "order": [
+    "standalone",
+    "vllm",
+    "sglang"
+  ],
+  "watchdog_seconds": {
+    "service": 14400,
+    "quality": 14400
+  },
+  "requires": "Separate root matrix-execution-approval.json bound to this plan and matrix-frozen-inputs.json. Default dry run has no GPU queries."
+}

@@ -1,0 +1,43 @@
+{
+  "status": "CPU_FEASIBLE_WITH_EXPLICIT_PARTIAL_SCOPE",
+  "gpu_launched": false,
+  "unattempted_concurrency": [
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "repeats": 3,
+  "new_service_groups": 15,
+  "excluded_from_rerun": [
+    "c1-r0",
+    "c1-r1",
+    "c1-r2",
+    "c2-r0",
+    "c2-r1",
+    "c2-r2"
+  ],
+  "service_contract": "Unmodified run_baseline.py accepts arbitrary explicit concurrency list and forwards it with repeats=3. Use same frozen source/checkpoint/venv/profile/capacity64/corpus/GPU6/OMP8/CPU affinity/maxframes/sampling/freshTCP/warmup. A fresh server is an explicit continuation boundary; RNG/service history differs from the interrupted lifecycle. Do not call the stitched campaign a single uninterrupted server run.",
+  "saved_quality_labels": [
+    "c1-r0",
+    "c1-r1",
+    "c1-r2",
+    "c2-r0",
+    "c2-r1"
+  ],
+  "quality_contract": "Unmodified evaluate_audio.py keeps every source request record. For failed request it skips missing audio inference but preserves is_success=false and original error, speaker_similarity=null. The group reports skipped=1 and complete=false. Its 1087 successful-audio aggregates are conditional diagnostic summaries, not full1088 quality acceptance. Original validate_quality remains unchanged and must reject that incomplete group.",
+  "required_new_checks": [
+    "4 completed saved groups: all1088 identity/WAV/hash/timing/quality checks",
+    "1 failed saved group: exact1088 identities, exact recorded HTTP500 and absent audio; remaining1087 WAV/hash/timing and scorer records; status incomplete",
+    "15 new groups: standard full validator; no failed-group retry",
+    "all protocols/manifests/source hashes plus stop audit bound before GPU",
+    "separate explicit root approval; default CPU-only; unchanged token/starttime/UUID-scoped cleanup"
+  ],
+  "source_sha256": {
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/scripts/run_baseline.py": "de758342dc6ffc3320b7eb06a345eb955a92b77ecd93e43356a751b2ffc42822",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/scripts/evaluate_audio.py": "61a6852eebd515285600c54909bac0c1833ed583b9592746920ffce1c25320ba",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/benchmark.py": "4221e923bd0c228dd76711abee57151e0fa40c758f0c0154ef49fe7249e8fc27"
+  },
+  "outcome_policy": "SGLang C2 remains failed/incomplete with no formal median; C1 and future fully measured Cs may be reported only once their complete3repeat service+quality pass. vLLM C64 remains failed/incomplete. Any further failure stops."
+}

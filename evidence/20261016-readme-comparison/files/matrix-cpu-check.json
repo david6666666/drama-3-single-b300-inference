@@ -1,0 +1,13 @@
+{
+  "status": "CPU_MATRIX_COMMANDS_PASS",
+  "checks": [
+    "AST",
+    "standalone21groups",
+    "standalonefullquality",
+    "vllm21groups",
+    "vllmfullquality",
+    "sglang21groups",
+    "sglangfullquality"
+  ],
+  "gpu_queries_or_launches": 0
+}

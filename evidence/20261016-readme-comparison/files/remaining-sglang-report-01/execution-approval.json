@@ -1,0 +1,9 @@
+{
+  "approved_by": "root",
+  "gpu_execution": true,
+  "protocol_sha256": "aec223d3b64b4e67b956f6e35e5bb3c3cc7a72da98b0fc99c20eb6c5cef8dd60",
+  "manifest_sha256": "0dbe770686c2f3e17c0df925941912d7537ac4e039e2c802d05bcbee3b3c1065",
+  "approved_at": "2026-10-16T17:13:36.337052+00:00",
+  "scope": "Score original five SGLang groups with the one HTTP500 preserved and 5439 actual outputs scored; then measure only unattempted C4/C8/C16/C32/C64 x3 and score all outputs serially on GPU6. Never retry C1/C2 or vLLM C64. Preserve two incomplete rows and the new server lifecycle boundary. Stop on any further failure.",
+  "review": "All33 frozen inputs verified. Controller/partial validator/source schema reviewed. Actual5439WAV audit and30 validator,10 controller,37 helper checks plus14 independent checks passed. Original failures remain immutable; no model/profile changes."
+}

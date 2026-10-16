@@ -1,0 +1,113 @@
+{
+  "status": "CPU_IMPORT_PASS",
+  "backend": "standalone",
+  "executable": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+  "prefix": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone",
+  "python": "3.12.3 (main, Jan  8 2026, 11:30:50) [GCC 13.3.0]",
+  "sys_path": [
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src",
+    "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "/usr/lib/python312.zip",
+    "/usr/lib/python3.12",
+    "/usr/lib/python3.12/lib-dynload",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src",
+    "__editable__.fish_speech-3.0.0.finder.__path_hook__",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "OMP_NUM_THREADS": "8",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/cpu-probes/hf_modules",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "modules": {
+    "drama3": {
+      "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/__init__.py",
+      "path": [
+        "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3"
+      ],
+      "expected_root": "source-standalone/src",
+      "expected_root_matches": true
+    },
+    "drama3.benchmark": {
+      "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/benchmark.py",
+      "path": [],
+      "expected_root": "source-standalone/src",
+      "expected_root_matches": true
+    },
+    "drama3.server": {
+      "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/server.py",
+      "path": [],
+      "expected_root": "source-standalone/src",
+      "expected_root_matches": true
+    },
+    "drama3.model": {
+      "file": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src/drama3/model.py",
+      "path": [],
+      "expected_root": "source-standalone/src",
+      "expected_root_matches": true
+    },
+    "fish_speech": {
+      "file": null,
+      "path": [
+        "/home/zjy/code/hsliu/drama3-sources/fish-speech/fish_speech",
+        "/home/zjy/code/hsliu/drama3-sources/fish-speech/fish_speech",
+        "__editable__.fish_speech-3.0.0.finder.__path_hook__"
+      ],
+      "expected_root": "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+      "expected_root_matches": true
+    },
+    "fish_speech.models.text2semantic.fish_omni.model": {
+      "file": "/home/zjy/code/hsliu/drama3-sources/fish-speech/fish_speech/models/text2semantic/fish_omni/model.py",
+      "path": [],
+      "expected_root": "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+      "expected_root_matches": true
+    },
+    "fish_speech.models.text2semantic.fish_omni.generate": {
+      "file": "/home/zjy/code/hsliu/drama3-sources/fish-speech/fish_speech/models/text2semantic/fish_omni/generate.py",
+      "path": [],
+      "expected_root": "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+      "expected_root_matches": true
+    },
+    "flashinfer": {
+      "file": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/__init__.py",
+      "path": [
+        "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer"
+      ],
+      "expected_root": null,
+      "expected_root_matches": true
+    },
+    "sglang": {
+      "file": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/sglang/__init__.py",
+      "path": [
+        "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/sglang"
+      ],
+      "expected_root": null,
+      "expected_root_matches": true
+    }
+  },
+  "packages": {
+    "torch": "2.13.0",
+    "vllm": null,
+    "vllm-omni": null,
+    "sglang": "0.5.21",
+    "sglang-omni": null,
+    "flashinfer-python": "0.7.0.post1",
+    "triton": "3.7.1",
+    "transformers": "5.12.1",
+    "numpy": "2.3.5",
+    "aiohttp": "3.14.5",
+    "fastapi": "0.143.0",
+    "uvicorn": "0.54.0",
+    "nvidia-cutlass-dsl": "4.6.2"
+  },
+  "errors": [],
+  "cuda_initialized": false
+}

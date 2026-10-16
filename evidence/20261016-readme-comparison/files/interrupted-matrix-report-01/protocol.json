@@ -1,0 +1,80 @@
+{
+  "status": "FROZEN_AWAITING_EXPLICIT_EXECUTION_APPROVAL",
+  "attempt_id": "interrupted-matrix-report-01",
+  "purpose": "Finish a descriptive latest-source comparison after an observed vLLM service timeout; no optimization, service retry, or replacement of failed observations.",
+  "protocol_sha256": "7381a4cfc3f55bdc6c181d64e0991d93d9c05461f9b56db17a7579bc921c5e1a",
+  "manifest_sha256": "3c368cff001d2950f34b1b2c6429622ba55a4c63f84d2ce5fa4e23e6d3c5f4b7",
+  "matrix_protocol_sha256": "cd87f7beadbfcef71637481e3dbc430e80ea761537b708f2fb337be206124666",
+  "matrix_manifest_sha256": "8dd5c7ee923519ab75064d9d697789bfff976d5e3d2bd4f31c1fe4d51a95eaea",
+  "inherited_controls": "All model/source/venv/corpus/CPU/GPU6/profile/capacity/sampling/warmup/fresh-TCP/tail/quality controls are unchanged from the exact base and recovery protocols. No install or source edit. Reuse immutable inputs; no copy of 7313 source files.",
+  "order": [
+    "vllm-quality",
+    "sglang"
+  ],
+  "vllm_completed_labels": [
+    "c1-r0",
+    "c1-r1",
+    "c1-r2",
+    "c2-r0",
+    "c2-r1",
+    "c2-r2",
+    "c4-r0",
+    "c4-r1",
+    "c4-r2",
+    "c8-r0",
+    "c8-r1",
+    "c8-r2",
+    "c16-r0",
+    "c16-r1",
+    "c16-r2",
+    "c32-r0",
+    "c32-r1",
+    "c32-r2",
+    "c64-r0",
+    "c64-r1"
+  ],
+  "sglang_labels": [
+    "c1-r0",
+    "c1-r1",
+    "c1-r2",
+    "c2-r0",
+    "c2-r1",
+    "c2-r2",
+    "c4-r0",
+    "c4-r1",
+    "c4-r2",
+    "c8-r0",
+    "c8-r1",
+    "c8-r2",
+    "c16-r0",
+    "c16-r1",
+    "c16-r2",
+    "c32-r0",
+    "c32-r1",
+    "c32-r2",
+    "c64-r0",
+    "c64-r1",
+    "c64-r2"
+  ],
+  "vllm_service": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix/vllm/service",
+  "vllm_failed_group": "c64-r2",
+  "preserved_failure": {
+    "audit": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/vllm-stop-audit.json",
+    "audit_sha256": "d706431871c047bfb6d017bcc3d384ddf9d866a173447925fafab8a1369e966e",
+    "result_sha256": "7d3f41e3286477bb52544d3f8e386ff89ad37501cae234771c0aab72fdeb9051",
+    "runner_result_sha256": "c3b3d0d8e41432cfb91a80884c3302289bd212a3d14a83d104c55567268b961d"
+  },
+  "feasibility_result_sha256": {
+    "standalone": "6a4bf17004193fc7f881c558e1d83da454f8aed6d894ea4b6e5de9730cfe7ae0",
+    "vllm": "dc46fc3802d68d82979aea006af8c4e6903c635439cddfa10d515c4de5af9245",
+    "sglang": "32ee19d80e6ef18b86e345867bff65725c1f4f5b3c6a90e743417bcd8c3c31aa"
+  },
+  "watchdog_seconds": {
+    "service": 14400,
+    "quality": 14400
+  },
+  "allowed_actions": "Validate and score all 20 saved full vLLM groups (21760 requests), then run SGLang once as its original 21 groups and score all 22848 requests. Same UUID-scoped 30s monitoring and token/starttime/private-MPS cleanup. Any further failure stops, no automatic retry.",
+  "reporting": "The vLLM C64 row remains failed/incomplete because only two of three planned repeats completed. Never calculate its formal three-repeat median or quality/performance verdict; retain two completed C64 observations as diagnostic-only. Fully measured rows: standalone 7, vLLM 6, SGLang 7. Maximum complete groups are 62 plus one failed/incomplete group; never call all 63 PASS.",
+  "success_condition": "Complete the permitted saved-group quality and SGLang records with no hidden filtering, full audio/identity/quality verification, and explicit preservation of the incomplete vLLM row. Performance or quality score cannot trigger tuning or retry.",
+  "requires": "Separate root execution-approval.json bound to this new protocol.json and frozen-inputs.json. Existing approvals alone cannot execute this continuation."
+}

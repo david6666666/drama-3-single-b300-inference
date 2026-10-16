@@ -1,0 +1,98 @@
+{
+  "status": "COMPLETE_VALID_SERVICE_AND_QUALITY",
+  "backend": "standalone",
+  "protocol_sha256": "7381a4cfc3f55bdc6c181d64e0991d93d9c05461f9b56db17a7579bc921c5e1a",
+  "manifest_sha256": "3c368cff001d2950f34b1b2c6429622ba55a4c63f84d2ce5fa4e23e6d3c5f4b7",
+  "commands": {
+    "service": [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/scripts/run_baseline.py",
+      "--backend",
+      "standalone",
+      "--source",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone",
+      "--venv",
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone",
+      "--bench-python",
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "--checkpoint",
+      "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+      "--corpus",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+      "--output",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/standalone/service",
+      "--gpu",
+      "6",
+      "--port",
+      "18146",
+      "--capacity",
+      "64",
+      "--requests",
+      "1088",
+      "--repeats",
+      "1",
+      "--concurrency",
+      "64",
+      "--skip-reference-warmup",
+      "--fish-source",
+      "/home/zjy/code/hsliu/drama3-sources/fish-speech"
+    ],
+    "quality": [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/scripts/evaluate_audio.py",
+      "--upstream",
+      "/home/zjy/code/hsliu/drama3-sources/sglang-omni",
+      "--assets",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-models.json",
+      "--corpus",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+      "--benchmark",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/standalone/service/benchmark",
+      "--labels",
+      "c64-r0",
+      "--output",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/standalone/quality.json",
+      "--batch-size",
+      "8"
+    ]
+  },
+  "service": {
+    "status": "PASS",
+    "groups_checked": 1,
+    "requests_checked": 1088,
+    "all_wav_pcm_hashes_verified": true,
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+    "summary_sha256": "c5bc585349345aadb3815440f789858ceb4944f43bc0516221c79981b93cd73f",
+    "groups": [
+      {
+        "label": "c64-r0",
+        "requests": 1088,
+        "frames": 102375.0,
+        "makespan_s": 22.616879266919568,
+        "jsonl_sha256": "cb042bf6ed28921c7e388b1380ae745629f3cb3244e4e36f8eff3e1cf0fae8a3",
+        "throughput_frames_s": 4526.486558635795,
+        "ttfa_p50_ms": 148.19037303095683,
+        "ttfa_p95_ms": 272.809033939841,
+        "rtf_mean": 0.2921514978452739
+      }
+    ]
+  },
+  "quality": {
+    "status": "PASS",
+    "groups_checked": 1,
+    "requests_checked": 1088,
+    "unfiltered_wer": true,
+    "all_sim_records_present": true,
+    "quality_sha256": "69cb957e59f39c01c6c88f4c8fdfbeabcef0d91ce609ec144c45ac724759daf1",
+    "groups": [
+      {
+        "label": "c64-r0",
+        "requests": 1088,
+        "wer_percent": 1.6662480113874236,
+        "sim_mean": 64.11069595978103,
+        "errors": 199,
+        "reference_words": 11943
+      }
+    ]
+  }
+}

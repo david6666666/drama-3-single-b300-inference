@@ -1,0 +1,37 @@
+{
+  "status": "FROZEN_AWAITING_EXPLICIT_EXECUTION_APPROVAL",
+  "base_protocol_sha256": "7381a4cfc3f55bdc6c181d64e0991d93d9c05461f9b56db17a7579bc921c5e1a",
+  "base_manifest_sha256": "3c368cff001d2950f34b1b2c6429622ba55a4c63f84d2ce5fa4e23e6d3c5f4b7",
+  "scope": "Continuation only after three valid full C64 feasibility and quality results. Exact base source/dependencies/corpus/profile/GPU/affinity/client/quality methods unchanged. C1/2/4/8/16/32/64 x3; one server/config for21groups; full quality on all21 groups. No speed/score threshold or auto tuning.",
+  "order": [
+    "standalone",
+    "vllm",
+    "sglang"
+  ],
+  "watchdog_seconds": {
+    "service": 14400,
+    "quality": 14400
+  },
+  "requires": "Separate root approval in this attempt execution-approval.json bound to matrix-protocol and matrix-frozen-input hashes. Original approval alone cannot authorize recovery.",
+  "attempt_id": "recovery-attempt-01",
+  "feasibility_result_sha256": {
+    "standalone": "6a4bf17004193fc7f881c558e1d83da454f8aed6d894ea4b6e5de9730cfe7ae0",
+    "vllm": "dc46fc3802d68d82979aea006af8c4e6903c635439cddfa10d515c4de5af9245",
+    "sglang": "32ee19d80e6ef18b86e345867bff65725c1f4f5b3c6a90e743417bcd8c3c31aa"
+  },
+  "recovery_reason": "Original attempt stopped after seven complete groups because a full-device nvidia-smi compute-app query exceeded 10 seconds. The cause of that delay is not established; it is not classified as a model failure or observed external GPU use.",
+  "preserved_failure": {
+    "path": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/matrix-stop-audit.json",
+    "sha256": "34040b02a476b4506cc0b2b3c6ed04eaf2e05f7aa6005bac44fffff99150016d",
+    "raw_runner_result_sha256": "255f2b41f54b51e79a059c8e62f8fdffcfb7b0367ce1b0e381babf5301339a23"
+  },
+  "monitor_change": {
+    "selection": "Both nvidia-smi commands explicitly select frozen GPU6 UUID. Preflight also verifies the returned index is still 6.",
+    "query_timeout_seconds": 30,
+    "previous_query_timeout_seconds": 10,
+    "interval_seconds": 1,
+    "failure_policy": "Any timeout, query error, observed foreign process or unexpected index/UUID still aborts and cleans only owned identities. No query retry or interpolation. Actual successful-poll timestamps expose gaps.",
+    "scope": "Single selected-device query avoids requesting unrelated device process lists; it does not prove the original timeout cause or guarantee a timeout cannot recur."
+  },
+  "measurement_policy": "Rerun standalone all 21 groups from the beginning, then vLLM then SGLang; fresh output paths. Do not splice any old completed or interrupted groups into recovery results. Old full C64 feasibility is reused by exact result hashes. Source, dependencies, benchmark parameters, request corpus, GPU6, affinity and 29 standalone flags remain the original frozen controls."
+}

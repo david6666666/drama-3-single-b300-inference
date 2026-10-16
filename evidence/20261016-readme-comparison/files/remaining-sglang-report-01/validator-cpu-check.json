@@ -1,0 +1,132 @@
+{
+  "status": "CPU_SAVED_PARTIAL_VALIDATORS_PASS",
+  "checks": [
+    {
+      "name": "actual_saved_service_4full_1partial_5439WAV",
+      "passed": true
+    },
+    {
+      "name": "group_omission",
+      "passed": true
+    },
+    {
+      "name": "group_reordered",
+      "passed": true
+    },
+    {
+      "name": "extra_group",
+      "passed": true
+    },
+    {
+      "name": "missing_record",
+      "passed": true
+    },
+    {
+      "name": "duplicate_id",
+      "passed": true
+    },
+    {
+      "name": "sample_id_changed",
+      "passed": true
+    },
+    {
+      "name": "extra_failure",
+      "passed": true
+    },
+    {
+      "name": "missing_original_failure",
+      "passed": true
+    },
+    {
+      "name": "failure_error_changed",
+      "passed": true
+    },
+    {
+      "name": "unexpected_later_group",
+      "passed": true
+    },
+    {
+      "name": "service_metric_mismatch",
+      "passed": true
+    },
+    {
+      "name": "service_tail_exclusion",
+      "passed": true
+    },
+    {
+      "name": "partial_summary_marked_full",
+      "passed": true
+    },
+    {
+      "name": "synthetic_4full_1partial_quality_preserved",
+      "passed": true
+    },
+    {
+      "name": "poor_quality_scores_are_reported_not_rejected",
+      "passed": true
+    },
+    {
+      "name": "quality_group_omission",
+      "passed": true
+    },
+    {
+      "name": "quality_missing_failure_record",
+      "passed": true
+    },
+    {
+      "name": "quality_partial_marked_full",
+      "passed": true
+    },
+    {
+      "name": "quality_invented_evaluated_count",
+      "passed": true
+    },
+    {
+      "name": "quality_hidden_skipped_failure",
+      "passed": true
+    },
+    {
+      "name": "quality_failed_record_marked_success",
+      "passed": true
+    },
+    {
+      "name": "quality_invented_failure_SIM",
+      "passed": true
+    },
+    {
+      "name": "quality_lost_original_error",
+      "passed": true
+    },
+    {
+      "name": "quality_nan_SIM",
+      "passed": true
+    },
+    {
+      "name": "quality_wrong_ID",
+      "passed": true
+    },
+    {
+      "name": "quality_reordered_records",
+      "passed": true
+    },
+    {
+      "name": "quality_WER_aggregate_mismatch",
+      "passed": true
+    },
+    {
+      "name": "quality_SIM_aggregate_mismatch",
+      "passed": true
+    },
+    {
+      "name": "no_torch_cuda_import",
+      "passed": true
+    }
+  ],
+  "gpu_used": false,
+  "actual_service_audit": "saved-service-audit.json",
+  "quality_scope": "Synthetic adversarial CPU fixtures only; actual saved outputs are scored separately by the original evaluator.",
+  "validator_sha256": "bed87b9c767d11a97c8d92a95835ab319573b3989484ecae31ea367e0363f2f4",
+  "test_sha256": "055495c6849a8b141f8e092063f9d78f83b00dbf4690a76ffd9ba7d7f57f8920",
+  "full_helper_sha256": "4d1f88b112100b59d96e90aeaa57a41cac8386ea1603113a022152fbc9356ea3",
+  "saved_service_audit_sha256": "e654e304b25d948a7cc5f72a750f4b914b3aa6d54ef87174bdfec41f8068c362"
+}

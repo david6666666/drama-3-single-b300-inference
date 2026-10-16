@@ -1,0 +1,277 @@
+{
+  "status": "INDEPENDENT_FINAL_COMPARISON_REVIEW_PASS",
+  "complete_matrix": false,
+  "optimization_acceptance_evaluated": false,
+  "checks": [
+    {
+      "name": "summary_eight_bindings",
+      "passed": true
+    },
+    {
+      "name": "unchanged_manifest_sha256",
+      "passed": true
+    },
+    {
+      "name": "unchanged_matrix_manifest_sha256",
+      "passed": true
+    },
+    {
+      "name": "unchanged_continuation_manifest_sha256",
+      "passed": true
+    },
+    {
+      "name": "unchanged_remaining_manifest_sha256",
+      "passed": true
+    },
+    {
+      "name": "all_four_manifest_counts",
+      "passed": true
+    },
+    {
+      "name": "corpus_identity",
+      "passed": true
+    },
+    {
+      "name": "standalone_source_revision_clean",
+      "passed": true
+    },
+    {
+      "name": "vllm_source_revision_clean",
+      "passed": true
+    },
+    {
+      "name": "sglang_source_revision_clean",
+      "passed": true
+    },
+    {
+      "name": "standalone_completion_bindings",
+      "passed": true
+    },
+    {
+      "name": "standalone_launch_identity",
+      "passed": true
+    },
+    {
+      "name": "standalone_quality_cleanup",
+      "passed": true
+    },
+    {
+      "name": "standalone_service_cleanup",
+      "passed": true
+    },
+    {
+      "name": "standalone_exact_group_coverage",
+      "passed": true
+    },
+    {
+      "name": "standalone_summary_session_provenance",
+      "passed": true
+    },
+    {
+      "name": "vllm_completion_bindings",
+      "passed": true
+    },
+    {
+      "name": "vllm_launch_identity",
+      "passed": true
+    },
+    {
+      "name": "vllm_quality_cleanup",
+      "passed": true
+    },
+    {
+      "name": "vllm_service_cleanup",
+      "passed": true
+    },
+    {
+      "name": "vllm_original_failure_retained",
+      "passed": true
+    },
+    {
+      "name": "vllm_exact_group_coverage",
+      "passed": true
+    },
+    {
+      "name": "vllm_summary_session_provenance",
+      "passed": true
+    },
+    {
+      "name": "sglang_saved_completion_bindings",
+      "passed": true
+    },
+    {
+      "name": "sglang_saved_launch_identity",
+      "passed": true
+    },
+    {
+      "name": "sglang_saved_quality_cleanup",
+      "passed": true
+    },
+    {
+      "name": "sglang_saved_service_cleanup",
+      "passed": true
+    },
+    {
+      "name": "sglang_saved_original_failure_retained",
+      "passed": true
+    },
+    {
+      "name": "sglang_saved_exact_group_coverage",
+      "passed": true
+    },
+    {
+      "name": "sglang_saved_summary_session_provenance",
+      "passed": true
+    },
+    {
+      "name": "sglang_remaining_completion_bindings",
+      "passed": true
+    },
+    {
+      "name": "sglang_remaining_launch_identity",
+      "passed": true
+    },
+    {
+      "name": "sglang_remaining_quality_cleanup",
+      "passed": true
+    },
+    {
+      "name": "sglang_remaining_service_cleanup",
+      "passed": true
+    },
+    {
+      "name": "sglang_remaining_exact_group_coverage",
+      "passed": true
+    },
+    {
+      "name": "sglang_remaining_summary_session_provenance",
+      "passed": true
+    },
+    {
+      "name": "all16320_new_PCM_and_normalized_edit_distances",
+      "passed": true
+    },
+    {
+      "name": "60complete_groups_plus1087partial_scores",
+      "passed": true
+    },
+    {
+      "name": "all61_saved_groups_independent_four_metrics",
+      "passed": true
+    },
+    {
+      "name": "19_formal_three_run_rows",
+      "passed": true
+    },
+    {
+      "name": "all19_row_medians_ranges_sessions_and_available_quality_bounds",
+      "passed": true
+    },
+    {
+      "name": "two_incomplete_rows_four_diagnostics_no_partial_imputation",
+      "passed": true
+    },
+    {
+      "name": "descriptive_not_full_matrix_status_and_denominators",
+      "passed": true
+    },
+    {
+      "name": "two_SG_lifecycles_and_C2r2_NOT_RUN",
+      "passed": true
+    },
+    {
+      "name": "both_upstream_failures_retained",
+      "passed": true
+    }
+  ],
+  "frozen_manifest_counts": {
+    "manifest_sha256": 7313,
+    "matrix_manifest_sha256": 16,
+    "continuation_manifest_sha256": 51,
+    "remaining_manifest_sha256": 33
+  },
+  "new_SG_groups": 15,
+  "new_PCM_files_verified": 16320,
+  "new_PCM_bytes_verified": 6369419264,
+  "new_normalized_word_edit_distances_recomputed": 16320,
+  "all_saved_groups_metric_comparisons": 244,
+  "all_successful_quality_records_aggregated": 66367,
+  "formal_rows": 19,
+  "incomplete_rows": 2,
+  "diagnostic_groups": 4,
+  "standalone_C1_C32_quality_vs_vllm": [
+    {
+      "concurrency": 1,
+      "wer_median_delta_pp": -0.10047726701833715,
+      "sim_median_delta": -0.34587643547531854,
+      "all_repeats_within_reporting_bounds": true
+    },
+    {
+      "concurrency": 2,
+      "wer_median_delta_pp": -0.12559658377292138,
+      "sim_median_delta": -0.1575272265164358,
+      "all_repeats_within_reporting_bounds": true
+    },
+    {
+      "concurrency": 4,
+      "wer_median_delta_pp": 0.3851628569036254,
+      "sim_median_delta": -0.209159005433321,
+      "all_repeats_within_reporting_bounds": true
+    },
+    {
+      "concurrency": 8,
+      "wer_median_delta_pp": 0.17583521728208984,
+      "sim_median_delta": 0.03435845136203852,
+      "all_repeats_within_reporting_bounds": true
+    },
+    {
+      "concurrency": 16,
+      "wer_median_delta_pp": -0.12559658377292138,
+      "sim_median_delta": -0.16824781996034233,
+      "all_repeats_within_reporting_bounds": true
+    },
+    {
+      "concurrency": 32,
+      "wer_median_delta_pp": 0.01674621116972297,
+      "sim_median_delta": -0.08470652192173844,
+      "all_repeats_within_reporting_bounds": true
+    }
+  ],
+  "bindings": {
+    "protocol_sha256": "7381a4cfc3f55bdc6c181d64e0991d93d9c05461f9b56db17a7579bc921c5e1a",
+    "manifest_sha256": "3c368cff001d2950f34b1b2c6429622ba55a4c63f84d2ce5fa4e23e6d3c5f4b7",
+    "matrix_protocol_sha256": "cd87f7beadbfcef71637481e3dbc430e80ea761537b708f2fb337be206124666",
+    "matrix_manifest_sha256": "8dd5c7ee923519ab75064d9d697789bfff976d5e3d2bd4f31c1fe4d51a95eaea",
+    "continuation_protocol_sha256": "a7a82576212dd21f904a63036a10eca1f52e5133a31b161de84d336debcd9c30",
+    "continuation_manifest_sha256": "fbd7dc76a6c0ca1a7d0267a43ac88d4fe2a5057b6bc308a823439facae308e36",
+    "remaining_protocol_sha256": "aec223d3b64b4e67b956f6e35e5bb3c3cc7a72da98b0fc99c20eb6c5cef8dd60",
+    "remaining_manifest_sha256": "0dbe770686c2f3e17c0df925941912d7537ac4e039e2c802d05bcbee3b3c1065"
+  },
+  "summary_sha256": "70884bbab268df59bd78cce7bb53b3d68540c2ae1fe3c31bfe41b137dbab792a",
+  "evidence_sha256": {
+    "recovery-attempt-01/matrix/standalone/result.json": "5f8896f8658fb37284f886b9ad98622c891bd658828af63bd1cd537d3c804d0f",
+    "recovery-attempt-01/matrix/standalone/quality.json": "07b8693825485e87bae90e64687782ca2525c22b0bb82216702f9e8867b3e822",
+    "recovery-attempt-01/matrix/standalone/service/benchmark/summary.json": "cc6ed46835d3145ae29ca45d74674b960fd3f2a4515d1fa48b7ce5a651b3284e",
+    "recovery-attempt-01/matrix/standalone/service/launch.json": "c85f943e1e621c4b50eaefa13952a77d17188352822fa31956f4e85c87861493",
+    "interrupted-matrix-report-01/vllm-quality/result.json": "0fced31081815628304882597187391145c9582f4246dee7ace31e8ac9995636",
+    "interrupted-matrix-report-01/vllm-quality/quality.json": "d8cb960f9cf0f6e74666d65e2c7306502f85b2919f9700f9bd04e2a73b3084d5",
+    "recovery-attempt-01/matrix/vllm/service/benchmark/summary.json": "70d667e02a4cf658ca64a0e52ec8c6801f4236af532b8ea7eb8331d1fe8e4908",
+    "recovery-attempt-01/matrix/vllm/service/launch.json": "fde747aef900ed07cb0058e5e06acf6d56f788be0f5a528e32e3437fb6bcefcd",
+    "remaining-sglang-report-01/existing-quality/result.json": "560488e46f915fd4529b569e4af08327f9470766b5022d56441f4418adc5b09d",
+    "remaining-sglang-report-01/existing-quality/quality.json": "1e413e1f5dca6867b7881fa6c6e53105a8afb53806a4dd0a90eda1b16b949692",
+    "interrupted-matrix-report-01/sglang/service/benchmark/summary.json": "02ad1a52e129463efdc58419f901359568c1f0ce93ba1d5a4c6368583e60b08d",
+    "interrupted-matrix-report-01/sglang/service/launch.json": "f8b9d2b91b25e6098180ffceb7de12450f528d042ce74797508cd1047360cc70",
+    "remaining-sglang-report-01/remaining/result.json": "463ca33fc46b6e01b25d52aa359adad15f40362c11d6f4109d649f818598e866",
+    "remaining-sglang-report-01/remaining/quality.json": "71692ee8d0ee5cf878cedd212ac5629db03069422cb86154923c0718401f76c4",
+    "remaining-sglang-report-01/remaining/service/benchmark/summary.json": "d1cf4ea343afdfab1a7f934b2dae76d945859f6a9a554f6e1676e6a0578f031a",
+    "remaining-sglang-report-01/remaining/service/launch.json": "151189f7e4b28d56266c052ca16c52ce11ccc144e26cc1ac596ad58c5c747ef8"
+  },
+  "script_sha256": "6ca52c82e2658bab9be9e381b8c2aad1658cb417ba1a46b40e5b9cfe2fcf9206",
+  "limits": [
+    "CPU/read-only audit; no inference, text normalization or GPU operations.",
+    "16320 new PCM files and normalized word edit distances independently checked; prior PCM/edit-distance audits remain separate hash-bound evidence.",
+    "C2 partial metrics/quality describe1087 successful outputs from1088 attempts, never a complete workload.",
+    "No complete63-group matrix, C64 vLLM quality verdict, independent matching RNG, or optimization acceptance claim.",
+    "Archive and rendered repository documents are not inspected by this script."
+  ]
+}

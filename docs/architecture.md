@@ -31,8 +31,10 @@ measured profiles are distinct; the latest all-concurrency target has not passed
    initializes that slot's model and codec state. Prefill executes the prompt;
    packed/mixed paths are enabled only by explicit configuration.
 3. The backbone consumes semantic/codebook inputs. Its 30 GDN and 10 full-attention
-   layers update persistent recurrent/KV state. The audio tower's four shared and
-   nine residual layers generate ten codebooks, with GPU sampling/history updates.
+   layers update persistent recurrent/KV state. Sampling from the backbone output
+   produces the semantic token/codebook 0; the tower's four shared and nine
+   residual layers generate the remaining nine codebooks. Sampling and repetition
+   history updates stay on the GPU.
 4. Decode graphs replay in capacity buckets while admission, EOS, cancellation,
    audio chunk boundaries and maximum length constrain multi-step scheduling.
    Live requests and padding rows have distinct primary/suffix state ownership.
@@ -53,15 +55,19 @@ KV data, request history, padding slots and retained outputs are all covered by
 the expanded correctness checks. Exact graph parity does not replace WER/SIM.
 
 Readiness follows checkpoint loading, enabled CUDA Graph capture and codec
-warmup. Startup and reference preparation are recorded separately from measured
-request throughput; the endpoint does not claim readiness after import alone.
+warmup. Startup and this comparison's offline reference encoding are outside the
+measured requests. Prompt preparation remains inside request timing; for a cold
+inline-audio reference, decoding, resampling and codec encoding also contribute
+to TTFA and service time. The endpoint is ready only after initialization completes.
 
 ## Defaults versus experimental profiles
 
-The bare serve command is conservative and **does not reproduce the later C64
-measurements**. Do not inherit arbitrary `DRAMA3_*` variables when reproducing a run.
+The bare serve command is conservative and **does not load the benchmark
+profile**. The [comparison profile](../configs/benchmark-native-b300.env) records
+the exact flags used by the [current results](current-results.md). Do not inherit
+arbitrary `DRAMA3_*` variables when reproducing a run.
 
-| Setting | Bare default | Later recorded C64 profile |
+| Setting | Bare default | Comparison profile |
 |---|---|---|
 | Dense weights / execution | BF16 | BF16 |
 | Routed experts | Native FP8, original scales, all top-8 | Same |
@@ -79,7 +85,7 @@ The state dtype is part of each frozen run's provenance, not a silent precision
 change. Native expert weights, scales and selected expert count are preserved;
 no dynamic expert reduction or new lossy expert re-encoding is selected.
 
-## Recorded C64 profile
+## Historical C64 snapshot
 
 The highest complete-quality single observation (4726.77 frames/s) used source
 `e7cda1eba083603b88e1f2e89688e1ff2ced7fc2` and this exact `DRAMA3_*` environment:

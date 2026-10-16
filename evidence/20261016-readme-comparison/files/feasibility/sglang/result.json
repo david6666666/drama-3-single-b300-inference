@@ -1,0 +1,96 @@
+{
+  "status": "COMPLETE_VALID_SERVICE_AND_QUALITY",
+  "backend": "sglang",
+  "protocol_sha256": "7381a4cfc3f55bdc6c181d64e0991d93d9c05461f9b56db17a7579bc921c5e1a",
+  "manifest_sha256": "3c368cff001d2950f34b1b2c6429622ba55a4c63f84d2ce5fa4e23e6d3c5f4b7",
+  "commands": {
+    "service": [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/scripts/run_baseline.py",
+      "--backend",
+      "sglang",
+      "--source",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-sglang",
+      "--venv",
+      "/home/zjy/code/hsliu/venvs/codex-drama3-sglang",
+      "--bench-python",
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "--checkpoint",
+      "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+      "--corpus",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+      "--output",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/sglang/service",
+      "--gpu",
+      "6",
+      "--port",
+      "18148",
+      "--capacity",
+      "64",
+      "--requests",
+      "1088",
+      "--repeats",
+      "1",
+      "--concurrency",
+      "64",
+      "--skip-reference-warmup"
+    ],
+    "quality": [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/scripts/evaluate_audio.py",
+      "--upstream",
+      "/home/zjy/code/hsliu/drama3-sources/sglang-omni",
+      "--assets",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-models.json",
+      "--corpus",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+      "--benchmark",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/sglang/service/benchmark",
+      "--labels",
+      "c64-r0",
+      "--output",
+      "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/sglang/quality.json",
+      "--batch-size",
+      "8"
+    ]
+  },
+  "service": {
+    "status": "PASS",
+    "groups_checked": 1,
+    "requests_checked": 1088,
+    "all_wav_pcm_hashes_verified": true,
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+    "summary_sha256": "b62955b890d9d7a2f597e9f3aa3226e52f2e65c089492603c026a84034bc1fa8",
+    "groups": [
+      {
+        "label": "c64-r0",
+        "requests": 1088,
+        "frames": 101749.0,
+        "makespan_s": 57.14660826604813,
+        "jsonl_sha256": "4a2411f1d6ace709725b81dfccd4166560cf881287dff78f2bd74cbb49a4d752",
+        "throughput_frames_s": 1780.4906203059995,
+        "ttfa_p50_ms": 414.8734185146168,
+        "ttfa_p95_ms": 1488.2020360499148,
+        "rtf_mean": 0.7649140248556794
+      }
+    ]
+  },
+  "quality": {
+    "status": "PASS",
+    "groups_checked": 1,
+    "requests_checked": 1088,
+    "unfiltered_wer": true,
+    "all_sim_records_present": true,
+    "quality_sha256": "3bb43432fba700d87618fb14ab80ea750c015ed7014b4cfeb05d084c3ffa3b4f",
+    "groups": [
+      {
+        "label": "c64-r0",
+        "requests": 1088,
+        "wer_percent": 1.4318010550113038,
+        "sim_mean": 64.20673730618813,
+        "errors": 171,
+        "reference_words": 11943
+      }
+    ]
+  }
+}

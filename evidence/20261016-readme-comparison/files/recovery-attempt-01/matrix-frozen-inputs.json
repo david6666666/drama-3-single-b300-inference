@@ -1,0 +1,66 @@
+{
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/sglang/result.json": {
+    "sha256": "32ee19d80e6ef18b86e345867bff65725c1f4f5b3c6a90e743417bcd8c3c31aa",
+    "bytes": 3440
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/standalone/result.json": {
+    "sha256": "6a4bf17004193fc7f881c558e1d83da454f8aed6d894ea4b6e5de9730cfe7ae0",
+    "bytes": 3547
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/vllm/result.json": {
+    "sha256": "dc46fc3802d68d82979aea006af8c4e6903c635439cddfa10d515c4de5af9245",
+    "bytes": 3427
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/matrix/standalone/service-runner/result.json": {
+    "sha256": "255f2b41f54b51e79a059c8e62f8fdffcfb7b0367ce1b0e381babf5301339a23",
+    "bytes": 98194
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/matrix-stop-audit.json": {
+    "sha256": "34040b02a476b4506cc0b2b3c6ed04eaf2e05f7aa6005bac44fffff99150016d",
+    "bytes": 1736
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/archive_comparison.py": {
+    "sha256": "ff96eb3ee417b4e5c59f6d238da0a905331c52110ee84c577596ca3a6193ca98",
+    "bytes": 11569
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/check_helpers.py": {
+    "sha256": "9c42fdf07ea4272a9fdde8af6ba6eba423393200a2af56c64e6c742f9365e699",
+    "bytes": 10727
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/cpu-check.json": {
+    "sha256": "3e96d2cf11f029c2f7a3df2e9d51a0910f6ab5069d05816161529f32039ec31e",
+    "bytes": 1620
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/cpu_check.py": {
+    "sha256": "1cba6def59027af750130694d3da57fef69a5ff4508c6d76f7e4158595e16964",
+    "bytes": 4806
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/helper-cpu-check.json": {
+    "sha256": "0bec97405fe357422f9339468202ccb8883786ec80a0baa1463028e00c4589ab",
+    "bytes": 2855
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/independent-review.json": {
+    "sha256": "4734d52a9ef4eee0542f03a5f81128c502cf263196f8e57727f8c97175440be3",
+    "bytes": 2412
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/matrix-protocol.json": {
+    "sha256": "cd87f7beadbfcef71637481e3dbc430e80ea761537b708f2fb337be206124666",
+    "bytes": 2843
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/prepare_recovery.py": {
+    "sha256": "7317a55f033e3bb94fe4aef30f560ff68db4c704d4ebb65dc9355ac7ed23eea8",
+    "bytes": 4168
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/process_control_recovery.py": {
+    "sha256": "6622cfc8be752f43c684e3fcbd6ef11653e563e18ff6f6b257c87981ca96d28b",
+    "bytes": 9916
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/run_matrix.py": {
+    "sha256": "9ee5f29bab25e3b91ddd8857985742d3d593da5af57931c7ecf55d4b45e5e83e",
+    "bytes": 4387
+  },
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/recovery-attempt-01/summarize_matrix.py": {
+    "sha256": "1f8299130be21c585520578d45708e06acc920397b3e0194a32d5c5a3694788f",
+    "bytes": 8429
+  }
+}

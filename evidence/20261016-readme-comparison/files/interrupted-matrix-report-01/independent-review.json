@@ -1,0 +1,62 @@
+{
+  "status": "CPU_INDEPENDENT_PARTIAL_REVIEW_PASS_NO_BLOCKERS",
+  "scope": "Read-only source/default-dryrun review; no NVIDIA commands, workloads, scoring, report generation or repository edits.",
+  "checks": [
+    {
+      "name": "AST summarize_matrix.py",
+      "passed": true
+    },
+    {
+      "name": "AST archive_comparison.py",
+      "passed": true
+    },
+    {
+      "name": "AST check_helpers.py",
+      "passed": true
+    },
+    {
+      "name": "AST continuation.py",
+      "passed": true
+    },
+    {
+      "name": "AST prepare_protocol.py",
+      "passed": true
+    },
+    {
+      "name": "AST validate_existing_groups.py",
+      "passed": true
+    },
+    {
+      "name": "default dryrun exact stage commands vllm-quality",
+      "passed": true
+    },
+    {
+      "name": "default dryrun exact stage commands sglang",
+      "passed": true
+    },
+    {
+      "name": "old summary helpers preserved and no new report/archive output",
+      "passed": true
+    },
+    {
+      "name": "real partial audit exposes exactly20groups21760records and invalid fullmatrix",
+      "passed": true
+    }
+  ],
+  "findings": [
+    "The validator accepts only the unchanged original7C x3 plan with exact20-group prefix and absent interrupted c64-r2.jsonl; all original timing/WAV/PCM checks are retained.",
+    "Continuation cannot relaunch vLLM service: only saved20-group quality then one original SG21-group run and fullquality; fresh paths and explicit new hash-bound root approval.",
+    "Base frozen source controls and inherited scoped process/MPS monitor retained; original failed result/runner/stop evidence are separately hash-bound.",
+    "Summary has20 official three-run rows, one incomplete vLLM C64 row, two unaggregated diagnostic runs,62 completegroups67456requests; C64 quality comparison unavailable.",
+    "Archive default is read-only; fullselectedreport revalidated before copying; both failed attempts, diagnostic groups and pilots retained without contributing incomplete rows to medians."
+  ],
+  "sources": {
+    "continuation.py": "1468e23376e12f2e5cb1a9ba20125980eb0570c3c43a4653c879ecfdb858b11f",
+    "prepare_protocol.py": "3a3e68e38a5fe0cad5893109a73a9bb1091c337332482d930509393dd60b8289",
+    "validate_existing_groups.py": "8d2c16824988a542257766e70c117e8c34cbcdd23aeda9a388eb12fab48ab064",
+    "summarize_matrix.py": "47076b4ade3afca59d0f7b2e7b800458cc459fa78cbc274520901831912aa69e",
+    "archive_comparison.py": "5ec562e87d9a159b431a23f18d94137fb727a66d1214cc041b2789c1e2a0b52c",
+    "check_helpers.py": "5164579c113d489bd4fc9d6f746c5950116a33eeacaa528288d6a604b43e8d6b",
+    "helper-cpu-check.json": "71570a4eb8ab135292da884d26d899ae24c13b9a66dd94c6d8945ccb2e6677d5"
+  }
+}

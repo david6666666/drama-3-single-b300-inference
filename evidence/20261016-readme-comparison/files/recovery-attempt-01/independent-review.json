@@ -1,0 +1,53 @@
+{
+  "status": "CPU_INDEPENDENT_REVIEW_PASS_NO_BLOCKERS",
+  "scope": "Read-only source/dry-run review, no NVIDIA command/GPU workload/archive execution. Synthetic helper checks recorded separately.",
+  "checks": [
+    {
+      "name": "standalone_default_dryrun_no_gpu",
+      "passed": true
+    },
+    {
+      "name": "vllm_default_dryrun_no_gpu",
+      "passed": true
+    },
+    {
+      "name": "sglang_default_dryrun_no_gpu",
+      "passed": true
+    },
+    {
+      "name": "actual_artifact_inventory_has_no_unclassified_files",
+      "passed": true
+    },
+    {
+      "name": "summarize_matrix.py_actual_incomplete_attempt_refused",
+      "passed": true
+    },
+    {
+      "name": "archive_comparison.py_actual_incomplete_attempt_refused",
+      "passed": true
+    },
+    {
+      "name": "no_summary_archive_or_repository_write",
+      "passed": true
+    },
+    {
+      "name": "frozen_original_helpers_unchanged",
+      "passed": true
+    }
+  ],
+  "findings": [
+    "Only monitoring changes: both queries select frozen UUID, timeout30; preflight still verifies index6 and UUID. No retry/interpolation of missing observations.",
+    "Random-token/UID/process-start ownership, private-MPS pipe scope, signal cleanup unchanged.",
+    "New attempt outputs, new manifest-bound root approval, same base source and exact feasibility result hashes, serial framework service+quality completion.",
+    "New summary reads recovery alone, preserving existing rows/schema plus attempt metadata. New archive stores all attempts under files/ but only selected recovery contributes metrics."
+  ],
+  "sources": {
+    "recovery-attempt-01/run_matrix.py": "9ee5f29bab25e3b91ddd8857985742d3d593da5af57931c7ecf55d4b45e5e83e",
+    "recovery-attempt-01/process_control_recovery.py": "6622cfc8be752f43c684e3fcbd6ef11653e563e18ff6f6b257c87981ca96d28b",
+    "recovery-attempt-01/prepare_recovery.py": "c53ef6d518e5ae207a3aafc242b5808cda007a49ff768aa74e1aa9975550e6f3",
+    "recovery-attempt-01/summarize_matrix.py": "1f8299130be21c585520578d45708e06acc920397b3e0194a32d5c5a3694788f",
+    "recovery-attempt-01/archive_comparison.py": "ff96eb3ee417b4e5c59f6d238da0a905331c52110ee84c577596ca3a6193ca98",
+    "recovery-attempt-01/check_helpers.py": "9c42fdf07ea4272a9fdde8af6ba6eba423393200a2af56c64e6c742f9365e699",
+    "recovery-attempt-01/helper-cpu-check.json": "0bec97405fe357422f9339468202ccb8883786ec80a0baa1463028e00c4589ab"
+  }
+}

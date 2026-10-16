@@ -1,0 +1,20 @@
+[
+  "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+  "-m",
+  "drama3.benchmark",
+  "--url",
+  "http://127.0.0.1:18147",
+  "--backend",
+  "vllm",
+  "--corpus",
+  "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+  "--output",
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/feasibility/vllm/service/benchmark",
+  "--requests",
+  "1088",
+  "--repeats",
+  "1",
+  "--save-audio",
+  "--concurrency",
+  "64"
+]

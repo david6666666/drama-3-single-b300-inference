@@ -1,0 +1,22 @@
+{
+  "status": "CPU_REMAINING_PASS",
+  "checks": 10,
+  "details": [
+    "AST:continuation.py",
+    "AST:prepare_protocol.py",
+    "AST:cpu_check.py",
+    "CPU-only draft",
+    "5 saved labels and15 never-attempted groups",
+    "default dry-run:existing-quality",
+    "draft execution refused before output/GPU:existing-quality",
+    "only unattempted C4..64 x3 with1088 requests",
+    "default dry-run:remaining",
+    "draft execution refused before output/GPU:remaining"
+  ],
+  "gpu_workloads_launched": false,
+  "source_sha256": {
+    "continuation.py": "5ff1b423e8f0719fa87d4dfe42f45d59d5360cdccd80add064d0713ab861cf59",
+    "prepare_protocol.py": "18c774b63cc92ae35789a87118ec76250337f2c630f0338e67b344b490083482",
+    "cpu_check.py": "9bdb1dcc897e4a76b681a0780cab2d209f13aaac427b7db3f74bc3ba1c5c4e09"
+  }
+}

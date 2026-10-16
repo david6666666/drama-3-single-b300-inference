@@ -1,0 +1,119 @@
+{
+  "status": "CPU_SYNTHETIC_HELPER_CHECK_PASS",
+  "scope": "Synthetic fixtures only; not actual matrix validation. archive() never invoked; no GPU/server/repository writes.",
+  "checks": [
+    {
+      "name": "complete_selected_attempt_63_performance_63_quality",
+      "passed": true
+    },
+    {
+      "name": "only_recovery_metrics_three_run_median_range",
+      "passed": true
+    },
+    {
+      "name": "failed_attempt_and_pilots_explicitly_excluded",
+      "passed": true
+    },
+    {
+      "name": "bad_quality_reported_without_filter_or_acceptance",
+      "passed": true
+    },
+    {
+      "name": "aggregate_does_not_write_summary",
+      "passed": true
+    },
+    {
+      "name": "original_attempt_cannot_be_selected",
+      "passed": true
+    },
+    {
+      "name": "other_recovery_cannot_be_selected",
+      "passed": true
+    },
+    {
+      "name": "wrong_base_paths_refused",
+      "passed": true
+    },
+    {
+      "name": "incomplete_recovery_not_filled_from_prior",
+      "passed": true
+    },
+    {
+      "name": "foreign_attempt_result_rejected",
+      "passed": true
+    },
+    {
+      "name": "wrong_matrix_protocol_rejected",
+      "passed": true
+    },
+    {
+      "name": "missing_run_rejected",
+      "passed": true
+    },
+    {
+      "name": "duplicate_run_rejected",
+      "passed": true
+    },
+    {
+      "name": "nonfinite_metric_rejected",
+      "passed": true
+    },
+    {
+      "name": "changed_raw_jsonl_hash_rejected",
+      "passed": true
+    },
+    {
+      "name": "archive_default_plan_has_no_writes",
+      "passed": true
+    },
+    {
+      "name": "all_attempts_pilots_initial_probes_retained",
+      "passed": true
+    },
+    {
+      "name": "all_raw_quality_logs_gzip",
+      "passed": true
+    },
+    {
+      "name": "worktrees_weights_audio_caches_excluded",
+      "passed": true
+    },
+    {
+      "name": "selected_summary_plain_and_attempt_scoped",
+      "passed": true
+    },
+    {
+      "name": "all_source_uncompressed_hashes_bytes_recorded",
+      "passed": true
+    },
+    {
+      "name": "archive_original_attempt_selection_refused",
+      "passed": true
+    },
+    {
+      "name": "archive_incomplete_cleanup_refused",
+      "passed": true
+    },
+    {
+      "name": "archive_wrong_summary_attempt_refused",
+      "passed": true
+    },
+    {
+      "name": "archive_incomplete_summary_refused",
+      "passed": true
+    },
+    {
+      "name": "archive_existing_destination_refused",
+      "passed": true
+    },
+    {
+      "name": "archive_function_never_invoked",
+      "passed": true
+    }
+  ],
+  "helpers": {
+    "summarize_matrix.py": "1f8299130be21c585520578d45708e06acc920397b3e0194a32d5c5a3694788f",
+    "archive_comparison.py": "ff96eb3ee417b4e5c59f6d238da0a905331c52110ee84c577596ca3a6193ca98",
+    "check_helpers.py": "9c42fdf07ea4272a9fdde8af6ba6eba423393200a2af56c64e6c742f9365e699"
+  }
+}

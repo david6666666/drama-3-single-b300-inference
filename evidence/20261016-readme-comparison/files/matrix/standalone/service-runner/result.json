@@ -1,0 +1,3588 @@
+{
+  "status": "FAIL",
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/scripts/run_baseline.py",
+    "--backend",
+    "standalone",
+    "--source",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone",
+    "--venv",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone",
+    "--bench-python",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "--checkpoint",
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+    "--corpus",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+    "--output",
+    "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/matrix/standalone/service",
+    "--gpu",
+    "6",
+    "--port",
+    "18146",
+    "--capacity",
+    "64",
+    "--requests",
+    "1088",
+    "--repeats",
+    "3",
+    "--concurrency",
+    "1",
+    "2",
+    "4",
+    "8",
+    "16",
+    "32",
+    "64",
+    "--skip-reference-warmup",
+    "--fish-source",
+    "/home/zjy/code/hsliu/drama3-sources/fish-speech"
+  ],
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "CUDA_VISIBLE_DEVICES": "6",
+    "OMP_NUM_THREADS": "8",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-hf-modules",
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_PREFILL_GDN": "fla",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_PREFILL_MOE": "flashinfer",
+    "DRAMA3_ADMISSION_MIN_BATCH": "6",
+    "DRAMA3_PREFILL_BUCKET_192": "1",
+    "DRAMA3_PACKED_PREFILL": "1",
+    "DRAMA3_ASYNC_CODEC": "1",
+    "DRAMA3_AUDIO_DELIVERY_THREAD": "1",
+    "DRAMA3_FUSED_MOE_INPUT": "1",
+    "DRAMA3_MIXED_BACKBONE": "1",
+    "DRAMA3_MIXED_SPAN256": "1",
+    "DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM": "1",
+    "DRAMA3_COMPACT_GDN": "1",
+    "DRAMA3_FUSED_MIXED_LAYOUT": "1",
+    "DRAMA3_PACKED_CONV_GUARD": "1",
+    "DRAMA3_DEFER_CODEC_SUBMIT": "0",
+    "DRAMA3_CODEC_SPLIT_POLICY": "dp",
+    "DRAMA3_SHORT_PADDING_CONTEXT": "1",
+    "DRAMA3_FUSED_MOE_RESIDUAL": "1",
+    "DRAMA3_CODEC_SMS": "0",
+    "DRAMA3_RESERVED_PADDING_ROUTER": "1",
+    "DRAMA3_FRAME_PIPELINE": "1",
+    "DRAMA3_FRAME_PIPELINE_DEFERRED_WAITING": "1",
+    "DRAMA3_CODEC_CACHED_LINEAR": "0",
+    "DRAMA3_CODEC_COALESCE": "0",
+    "DRAMA3_MIXED_ROW_REUSE": "0"
+  },
+  "token": "bc2f4341f5e443198674a1127768256a",
+  "sampling_interval_seconds": 1,
+  "limitation": "One-second polling cannot exclude shorter interference or observe true instantaneous memory peaks. Only the selected physical UUID is checked; other GPU jobs are untouched.",
+  "cleanup": [
+    {
+      "action": "SIGTERM own runner process group",
+      "pid": 2598547
+    }
+  ],
+  "runner": {
+    "pid": 2598547,
+    "ppid": 2598480,
+    "starttime": 88161248,
+    "uid": 1012,
+    "state": "R"
+  },
+  "error": "TimeoutExpired: Command '['nvidia-smi', '--query-compute-apps=gpu_uuid,pid,process_name,used_gpu_memory', '--format=csv,noheader,nounits']' timed out after 10 seconds",
+  "elapsed_seconds": 2087.0377658249345,
+  "exit_code": -2,
+  "owned_processes": {
+    "2598547": {
+      "pid": 2598547,
+      "ppid": 2598480,
+      "starttime": 88161248,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2598559": {
+      "pid": 2598559,
+      "ppid": 2598547,
+      "starttime": 88161252,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2603517": {
+      "pid": 2603517,
+      "ppid": 2598559,
+      "starttime": 88164535,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "ninja"
+    },
+    "2603518": {
+      "pid": 2603518,
+      "ppid": 2603517,
+      "starttime": 88164535,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603519": {
+      "pid": 2603519,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603520": {
+      "pid": 2603520,
+      "ppid": 2603518,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603521": {
+      "pid": 2603521,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603522": {
+      "pid": 2603522,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603523": {
+      "pid": 2603523,
+      "ppid": 2603521,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "c++"
+    },
+    "2603524": {
+      "pid": 2603524,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603525": {
+      "pid": 2603525,
+      "ppid": 2603519,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "c++"
+    },
+    "2603526": {
+      "pid": 2603526,
+      "ppid": 2603522,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "c++"
+    },
+    "2603527": {
+      "pid": 2603527,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603528": {
+      "pid": 2603528,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603530": {
+      "pid": 2603530,
+      "ppid": 2603526,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603531": {
+      "pid": 2603531,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603532": {
+      "pid": 2603532,
+      "ppid": 2603523,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603533": {
+      "pid": 2603533,
+      "ppid": 2603527,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603534": {
+      "pid": 2603534,
+      "ppid": 2603524,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "c++"
+    },
+    "2603535": {
+      "pid": 2603535,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603536": {
+      "pid": 2603536,
+      "ppid": 2603525,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603537": {
+      "pid": 2603537,
+      "ppid": 2603528,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603538": {
+      "pid": 2603538,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603539": {
+      "pid": 2603539,
+      "ppid": 2603531,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603540": {
+      "pid": 2603540,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603541": {
+      "pid": 2603541,
+      "ppid": 2603535,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603542": {
+      "pid": 2603542,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603544": {
+      "pid": 2603544,
+      "ppid": 2603538,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603545": {
+      "pid": 2603545,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603546": {
+      "pid": 2603546,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603547": {
+      "pid": 2603547,
+      "ppid": 2603540,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603549": {
+      "pid": 2603549,
+      "ppid": 2603534,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603552": {
+      "pid": 2603552,
+      "ppid": 2603545,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603554": {
+      "pid": 2603554,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603558": {
+      "pid": 2603558,
+      "ppid": 2603517,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603559": {
+      "pid": 2603559,
+      "ppid": 2603542,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603560": {
+      "pid": 2603560,
+      "ppid": 2603546,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603561": {
+      "pid": 2603561,
+      "ppid": 2603554,
+      "starttime": 88164536,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603562": {
+      "pid": 2603562,
+      "ppid": 2603517,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603563": {
+      "pid": 2603563,
+      "ppid": 2603558,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603564": {
+      "pid": 2603564,
+      "ppid": 2603517,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603566": {
+      "pid": 2603566,
+      "ppid": 2603562,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603571": {
+      "pid": 2603571,
+      "ppid": 2603564,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "nvcc"
+    },
+    "2603582": {
+      "pid": 2603582,
+      "ppid": 2603520,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603588": {
+      "pid": 2603588,
+      "ppid": 2603582,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603589": {
+      "pid": 2603589,
+      "ppid": 2603547,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603591": {
+      "pid": 2603591,
+      "ppid": 2603589,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603593": {
+      "pid": 2603593,
+      "ppid": 2603591,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603594": {
+      "pid": 2603594,
+      "ppid": 2603588,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603595": {
+      "pid": 2603595,
+      "ppid": 2603559,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603596": {
+      "pid": 2603596,
+      "ppid": 2603539,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603597": {
+      "pid": 2603597,
+      "ppid": 2603595,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603598": {
+      "pid": 2603598,
+      "ppid": 2603544,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603599": {
+      "pid": 2603599,
+      "ppid": 2603537,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603600": {
+      "pid": 2603600,
+      "ppid": 2603541,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603601": {
+      "pid": 2603601,
+      "ppid": 2603561,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603602": {
+      "pid": 2603602,
+      "ppid": 2603598,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603603": {
+      "pid": 2603603,
+      "ppid": 2603600,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603604": {
+      "pid": 2603604,
+      "ppid": 2603596,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603605": {
+      "pid": 2603605,
+      "ppid": 2603597,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603606": {
+      "pid": 2603606,
+      "ppid": 2603599,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603607": {
+      "pid": 2603607,
+      "ppid": 2603560,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603608": {
+      "pid": 2603608,
+      "ppid": 2603602,
+      "starttime": 88164537,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603609": {
+      "pid": 2603609,
+      "ppid": 2603552,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603610": {
+      "pid": 2603610,
+      "ppid": 2603607,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603611": {
+      "pid": 2603611,
+      "ppid": 2603603,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603612": {
+      "pid": 2603612,
+      "ppid": 2603601,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603613": {
+      "pid": 2603613,
+      "ppid": 2603606,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603615": {
+      "pid": 2603615,
+      "ppid": 2603609,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603616": {
+      "pid": 2603616,
+      "ppid": 2603612,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603617": {
+      "pid": 2603617,
+      "ppid": 2603610,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603618": {
+      "pid": 2603618,
+      "ppid": 2603566,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603619": {
+      "pid": 2603619,
+      "ppid": 2603563,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603620": {
+      "pid": 2603620,
+      "ppid": 2603571,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603621": {
+      "pid": 2603621,
+      "ppid": 2603615,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603622": {
+      "pid": 2603622,
+      "ppid": 2603619,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603623": {
+      "pid": 2603623,
+      "ppid": 2603620,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603624": {
+      "pid": 2603624,
+      "ppid": 2603618,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603625": {
+      "pid": 2603625,
+      "ppid": 2603623,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603626": {
+      "pid": 2603626,
+      "ppid": 2603622,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603627": {
+      "pid": 2603627,
+      "ppid": 2603624,
+      "starttime": 88164538,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603710": {
+      "pid": 2603710,
+      "ppid": 2603571,
+      "starttime": 88164620,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603711": {
+      "pid": 2603711,
+      "ppid": 2603710,
+      "starttime": 88164620,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cudafe++"
+    },
+    "2603726": {
+      "pid": 2603726,
+      "ppid": 2603563,
+      "starttime": 88164641,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603727": {
+      "pid": 2603727,
+      "ppid": 2603726,
+      "starttime": 88164641,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603728": {
+      "pid": 2603728,
+      "ppid": 2603727,
+      "starttime": 88164641,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603729": {
+      "pid": 2603729,
+      "ppid": 2603537,
+      "starttime": 88164645,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603730": {
+      "pid": 2603730,
+      "ppid": 2603729,
+      "starttime": 88164645,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cudafe++"
+    },
+    "2603739": {
+      "pid": 2603739,
+      "ppid": 2603533,
+      "starttime": 88164648,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603740": {
+      "pid": 2603740,
+      "ppid": 2603739,
+      "starttime": 88164648,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2603741": {
+      "pid": 2603741,
+      "ppid": 2603544,
+      "starttime": 88164648,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603742": {
+      "pid": 2603742,
+      "ppid": 2603741,
+      "starttime": 88164649,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603743": {
+      "pid": 2603743,
+      "ppid": 2603742,
+      "starttime": 88164649,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603744": {
+      "pid": 2603744,
+      "ppid": 2603559,
+      "starttime": 88164649,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603745": {
+      "pid": 2603745,
+      "ppid": 2603744,
+      "starttime": 88164649,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603746": {
+      "pid": 2603746,
+      "ppid": 2603745,
+      "starttime": 88164650,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603747": {
+      "pid": 2603747,
+      "ppid": 2603547,
+      "starttime": 88164653,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603748": {
+      "pid": 2603748,
+      "ppid": 2603747,
+      "starttime": 88164653,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603749": {
+      "pid": 2603749,
+      "ppid": 2603748,
+      "starttime": 88164653,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603760": {
+      "pid": 2603760,
+      "ppid": 2603539,
+      "starttime": 88164660,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603761": {
+      "pid": 2603761,
+      "ppid": 2603760,
+      "starttime": 88164660,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2603764": {
+      "pid": 2603764,
+      "ppid": 2603561,
+      "starttime": 88164662,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603765": {
+      "pid": 2603765,
+      "ppid": 2603764,
+      "starttime": 88164663,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603766": {
+      "pid": 2603766,
+      "ppid": 2603765,
+      "starttime": 88164663,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603767": {
+      "pid": 2603767,
+      "ppid": 2603552,
+      "starttime": 88164663,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603768": {
+      "pid": 2603768,
+      "ppid": 2603767,
+      "starttime": 88164664,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603769": {
+      "pid": 2603769,
+      "ppid": 2603768,
+      "starttime": 88164664,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603776": {
+      "pid": 2603776,
+      "ppid": 2603541,
+      "starttime": 88164666,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603777": {
+      "pid": 2603777,
+      "ppid": 2603776,
+      "starttime": 88164666,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2603838": {
+      "pid": 2603838,
+      "ppid": 2603539,
+      "starttime": 88164729,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603839": {
+      "pid": 2603839,
+      "ppid": 2603838,
+      "starttime": 88164729,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603840": {
+      "pid": 2603840,
+      "ppid": 2603839,
+      "starttime": 88164730,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603853": {
+      "pid": 2603853,
+      "ppid": 2603541,
+      "starttime": 88164741,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603854": {
+      "pid": 2603854,
+      "ppid": 2603853,
+      "starttime": 88164741,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2603855": {
+      "pid": 2603855,
+      "ppid": 2603854,
+      "starttime": 88164741,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2603856": {
+      "pid": 2603856,
+      "ppid": 2603563,
+      "starttime": 88164743,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603857": {
+      "pid": 2603857,
+      "ppid": 2603856,
+      "starttime": 88164743,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cudafe++"
+    },
+    "2603867": {
+      "pid": 2603867,
+      "ppid": 2603559,
+      "starttime": 88164760,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603869": {
+      "pid": 2603869,
+      "ppid": 2603867,
+      "starttime": 88164760,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cudafe++"
+    },
+    "2603888": {
+      "pid": 2603888,
+      "ppid": 2603566,
+      "starttime": 88164769,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603889": {
+      "pid": 2603889,
+      "ppid": 2603888,
+      "starttime": 88164769,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cudafe++"
+    },
+    "2603891": {
+      "pid": 2603891,
+      "ppid": 2603544,
+      "starttime": 88164771,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603893": {
+      "pid": 2603893,
+      "ppid": 2603891,
+      "starttime": 88164771,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cudafe++"
+    },
+    "2603896": {
+      "pid": 2603896,
+      "ppid": 2603547,
+      "starttime": 88164774,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603897": {
+      "pid": 2603897,
+      "ppid": 2603896,
+      "starttime": 88164774,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cudafe++"
+    },
+    "2603902": {
+      "pid": 2603902,
+      "ppid": 2603561,
+      "starttime": 88164780,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603903": {
+      "pid": 2603903,
+      "ppid": 2603902,
+      "starttime": 88164780,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cudafe++"
+    },
+    "2603987": {
+      "pid": 2603987,
+      "ppid": 2603552,
+      "starttime": 88164790,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2603988": {
+      "pid": 2603988,
+      "ppid": 2603987,
+      "starttime": 88164790,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cudafe++"
+    },
+    "2603999": {
+      "pid": 2603999,
+      "ppid": 2603520,
+      "starttime": 88164792,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604000": {
+      "pid": 2604000,
+      "ppid": 2603999,
+      "starttime": 88164792,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cudafe++"
+    },
+    "2604034": {
+      "pid": 2604034,
+      "ppid": 2603560,
+      "starttime": 88164796,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604035": {
+      "pid": 2604035,
+      "ppid": 2604034,
+      "starttime": 88164796,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cudafe++"
+    },
+    "2604038": {
+      "pid": 2604038,
+      "ppid": 2603571,
+      "starttime": 88164800,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604039": {
+      "pid": 2604039,
+      "ppid": 2604038,
+      "starttime": 88164800,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2604088": {
+      "pid": 2604088,
+      "ppid": 2603533,
+      "starttime": 88164861,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604090": {
+      "pid": 2604090,
+      "ppid": 2604088,
+      "starttime": 88164861,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2604091": {
+      "pid": 2604091,
+      "ppid": 2604090,
+      "starttime": 88164861,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2604140": {
+      "pid": 2604140,
+      "ppid": 2603537,
+      "starttime": 88164896,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604141": {
+      "pid": 2604141,
+      "ppid": 2604140,
+      "starttime": 88164896,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2604413": {
+      "pid": 2604413,
+      "ppid": 2603520,
+      "starttime": 88165030,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604414": {
+      "pid": 2604414,
+      "ppid": 2604413,
+      "starttime": 88165030,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2604421": {
+      "pid": 2604421,
+      "ppid": 2603563,
+      "starttime": 88165050,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604422": {
+      "pid": 2604422,
+      "ppid": 2604421,
+      "starttime": 88165050,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2604423": {
+      "pid": 2604423,
+      "ppid": 2603547,
+      "starttime": 88165052,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604424": {
+      "pid": 2604424,
+      "ppid": 2604423,
+      "starttime": 88165052,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2604440": {
+      "pid": 2604440,
+      "ppid": 2603560,
+      "starttime": 88165061,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604441": {
+      "pid": 2604441,
+      "ppid": 2604440,
+      "starttime": 88165061,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2604447": {
+      "pid": 2604447,
+      "ppid": 2603552,
+      "starttime": 88165065,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604448": {
+      "pid": 2604448,
+      "ppid": 2604447,
+      "starttime": 88165065,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2604449": {
+      "pid": 2604449,
+      "ppid": 2603544,
+      "starttime": 88165066,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604450": {
+      "pid": 2604450,
+      "ppid": 2604449,
+      "starttime": 88165066,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2604470": {
+      "pid": 2604470,
+      "ppid": 2603561,
+      "starttime": 88165072,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604471": {
+      "pid": 2604471,
+      "ppid": 2604470,
+      "starttime": 88165072,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2604505": {
+      "pid": 2604505,
+      "ppid": 2603566,
+      "starttime": 88165109,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604506": {
+      "pid": 2604506,
+      "ppid": 2604505,
+      "starttime": 88165109,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2604517": {
+      "pid": 2604517,
+      "ppid": 2603559,
+      "starttime": 88165153,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604518": {
+      "pid": 2604518,
+      "ppid": 2604517,
+      "starttime": 88165153,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cicc"
+    },
+    "2604551": {
+      "pid": 2604551,
+      "ppid": 2603537,
+      "starttime": 88165178,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2604552": {
+      "pid": 2604552,
+      "ppid": 2604551,
+      "starttime": 88165178,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2604553": {
+      "pid": 2604553,
+      "ppid": 2604552,
+      "starttime": 88165178,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2605119": {
+      "pid": 2605119,
+      "ppid": 2603547,
+      "starttime": 88165508,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2605120": {
+      "pid": 2605120,
+      "ppid": 2605119,
+      "starttime": 88165508,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2605121": {
+      "pid": 2605121,
+      "ppid": 2605120,
+      "starttime": 88165509,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2605176": {
+      "pid": 2605176,
+      "ppid": 2603571,
+      "starttime": 88165598,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2605177": {
+      "pid": 2605177,
+      "ppid": 2605176,
+      "starttime": 88165598,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2605178": {
+      "pid": 2605178,
+      "ppid": 2605177,
+      "starttime": 88165598,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2605269": {
+      "pid": 2605269,
+      "ppid": 2603566,
+      "starttime": 88165767,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2605270": {
+      "pid": 2605270,
+      "ppid": 2605269,
+      "starttime": 88165767,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "ptxas"
+    },
+    "2605297": {
+      "pid": 2605297,
+      "ppid": 2603563,
+      "starttime": 88165780,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2605298": {
+      "pid": 2605298,
+      "ppid": 2605297,
+      "starttime": 88165780,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2605300": {
+      "pid": 2605300,
+      "ppid": 2605298,
+      "starttime": 88165780,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2605827": {
+      "pid": 2605827,
+      "ppid": 2603566,
+      "starttime": 88166047,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2605828": {
+      "pid": 2605828,
+      "ppid": 2605827,
+      "starttime": 88166047,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2605829": {
+      "pid": 2605829,
+      "ppid": 2605828,
+      "starttime": 88166047,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2607449": {
+      "pid": 2607449,
+      "ppid": 2603520,
+      "starttime": 88167226,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2607451": {
+      "pid": 2607451,
+      "ppid": 2607449,
+      "starttime": 88167226,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "ptxas"
+    },
+    "2609551": {
+      "pid": 2609551,
+      "ppid": 2603520,
+      "starttime": 88168750,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2609552": {
+      "pid": 2609552,
+      "ppid": 2609551,
+      "starttime": 88168750,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "fatbinary"
+    },
+    "2610138": {
+      "pid": 2610138,
+      "ppid": 2603544,
+      "starttime": 88168976,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2610139": {
+      "pid": 2610139,
+      "ppid": 2610138,
+      "starttime": 88168976,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "ptxas"
+    },
+    "2610178": {
+      "pid": 2610178,
+      "ppid": 2603520,
+      "starttime": 88169023,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2610179": {
+      "pid": 2610179,
+      "ppid": 2610178,
+      "starttime": 88169023,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2610180": {
+      "pid": 2610180,
+      "ppid": 2610179,
+      "starttime": 88169023,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2612301": {
+      "pid": 2612301,
+      "ppid": 2603544,
+      "starttime": 88170293,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2612303": {
+      "pid": 2612303,
+      "ppid": 2612301,
+      "starttime": 88170293,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2612305": {
+      "pid": 2612305,
+      "ppid": 2612303,
+      "starttime": 88170293,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2613496": {
+      "pid": 2613496,
+      "ppid": 2603560,
+      "starttime": 88171066,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2613497": {
+      "pid": 2613497,
+      "ppid": 2613496,
+      "starttime": 88171066,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "ptxas"
+    },
+    "2614576": {
+      "pid": 2614576,
+      "ppid": 2603559,
+      "starttime": 88171890,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2614577": {
+      "pid": 2614577,
+      "ppid": 2614576,
+      "starttime": 88171890,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "ptxas"
+    },
+    "2617737": {
+      "pid": 2617737,
+      "ppid": 2603561,
+      "starttime": 88173945,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2617738": {
+      "pid": 2617738,
+      "ppid": 2617737,
+      "starttime": 88173945,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "ptxas"
+    },
+    "2621672": {
+      "pid": 2621672,
+      "ppid": 2603561,
+      "starttime": 88176775,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2621674": {
+      "pid": 2621674,
+      "ppid": 2621672,
+      "starttime": 88176775,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "fatbinary"
+    },
+    "2622165": {
+      "pid": 2622165,
+      "ppid": 2603561,
+      "starttime": 88176959,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2622166": {
+      "pid": 2622166,
+      "ppid": 2622165,
+      "starttime": 88176959,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2622167": {
+      "pid": 2622167,
+      "ppid": 2622166,
+      "starttime": 88176959,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2622241": {
+      "pid": 2622241,
+      "ppid": 2603552,
+      "starttime": 88177033,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2622242": {
+      "pid": 2622242,
+      "ppid": 2622241,
+      "starttime": 88177034,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "ptxas"
+    },
+    "2629554": {
+      "pid": 2629554,
+      "ppid": 2603559,
+      "starttime": 88181875,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2629555": {
+      "pid": 2629555,
+      "ppid": 2629554,
+      "starttime": 88181875,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "fatbinary"
+    },
+    "2629895": {
+      "pid": 2629895,
+      "ppid": 2603559,
+      "starttime": 88182025,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2629896": {
+      "pid": 2629896,
+      "ppid": 2629895,
+      "starttime": 88182025,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2629897": {
+      "pid": 2629897,
+      "ppid": 2629896,
+      "starttime": 88182025,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2634163": {
+      "pid": 2634163,
+      "ppid": 2603552,
+      "starttime": 88185004,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2634164": {
+      "pid": 2634164,
+      "ppid": 2634163,
+      "starttime": 88185004,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "fatbinary"
+    },
+    "2634831": {
+      "pid": 2634831,
+      "ppid": 2603552,
+      "starttime": 88185586,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2634832": {
+      "pid": 2634832,
+      "ppid": 2634831,
+      "starttime": 88185586,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2634833": {
+      "pid": 2634833,
+      "ppid": 2634832,
+      "starttime": 88185586,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2635686": {
+      "pid": 2635686,
+      "ppid": 2603560,
+      "starttime": 88186167,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2635687": {
+      "pid": 2635687,
+      "ppid": 2635686,
+      "starttime": 88186167,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "fatbinary"
+    },
+    "2635945": {
+      "pid": 2635945,
+      "ppid": 2603560,
+      "starttime": 88186448,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "sh"
+    },
+    "2635946": {
+      "pid": 2635946,
+      "ppid": 2635945,
+      "starttime": 88186448,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "gcc"
+    },
+    "2635947": {
+      "pid": 2635947,
+      "ppid": 2635946,
+      "starttime": 88186448,
+      "uid": 1012,
+      "state": "R",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "cc1plus"
+    },
+    "2638372": {
+      "pid": 2638372,
+      "ppid": 2598559,
+      "starttime": 88189441,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638519": {
+      "pid": 2638519,
+      "ppid": 2638372,
+      "starttime": 88189666,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638521": {
+      "pid": 2638521,
+      "ppid": 2638372,
+      "starttime": 88189667,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638523": {
+      "pid": 2638523,
+      "ppid": 2638372,
+      "starttime": 88189667,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638525": {
+      "pid": 2638525,
+      "ppid": 2638372,
+      "starttime": 88189667,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638527": {
+      "pid": 2638527,
+      "ppid": 2638372,
+      "starttime": 88189668,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638529": {
+      "pid": 2638529,
+      "ppid": 2638372,
+      "starttime": 88189668,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638531": {
+      "pid": 2638531,
+      "ppid": 2638372,
+      "starttime": 88189668,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638533": {
+      "pid": 2638533,
+      "ppid": 2638372,
+      "starttime": 88189668,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638535": {
+      "pid": 2638535,
+      "ppid": 2638372,
+      "starttime": 88189669,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638537": {
+      "pid": 2638537,
+      "ppid": 2638372,
+      "starttime": 88189669,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638539": {
+      "pid": 2638539,
+      "ppid": 2638372,
+      "starttime": 88189669,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638541": {
+      "pid": 2638541,
+      "ppid": 2638372,
+      "starttime": 88189669,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638543": {
+      "pid": 2638543,
+      "ppid": 2638372,
+      "starttime": 88189670,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638545": {
+      "pid": 2638545,
+      "ppid": 2638372,
+      "starttime": 88189670,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638547": {
+      "pid": 2638547,
+      "ppid": 2638372,
+      "starttime": 88189670,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638549": {
+      "pid": 2638549,
+      "ppid": 2638372,
+      "starttime": 88189670,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638551": {
+      "pid": 2638551,
+      "ppid": 2638372,
+      "starttime": 88189671,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638553": {
+      "pid": 2638553,
+      "ppid": 2638372,
+      "starttime": 88189671,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638555": {
+      "pid": 2638555,
+      "ppid": 2638372,
+      "starttime": 88189671,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638557": {
+      "pid": 2638557,
+      "ppid": 2638372,
+      "starttime": 88189672,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638559": {
+      "pid": 2638559,
+      "ppid": 2638372,
+      "starttime": 88189672,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638561": {
+      "pid": 2638561,
+      "ppid": 2638372,
+      "starttime": 88189672,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638563": {
+      "pid": 2638563,
+      "ppid": 2638372,
+      "starttime": 88189672,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638565": {
+      "pid": 2638565,
+      "ppid": 2638372,
+      "starttime": 88189673,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638567": {
+      "pid": 2638567,
+      "ppid": 2638372,
+      "starttime": 88189673,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638569": {
+      "pid": 2638569,
+      "ppid": 2638372,
+      "starttime": 88189673,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638571": {
+      "pid": 2638571,
+      "ppid": 2638372,
+      "starttime": 88189673,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638573": {
+      "pid": 2638573,
+      "ppid": 2638372,
+      "starttime": 88189674,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638575": {
+      "pid": 2638575,
+      "ppid": 2638372,
+      "starttime": 88189674,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638577": {
+      "pid": 2638577,
+      "ppid": 2638372,
+      "starttime": 88189674,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638579": {
+      "pid": 2638579,
+      "ppid": 2638372,
+      "starttime": 88189674,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2638581": {
+      "pid": 2638581,
+      "ppid": 2638372,
+      "starttime": 88189675,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    },
+    "2639387": {
+      "pid": 2639387,
+      "ppid": 2598547,
+      "starttime": 88191062,
+      "uid": 1012,
+      "state": "S",
+      "environment": {
+        "OMNI_COMPARISON_RUN_TOKEN": "bc2f4341f5e443198674a1127768256a",
+        "CUDA_VISIBLE_DEVICES": "6",
+        "CUDA_MPS_PIPE_DIRECTORY": null,
+        "CUDA_MPS_LOG_DIRECTORY": null
+      },
+      "comm": "python"
+    }
+  },
+  "post_gpu": []
+}

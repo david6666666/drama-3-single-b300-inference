@@ -1,0 +1,14 @@
+[
+  "/home/zjy/code/hsliu/venvs/codex-drama3-vllm/bin/python",
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/import_probe.py",
+  "--backend",
+  "vllm",
+  "--source",
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-vllm",
+  "--client",
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/source-standalone",
+  "--fish",
+  "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+  "--output",
+  "/home/zjy/code/hsliu/artifacts/drama3-readme-comparison-20261016/cpu-probes/vllm-imports.json"
+]
