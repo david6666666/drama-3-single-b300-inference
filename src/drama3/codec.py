@@ -100,6 +100,14 @@ def streaming_codec(codec, slots: int, dtype: torch.dtype = torch.bfloat16):
         # decoder execution follows the upstream deployment's FP16 setting.
         codec = copy.deepcopy(codec).to(dtype)
     decoder = ChannelsLastDACDecoder(codec, dtype=dtype)
+    if os.environ.get("DRAMA3_CODEC_CACHED_LINEAR", "0") == "1":
+        # Autocast otherwise recasts these immutable FP32 matrices on every
+        # compiled replay. Keep the original codec/reference path and all norm
+        # and layer-scale parameters at their loaded precision.
+        decoder.transformer = copy.deepcopy(decoder.transformer)
+        for module in decoder.transformer.modules():
+            if isinstance(module, torch.nn.Linear):
+                module.to(dtype=dtype)
     decoder.compile_transformer()
     graphs = DACDecodeGraphs(
         decoder,
