@@ -702,3 +702,29 @@ in L2/L19/L39. It preserves both positive and negative zero bytes and all45
 roundtrips. Fixed samples do not establish a model-wide compression ratio or
 support channel pruning. Neither this diagnostic nor local graph improvements
 change the best complete-quality C64 observation of4726.771frames/s.
+
+
+## Full FP32 scale-tile cache: exact, below continuation threshold
+
+A separate FC1 producer stages all original activation and weight scale groups
+once per work tile in576 bytes of shared storage. It uses AsyncThread publication
+for ordinary shared stores, preserving the original activation gather, weight
+TMA, MMA/FP8 boundaries and metadata-ready FC2. CPU address/bit-copy checks pass
+1,113,949 assertions, and the deployed FC1/FC2 binaries match their AOT binaries.
+FC1 uses75,192 shared bytes, REG32 and no spills. These resource facts do not
+establish occupancy or that scale loads dominate the runtime.
+
+The GPU gate passes1518 checks over15 fixtures, including live routing, original
+intermediate boundaries, top8 finalization, guards, RNG and empty→positive→empty
+replay for the GEMM-only empty probe. A further148 checks pass after timing.
+One complete native-body AB100 screen observes latency reductions3.4505%,4.1728%,
+and4.4240% onL0/L19/L39. Every case misses the frozen5% continuation gate; no
+additional rounds, stress timing or service integration follows.
+
+The comparison retains original native tactic(8,5) and PDL. It times metadata,
+FC1, activation, FC2, finalization and required dependency edges; common input
+quantization/logits routing are excluded equally. The scale producer is the
+isolated source change relative to its prior candidate; comparison to vendor
+native is a complete implementation comparison. Separate historical screens
+cannot be subtracted to attribute the difference to scale caching. See the
+[raw result and loaded binary identities](results/expert-m128-sf-tile-cache/GPU-summary.md).

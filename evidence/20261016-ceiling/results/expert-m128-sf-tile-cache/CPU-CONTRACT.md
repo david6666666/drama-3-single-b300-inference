@@ -1,0 +1,9 @@
+# Full FC1 SF tile cache: CPU-only preparation
+
+Hypothesis: fetching the same original FP32 SF payload once per native work tile removes sixteen serialized per-K global producer supplies, at the cost of576B shared and one warp sync. This is not a proven PC-stall cause and does not reduce payload/weight bytes.
+
+Isolated change: original M128 FC1 SF resource only, 16 K128 groups × (8 activation scales +1 weight scale). Original B activation TMA, weight pipeline, MMA/order/FP8 boundaries, metadata-ready FC2 and native activation/finalizer remain unchanged. No reg caps, sparse math, weight changes or precision change. Artifact fork preserves original route-cache negative results.
+
+The inherited LoadSfAb task executes PDL WAIT before init/active-work prepare. Native CLC skip/drain and early exit remain intact. Every active work refreshes token/expert/absolute limit and all cache bytes. Cache is producer-private; the epilogue reads only the original circular stages. Stage acquire guards reuse; after all16 copies the producer may recycle full cache while consumers drain stages. Ordinary stores use AsyncThread publication with32 producer participants; no cp.async-only arrival is used. Inactive rows do not dereference route/scales and do not write valid stage fields. Cache native scope requires K2048 (16groups); other K unsupported.
+
+CPU gates: config/IO bounds and positive/negative address proofs, compiler AOT, actual launch shared/regs/spills, instruction/producer dependency inspection, original15fixture CPU metadata. No GPU authorized for this task. Subsequent hardware protocol must explicitly freeze hashes first; retain full15 native logical-boundary/metadata/guards/graph/RNG and empty checks. If exact passes, only a complete-call vendor-vs-candidate singleAB with all3real scenarios >=5% can justify repeated timing; this document runs no timing.

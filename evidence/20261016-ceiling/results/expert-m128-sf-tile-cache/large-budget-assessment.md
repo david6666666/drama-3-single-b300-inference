@@ -1,0 +1,31 @@
+# Larger native MoE mechanisms: bounded CPU assessment
+
+There is still no source/counter-backed claim that full activation staging or register redistribution supplies the service's remaining 6.47-second gap. Both are possible implementation mechanisms; neither has an established large performance budget. The small SF-cache experiment isolates one dependency-placement hypothesis without repeating a tile/stage sweep.
+
+## What the measurements permit
+
+The current budget audit has 6,064/6,206 distinct expert-layer pairs in two real B58/B63 examples, or 19.076/19.522 GB of logical FP8 expert weights per step. These examples are not a service average or unavoidable DRAM lower bound. Dividing roughly 19 GB by a hypothetical sustained 8 TB/s gives roughly 2.4 ms; that is an optimistic byte-accounting scenario, not an achieved full-MoE roofline. It omits actual routing distribution, dense/GDN/KV/codec traffic, scale/output traffic, persistent tails, load balance and sustainable simultaneous bandwidth. The roughly 4 ms historical MoE time and this conditional 2.4 ms must not be subtracted and advertised as recoverable service time.
+
+The two-layer, eight-node NCU experiment shows the global M128 implementation actually raises average resident CTAs from about 1 to 1.94–1.96. Yet FC1 eligible warps/issue fall and long-scoreboard ratios rise: L0 eligible .30→.20, issue22.71→16.41%, long12.54→30.78%; L39 .36→.26, 26.83→20.08%, 9.40→24.01%. These long-scoreboard values are ratios over the metric's issue-active sampling scope, not wall-time percentages. Ordinary LDG address dependencies and scale loads are candidates; TMA transaction completion is normally a barrier dependency. The later PC sample was formally INCONCLUSIVE, so no instruction-level attribution is established.
+
+## Full activation staging
+
+For each output tile, FC1 weights are 128×2048 = 262,144 bytes, while its eight routed input rows are 16,384 bytes and full SF payload is 576 bytes. The narrow SF adapter changes only 0.22% as many payload bytes as the weight tile, and removes no original payload. Full activation staging also does not reduce weight bytes; it changes when a 6.25%-of-weight activation operand arrives. The entire B64 input is only128 KiB and may already be cached across experts/output CTAs. Actual older DRAM measurements were close to one-read active weight bytes, so there is no evidence for a large redundant activation DRAM volume to eliminate.
+
+The native gather-B task already caches route indices once per work tile. A 16-K full-input gather cannot claim to remove sixteen repeated route lookups from that task. The potentially useful mechanism is issuing the routed input's K slices earlier and supplying original MMA stages from shared memory, while decoupling per-K global supply from weight progress. The costs are a front-loaded gather, shared copies, producer publication and a larger allocation. The bounded additive design is 91,576 bytes per CTA before any further compiler/alignment change, versus 74,616 originally; that arithmetic does not establish preserved two-CTA residence. The same original MMA consumer and swizzle can be retained, but actual AOT/launch resource and complete exact gates are mandatory.
+
+Removing all per-K B/SF barriers would be a different implementation: a producer epoch must remain immutable until every UMMA/epilogue reader has finished all sixteen K groups. It cannot safely be obtained by deleting four-stage arrivals. It may reduce boundary overhead, but has no measured budget here. The SF-only result should determine whether to pursue larger staging; no automatic escalation after an unhelpful result is justified.
+
+## Genuine warp register redistribution
+
+Vendor FC1 already emits USETMAXREG and has a REG128 header. The Prims candidates have REG32/31 and no emitted USETMAXREG despite source/PTX160/48 hints. Thus enabling real redistribution in Prims is not adding a mechanism missing from the vendor baseline. Nor does the old 53K-versus32K hint arithmetic describe actual Prims occupancy.
+
+There is no spill in the compiled Prims path, and NCU already observes about two resident CTAs. Increasing the initial register allocation just to force USETMAXREG emission may reduce resident CTAs or alter generated arithmetic. Conversely, making the instructions appear does not create independent memory work if producer data dependencies still serialize progress. The present counters do not establish register starvation as a large missing budget. A credible future investigation would first derive, from a compiler-supported launch cap and emitted instructions, a specific live-range benefit with no residency loss; a blind max-register sweep is unwarranted. No such source transformation is established in this audit.
+
+## Continuous FC1→FC2 work
+
+The negative resident chain serializes six separate native task setup/drain phases inside a four-CTA cluster and is 14–37% slower. A real cross-expert persistent pipeline would need concurrent work epochs, independently live FC1/activation/FC2 buffers, cluster/shared completion ownership and native ordered-top8 finalization. It could hide memory latency or tails but cannot remove the roughly3 MiB/expert weight payload. Combining more work while preserving native FP8 boundaries is a new scheduler, not a small correction to the failed resident chain. Existing evidence does not justify that larger implementation before a specific producer bottleneck is isolated.
+
+Priority: finish this bounded SF-only correctness preparation; preserve the exact and full-call continuation gates if hardware execution is later authorized. Complete the already demonstrated mixed-row-reuse integration separately. Do not count either direction as closing the service gap, and do not repeat the failed transparent-compression, route-only-cache or generic tile/backend sweeps. The new VMM experiment is exact but its 0.0992% sequence difference fails its local gain gate.
+
+Sources: `../native-target-budget-audit/audit.md`, `../native-target-budget-audit/fc1-full-activation-staging.md`, `../expert-m128-ncu-node-v2/summary.json`, `../register-lowering-audit/result.json`, `../expert-m128-fc1-pcsampling/pc-base-independent-audit.md`, `../expert-resident-timing-v2/summary.md`, and `../native-compressed-moe/summary.md`. This report performs no new GPU work.

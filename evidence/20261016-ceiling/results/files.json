@@ -8,8 +8,8 @@
   {
     "source": "archive_ceiling.py",
     "artifact": "archive_ceiling.py.gz",
-    "uncompressed_sha256": "66b832f2bb1763560339e2d6b952f7dcf8ec3ea3c8172326a7b841696a1b1116",
-    "bytes": 4130
+    "uncompressed_sha256": "bfffab4772cc55d2ffac1fcf73dff3508d8d4323d017fd70b206270719f7033c",
+    "bytes": 4169
   },
   {
     "source": "archived-codec-fragmentation.json",
@@ -6244,6 +6244,402 @@
     "artifact": "expert-m128-route-cache/summary.md",
     "uncompressed_sha256": "947a66eb3348bab1e941a908caf08bcdc1b111e49050f83daa6f9c7675ff7a24",
     "bytes": 3263
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/CPU-CONTRACT.md",
+    "artifact": "expert-m128-sf-tile-cache/CPU-CONTRACT.md",
+    "uncompressed_sha256": "58dd892d62c5ae6f98881bd7abb130c19db977f8ffd70c4efb81018dadb61dd4",
+    "bytes": 1874
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/GPU-summary.md",
+    "artifact": "expert-m128-sf-tile-cache/GPU-summary.md",
+    "uncompressed_sha256": "57092de1ae241c4935d9dedcfb4a979160f349ec307678e61bc1ffe56c0ac41e",
+    "bytes": 3572
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/SAFE_TO_ARCHIVE.json",
+    "artifact": "expert-m128-sf-tile-cache/SAFE_TO_ARCHIVE.json",
+    "uncompressed_sha256": "b06e2749182337a5d9d20dbcd5fc466460fbfefaaca442810d2eb70bf4a3547d",
+    "bytes": 13695
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/audit_compile.py",
+    "artifact": "expert-m128-sf-tile-cache/audit_compile.py.gz",
+    "uncompressed_sha256": "d7f312dc906d47109c8fe39f34bb84045c022adca3e937050c70f3f0347ba1f3",
+    "bytes": 4996
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/body_common.py",
+    "artifact": "expert-m128-sf-tile-cache/body_common.py.gz",
+    "uncompressed_sha256": "fe6642d1d5ec154236674e4f8a8c875fea720507d4716ecb235cc05809deb331",
+    "bytes": 4126
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/check_cpu.py",
+    "artifact": "expert-m128-sf-tile-cache/check_cpu.py.gz",
+    "uncompressed_sha256": "78c6c61a5770c2d3175ffa9c6f897c553d1225608aba7d548c523744e2c13699",
+    "bytes": 8984
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/compile-audit.json",
+    "artifact": "expert-m128-sf-tile-cache/compile-audit.json",
+    "uncompressed_sha256": "f23e9c7f7e8c1567ae957e9c6e5967191f04203d62cdd4db172cf545c37b9782",
+    "bytes": 12302
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/cpu-aot.log",
+    "artifact": "expert-m128-sf-tile-cache/cpu-aot.log.gz",
+    "uncompressed_sha256": "e8df12bc8a1ece6a75e9d20540ab040bf6632ff12c0f24d125382795a26a682c",
+    "bytes": 2800
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/cpu-check.json",
+    "artifact": "expert-m128-sf-tile-cache/cpu-check.json",
+    "uncompressed_sha256": "8787c1330d7fbf0364ca81c09790af39e91e7ea63320b79999fce71a00cd48f3",
+    "bytes": 8885
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/cpu-final-source-check.json",
+    "artifact": "expert-m128-sf-tile-cache/cpu-final-source-check.json",
+    "uncompressed_sha256": "ded1ba6b6be1f67f5f717002828c43b7c6c384c47d26522ca146e4fc753008b8",
+    "bytes": 2285
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/cpu-graph-guard.json",
+    "artifact": "expert-m128-sf-tile-cache/cpu-graph-guard.json",
+    "uncompressed_sha256": "43045a0816202e0b276353097212cfe337c99df5873c27d239213d3daf13ea67",
+    "bytes": 3948
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/cpu-manifest.json",
+    "artifact": "expert-m128-sf-tile-cache/cpu-manifest.json",
+    "uncompressed_sha256": "f556044611aae895e56374d7c0c197276cc8e91fb98eefb3520c1f0ae9da3e69",
+    "bytes": 5791
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/cpu-original-source/metadata_driver.py",
+    "artifact": "expert-m128-sf-tile-cache/cpu-original-source/metadata_driver.py.gz",
+    "uncompressed_sha256": "64d01d1e5b838effb13651407a10a9487b2c6971f94d1230cfefbfa023e606eb",
+    "bytes": 32355
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/driver-cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx",
+    "artifact": "expert-m128-sf-tile-cache/driver-cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "7c595b9ba4133a0525d5444100377993111f5b4cf085da83d4c9f4f226c4f30e",
+    "bytes": 102982
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/driver-cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx",
+    "artifact": "expert-m128-sf-tile-cache/driver-cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "7bd5b717c7728474163599827f7f01ee7a70e317a30e284e631b441eb46f926d",
+    "bytes": 101147
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/driver-cpu-compile/fc1-host.mlir",
+    "artifact": "expert-m128-sf-tile-cache/driver-cpu-compile/fc1-host.mlir.gz",
+    "uncompressed_sha256": "4ba489dde7070792e843ac9a34b44383e9476f457c7abf8082f7451359a06db5",
+    "bytes": 222448
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/driver-cpu-compile/fc2-host.mlir",
+    "artifact": "expert-m128-sf-tile-cache/driver-cpu-compile/fc2-host.mlir.gz",
+    "uncompressed_sha256": "1ab3d79918d6b7a35d63fbb14ea8794ba42f5406b907cb69ff2f191df1999d76",
+    "bytes": 234457
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/driver-prepare.json",
+    "artifact": "expert-m128-sf-tile-cache/driver-prepare.json",
+    "uncompressed_sha256": "7642c1995b453ea518f9b77451e3c8cbd7308b46090c53ddcb913e27b0acfd9b",
+    "bytes": 11744
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/driver-resource-fc1/kernel.sass",
+    "artifact": "expert-m128-sf-tile-cache/driver-resource-fc1/kernel.sass.gz",
+    "uncompressed_sha256": "8a94961a9b7671986f32b4e6a63bf55b53db86ea08abcf033a2e0c809c78c65a",
+    "bytes": 580805
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/driver-resource-fc1/resource-usage.txt",
+    "artifact": "expert-m128-sf-tile-cache/driver-resource-fc1/resource-usage.txt.gz",
+    "uncompressed_sha256": "66529fea5eed281efdace8babb84248816c2871a8697cb7812ac28f27062fe99",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/driver-resource-fc1/result.json",
+    "artifact": "expert-m128-sf-tile-cache/driver-resource-fc1/result.json",
+    "uncompressed_sha256": "61379668ba00f45b7df770cb040584cee2dcb492fd259c4bccaa84b3e39e2be8",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/driver-resource-fc2/kernel.sass",
+    "artifact": "expert-m128-sf-tile-cache/driver-resource-fc2/kernel.sass.gz",
+    "uncompressed_sha256": "39d796508dc2bfb786b843dc19b3679068d29dd5db0ab10b025a3ef5968b9cb1",
+    "bytes": 616389
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/driver-resource-fc2/resource-usage.txt",
+    "artifact": "expert-m128-sf-tile-cache/driver-resource-fc2/resource-usage.txt.gz",
+    "uncompressed_sha256": "d7347e13b2652f1d7102c3ef9e0cb275fe44f85be24988623cb3503daaaf05af",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/driver-resource-fc2/result.json",
+    "artifact": "expert-m128-sf-tile-cache/driver-resource-fc2/result.json",
+    "uncompressed_sha256": "28c5513a450e74cb07baad1157124bef84b567ed203c86b6de96e38a9dbcc29d",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/feasibility-process-audit.jsonl",
+    "artifact": "expert-m128-sf-tile-cache/feasibility-process-audit.jsonl.gz",
+    "uncompressed_sha256": "b83c0b90ff6a0ee3d146df2eb925987f7130b64ae968d2381e98cc09b9c5a58d",
+    "bytes": 2384
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/feasibility-resource-fc1/kernel.sass",
+    "artifact": "expert-m128-sf-tile-cache/feasibility-resource-fc1/kernel.sass.gz",
+    "uncompressed_sha256": "8a94961a9b7671986f32b4e6a63bf55b53db86ea08abcf033a2e0c809c78c65a",
+    "bytes": 580805
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/feasibility-resource-fc1/resource-usage.txt",
+    "artifact": "expert-m128-sf-tile-cache/feasibility-resource-fc1/resource-usage.txt.gz",
+    "uncompressed_sha256": "66529fea5eed281efdace8babb84248816c2871a8697cb7812ac28f27062fe99",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/feasibility-resource-fc1/result.json",
+    "artifact": "expert-m128-sf-tile-cache/feasibility-resource-fc1/result.json",
+    "uncompressed_sha256": "61379668ba00f45b7df770cb040584cee2dcb492fd259c4bccaa84b3e39e2be8",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/feasibility-resource-fc2/kernel.sass",
+    "artifact": "expert-m128-sf-tile-cache/feasibility-resource-fc2/kernel.sass.gz",
+    "uncompressed_sha256": "39d796508dc2bfb786b843dc19b3679068d29dd5db0ab10b025a3ef5968b9cb1",
+    "bytes": 616389
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/feasibility-resource-fc2/resource-usage.txt",
+    "artifact": "expert-m128-sf-tile-cache/feasibility-resource-fc2/resource-usage.txt.gz",
+    "uncompressed_sha256": "d7347e13b2652f1d7102c3ef9e0cb275fe44f85be24988623cb3503daaaf05af",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/feasibility-resource-fc2/result.json",
+    "artifact": "expert-m128-sf-tile-cache/feasibility-resource-fc2/result.json",
+    "uncompressed_sha256": "28c5513a450e74cb07baad1157124bef84b567ed203c86b6de96e38a9dbcc29d",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/feasibility-result.json",
+    "artifact": "expert-m128-sf-tile-cache/feasibility-result.json",
+    "uncompressed_sha256": "62da882d21561753d7b8336f1d96ea85a5e874c2e2e389b51ec7bbf395922300",
+    "bytes": 51655
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/feasibility.log",
+    "artifact": "expert-m128-sf-tile-cache/feasibility.log.gz",
+    "uncompressed_sha256": "9e1a867701f2bcb8d3a4dd6c070e19c61553a67eab134b2a4ceee605bde20065",
+    "bytes": 3288
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/frozen-inputs.json",
+    "artifact": "expert-m128-sf-tile-cache/frozen-inputs.json",
+    "uncompressed_sha256": "d8bfc3c7f02732f62faedb019030ada212223e997de7f9487e6b20bb30d51a11",
+    "bytes": 40675
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gate-process-audit.jsonl",
+    "artifact": "expert-m128-sf-tile-cache/gate-process-audit.jsonl.gz",
+    "uncompressed_sha256": "860bfb9f0d0578561f04242104af75b4763443c46bb4b1ecfe3ba7b1101e3da9",
+    "bytes": 3324
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gate-resource-fc1/kernel.sass",
+    "artifact": "expert-m128-sf-tile-cache/gate-resource-fc1/kernel.sass.gz",
+    "uncompressed_sha256": "8a94961a9b7671986f32b4e6a63bf55b53db86ea08abcf033a2e0c809c78c65a",
+    "bytes": 580805
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gate-resource-fc1/resource-usage.txt",
+    "artifact": "expert-m128-sf-tile-cache/gate-resource-fc1/resource-usage.txt.gz",
+    "uncompressed_sha256": "66529fea5eed281efdace8babb84248816c2871a8697cb7812ac28f27062fe99",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gate-resource-fc1/result.json",
+    "artifact": "expert-m128-sf-tile-cache/gate-resource-fc1/result.json",
+    "uncompressed_sha256": "61379668ba00f45b7df770cb040584cee2dcb492fd259c4bccaa84b3e39e2be8",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gate-resource-fc2/kernel.sass",
+    "artifact": "expert-m128-sf-tile-cache/gate-resource-fc2/kernel.sass.gz",
+    "uncompressed_sha256": "39d796508dc2bfb786b843dc19b3679068d29dd5db0ab10b025a3ef5968b9cb1",
+    "bytes": 616389
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gate-resource-fc2/resource-usage.txt",
+    "artifact": "expert-m128-sf-tile-cache/gate-resource-fc2/resource-usage.txt.gz",
+    "uncompressed_sha256": "d7347e13b2652f1d7102c3ef9e0cb275fe44f85be24988623cb3503daaaf05af",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gate-resource-fc2/result.json",
+    "artifact": "expert-m128-sf-tile-cache/gate-resource-fc2/result.json",
+    "uncompressed_sha256": "28c5513a450e74cb07baad1157124bef84b567ed203c86b6de96e38a9dbcc29d",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gate-result.json",
+    "artifact": "expert-m128-sf-tile-cache/gate-result.json.gz",
+    "uncompressed_sha256": "4142ed69227b3e69bbd1052f301a74ff1562509ec8030eb6413ce77cbea0c683",
+    "bytes": 266902
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gate.log",
+    "artifact": "expert-m128-sf-tile-cache/gate.log.gz",
+    "uncompressed_sha256": "33d9bbeb027a9170c19b97624946cd7bfc1c0fdf01c71be2c998dc3d861277cc",
+    "bytes": 3174
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gmem_c_resources_m128_body.py",
+    "artifact": "expert-m128-sf-tile-cache/gmem_c_resources_m128_body.py.gz",
+    "uncompressed_sha256": "4b8fc3fe4483977105bd197caef5afbfaec938aef1f736b449ecd5eeca6da4d5",
+    "bytes": 158438
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gpu-feasibility-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx",
+    "artifact": "expert-m128-sf-tile-cache/gpu-feasibility-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "7c595b9ba4133a0525d5444100377993111f5b4cf085da83d4c9f4f226c4f30e",
+    "bytes": 102982
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gpu-feasibility-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx",
+    "artifact": "expert-m128-sf-tile-cache/gpu-feasibility-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "7bd5b717c7728474163599827f7f01ee7a70e317a30e284e631b441eb46f926d",
+    "bytes": 101147
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gpu-feasibility-compile/fc1-host.mlir",
+    "artifact": "expert-m128-sf-tile-cache/gpu-feasibility-compile/fc1-host.mlir.gz",
+    "uncompressed_sha256": "4ba489dde7070792e843ac9a34b44383e9476f457c7abf8082f7451359a06db5",
+    "bytes": 222448
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gpu-feasibility-compile/fc2-host.mlir",
+    "artifact": "expert-m128-sf-tile-cache/gpu-feasibility-compile/fc2-host.mlir.gz",
+    "uncompressed_sha256": "1ab3d79918d6b7a35d63fbb14ea8794ba42f5406b907cb69ff2f191df1999d76",
+    "bytes": 234457
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gpu-gate-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx",
+    "artifact": "expert-m128-sf-tile-cache/gpu-gate-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "7c595b9ba4133a0525d5444100377993111f5b4cf085da83d4c9f4f226c4f30e",
+    "bytes": 102982
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gpu-gate-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx",
+    "artifact": "expert-m128-sf-tile-cache/gpu-gate-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "7bd5b717c7728474163599827f7f01ee7a70e317a30e284e631b441eb46f926d",
+    "bytes": 101147
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gpu-gate-compile/fc1-host.mlir",
+    "artifact": "expert-m128-sf-tile-cache/gpu-gate-compile/fc1-host.mlir.gz",
+    "uncompressed_sha256": "4ba489dde7070792e843ac9a34b44383e9476f457c7abf8082f7451359a06db5",
+    "bytes": 222448
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gpu-gate-compile/fc2-host.mlir",
+    "artifact": "expert-m128-sf-tile-cache/gpu-gate-compile/fc2-host.mlir.gz",
+    "uncompressed_sha256": "1ab3d79918d6b7a35d63fbb14ea8794ba42f5406b907cb69ff2f191df1999d76",
+    "bytes": 234457
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/gpu-host-adaptation.patch",
+    "artifact": "expert-m128-sf-tile-cache/gpu-host-adaptation.patch.gz",
+    "uncompressed_sha256": "b324b0ed463eab3e5a278f18983239c0017021f6931dc9a15b82d00a4a672629",
+    "bytes": 3727
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/large-budget-assessment.md",
+    "artifact": "expert-m128-sf-tile-cache/large-budget-assessment.md",
+    "uncompressed_sha256": "8f1e75bcd1d46acd664583449c8b10b76040a7b5fcf3a2c7308eb297faf448a6",
+    "bytes": 6369
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/launch-result.json",
+    "artifact": "expert-m128-sf-tile-cache/launch-result.json",
+    "uncompressed_sha256": "b15853af45b0bfcaf6dfa718dcf5df960ffd92c86ba3285bc62b8bcb79d71416",
+    "bytes": 1599
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/launch.py",
+    "artifact": "expert-m128-sf-tile-cache/launch.py.gz",
+    "uncompressed_sha256": "fce177030ff4f07a4c3a48a82c9506b64f32880f38fb5cfdcbb55ebcb08f75f1",
+    "bytes": 6125
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/metadata_driver.py",
+    "artifact": "expert-m128-sf-tile-cache/metadata_driver.py.gz",
+    "uncompressed_sha256": "7ed5a67932f9615c23bb8a89f656c1d5d9a71bb05e1e3df33c5ac73131782798",
+    "bytes": 34343
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/metadata_gate.py",
+    "artifact": "expert-m128-sf-tile-cache/metadata_gate.py.gz",
+    "uncompressed_sha256": "e5e87746a853bcbcf418552d8821f6b5303dd266ed316b2c2c74af006dc0f6e4",
+    "bytes": 8306
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/metadata_ready_config.py",
+    "artifact": "expert-m128-sf-tile-cache/metadata_ready_config.py.gz",
+    "uncompressed_sha256": "43b0cb3a051baa70bd86a2602dcbffc9bd1f8850ee9b7f569a26cbf19f94520a",
+    "bytes": 5080
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/metadata_ready_graph.py",
+    "artifact": "expert-m128-sf-tile-cache/metadata_ready_graph.py.gz",
+    "uncompressed_sha256": "4107f0e0ad89dde8ef6be6f8c07c65220adcd2e0136aad9d639db1bb9e03a38b",
+    "bytes": 27940
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/metadata_ready_kernel.py",
+    "artifact": "expert-m128-sf-tile-cache/metadata_ready_kernel.py.gz",
+    "uncompressed_sha256": "23dd6ecfedda65839d9f986d45f7781f59e730b9e0ab4eaea0ca3270ed678041",
+    "bytes": 134901
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/prepare_protocol.py",
+    "artifact": "expert-m128-sf-tile-cache/prepare_protocol.py.gz",
+    "uncompressed_sha256": "dedcaa36f4bd5ab7bb33a537fab6a241b0e68d2eac9884c951e55a7ca53038b0",
+    "bytes": 7428
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/protocol.json",
+    "artifact": "expert-m128-sf-tile-cache/protocol.json",
+    "uncompressed_sha256": "53cad5316ad86d1e4f918de653d10599495d57e7cfe95de9f20076c298150820",
+    "bytes": 8982
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/sf_tile_cached_resources.py",
+    "artifact": "expert-m128-sf-tile-cache/sf_tile_cached_resources.py.gz",
+    "uncompressed_sha256": "ccabd03ce263bdea35feae92c2ce3d08ddc915ad12ff6c5ee59297741ba0613b",
+    "bytes": 5129
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/source-fork.json",
+    "artifact": "expert-m128-sf-tile-cache/source-fork.json",
+    "uncompressed_sha256": "d99e7fd94f2e1180a3b503310e94445aae44951918656bf8d1786122e3f568dc",
+    "bytes": 1622
+  },
+  {
+    "source": "expert-m128-sf-tile-cache/summary.md",
+    "artifact": "expert-m128-sf-tile-cache/summary.md",
+    "uncompressed_sha256": "8f71f0a0feb62302581c13db06a883143ecdbad2cb50f80758295b9b8c77b9da",
+    "bytes": 4188
   },
   {
     "source": "expert-metadata-rebase/cpu-bounds.json",
@@ -13210,6 +13606,18 @@
     "artifact": "runtime-pr-body.md",
     "uncompressed_sha256": "6b1f0a0534b089a97031ba07023a92dd4e3140d479749e16f17cc1d7f980b14c",
     "bytes": 1864
+  },
+  {
+    "source": "sf-tile-cache-independent-review.json",
+    "artifact": "sf-tile-cache-independent-review.json",
+    "uncompressed_sha256": "be0e96c005e11c8972ea800bb2e17ffd83f5ae9414f15a3c4b29446734969ca1",
+    "bytes": 2896
+  },
+  {
+    "source": "sf-tile-cache-independent-review.md",
+    "artifact": "sf-tile-cache-independent-review.md",
+    "uncompressed_sha256": "aa0f446fb0ef9e181ae42a86ccb82ed66302b45b4326c5dd54c41f6ca628e313",
+    "bytes": 3274
   },
   {
     "source": "short-padding-candidate-gpu7/benchmark/c64-r0.jsonl",

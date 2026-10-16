@@ -1,0 +1,74 @@
+{
+  "status": "CPU_INDEPENDENT_SOURCE_REVIEW_PASS",
+  "gpu_used": false,
+  "runtime_correctness_claim": false,
+  "scope": "Single FC1 scale producer full-tile FP32 bit cache; fixed M128 N8 K2048 resource. No runtime edits.",
+  "checks": [
+    {
+      "valid_rows": 0,
+      "cache_writes_unique": 144,
+      "valid_activation_scale_reads": 0,
+      "all16_native_stage_addresses": true
+    },
+    {
+      "valid_rows": 1,
+      "cache_writes_unique": 144,
+      "valid_activation_scale_reads": 16,
+      "all16_native_stage_addresses": true
+    },
+    {
+      "valid_rows": 2,
+      "cache_writes_unique": 144,
+      "valid_activation_scale_reads": 32,
+      "all16_native_stage_addresses": true
+    },
+    {
+      "valid_rows": 3,
+      "cache_writes_unique": 144,
+      "valid_activation_scale_reads": 48,
+      "all16_native_stage_addresses": true
+    },
+    {
+      "valid_rows": 4,
+      "cache_writes_unique": 144,
+      "valid_activation_scale_reads": 64,
+      "all16_native_stage_addresses": true
+    },
+    {
+      "valid_rows": 5,
+      "cache_writes_unique": 144,
+      "valid_activation_scale_reads": 80,
+      "all16_native_stage_addresses": true
+    },
+    {
+      "valid_rows": 6,
+      "cache_writes_unique": 144,
+      "valid_activation_scale_reads": 96,
+      "all16_native_stage_addresses": true
+    },
+    {
+      "valid_rows": 7,
+      "cache_writes_unique": 144,
+      "valid_activation_scale_reads": 112,
+      "all16_native_stage_addresses": true
+    },
+    {
+      "valid_rows": 8,
+      "cache_writes_unique": 144,
+      "valid_activation_scale_reads": 128,
+      "all16_native_stage_addresses": true
+    }
+  ],
+  "files_sha256": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-sf-tile-cache/sf_tile_cached_resources.py": "ccabd03ce263bdea35feae92c2ce3d08ddc915ad12ff6c5ee59297741ba0613b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-sf-tile-cache/metadata_driver.py": "64d01d1e5b838effb13651407a10a9487b2c6971f94d1230cfefbfa023e606eb",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-sf-tile-cache/driver-resource-fc1/kernel.sass": "8a94961a9b7671986f32b4e6a63bf55b53db86ea08abcf033a2e0c809c78c65a",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-sf-tile-cache/driver-resource-fc1/result.json": "61379668ba00f45b7df770cb040584cee2dcb492fd259c4bccaa84b3e39e2be8",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-sf-tile-cache/driver-resource-fc2/result.json": "28c5513a450e74cb07baad1157124bef84b567ed203c86b6de96e38a9dbcc29d"
+  },
+  "limitations": [
+    "PTX bar.warp.sync is retained in PTX but lowered to NOP at SASS0x3940; explicit WARPSYNC there is not claimed.",
+    "Compiled resource fit/REG32 do not prove occupancy or performance.",
+    "Exact15/reusedgraph/empty GPU gate still required; no prior routecache gate inherited."
+  ]
+}
