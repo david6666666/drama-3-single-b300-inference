@@ -1,0 +1,17 @@
+{
+  "status": "CPU_AOT_PASS",
+  "gpu_launched": false,
+  "source_sha256": "f73a86fbfde68be1592f4d0bbfc52756081a3c78be6583b2f4090a3ccb49542d",
+  "harness_sha256": "d8ba4791127f0ea42689bb53623b0078b8e3e78244b96a22c9cf6f91603d995a",
+  "seconds": 0.07861710002180189,
+  "kernel_info": "OrderedDict({'kernel_cutlass_kernel___main__Probe_object_at__tensorptri8gmemalign16o64825620482561_tensorptrf32gmemalign16o64281681_tensorptri32gmemalign16o641_tensorptri8gmemalign16o64812810241281_ten_0': {}})",
+  "cuda_initialized": false,
+  "artifacts": {
+    "activation-helper-aot/kernel.fatbin": "ed22b6599e0c1e9125fb9611f8efdd225da3afb24a0cf57039ccfe7c4844fecc",
+    "activation-helper-aot/host.mlir": "21df5ceef446e6bf08819beb7f36fa353558abe597158866dea7d0b88450a605",
+    "activation-helper-aot/resources.txt": "51133ea95b82794a0958df4ef2ac485d6d6c7d4e74ba8c5ddf5fc46bbafe1fbd",
+    "activation-helper-aot/kernel.sass": "dd7a31cddc5c106521303ed8e7adfa979862ed560c58f7a75486ae2783ce9de2"
+  },
+  "resource_output": "\nFatbin elf code:\n================\narch = sm_103a\ncode version = [1,8]\nhost = linux\ncompile_size = 64bit\nidentifier = kernels\n\nResource usage:\n Common:\n  GLOBAL:0\n Function kernel_cutlass_kernel___main__Probe_object_at__tensorptri8gmemalign16o64825620482561_tensorptrf32gmemalign16o64281681_tensorptri32gmemalign16o641_tensorptri8gmemalign16o64812810241281_ten_0:\n  REG:26 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:936 TEXTURE:0 SURFACE:0 SAMPLER:0\n",
+  "binary_extraction": "CPU decoded @kernels_binary MLIR string to fatbin, then cuobjdump. No CUDA runtime initialization."
+}

@@ -1,0 +1,47 @@
+{
+  "configurations": 36,
+  "passed": 36,
+  "selected_for_serving": false,
+  "best_by_layer": [
+    {
+      "layer": 0,
+      "batch": 64,
+      "block_n": 128,
+      "warps": 4,
+      "stages": 3,
+      "current_routed_us": 133.3873806829038,
+      "reference_native_us": 146.4031186878172,
+      "original_native_vs_current_rrms": 0.04698285833001137,
+      "rrms": 0.0,
+      "passed": true,
+      "native_us": 146.39664169185417
+    },
+    {
+      "layer": 19,
+      "batch": 64,
+      "block_n": 128,
+      "warps": 4,
+      "stages": 3,
+      "current_routed_us": 109.2580074959613,
+      "reference_native_us": 122.2432804107666,
+      "original_native_vs_current_rrms": 0.04102601855993271,
+      "rrms": 0.0,
+      "passed": true,
+      "native_us": 121.71909883618355
+    },
+    {
+      "layer": 39,
+      "batch": 64,
+      "block_n": 128,
+      "warps": 4,
+      "stages": 3,
+      "current_routed_us": 94.82945591570383,
+      "reference_native_us": 99.89419771930363,
+      "original_native_vs_current_rrms": 0.03763251751661301,
+      "rrms": 0.0,
+      "passed": true,
+      "native_us": 100.00051791851337
+    }
+  ],
+  "limitation": "These tiles preserve the original Fish kernel; its output already differs from the current FlashInfer path. A faster isolated tile would still need separate model and serving acceptance."
+}

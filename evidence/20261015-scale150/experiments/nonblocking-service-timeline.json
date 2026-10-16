@@ -1,0 +1,8 @@
+{
+  "source_sha": "1a88b79db8fddde5d050a9ec05409dc6ca33482f",
+  "hypothesis": "Nonblocking stream events can identify whether codec hides behind decode and quantify occupancy without synchronizing every stage.",
+  "isolated_variable": "Opt-in event instrumentation of the existing packed+async service; no model/scheduling change.",
+  "controls": "GPU6,C64,384requests,64warmup,OMP8,native full8experts,codecBF16, all timed service claims excluded from this instrumented run; no cache flush. GPU7 quality scoring may share host CPU.",
+  "success": "Finite ordered event timestamps and complete requests; calculate union/overlap of intervals on matching physical GPU clock, distinguish codec submission from execution.",
+  "stop": "Any runtime failure, event inconsistency or external GPU6 process; no formal performance claim."
+}

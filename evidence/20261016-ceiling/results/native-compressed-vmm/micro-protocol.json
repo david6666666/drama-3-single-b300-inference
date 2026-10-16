@@ -1,0 +1,17 @@
+{
+  "hypothesis": "Actual generic-compression VMM retains original byte/graph semantics and correctly releases all foreign allocations; no performance claim.",
+  "runtime_sha": "f5448f0f8cad850ea06b9476f80eb5bb17629c68",
+  "gpu": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+  "files": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-vmm/vmm_tensor.cpp": "20b9443b59a0452a624975454783a8adac5325291a3bf3c61c0f0a11cebe4700",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-vmm/vmm_weights.py": "d780aa4efe55f10fb9c457b571b5536ed12dea2349269a3c685cc2b06e004071",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-vmm/micro_probe.py": "2f8ce6fe96bf4a44f009cb34f67ccd92e84644c70327299132756966104c75b2",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-vmm/_vmm_tensor.cpython-312-x86_64-linux-gnu.so": "d2358d77e5f2b1c7807bba40b1d8066b7f50ddb88fea3fb3932bc56ca976477a",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-vmm/cpu-check.json": "101a92a201c0538baa3187a1fbe0e91d4d6b62e0ac4eca51b72421dcbcf4828d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lossless-weight-audit/result.json": "3e77b093bbbbc8c69e7eee6f6de7bf788c3be12d193e36f50e52fb2e25c88326"
+  },
+  "controls": "One process/empty GPU4, same two original L0/L39 weights, control compression0 and candidate1, all original FP8 bytes, no cache/clock changes.",
+  "success": "Every allocation actualflag agrees; all eager/view/captured dynamic-mask byte checks exact; no cleanup error or leaked custom allocation.",
+  "stop": "First discrepancy stops without performance timing or native MoE launch.",
+  "preparation": "C++ build/import and CPU negative cases recorded separately; Torch context/model snippet copy excluded from any performance claim; this test has no timing."
+}

@@ -1,0 +1,778 @@
+{
+  "driver_sha256": "c537db134192d3c18821af0a10644bd389601c075f0b95769d4022350428667f",
+  "status": "CPU_CONTRACT_PASS",
+  "checks": [
+    {
+      "name": "cpu_no_cuda_initialization",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "fifteen_fixtures",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-left_only/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-left_only/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-left_only/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-left_only/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-left_only/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-left_only/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          127
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-left_only/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-real/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-real/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-real/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-real/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-real/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-real/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          208
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-real/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-right_only/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-right_only/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-right_only/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-right_only/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-right_only/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-right_only/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          130
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-right_only/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          208
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-worst_global288/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-worst_global288/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-worst_global288/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-worst_global288/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-worst_global288/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-worst_global288/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          288
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer0-worst_global288/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-left_only/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-left_only/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-left_only/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-left_only/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-left_only/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-left_only/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          109
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-left_only/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-real/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-real/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-real/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-real/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-real/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-real/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          168
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-real/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-right_only/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-right_only/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-right_only/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-right_only/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-right_only/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-right_only/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          114
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-right_only/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          168
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-worst_global288/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-worst_global288/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-worst_global288/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-worst_global288/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-worst_global288/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-worst_global288/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          288
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer19-worst_global288/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-left_only/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-left_only/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-left_only/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-left_only/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-left_only/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-left_only/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          109
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-left_only/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-real/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-real/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-real/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-real/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-real/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-real/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          146
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-real/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-right_only/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-right_only/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-right_only/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-right_only/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-right_only/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-right_only/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          112
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-right_only/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          146
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-worst_global288/bijection",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-worst_global288/expert",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-worst_global288/token",
+      "pass": true,
+      "detail": {
+        "shape": [
+          512
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-worst_global288/padded",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-worst_global288/prefix",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-worst_global288/mn",
+      "pass": true,
+      "detail": {
+        "shape": [
+          288
+        ],
+        "dtype": "torch.int64"
+      }
+    },
+    {
+      "name": "oracle-layer39-worst_global288/five_native_boundaries",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_cuda_remains_uninitialized",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "allocations": [],
+  "graphs": [],
+  "timing": [],
+  "timing_scope": "Live native metadata + native FC1/activation/FC2/finalizer; common input quantization/logits routing excluded",
+  "candidate_kernel_change": false,
+  "gpu_performance_claim": false,
+  "mode": "cpu-final-source"
+}

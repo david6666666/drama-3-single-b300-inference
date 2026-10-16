@@ -1,0 +1,13 @@
+{
+  "source_sha": "69d636ef11875add6e4edf7c9bb028b9574143a3",
+  "driver_sha256": "9f6b9b22dbf19ceacf80d95a60e6729de0db5db2f79f2308cabdbd84308c221d",
+  "hypothesis": "Compiler freezing hoists unchanged FP32-to-native-BF16 parameter casts from each codec transformer replay and reduces complete F8 codec graph time.",
+  "isolated_variable": "torch.compile freezing=False->True only on three decoder transformer methods; discard_parameters=False.",
+  "controls": "Same immutable codec module and original parameter dtype/storage/version, native BF16autocast, unchangednorm/scales/conv/attention, separate full state and private capture streams, GPU0, no cacheflush/clockchange.",
+  "gate": "All audio samples and all28conv/KV state tensors exact across B1/B4/B8 and three successive real reference-code windows before timing; untouchedslotsincluded. >=5% median local complete codec reduction for B4/B8 to expand.",
+  "stop": "First exact mismatch, mutation or compilation failure; no timing/promotion. Local pass still requires allshapes/dynamic modelcodec ownership and full1088 WER/SIM/service.",
+  "input": "First8 real corpus reference code streams, windows0:8,8:16,16:24. Not generated serving codes.",
+  "gpu_uuid": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "cpu_probe": "AST parse passed; no CUDAinitialized inpreparation.",
+  "compiler_scope": "Freezing can apply binary-folding/concat-linear patterns as well as cast hoisting. This is an exact-gated compiler candidate, not an assumption of cast-only implementation."
+}

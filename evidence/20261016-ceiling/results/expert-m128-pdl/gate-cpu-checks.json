@@ -1,0 +1,10 @@
+{
+  "status": "CPU_SYNTAX_IMPORT_RUFF_AND_BINDINGS_PASS",
+  "cuda_initialized": false,
+  "gpu_launched": false,
+  "owned_hashes": {
+    "pdl_gate.py": "d3a9da5efb9d1d368f997b7f6ca90a817f543c48c4fb25aca8ac57dbe4ef453f",
+    "launch.py": "1dcff8e3ea5a75920b2bd23ac04f974278995775bb07571baa28df0a8b37e90d"
+  },
+  "revision_note": "Pinned protocol environment, post-child cleanup and bytes/str kernel-name query handling."
+}

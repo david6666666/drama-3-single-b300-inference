@@ -1,0 +1,92 @@
+{
+  "status": "SAFE_TO_ARCHIVE",
+  "source_clean": true,
+  "gpu6_released": true,
+  "pid_absent": 1005079,
+  "files": {
+    "candidate.cubin": {
+      "bytes": 38088,
+      "sha256": "9419bb3af41b9d155c61003a510767572d34e6824587dfdb8767f96b5373b821"
+    },
+    "candidate.ptx": {
+      "bytes": 35223,
+      "sha256": "676b8b1b015cecf180b206a5680c9ec1f467bed9ac6e595f013f6bcc09580ef6"
+    },
+    "check_aot.py": {
+      "bytes": 2159,
+      "sha256": "abe0f22cfa0d4a682469fdf8c3f14662d62f85483fa3f4b4fac81dfeb3488a50"
+    },
+    "command.json": {
+      "bytes": 2125,
+      "sha256": "c0db49572bc56a5028134556862c4e6ffd83a70991c0543792d2da261fd5d22a"
+    },
+    "control.cubin": {
+      "bytes": 37632,
+      "sha256": "72af593f1125858bbfff18c5d0b1a8b81bdfd97d97f5e523ad7f4964bf2733aa"
+    },
+    "control.ptx": {
+      "bytes": 33400,
+      "sha256": "b5cda359f3de8731a00cfa99971ad1db86351e4cf668f6753618d7ae50028f81"
+    },
+    "cpu-aot.json": {
+      "bytes": 4351,
+      "sha256": "7f42d446f68a5a54de3cbc1d0c57bdbdccad6e760826e0f7296c40007f53b846"
+    },
+    "cpu-audit.json": {
+      "bytes": 1698,
+      "sha256": "03c1f5a496fec2951106bf2eb5125b92941fc08fbd54338f2b3002b4b687bc3c"
+    },
+    "cpu-driver-check.json": {
+      "bytes": 424,
+      "sha256": "f309897c27af67df02a548101dd10acbdc50dbfc862962311a0e8fc3c0ec036a"
+    },
+    "driver.py": {
+      "bytes": 12231,
+      "sha256": "8a94ff47deb178bd870738b7c7b73be312cfd57e441fb58b399d5af5ba519a53"
+    },
+    "gate.log": {
+      "bytes": 1686,
+      "sha256": "1bccb50b18675f67fef8f958dd5538b0daab90ed36bcaeb8214087081cba964d"
+    },
+    "gate.pid": {
+      "bytes": 8,
+      "sha256": "e075f93d5bd4d1b6ea2a3cd284161c4242bf85ce1d5749baf36c44322f122ccf"
+    },
+    "independent-review.md": {
+      "bytes": 870,
+      "sha256": "35ef2c562d1c7c852b8f586ef613b45c5a82f07aeaf1b443a57587f823acccfd"
+    },
+    "inverse_norm.py": {
+      "bytes": 1929,
+      "sha256": "b391ffa063152915e82415bff03604e1adcd74a0a8956ea7f2a69ac26882d6a1"
+    },
+    "launch.py": {
+      "bytes": 1708,
+      "sha256": "35f6d9af3460694cd5a2cd3cf0710a6199c13d92d66c53941de935db9d3ee59e"
+    },
+    "prepare_cpu.py": {
+      "bytes": 4603,
+      "sha256": "d1af39ac93bc2ea85b8b587516335191e4c740b468fa79528df75c444494fbdd"
+    },
+    "proposal.md": {
+      "bytes": 3552,
+      "sha256": "6119159f072561e089bd8d458f363d3d20b3eca77ce57eee5d1241bf5558a5e5"
+    },
+    "protocol.json": {
+      "bytes": 23478,
+      "sha256": "75477defba7953f5f22276c357f7ff088d592e74fc2fa54adf7bea708c5e0b57"
+    },
+    "result.json": {
+      "bytes": 138302,
+      "sha256": "8288b88b60d0d8758dc5fc14845cd989fc10802ebd91dc84d1f98850f3a51884"
+    },
+    "results.md": {
+      "bytes": 2348,
+      "sha256": "39c6c7cd9b1c159c461ec635a9def51e84e7cc7bfcca827c9e08f3d6657f0524"
+    },
+    "summary.json": {
+      "bytes": 2725,
+      "sha256": "9a66560be9e120269008bcb2b920a73153379386c3b491aaf4a24c96511fef67"
+    }
+  }
+}

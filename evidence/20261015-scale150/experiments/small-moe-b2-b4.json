@@ -1,0 +1,8 @@
+{
+  "hypothesis": "B8 hot expert tiles may reduce B2/B4 decode time without changing native FP8 math.",
+  "source_sha": "873a92d604d834bb5b99e17540807a73e79103b9",
+  "isolated_variable": "small_batch_moe up_rows8/down_rows8/down_warps4 versus default4/4/8",
+  "controls": "GPU1, OMP4, identical heterogeneous corpus prompts, BF16 GDN/native FP8 experts, packed projection; default and hot both batches2/4",
+  "success": "Every tested tile numerical RRMS < 0.03; lower full decode latency before enabling opt-in serving path",
+  "stop": "Numerical mismatch, nonfinite output, graph/state failure; diagnostic timings are not a serving claim"
+}

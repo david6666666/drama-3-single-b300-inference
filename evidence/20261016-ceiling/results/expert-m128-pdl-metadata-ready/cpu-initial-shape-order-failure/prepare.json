@@ -1,0 +1,91 @@
+{
+  "status": "CPU_PREPARE_FAIL",
+  "gpu_allowed": false,
+  "checks": [
+    {
+      "name": "cuda_hidden",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "source_frozen",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_config_accepted",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "generic_validator_still_rejects_unsafe_raw_config",
+      "pass": true,
+      "detail": "PDL early exit requires do_pdl_wait_for_num_non_exiting_ctas=1 before reading the routing-produced active CTA count"
+    },
+    {
+      "name": "untyped_config_rejected",
+      "pass": true,
+      "detail": "restricted FC2 requires MetadataReadyFc2Config"
+    },
+    {
+      "name": "reject_metadata_ready_by_full_dependency",
+      "pass": true,
+      "detail": "explicit full metadata dependency contract is required"
+    },
+    {
+      "name": "reject_use_early_exit",
+      "pass": true,
+      "detail": "restricted FC2 use_early_exit must be 1"
+    },
+    {
+      "name": "reject_use_pdl",
+      "pass": true,
+      "detail": "restricted FC2 use_pdl must be 1"
+    },
+    {
+      "name": "reject_do_pdl_wait_for_num_non_exiting_ctas",
+      "pass": true,
+      "detail": "restricted FC2 do_pdl_wait_for_num_non_exiting_ctas must be 0"
+    },
+    {
+      "name": "reject_route_act",
+      "pass": true,
+      "detail": "restricted FC2 route_act must be 0"
+    },
+    {
+      "name": "reject_tile_scheduler",
+      "pass": true,
+      "detail": "restricted FC2 tile_scheduler must be 1"
+    },
+    {
+      "name": "reject_num_stages_a",
+      "pass": true,
+      "detail": "restricted FC2 num_stages_a must be 4"
+    },
+    {
+      "name": "reject_dtype_c",
+      "pass": true,
+      "detail": "restricted FC2 dtype_c must be 3"
+    },
+    {
+      "name": "reject_mma_m",
+      "pass": true,
+      "detail": "restricted FC2 mma_m must be 128"
+    },
+    {
+      "name": "reject_tile_n",
+      "pass": true,
+      "detail": "restricted FC2 tile_n must be 8"
+    }
+  ],
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "io_shape": [
+    2048,
+    2304,
+    512,
+    256,
+    64
+  ],
+  "early_exit_extent": 288,
+  "traceback": "Traceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/prepare_metadata_ready.py\", line 105, in <module>\n    run()\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/prepare_metadata_ready.py\", line 77, in run\n    validate_io(io)\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_ready_config.py\", line 59, in validate_io\n    raise ValueError(f\"unsupported FC2 shape: {io['shape']}\")\nValueError: unsupported FC2 shape: (2048, 2304, 512, 256, 64)\n"
+}

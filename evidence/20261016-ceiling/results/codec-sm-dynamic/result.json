@@ -1,0 +1,28 @@
+{
+  "source_sha": "b816fb04e9d2e6b06409253836829b630f87d29b",
+  "source_status": "",
+  "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+  "gpu_uuid": "53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "capture": "dedicated",
+  "environment": {
+    "DRAMA3_PREFILL_MOE": "flashinfer",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_FUSED_MOE_INPUT": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM": "1",
+    "DRAMA3_CODEC_SPLIT_POLICY": "dp",
+    "DRAMA3_CODEC_COALESCE": "0",
+    "DRAMA3_CODEC_SMS": "0",
+    "DRAMA3_FUSED_MIXED_LAYOUT": "0",
+    "DRAMA3_PACKED_CONV_GUARD": "0",
+    "DRAMA3_DEFER_CODEC_SUBMIT": "0"
+  },
+  "hypothesis": "Native 48-SM recapture preserves outputs and all mutable state across heterogeneous groups and async delivery.",
+  "controls": "Fixed graphs, initial model/codec state, RNG, corpus and scripted arrivals.",
+  "gate": "Exact roster/codes, PCM/completion and final mutable state; no E2E claim.",
+  "stop": "Any divergence fails; dedicated capture must have disjoint observed BLAS ranges.",
+  "modes": [],
+  "passed": false
+}

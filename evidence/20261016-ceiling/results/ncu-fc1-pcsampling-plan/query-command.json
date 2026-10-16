@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/usr/local/cuda/bin/ncu",
+    "--config-file",
+    "off",
+    "--chips",
+    "gb110",
+    "--query-metrics",
+    "--query-metrics-collection",
+    "warpsampling"
+  ],
+  "CUDA_VISIBLE_DEVICES": "",
+  "gpu_work": false,
+  "exit_code": 0
+}

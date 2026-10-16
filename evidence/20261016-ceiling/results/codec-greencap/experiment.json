@@ -1,0 +1,10 @@
+{
+  "status": "PREDECLARED",
+  "source": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "hypothesis": "A codec-only32/48SM green stream can reduce causal AR/codec compute contention without lowering native quality; model remains full-device, not disjoint SM partitioning.",
+  "tiny_gate": "Primary-allocated inputs and existing primary-captured tiny graph replay on normal/32/48SM green streams; output bitexact; query actual green resourceSMs and graph flags; actual SM IDs count no larger than queriedcap. Explicit cleanup; no MPS daemon/global GPU setting.",
+  "paired_probe": "GPU2, model all148 unchanged, normal captured codec vs codec recaptured green32/48. Exact cap-serial versus normalserial first; concurrent only if correct. B1/B4/B8 F8 threejobs and4B64steps, 4 alternating repeats, 120trials. Recordmodel/codecpairtime andallstate/codes/PCM.",
+  "limits": "SM caps share HBM/L2 and may slow codec. TorchGreenContext separatecreate calls are not complementary partitions. Do not use set_context/pop_context in timedpath dueimplicit waits; use Stream. Workqueue balanced omitted: installedcu130 lacks13.1 compiledsupport.",
+  "tiny_initial_gate": "FAIL: primary-captured graph\u219232SM green stream still uses148SM; preserved tiny-result.json",
+  "tiny_recapture_gate": "PASS all6 cases, direct and green-captured graphs use exactly32/48 queried SMs, output exact; tiny-recapture-result.json"
+}

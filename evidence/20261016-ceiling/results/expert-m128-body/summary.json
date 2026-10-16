@@ -1,0 +1,13 @@
+{
+  "status": "EXACT_FAIL",
+  "checks": 4,
+  "note": "Preserved host-harness failure before candidate kernel: extracted weight loader referenced undefined c.CKPT. Fixed only in v2.",
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "source_status": "",
+  "exit": {
+    "exit_code": 1,
+    "post_processes": []
+  },
+  "timing_allowed": false,
+  "resource_scope": "Actual CUBIN REG32/31 and shared74616/74664B per distinct GEMM kernel. PTX160/48 hints do not establish executed SETMAXREG or occupancy; no resident fusion/occupancy claim."
+}

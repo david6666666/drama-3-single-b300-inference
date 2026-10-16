@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETE_FEASIBILITY_FAIL",
+  "source_sha": "345c6a18f200853489a9ac8a86bbe0682ebe484d",
+  "summary_sha256": "9907812a2f69d1a271fac7d977c553f0dfb71d40d657fde2ae8a19dd86dae71d",
+  "frozen_dependency_hashes_verified": 1808,
+  "service_and_quality_runners_passed": 4,
+  "quality_samples_per_arm": 1088,
+  "all_quality_passes": true,
+  "continuation_passed": false,
+  "task_gpu_processes_cleaned": true,
+  "optimization_paused_by_user": true
+}

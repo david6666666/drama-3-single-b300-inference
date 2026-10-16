@@ -1,0 +1,6 @@
+{
+  "hypothesis": "A compiler-stage difference changes combined MoE, rounded residual or final RMS output despite source BF16 casts. Compare these boundaries from identical diagnostic inputs and preserve original FAIL.",
+  "variable": "Instrument a local copy with intermediate stores; check debug output against original fusion before attributing stages.",
+  "controls": "Frozen source da91321, native BF16 norm1 checkpoint weight, GPU6, fixed generators, no timing/model service; original residual was unsaved, so record deterministic new input tensors.",
+  "stop": "Two tiny shapes B1/B64 only; inspect exact differences before any runtime patch."
+}

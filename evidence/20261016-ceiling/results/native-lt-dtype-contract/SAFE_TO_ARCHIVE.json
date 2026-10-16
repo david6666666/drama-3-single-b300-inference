@@ -1,0 +1,19 @@
+{
+  "status": "SAFE_TO_ARCHIVE_NO_RUNTIME_PROMOTION",
+  "gpu_released": true,
+  "formal_repetitions": false,
+  "performance_claim": false,
+  "files": {
+    "cpu-capability.json": "c6b5b0e257531922a1bb65b004f301af004351e6c3956c4fd767b10d296396de",
+    "launch-result.json": "577c4e02691ae834aa4092f7b0cd3be3e9303437b553ffab181d02f2f1c98c6b",
+    "library-discovery.json": "d49fccfe4eb2547c8f39443c8efe05c4eae736e083ca886f6aa1907ac26adb9e",
+    "summary.md": "6d5e7759e9291bcf4e3c42032cbbe29fdbb146332b3f31a58faecdde42bd9cfb",
+    "protocol.json": "d1dde8235777c64c11947382f0bff2e6204f38a4214b16b9836a3ead20c4e0dc",
+    "stdout.log": "71270844e27dc1ff9c38f9ea86117a680f82e3a579b90caa914f9937bf55c178",
+    "probe.py": "4bfa7d2fc2a4167e5c27c4ea157e4514ecdbca7cc23cc94db94f01e7a7cf6adf",
+    "same-library-capability.json": "cff2990458bb094c477166e1e792f14d008bc2063bc50533f24da8eb492160fb",
+    "capability_probe_gpu.cpp": "cf5f5fb507843511a0e3af1c72efb79cc98b5d7474810e8a6e11bebf43391019",
+    "result.json": "ef9ece8a5e775e3c5b80ea95ef666dc457cbc0d4f7b7db4bb2defb33e8697444",
+    "capability_probe.cpp": "bf3e72a93e897ca02c2450da7f9dcf1cadfac4bb875aa3ef06955f35489b6d9e"
+  }
+}

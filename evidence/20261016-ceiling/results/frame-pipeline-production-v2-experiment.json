@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-10-15T23:35:51.313690+00:00",
+  "hypothesis": "Production code1 callback and two-frame graph retain exact native steps=2 outputs and full state while overlapping next backbone with current tower tail.",
+  "source_sha": "a7118fb7eb748d08c3b774fa6c9189b6eab0d9cc",
+  "driver_sha256": "64a575980fa9aa5f7c6c90fec6f6727f6921eaade2d5b8dc93720c64ef9e5087",
+  "isolated_variable": "Serial DecodeGraph(steps=2) versus production FramePipelineGraph, same frozen source, roster, native math and fully restored input/model/request/RNG state.",
+  "controls": "GPU6; native fulltop8/checkpoint FP8 expert scales; BF16 dense/GDN; reserved router=1 plus fused residual/compact/layout/conv guard/short padding=1 in both arms; existing FI major_k and FLA; same warm caches, no flush/clock control.",
+  "real_gate": "Full B64, partial58, reversed reused slots, max_frames boundary, B32 and all additional production capacities16/24/40/48/56. Exact full frames, all conv/GDN/KV/request/RNG state, untouched slots, eager/capture hidden2 and full states. Capture precedes real initialization.",
+  "synthetic_eos_gate": "Separate explicitly synthetic captures: native semantic sampler still runs, then row0 stream0 result replaced by EOS candidate only at initial sampling_step+1. Second step unforced; all native model operators and codebook samples run. Require first EOS, sticky done, unchanged request row last/history/codes/count/position and exact serial-vs-production frames/fullstates/RNG. Not a quality trajectory or timing graph.",
+  "timing": "Only after every exact case passes; normal unmodified real B64/partial58/B32 captures; one warmup and five alternating CUDA-event samples with fullstate restore outside events. Report two-frame latencies only.",
+  "stop": "Preserve first exact/state/ownership/capture failure and stop before timing. No service or quality claim. Source remains unchanged.",
+  "prior_failure": "Original a251689 production FAIL retained; lifetime-only artifact fix PASS335 exact checks. This full rerun changes only source lifetime fix and artifact filenames/source metadata; gate semantics unchanged.",
+  "validation_handle_correction": "Previous fixed report retained:558 exact checks passed then partial58/eager_hidden2 failed because prior eager call rebound graph.next_hidden Python attribute. This driver pins original captured hidden2 AND partial-frame allocations immediately before first case, logs captured-vs-current attribute pointers before/after eager calls, and applies the SAME exact hidden2 test against capture storage. No runtime source change or gate relaxation."
+}

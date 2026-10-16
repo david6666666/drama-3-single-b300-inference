@@ -20,6 +20,7 @@ from drama3.kernels import (
     add_norm,
     attention_metadata,
     combine_experts,
+    combine_experts_add_norm,
     conv_update,
     gated_norm,
     linear,
@@ -33,6 +34,7 @@ from drama3.kernels import (
 from drama3.kernels import (
     sample_partitioned as sample,
 )
+from drama3.packed_prefill import PackedLayout, packed_conv
 from drama3.prefill_conv import prefill_conv
 
 
@@ -148,12 +150,28 @@ class DramaModel:
             raise ValueError("DRAMA3_GDN_STATE_DTYPE must be float32 or bfloat16")
         state_dtype = getattr(torch, self.state_precision)
         self.moe_layout = os.environ.get("DRAMA3_MOE_LAYOUT", "major_k")
+        self.small_moe_max_batch = int(os.environ.get("DRAMA3_SMALL_MOE_MAX_BATCH", "8"))
+        if self.small_moe_max_batch not in (0, 1, 2, 4, 8):
+            raise ValueError("DRAMA3_SMALL_MOE_MAX_BATCH must be 0, 1, 2, 4 or 8")
         self.prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE", "native")
         self.prefill_gdn = os.environ.get("DRAMA3_PREFILL_GDN", "fla")
         if self.prefill_gdn not in ("fla", "flashinfer"):
             raise ValueError("DRAMA3_PREFILL_GDN must be fla or flashinfer")
         self.tuned_prefill_moe = os.environ.get("DRAMA3_PREFILL_MOE_TUNED") == "1"
         self.packed_moe_projection = os.environ.get("DRAMA3_PACKED_MOE_PROJECTION") == "1"
+        self.batched_table_projection = os.environ.get("DRAMA3_BATCHED_TABLE_PROJECTION") == "1"
+        self.fused_moe_input = os.environ.get("DRAMA3_FUSED_MOE_INPUT") == "1"
+        self.reserved_padding_router = os.environ.get("DRAMA3_RESERVED_PADDING_ROUTER") == "1"
+        if self.reserved_padding_router and not self.fused_moe_input:
+            raise ValueError("DRAMA3_RESERVED_PADDING_ROUTER requires DRAMA3_FUSED_MOE_INPUT=1")
+        self.fused_moe_residual = os.environ.get("DRAMA3_FUSED_MOE_RESIDUAL") == "1"
+        pdl = os.environ.get("DRAMA3_MOE_PDL", "auto")
+        if pdl not in ("auto", "0", "1"):
+            raise ValueError("DRAMA3_MOE_PDL must be auto, 0 or 1")
+        self.moe_pdl = None if pdl == "auto" else pdl == "1"
+        self.moe_shared_stream = (
+            torch.cuda.Stream() if os.environ.get("DRAMA3_MOE_SHARED_OVERLAP") == "1" else None
+        )
         self.prefill_conv_backend = os.environ.get("DRAMA3_PREFILL_CONV", "torch")
         if self.prefill_conv_backend not in ("torch", "triton"):
             raise ValueError("DRAMA3_PREFILL_CONV must be torch or triton")
@@ -348,13 +366,28 @@ class DramaModel:
         v = v.reshape(-1, 2, 256)
         keys[slots, positions] = k
         values[slots, positions] = v
-        out = F.scaled_dot_product_attention(
-            q.reshape(prefill_sequences, -1, 16, 256).transpose(1, 2),
-            k.reshape(prefill_sequences, -1, 2, 256).transpose(1, 2),
-            v.reshape(prefill_sequences, -1, 2, 256).transpose(1, 2),
-            is_causal=True,
-            enable_gqa=True,
-        ).transpose(1, 2)
+        if isinstance(prefill_sequences, PackedLayout):
+            layout = prefill_sequences
+            out = torch.ops.aten._flash_attention_forward(
+                q,
+                k,
+                v,
+                layout.boundaries,
+                layout.boundaries,
+                layout.max_length,
+                layout.max_length,
+                0.0,
+                True,
+                False,
+            )[0]
+        else:
+            out = F.scaled_dot_product_attention(
+                q.reshape(prefill_sequences, -1, 16, 256).transpose(1, 2),
+                k.reshape(prefill_sequences, -1, 2, 256).transpose(1, 2),
+                v.reshape(prefill_sequences, -1, 2, 256).transpose(1, 2),
+                is_causal=True,
+                enable_gqa=True,
+            ).transpose(1, 2)
         return linear(
             out.reshape(-1, 4096) * gate.sigmoid(),
             layer.wo.weight if tower else layer.o_proj.weight,
@@ -376,6 +409,23 @@ class DramaModel:
             mixed = conv_update(mixed, conv, layer.conv1d.weight, slots)
             out = torch.empty((len(slots), 1, 32, 128), dtype=x.dtype, device=x.device)
             gdn_decode(mixed, a, b, layer.A_log_fp32, layer.dt_bias_fp32, state, out, slots)
+        elif isinstance(valid_length, PackedLayout):
+            mixed = packed_conv(mixed, layer.conv1d.weight, conv, valid_length)
+            q, k, v = mixed.split((2048, 2048, 4096), dim=-1)
+            decay = -layer.A_log.float().exp() * F.softplus(a.float() + layer.dt_bias.float())
+            beta = b.float().sigmoid()
+            out = gdn_prefill(
+                q.reshape(1, -1, 16, 128),
+                k.reshape(1, -1, 16, 128),
+                v.reshape(1, -1, 32, 128),
+                decay.reshape(1, -1, 32),
+                beta.reshape(1, -1, 32),
+                state,
+                slots,
+                None,
+                backend=self.prefill_gdn,
+                packed_layout=valid_length,
+            )
         else:
             sequences = len(valid_length) if valid_length is not None else 1
             span = len(x) // sequences
@@ -432,7 +482,15 @@ class DramaModel:
         ).reshape(-1, 4096)
         return linear(out, layer.out_proj.weight)
 
-    def moe(self, x: torch.Tensor, layer, decode: bool = False) -> torch.Tensor:
+    def moe(
+        self, x: torch.Tensor, layer, decode: bool = False, *, row_slots: torch.Tensor | None = None
+    ) -> torch.Tensor:
+        return combine_experts(*self.moe_parts(x, layer, decode, row_slots=row_slots))
+
+    def moe_parts(
+        self, x: torch.Tensor, layer, decode: bool = False, *, row_slots: torch.Tensor | None = None
+    ):
+        """Return unchanged native outputs after joining any shared-expert stream."""
         experts = layer.experts
         if self.packed_moe_projection:
             projected = linear(x, layer.packed_input_projection)
@@ -445,14 +503,30 @@ class DramaModel:
             gate_up = linear(x, layer.shared_expert.packed_gate_up)
             router = linear(x, layer.gate.weight)
             shared_gate = linear(x, layer.shared_expert_gate.weight)
-        if len(x) <= 8 or (not decode and self.prefill_moe == "native"):
-            if len(x) <= 8:
+        stream = self.moe_shared_stream if decode else None
+        if stream is not None:
+            # Fork only after the packed input projection is ready, and join
+            # before combining outputs or letting its storage be reused.
+            stream.wait_stream(torch.cuda.current_stream())
+            with torch.cuda.stream(stream):
+                shared = linear(silu_mul(gate_up), layer.shared_expert.down_proj.weight)
+        routed = self.routed_moe(x, router, experts, decode, row_slots=row_slots)
+        if stream is None:
+            shared = linear(silu_mul(gate_up), layer.shared_expert.down_proj.weight)
+        else:
+            torch.cuda.current_stream().wait_stream(stream)
+        return routed, shared, shared_gate
+
+    def routed_moe(self, x, router, experts, decode, *, row_slots=None):
+        """Unchanged full top-8 expert path, independent of the shared expert."""
+        if len(x) <= self.small_moe_max_batch or (not decode and self.prefill_moe == "native"):
+            if len(x) <= self.small_moe_max_batch:
                 weights, indices = route(router)
             else:
                 probabilities = router.float().softmax(-1)
                 weights, indices = probabilities.topk(8, dim=-1)
                 weights = (weights / weights.sum(-1, keepdim=True)).to(x.dtype)
-            if len(x) <= 8:
+            if len(x) <= self.small_moe_max_batch:
                 routed = small_batch_moe(x, indices, weights, experts)
             else:
                 tuned = self.tuned_prefill_moe and len(x) >= 1024
@@ -466,12 +540,24 @@ class DramaModel:
                     atomic=tuned,
                 )
         else:
-            quantized, scales = quantize_groups(quant_kernel, x, x.shape[-1])
+            if decode and self.fused_moe_input:
+                from drama3.moe_input import prepare_moe_input
+
+                padding_slots = row_slots if self.reserved_padding_router else None
+                quantized, scales, logits = prepare_moe_input(
+                    x,
+                    router,
+                    row_slots=padding_slots,
+                    padding_start=self.slots // 2 if padding_slots is not None else None,
+                )
+            else:
+                quantized, scales = quantize_groups(quant_kernel, x, x.shape[-1])
+                scales, logits = scales.T.contiguous(), router.float()
             routed = trtllm_fp8_block_scale_moe(
-                routing_logits=router.float(),
+                routing_logits=logits,
                 routing_bias=None,
                 hidden_states=quantized,
-                hidden_states_scale=scales.T.contiguous(),
+                hidden_states_scale=scales,
                 gemm1_weights=experts.flashinfer_w13,
                 gemm1_weights_scale=experts.flashinfer_w13_scale,
                 gemm2_weights=experts.flashinfer_w2,
@@ -490,14 +576,11 @@ class DramaModel:
                     WeightLayout.BlockMajorK if experts.flashinfer_shuffled else WeightLayout.MajorK
                 ),
                 tune_max_num_tokens=4096,
+                enable_pdl=self.moe_pdl,
             )
             if isinstance(routed, list):
                 routed = routed[0]
-        shared = linear(
-            silu_mul(gate_up),
-            layer.shared_expert.down_proj.weight,
-        )
-        return combine_experts(routed, shared, shared_gate)
+        return routed
 
     def backbone_forward(
         self,
@@ -513,6 +596,10 @@ class DramaModel:
             normalized = (
                 self.norm(hidden, layer.input_layernorm)
                 if pending is None
+                else combine_experts_add_norm(
+                    *pending, hidden, layer.input_layernorm.weight, layer.input_layernorm.eps
+                )
+                if self.fused_moe_residual
                 else add_norm(
                     pending, hidden, layer.input_layernorm.weight, layer.input_layernorm.eps
                 )
@@ -525,7 +612,11 @@ class DramaModel:
                     positions,
                     slots,
                     batch,
-                    len(valid_length) if valid_length is not None else 1,
+                    valid_length
+                    if isinstance(valid_length, PackedLayout)
+                    else len(valid_length)
+                    if valid_length is not None
+                    else 1,
                 )
             else:
                 mixed = self.linear_attention(
@@ -537,7 +628,15 @@ class DramaModel:
                 layer.post_attention_layernorm.weight,
                 layer.post_attention_layernorm.eps,
             )
-            pending = self.moe(normalized, layer.mlp, batch is not None)
+            pending = (
+                self.moe_parts(normalized, layer.mlp, batch is not None, row_slots=slots)
+                if self.fused_moe_residual
+                else self.moe(normalized, layer.mlp, batch is not None, row_slots=slots)
+            )
+        if self.fused_moe_residual:
+            return combine_experts_add_norm(
+                *pending, hidden, self.backbone.norm.weight, self.backbone.norm.eps
+            )
         return add_norm(pending, hidden, self.backbone.norm.weight, self.backbone.norm.eps)
 
     def tower_layer(
@@ -554,7 +653,12 @@ class DramaModel:
         prefill_sequences: int = 1,
     ) -> torch.Tensor:
         if index:
-            hidden = table_projection(hidden, layer, codes, semantic)
+            if self.batched_table_projection and 2 <= len(hidden) <= 8:
+                from drama3.table_projection_batched import table_projection_batched
+
+                hidden = table_projection_batched(hidden, layer, codes, semantic, rows=8)
+            else:
+                hidden = table_projection(hidden, layer, codes, semantic)
         else:
             embedding = layer.semantic_embedding if layer.shared else layer.codebook_embedding
             embedded = torch.where(semantic[:, None], embedding(codes.clamp(0, 4095)), 0.0)
@@ -593,7 +697,11 @@ class DramaModel:
         labels: torch.Tensor | None,
         history: torch.Tensor | None = None,
         prefill_sequences: int = 1,
+        *,
+        code1_callback=None,
     ) -> torch.Tensor:
+        if code1_callback is not None and labels is not None:
+            raise ValueError("The code1 callback is only supported for decode")
         if labels is None:
             self.sampling_step.add_(1)
             logits = linear(hidden, self.lm_head)[:, : len(self.candidates)]
@@ -638,7 +746,20 @@ class DramaModel:
             )
             if labels is None:
                 codes.append(sample(linear(hidden, head.weight), self.sampling_step, index + 2))
+                if index == 0 and code1_callback is not None:
+                    code1_callback(main, codes[0], codes[1])
         return torch.stack((main, *codes), dim=-1)
+
+    @torch.inference_mode()
+    def prefill_packed(self, frames, labels, positions, slots, layout):
+        for conv, state in self.states.values():
+            conv.index_fill_(0, layout.sequence_slots, 0)
+            state.index_fill_(0, layout.sequence_slots, 0)
+        hidden = self.backbone_forward(frames, positions, slots, None, layout)
+        self.tower_forward(hidden, frames, positions, slots, None, labels, prefill_sequences=layout)
+        # The first-frame graph overwrites each final prompt position's tower KV.
+        ends = layout.boundaries[1:-1].to(torch.int64) - 1
+        return hidden.index_select(0, ends.clamp_min(0))
 
     @torch.inference_mode()
     def prefill_batched(self, frames, request_slots, lengths):

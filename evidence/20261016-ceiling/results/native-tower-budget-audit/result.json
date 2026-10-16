@@ -1,0 +1,706 @@
+{
+  "status": "CPU_AUDIT_COMPLETE_NO_NEW_GPU_CANDIDATE_JUSTIFIED",
+  "gpu_used": false,
+  "runtime_changed": false,
+  "service_claim": false,
+  "provenance": {
+    "/home/zjy/code/hsliu/artifacts/drama3-scale150-20261015/native-bf16-projections-b64/trace.json.gz": "e0b7af65c92c32ed8548f3f167478610294540f797d3be3ff97f315c60db2ecc",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-real-contract/result.json": "36ace75a677e5b34deec85f8b1042ce92d689ddabb5b035c1863eee0372bcd84",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/model.py": "2716709ec035b80c08341acf9ec26134bb16567afbbc4823e0904026908842fd",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/kernels.py": "953e4077d9130db8caab943f677e2d8e44a667e6054f190164f7bc1797fee137",
+    "/home/zjy/code/hsliu/artifacts/drama3-scale150-20261015/experiments/native-bf16-projections.json": "1c5d14f8ed3a9872e96ba623cf95c16d2ada1c5aa60d3cacd5013962495bd6c3",
+    "/home/zjy/code/hsliu/artifacts/drama3-scale150-20261015/native-bf16-projections-b64/timing.json": "ae232ff4d147eda2ff8682e4f81613ca78eb22d80ce91e2c5fc30b580321f27a",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/frame-pipeline-results.md": "56e1d591f9d4fd548bcbe15cf30a1e0aa6291c53cd67bc769c4c9a77a9b1f94b"
+  },
+  "historical_trace_source_sha": "e2d5d61c7b9e6cb5524c954605f331b3860e7eca",
+  "dense_contract_source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "reviewed_runtime_head": "22403f7589a1c9ca6264b003199d078c636196ed",
+  "steps": [
+    {
+      "step": 0,
+      "full": {
+        "kernels": 1298,
+        "span_us": 8727.8759765625,
+        "kernel_interval_union_us": 8679.81884765625,
+        "uncovered_gap_us": 48.05712890625,
+        "kernel_duration_sum_us": 9378.744,
+        "groups": {
+          "other": {
+            "count": 342,
+            "kernel_sum_us": 689.0710000000009
+          },
+          "norm_residual": {
+            "count": 134,
+            "kernel_sum_us": 338.4359999999999
+          },
+          "dense_gemm": {
+            "count": 235,
+            "kernel_sum_us": 1676.3350000000005
+          },
+          "gdn_recurrence_conv_norm": {
+            "count": 90,
+            "kernel_sum_us": 919.718
+          },
+          "dense_splitk_reduce": {
+            "count": 67,
+            "kernel_sum_us": 221.79500000000016
+          },
+          "native_moe_routing_fc1_activation_fc2_finalize": {
+            "count": 240,
+            "kernel_sum_us": 4894.536000000001
+          },
+          "ffn_silu": {
+            "count": 53,
+            "kernel_sum_us": 93.69599999999998
+          },
+          "attention_prepare": {
+            "count": 23,
+            "kernel_sum_us": 76.545
+          },
+          "attention_decode_reduce": {
+            "count": 46,
+            "kernel_sum_us": 288.16300000000007
+          },
+          "attention_gate_sigmoid_mul": {
+            "count": 46,
+            "kernel_sum_us": 103.45599999999999
+          },
+          "sampling": {
+            "count": 22,
+            "kernel_sum_us": 76.99300000000001
+          }
+        }
+      },
+      "backbone_and_inputs": {
+        "kernels": 925,
+        "span_us": 7397.113037109375,
+        "kernel_interval_union_us": 7363.739501953125,
+        "uncovered_gap_us": 33.37353515625,
+        "kernel_duration_sum_us": 7994.916,
+        "groups": {
+          "other": {
+            "count": 224,
+            "kernel_sum_us": 504.32700000000017
+          },
+          "norm_residual": {
+            "count": 81,
+            "kernel_sum_us": 203.26799999999997
+          },
+          "dense_gemm": {
+            "count": 160,
+            "kernel_sum_us": 1072.3609999999999
+          },
+          "gdn_recurrence_conv_norm": {
+            "count": 90,
+            "kernel_sum_us": 919.718
+          },
+          "dense_splitk_reduce": {
+            "count": 40,
+            "kernel_sum_us": 132.48100000000008
+          },
+          "native_moe_routing_fc1_activation_fc2_finalize": {
+            "count": 240,
+            "kernel_sum_us": 4894.536000000001
+          },
+          "ffn_silu": {
+            "count": 40,
+            "kernel_sum_us": 71.87300000000002
+          },
+          "attention_prepare": {
+            "count": 10,
+            "kernel_sum_us": 33.568
+          },
+          "attention_decode_reduce": {
+            "count": 20,
+            "kernel_sum_us": 125.60100000000001
+          },
+          "attention_gate_sigmoid_mul": {
+            "count": 20,
+            "kernel_sum_us": 37.18300000000001
+          }
+        }
+      },
+      "tower_and_output": {
+        "kernels": 373,
+        "span_us": 1330.698974609375,
+        "kernel_interval_union_us": 1316.079345703125,
+        "uncovered_gap_us": 14.61962890625,
+        "kernel_duration_sum_us": 1383.828,
+        "groups": {
+          "other": {
+            "count": 118,
+            "kernel_sum_us": 184.74400000000003
+          },
+          "dense_gemm": {
+            "count": 75,
+            "kernel_sum_us": 603.9740000000002
+          },
+          "sampling": {
+            "count": 22,
+            "kernel_sum_us": 76.99300000000001
+          },
+          "norm_residual": {
+            "count": 53,
+            "kernel_sum_us": 135.168
+          },
+          "dense_splitk_reduce": {
+            "count": 27,
+            "kernel_sum_us": 89.31400000000001
+          },
+          "attention_prepare": {
+            "count": 13,
+            "kernel_sum_us": 42.977000000000004
+          },
+          "attention_decode_reduce": {
+            "count": 26,
+            "kernel_sum_us": 162.56199999999998
+          },
+          "attention_gate_sigmoid_mul": {
+            "count": 26,
+            "kernel_sum_us": 66.273
+          },
+          "ffn_silu": {
+            "count": 13,
+            "kernel_sum_us": 21.823000000000004
+          }
+        }
+      },
+      "tower_dense_by_role": {
+        "semantic_head": {
+          "calls": 1,
+          "gemm_us": 6.304,
+          "following_splitk_us": 0.0
+        },
+        "first_embedding_hidden_projection": {
+          "calls": 1,
+          "gemm_us": 6.432,
+          "following_splitk_us": 3.424
+        },
+        "qkv_projection": {
+          "calls": 13,
+          "gemm_us": 120.06600000000002,
+          "following_splitk_us": 0.0
+        },
+        "attention_output_projection": {
+          "calls": 13,
+          "gemm_us": 86.815,
+          "following_splitk_us": 42.144000000000005
+        },
+        "ffn_gate_up": {
+          "calls": 13,
+          "gemm_us": 154.851,
+          "following_splitk_us": 0.0
+        },
+        "ffn_down": {
+          "calls": 13,
+          "gemm_us": 107.16999999999999,
+          "following_splitk_us": 43.746
+        },
+        "table_hidden_projection": {
+          "calls": 12,
+          "gemm_us": 64.959,
+          "following_splitk_us": 0.0
+        },
+        "residual_codebook_head": {
+          "calls": 9,
+          "gemm_us": 57.377,
+          "following_splitk_us": 0.0
+        }
+      },
+      "tower_ffn_two_gemms_silu_two_norms_sum_us": 389.28499999999997
+    },
+    {
+      "step": 1,
+      "full": {
+        "kernels": 1298,
+        "span_us": 8790.756103515625,
+        "kernel_interval_union_us": 8743.93505859375,
+        "uncovered_gap_us": 46.821044921875,
+        "kernel_duration_sum_us": 9441.624,
+        "groups": {
+          "other": {
+            "count": 342,
+            "kernel_sum_us": 694.3260000000008
+          },
+          "norm_residual": {
+            "count": 134,
+            "kernel_sum_us": 338.949
+          },
+          "dense_gemm": {
+            "count": 235,
+            "kernel_sum_us": 1673.8980000000006
+          },
+          "gdn_recurrence_conv_norm": {
+            "count": 90,
+            "kernel_sum_us": 924.971
+          },
+          "dense_splitk_reduce": {
+            "count": 67,
+            "kernel_sum_us": 221.60400000000007
+          },
+          "native_moe_routing_fc1_activation_fc2_finalize": {
+            "count": 240,
+            "kernel_sum_us": 4944.263999999999
+          },
+          "ffn_silu": {
+            "count": 53,
+            "kernel_sum_us": 94.52499999999998
+          },
+          "attention_prepare": {
+            "count": 23,
+            "kernel_sum_us": 77.79100000000001
+          },
+          "attention_decode_reduce": {
+            "count": 46,
+            "kernel_sum_us": 291.872
+          },
+          "attention_gate_sigmoid_mul": {
+            "count": 46,
+            "kernel_sum_us": 102.49699999999999
+          },
+          "sampling": {
+            "count": 22,
+            "kernel_sum_us": 76.92700000000002
+          }
+        }
+      },
+      "backbone_and_inputs": {
+        "kernels": 925,
+        "span_us": 7459.130126953125,
+        "kernel_interval_union_us": 7426.419921875,
+        "uncovered_gap_us": 32.710205078125,
+        "kernel_duration_sum_us": 8055.869,
+        "groups": {
+          "other": {
+            "count": 224,
+            "kernel_sum_us": 507.9340000000003
+          },
+          "norm_residual": {
+            "count": 81,
+            "kernel_sum_us": 203.77999999999994
+          },
+          "dense_gemm": {
+            "count": 160,
+            "kernel_sum_us": 1070.9200000000008
+          },
+          "gdn_recurrence_conv_norm": {
+            "count": 90,
+            "kernel_sum_us": 924.971
+          },
+          "dense_splitk_reduce": {
+            "count": 40,
+            "kernel_sum_us": 132.60900000000007
+          },
+          "native_moe_routing_fc1_activation_fc2_finalize": {
+            "count": 240,
+            "kernel_sum_us": 4944.263999999999
+          },
+          "ffn_silu": {
+            "count": 40,
+            "kernel_sum_us": 72.701
+          },
+          "attention_prepare": {
+            "count": 10,
+            "kernel_sum_us": 34.016
+          },
+          "attention_decode_reduce": {
+            "count": 20,
+            "kernel_sum_us": 127.68199999999999
+          },
+          "attention_gate_sigmoid_mul": {
+            "count": 20,
+            "kernel_sum_us": 36.99199999999999
+          }
+        }
+      },
+      "tower_and_output": {
+        "kernels": 373,
+        "span_us": 1331.56201171875,
+        "kernel_interval_union_us": 1317.51513671875,
+        "uncovered_gap_us": 14.046875,
+        "kernel_duration_sum_us": 1385.7549999999999,
+        "groups": {
+          "other": {
+            "count": 118,
+            "kernel_sum_us": 186.39199999999994
+          },
+          "dense_gemm": {
+            "count": 75,
+            "kernel_sum_us": 602.9780000000001
+          },
+          "sampling": {
+            "count": 22,
+            "kernel_sum_us": 76.92700000000002
+          },
+          "norm_residual": {
+            "count": 53,
+            "kernel_sum_us": 135.16900000000004
+          },
+          "dense_splitk_reduce": {
+            "count": 27,
+            "kernel_sum_us": 88.99500000000002
+          },
+          "attention_prepare": {
+            "count": 13,
+            "kernel_sum_us": 43.775000000000006
+          },
+          "attention_decode_reduce": {
+            "count": 26,
+            "kernel_sum_us": 164.19000000000003
+          },
+          "attention_gate_sigmoid_mul": {
+            "count": 26,
+            "kernel_sum_us": 65.505
+          },
+          "ffn_silu": {
+            "count": 13,
+            "kernel_sum_us": 21.824000000000005
+          }
+        }
+      },
+      "tower_dense_by_role": {
+        "semantic_head": {
+          "calls": 1,
+          "gemm_us": 6.144,
+          "following_splitk_us": 0.0
+        },
+        "first_embedding_hidden_projection": {
+          "calls": 1,
+          "gemm_us": 6.304,
+          "following_splitk_us": 3.425
+        },
+        "qkv_projection": {
+          "calls": 13,
+          "gemm_us": 120.16000000000001,
+          "following_splitk_us": 0.0
+        },
+        "attention_output_projection": {
+          "calls": 13,
+          "gemm_us": 87.29500000000002,
+          "following_splitk_us": 43.681
+        },
+        "ffn_gate_up": {
+          "calls": 13,
+          "gemm_us": 154.56199999999998,
+          "following_splitk_us": 0.0
+        },
+        "ffn_down": {
+          "calls": 13,
+          "gemm_us": 106.56,
+          "following_splitk_us": 41.888999999999996
+        },
+        "table_hidden_projection": {
+          "calls": 12,
+          "gemm_us": 64.96000000000001,
+          "following_splitk_us": 0.0
+        },
+        "residual_codebook_head": {
+          "calls": 9,
+          "gemm_us": 56.99300000000001,
+          "following_splitk_us": 0.0
+        }
+      },
+      "tower_ffn_two_gemms_silu_two_norms_sum_us": 387.139
+    },
+    {
+      "step": 2,
+      "full": {
+        "kernels": 1298,
+        "span_us": 8749.3798828125,
+        "kernel_interval_union_us": 8701.338623046875,
+        "uncovered_gap_us": 48.041259765625,
+        "kernel_duration_sum_us": 9404.07,
+        "groups": {
+          "other": {
+            "count": 342,
+            "kernel_sum_us": 690.886000000001
+          },
+          "norm_residual": {
+            "count": 134,
+            "kernel_sum_us": 338.97700000000003
+          },
+          "dense_gemm": {
+            "count": 235,
+            "kernel_sum_us": 1678.4440000000006
+          },
+          "gdn_recurrence_conv_norm": {
+            "count": 90,
+            "kernel_sum_us": 923.017
+          },
+          "dense_splitk_reduce": {
+            "count": 67,
+            "kernel_sum_us": 222.2720000000001
+          },
+          "native_moe_routing_fc1_activation_fc2_finalize": {
+            "count": 240,
+            "kernel_sum_us": 4910.791999999997
+          },
+          "ffn_silu": {
+            "count": 53,
+            "kernel_sum_us": 93.18199999999999
+          },
+          "attention_prepare": {
+            "count": 23,
+            "kernel_sum_us": 76.83400000000003
+          },
+          "attention_decode_reduce": {
+            "count": 46,
+            "kernel_sum_us": 288.928
+          },
+          "attention_gate_sigmoid_mul": {
+            "count": 46,
+            "kernel_sum_us": 103.36200000000002
+          },
+          "sampling": {
+            "count": 22,
+            "kernel_sum_us": 77.376
+          }
+        }
+      },
+      "backbone_and_inputs": {
+        "kernels": 925,
+        "span_us": 7415.449951171875,
+        "kernel_interval_union_us": 7382.107177734375,
+        "uncovered_gap_us": 33.3427734375,
+        "kernel_duration_sum_us": 8014.982,
+        "groups": {
+          "other": {
+            "count": 224,
+            "kernel_sum_us": 504.294
+          },
+          "norm_residual": {
+            "count": 81,
+            "kernel_sum_us": 202.6930000000001
+          },
+          "dense_gemm": {
+            "count": 160,
+            "kernel_sum_us": 1076.3230000000005
+          },
+          "gdn_recurrence_conv_norm": {
+            "count": 90,
+            "kernel_sum_us": 923.017
+          },
+          "dense_splitk_reduce": {
+            "count": 40,
+            "kernel_sum_us": 131.90300000000008
+          },
+          "native_moe_routing_fc1_activation_fc2_finalize": {
+            "count": 240,
+            "kernel_sum_us": 4910.791999999997
+          },
+          "ffn_silu": {
+            "count": 40,
+            "kernel_sum_us": 71.45700000000002
+          },
+          "attention_prepare": {
+            "count": 10,
+            "kernel_sum_us": 33.57
+          },
+          "attention_decode_reduce": {
+            "count": 20,
+            "kernel_sum_us": 124.1
+          },
+          "attention_gate_sigmoid_mul": {
+            "count": 20,
+            "kernel_sum_us": 36.833000000000006
+          }
+        }
+      },
+      "tower_and_output": {
+        "kernels": 373,
+        "span_us": 1333.865966796875,
+        "kernel_interval_union_us": 1319.2314453125,
+        "uncovered_gap_us": 14.634521484375,
+        "kernel_duration_sum_us": 1389.088,
+        "groups": {
+          "other": {
+            "count": 118,
+            "kernel_sum_us": 186.59199999999984
+          },
+          "dense_gemm": {
+            "count": 75,
+            "kernel_sum_us": 602.121
+          },
+          "sampling": {
+            "count": 22,
+            "kernel_sum_us": 77.376
+          },
+          "norm_residual": {
+            "count": 53,
+            "kernel_sum_us": 136.284
+          },
+          "dense_splitk_reduce": {
+            "count": 27,
+            "kernel_sum_us": 90.36900000000001
+          },
+          "attention_prepare": {
+            "count": 13,
+            "kernel_sum_us": 43.263999999999996
+          },
+          "attention_decode_reduce": {
+            "count": 26,
+            "kernel_sum_us": 164.82800000000003
+          },
+          "attention_gate_sigmoid_mul": {
+            "count": 26,
+            "kernel_sum_us": 66.52900000000001
+          },
+          "ffn_silu": {
+            "count": 13,
+            "kernel_sum_us": 21.725000000000005
+          }
+        }
+      },
+      "tower_dense_by_role": {
+        "semantic_head": {
+          "calls": 1,
+          "gemm_us": 6.336,
+          "following_splitk_us": 0.0
+        },
+        "first_embedding_hidden_projection": {
+          "calls": 1,
+          "gemm_us": 6.337,
+          "following_splitk_us": 3.456
+        },
+        "qkv_projection": {
+          "calls": 13,
+          "gemm_us": 119.90499999999999,
+          "following_splitk_us": 0.0
+        },
+        "attention_output_projection": {
+          "calls": 13,
+          "gemm_us": 87.106,
+          "following_splitk_us": 43.041
+        },
+        "ffn_gate_up": {
+          "calls": 13,
+          "gemm_us": 153.409,
+          "following_splitk_us": 0.0
+        },
+        "ffn_down": {
+          "calls": 13,
+          "gemm_us": 106.59400000000001,
+          "following_splitk_us": 43.87200000000001
+        },
+        "table_hidden_projection": {
+          "calls": 12,
+          "gemm_us": 64.353,
+          "following_splitk_us": 0.0
+        },
+        "residual_codebook_head": {
+          "calls": 9,
+          "gemm_us": 58.081,
+          "following_splitk_us": 0.0
+        }
+      },
+      "tower_ffn_two_gemms_silu_two_norms_sum_us": 387.903
+    }
+  ],
+  "tower_mean": {
+    "span_us": 1332.0423177083333,
+    "kernel_interval_union_us": 1317.608642578125,
+    "uncovered_gap_us": 14.433675130208334,
+    "kernel_duration_sum_us": 1386.2236666666665
+  },
+  "tower_mean_groups": {
+    "other": {
+      "count": 118,
+      "kernel_sum_us": 185.90933333333328
+    },
+    "dense_gemm": {
+      "count": 75,
+      "kernel_sum_us": 603.0243333333334
+    },
+    "sampling": {
+      "count": 22,
+      "kernel_sum_us": 77.09866666666667
+    },
+    "norm_residual": {
+      "count": 53,
+      "kernel_sum_us": 135.54033333333334
+    },
+    "dense_splitk_reduce": {
+      "count": 27,
+      "kernel_sum_us": 89.55933333333334
+    },
+    "attention_prepare": {
+      "count": 13,
+      "kernel_sum_us": 43.33866666666667
+    },
+    "attention_decode_reduce": {
+      "count": 26,
+      "kernel_sum_us": 163.86
+    },
+    "attention_gate_sigmoid_mul": {
+      "count": 26,
+      "kernel_sum_us": 66.10233333333333
+    },
+    "ffn_silu": {
+      "count": 13,
+      "kernel_sum_us": 21.79066666666667
+    }
+  },
+  "tower_mean_dense_roles": {
+    "semantic_head": {
+      "calls": 1,
+      "gemm_us": 6.261333333333334,
+      "following_splitk_us": 0.0
+    },
+    "first_embedding_hidden_projection": {
+      "calls": 1,
+      "gemm_us": 6.357666666666667,
+      "following_splitk_us": 3.435
+    },
+    "qkv_projection": {
+      "calls": 13,
+      "gemm_us": 120.04366666666667,
+      "following_splitk_us": 0.0
+    },
+    "attention_output_projection": {
+      "calls": 13,
+      "gemm_us": 87.072,
+      "following_splitk_us": 42.955333333333336
+    },
+    "ffn_gate_up": {
+      "calls": 13,
+      "gemm_us": 154.274,
+      "following_splitk_us": 0.0
+    },
+    "ffn_down": {
+      "calls": 13,
+      "gemm_us": 106.77466666666666,
+      "following_splitk_us": 43.169000000000004
+    },
+    "table_hidden_projection": {
+      "calls": 12,
+      "gemm_us": 64.75733333333334,
+      "following_splitk_us": 0.0
+    },
+    "residual_codebook_head": {
+      "calls": 9,
+      "gemm_us": 57.48366666666667,
+      "following_splitk_us": 0.0
+    }
+  },
+  "tower_ffn_whole_stage_mean_us": 388.109,
+  "logical_dense_weight_bytes": {
+    "backbone_160_intercepted": 2880962560,
+    "tower_63_intercepted": 1875378176,
+    "tower_12_direct_table_mm": 100663296
+  },
+  "lt_diagnostic": {
+    "status": "STOPPED_BELOW_0_3MS_BUDGET",
+    "all_projection_baseline_ms": 1.5508880615234375,
+    "selected_baseline_ms": 0.7423283386230469,
+    "replaced_calls": 0,
+    "saved_ms": 0.026519470214843688,
+    "native_runtime_qualification": false
+  },
+  "limitations": [
+    "Historical full trace is not a current production timing or service roofline.",
+    "Kernel duration sums overlap; only interval union and span are wall-time quantities.",
+    "Uncovered intervals bound visible idle gaps only; fusion could also reduce in-kernel setup/memory work.",
+    "Logical weight bytes are not measured DRAM traffic.",
+    "A large persistent rewrite is not proven impossible, but no credible >0.3ms/step implementation budget is established."
+  ]
+}

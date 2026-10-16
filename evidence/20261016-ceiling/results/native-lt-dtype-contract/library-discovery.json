@@ -1,0 +1,14 @@
+{
+  "LD_LIBRARY_PATH": "/usr/local/cuda/lib64:/usr/local/cuda/lib64",
+  "after_torch": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia/cu13/lib/libcublas.so.13",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia/cu13/lib/libcublasLt.so.13"
+  ],
+  "explicit_version": 130101,
+  "explicit_path": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia/cu13/lib/libcublasLt.so.13",
+  "after_explicit": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia/cu13/lib/libcublas.so.13",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia/cu13/lib/libcublasLt.so.13"
+  ],
+  "cuda_initialized": false
+}

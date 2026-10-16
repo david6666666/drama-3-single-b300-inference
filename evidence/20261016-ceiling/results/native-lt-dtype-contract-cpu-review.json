@@ -1,0 +1,17 @@
+{
+  "reviewed_utc": "2026-10-16T02:37:36.000521+00:00",
+  "scope": "Independent CPU/source review only; no GPU or runtime edits",
+  "status": "BOUNDED_EXPERIMENT_RECOMMENDED_NATIVE_DATATYPE_DISCREPANCY_UNRESOLVED",
+  "evidence": {
+    "native-lt-dtype-contract/probe.py": "4bfa7d2fc2a4167e5c27c4ea157e4514ecdbca7cc23cc94db94f01e7a7cf6adf",
+    "native-lt-dtype-contract/result.json": "ef9ece8a5e775e3c5b80ea95ef666dc457cbc0d4f7b7db4bb2defb33e8697444",
+    "native-lt-dtype-contract/same-library-capability.json": "cff2990458bb094c477166e1e792f14d008bc2063bc50533f24da8eb492160fb",
+    "native-lt-dtype-contract/protocol.json": "d1dde8235777c64c11947382f0bff2e6204f38a4214b16b9836a3ead20c4e0dc",
+    "native-lt-dtype-contract/library-discovery.json": "d49fccfe4eb2547c8f39443c8efe05c4eae736e083ca886f6aa1907ac26adb9e",
+    "native-lt-dtype-contract/algo-0.bin": "5e9a2416e55ec1f1a18096a26d229e49f5d3043ce2754f5809d62344ac91e2ad",
+    "native-lt-dtype-contract/algo-1.bin": "6aea9e115469d8ab2f038579d464c201d231acbb5fb15ae4866dfb08346aaf97",
+    "native-lt-b64/lt_binding.py": "35771e66cab7110a32743c48118665ae0fafe6548cf10a3f4ef989cc46b4871b",
+    "native-lt-b64/result.json": "32608fc9b6d3cf498f59940b2061b50093930c86461bb34c3532f9b5f172d02c"
+  },
+  "safe_to_archive": true
+}

@@ -38,6 +38,7 @@ from __future__ import annotations
 import bisect
 import logging
 import math
+import os
 import time
 from collections.abc import Iterable, Sequence
 
@@ -1073,6 +1074,9 @@ class DACDecodeGraphs:
             f: sorted({int(t) for t in (trims or {}).get(f, (0,)) if 0 <= int(t) < f})
             for f in self.frame_buckets
         }
+        self.split_policy = os.environ.get("DRAMA3_CODEC_SPLIT_POLICY", "dp")
+        if self.split_policy not in ("dp", "min_launches"):
+            raise ValueError("DRAMA3_CODEC_SPLIT_POLICY must be dp or min_launches")
         self.max_batch_for: dict[int, int] = {}
         self.batch_buckets: dict[int, list[int]] = {}
         for frames in self.frame_buckets:
@@ -1104,7 +1108,12 @@ class DACDecodeGraphs:
         return max(0, int(context) - min(int(context), self.receptive_frames))
 
     @torch.inference_mode()
-    def capture(self, device: torch.device) -> None:
+    def capture(
+        self, device: torch.device, *, capture_stream: torch.cuda.Stream | None = None
+    ) -> None:
+        # Keep an explicitly selected capture stream alive with its graphs. BLAS
+        # workspace allocation is keyed by stream independently of graph pools.
+        self.capture_stream = capture_stream
         shapes = sorted(
             (
                 (b, f, t)
@@ -1134,7 +1143,7 @@ class DACDecodeGraphs:
                 self.decoder(static, trim)
             torch.accelerator.synchronize(device)
             graph = torch.cuda.CUDAGraph()
-            with torch.cuda.graph(graph, pool=pool):
+            with torch.cuda.graph(graph, pool=pool, stream=capture_stream):
                 out = self.decoder(static, trim)
             self._unbind()
             self.graphs[(batch, frames, trim)] = (graph, static, out)
@@ -1183,6 +1192,15 @@ class DACDecodeGraphs:
         cached = self._splits.get(key)
         if cached is not None:
             return cached
+        if self.split_policy == "min_launches":
+            # Batch only the rows already ready in this frame bucket. Preserve
+            # their order and use existing captures; never wait for more rows.
+            full, remainder = divmod(count, sizes[-1])
+            result = [sizes[-1]] * full
+            if remainder:
+                result.append(sizes[bisect.bisect_left(sizes, remainder)])
+            self._splits[key] = result
+            return result
 
         def cost(size: int) -> float:
             return self.cost_ms[(size, frames, trim)]

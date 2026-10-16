@@ -1,0 +1,74 @@
+{
+  "status": "EXACT_AND_SINGLE_AB_CONTINUATION_PASS",
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "source_clean": true,
+  "checks_passed": 603,
+  "failed_checks": 0,
+  "cases": [
+    {
+      "case": "proxy190",
+      "alias_count": 661,
+      "unique_rows": 939,
+      "compact_rows": 1088,
+      "all111_states": true,
+      "all_output_rows": true,
+      "passed": true
+    },
+    {
+      "case": "proxy190_reversed_reused_graph",
+      "alias_count": 661,
+      "unique_rows": 939,
+      "compact_rows": 1088,
+      "all111_states": true,
+      "all_output_rows": true,
+      "passed": true
+    },
+    {
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "alias_count": 531,
+      "unique_rows": 1069,
+      "compact_rows": 1088,
+      "all111_states": true,
+      "all_output_rows": true,
+      "passed": true
+    }
+  ],
+  "candidate_fixed_buffer_bytes": 441087536,
+  "peak_allocated_bytes": 159135906816,
+  "protocol_sha256": "75477defba7953f5f22276c357f7ff088d592e74fc2fa54adf7bea708c5e0b57",
+  "result_sha256": "8288b88b60d0d8758dc5fc14845cd989fc10802ebd91dc84d1f98850f3a51884",
+  "timings": [
+    {
+      "case": "proxy190",
+      "control_median_ms": 29.089808464050293,
+      "candidate_median_ms": 27.272159576416016,
+      "saved_ms": 1.8176488876342773,
+      "latency_reduction_percent": 6.248404453678546,
+      "continuation_pass": true
+    },
+    {
+      "case": "proxy190_reversed_reused_graph",
+      "control_median_ms": 29.09391975402832,
+      "candidate_median_ms": 27.27611255645752,
+      "saved_ms": 1.8178071975708008,
+      "latency_reduction_percent": 6.248065619687115,
+      "continuation_pass": true
+    },
+    {
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "control_median_ms": 29.255775451660156,
+      "candidate_median_ms": 27.281392097473145,
+      "saved_ms": 1.9743833541870117,
+      "latency_reduction_percent": 6.748696022258304,
+      "continuation_pass": true
+    }
+  ],
+  "limitations": [
+    "Single AB screening is not repeated stability/service evidence.",
+    "Exact checks precede timing; no claim of full state validation after each100timedreplay.",
+    "This native MixedGraph includes teacher tower, not separate postgraph olddecode/newfirst sampling towers or codec. No serving preparation or restoration time included.",
+    "FIFO proxy membership remains unverified against request-ID server logs.",
+    "Candidate uses retained per-layer guarded buffers and reports their memory; no extra observercopy in the timed path.",
+    "Prior expanded-adapter 3.89\u20134.36% FAIL preserved; this candidate removes159 launches/1.049GB logical adapter traffic, not measured DRAMbytes or a guaranteed latency saving."
+  ]
+}

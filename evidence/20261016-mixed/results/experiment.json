@@ -1,0 +1,9 @@
+{
+  "hypothesis": "Mixed prefill/decode amortizes backbone weight reads and advances live requests during prompt work, unlike the current serial service loop.",
+  "isolated_variable": "Joint backbone dense/MoE rows; separate existing attention/GDN segments and teacher-forced prompt tower. Original sampling tower ordering retained.",
+  "native_contract": "All eight routed experts, BF16 dense, native FP8 expert representation and existing BF16 GDN states. No pruning, extra quantization, output reuse or benchmark filtering.",
+  "controls": "Frozen e58c841 prior runtime, source snapshots and complete 1088 corpus; GPU0; OMP8; same codec BF16 synchronous and other flags for service. Capture readiness separate. Same-source candidate toggle for serving controls.",
+  "gates": ["Layer probes on identical inputs RRMS<0.03; exact untouched slot ownership", "Graph/eager state parity; real prompt lengths and partial batches", "Single full1088 C64 service feasibility with all-output WER/SIM", "Three repetitions and all C only for a viable candidate"],
+  "stop": "Stop candidate on invalid state ownership, numerical gate failure or quality failure. Retain all failed evidence. Do not promote microbenchmark to service claim.",
+  "target": "All C1,2,4,8,16,32,64 >= 1.5x frozen vLLM8933 baseline, confirmed WER+1pp/SIM-2"
+}

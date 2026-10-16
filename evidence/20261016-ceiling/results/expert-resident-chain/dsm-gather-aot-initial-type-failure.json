@@ -1,0 +1,46 @@
+{
+  "status": "CPU_AOT_FAIL",
+  "gpu_launched": false,
+  "source_sha256": "14bc114e3dfb28c52aed9172886701ab56c09224163dc334b4cc8cce9a776aac",
+  "scope": "Actual DSM helper at full outer78080-byte allocation/alignment; no GEMM stage or GPU execution.",
+  "ranges": {
+    "stage": [
+      0,
+      72704
+    ],
+    "fc1": [
+      72704,
+      74752
+    ],
+    "fc1_sf": [
+      74752,
+      74816
+    ],
+    "full": [
+      72704,
+      76800
+    ],
+    "full_sf": [
+      76800,
+      76928
+    ],
+    "local": [
+      76928,
+      77952
+    ],
+    "local_sf": [
+      77952,
+      77984
+    ],
+    "tmem_ptr": [
+      78016,
+      78020
+    ],
+    "outer": [
+      0,
+      78080
+    ]
+  },
+  "cpu_geometry_cases": 9,
+  "error": "Traceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/resident_dsm_gather_aot.py\", line 54, in <module>\n    fn=cute.compile(Probe(),*args,cuda_drv.CUstream(0),options='--gpu-arch sm_103a --opt-level 2')\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/compiler.py\", line 1446, in __call__\n    return self._compile(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/compiler.py\", line 1609, in _compile\n    return func._dsl_object._func(func, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/dsl.py\", line 2938, in _func\n    return self._func_impl(funcBody, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/dsl.py\", line 2958, in _func_impl\n    result = self.generate_mlir(\n             ^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/dsl.py\", line 2472, in generate_mlir\n    module, module_hash, result = self.generate_original_ir(\n                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/dsl.py\", line 2117, in generate_original_ir\n    module, result = build_ir_module()\n                     ^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/dsl.py\", line 2078, in build_ir_module\n    result = funcBody(*ir_args, **ir_kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/resident_dsm_gather_aot.py\", line 33, in __call__\n    self.kernel(q,s,n,y,ys).launch(grid=(4,1,1),cluster=(4,1,1),block=(512,1,1),stream=stream)\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/cutlass_dsl/cutlass.py\", line 2318, in launch\n    ret, name = kernel_generator(\n                ^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/dsl.py\", line 3305, in kernel_wrapper\n    kernel_ret = funcBody(*ir_args, **ir_kwargs)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/resident_dsm_gather_aot.py\", line 27, in kernel\n    resident_dsm_gather(local,local_sf,full,full_sf,n[0],tid)\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/dsl.py\", line 922, in jit_wrapper\n    return getattr(func._dsl_object, executor_name)(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/dsl.py\", line 2938, in _func\n    return self._func_impl(funcBody, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/dsl.py\", line 2953, in _func_impl\n    return funcBody(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/resident_dsm_gather.py\", line 47, in resident_dsm_gather\n    if tid < Int32(32):\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/ast_helpers.py\", line 285, in ir_loop\n    return func(pred, *write_args)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/resident_dsm_gather.py\", line 47, in if_region_4\n    if tid < Int32(32):\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/ast_helpers.py\", line 321, in if_executor\n    return executor.if_execute(\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/ast_helpers.py\", line 170, in if_execute\n    return self._if_dynamic(\n           ^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/cutlass_dsl/cutlass_ast_decorators.py\", line 572, in _if_execute_dynamic\n    return scf_gen.scf_execute_dynamic(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/cutlass_dsl/cutlass_ast_decorators.py\", line 215, in scf_execute_dynamic\n    region_result = builder(\n                    ^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/cutlass_dsl/cutlass_ast_decorators.py\", line 542, in then_builder\n    return then_block(*flat_args)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/resident_dsm_gather.py\", line 51, in then_block_7\n    if token < valid_rows:\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/ast_helpers.py\", line 285, in ir_loop\n    return func(pred, *write_args)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/resident_dsm_gather.py\", line 51, in if_region_5\n    if token < valid_rows:\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/ast_helpers.py\", line 321, in if_executor\n    return executor.if_execute(\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/base_dsl/ast_helpers.py\", line 170, in if_execute\n    return self._if_dynamic(\n           ^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/cutlass_dsl/cutlass_ast_decorators.py\", line 572, in _if_execute_dynamic\n    return scf_gen.scf_execute_dynamic(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/cutlass_dsl/cutlass_ast_decorators.py\", line 239, in scf_execute_dynamic\n    ScfGenerator._check_region_result(\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-vllm/lib/python3.12/site-packages/nvidia_cutlass_dsl/dsl_packages/cutlass/cutlass_dsl/cutlass_ast_decorators.py\", line 182, in _check_region_result\n    raise DSLUserCodeError(\ncutlass.base_dsl.common.DSLUserCodeError: \n\u001b[91m\u001b[1merror[TYPE_UNSTABLE_JOIN]:\u001b[0m `bits` has type `Uint32` on one path and `Int32` on another. Where the paths come back together, both versions must be the same type.\n  \u001b[94m-->\u001b[0m /home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/resident_dsm_gather.py:51\n   |\n49 |         token = tid % Int32(8)\n50 |         bits = Uint32(0)\n51 |         if token < valid_rows:\n   |         \u001b[91m^\u001b[0m\n  \u001b[92msuggestion:\u001b[0m Make every assignment to `bits` produce the same type.\n  \u001b[92msuggestion:\u001b[0m If you need a conversion, convert it explicitly inside the branch so the result is\n              consistently one type.\n\n"
+}

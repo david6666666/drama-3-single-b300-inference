@@ -1,0 +1,10 @@
+{
+  "status": "READY_NEGATIVE_RESULT",
+  "source_frozen": true,
+  "frozen_files_verified": 158,
+  "gpu_process_stopped": true,
+  "gpu_post_empty": true,
+  "summary_sha256": "3c83aea39c07a53f91083cdf7be0f0f3429b0a74a2375239fb1eabca2ce3ddc9",
+  "runtime_modified": false,
+  "public_claim": "Exact component/full-call correctness passes; single local continuation gate fails. No service improvement claim."
+}

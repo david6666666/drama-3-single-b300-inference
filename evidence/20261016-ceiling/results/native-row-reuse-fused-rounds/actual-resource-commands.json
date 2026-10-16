@@ -1,0 +1,18 @@
+[
+  {
+    "argv": [
+      "/usr/local/cuda/bin/cuobjdump",
+      "--dump-resource-usage",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-rounds/actual-control-device0-specialization0.cubin"
+    ],
+    "output": "\nResource usage:\n Common:\n  GLOBAL:11 CONSTANT[4]:8\n Function combine_experts_add_norm_kernel:\n  REG:32 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:960 TEXTURE:0 SURFACE:0 SAMPLER:0\n"
+  },
+  {
+    "argv": [
+      "/usr/local/cuda/bin/cuobjdump",
+      "--dump-resource-usage",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-rounds/actual-candidate-device0-specialization0.cubin"
+    ],
+    "output": "\nResource usage:\n Common:\n  GLOBAL:11 CONSTANT[4]:8\n Function inverse_combine_experts_add_norm_kernel:\n  REG:32 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:968 TEXTURE:0 SURFACE:0 SAMPLER:0\n"
+  }
+]

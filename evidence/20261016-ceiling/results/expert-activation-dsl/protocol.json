@@ -1,0 +1,32 @@
+{
+  "hypothesis": "The NEW CuTe DSL translation preserves every native activation byte and FP32 scale bit across the previously validated shared-memory interface cases.",
+  "isolated_variable": "Only implementation language/code generation changes: C++ native-preserving body to explicit-PTX CuTe DSL helper. Original FC1 FP8 input/scales and native reference bytes unchanged.",
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "gpu_uuid": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf",
+  "scope": "Single untimed arithmetic/layout feasibility. No runtime edits, service or performance claims. Archived native synthetic references are reused; no native host helper rerun.",
+  "controls": "15 archived native oracles / all4rank fragments;512threadCTA with8active epiloguewarps; CuTe DSL 4.7.1 compiled sm103a with explicit native FTZ/approx operations; original FP8bytes/FP32scales, nativefulltop8 provenance. No weight/model loading, no cacheflush, no clock control.",
+  "gate": "Every activation byte and FP32scale bit exact;partialvalid0..8,globalandsharedcanaries,input/scales/counts/RNG unchanged;capturedgraph with changedinputs; separate signedzero/FLT_MIN/NaN diagnostics.",
+  "stop": "First mismatch preserves failed tensors/result; no timing or service continuation.",
+  "before_gpu": "",
+  "hashes": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-dsl/run.py": "e0f8b2c35dad65ebc863a4d2244504d7a0c566ef8c6e1bce588e8f9e3c094fb0",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-dsl/probe.py": "2e96d60d6a707f85db1186388d004b91e21152eaca40a9a2e7851d538a12bbfb",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-dsl/aot.py": "fbf1e3c6c9f5270fc18a6cda4136ef88986e7f18ca700b200ef828d2ee6bf03f",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-dsl/activation-helper-aot-result.json": "75ec7e97498546dd24ef346fa3d158ef093bd1f13b7d7d35ec260e05d4dab5b8",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/activation_shared_dsl.py": "f73a86fbfde68be1592f4d0bbfc52756081a3c78be6583b2f4090a3ccb49542d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/activation-helper-aot-result.json": "2a1b2dedb65d768db16816d7bce251f6d22257804fb5a61e91f6ae4ba474a369",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/inputs.pt": "a1631ff7a6b04a89d3e30b449e55e9fad2b033167f1df008a2f541f98e8bac2b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/synthetic-native-oracle.pt": "32f6eed69f46f0274f0781d4cdfc7bc0f6ba530278edcdc5d6c7793d3550c72e",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/shared_activation.cu": "84fbc06ed358c794dceb59e7c0197873a798fe132fd8bf52b0ef4f2d07f9a46d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/result-v2.json": "2c74ee65df5bdec9db93aaa2e67733d4ae584df67355ad1abf19e07103472da0"
+  },
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-dsl/run.py"
+  ],
+  "storage": {
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python": "/dev/vda4 ext4   /",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-dsl": "/dev/vda4 ext4   /",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase": "/dev/vda4 ext4   /"
+  }
+}

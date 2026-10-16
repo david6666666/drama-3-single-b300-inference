@@ -1,0 +1,137 @@
+{
+  "status": "CPU_CONTROLS_AND_ARCHIVED_PARSER_PASS",
+  "checks": [
+    {
+      "name": "draft_source_and_flags_CPU_pass",
+      "passed": true
+    },
+    {
+      "name": "draft_launch_rejected",
+      "passed": true
+    },
+    {
+      "name": "synthetic_complete_gate_contract_accepted_not_a_real_GPU_gate",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/original_AA_passed/False",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/status/FAIL",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/exact_passed/False",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/source_sha/wrong",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/pool_interleaving_passed/False",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/retained_outputs_passed/False",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/all111_states/False",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/five_bucket_coverage/[[64, 768, 256, 576], [64, 1024, 256, 832], [64, 1280, 256, 1088], [64, 1536, 256, 1088]]",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/capture_orders/['ascending']",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/checks/[]",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/checks/[{'passed': False}]",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/cases/[]",
+      "passed": true
+    },
+    {
+      "name": "reject_gate/cases/[{'passed': False}]",
+      "passed": true
+    },
+    {
+      "name": "reject_protocol/requests",
+      "passed": true
+    },
+    {
+      "name": "reject_protocol/source_sha",
+      "passed": true
+    },
+    {
+      "name": "reject_protocol/repeats",
+      "passed": true
+    },
+    {
+      "name": "reject_other_flag_change",
+      "passed": true
+    },
+    {
+      "name": "inherited_DRAMA3_removed",
+      "passed": true
+    },
+    {
+      "name": "only_one_arm_env_difference",
+      "passed": true
+    },
+    {
+      "name": "benchmark_client_pinned_source",
+      "passed": true
+    },
+    {
+      "name": "current_process_identity",
+      "passed": true
+    },
+    {
+      "name": "child_ownership",
+      "passed": true
+    },
+    {
+      "name": "ancestor_not_child",
+      "passed": true
+    },
+    {
+      "name": "archived_all1088_service_parser",
+      "passed": true
+    },
+    {
+      "name": "archived_full_quality_parser",
+      "passed": true
+    },
+    {
+      "name": "client_tail_retained",
+      "passed": true
+    },
+    {
+      "name": "throughput_unchanged_by_tail_accounting",
+      "passed": true
+    },
+    {
+      "name": "no_torch_or_cuda_import",
+      "passed": true
+    }
+  ],
+  "gpu_used": false,
+  "files": {
+    "run_experiment.py": "ba495a760b5c88e16acea689843dcc842c51f9abfe48db1e5f83c04b4e7da60e",
+    "common.py": "7f47982b38b907db07e386a8835029d193b4d339831a34115c01be1c5e08e6fb",
+    "prepare_protocol.py": "63ffb723926a5ed14dcab59835bf54397c4454404f55047c42230b66f372275b",
+    "summarize.py": "7406880dc6d834cd11d38d93f5187458f1792599127aafbf8b731a88311fa3fe",
+    "cpu_check.py": "25f3ad2f34799d84dbc1aedcb7f80b767ac9dc554267a11f30b5e133d630002c"
+  }
+}

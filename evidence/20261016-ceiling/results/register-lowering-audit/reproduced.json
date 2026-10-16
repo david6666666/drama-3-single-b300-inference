@@ -1,0 +1,47 @@
+{
+  "gpu_used": false,
+  "checks": [
+    {
+      "artifact": "expert-fc1-native-v3",
+      "cubin_sha256": "476495717a31847f92b368bd263d26855b4d9cdec71451466653ced2e4fe3ee8",
+      "register_reconfiguration_instructions": 0,
+      "highest_R": 29,
+      "pass_all": true
+    },
+    {
+      "artifact": "expert-fc2-native-v2",
+      "cubin_sha256": "127abe920626d6db37294b3f902e539028de62bb37747a86947622f0a3660358",
+      "register_reconfiguration_instructions": 0,
+      "highest_R": 27,
+      "pass_all": true
+    },
+    {
+      "artifact": "expert-m128-native-v2",
+      "cubin_sha256": "591e474af703bb3883f3769a3b59ffe49f3ace647740b6288aafe3343ef98907",
+      "register_reconfiguration_instructions": 0,
+      "highest_R": 29,
+      "pass_all": true
+    },
+    {
+      "artifact": "expert-m128-fc2",
+      "cubin_sha256": "0fd40161ae41dbb849cd493122874be3d12446d7c101bde71750efdddfe95cd1",
+      "register_reconfiguration_instructions": 0,
+      "highest_R": 28,
+      "pass_all": true
+    },
+    {
+      "artifact": "expert-resident-full",
+      "cubin_sha256": "09423f0fc6d503e71d781e1d76e6dfb07522ee1c6a8d97292e81aba6b41f57f0",
+      "register_reconfiguration_instructions": 0,
+      "highest_R": 29,
+      "pass_all": true
+    },
+    {
+      "artifact": "vendor-native-fc1",
+      "cubin_sha256": "f9562335760b5d98fbac45a85bed51247e02eac09e9e5a38713b0c0b6e7917fe",
+      "register_reconfiguration_instructions": 8,
+      "highest_R": 40,
+      "pass_all": true
+    }
+  ]
+}

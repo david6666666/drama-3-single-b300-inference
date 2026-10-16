@@ -1,0 +1,36 @@
+{
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "mode": "CPU C++17 shared extension; no CUDA or Torch compilation",
+  "flags": [
+    "-O2",
+    "-shared",
+    "-fPIC",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wno-missing-field-initializers"
+  ],
+  "linked": "\tlinux-vdso.so.1 (0x00007ffd843e4000)\n\tlibcuda.so.1 => /lib/x86_64-linux-gnu/libcuda.so.1 (0x0000760edb600000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x0000760edb200000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000760edae00000)\n\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x0000760ee21d9000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000760edb517000)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x0000760edb512000)\n\tlibrt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x0000760edb50d000)\n\t/lib64/ld-linux-x86-64.so.2 (0x0000760ee21f7000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x0000760edb4df000)\n",
+  "headers": {
+    "/usr/local/cuda/include/cuda.h": "7a79d67ca888061b1dfbe4739b51ad64f85a2f3ad874947ce09b2c635b4c7072",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/include/ATen/dlpack.h": "62d0acfd441700f9b970ef2d694bde8628ccd4a36b0b5d311592768350f68d73"
+  },
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-shared",
+    "-fPIC",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wno-missing-field-initializers",
+    "-I/usr/include/python3.12",
+    "-I/usr/local/cuda/include",
+    "-I/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/include",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-vmm/vmm_tensor.cpp",
+    "-o",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-compressed-vmm/_vmm_tensor.cpython-312-x86_64-linux-gnu.so",
+    "-lcuda"
+  ]
+}

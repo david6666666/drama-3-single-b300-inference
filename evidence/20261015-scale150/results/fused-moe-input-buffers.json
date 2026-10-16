@@ -1,0 +1,722 @@
+[
+  {
+    "batch": 12,
+    "strided": false,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 12,
+    "strided": false,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 12,
+    "strided": false,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 12,
+    "strided": false,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 12,
+    "strided": true,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 12,
+    "strided": true,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 12,
+    "strided": true,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true,
+    "baseline_us": 4.654363989830017,
+    "fused_us": 1.3295268784420649
+  },
+  {
+    "batch": 12,
+    "strided": true,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 16,
+    "strided": false,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 16,
+    "strided": false,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 16,
+    "strided": false,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 16,
+    "strided": false,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 16,
+    "strided": true,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 16,
+    "strided": true,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 16,
+    "strided": true,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true,
+    "baseline_us": 5.2576417459146265,
+    "fused_us": 1.5366335746145596
+  },
+  {
+    "batch": 16,
+    "strided": true,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 24,
+    "strided": false,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 24,
+    "strided": false,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 24,
+    "strided": false,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 24,
+    "strided": false,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 24,
+    "strided": true,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 24,
+    "strided": true,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 24,
+    "strided": true,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true,
+    "baseline_us": 5.551267678464823,
+    "fused_us": 1.5838297757696598
+  },
+  {
+    "batch": 24,
+    "strided": true,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 32,
+    "strided": false,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 32,
+    "strided": false,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 32,
+    "strided": false,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 32,
+    "strided": false,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 32,
+    "strided": true,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 32,
+    "strided": true,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 32,
+    "strided": true,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true,
+    "baseline_us": 5.4804455570100865,
+    "fused_us": 1.579917446119056
+  },
+  {
+    "batch": 32,
+    "strided": true,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 40,
+    "strided": false,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 40,
+    "strided": false,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 40,
+    "strided": false,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 40,
+    "strided": false,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 40,
+    "strided": true,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 40,
+    "strided": true,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 40,
+    "strided": true,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true,
+    "baseline_us": 5.91836491676226,
+    "fused_us": 1.5829582878983501
+  },
+  {
+    "batch": 40,
+    "strided": true,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 48,
+    "strided": false,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 48,
+    "strided": false,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 48,
+    "strided": false,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 48,
+    "strided": false,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 48,
+    "strided": true,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 48,
+    "strided": true,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 48,
+    "strided": true,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true,
+    "baseline_us": 6.065034866333008,
+    "fused_us": 1.5935676627688937
+  },
+  {
+    "batch": 48,
+    "strided": true,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 56,
+    "strided": false,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 56,
+    "strided": false,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 56,
+    "strided": false,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 56,
+    "strided": false,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 56,
+    "strided": true,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 56,
+    "strided": true,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 56,
+    "strided": true,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true,
+    "baseline_us": 5.948244860624293,
+    "fused_us": 1.5965972766617305
+  },
+  {
+    "batch": 56,
+    "strided": true,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 64,
+    "strided": false,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 64,
+    "strided": false,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 64,
+    "strided": false,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 64,
+    "strided": false,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 64,
+    "strided": true,
+    "magnitude": 0.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 64,
+    "strided": true,
+    "magnitude": 1e-12,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  },
+  {
+    "batch": 64,
+    "strided": true,
+    "magnitude": 1.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true,
+    "baseline_us": 6.076673184837899,
+    "fused_us": 1.5960728509454065
+  },
+  {
+    "batch": 64,
+    "strided": true,
+    "magnitude": 1000.0,
+    "buffers_exact": [
+      true,
+      true,
+      true
+    ],
+    "passed": true
+  }
+]

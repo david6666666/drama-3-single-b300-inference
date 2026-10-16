@@ -1,0 +1,15 @@
+{
+  "source_kernel": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/batched_gemm_kernel.py",
+  "source_kernel_sha256": "8963ccf24821db00f9ab405f3e9ccbbea96734211929acdd8962ae817800a556",
+  "fc1_arithmetic_sha256": "ac1bc91e625f1ab0deb2c5fd728bb22589dc20693e50af5ce9aaaf357cfb3c86",
+  "fc2_arithmetic_sha256": "e47905d984bf1dc053a9b85703ae77566e7f37d91ef253416a0490a5e0df1613",
+  "status": "CPU_IMPLEMENTATION_NOT_YET_AOT",
+  "changes": [
+    "Static Task tile offset is explicit phase*4",
+    "Borrow one outer stage SMEM allocation for sequential phases",
+    "FC1 output bytes/scales stored in pinned shared logical fragment",
+    "Native BF16 TMEM store mapping from independently exact FC2v2",
+    "Same host TensorMap construction; outercluster4 does not change native cfg.cluster_m1/MMAgroup1"
+  ],
+  "no_timing": true
+}

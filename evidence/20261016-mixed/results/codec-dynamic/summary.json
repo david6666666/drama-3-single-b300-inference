@@ -1,0 +1,238 @@
+{
+  "source_sha": "7618212e15e7506bb20d57372d6700fe837988a5",
+  "logging_followup_sha": "c129e3e132b3ed706e998cba7fa0902565ae26df",
+  "default_passed": false,
+  "default_first_divergence": {
+    "mode": "poll",
+    "index": 207,
+    "operation": "decode_64",
+    "same_roster": true
+  },
+  "dedicated_passed": true,
+  "dedicated_modes": [
+    {
+      "mode": "sync",
+      "passed": true,
+      "state_differences": 0,
+      "pcm_mismatches": 0
+    },
+    {
+      "mode": "poll",
+      "passed": true,
+      "state_differences": 0,
+      "pcm_mismatches": 0
+    },
+    {
+      "mode": "thread",
+      "passed": true,
+      "state_differences": 0,
+      "pcm_mismatches": 0
+    }
+  ],
+  "cross_capture_serial_trace_exact": true,
+  "cross_capture_serial_pcm_exact": true,
+  "workspace_default": {
+    "scope": "Installed ATen cuBLAS/cuBLASLt maps; does not inspect other libraries' scratch",
+    "model_capture_stream": 336670064,
+    "codec_capture_stream": 336670064,
+    "model": [
+      {
+        "kind": "cublas",
+        "handle": 676719024,
+        "stream": 336670064,
+        "ptr": 137218098200576,
+        "size": 33554432
+      }
+    ],
+    "codec": [
+      {
+        "kind": "cublas",
+        "handle": 676719024,
+        "stream": 336670064,
+        "ptr": 137218098200576,
+        "size": 33554432
+      }
+    ],
+    "overlapping_ranges": [
+      [
+        {
+          "kind": "cublas",
+          "handle": 676719024,
+          "stream": 336670064,
+          "ptr": 137218098200576,
+          "size": 33554432
+        },
+        {
+          "kind": "cublas",
+          "handle": 676719024,
+          "stream": 336670064,
+          "ptr": 137218098200576,
+          "size": 33554432
+        }
+      ]
+    ]
+  },
+  "workspace_dedicated": {
+    "scope": "Installed ATen cuBLAS/cuBLASLt maps; does not inspect other libraries' scratch",
+    "model_capture_stream": 882967200,
+    "codec_capture_stream": 625066320,
+    "model": [
+      {
+        "kind": "cublas",
+        "handle": 705319696,
+        "stream": 882967200,
+        "ptr": 125384926429184,
+        "size": 33554432
+      }
+    ],
+    "codec": [
+      {
+        "kind": "cublas",
+        "handle": 705319696,
+        "stream": 625066320,
+        "ptr": 125448969256960,
+        "size": 33554432
+      }
+    ],
+    "overlapping_ranges": []
+  },
+  "coverage": {
+    "trace_length": 414,
+    "codec_shapes": [
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        12
+      ],
+      [
+        1,
+        16
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        1,
+        32
+      ],
+      [
+        1,
+        64
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        16
+      ],
+      [
+        2,
+        24
+      ],
+      [
+        2,
+        32
+      ],
+      [
+        3,
+        32
+      ],
+      [
+        4,
+        16
+      ],
+      [
+        4,
+        32
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        8,
+        12
+      ],
+      [
+        8,
+        16
+      ],
+      [
+        11,
+        24
+      ],
+      [
+        12,
+        16
+      ],
+      [
+        12,
+        24
+      ],
+      [
+        15,
+        12
+      ],
+      [
+        15,
+        16
+      ],
+      [
+        16,
+        6
+      ],
+      [
+        16,
+        8
+      ],
+      [
+        16,
+        12
+      ]
+    ],
+    "codec_calls": 99,
+    "decode_shapes": [
+      "decode_1",
+      "decode_16",
+      "decode_2",
+      "decode_32",
+      "decode_4",
+      "decode_48",
+      "decode_64",
+      "decode_8",
+      "first_frame"
+    ],
+    "prefill_capacities": [
+      256,
+      768,
+      1024,
+      1280,
+      1536,
+      1792
+    ]
+  },
+  "limitation": "One correctness feasibility run per capture mode; full-code plus metadata D2H per step differs from serving. No performance/quality or past-failure root-cause claim.",
+  "after_gpu": ""
+}

@@ -1,0 +1,1009 @@
+{
+  "passed": true,
+  "cuda_initialized": false,
+  "cases": [
+    {
+      "name": "padding-router-b58-native-inputs.pt/L0",
+      "global_tiles": 209,
+      "local_tiles": [
+        104,
+        105
+      ],
+      "route_counts": [
+        264,
+        248
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L1",
+      "global_tiles": 208,
+      "local_tiles": [
+        105,
+        103
+      ],
+      "route_counts": [
+        250,
+        262
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L2",
+      "global_tiles": 209,
+      "local_tiles": [
+        109,
+        100
+      ],
+      "route_counts": [
+        260,
+        252
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L3",
+      "global_tiles": 207,
+      "local_tiles": [
+        104,
+        103
+      ],
+      "route_counts": [
+        245,
+        267
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L4",
+      "global_tiles": 204,
+      "local_tiles": [
+        99,
+        105
+      ],
+      "route_counts": [
+        254,
+        258
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L5",
+      "global_tiles": 195,
+      "local_tiles": [
+        93,
+        102
+      ],
+      "route_counts": [
+        233,
+        279
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L6",
+      "global_tiles": 196,
+      "local_tiles": [
+        100,
+        96
+      ],
+      "route_counts": [
+        254,
+        258
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L7",
+      "global_tiles": 185,
+      "local_tiles": [
+        86,
+        99
+      ],
+      "route_counts": [
+        248,
+        264
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L8",
+      "global_tiles": 176,
+      "local_tiles": [
+        82,
+        94
+      ],
+      "route_counts": [
+        267,
+        245
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L9",
+      "global_tiles": 180,
+      "local_tiles": [
+        95,
+        85
+      ],
+      "route_counts": [
+        278,
+        234
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L10",
+      "global_tiles": 167,
+      "local_tiles": [
+        79,
+        88
+      ],
+      "route_counts": [
+        255,
+        257
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L11",
+      "global_tiles": 176,
+      "local_tiles": [
+        92,
+        84
+      ],
+      "route_counts": [
+        270,
+        242
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L12",
+      "global_tiles": 163,
+      "local_tiles": [
+        77,
+        86
+      ],
+      "route_counts": [
+        223,
+        289
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L13",
+      "global_tiles": 177,
+      "local_tiles": [
+        87,
+        90
+      ],
+      "route_counts": [
+        255,
+        257
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L14",
+      "global_tiles": 163,
+      "local_tiles": [
+        81,
+        82
+      ],
+      "route_counts": [
+        282,
+        230
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L15",
+      "global_tiles": 160,
+      "local_tiles": [
+        70,
+        90
+      ],
+      "route_counts": [
+        208,
+        304
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L16",
+      "global_tiles": 156,
+      "local_tiles": [
+        71,
+        85
+      ],
+      "route_counts": [
+        229,
+        283
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L17",
+      "global_tiles": 157,
+      "local_tiles": [
+        65,
+        92
+      ],
+      "route_counts": [
+        200,
+        312
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L18",
+      "global_tiles": 153,
+      "local_tiles": [
+        76,
+        77
+      ],
+      "route_counts": [
+        265,
+        247
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L19",
+      "global_tiles": 174,
+      "local_tiles": [
+        82,
+        92
+      ],
+      "route_counts": [
+        236,
+        276
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L20",
+      "global_tiles": 168,
+      "local_tiles": [
+        83,
+        85
+      ],
+      "route_counts": [
+        242,
+        270
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L21",
+      "global_tiles": 164,
+      "local_tiles": [
+        81,
+        83
+      ],
+      "route_counts": [
+        264,
+        248
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L22",
+      "global_tiles": 167,
+      "local_tiles": [
+        74,
+        93
+      ],
+      "route_counts": [
+        217,
+        295
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L23",
+      "global_tiles": 173,
+      "local_tiles": [
+        89,
+        84
+      ],
+      "route_counts": [
+        257,
+        255
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L24",
+      "global_tiles": 161,
+      "local_tiles": [
+        78,
+        83
+      ],
+      "route_counts": [
+        235,
+        277
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L25",
+      "global_tiles": 154,
+      "local_tiles": [
+        74,
+        80
+      ],
+      "route_counts": [
+        243,
+        269
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L26",
+      "global_tiles": 160,
+      "local_tiles": [
+        82,
+        78
+      ],
+      "route_counts": [
+        273,
+        239
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L27",
+      "global_tiles": 159,
+      "local_tiles": [
+        72,
+        87
+      ],
+      "route_counts": [
+        230,
+        282
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L28",
+      "global_tiles": 163,
+      "local_tiles": [
+        86,
+        77
+      ],
+      "route_counts": [
+        288,
+        224
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L29",
+      "global_tiles": 166,
+      "local_tiles": [
+        78,
+        88
+      ],
+      "route_counts": [
+        250,
+        262
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L30",
+      "global_tiles": 161,
+      "local_tiles": [
+        80,
+        81
+      ],
+      "route_counts": [
+        234,
+        278
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L31",
+      "global_tiles": 148,
+      "local_tiles": [
+        68,
+        80
+      ],
+      "route_counts": [
+        238,
+        274
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L32",
+      "global_tiles": 149,
+      "local_tiles": [
+        77,
+        72
+      ],
+      "route_counts": [
+        281,
+        231
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L33",
+      "global_tiles": 165,
+      "local_tiles": [
+        83,
+        82
+      ],
+      "route_counts": [
+        258,
+        254
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L34",
+      "global_tiles": 162,
+      "local_tiles": [
+        84,
+        78
+      ],
+      "route_counts": [
+        288,
+        224
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L35",
+      "global_tiles": 161,
+      "local_tiles": [
+        81,
+        80
+      ],
+      "route_counts": [
+        251,
+        261
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L36",
+      "global_tiles": 165,
+      "local_tiles": [
+        76,
+        89
+      ],
+      "route_counts": [
+        228,
+        284
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L37",
+      "global_tiles": 155,
+      "local_tiles": [
+        69,
+        86
+      ],
+      "route_counts": [
+        213,
+        299
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L38",
+      "global_tiles": 160,
+      "local_tiles": [
+        80,
+        80
+      ],
+      "route_counts": [
+        274,
+        238
+      ]
+    },
+    {
+      "name": "padding-router-b58-native-inputs.pt/L39",
+      "global_tiles": 148,
+      "local_tiles": [
+        71,
+        77
+      ],
+      "route_counts": [
+        223,
+        289
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L0",
+      "global_tiles": 208,
+      "local_tiles": [
+        106,
+        102
+      ],
+      "route_counts": [
+        250,
+        262
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L1",
+      "global_tiles": 200,
+      "local_tiles": [
+        103,
+        97
+      ],
+      "route_counts": [
+        261,
+        251
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L2",
+      "global_tiles": 211,
+      "local_tiles": [
+        104,
+        107
+      ],
+      "route_counts": [
+        269,
+        243
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L3",
+      "global_tiles": 206,
+      "local_tiles": [
+        103,
+        103
+      ],
+      "route_counts": [
+        248,
+        264
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L4",
+      "global_tiles": 192,
+      "local_tiles": [
+        97,
+        95
+      ],
+      "route_counts": [
+        250,
+        262
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L5",
+      "global_tiles": 200,
+      "local_tiles": [
+        98,
+        102
+      ],
+      "route_counts": [
+        240,
+        272
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L6",
+      "global_tiles": 194,
+      "local_tiles": [
+        101,
+        93
+      ],
+      "route_counts": [
+        254,
+        258
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L7",
+      "global_tiles": 180,
+      "local_tiles": [
+        85,
+        95
+      ],
+      "route_counts": [
+        247,
+        265
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L8",
+      "global_tiles": 188,
+      "local_tiles": [
+        94,
+        94
+      ],
+      "route_counts": [
+        265,
+        247
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L9",
+      "global_tiles": 172,
+      "local_tiles": [
+        90,
+        82
+      ],
+      "route_counts": [
+        278,
+        234
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L10",
+      "global_tiles": 180,
+      "local_tiles": [
+        86,
+        94
+      ],
+      "route_counts": [
+        251,
+        261
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L11",
+      "global_tiles": 168,
+      "local_tiles": [
+        83,
+        85
+      ],
+      "route_counts": [
+        258,
+        254
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L12",
+      "global_tiles": 165,
+      "local_tiles": [
+        80,
+        85
+      ],
+      "route_counts": [
+        236,
+        276
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L13",
+      "global_tiles": 178,
+      "local_tiles": [
+        82,
+        96
+      ],
+      "route_counts": [
+        250,
+        262
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L14",
+      "global_tiles": 165,
+      "local_tiles": [
+        84,
+        81
+      ],
+      "route_counts": [
+        278,
+        234
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L15",
+      "global_tiles": 157,
+      "local_tiles": [
+        71,
+        86
+      ],
+      "route_counts": [
+        204,
+        308
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L16",
+      "global_tiles": 152,
+      "local_tiles": [
+        71,
+        81
+      ],
+      "route_counts": [
+        238,
+        274
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L17",
+      "global_tiles": 153,
+      "local_tiles": [
+        66,
+        87
+      ],
+      "route_counts": [
+        231,
+        281
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L18",
+      "global_tiles": 151,
+      "local_tiles": [
+        75,
+        76
+      ],
+      "route_counts": [
+        267,
+        245
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L19",
+      "global_tiles": 168,
+      "local_tiles": [
+        82,
+        86
+      ],
+      "route_counts": [
+        227,
+        285
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L20",
+      "global_tiles": 173,
+      "local_tiles": [
+        82,
+        91
+      ],
+      "route_counts": [
+        262,
+        250
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L21",
+      "global_tiles": 164,
+      "local_tiles": [
+        84,
+        80
+      ],
+      "route_counts": [
+        286,
+        226
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L22",
+      "global_tiles": 166,
+      "local_tiles": [
+        74,
+        92
+      ],
+      "route_counts": [
+        223,
+        289
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L23",
+      "global_tiles": 173,
+      "local_tiles": [
+        87,
+        86
+      ],
+      "route_counts": [
+        255,
+        257
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L24",
+      "global_tiles": 156,
+      "local_tiles": [
+        76,
+        80
+      ],
+      "route_counts": [
+        227,
+        285
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L25",
+      "global_tiles": 165,
+      "local_tiles": [
+        78,
+        87
+      ],
+      "route_counts": [
+        235,
+        277
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L26",
+      "global_tiles": 162,
+      "local_tiles": [
+        91,
+        71
+      ],
+      "route_counts": [
+        301,
+        211
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L27",
+      "global_tiles": 166,
+      "local_tiles": [
+        73,
+        93
+      ],
+      "route_counts": [
+        225,
+        287
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L28",
+      "global_tiles": 164,
+      "local_tiles": [
+        81,
+        83
+      ],
+      "route_counts": [
+        265,
+        247
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L29",
+      "global_tiles": 158,
+      "local_tiles": [
+        74,
+        84
+      ],
+      "route_counts": [
+        241,
+        271
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L30",
+      "global_tiles": 160,
+      "local_tiles": [
+        73,
+        87
+      ],
+      "route_counts": [
+        225,
+        287
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L31",
+      "global_tiles": 144,
+      "local_tiles": [
+        73,
+        71
+      ],
+      "route_counts": [
+        249,
+        263
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L32",
+      "global_tiles": 158,
+      "local_tiles": [
+        84,
+        74
+      ],
+      "route_counts": [
+        280,
+        232
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L33",
+      "global_tiles": 162,
+      "local_tiles": [
+        91,
+        71
+      ],
+      "route_counts": [
+        295,
+        217
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L34",
+      "global_tiles": 146,
+      "local_tiles": [
+        80,
+        66
+      ],
+      "route_counts": [
+        305,
+        207
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L35",
+      "global_tiles": 159,
+      "local_tiles": [
+        75,
+        84
+      ],
+      "route_counts": [
+        226,
+        286
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L36",
+      "global_tiles": 152,
+      "local_tiles": [
+        72,
+        80
+      ],
+      "route_counts": [
+        241,
+        271
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L37",
+      "global_tiles": 156,
+      "local_tiles": [
+        72,
+        84
+      ],
+      "route_counts": [
+        208,
+        304
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L38",
+      "global_tiles": 164,
+      "local_tiles": [
+        84,
+        80
+      ],
+      "route_counts": [
+        267,
+        245
+      ]
+    },
+    {
+      "name": "padding-router-b63-native-inputs.pt/L39",
+      "global_tiles": 146,
+      "local_tiles": [
+        61,
+        85
+      ],
+      "route_counts": [
+        206,
+        306
+      ]
+    },
+    {
+      "name": "worst_local_0",
+      "global_tiles": 176,
+      "local_tiles": [
+        176,
+        0
+      ],
+      "route_counts": [
+        512,
+        0
+      ]
+    },
+    {
+      "name": "worst_local_128",
+      "global_tiles": 176,
+      "local_tiles": [
+        0,
+        176
+      ],
+      "route_counts": [
+        0,
+        512
+      ]
+    },
+    {
+      "name": "worst_global",
+      "global_tiles": 288,
+      "local_tiles": [
+        160,
+        128
+      ],
+      "route_counts": [
+        384,
+        128
+      ]
+    }
+  ],
+  "invalid_rejected": [
+    "negative",
+    "expert256",
+    "duplicate"
+  ],
+  "counter_provenance": "Use initialized native CTA-to-expert map and non_exiting count. Do not read allocated num_tokens_per_expert scratch: routing method4 does not forward it.",
+  "driver_sha256": "b76f95d0830223f9910e38586f58dd57d7a38b1d4fde5336fc8f1e0f3d85799b"
+}

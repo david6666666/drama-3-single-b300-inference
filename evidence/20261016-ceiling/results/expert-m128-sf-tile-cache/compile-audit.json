@@ -1,0 +1,484 @@
+{
+  "status": "CPU_COMPILE_CONTRACT_PASS",
+  "checks": [
+    {
+      "name": "exactly_576_extra_shared",
+      "passed": true
+    },
+    {
+      "name": "FC1_actual_fit",
+      "passed": true
+    },
+    {
+      "name": "fc1_no_spill",
+      "passed": true
+    },
+    {
+      "name": "fc2_no_spill",
+      "passed": true
+    },
+    {
+      "name": "FC2_CUBIN_identical",
+      "passed": true
+    },
+    {
+      "name": "FC1_actual_REG32",
+      "passed": true
+    },
+    {
+      "name": "no_actual_register_redistribution",
+      "passed": true
+    },
+    {
+      "name": "same_instruction_count_UTMALDG.3D",
+      "passed": true
+    },
+    {
+      "name": "same_instruction_count_UTMALDG.2D.GATHER4",
+      "passed": true
+    },
+    {
+      "name": "same_instruction_count_UTCQMMA",
+      "passed": true
+    },
+    {
+      "name": "same_instruction_count_ACQBULK",
+      "passed": true
+    },
+    {
+      "name": "same_instruction_count_PREEXIT",
+      "passed": true
+    },
+    {
+      "name": "old_SF_LDGSTS_present",
+      "passed": true
+    },
+    {
+      "name": "no_remaining_LDGSTS",
+      "passed": true
+    },
+    {
+      "name": "all_seven_unrolled_SF_work_bodies_found",
+      "passed": true
+    },
+    {
+      "name": "SF_work_0_shared_copies_only",
+      "passed": true
+    },
+    {
+      "name": "SF_work_0_proxy_fence",
+      "passed": true
+    },
+    {
+      "name": "SF_work_1_shared_copies_only",
+      "passed": true
+    },
+    {
+      "name": "SF_work_1_proxy_fence",
+      "passed": true
+    },
+    {
+      "name": "SF_work_2_shared_copies_only",
+      "passed": true
+    },
+    {
+      "name": "SF_work_2_proxy_fence",
+      "passed": true
+    },
+    {
+      "name": "SF_work_3_shared_copies_only",
+      "passed": true
+    },
+    {
+      "name": "SF_work_3_proxy_fence",
+      "passed": true
+    },
+    {
+      "name": "SF_work_4_shared_copies_only",
+      "passed": true
+    },
+    {
+      "name": "SF_work_4_proxy_fence",
+      "passed": true
+    },
+    {
+      "name": "SF_work_5_shared_copies_only",
+      "passed": true
+    },
+    {
+      "name": "SF_work_5_proxy_fence",
+      "passed": true
+    },
+    {
+      "name": "SF_work_6_shared_copies_only",
+      "passed": true
+    },
+    {
+      "name": "SF_work_6_proxy_fence",
+      "passed": true
+    },
+    {
+      "name": "warp_sync_after_preload_in_PTX",
+      "passed": true
+    },
+    {
+      "name": "full_cache_address_range_emitted",
+      "passed": true
+    },
+    {
+      "name": "ordinary_release_arrival_emitted",
+      "passed": true
+    },
+    {
+      "name": "SASS_stage_release_has_generic_store_fence",
+      "passed": true
+    }
+  ],
+  "resources": {
+    "fc1": {
+      "status": "CPU_RESOURCE_PASS",
+      "cubin_sha256": "311a2b1d147155ecebbad21e522cfeeba3c75ebe4b30ada8bb5eca98308d8d33",
+      "ptx_sha256": "7c595b9ba4133a0525d5444100377993111f5b4cf085da83d4c9f4f226c4f30e",
+      "host_ir_sha256": "4ba489dde7070792e843ac9a34b44383e9476f457c7abf8082f7451359a06db5",
+      "dynamic_shared_bytes": 73144,
+      "static_shared_bytes": 2048,
+      "total_shared_bytes_per_cta": 75192,
+      "limit_bytes_per_cta": 81920,
+      "dynamic_shared_evidence": [
+        {
+          "constant": "%17",
+          "config_pointer": "%201",
+          "dynamic_shared_bytes": 73144
+        }
+      ],
+      "stack_bytes": 0,
+      "local_bytes": 0,
+      "ptx_local_ops": 0,
+      "sass_spill_ops": 0,
+      "base_registers": 32,
+      "setmaxnreg_limits": [
+        "160",
+        "48"
+      ],
+      "cluster_size": 1,
+      "cluster_evidence": null,
+      "limitations": [
+        "Resource fit does not prove occupancy or concurrent residency.",
+        "Dynamic SETMAXNREG limits require complete warp-role resource accounting.",
+        "Independent FC1/FC2 resource counts cannot be added to infer composite buffer lifetime."
+      ],
+      "gpu_used": false,
+      "timing_allowed": false
+    },
+    "fc2": {
+      "status": "CPU_RESOURCE_PASS",
+      "cubin_sha256": "ea52321ec64fc9976a306b7c7aeeb0805033c2e024034e5cc6ce266e7d95b170",
+      "ptx_sha256": "7bd5b717c7728474163599827f7f01ee7a70e317a30e284e631b441eb46f926d",
+      "host_ir_sha256": "1ab3d79918d6b7a35d63fbb14ea8794ba42f5406b907cb69ff2f191df1999d76",
+      "dynamic_shared_bytes": 72616,
+      "static_shared_bytes": 2048,
+      "total_shared_bytes_per_cta": 74664,
+      "limit_bytes_per_cta": 81920,
+      "dynamic_shared_evidence": [
+        {
+          "constant": "%18",
+          "config_pointer": "%209",
+          "dynamic_shared_bytes": 72616
+        }
+      ],
+      "stack_bytes": 0,
+      "local_bytes": 0,
+      "ptx_local_ops": 0,
+      "sass_spill_ops": 0,
+      "base_registers": 32,
+      "setmaxnreg_limits": [
+        "160",
+        "48"
+      ],
+      "cluster_size": 1,
+      "cluster_evidence": null,
+      "limitations": [
+        "Resource fit does not prove occupancy or concurrent residency.",
+        "Dynamic SETMAXNREG limits require complete warp-role resource accounting.",
+        "Independent FC1/FC2 resource counts cannot be added to infer composite buffer lifetime."
+      ],
+      "gpu_used": false,
+      "timing_allowed": false
+    }
+  },
+  "candidate_instruction_histogram": {
+    "LDC": 4,
+    "S2R": 3,
+    "LDCU.64": 6,
+    "ACQBULK": 1,
+    "LDC.64": 13,
+    "UIADD3": 154,
+    "UTMACCTL.PF": 3,
+    "VIADD": 12,
+    "UIADD3.X": 9,
+    "SHF.R.S32.HI": 5,
+    "LEA.HI": 4,
+    "LOP3.LUT": 58,
+    "ISETP.NE.U32.AND": 13,
+    "LDG.E": 19,
+    "S2UR": 5,
+    "ISETP.LT.AND": 3,
+    "UMOV": 99,
+    "SHF.R.U32.HI": 2,
+    "R2UR": 16,
+    "LEA.HI.SX32": 2,
+    "IMAD": 24,
+    "UISETP.NE.U32.AND": 59,
+    "ULEA": 100,
+    "BRA.U": 42,
+    "USHF.L.U32": 29,
+    "FENCE.VIEW.ASYNC.S": 20,
+    "SYNCS.EXCH.64": 38,
+    "NOP": 31,
+    "BAR.SYNC.DEFER_BLOCKING": 5,
+    "ELECT": 16,
+    "BRA": 225,
+    "IMAD.MOV.U32": 37,
+    "DEPBAR.LE": 2,
+    "UTCATOMSWS.FIND_AND_SET.ALIGN": 2,
+    "IMAD.U32": 108,
+    "NANOSLEEP": 1,
+    "SHF.L.U32": 57,
+    "IMAD.SHL.U32": 4,
+    "ATOMS.OR": 2,
+    "STS": 20,
+    "WARPSYNC.ALL": 1,
+    "UVIRTCOUNT.DEALLOC.SMPOOL": 1,
+    "STS.U8": 1,
+    "ISETP.GE.AND": 14,
+    "IMAD.WIDE": 14,
+    "VOTEU.ALL": 2,
+    "R2UR.BROADCAST": 1,
+    "ISETP.GE.U32.AND": 1,
+    "SYNCS.PHASECHK.TRANS64.TRYWAIT": 144,
+    "USEL": 90,
+    "ULOP3.LUT": 51,
+    "SYNCS.ARRIVE.TRANS64": 14,
+    "UTMALDG.3D": 7,
+    "UPRMT": 7,
+    "LDS.128": 7,
+    "MEMBAR.ALL.CTA": 14,
+    "UISETP.GT.AND": 18,
+    "SYNCS.ARRIVE.TRANS64.RED.A1T0": 7,
+    "MOV": 5,
+    "ISETP.LE.AND": 1,
+    "UIMAD.WIDE": 2,
+    "UIMAD": 14,
+    "UISETP.LT.AND": 4,
+    "UISETP.GE.AND": 7,
+    "PLOP3.LUT": 10,
+    "UISETP.GE.U32.AND": 2,
+    "UTMALDG.2D.GATHER4": 7,
+    "PREEXIT": 2,
+    "LDS": 23,
+    "ISETP.GE.OR": 21,
+    "USHF.R.U32.HI": 3,
+    "UIADD3.64": 6,
+    "UTCQMMA": 4,
+    "UTCBAR": 3,
+    "UISETP.EQ.U32.XOR": 2,
+    "LDCU": 1,
+    "IMAD.IADD": 7,
+    "ISETP.LT.U32.AND": 2,
+    "USHF.R.S32.HI": 6,
+    "ULEA.HI": 2,
+    "IMAD.MOV": 2,
+    "ULEA.HI.SX32": 4,
+    "LEA": 14,
+    "VIMNMX": 4,
+    "ISETP.GT.U32.AND": 1,
+    "CS2R": 13,
+    "SYNCS.ARRIVE.TRANS64.A1T0": 15,
+    "UISETP.GT.U32.AND": 2,
+    "LDTM.16": 8,
+    "LDS.64": 8,
+    "FMUL": 26,
+    "FFMA2.FTZ": 16,
+    "BSSY.RECONVERGENT": 2,
+    "FMNMX": 6,
+    "FMNMX3": 4,
+    "SHFL.BFLY": 6,
+    "FMNMX.FTZ": 6,
+    "STS.64": 1,
+    "FMUL2.FTZ": 1,
+    "MUFU.RCP": 4,
+    "FSETP.NEU.AND": 2,
+    "FSEL": 4,
+    "STG.E": 2,
+    "BSYNC.RECONVERGENT": 2,
+    "F2FP.SATFINITE.E4M3.F32.PACK_AB_MERGE_C": 8,
+    "IADD3": 2,
+    "LEA.HI.X.SX32": 2,
+    "STG.E.U8": 8,
+    "ISETP.NE.U32.OR": 1,
+    "PRMT": 1,
+    "SYNCS.ARRIVE.TRANS64.RED": 1,
+    "UGETNEXTWORKID.BROADCAST": 1,
+    "EXIT": 3,
+    "ISETP.NE.AND": 2,
+    "VOTEU.ANY": 1,
+    "UFLO.U32": 1,
+    "REDUX": 1,
+    "UTCATOMSWS.AND": 1,
+    "ISETP.EQ.U32.AND": 1,
+    "ATOMS.AND": 2,
+    "CALL.REL.NOINC": 2,
+    "NANOSLEEP.SYNCS": 56,
+    "SYNCS.PHASECHK.TRANS64": 56,
+    "BPT.TRAP": 2,
+    "RET.REL.NODEC": 2
+  },
+  "route_cache_control_instruction_histogram": {
+    "LDC": 3,
+    "S2R": 3,
+    "LDCU.64": 6,
+    "ACQBULK": 1,
+    "LDC.64": 15,
+    "UIADD3": 154,
+    "UTMACCTL.PF": 3,
+    "VIADD": 14,
+    "UIADD3.X": 9,
+    "SHF.R.S32.HI": 4,
+    "LEA.HI": 3,
+    "LOP3.LUT": 58,
+    "ISETP.NE.U32.AND": 12,
+    "LDG.E": 14,
+    "S2UR": 5,
+    "ISETP.LT.AND": 3,
+    "UMOV": 101,
+    "SHF.R.U32.HI": 2,
+    "R2UR": 16,
+    "LEA.HI.SX32": 1,
+    "IMAD": 18,
+    "UISETP.NE.U32.AND": 59,
+    "ULEA": 100,
+    "BRA.U": 42,
+    "USHF.L.U32": 29,
+    "FENCE.VIEW.ASYNC.S": 20,
+    "SYNCS.EXCH.64": 38,
+    "NOP": 42,
+    "BAR.SYNC.DEFER_BLOCKING": 5,
+    "ELECT": 16,
+    "BRA": 225,
+    "IMAD.MOV.U32": 38,
+    "DEPBAR.LE": 2,
+    "UTCATOMSWS.FIND_AND_SET.ALIGN": 2,
+    "IMAD.U32": 113,
+    "NANOSLEEP": 1,
+    "SHF.L.U32": 57,
+    "IMAD.SHL.U32": 4,
+    "ATOMS.OR": 2,
+    "STS": 1,
+    "WARPSYNC.ALL": 1,
+    "UVIRTCOUNT.DEALLOC.SMPOOL": 1,
+    "STS.U8": 1,
+    "ISETP.GE.AND": 15,
+    "IMAD.WIDE": 18,
+    "VOTEU.ALL": 2,
+    "R2UR.BROADCAST": 1,
+    "ISETP.GE.U32.AND": 1,
+    "SYNCS.PHASECHK.TRANS64.TRYWAIT": 144,
+    "USEL": 90,
+    "ULOP3.LUT": 51,
+    "SYNCS.ARRIVE.TRANS64": 14,
+    "UTMALDG.3D": 7,
+    "UPRMT": 7,
+    "LDS.128": 7,
+    "LDS": 65,
+    "MEMBAR.ALL.CTA": 14,
+    "UISETP.GT.AND": 18,
+    "SYNCS.ARRIVE.TRANS64.RED.A1T0": 7,
+    "MOV": 5,
+    "ISETP.LE.AND": 1,
+    "UIMAD.WIDE": 2,
+    "UIMAD": 12,
+    "UISETP.LT.AND": 4,
+    "UISETP.GE.AND": 7,
+    "PLOP3.LUT": 10,
+    "UISETP.GE.U32.AND": 2,
+    "UTMALDG.2D.GATHER4": 7,
+    "PREEXIT": 2,
+    "ISETP.GE.OR": 21,
+    "USHF.R.U32.HI": 3,
+    "UIADD3.64": 6,
+    "UTCQMMA": 4,
+    "UTCBAR": 3,
+    "UISETP.EQ.U32.XOR": 2,
+    "LDCU": 1,
+    "CS2R": 13,
+    "USHF.R.S32.HI": 6,
+    "ULEA.HI": 2,
+    "ULEA.HI.SX32": 4,
+    "IMAD.IADD": 3,
+    "VIADDMNMX": 1,
+    "VIMNMX": 3,
+    "ISETP.NE.U32.OR": 2,
+    "SEL": 2,
+    "ISETP.EQ.U32.AND": 2,
+    "LEA": 11,
+    "LDGSTS.E": 14,
+    "ARRIVES.LDGSTSBAR.64.ARVCNT": 7,
+    "UISETP.GT.U32.AND": 2,
+    "LDTM.16": 8,
+    "SYNCS.ARRIVE.TRANS64.A1T0": 8,
+    "LDS.64": 8,
+    "FMUL": 26,
+    "FFMA2.FTZ": 16,
+    "BSSY.RECONVERGENT": 2,
+    "FMNMX": 6,
+    "FMNMX3": 4,
+    "SHFL.BFLY": 6,
+    "FMNMX.FTZ": 6,
+    "STS.64": 1,
+    "FMUL2.FTZ": 1,
+    "MUFU.RCP": 4,
+    "FSETP.NEU.AND": 2,
+    "FSEL": 4,
+    "STG.E": 2,
+    "BSYNC.RECONVERGENT": 2,
+    "F2FP.SATFINITE.E4M3.F32.PACK_AB_MERGE_C": 8,
+    "IMAD.MOV": 1,
+    "IADD3": 2,
+    "LEA.HI.X.SX32": 2,
+    "STG.E.U8": 8,
+    "PRMT": 1,
+    "SYNCS.ARRIVE.TRANS64.RED": 1,
+    "UGETNEXTWORKID.BROADCAST": 1,
+    "EXIT": 3,
+    "ISETP.NE.AND": 2,
+    "VOTEU.ANY": 1,
+    "UFLO.U32": 1,
+    "REDUX": 1,
+    "UTCATOMSWS.AND": 1,
+    "ATOMS.AND": 2,
+    "CALL.REL.NOINC": 2,
+    "NANOSLEEP.SYNCS": 56,
+    "SYNCS.PHASECHK.TRANS64": 56,
+    "BPT.TRAP": 2,
+    "RET.REL.NODEC": 2
+  },
+  "scope": "static compiled evidence; no GPU launch and no throughput result",
+  "warp_sync": {
+    "PTX": "bar.warp.sync -1 after prepare stores",
+    "SASS": "corresponding PC0x3940 is NOP; stores0x38f0..0x3930 precede a uniform stage loop",
+    "interpretation": "Compiler eliminated the explicit warp opcode. Do not claim an emitted WARPSYNC here; hardware exact gate remains required."
+  },
+  "limitations": [
+    "Equal static TMA/MMA opcode counts alone do not prove equivalent scheduling or execution counts.",
+    "Actual REG32 and source setmaxnreg hints do not establish occupancy or a register-redistribution speedup.",
+    "Cross-lane publication is specified in PTX; CPU cannot prove absence of a compiler/runtime defect.",
+    "Original metadata-ready and route-cache negative results are unchanged."
+  ],
+  "sources": {
+    "audit_compile.py": "d7f312dc906d47109c8fe39f34bb84045c022adca3e937050c70f3f0347ba1f3",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-sf-tile-cache/driver-cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx": "7c595b9ba4133a0525d5444100377993111f5b4cf085da83d4c9f4f226c4f30e",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-sf-tile-cache/driver-resource-fc1/kernel.sass": "8a94961a9b7671986f32b4e6a63bf55b53db86ea08abcf033a2e0c809c78c65a"
+  },
+  "gpu_used": false,
+  "timing_allowed": false
+}

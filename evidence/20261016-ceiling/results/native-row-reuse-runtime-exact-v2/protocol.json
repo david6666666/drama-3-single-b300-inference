@@ -1,0 +1,628 @@
+{
+  "source_sha": "345c6a18f200853489a9ac8a86bbe0682ebe484d",
+  "source": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1",
+  "scope": "Production native row reuse expanded exact v2: identical complete padding input plus original A/A. Original v1 unequal-padding FAIL preserved; no runtime or numeric gate change; no performance/service run",
+  "environment": {
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_PREFILL_GDN": "fla",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_PREFILL_MOE": "flashinfer",
+    "DRAMA3_ADMISSION_MIN_BATCH": "6",
+    "DRAMA3_PREFILL_BUCKET_192": "1",
+    "DRAMA3_PACKED_PREFILL": "1",
+    "DRAMA3_ASYNC_CODEC": "1",
+    "DRAMA3_AUDIO_DELIVERY_THREAD": "1",
+    "DRAMA3_FUSED_MOE_INPUT": "1",
+    "DRAMA3_MIXED_BACKBONE": "1",
+    "DRAMA3_MIXED_SPAN256": "1",
+    "DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM": "1",
+    "DRAMA3_COMPACT_GDN": "1",
+    "DRAMA3_FUSED_MIXED_LAYOUT": "1",
+    "DRAMA3_PACKED_CONV_GUARD": "1",
+    "DRAMA3_DEFER_CODEC_SUBMIT": "0",
+    "DRAMA3_CODEC_SPLIT_POLICY": "dp",
+    "DRAMA3_SHORT_PADDING_CONTEXT": "1",
+    "DRAMA3_FUSED_MOE_RESIDUAL": "1",
+    "DRAMA3_CODEC_SMS": "0",
+    "DRAMA3_RESERVED_PADDING_ROUTER": "1",
+    "DRAMA3_FRAME_PIPELINE": "1",
+    "DRAMA3_FRAME_PIPELINE_DEFERRED_WAITING": "1",
+    "DRAMA3_CODEC_CACHED_LINEAR": "0",
+    "DRAMA3_CODEC_COALESCE": "0",
+    "CUDA_VISIBLE_DEVICES": "6",
+    "OMP_NUM_THREADS": "8",
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/hf_modules",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "DRAMA3_MOE_LAYOUT": "major_k",
+    "DRAMA3_MOE_SHARED_OVERLAP": "0",
+    "DRAMA3_MIXED_ROW_REUSE": "1"
+  },
+  "frozen_files": {
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/config.json": "4b13a31b504cf54181f52df5bbb27604f5cc4b77b6e90a12ab85d62e0d70b693",
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/tokenizer.json": "0e9b9db76b2f0389b04b6ef057a2ac3b89100b7e96f2dd7034d19580a09654d6",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/counts.json": "82fdc94b4f4083959d51bc416ceb7d5617e702336fe4bad98ec47ae98d7add63",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-design/finite-bucket-budget.json": "1dacd1f548c7bf93a0f00bc5e0affe8fd3fe1c9ece99530dbcdc7177ae22d8e4",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact-v2/common.py": "c005761e042730058b09e79a0800b239b9d4ba0ed37939d6e5cab8ccfd816e27",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact-v2/cpu-check.json": "2e7af8848ae244532b2228e411bc613a512bcf50475e3b7b8eb12c5bbb60effd",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact-v2/driver.py": "46de3941bed7a51a11d874eb24bb16cd5e17e8e7bb4e874448814e4938f32ed4",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact-v2/freeze.py": "7e6e0db3cfd871589aa33cf975ca0581cb5cff2e9f44318548900545cb7a8fc8",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-runtime-exact-v2/launch.py": "7cc2adba491a26321a73129236b14940b53f2939f20d87223458ac661a566e57",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/__init__.py": "f35f1e76e413a38a7ffcc5d143cdcc8514410e0303bbbbd27aa9d2374cba1dbf",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/audio_queue.py": "e133fbcbd5c838b098c7a6454319fd2c189069a56bb912701a41441e10e7b157",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/benchmark.py": "e55ecbd38375a8057cf757e2c0d0844ec2e965ec9bc5b6d5014d6624ea31d734",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/bf16_projection.py": "2df5c17984db572e15539be3f86d24621507352c7c6a387a34da7dcd3b15de4c",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/codec.py": "3fb1e3412d96801d1d704ee2a412f7ecc0e1788239464b1104bf4d1503ddf2bd",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/codec_context.py": "1772c802dd58516b4e4b359e5d9dc6967fac55269de6480d27048c14db0e5997",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/codec_grouping.py": "f18350abf636ba3a3e98e01282bf3fa24152995e8cede9ffb0edf64ae04053c7",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/engine.py": "5a510376fa08b53a6cc7636ebcac99f3dec952895a4b972ff52cf6bea9567674",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/experimental_fp8.py": "0a551d25ead70642a8d47e128611bc69d5762f0655c3b29a7b03edce1c031e6c",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/frame_pipeline.py": "1c81f21ff338845a1f74c06a1e4384bb48e66db46a750dd71aab2b577f750d35",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/fused_projection.py": "7069f25bdaf54c34a77f6dab6c0d3f77555e5acf4c2cd45d4c5fa55dfd233314",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/gdn.py": "a1a937473a6be9bff9a992427a48e01647bc4ca221aa81729cd7c64ab2f7b371",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/gdn_compact.py": "59a8ba9ab69869ca50a96d2cea87723cd4226fbbec833c8c34b99caadd48837e",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/int8_gemv.py": "0637c919eaeddfcd3bd4da6bbdc376492544665ccaf7f39567f4b5c21e23c036",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/kernels.py": "f6abc83d45c50b689af360553ffad8aef7dcb4d107ef3cf28cf757f5edf8c8ee",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/mixed_graph.py": "a8d8c4bcb5b87653ece99af0658625b0f23f8de9bff38cca00ec332b3d11a48e",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/mixed_model.py": "6de442f61aee988f5999d7520e594666d1fbea6909e0e7287a8b2b0de4096676",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/mixed_ops.py": "aaf5dc0fe7634d821532c6a93082a4cf865222fc82d8998b1465a978570cc27d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/model.py": "2716709ec035b80c08341acf9ec26134bb16567afbbc4823e0904026908842fd",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/moe_atomic.py": "20de41bbdb5e552f26c22da6385fb8052869d83ebffd0b845b7ceace9c0420cc",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/moe_input.py": "aee91738bcbeba8224ec27cf6fa1cbdfbb42d0af3291d6f5f210c45dcf37cb65",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/packed_prefill.py": "a49f416c83b51a0c15196353860a7d9718a24526f676a3280f439de6feac4031",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/prefill_conv.py": "5f84306b99b9daa9cda14745386b68fdf1c81fd57ed31120769245e37a7f847d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/profiling.py": "c4d92225b9fc1bdd64ce5becd5da2d8fdbebecfee3635c0896b560cc03040306",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/row_reuse.py": "fc419821e780bcc5e773dce1f49bf12972b9367efa7a3512373f72fc80c787cd",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/runtime_state.py": "2e522458d0f02524e148f5ab53a34d3209ddf7abaa51a1e39ea5a04e0e8bf19e",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/server.py": "2f54ca32b62511974dd4bb215bc619e56a81a5e9e35b2eb3d749d3039d81477a",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/src/drama3/table_projection_batched.py": "4dc67bdc34fdb5dddd3a86a104c37b906513745ea9ded9b94e16dd4d5b0b62be",
+    "/home/zjy/code/hsliu/drama3-sources/fish-speech/fish_speech/models/text2semantic/fish_omni/generate.py": "a8c259951fc550af59dc9921b491ff4dea4c29c26be0a350204986371596e298",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/fused_moe/core.py": "c929dbfc28eaab218b349a32f94c3fc0fe85a18fae1ab10362f22a8fc0fb3a63",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/compiler/compiler.py": "021a45ca590052ab6ca6d850eb0a102abf542165836ad92bfb3bb573218fc5d3",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/runtime/jit.py": "5fe46fbfac257a2b8645b7a2cc709232273d42dd5e1d55de9770b412a9476d77"
+  },
+  "capture_orders": [
+    "ascending",
+    "descending"
+  ],
+  "cases": [
+    {
+      "name": "real_P768_K576_variant0",
+      "key": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "corpus_ids": [
+        679,
+        680,
+        681,
+        682
+      ],
+      "lengths": [
+        163,
+        163,
+        159,
+        163
+      ],
+      "active": 58,
+      "slots": [
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 524,
+      "synthetic": false
+    },
+    {
+      "name": "real_P768_K576_variant1",
+      "key": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "corpus_ids": [
+        705,
+        704,
+        703,
+        702,
+        701
+      ],
+      "lengths": [
+        149,
+        140,
+        156,
+        149,
+        172
+      ],
+      "active": 49,
+      "slots": [
+        63,
+        62,
+        61,
+        60,
+        59
+      ],
+      "unique_rows": 525,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1024_K832_variant0",
+      "key": [
+        64,
+        1024,
+        256,
+        832
+      ],
+      "corpus_ids": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "lengths": [
+        168,
+        169,
+        181,
+        164,
+        164,
+        140
+      ],
+      "active": 58,
+      "slots": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 729,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1024_K832_variant1",
+      "key": [
+        64,
+        1024,
+        256,
+        832
+      ],
+      "corpus_ids": [
+        80,
+        79,
+        78,
+        77,
+        76,
+        75
+      ],
+      "lengths": [
+        146,
+        158,
+        137,
+        178,
+        171,
+        143
+      ],
+      "active": 49,
+      "slots": [
+        63,
+        62,
+        61,
+        60,
+        59,
+        58
+      ],
+      "unique_rows": 728,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1280_K1088_variant0",
+      "key": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "corpus_ids": [
+        192,
+        193,
+        194,
+        195,
+        196,
+        197
+      ],
+      "lengths": [
+        182,
+        190,
+        180,
+        176,
+        166,
+        188
+      ],
+      "active": 58,
+      "slots": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 945,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1280_K1088_variant1",
+      "key": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "corpus_ids": [
+        282,
+        281,
+        280,
+        279,
+        278,
+        277
+      ],
+      "lengths": [
+        154,
+        173,
+        179,
+        186,
+        192,
+        195
+      ],
+      "active": 49,
+      "slots": [
+        63,
+        62,
+        61,
+        60,
+        59,
+        58
+      ],
+      "unique_rows": 938,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1536_K1088_variant0",
+      "key": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "corpus_ids": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "lengths": [
+        150,
+        195,
+        195,
+        202,
+        203,
+        165,
+        159,
+        153
+      ],
+      "active": 56,
+      "slots": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 997,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1536_K1088_variant1",
+      "key": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "corpus_ids": [
+        95,
+        94,
+        93,
+        92,
+        91,
+        90,
+        89
+      ],
+      "lengths": [
+        146,
+        150,
+        211,
+        215,
+        144,
+        231,
+        229
+      ],
+      "active": 49,
+      "slots": [
+        63,
+        62,
+        61,
+        60,
+        59,
+        58,
+        57
+      ],
+      "unique_rows": 987,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1536_K1344_variant0",
+      "key": [
+        64,
+        1536,
+        256,
+        1344
+      ],
+      "corpus_ids": [
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176
+      ],
+      "lengths": [
+        207,
+        162,
+        201,
+        142,
+        145,
+        177,
+        181,
+        152
+      ],
+      "active": 56,
+      "slots": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 1188,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1536_K1344_variant1",
+      "key": [
+        64,
+        1536,
+        256,
+        1344
+      ],
+      "corpus_ids": [
+        269,
+        268,
+        267,
+        266,
+        265,
+        264,
+        263
+      ],
+      "lengths": [
+        157,
+        153,
+        223,
+        207,
+        203,
+        181,
+        159
+      ],
+      "active": 49,
+      "slots": [
+        63,
+        62,
+        61,
+        60,
+        59,
+        58,
+        57
+      ],
+      "unique_rows": 1176,
+      "synthetic": false
+    },
+    {
+      "name": "synthetic_min3_max256_partial3",
+      "key": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "corpus_ids": [],
+      "lengths": [
+        256,
+        256,
+        3
+      ],
+      "active": 49,
+      "slots": [
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 573,
+      "synthetic": true
+    },
+    {
+      "name": "synthetic_cancel_before_admission",
+      "key": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "corpus_ids": [],
+      "lengths": [
+        192,
+        192,
+        192
+      ],
+      "active": 58,
+      "slots": [
+        60,
+        62,
+        63
+      ],
+      "unique_rows": 448,
+      "synthetic": true
+    },
+    {
+      "name": "noalias_original_fallback",
+      "key": [
+        64,
+        768,
+        256,
+        null
+      ],
+      "corpus_ids": [],
+      "lengths": [
+        128,
+        128,
+        128,
+        128
+      ],
+      "active": 58,
+      "slots": [
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": null,
+      "synthetic": true
+    },
+    {
+      "name": "capacity_original_fallback",
+      "key": [
+        64,
+        768,
+        256,
+        null
+      ],
+      "corpus_ids": [],
+      "lengths": [
+        192,
+        192,
+        192
+      ],
+      "active": 58,
+      "slots": [
+        60,
+        62,
+        63
+      ],
+      "unique_rows": null,
+      "synthetic": true
+    },
+    {
+      "name": "unsupported_P256_active63",
+      "key": [
+        64,
+        256,
+        256,
+        null
+      ],
+      "corpus_ids": [],
+      "lengths": [
+        256
+      ],
+      "active": 63,
+      "slots": [
+        63
+      ],
+      "unique_rows": null,
+      "synthetic": true
+    }
+  ],
+  "required_buckets": [
+    [
+      64,
+      768,
+      256,
+      576
+    ],
+    [
+      64,
+      1024,
+      256,
+      832
+    ],
+    [
+      64,
+      1280,
+      256,
+      1088
+    ],
+    [
+      64,
+      1536,
+      256,
+      1088
+    ],
+    [
+      64,
+      1536,
+      256,
+      1344
+    ]
+  ],
+  "gates": [
+    "Before replay bind identical EOS/zero padding and invoke original requests.load/row_metadata input-only operations to compare full frames/positions/slots/history/labels/layout; graphs repeat these unchanged. Original failing case gets one original/original full111state check.",
+    "No runtime monkeypatch: full production MixedGraph, compact buffers allocated by graph pool.",
+    "All15cases in both capture orders: unchanged original versus compact or explicit original fallback.",
+    "Each arm starts from the same full111state snapshot, all64 primary slots initialized with actual real prefills and first sampled frames after allcaptures.",
+    "All output rows,111states, CPU/CUDA RNG byteexact; all106model state tensors outside union of real/reserved decode and prefill slots untouched.",
+    "Every earlier publicrun output clone retained and compared after each later samepool replay and separate decode/framepipeline graph replay.",
+    "Five finite variants, actual batch6, reverse order/different references, active49/56/58 and original active63, synthetic min3/max256, reused slots, noalias/insufficientK/unsupported original fallback.",
+    "Stale same-length conditioning rejects before graphmetadata writes; source ordering proves no model writes, negative test snapshots graphbuffers.",
+    "No external sentinel allocations attached to production graphpool buffers; complete maps/slots and fullstate checked instead.",
+    "On first genuine byte mismatch save tensors and stop. No tolerance relaxation, timing or automatic service continuation."
+  ],
+  "limitations": [
+    "Corpus grouping uses historical FIFO proxy for case selection, not measured actual current admissions.",
+    "Synthetic prompts only test native graph mechanics, not speech quality.",
+    "Two capture orders share one process/model; they are distinct graph pools, not independent process repeats.",
+    "Point-in-time GPU preflight does not prove continuous exclusivity.",
+    "No timings or quality measurements in this gate."
+  ]
+}

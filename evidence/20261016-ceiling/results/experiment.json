@@ -1,0 +1,8 @@
+{
+  "hypothesis": "Native pure B64 decode supports an ideal rate above6765; diagnose why full service converts only about56% into useful audio frames. A new async timeline must replace historical sync proportions.",
+  "source_sha": "dfdd598a9810cf6e7b8aa6a102f6ab9270ff9cc6",
+  "controls": "GPU0, full1088C64 workload, native top8/BF16 dense/GDN/codec, existingmixedspan256 and privatecodecworkspace, cache and clocks unchanged.",
+  "gates": "Correctness/numerical checks before code candidates, full1088quality before promotion, three repeats only for claimed feasibleperformance.",
+  "measurement": "Nonblocking timeline; preserve warmup separately and all measured request outputs including drain. CUDA event spans are not GPU utilization. No formal perfclaim fromprofile.",
+  "target_frames_s": 6765.407263214912
+}

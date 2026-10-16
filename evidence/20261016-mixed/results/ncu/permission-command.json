@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "/usr/local/cuda/bin/ncu",
+    "--config-file",
+    "off",
+    "--devices",
+    "0",
+    "--target-processes",
+    "application-only",
+    "--profile-from-start",
+    "no",
+    "--cache-control",
+    "none",
+    "--clock-control",
+    "none",
+    "--pipeline-boost-state",
+    "dynamic",
+    "--import-sass",
+    "no",
+    "--metrics",
+    "gpu__time_duration.sum,dram__bytes_read.sum",
+    "--launch-count",
+    "1",
+    "--export",
+    "/home/zjy/code/hsliu/artifacts/drama3-mixed-20261016/ncu/permission",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-mixed-20261016/ncu/permission_probe.py"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "2",
+    "OMP_NUM_THREADS": "4"
+  }
+}

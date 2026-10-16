@@ -1,0 +1,54 @@
+{
+  "status": "CPU_REGISTER_HINT_CORRECTION_CONFIRMED",
+  "gpu_used": false,
+  "findings": [
+    {
+      "artifact": "expert-resident-chain",
+      "sass_sha256": "896446ed8892b9924722a365d358b264615af07b8f4733ae369ddc5bdf41ed69",
+      "cubin_sha256": "9eb4c4f83850b3743118c50628631dfdcf2707fb607306c377ad9a743ceab0b1",
+      "sass_setmax_like_count": 0,
+      "max_sass_R_operand": 29,
+      "cubin_register_header": 32,
+      "ptx_requested_limits": [
+        "160",
+        "48"
+      ]
+    },
+    {
+      "artifact": "expert-resident-full",
+      "sass_sha256": "3fde4be6d3f9cf4a48299e4d7e1db0c9717fa2a0995cf0fce1c3c135a82b057c",
+      "cubin_sha256": "09423f0fc6d503e71d781e1d76e6dfb07522ee1c6a8d97292e81aba6b41f57f0",
+      "sass_setmax_like_count": 0,
+      "max_sass_R_operand": 29,
+      "cubin_register_header": 32,
+      "ptx_requested_limits": [
+        "160",
+        "48"
+      ]
+    },
+    {
+      "artifact": "expert-resident-timing",
+      "sass_sha256": "806747e78c0b69e4f256a62ddd179046efc6a88d3da732c6a1672360c11238b5",
+      "cubin_sha256": "7e19a1b5b1fc048682abe3b8ce22e33adc535e3c0ebbcceada43b7f74ae6f1d1",
+      "sass_setmax_like_count": 0,
+      "max_sass_R_operand": 29,
+      "cubin_register_header": 32,
+      "ptx_requested_limits": [
+        "160",
+        "48"
+      ]
+    }
+  ],
+  "conclusion": "53248 is the sum of requested PTX role budgets, not an established physical allocation. Actual SASS contains no SETMAX-like instruction; do not infer one CTA per SM, occupancy, or M128 benefits from that source-level sum.",
+  "vendor_comparison_reference": {
+    "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/register-lowering-audit/result.json",
+    "sha256": "fb39e786351f6c637f8024fdf491c824608ac5ed3dad064bc575551132a1e660",
+    "native_entries": [
+      {
+        "artifact": "vendor-native-fc1",
+        "sass_register_reconfiguration_count": 8,
+        "usage": "\nResource usage:\n Common:\n  GLOBAL:11 CONSTANT[4]:88\n Function bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100fGetSmemSize:\n  REG:8 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:904 TEXTURE:0 SURFACE:0 SAMPLER:0\n Function bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100f:\n  REG:128 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:18368 TEXTURE:0 SURFACE:0 SAMPLER:0\n"
+      }
+    ]
+  }
+}

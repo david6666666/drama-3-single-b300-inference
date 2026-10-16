@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-10-16T02:31:09.915855+00:00",
+  "hypothesis": "Distinguish a cuBLASLt capability flag discrepancy from actual implicit FP16 conversion for BF16 descriptors.",
+  "scope": "Correctness diagnostic only; no optimization timing, no model/source mutation.",
+  "fixed_control": "Exact same serialized first algo66 per shape from frozen native-lt-b64, same library13.1.1.3/GPU0, compute68/input-output14.",
+  "gate": "Independently read descriptor attributes and C++ capability; require all8 full outputs byte-exact versus rounded FP64 for exponent80/-80/cancellation/FP32-sum. Passing only supports tested paths; retains discrepancy, does not grant a generic flag waiver.",
+  "stop": "Any mismatch stops; no numeric tolerance or alternate algo search. Timeout120s. No GPU memory/cache/clock resets.",
+  "gpu_uuid": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "pre_gpu": "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 800884, 2302 MiB\n",
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "frozen_files": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-dtype-contract/probe.py": "4bfa7d2fc2a4167e5c27c4ea157e4514ecdbca7cc23cc94db94f01e7a7cf6adf",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-dtype-contract/capability_probe_gpu.cpp": "cf5f5fb507843511a0e3af1c72efb79cc98b5d7474810e8a6e11bebf43391019",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-dtype-contract/capability_probe.cpp": "bf3e72a93e897ca02c2450da7f9dcf1cadfac4bb875aa3ef06955f35489b6d9e",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-b64/lt_binding.py": "35771e66cab7110a32743c48118665ae0fafe6548cf10a3f4ef989cc46b4871b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-b64/result.json": "32608fc9b6d3cf498f59940b2061b50093930c86461bb34c3532f9b5f172d02c"
+  }
+}

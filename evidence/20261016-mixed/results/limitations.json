@@ -1,0 +1,18 @@
+{
+  "verdict": "INCONCLUSIVE",
+  "all_concurrency_target_met": false,
+  "formal_repetitions_complete": false,
+  "original_experiment_deviations": [
+    "Initial service pair used GPU6 instead of proposed GPU0, with same-source native controls in each arm. It is feasibility evidence only.",
+    "Expanded layer timing on GPU0 overlapped an external dense benchmark. All timing is unqualified; layer/state checks remain diagnostic.",
+    "Candidate service overlapped quality scoring on GPU7. Shared host CPU interference was not isolated."
+  ],
+  "failed_attempts": [
+    "mixed-layers-expanded.log is retained argparse failure from source70fbb21; duplicate --timing argument fixed before retry at a25c68d."
+  ],
+  "native_contract": "Original full top8, nativeFP8 expert scales, BF16 dense/GDN. No additional lossy quantization.",
+  "quality": "All1088 outputs, WER corpus no outlier filtering, SIM mean; single repetition only.",
+  "trace_limit": "CUDA event spans include scheduling waits and are not SM utilization. Profiler timings cannot establish service speedup.",
+  "hardware_counter_limit": "Six isolated kernels, three layers, one B64 input position, kernel replay. Not all-layer/service timing.",
+  "readme_success_example_added": false
+}

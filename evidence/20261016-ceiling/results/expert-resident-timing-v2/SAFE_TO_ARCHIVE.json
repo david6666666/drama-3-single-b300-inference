@@ -1,0 +1,20 @@
+{
+  "status": "SAFE_TO_ARCHIVE_COMPLETED_NEGATIVE_RESULT",
+  "result": "LOCAL_CONTINUATION_FAIL",
+  "all_exact": true,
+  "exact_checks": 1262,
+  "runtime_promoted": false,
+  "gpu_released": true,
+  "files": {
+    "summary.md": "396a6bc730d6a075e30a5429e7b6dc7d5259b1022b458a6416ed3b32bc44fb02",
+    "timing-gate/result.json": "8dc8b1a00f7dec2bd294f2e5c6e1beb3e8d249550f1335009483b4eaf9241769",
+    "timing-protocol.json": "b413289c093c33fb13a273ffafe1dfdcbcb7321bdc447807d3a3bf6f3f48aa77",
+    "timing-frozen-inputs.json": "7d99976c2c2db328dae3cce8ea817a7bb350c018cc76a0d65dff81a06c6001bb",
+    "timing-launch-result.json": "ebdcccce37ae052d367c37aea4f6a13eab44f3539cf9d1ee6856f5cd197fc224"
+  },
+  "historical_failure_directories": [
+    "expert-resident-chain",
+    "expert-resident-timing"
+  ],
+  "register_correction": "../resident-register-accounting-erratum.json"
+}

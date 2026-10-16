@@ -1,0 +1,28 @@
+{
+  "status": "SAFE_TO_ARCHIVE_PRESERVED_FAIL",
+  "source_sha": "345c6a18f200853489a9ac8a86bbe0682ebe484d",
+  "checks_before_stop": 1924,
+  "passed_checks": 1923,
+  "complete_cases": 8,
+  "failure": {
+    "type": "AssertionError",
+    "message": "{'name': 'ascending/real_P1536_K1344_variant0/state/gdn/0', 'passed': False, 'byte_exact': False, 'shape': [144, 32, 128, 128], 'dtype': 'torch.bfloat16', 'changed': 162153, 'max_abs': 176.84375, 'rrms': 0.06721892207860947, 'tensors': 'ascending_real_P1536_K1344_variant0_state_gdn_0-failure.pt'}"
+  },
+  "diagnosis": "Different actual padding frame inputs between reused control and fresh candidate. No tolerance relaxation; runtime unchanged.",
+  "difference_scope": "Saved gdn/0 only: slot143,11heads; two public hidden outputs exact; later states not checked after first failure.",
+  "padding_interval": [
+    1367,
+    1422
+  ],
+  "different_rows": 53,
+  "continuation": "Independent equal-input v2 artifact; original source/protocol/log/result remain unchanged.",
+  "protocol_sha256": "010a3e31831b7b30ecb29bd3e48bf18a67ddbe1bab782836655240a10b80cf21",
+  "manifest_sha256": "928ceb78b1ad81bc9362c122d4e34c61f2dc85097f5405b02d16b661026f9f7e",
+  "result_sha256": "44d1314a4ee27842d59e4452af1ef9160d11e93275cd6ed75d40fb37f6281944",
+  "postflight": {
+    "returncode": 1,
+    "gpu_after": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf, 4, 35",
+    "compute_apps_after": "",
+    "owned_pid_absent": true
+  }
+}

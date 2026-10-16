@@ -1,0 +1,33 @@
+{
+  "status": "EXACT_FAIL",
+  "mode": "run",
+  "checks": [
+    {
+      "name": "CPU_AOT_PASS",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_hashes",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "source_frozen",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "GPU0_selected",
+      "exact": true,
+      "detail": null
+    }
+  ],
+  "timing_allowed": false,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "source_status": "",
+  "pid": 654549,
+  "gpu_uuid": "53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "error": "NameError(\"name 'c' is not defined\")",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body/probe.py\", line 160, in <module>\n    try:prepare() if MODE=='prepare' else run()\n                                          ^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body/probe.py\", line 132, in run\n    w=c.weights(layer,'cuda');wbefore=[t.clone() for t in w];x=allocate(datasets[0],w,'cuda')\n      ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body/body_common.py\", line 34, in weights\n    index=json.loads((c.CKPT/'model.safetensors.index.json').read_text())['weight_map']\n                      ^\nNameError: name 'c' is not defined\n"
+}

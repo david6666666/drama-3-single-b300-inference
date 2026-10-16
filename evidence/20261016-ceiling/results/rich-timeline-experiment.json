@@ -1,0 +1,7 @@
+{
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "purpose": "Diagnose actual mixed refill cost and frame-bucket fragmentation of native-exact compact+layout+guard candidate aftercompletequalitypass",
+  "controls": "GPU0C64all1088, samecorpus+privateasync+nativefulltop8; clock/cacheunchanged",
+  "variable": "Nonblocking rich timeline only; alloutputskept",
+  "gates": "diagnosticonly,noformalperformanceclaim; metadataprevalidatedCPU; decode steps, actualcodecgraphpaddedrows andreadyshapeexplicit"
+}

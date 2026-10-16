@@ -1,0 +1,43 @@
+{
+  "status": "FAIL",
+  "checks": [
+    {
+      "name": "CPU_AOT_PASS",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_native_source",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/same_compiled_residency_resources",
+      "passed": true,
+      "detail": {
+        "total_shared_bytes_per_cta": 74616,
+        "base_registers": 32
+      }
+    },
+    {
+      "name": "fc1/no_spill",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/actual_SASS_no_register_reconfiguration",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/same_PDL",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/host_launch_unchanged",
+      "passed": false,
+      "detail": null
+    }
+  ]
+}

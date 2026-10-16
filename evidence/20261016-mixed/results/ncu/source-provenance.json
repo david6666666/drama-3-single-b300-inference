@@ -1,0 +1,117 @@
+{
+  "commit": "7a8cea15d0df5b822a78e81c2656b39776003da9",
+  "snapshot": "/home/zjy/code/hsliu/artifacts/drama3-mixed-20261016/source-validation",
+  "all_runtime_modules_match": true,
+  "files": [
+    {
+      "path": "src/drama3/__init__.py",
+      "sha256": "f35f1e76e413a38a7ffcc5d143cdcc8514410e0303bbbbd27aa9d2374cba1dbf",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/audio_queue.py",
+      "sha256": "770aec341cd08fec56b1a450d77b4819a858394f72615cee5f466c7d90cb5df7",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/benchmark.py",
+      "sha256": "e55ecbd38375a8057cf757e2c0d0844ec2e965ec9bc5b6d5014d6624ea31d734",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/bf16_projection.py",
+      "sha256": "2df5c17984db572e15539be3f86d24621507352c7c6a387a34da7dcd3b15de4c",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/codec.py",
+      "sha256": "88d591dcda56ab2fef7709affe29f3b3b24e34c4a7d4f3449cc0a132c532f390",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/engine.py",
+      "sha256": "0772f960402e9eeeb0d41833eb248daefb21081743504f4bb0b84d82a5269d32",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/experimental_fp8.py",
+      "sha256": "0a551d25ead70642a8d47e128611bc69d5762f0655c3b29a7b03edce1c031e6c",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/fused_projection.py",
+      "sha256": "7069f25bdaf54c34a77f6dab6c0d3f77555e5acf4c2cd45d4c5fa55dfd233314",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/gdn.py",
+      "sha256": "8ba00d77150c13e2017256a22678d661e9a6458761cae0fb9aa00652bab3c365",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/int8_gemv.py",
+      "sha256": "0637c919eaeddfcd3bd4da6bbdc376492544665ccaf7f39567f4b5c21e23c036",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/kernels.py",
+      "sha256": "810773e8ffeb0c60da13beb31c8a855be922c6633b39589058223e488ba64bad",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/mixed_graph.py",
+      "sha256": "1c9df6344baca011fafb2c7786d87407e795f452ffb4826350ef91af5d1d79fb",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/mixed_model.py",
+      "sha256": "63122ed7bb1fe73f91520b197d040dbafc5fc6a61555206a52c3692cc934c394",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/model.py",
+      "sha256": "2890cf88b120bfe8aebc13e6259f0b8621f2e4c98d1102470f821b3a08d8fd60",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/moe_atomic.py",
+      "sha256": "20de41bbdb5e552f26c22da6385fb8052869d83ebffd0b845b7ceace9c0420cc",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/moe_input.py",
+      "sha256": "7e96bbbc8c72858f124bbc1766c43ee4ce0571f819e80d646ab44cf2f52d14c2",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/packed_prefill.py",
+      "sha256": "7beef2f883a0f819b741522f9a079a7ec7758562f6f6308e041bb25937027588",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/prefill_conv.py",
+      "sha256": "5f84306b99b9daa9cda14745386b68fdf1c81fd57ed31120769245e37a7f847d",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/profiling.py",
+      "sha256": "6d4a70c8eadc7d31d0074311db629dddc79c320dd80d15ac2c0777e652974573",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/runtime_state.py",
+      "sha256": "ea25293345bcdfccc47fcb63f775aab87ab8fe492e84b9832ff4c12e3efabc06",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/server.py",
+      "sha256": "2f54ca32b62511974dd4bb215bc619e56a81a5e9e35b2eb3d749d3039d81477a",
+      "matches_commit": true
+    },
+    {
+      "path": "src/drama3/table_projection_batched.py",
+      "sha256": "4dc67bdc34fdb5dddd3a86a104c37b906513745ea9ded9b94e16dd4d5b0b62be",
+      "matches_commit": true
+    }
+  ]
+}

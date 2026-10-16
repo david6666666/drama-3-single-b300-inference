@@ -1,0 +1,114 @@
+{
+  "status": "INDEPENDENT_RECOMPUTATION_PASS_CANDIDATE_CONTINUATION_FAIL",
+  "gpu_rerun": false,
+  "checks": [
+    {
+      "name": "exact1516",
+      "passed": true
+    },
+    {
+      "name": "exact_status",
+      "passed": true
+    },
+    {
+      "name": "L0/one_AB_round",
+      "passed": true
+    },
+    {
+      "name": "L0/recomputed",
+      "passed": true
+    },
+    {
+      "name": "L19/one_AB_round",
+      "passed": true
+    },
+    {
+      "name": "L19/recomputed",
+      "passed": true
+    },
+    {
+      "name": "L39/one_AB_round",
+      "passed": true
+    },
+    {
+      "name": "L39/recomputed",
+      "passed": true
+    },
+    {
+      "name": "three_real_cases",
+      "passed": true
+    },
+    {
+      "name": "screen_FAIL",
+      "passed": true
+    },
+    {
+      "name": "stress_unmeasured",
+      "passed": true
+    },
+    {
+      "name": "launcher_stopped",
+      "passed": true
+    },
+    {
+      "name": "formal_timing_not_run",
+      "passed": true
+    },
+    {
+      "name": "gate/sampled_process_audit",
+      "passed": true
+    },
+    {
+      "name": "feasibility/sampled_process_audit",
+      "passed": true
+    },
+    {
+      "name": "frozen_inputs_unchanged",
+      "passed": true
+    }
+  ],
+  "recomputed": [
+    {
+      "layer": 0,
+      "native_ms": 0.1207481575012207,
+      "candidate_ms": 0.11745247840881348,
+      "latency_reduction_pct": 2.7293825103491987,
+      "threshold_pass": false
+    },
+    {
+      "layer": 19,
+      "native_ms": 0.09942527770996094,
+      "candidate_ms": 0.09626015663146972,
+      "latency_reduction_pct": 3.1834168849136812,
+      "threshold_pass": false
+    },
+    {
+      "layer": 39,
+      "native_ms": 0.07994368076324462,
+      "candidate_ms": 0.07662975788116455,
+      "latency_reduction_pct": 4.145321869647645,
+      "threshold_pass": false
+    }
+  ],
+  "source_hashes": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/gate-result.json": "043f10a11c80e61a48d6de3d7be4220ac497af29ea712a9bfc1799750b032edb",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/feasibility-result.json": "c75c2fc41b34568464ff671121bab6b9e66ddd5f7df7e52676dec683c3d725e7",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/launch-result.json": "f9c34aee7aaebb9f0e8f1d89bf5b14d06fd8a49d7f1727fc7ed56730177d2d14",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/protocol.json": "bb381d304e70cdb79a8c7388716675da92c4d563e5e24e4e4e1b50961e0ddde8",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_driver.py": "fec83b2e9f69865b17ef8a263921d9b2d5a47839f6e304c152cf2dbea2664d14",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_ready_graph.py": "4107f0e0ad89dde8ef6be6f8c07c65220adcd2e0136aad9d639db1bb9e03a38b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_gate.py": "e5e87746a853bcbcf418552d8821f6b5303dd266ed316b2c2c74af006dc0f6e4",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/launch.py": "9e3ccdc67bf3501fe26da2965b7ad79a945e4e974548c7137412e4eddf64e5d1"
+  },
+  "frozen_files_checked": 130,
+  "process_samples": {
+    "gate": 18,
+    "feasibility": 14
+  },
+  "limitations": [
+    "One AB feasibility observation, not repeated formal timing.",
+    "Sampled process ownership is not continuous exclusivity proof.",
+    "Local boundary starts from q/ids/route weights, excluding common input quantization and router logits.",
+    "No service or quality promotion."
+  ]
+}

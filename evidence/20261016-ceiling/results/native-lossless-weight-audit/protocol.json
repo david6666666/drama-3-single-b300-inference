@@ -1,0 +1,11 @@
+{
+  "hypothesis": "Lossless storage might reduce expert-weight traffic while preserving original FP8 bytes and scales; first determine actual device compression support and bounded real-weight compressibility.",
+  "source_sha": "f5448f0f8cad850ea06b9476f80eb5bb17629c68",
+  "model_snapshot": "e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+  "device": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+  "fixed_samples": {"layers": [0,19,39], "experts": [0,127,255], "projections": ["gate_proj","up_proj","down_proj"]},
+  "scope": "27 MiB CPU byte analysis and context-free CUDA driver attribute query; no allocation or GPU work",
+  "controls": "Readonly original checkpoint, no casts, no mutations, no cache/clock changes",
+  "stop": "Unsupported generic compression prohibits a compressible-allocation GPU experiment; CPU entropy alone never authorizes a decoder/kernel or performance claim",
+  "official_reference": "https://docs.nvidia.com/cuda/archive/13.3.0/cuda-programming-guide/04-special-topics/virtual-memory-management.html#compressible-memory"
+}

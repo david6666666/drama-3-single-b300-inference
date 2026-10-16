@@ -1,0 +1,671 @@
+{
+  "status": "CHILD_COMPLETE",
+  "protocol_sha256": "fbf8720fc224939a923f3ae2a49f032ca98ff4fb173b29dc1740d65c0fdb877f",
+  "audits": [
+    {
+      "time": 1792123873.043087,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123873.270527,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123874.5025175,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123875.7304833,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123877.0290976,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123878.2581005,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123879.4885721,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123880.715088,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123881.9631484,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123883.1914747,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123884.5943878,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123885.8297617,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123887.1948223,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123888.5710413,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123889.8982575,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123891.1384978,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123892.5758438,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123893.9157338,
+      "processes": [],
+      "memory_mib": 4
+    },
+    {
+      "time": 1792123895.1370337,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "1382"
+        }
+      ],
+      "memory_mib": 1396
+    },
+    {
+      "time": 1792123896.3597019,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "2150"
+        }
+      ],
+      "memory_mib": 2308
+    },
+    {
+      "time": 1792123897.6131217,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "2366"
+        }
+      ],
+      "memory_mib": 2380
+    },
+    {
+      "time": 1792123898.8322613,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "2878"
+        }
+      ],
+      "memory_mib": 2892
+    },
+    {
+      "time": 1792123900.0514882,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3134"
+        }
+      ],
+      "memory_mib": 3148
+    },
+    {
+      "time": 1792123901.2720382,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3134"
+        }
+      ],
+      "memory_mib": 3148
+    },
+    {
+      "time": 1792123902.6400251,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3134"
+        }
+      ],
+      "memory_mib": 3148
+    },
+    {
+      "time": 1792123903.9580395,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3134"
+        }
+      ],
+      "memory_mib": 3148
+    },
+    {
+      "time": 1792123905.2222733,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3134"
+        }
+      ],
+      "memory_mib": 3148
+    },
+    {
+      "time": 1792123906.5562108,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3134"
+        }
+      ],
+      "memory_mib": 3148
+    },
+    {
+      "time": 1792123907.9429338,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3134"
+        }
+      ],
+      "memory_mib": 3148
+    },
+    {
+      "time": 1792123909.2639768,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3134"
+        }
+      ],
+      "memory_mib": 3148
+    },
+    {
+      "time": 1792123910.6621814,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3134"
+        }
+      ],
+      "memory_mib": 3148
+    },
+    {
+      "time": 1792123912.054781,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3134"
+        }
+      ],
+      "memory_mib": 3148
+    },
+    {
+      "time": 1792123913.3123696,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3902"
+        }
+      ],
+      "memory_mib": 3916
+    },
+    {
+      "time": 1792123914.5329957,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "4414"
+        }
+      ],
+      "memory_mib": 4684
+    },
+    {
+      "time": 1792123915.755229,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "4690"
+        }
+      ],
+      "memory_mib": 4704
+    },
+    {
+      "time": 1792123916.9797256,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "4690"
+        }
+      ],
+      "memory_mib": 4704
+    },
+    {
+      "time": 1792123918.1983747,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5202"
+        }
+      ],
+      "memory_mib": 5216
+    },
+    {
+      "time": 1792123919.418952,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123920.640381,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123921.86083,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123923.0825212,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123924.4639878,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123925.7222884,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123926.961966,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123928.3415897,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123929.7212925,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123930.9483492,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123932.2147136,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123933.464839,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123934.6953323,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "5480"
+        }
+      ],
+      "memory_mib": 5494
+    },
+    {
+      "time": 1792123935.9160507,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "6248"
+        }
+      ],
+      "memory_mib": 6774
+    },
+    {
+      "time": 1792123937.1345341,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7016"
+        }
+      ],
+      "memory_mib": 7030
+    },
+    {
+      "time": 1792123938.3529963,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7016"
+        }
+      ],
+      "memory_mib": 7030
+    },
+    {
+      "time": 1792123939.57243,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7016"
+        }
+      ],
+      "memory_mib": 7030
+    },
+    {
+      "time": 1792123940.7945573,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7016"
+        }
+      ],
+      "memory_mib": 7030
+    },
+    {
+      "time": 1792123942.0129478,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7528"
+        }
+      ],
+      "memory_mib": 7542
+    },
+    {
+      "time": 1792123943.2305548,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123944.4488382,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123945.6684191,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123946.8889146,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123948.1117172,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123949.3995557,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123950.6210954,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123951.8423712,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123953.0671735,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123954.2912369,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123955.5128303,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123956.734852,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "7804"
+        }
+      ],
+      "memory_mib": 7818
+    },
+    {
+      "time": 1792123957.9586942,
+      "processes": [
+        {
+          "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+          "pid": 1061379,
+          "memory_mib": "3196"
+        }
+      ],
+      "memory_mib": 3210
+    },
+    {
+      "time": 1792123959.1866956,
+      "processes": [],
+      "memory_mib": 4
+    }
+  ],
+  "ownership_scope": "Sampled every 1 second; not a proof of continuous exclusivity",
+  "pid": 1061379,
+  "exit_code": 0,
+  "elapsed_seconds": 85.91738317604177,
+  "post": {
+    "time": 1792123959.1866956,
+    "processes": [],
+    "memory_mib": 4
+  }
+}

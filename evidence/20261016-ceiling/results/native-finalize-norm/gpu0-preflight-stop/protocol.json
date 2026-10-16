@@ -1,0 +1,63 @@
+{
+  "status": "FROZEN_OPERATOR_DIAGNOSTIC",
+  "source": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-metadata-rebase-95fcb0e",
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "gpu_uuid": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "oracles": [
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-left_only.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-real.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-right_only.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-rows_reversed.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-worst_global288.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-left_only.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-real.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-right_only.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-rows_reversed.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-worst_global288.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-left_only.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-real.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-right_only.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-rows_reversed.pt",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-worst_global288.pt"
+  ],
+  "frozen_files": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-finalize-norm/fused_finalize.py": "677b7d5d62cd3fde858625d4e3b7ef62952638090aca5444f46ef738717e60b7",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-finalize-norm/driver.py": "7324a5b2ef538c569defeaf3580fc55926195ddf05d366ef2121ea76d16f5777",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-metadata-rebase-95fcb0e/src/drama3/kernels.py": "953e4077d9130db8caab943f677e2d8e44a667e6054f190164f7bc1797fee137",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-left_only.pt": "bfc990562d36158dc1344ebea3b47f2f07fbbe96639f513fd14c026171e39252",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-real.pt": "68699d4a96078075bd881a3d966b1943aabb3cd25194942af47a1ba161d0f588",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-right_only.pt": "88fbb1dbbfa8b9d4393406059a26400a5827db9fd0a368aea0fcfc62e7dc086d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-rows_reversed.pt": "1b18e68a13060a7e1901be011f3cdaf51ec6f1d55d3fd319f3fe45e31861da9f",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-worst_global288.pt": "53c6f42c5d0c0d7e031e4b56103e52b9ce95400a79961ff38e72ee452ea483d6",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-left_only.pt": "a09b74a5dbfb6587378f64507eb5263fd3b307719b335c86a0f32c387122f032",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-real.pt": "a0c7a5e703f16909f540d639e7a3278424fcf849e759923e92512c207bc65a45",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-right_only.pt": "942259a044a11a6e5de487a1286a1f09732175f954a7a58c8199d1e0ecbef086",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-rows_reversed.pt": "23bb8f5752a385dfec65f153eb0de8ba197459207d2ffc85052c0a8570f92971",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-worst_global288.pt": "ffdb73836c1e4e865b773bd354a25d8114b34cc15043932b9bd6755c70be193d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-left_only.pt": "f6befcd7ba064e2a358992cc6d73faa8a6bb0854fbcd124f34ef40d547990cc9",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-real.pt": "000b490cbced0e7d48e78118710a4bb551a295d339db5e6fcdc4d0fb9e6d2b80",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-right_only.pt": "13fa7d7b1f9a946bd827e76b0295622c2ea876e4e5f52e031c0778f82dcbb700",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-rows_reversed.pt": "9bb6c4c70ccd69510c718af242a66a3506cd5d84c3eef4218b54e47909daa580",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-worst_global288.pt": "90fda394c2cb4fa6b81ff9032d0d9f1e794bffc60b886d60d24f53fb8a126951",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-finalize-norm/launch.py": "02b7b5ba888f524a01259a32235613b99d535cc20fb3d78474ce3deaf361ad98",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-finalize-norm/cpu_probe.py": "d6ddbce97c6f74d31da0761bf15b50990b3be8c1bb1d340cfbc57dbe6953f676",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-finalize-norm/cpu-probe.json": "595608faf02c52a26c0896e22376c51cfdb6f3b3d4024db049c22040d113a911",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-finalize-norm/kernel.ptx": "5056925a8f8086e8d1f630056a28ddc07c710e0bdee4d99d7157a8361ed78529",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-finalize-norm/kernel.cubin": "93303781ce4f63b580f3a921b1bcec0d4c76ed5f2807d938389b386bb747031d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_ready_graph.py": "4107f0e0ad89dde8ef6be6f8c07c65220adcd2e0136aad9d639db1bb9e03a38b"
+  },
+  "environment": {
+    "OMP_NUM_THREADS": "4",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "scope": "Native ordered finalizer + existing shared/residual RMSNorm only; frozen FC2 output fixtures, all original 8 experts. No model/service execution or success claim.",
+  "gate": "First exact failure stops. All15 original layer0/19/39 fixtures x archived/reversed physical mapping/one missing branch/all missing. Eager+3 reused graph replays, guards/inputs/RNG exact. One AB100 replay screen including identical residual copy; all3 real save >=2.5us before any full MoE or repetitions.",
+  "limitations": [
+    "Shared/residual/gate deterministic values derived from native input/router, not actual captured shared-expert output.",
+    "Aliasing live runtime workspace and full model/quality remain future gates.",
+    "A saved2.5us x40 layers is only a conditional0.1ms budget, not a model speedup.",
+    "Map values are trusted constructed fixture data in [0,2304) or -1; no generic runtime out-of-range/alias validation is claimed.",
+    "PDL builtin wait and launch_pdl metadata are compiled and graph topology is recorded, but there is no live FC2 producer in this operator-only fixture.",
+    "FP32 tl.fma is compiled to fma.rn.f32.bf16; exact oracle checks determine its agreement on these data."
+  ]
+}

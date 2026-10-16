@@ -1,0 +1,7 @@
+{
+  "hypothesis": "Shorter prompt bounds remove inactive chunks/attention work while retaining the same token rows and native computation.",
+  "isolated_variable": "DRAMA3_MIXED_SPAN256; preserve 512 fallback, all other flags unchanged.",
+  "controls": "GPU0 same-source sequential control/candidate, C64 full1088, nativeBF16 sync codec, all8experts, no quality filtering.",
+  "gate": "Fixed-state full-model exact outputs/state already passed3cases; single service feasibility and all1088WER/SIM required before considering repeat/allC.",
+  "stop": "Rejectquality failure; no formal speedup from one pair; preserve process audit/cache and readiness."
+}

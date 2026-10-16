@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "checks": [
+    "unsupported_config_rejected_before_model_load",
+    "slots_without_boundary",
+    "boundary_without_slots",
+    "wrong_row_count",
+    "wrong_slot_dtype",
+    "noncontiguous_slots",
+    "nonpositive_boundary"
+  ],
+  "cuda_initialized": false,
+  "limits": "GPU-free configuration/metadata guards and source lint only; native kernel/production graph exact validation follows frozen commit."
+}

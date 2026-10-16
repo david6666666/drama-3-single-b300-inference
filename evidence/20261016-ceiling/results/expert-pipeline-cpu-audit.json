@@ -1,0 +1,654 @@
+{
+  "cpu_only": true,
+  "cuda_initialized": false,
+  "old_real64": [
+    {
+      "layer": 0,
+      "provenance": "Native source7a8; torch.topk recomputation, tie equivalence toFI NOT proven",
+      "routes": 512,
+      "active_experts": 204,
+      "max_expert_tokens": 8,
+      "expert_token_histogram": {
+        "6": 7,
+        "1": 65,
+        "2": 56,
+        "3": 35,
+        "0": 52,
+        "4": 26,
+        "8": 1,
+        "5": 11,
+        "7": 3
+      },
+      "token8_groups": 204,
+      "one_cta_per_expert_sm_coverage_ceiling": 1,
+      "one_cta_per_token8_group_waves": 1.3783783783783783,
+      "four_cta_cluster_ctas": 816,
+      "four_cta_cluster_waves_on148SM": 5.513513513513513,
+      "native_live_fc1_ctas_estimate": 1632,
+      "native_live_fc2_ctas_estimate": 3264,
+      "partitions": {
+        "2": [
+          {
+            "offset": 0,
+            "count": 128,
+            "routes": 269,
+            "active": 104,
+            "token8_groups": 104
+          },
+          {
+            "offset": 128,
+            "count": 128,
+            "routes": 243,
+            "active": 100,
+            "token8_groups": 100
+          }
+        ],
+        "4": [
+          {
+            "offset": 0,
+            "count": 64,
+            "routes": 128,
+            "active": 50,
+            "token8_groups": 50
+          },
+          {
+            "offset": 64,
+            "count": 64,
+            "routes": 141,
+            "active": 54,
+            "token8_groups": 54
+          },
+          {
+            "offset": 128,
+            "count": 64,
+            "routes": 127,
+            "active": 52,
+            "token8_groups": 52
+          },
+          {
+            "offset": 192,
+            "count": 64,
+            "routes": 116,
+            "active": 48,
+            "token8_groups": 48
+          }
+        ]
+      },
+      "logical_intermediate_global_write_read_bytes": 5170176,
+      "active_expert_weight_bytes_excluding_scales": 641728512,
+      "logical_intermediate_vs_active_weights_fraction": 0.008056640625,
+      "traffic_caveat": "Logical padded capacity accounting, not measured DRAM savings; activation only writes actual routed rows and caches may reduce traffic."
+    },
+    {
+      "layer": 19,
+      "provenance": "Native source7a8; torch.topk recomputation, tie equivalence toFI NOT proven",
+      "routes": 512,
+      "active_experts": 163,
+      "max_expert_tokens": 19,
+      "expert_token_histogram": {
+        "2": 36,
+        "6": 9,
+        "1": 50,
+        "0": 93,
+        "8": 1,
+        "5": 11,
+        "3": 31,
+        "9": 3,
+        "4": 13,
+        "7": 4,
+        "19": 1,
+        "11": 1,
+        "12": 1,
+        "16": 1,
+        "15": 1
+      },
+      "token8_groups": 172,
+      "one_cta_per_expert_sm_coverage_ceiling": 1,
+      "one_cta_per_token8_group_waves": 1.162162162162162,
+      "four_cta_cluster_ctas": 688,
+      "four_cta_cluster_waves_on148SM": 4.648648648648648,
+      "native_live_fc1_ctas_estimate": 1376,
+      "native_live_fc2_ctas_estimate": 2752,
+      "partitions": {
+        "2": [
+          {
+            "offset": 0,
+            "count": 128,
+            "routes": 224,
+            "active": 78,
+            "token8_groups": 83
+          },
+          {
+            "offset": 128,
+            "count": 128,
+            "routes": 288,
+            "active": 85,
+            "token8_groups": 89
+          }
+        ],
+        "4": [
+          {
+            "offset": 0,
+            "count": 64,
+            "routes": 131,
+            "active": 45,
+            "token8_groups": 48
+          },
+          {
+            "offset": 64,
+            "count": 64,
+            "routes": 93,
+            "active": 33,
+            "token8_groups": 35
+          },
+          {
+            "offset": 128,
+            "count": 64,
+            "routes": 179,
+            "active": 47,
+            "token8_groups": 50
+          },
+          {
+            "offset": 192,
+            "count": 64,
+            "routes": 109,
+            "active": 38,
+            "token8_groups": 39
+          }
+        ]
+      },
+      "logical_intermediate_global_write_read_bytes": 4359168,
+      "active_expert_weight_bytes_excluding_scales": 512753664,
+      "logical_intermediate_vs_active_weights_fraction": 0.008501485812883436,
+      "traffic_caveat": "Logical padded capacity accounting, not measured DRAM savings; activation only writes actual routed rows and caches may reduce traffic."
+    },
+    {
+      "layer": 39,
+      "provenance": "Native source7a8; torch.topk recomputation, tie equivalence toFI NOT proven",
+      "routes": 512,
+      "active_experts": 116,
+      "max_expert_tokens": 26,
+      "expert_token_histogram": {
+        "4": 1,
+        "0": 140,
+        "3": 6,
+        "1": 58,
+        "2": 22,
+        "13": 4,
+        "12": 2,
+        "26": 2,
+        "23": 1,
+        "7": 3,
+        "25": 2,
+        "17": 2,
+        "6": 4,
+        "10": 2,
+        "8": 3,
+        "18": 1,
+        "11": 1,
+        "14": 1,
+        "21": 1
+      },
+      "token8_groups": 148,
+      "one_cta_per_expert_sm_coverage_ceiling": 0.7837837837837838,
+      "one_cta_per_token8_group_waves": 1.0,
+      "four_cta_cluster_ctas": 592,
+      "four_cta_cluster_waves_on148SM": 4.0,
+      "native_live_fc1_ctas_estimate": 1184,
+      "native_live_fc2_ctas_estimate": 2368,
+      "partitions": {
+        "2": [
+          {
+            "offset": 0,
+            "count": 128,
+            "routes": 212,
+            "active": 55,
+            "token8_groups": 68
+          },
+          {
+            "offset": 128,
+            "count": 128,
+            "routes": 300,
+            "active": 61,
+            "token8_groups": 80
+          }
+        ],
+        "4": [
+          {
+            "offset": 0,
+            "count": 64,
+            "routes": 116,
+            "active": 31,
+            "token8_groups": 38
+          },
+          {
+            "offset": 64,
+            "count": 64,
+            "routes": 96,
+            "active": 24,
+            "token8_groups": 30
+          },
+          {
+            "offset": 128,
+            "count": 64,
+            "routes": 205,
+            "active": 35,
+            "token8_groups": 50
+          },
+          {
+            "offset": 192,
+            "count": 64,
+            "routes": 95,
+            "active": 26,
+            "token8_groups": 30
+          }
+        ]
+      },
+      "logical_intermediate_global_write_read_bytes": 3750912,
+      "active_expert_weight_bytes_excluding_scales": 364904448,
+      "logical_intermediate_vs_active_weights_fraction": 0.010279162176724138,
+      "traffic_caveat": "Logical padded capacity accounting, not measured DRAM savings; activation only writes actual routed rows and caches may reduce traffic."
+    }
+  ],
+  "actual_fi63": [
+    {
+      "layer": 0,
+      "provenance": "Exact native FI captured IDs source6ff8d80, batch64 comprises63real+1reservedpadding; notfull64real",
+      "routes": 512,
+      "active_experts": 206,
+      "max_expert_tokens": 9,
+      "expert_token_histogram": {
+        "2": 50,
+        "0": 50,
+        "6": 8,
+        "1": 75,
+        "3": 35,
+        "9": 2,
+        "5": 12,
+        "4": 21,
+        "7": 2,
+        "8": 1
+      },
+      "token8_groups": 208,
+      "one_cta_per_expert_sm_coverage_ceiling": 1,
+      "one_cta_per_token8_group_waves": 1.4054054054054055,
+      "four_cta_cluster_ctas": 832,
+      "four_cta_cluster_waves_on148SM": 5.621621621621622,
+      "native_live_fc1_ctas_estimate": 1664,
+      "native_live_fc2_ctas_estimate": 3328,
+      "partitions": {
+        "2": [
+          {
+            "offset": 0,
+            "count": 128,
+            "routes": 250,
+            "active": 105,
+            "token8_groups": 106
+          },
+          {
+            "offset": 128,
+            "count": 128,
+            "routes": 262,
+            "active": 101,
+            "token8_groups": 102
+          }
+        ],
+        "4": [
+          {
+            "offset": 0,
+            "count": 64,
+            "routes": 137,
+            "active": 54,
+            "token8_groups": 55
+          },
+          {
+            "offset": 64,
+            "count": 64,
+            "routes": 113,
+            "active": 51,
+            "token8_groups": 51
+          },
+          {
+            "offset": 128,
+            "count": 64,
+            "routes": 134,
+            "active": 51,
+            "token8_groups": 52
+          },
+          {
+            "offset": 192,
+            "count": 64,
+            "routes": 128,
+            "active": 50,
+            "token8_groups": 50
+          }
+        ]
+      },
+      "logical_intermediate_global_write_read_bytes": 5271552,
+      "active_expert_weight_bytes_excluding_scales": 648019968,
+      "logical_intermediate_vs_active_weights_fraction": 0.008134860436893205,
+      "traffic_caveat": "Logical padded capacity accounting, not measured DRAM savings; activation only writes actual routed rows and caches may reduce traffic."
+    },
+    {
+      "layer": 19,
+      "provenance": "Exact native FI captured IDs source6ff8d80, batch64 comprises63real+1reservedpadding; notfull64real",
+      "routes": 512,
+      "active_experts": 159,
+      "max_expert_tokens": 19,
+      "expert_token_histogram": {
+        "1": 46,
+        "2": 36,
+        "8": 7,
+        "0": 97,
+        "4": 22,
+        "3": 25,
+        "9": 3,
+        "7": 3,
+        "6": 3,
+        "5": 9,
+        "11": 2,
+        "13": 1,
+        "19": 1,
+        "10": 1
+      },
+      "token8_groups": 168,
+      "one_cta_per_expert_sm_coverage_ceiling": 1,
+      "one_cta_per_token8_group_waves": 1.135135135135135,
+      "four_cta_cluster_ctas": 672,
+      "four_cta_cluster_waves_on148SM": 4.54054054054054,
+      "native_live_fc1_ctas_estimate": 1344,
+      "native_live_fc2_ctas_estimate": 2688,
+      "partitions": {
+        "2": [
+          {
+            "offset": 0,
+            "count": 128,
+            "routes": 227,
+            "active": 78,
+            "token8_groups": 82
+          },
+          {
+            "offset": 128,
+            "count": 128,
+            "routes": 285,
+            "active": 81,
+            "token8_groups": 86
+          }
+        ],
+        "4": [
+          {
+            "offset": 0,
+            "count": 64,
+            "routes": 124,
+            "active": 42,
+            "token8_groups": 44
+          },
+          {
+            "offset": 64,
+            "count": 64,
+            "routes": 103,
+            "active": 36,
+            "token8_groups": 38
+          },
+          {
+            "offset": 128,
+            "count": 64,
+            "routes": 177,
+            "active": 46,
+            "token8_groups": 50
+          },
+          {
+            "offset": 192,
+            "count": 64,
+            "routes": 108,
+            "active": 35,
+            "token8_groups": 36
+          }
+        ]
+      },
+      "logical_intermediate_global_write_read_bytes": 4257792,
+      "active_expert_weight_bytes_excluding_scales": 500170752,
+      "logical_intermediate_vs_active_weights_fraction": 0.008512676886792452,
+      "traffic_caveat": "Logical padded capacity accounting, not measured DRAM savings; activation only writes actual routed rows and caches may reduce traffic."
+    },
+    {
+      "layer": 39,
+      "provenance": "Exact native FI captured IDs source6ff8d80, batch64 comprises63real+1reservedpadding; notfull64real",
+      "routes": 512,
+      "active_experts": 115,
+      "max_expert_tokens": 28,
+      "expert_token_histogram": {
+        "3": 10,
+        "0": 141,
+        "1": 58,
+        "2": 17,
+        "4": 4,
+        "17": 2,
+        "15": 3,
+        "18": 2,
+        "14": 2,
+        "7": 4,
+        "22": 1,
+        "19": 1,
+        "28": 1,
+        "9": 1,
+        "13": 2,
+        "12": 3,
+        "24": 1,
+        "6": 1,
+        "25": 1,
+        "8": 1
+      },
+      "token8_groups": 146,
+      "one_cta_per_expert_sm_coverage_ceiling": 0.777027027027027,
+      "one_cta_per_token8_group_waves": 0.9864864864864865,
+      "four_cta_cluster_ctas": 584,
+      "four_cta_cluster_waves_on148SM": 3.945945945945946,
+      "native_live_fc1_ctas_estimate": 1168,
+      "native_live_fc2_ctas_estimate": 2336,
+      "partitions": {
+        "2": [
+          {
+            "offset": 0,
+            "count": 128,
+            "routes": 206,
+            "active": 49,
+            "token8_groups": 61
+          },
+          {
+            "offset": 128,
+            "count": 128,
+            "routes": 306,
+            "active": 66,
+            "token8_groups": 85
+          }
+        ],
+        "4": [
+          {
+            "offset": 0,
+            "count": 64,
+            "routes": 111,
+            "active": 28,
+            "token8_groups": 35
+          },
+          {
+            "offset": 64,
+            "count": 64,
+            "routes": 95,
+            "active": 21,
+            "token8_groups": 26
+          },
+          {
+            "offset": 128,
+            "count": 64,
+            "routes": 219,
+            "active": 37,
+            "token8_groups": 52
+          },
+          {
+            "offset": 192,
+            "count": 64,
+            "routes": 87,
+            "active": 29,
+            "token8_groups": 33
+          }
+        ]
+      },
+      "logical_intermediate_global_write_read_bytes": 3700224,
+      "active_expert_weight_bytes_excluding_scales": 361758720,
+      "logical_intermediate_vs_active_weights_fraction": 0.010228430706521739,
+      "traffic_caveat": "Logical padded capacity accounting, not measured DRAM savings; activation only writes actual routed rows and caches may reduce traffic."
+    }
+  ],
+  "ncu_launches": [
+    {
+      "layer": 0,
+      "projection": "FC1",
+      "Grid Size": "(8, 288, 1)",
+      "Block Size": "(512, 1, 1)",
+      "launch__grid_size": "2304",
+      "launch__registers_per_thread": "128",
+      "launch__shared_mem_per_block": "149424",
+      "launch__waves_per_multiprocessor": "15.57",
+      "launch__occupancy_limit_registers": "1",
+      "launch__occupancy_limit_shared_mem": "1"
+    },
+    {
+      "layer": 0,
+      "projection": "FC2",
+      "Grid Size": "(16, 288, 1)",
+      "Block Size": "(512, 1, 1)",
+      "launch__grid_size": "4608",
+      "launch__registers_per_thread": "128",
+      "launch__shared_mem_per_block": "149424",
+      "launch__waves_per_multiprocessor": "31.14",
+      "launch__occupancy_limit_registers": "1",
+      "launch__occupancy_limit_shared_mem": "1"
+    },
+    {
+      "layer": 19,
+      "projection": "FC1",
+      "Grid Size": "(8, 288, 1)",
+      "Block Size": "(512, 1, 1)",
+      "launch__grid_size": "2304",
+      "launch__registers_per_thread": "128",
+      "launch__shared_mem_per_block": "149424",
+      "launch__waves_per_multiprocessor": "15.57",
+      "launch__occupancy_limit_registers": "1",
+      "launch__occupancy_limit_shared_mem": "1"
+    },
+    {
+      "layer": 19,
+      "projection": "FC2",
+      "Grid Size": "(16, 288, 1)",
+      "Block Size": "(512, 1, 1)",
+      "launch__grid_size": "4608",
+      "launch__registers_per_thread": "128",
+      "launch__shared_mem_per_block": "149424",
+      "launch__waves_per_multiprocessor": "31.14",
+      "launch__occupancy_limit_registers": "1",
+      "launch__occupancy_limit_shared_mem": "1"
+    },
+    {
+      "layer": 39,
+      "projection": "FC1",
+      "Grid Size": "(8, 288, 1)",
+      "Block Size": "(512, 1, 1)",
+      "launch__grid_size": "2304",
+      "launch__registers_per_thread": "128",
+      "launch__shared_mem_per_block": "149424",
+      "launch__waves_per_multiprocessor": "15.57",
+      "launch__occupancy_limit_registers": "1",
+      "launch__occupancy_limit_shared_mem": "1"
+    },
+    {
+      "layer": 39,
+      "projection": "FC2",
+      "Grid Size": "(16, 288, 1)",
+      "Block Size": "(512, 1, 1)",
+      "launch__grid_size": "4608",
+      "launch__registers_per_thread": "128",
+      "launch__shared_mem_per_block": "149424",
+      "launch__waves_per_multiprocessor": "31.14",
+      "launch__occupancy_limit_registers": "1",
+      "launch__occupancy_limit_shared_mem": "1"
+    }
+  ],
+  "device_from_archived_ncu": {
+    "device__attribute_multiprocessor_count": "148",
+    "device__attribute_max_shared_memory_per_block_optin": "232448",
+    "device__attribute_max_shared_memory_per_multiprocessor": "233472",
+    "device__attribute_max_registers_per_multiprocessor": "65536",
+    "device__attribute_max_threads_per_multiprocessor": "2048"
+  },
+  "resident_cluster_estimate": {
+    "not_compiled_not_measured": true,
+    "cluster_ctas": 4,
+    "threads_per_cta": 256,
+    "token_tile": 8,
+    "fc1_up_gate_channels_per_cta": 128,
+    "fc2_channels_per_cta": 512,
+    "k_tile": 128,
+    "fc1_doublebuffer_weight_bytes": 65536,
+    "fc1_doublebuffer_input_bytes": 2048,
+    "fc1_fp32_accumulator_bytes": 8192,
+    "fc1_registers_for_accumulators_per_thread": 8,
+    "fc1_quantized_bytes_per_cta": 2048,
+    "fc1_scales_per_cta_bytes": 64,
+    "activation_fragment_bytes": 1024,
+    "activation_fragment_scale_bytes": 32,
+    "full_activation_replica_bytes": 4096,
+    "full_activation_scale_bytes": 128,
+    "fc2_streamed_output_tile": 128,
+    "fc2_doublebuffer_weight_bytes": 32768,
+    "fc2_fp32_accumulator_bytes": 4096,
+    "approx_smem_peak_before_padding_barriers": 73920,
+    "mandatory_weight_bytes_per_expert": 3145728,
+    "mandatory_weight_bytes_per_cta": 786432,
+    "warning": "Resource estimate only; Blackwell MMA accumulator/TMEM minimum shapes, actual compiler registers,TMA descriptors,swizzle,barriers andcluster occupancy requirecompilation. FirststageFP8quantizer notyetverified againstnativecubin."
+  },
+  "partition_static_grid_estimates": [
+    {
+      "partitions": 1,
+      "local_experts": 256,
+      "tile8_max_batch_ctas_per_partition": 288,
+      "fc1_ctas_per_partition": 2304,
+      "fc2_ctas_per_partition": 4608,
+      "fc1_ctas_total": 2304,
+      "fc2_ctas_total": 4608,
+      "grid_growth": 1.0,
+      "activation_ctas_total": 1024,
+      "source_derived_not_new_gpu_measurement": true
+    },
+    {
+      "partitions": 2,
+      "local_experts": 128,
+      "tile8_max_batch_ctas_per_partition": 176,
+      "fc1_ctas_per_partition": 1408,
+      "fc2_ctas_per_partition": 2816,
+      "fc1_ctas_total": 2816,
+      "fc2_ctas_total": 5632,
+      "grid_growth": 1.2222222222222223,
+      "activation_ctas_total": 2048,
+      "source_derived_not_new_gpu_measurement": true
+    },
+    {
+      "partitions": 4,
+      "local_experts": 64,
+      "tile8_max_batch_ctas_per_partition": 120,
+      "fc1_ctas_per_partition": 960,
+      "fc2_ctas_per_partition": 1920,
+      "fc1_ctas_total": 3840,
+      "fc2_ctas_total": 7680,
+      "grid_growth": 1.6666666666666667,
+      "activation_ctas_total": 4096,
+      "source_derived_not_new_gpu_measurement": true
+    }
+  ],
+  "files_sha256": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert_pipeline_cpu_audit.py": "39bb2bdce4c5ea955379450c0ace0cd0f4bc881d6dbf60825df7fe2db3500dc5",
+    "/home/zjy/code/hsliu/artifacts/drama3-mixed-20261016/ncu/real-moe-metadata.json": "2b21f3050d0fb340a0acf1fd5baae0cf485bccea9d26c00cbd1a3f06ca3b0e4b",
+    "/home/zjy/code/hsliu/artifacts/drama3-mixed-20261016/ncu/real-moe-metrics-base.csv": "74efcf4d705a51b12aa7b253b56602901c796e80099d9783cc709710879bd0c0",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/padding-router-b63-native-inputs.pt": "ca318671ad7f8a4476655ec45d803ee6ad25230b3d9e042eb1a6cbb646e013cc"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "status": "LOCAL_GAIN_FAIL",
+  "runtime_cache_entries": [
+    {
+      "path": "/home/zjy/.cache/sglang/triton/KFS4CTOSUOL5VNOFCSTSQOLCGBN3XIHLOLIO4WGGCSDJ74V76XSQ/fused_kernel.ptx",
+      "dump_raw": false,
+      "metadata_hash": "5165c14dd2a397dab5c514a7283962305bbba0eb72d0ee58c614869ff2bff5e5",
+      "registers": 182,
+      "local": 0,
+      "requested_shared": 512,
+      "ptx_sha256": "f84ea7983701e8e4c6375de64370b02daf34f09057251a97fe65960ae6017328"
+    },
+    {
+      "path": "/home/zjy/.cache/sglang/triton/26DSCZT3QAKK2W3GK2QU3KOQKMY45A7I2ESZUCB47ADB7BIIJFPQ/fused_kernel.ptx",
+      "dump_raw": true,
+      "metadata_hash": "d78721667b8014ad5b6656a14da9d05331ce83e8d1259a083cf8061f8508495f",
+      "registers": 177,
+      "local": 0,
+      "requested_shared": 512,
+      "ptx_sha256": "896b61bbeadfb40de4811dd00b66dad84ebc432cb570f87e40c39e8818b07bce"
+    },
+    {
+      "path": "/home/zjy/.cache/sglang/triton/S6VS6KB2YIRLWIWNRRXKXA7ZDVHQHHZNNVI76BTUYYK6MTCHLBLA/fused_kernel.ptx",
+      "dump_raw": true,
+      "metadata_hash": "97ab2f283ac222bb22cd8c6eab83f91d4f039f2d6d51ff0674c615e64c475856",
+      "registers": 177,
+      "local": 0,
+      "requested_shared": 512,
+      "ptx_sha256": "9fae5013e5c5fee4f165fadb904bc44c591fb157807f27ddcc9e1bed8d6d9408"
+    },
+    {
+      "path": "/home/zjy/.cache/sglang/triton/4UKSEWIPROLUFISZN2VC7HZYDHM642PGSWCUW4K4DAQ46BKVR4JA/fused_kernel.ptx",
+      "dump_raw": false,
+      "metadata_hash": "e51522590f8b9742a2596eaa2f9f3819d9ee69e695854b715c1821cf05558f12",
+      "registers": 182,
+      "local": 0,
+      "requested_shared": 512,
+      "ptx_sha256": "5004b1ce8fc1664a887e89ca873cc92b2afd7d076854ed06124bcb9e1a05e60f"
+    }
+  ],
+  "raw_register_capacity_per_sm": 65536,
+  "production_candidate_upper_ctas_per_sm": 2,
+  "native_A_upper_warps_per_sm": 12,
+  "caveat": "Raw-register upper bounds, not measured occupancy; allocation granularity and other constraints can only reduce these bounds. No caps or sweep performed.",
+  "single_cpu_liveness_experiment": {
+    "source": "fused_norm_warp_tiles_late.py",
+    "transformation": "Defer Q/K matrix-slice layout conversions to their native points of first use; no arithmetic/tile/cap changes.",
+    "production_registers": 185,
+    "local_bytes": 0,
+    "required_max_registers": 168,
+    "passed": false,
+    "gpu_run": false,
+    "decision": "STOP; no credible address-only mechanism to recover remaining registers without larger scope."
+  }
+}

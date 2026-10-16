@@ -1,0 +1,12 @@
+{
+  "source_sha": "1618ad4b2c7591465a47ca0dad8100e782820cd2",
+  "hypothesis": "Current packed mixed FLA materializes cumulative gates, A, w/u and per-chunk h, with 3.116ms in chunk_o/h/kkt/recompute at D64P1280. Existing native FlashInfer SM100 non-CP GDN consumes the same packed state pool directly; measure whether fused recurrence reduces this current mixed cost. Prior padded synchronous service result is not reused as a current mixed prediction.",
+  "isolated_variable": "Existing model.prefill_gdn fla vs flashinfer. DRAMA3_COMPACT_GDN=0; no layout/conv/normalization/MoE/scheduling changes.",
+  "native_boundaries": "Identical caller L2-normalized Q/K BF16, V BF16, beta FP32, BF16 persistent state, full native top8. FI consumes exp(decay) FP32; FLA uses chunk-local cumulative log-decay FP32. Arithmetic ordering differs; equality is not expected.",
+  "numerical_gate": "All 30 identical-input GDN layer outputs and each owned sequence state RRMS <0.01; finite results; every untouched state slot exact. This predeclared diagnostic threshold reflects prior independent FP32 qualification at ~0.003-0.005 backend discrepancy; it is not an audio-quality threshold. Stop on first gate failure, retain it, do not loosen.",
+  "graph_gate": "FI eager and captured replay outputs/all mutable states exact from same initial real state; graph slot ownership exact. FLA-vs-FI complete-trajectory final hidden and layer states are reported as drift, not substituted for same-input layer checks or WER/SIM.",
+  "timing": "Five alternating event samples after one warmup each, identical initial state restored outside events, three real mixed shapes. A >=2% D64P1280 graph latency decrease motivates proposing one full1088 quality-gated service run; smaller gains do not justify promotion.",
+  "quality_gate": "Only complete service WER <= matching vLLM WER+1pp and SIM >= matching vLLM SIM-2 can establish audio acceptance; no service run authorized by this artifact alone.",
+  "gpu": "GPU2 only after idle check; same frozen source. No profiler cache flush or clock changes.",
+  "references": ["mixed-profile/table.txt", "source-compact-1618ad4/docs/full-corpus-results.md"]
+}

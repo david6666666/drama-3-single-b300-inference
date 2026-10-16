@@ -1,0 +1,37 @@
+{
+  "source_sha": "8ccefd063a90991cc45b31caa6457fae256720d0",
+  "runtime_source": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-minlaunch",
+  "script_sha256": "649bc4779e632160dc8bdbf536e1107b0728e326f8ae18c945efaddfbb2ea262",
+  "flags": {
+    "DRAMA3_PREFILL_MOE": "flashinfer",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_FUSED_MOE_INPUT": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM": "1",
+    "DRAMA3_CODEC_SPLIT_POLICY": "dp",
+    "DRAMA3_FUSED_MIXED_LAYOUT": "0",
+    "DRAMA3_PACKED_CONV_GUARD": "0",
+    "DRAMA3_DEFER_CODEC_SUBMIT": "0"
+  },
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-minlaunch/prefix_replay.py",
+    "--checkpoint",
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+    "--fish-source",
+    "/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "--corpus",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+    "--output",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-minlaunch/prefix-replay.json",
+    "--capture",
+    "dedicated"
+  ],
+  "gpu": 7,
+  "before_gpu": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf, 312212, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 136866 MiB\n",
+  "hypothesis": "Serial DP trace reproduces archived outputs while saving immutable full code prefixes before slot reuse.",
+  "gate": "All414 trace entries and all80 final PCM hashes equal archived DP; then use five actual changed-request prefixes for independent nativeFP32 reference.",
+  "stop": "Any mismatch rejects prefix reconstruction; do not overwrite originals or claim minlaunch exactness."
+}

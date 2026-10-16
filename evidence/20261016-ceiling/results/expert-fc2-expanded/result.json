@@ -1,0 +1,2969 @@
+{
+  "status": "EXPANDED_NATIVE_FC2_EXACT_PASS",
+  "mode": "run",
+  "checks": [
+    {
+      "name": "CPU_AOT_PASS",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_hashes",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "source_frozen",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/CPU_GPU_cubin_identical",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/left_only/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/left_only/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/left_only/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/left_only/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/left_only/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/left_only/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L0/left_only/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/left_only/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/left_only/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/left_only/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/left_only/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/left_only/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/left_only/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/real/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/real/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/real/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/real/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/real/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/real/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L0/real/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/real/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/real/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/real/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/real/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/real/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/real/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/right_only/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/right_only/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/right_only/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/right_only/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/right_only/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/right_only/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L0/right_only/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/right_only/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/right_only/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/right_only/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/right_only/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/right_only/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/right_only/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/rows_reversed/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/rows_reversed/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/rows_reversed/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/rows_reversed/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/worst_global288/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/worst_global288/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/worst_global288/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/worst_global288/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/worst_global288/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/worst_global288/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L0/worst_global288/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/worst_global288/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/worst_global288/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/worst_global288/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/worst_global288/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/weights_unchanged/0",
+      "exact": true,
+      "shape": [
+        256,
+        1024,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/weights_unchanged/1",
+      "exact": true,
+      "shape": [
+        256,
+        8,
+        16
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/weights_unchanged/2",
+      "exact": true,
+      "shape": [
+        256,
+        2048,
+        512
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/weights_unchanged/3",
+      "exact": true,
+      "shape": [
+        256,
+        16,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/RNG_unchanged",
+      "exact": true,
+      "shape": [
+        16
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/CPU_GPU_cubin_identical",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L19/left_only/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/left_only/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/left_only/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/left_only/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/left_only/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/left_only/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/left_only/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/left_only/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/left_only/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/left_only/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L19/left_only/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L19/left_only/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L19/left_only/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/left_only/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/left_only/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/left_only/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/left_only/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/left_only/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/left_only/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/real/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/real/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/real/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/real/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/real/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/real/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/real/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/real/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/real/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/real/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L19/real/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L19/real/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L19/real/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/real/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/real/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/real/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/real/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/real/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/real/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/right_only/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/right_only/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/right_only/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/right_only/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/right_only/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/right_only/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/right_only/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/right_only/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/right_only/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/right_only/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L19/right_only/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L19/right_only/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L19/right_only/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/right_only/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/right_only/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/right_only/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/right_only/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/right_only/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/right_only/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/rows_reversed/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/rows_reversed/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/rows_reversed/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/rows_reversed/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/rows_reversed/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/worst_global288/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/worst_global288/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/worst_global288/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/worst_global288/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/worst_global288/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/worst_global288/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/worst_global288/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/worst_global288/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/worst_global288/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/worst_global288/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L19/worst_global288/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L19/worst_global288/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L19/worst_global288/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/worst_global288/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L19/worst_global288/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L19/worst_global288/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/worst_global288/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/worst_global288/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L19/worst_global288/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/weights_unchanged/0",
+      "exact": true,
+      "shape": [
+        256,
+        1024,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L19/weights_unchanged/1",
+      "exact": true,
+      "shape": [
+        256,
+        8,
+        16
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/weights_unchanged/2",
+      "exact": true,
+      "shape": [
+        256,
+        2048,
+        512
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L19/weights_unchanged/3",
+      "exact": true,
+      "shape": [
+        256,
+        16,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L19/RNG_unchanged",
+      "exact": true,
+      "shape": [
+        16
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/CPU_GPU_cubin_identical",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L39/left_only/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/left_only/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/left_only/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/left_only/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/left_only/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/left_only/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/left_only/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/left_only/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/left_only/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/left_only/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L39/left_only/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L39/left_only/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L39/left_only/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/left_only/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/left_only/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/left_only/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/left_only/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/left_only/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/left_only/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/real/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/real/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/real/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/real/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/real/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/real/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/real/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/real/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/real/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/real/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L39/real/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L39/real/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L39/real/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/real/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/real/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/real/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/real/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/real/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/real/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/right_only/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/right_only/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/right_only/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/right_only/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/right_only/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/right_only/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/right_only/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/right_only/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/right_only/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/right_only/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L39/right_only/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L39/right_only/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L39/right_only/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/right_only/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/right_only/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/right_only/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/right_only/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/right_only/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/right_only/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/rows_reversed/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/rows_reversed/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/rows_reversed/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/rows_reversed/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/rows_reversed/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/worst_global288/eager/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/worst_global288/eager/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/worst_global288/graph/bf16",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/worst_global288/graph/padding_and_tail_capacity",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/worst_global288/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/worst_global288/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/worst_global288/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/worst_global288/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/worst_global288/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/worst_global288/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L39/worst_global288/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L39/worst_global288/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L39/worst_global288/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/worst_global288/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L39/worst_global288/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L39/worst_global288/untouched/fc1",
+      "exact": true,
+      "shape": [
+        2304,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/worst_global288/untouched/fc1scale",
+      "exact": true,
+      "shape": [
+        18432
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/worst_global288/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L39/worst_global288/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/weights_unchanged/0",
+      "exact": true,
+      "shape": [
+        256,
+        1024,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L39/weights_unchanged/1",
+      "exact": true,
+      "shape": [
+        256,
+        8,
+        16
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/weights_unchanged/2",
+      "exact": true,
+      "shape": [
+        256,
+        2048,
+        512
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L39/weights_unchanged/3",
+      "exact": true,
+      "shape": [
+        256,
+        16,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L39/RNG_unchanged",
+      "exact": true,
+      "shape": [
+        16
+      ],
+      "dtype": "torch.uint8"
+    }
+  ],
+  "timings_allowed": false,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "source_status": "",
+  "pid": 566292,
+  "gpu_uuid": "40e00845-d89c-1393-2c32-a2dca3ee9442",
+  "cases": [
+    {
+      "name": "L0/left_only",
+      "ncta": 127,
+      "padded": 1016,
+      "inactive_experts": 138,
+      "count_histogram": {
+        "0": 138,
+        "1": 16,
+        "2": 21,
+        "3": 20,
+        "4": 18,
+        "5": 10,
+        "6": 8,
+        "7": 7,
+        "8": 9,
+        "9": 2,
+        "11": 4,
+        "12": 1,
+        "14": 1,
+        "15": 1
+      },
+      "max_routes": 15,
+      "fp32_scale_min": 2.1104935512994416e-05
+    },
+    {
+      "name": "L0/real",
+      "ncta": 208,
+      "padded": 1664,
+      "inactive_experts": 50,
+      "count_histogram": {
+        "0": 50,
+        "1": 75,
+        "2": 50,
+        "3": 35,
+        "4": 21,
+        "5": 12,
+        "6": 8,
+        "7": 2,
+        "8": 1,
+        "9": 2
+      },
+      "max_routes": 9,
+      "fp32_scale_min": 2.1104935512994416e-05
+    },
+    {
+      "name": "L0/right_only",
+      "ncta": 130,
+      "padded": 1040,
+      "inactive_experts": 137,
+      "count_histogram": {
+        "0": 137,
+        "1": 14,
+        "2": 19,
+        "3": 20,
+        "4": 21,
+        "5": 13,
+        "6": 10,
+        "7": 8,
+        "8": 3,
+        "9": 3,
+        "10": 5,
+        "11": 2,
+        "12": 1
+      },
+      "max_routes": 12,
+      "fp32_scale_min": 2.1153777197469026e-05
+    },
+    {
+      "name": "L0/rows_reversed",
+      "ncta": 208,
+      "padded": 1664,
+      "inactive_experts": 50,
+      "count_histogram": {
+        "0": 50,
+        "1": 75,
+        "2": 50,
+        "3": 35,
+        "4": 21,
+        "5": 12,
+        "6": 8,
+        "7": 2,
+        "8": 1,
+        "9": 2
+      },
+      "max_routes": 9,
+      "fp32_scale_min": 2.1104935512994416e-05
+    },
+    {
+      "name": "L0/worst_global288",
+      "ncta": 288,
+      "padded": 2304,
+      "inactive_experts": 0,
+      "count_histogram": {
+        "1": 251,
+        "33": 1,
+        "57": 4
+      },
+      "max_routes": 57,
+      "fp32_scale_min": 4.610594623954967e-05
+    },
+    {
+      "name": "L19/left_only",
+      "ncta": 109,
+      "padded": 872,
+      "inactive_experts": 191,
+      "count_histogram": {
+        "0": 191,
+        "1": 25,
+        "2": 15,
+        "3": 5,
+        "4": 2,
+        "5": 4,
+        "6": 2,
+        "7": 1,
+        "9": 1,
+        "11": 3,
+        "25": 1,
+        "35": 1,
+        "52": 1,
+        "56": 1,
+        "60": 1,
+        "61": 1,
+        "64": 1
+      },
+      "max_routes": 64,
+      "fp32_scale_min": 9.06540808500722e-05
+    },
+    {
+      "name": "L19/real",
+      "ncta": 168,
+      "padded": 1344,
+      "inactive_experts": 97,
+      "count_histogram": {
+        "0": 97,
+        "1": 46,
+        "2": 36,
+        "3": 25,
+        "4": 22,
+        "5": 9,
+        "6": 3,
+        "7": 3,
+        "8": 7,
+        "9": 3,
+        "10": 1,
+        "11": 2,
+        "13": 1,
+        "19": 1
+      },
+      "max_routes": 19,
+      "fp32_scale_min": 9.481360029894859e-05
+    },
+    {
+      "name": "L19/right_only",
+      "ncta": 114,
+      "padded": 912,
+      "inactive_experts": 179,
+      "count_histogram": {
+        "0": 179,
+        "1": 30,
+        "2": 10,
+        "3": 12,
+        "4": 2,
+        "5": 2,
+        "6": 4,
+        "7": 4,
+        "8": 3,
+        "11": 1,
+        "12": 1,
+        "17": 1,
+        "21": 1,
+        "28": 1,
+        "38": 1,
+        "45": 1,
+        "51": 1,
+        "52": 1,
+        "57": 1
+      },
+      "max_routes": 57,
+      "fp32_scale_min": 9.010752546600997e-05
+    },
+    {
+      "name": "L19/rows_reversed",
+      "ncta": 168,
+      "padded": 1344,
+      "inactive_experts": 97,
+      "count_histogram": {
+        "0": 97,
+        "1": 46,
+        "2": 36,
+        "3": 25,
+        "4": 22,
+        "5": 9,
+        "6": 3,
+        "7": 3,
+        "8": 7,
+        "9": 3,
+        "10": 1,
+        "11": 2,
+        "13": 1,
+        "19": 1
+      },
+      "max_routes": 19,
+      "fp32_scale_min": 9.439846326131374e-05
+    },
+    {
+      "name": "L19/worst_global288",
+      "ncta": 288,
+      "padded": 2304,
+      "inactive_experts": 0,
+      "count_histogram": {
+        "1": 251,
+        "33": 1,
+        "57": 4
+      },
+      "max_routes": 57,
+      "fp32_scale_min": 9.514231351204216e-05
+    },
+    {
+      "name": "L39/left_only",
+      "ncta": 109,
+      "padded": 872,
+      "inactive_experts": 189,
+      "count_histogram": {
+        "0": 189,
+        "1": 20,
+        "2": 11,
+        "3": 6,
+        "4": 4,
+        "5": 3,
+        "6": 2,
+        "7": 3,
+        "8": 1,
+        "9": 4,
+        "12": 1,
+        "15": 1,
+        "17": 2,
+        "18": 2,
+        "19": 2,
+        "20": 1,
+        "38": 1,
+        "42": 1,
+        "49": 1,
+        "60": 1
+      },
+      "max_routes": 60,
+      "fp32_scale_min": 0.0005558539414778352
+    },
+    {
+      "name": "L39/real",
+      "ncta": 146,
+      "padded": 1168,
+      "inactive_experts": 141,
+      "count_histogram": {
+        "0": 141,
+        "1": 58,
+        "2": 17,
+        "3": 10,
+        "4": 4,
+        "6": 1,
+        "7": 4,
+        "8": 1,
+        "9": 1,
+        "12": 3,
+        "13": 2,
+        "14": 2,
+        "15": 3,
+        "17": 2,
+        "18": 2,
+        "19": 1,
+        "22": 1,
+        "24": 1,
+        "25": 1,
+        "28": 1
+      },
+      "max_routes": 28,
+      "fp32_scale_min": 0.0007275643292814493
+    },
+    {
+      "name": "L39/right_only",
+      "ncta": 112,
+      "padded": 896,
+      "inactive_experts": 178,
+      "count_histogram": {
+        "0": 178,
+        "1": 25,
+        "2": 8,
+        "3": 11,
+        "4": 8,
+        "5": 3,
+        "6": 1,
+        "7": 3,
+        "10": 1,
+        "11": 2,
+        "12": 3,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 2,
+        "18": 1,
+        "22": 2,
+        "26": 1,
+        "28": 1,
+        "30": 1,
+        "31": 1,
+        "45": 1
+      },
+      "max_routes": 45,
+      "fp32_scale_min": 0.0004869546683039516
+    },
+    {
+      "name": "L39/rows_reversed",
+      "ncta": 146,
+      "padded": 1168,
+      "inactive_experts": 141,
+      "count_histogram": {
+        "0": 141,
+        "1": 58,
+        "2": 17,
+        "3": 10,
+        "4": 4,
+        "6": 1,
+        "7": 4,
+        "8": 1,
+        "9": 1,
+        "12": 3,
+        "13": 2,
+        "14": 2,
+        "15": 3,
+        "17": 2,
+        "18": 2,
+        "19": 1,
+        "22": 1,
+        "24": 1,
+        "25": 1,
+        "28": 1
+      },
+      "max_routes": 28,
+      "fp32_scale_min": 0.0006728351581841707
+    },
+    {
+      "name": "L39/worst_global288",
+      "ncta": 288,
+      "padded": 2304,
+      "inactive_experts": 0,
+      "count_histogram": {
+        "1": 251,
+        "33": 1,
+        "57": 4
+      },
+      "max_routes": 57,
+      "fp32_scale_min": 0.0005491205956786871
+    }
+  ]
+}

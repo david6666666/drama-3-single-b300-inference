@@ -1,0 +1,9 @@
+{
+  "created_utc": "2026-10-16T00:09:16.850476+00:00",
+  "artifact": "codec-cache-service-experiment.json",
+  "field": "hypothesis",
+  "original_phrase": "40 repeat BF16-to-FP32 casts",
+  "correct_phrase": "40 repeat FP32-to-BF16 autocast weight conversions",
+  "evidence": "Frozen source-codec-cache/src/drama3/codec.py:103-111 deep-copies decoder.transformer, then casts Linear modules to dtype=bfloat16; source FP32 weights remain unchanged. User-visible computation was always native BF16 autocast.",
+  "scope": "Documentation direction typo only. Executed flags, source SHA, checkpoints, gate and computation are unchanged. Original driver/protocol/hash preserved."
+}

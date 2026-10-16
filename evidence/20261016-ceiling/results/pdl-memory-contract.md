@@ -1,0 +1,7 @@
+# PDL synchronization contract for the next hypothesis
+
+NVIDIA's [PDL programming guide](https://docs.nvidia.com/cuda/cuda-programming-guide/04-special-topics/programmatic-dependent-launch.html) distinguishes permission to start a dependent kernel from visibility of the predecessor's results. The dependent kernel must synchronize before consuming those results. Concurrency is opportunistic, and correctness must not rely on concurrent execution. Graph edges can express both full completion dependencies and programmatic dependencies.
+
+Inference for this experiment: FC2 weight loads are independent of activation output, while routed-input and activation-scale consumers are dependent. Routing metadata is another input, produced earlier. A prospective specialization would retain FC1's initial wait, add an explicit full metadata-to-FC2 dependency, and preserve FC2's task-level waits before dependent reads. This is a design obligation, not proof that the current candidate supports the specialization or that removing its global wait is safe.
+
+The initial PDL candidate is unchanged and has already failed its single-round feasibility gate. Its pressure-case performance was not measured; the raw feasibility object's vacuous stress flag is not a pressure-case pass. The new hypothesis requires a separate source freeze, CPU control-flow proof, actual graph-edge checks, empty/restored-work and changing-metadata arithmetic gates before timing. No service improvement is claimed here.

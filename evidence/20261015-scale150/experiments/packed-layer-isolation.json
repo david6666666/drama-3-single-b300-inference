@@ -1,0 +1,22 @@
+{
+  "hypothesis": "Packed operators preserve each individual native operation given identical real model inputs. Full-model drift also occurs in the unchanged padded control and cannot identify a defective operator.",
+  "isolated_variable": "Packed metadata, convolution, recurrence, variable-length attention",
+  "source_sha": "92082526aaa35e93f3452d0553eb6ea39b1b5282",
+  "controls": "Same checkpoint/native precision and 3/5/6 real corpus prompts on GPU2. Compare each layer with independent single-sequence native math using identical layer inputs. CUDA graph versus eager packed execution, labels/positions and state ownership checked separately.",
+  "success": "Every isolated layer, recurrence state and graph/eager output RRMS < 0.03; metadata and untouched slots exact; lower captured prefill latency before experimental integration.",
+  "stop": "Any isolated numerical, nonfinite, state or graph error. Original full-model diagnostic remains failed; this does not establish WER/SIM or performance acceptance.",
+  "supersedes_diagnostic": "packed-prefill.json: full-model RRMS failed for both new packed path (max0.3221) and unchanged padded path (max0.3938). Quality bounds and frozen acceptance validator unchanged.",
+  "retries": [
+    {
+      "sha": "873a92d",
+      "output": "packed-layer-validation-v2.json",
+      "reason": "Replace unsupported nested CUDA graph timing with events; B3 passed all isolated checks, B5 graph/eager RRMS0.03735 failed."
+    },
+    {
+      "sha": "873a92d",
+      "output": "packed-layer-validation-noatomic.json",
+      "isolated_variable": "DRAMA3_PREFILL_MOE_TUNED=0",
+      "hypothesis": "Remove existing atomic FP32 expert reduction to isolate whether reduction-order variance explains graph/eager mismatch. Identical numeric threshold."
+    }
+  ]
+}

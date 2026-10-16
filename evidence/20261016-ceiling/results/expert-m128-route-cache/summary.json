@@ -1,0 +1,177 @@
+{
+  "status": "EXACT_PASS_LOCAL_CONTINUATION_FAIL",
+  "gpu": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "exact_checks": 1516,
+  "screen_checks": 146,
+  "frozen_files_unchanged": 158,
+  "protocol_sha256": "30398e68a23922ee2abb751b80e5721f3314174837d1a86a322950e83845d678",
+  "manifest_sha256": "774721c5c5a6246947465eaff7a6b174dd1542c680df0185a1724d9f2c7bab36",
+  "cases": [
+    {
+      "layer": 0,
+      "native_us": 120.87136268615723,
+      "candidate_us": 117.19391822814941,
+      "reduction_pct": 3.042444774579325,
+      "rounds": [
+        {
+          "order": "AB",
+          "arms": {
+            "A": {
+              "device_ms_per_call": 0.12087136268615722,
+              "wall_ms_per_call": 0.12132426956668496
+            },
+            "B": {
+              "device_ms_per_call": 0.11719391822814941,
+              "wall_ms_per_call": 0.11732993996702135
+            }
+          }
+        }
+      ]
+    },
+    {
+      "layer": 19,
+      "native_us": 99.38495635986328,
+      "candidate_us": 96.60256385803223,
+      "reduction_pct": 2.7996113332849597,
+      "rounds": [
+        {
+          "order": "AB",
+          "arms": {
+            "A": {
+              "device_ms_per_call": 0.09938495635986327,
+              "wall_ms_per_call": 0.09963087039068341
+            },
+            "B": {
+              "device_ms_per_call": 0.09660256385803223,
+              "wall_ms_per_call": 0.09673101012594998
+            }
+          }
+        }
+      ]
+    },
+    {
+      "layer": 39,
+      "native_us": 80.05536079406738,
+      "candidate_us": 76.70432090759277,
+      "reduction_pct": 4.185903171549943,
+      "rounds": [
+        {
+          "order": "AB",
+          "arms": {
+            "A": {
+              "device_ms_per_call": 0.08005536079406739,
+              "wall_ms_per_call": 0.08031781995669007
+            },
+            "B": {
+              "device_ms_per_call": 0.07670432090759277,
+              "wall_ms_per_call": 0.07683068979531527
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "resources": {
+    "fc1": {
+      "status": "CPU_RESOURCE_PASS",
+      "cubin_sha256": "06974be36c9213567e0f77dd382ef6128caf806cb601f83d97dc4b8fe69f3475",
+      "ptx_sha256": "f32c4ba2a7a01dc03cabeae2040d57393ee0efdfcbd43701718728e80c6934ca",
+      "host_ir_sha256": "87594522adb328b72ddd0ba008352eab3d3033e805d0f27cc99a3f3381d2f41a",
+      "dynamic_shared_bytes": 72568,
+      "static_shared_bytes": 2048,
+      "total_shared_bytes_per_cta": 74616,
+      "limit_bytes_per_cta": 81920,
+      "dynamic_shared_evidence": [
+        {
+          "constant": "%17",
+          "config_pointer": "%201",
+          "dynamic_shared_bytes": 72568
+        }
+      ],
+      "stack_bytes": 0,
+      "local_bytes": 0,
+      "ptx_local_ops": 0,
+      "sass_spill_ops": 0,
+      "base_registers": 32,
+      "setmaxnreg_limits": [
+        "160",
+        "48"
+      ],
+      "cluster_size": 1,
+      "cluster_evidence": null,
+      "limitations": [
+        "Resource fit does not prove occupancy or concurrent residency.",
+        "Dynamic SETMAXNREG limits require complete warp-role resource accounting.",
+        "Independent FC1/FC2 resource counts cannot be added to infer composite buffer lifetime."
+      ],
+      "gpu_used": false,
+      "timing_allowed": false
+    },
+    "fc2": {
+      "status": "CPU_RESOURCE_PASS",
+      "cubin_sha256": "ea52321ec64fc9976a306b7c7aeeb0805033c2e024034e5cc6ce266e7d95b170",
+      "ptx_sha256": "7bd5b717c7728474163599827f7f01ee7a70e317a30e284e631b441eb46f926d",
+      "host_ir_sha256": "1ab3d79918d6b7a35d63fbb14ea8794ba42f5406b907cb69ff2f191df1999d76",
+      "dynamic_shared_bytes": 72616,
+      "static_shared_bytes": 2048,
+      "total_shared_bytes_per_cta": 74664,
+      "limit_bytes_per_cta": 81920,
+      "dynamic_shared_evidence": [
+        {
+          "constant": "%18",
+          "config_pointer": "%209",
+          "dynamic_shared_bytes": 72616
+        }
+      ],
+      "stack_bytes": 0,
+      "local_bytes": 0,
+      "ptx_local_ops": 0,
+      "sass_spill_ops": 0,
+      "base_registers": 32,
+      "setmaxnreg_limits": [
+        "160",
+        "48"
+      ],
+      "cluster_size": 1,
+      "cluster_evidence": null,
+      "limitations": [
+        "Resource fit does not prove occupancy or concurrent residency.",
+        "Dynamic SETMAXNREG limits require complete warp-role resource accounting.",
+        "Independent FC1/FC2 resource counts cannot be added to infer composite buffer lifetime."
+      ],
+      "gpu_used": false,
+      "timing_allowed": false
+    }
+  },
+  "process_audit": [
+    {
+      "stage": "gate",
+      "pid": 910281,
+      "samples": 13,
+      "foreign_sample_count": 0,
+      "pre_empty": true,
+      "post_empty": true
+    },
+    {
+      "stage": "feasibility",
+      "pid": 911977,
+      "samples": 10,
+      "foreign_sample_count": 0,
+      "pre_empty": true,
+      "post_empty": true
+    }
+  ],
+  "stress_performance": "NOT_RUN",
+  "formal_timing": false,
+  "runtime_promoted": false,
+  "all_targets_pass": false,
+  "prior_exact_equivalence": "Both the old metadata-ready candidate and this candidate match the same immutable five-boundary/finalizer native oracle bytes. No new direct timing against the old candidate was performed.",
+  "lint": "AST and isolated E9/F63/F7/F82 passed. Broad workspace Ruff reported 16 style/DSL idiom findings; frozen DSL/import semantics were not autofixed.",
+  "limitations": [
+    "One AB screen, five warmups, 100 complete calls per arm; no three-repeat claim.",
+    "Both arms include live metadata/body/native ordered finalizer, exclude common input quantization/logits-to-top8.",
+    "Physical B64 fixtures have 63 live rows and original padding.",
+    "GPU ownership checked at 2-second samples, not continuous exclusion.",
+    "No source-PC causality proved by aggregate scoreboard ratios."
+  ]
+}

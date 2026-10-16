@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-15T23:54:03.634716+00:00",
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/run_pipeline_admission_service_and_quality.py"
+  ],
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "drivers": {
+    "run_pipeline_admission_pair.py": "0499deb489c0566ac3edef8ee7cb096dedaa8e3a771627f8ceede942da1dc54d",
+    "run_pipeline_admission_quality.py": "3ade5fdeb32fa594a2892d90b8fbb4cfa2d5617bfcc103dd2b3b225c74c28a74",
+    "run_pipeline_admission_service_and_quality.py": "dfafba9f1f2195b47445f6a4884becca950b6261d4d337347e2777a14ed0f0c7"
+  }
+}

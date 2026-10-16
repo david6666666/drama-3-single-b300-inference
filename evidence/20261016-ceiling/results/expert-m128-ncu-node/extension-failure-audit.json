@@ -1,0 +1,12 @@
+{
+  "status": "OUTPUT_DISCOVERY_FAILURE_ONLY",
+  "original_launch_status": "STOPPED_FAILURE",
+  "original_exact_checks": 80,
+  "actual_records": 2,
+  "each_replay_passes": 4,
+  "all17_metrics_numeric": true,
+  "report": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-ncu-node/L0-native-ncu.ncu-repz",
+  "report_sha256": "c84b6535c6082909ecb00d1c2ce83c4854b3d7f8b3749e0d4b36e7be32600d79",
+  "csv_sha256": "2f67ae17a29a474bde79fcd16a69cee86aa3496be778db934824d57ab9623e4c",
+  "resampled": false
+}

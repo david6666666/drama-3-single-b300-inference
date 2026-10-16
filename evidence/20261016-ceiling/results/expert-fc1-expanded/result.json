@@ -1,0 +1,1183 @@
+{
+  "status": "EXACT_FAIL",
+  "mode": "run",
+  "checks": [
+    {
+      "name": "CPU_AOT_PASS",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_hashes",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "source_frozen",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/CPU_GPU_cubin_identical",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/left_only/eager/fp8_bytes",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/left_only/eager/fp32_scales",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/left_only/eager/padding_bytes",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/left_only/eager/padding_scales",
+      "exact": true,
+      "shape": [
+        8,
+        504
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/left_only/eager/inactive_scale_capacity",
+      "exact": true,
+      "shape": [
+        10304
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/left_only/graph/fp8_bytes",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/left_only/graph/fp32_scales",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/left_only/graph/padding_bytes",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/left_only/graph/padding_scales",
+      "exact": true,
+      "shape": [
+        8,
+        504
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/left_only/graph/inactive_scale_capacity",
+      "exact": true,
+      "shape": [
+        10304
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/left_only/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/left_only/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L0/left_only/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/left_only/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/left_only/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/left_only/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/left_only/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/left_only/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/left_only/untouched/fc2",
+      "exact": true,
+      "shape": [
+        2304,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/real/eager/fp8_bytes",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/real/eager/fp32_scales",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/real/eager/padding_bytes",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/real/eager/padding_scales",
+      "exact": true,
+      "shape": [
+        8,
+        1152
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/real/eager/inactive_scale_capacity",
+      "exact": true,
+      "shape": [
+        5120
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/real/graph/fp8_bytes",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/real/graph/fp32_scales",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/real/graph/padding_bytes",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/real/graph/padding_scales",
+      "exact": true,
+      "shape": [
+        8,
+        1152
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/real/graph/inactive_scale_capacity",
+      "exact": true,
+      "shape": [
+        5120
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/real/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/real/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L0/real/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/real/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/real/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/real/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/real/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/real/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/real/untouched/fc2",
+      "exact": true,
+      "shape": [
+        2304,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/right_only/eager/fp8_bytes",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/right_only/eager/fp32_scales",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/right_only/eager/padding_bytes",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/right_only/eager/padding_scales",
+      "exact": true,
+      "shape": [
+        8,
+        528
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/right_only/eager/inactive_scale_capacity",
+      "exact": true,
+      "shape": [
+        10112
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/right_only/graph/fp8_bytes",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/right_only/graph/fp32_scales",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/right_only/graph/padding_bytes",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/right_only/graph/padding_scales",
+      "exact": true,
+      "shape": [
+        8,
+        528
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/right_only/graph/inactive_scale_capacity",
+      "exact": true,
+      "shape": [
+        10112
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/right_only/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/right_only/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L0/right_only/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/right_only/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/right_only/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/right_only/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/right_only/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/right_only/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/right_only/untouched/fc2",
+      "exact": true,
+      "shape": [
+        2304,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/rows_reversed/eager/fp8_bytes",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/rows_reversed/eager/fp32_scales",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/rows_reversed/eager/padding_bytes",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/rows_reversed/eager/padding_scales",
+      "exact": true,
+      "shape": [
+        8,
+        1152
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/rows_reversed/eager/inactive_scale_capacity",
+      "exact": true,
+      "shape": [
+        5120
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/rows_reversed/graph/fp8_bytes",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/rows_reversed/graph/fp32_scales",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/rows_reversed/graph/padding_bytes",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/rows_reversed/graph/padding_scales",
+      "exact": true,
+      "shape": [
+        8,
+        1152
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/rows_reversed/graph/inactive_scale_capacity",
+      "exact": true,
+      "shape": [
+        5120
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/rows_reversed/untouched/fc2",
+      "exact": true,
+      "shape": [
+        2304,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/worst_global288/eager/fp8_bytes",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/worst_global288/eager/fp32_scales",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/worst_global288/eager/padding_bytes",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/worst_global288/eager/padding_scales",
+      "exact": true,
+      "shape": [
+        8,
+        1792
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/worst_global288/eager/inactive_scale_capacity",
+      "exact": true,
+      "shape": [
+        0
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/worst_global288/graph/fp8_bytes",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/worst_global288/graph/fp32_scales",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/worst_global288/graph/padding_bytes",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/worst_global288/graph/padding_scales",
+      "exact": true,
+      "shape": [
+        8,
+        1792
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/worst_global288/graph/inactive_scale_capacity",
+      "exact": true,
+      "shape": [
+        0
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "L0/worst_global288/untouched/mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "L0/worst_global288/untouched/q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "L0/worst_global288/untouched/s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "L0/worst_global288/untouched/act",
+      "exact": true,
+      "shape": [
+        2304,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "L0/worst_global288/untouched/actscale",
+      "exact": true,
+      "shape": [
+        9216
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "L0/worst_global288/untouched/fc2",
+      "exact": true,
+      "shape": [
+        2304,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "synthetic_zero/eager/fp8_bytes",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "synthetic_zero/eager/fp32_scales",
+      "exact": false,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    }
+  ],
+  "timings_allowed": false,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "source_status": "",
+  "pid": 558269,
+  "gpu_uuid": "bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "cases": [
+    {
+      "name": "L0/left_only",
+      "ncta": 127,
+      "padded": 1016,
+      "inactive_experts": 138,
+      "count_histogram": {
+        "0": 138,
+        "1": 16,
+        "2": 21,
+        "3": 20,
+        "4": 18,
+        "5": 10,
+        "6": 8,
+        "7": 7,
+        "8": 9,
+        "9": 2,
+        "11": 4,
+        "12": 1,
+        "14": 1,
+        "15": 1
+      },
+      "max_routes": 15,
+      "fp32_scale_min": 0.0004253617662470788
+    },
+    {
+      "name": "L0/real",
+      "ncta": 208,
+      "padded": 1664,
+      "inactive_experts": 50,
+      "count_histogram": {
+        "0": 50,
+        "1": 75,
+        "2": 50,
+        "3": 35,
+        "4": 21,
+        "5": 12,
+        "6": 8,
+        "7": 2,
+        "8": 1,
+        "9": 2
+      },
+      "max_routes": 9,
+      "fp32_scale_min": 0.00039806668064557016
+    },
+    {
+      "name": "L0/right_only",
+      "ncta": 130,
+      "padded": 1040,
+      "inactive_experts": 137,
+      "count_histogram": {
+        "0": 137,
+        "1": 14,
+        "2": 19,
+        "3": 20,
+        "4": 21,
+        "5": 13,
+        "6": 10,
+        "7": 8,
+        "8": 3,
+        "9": 3,
+        "10": 5,
+        "11": 2,
+        "12": 1
+      },
+      "max_routes": 12,
+      "fp32_scale_min": 0.00039806668064557016
+    },
+    {
+      "name": "L0/rows_reversed",
+      "ncta": 208,
+      "padded": 1664,
+      "inactive_experts": 50,
+      "count_histogram": {
+        "0": 50,
+        "1": 75,
+        "2": 50,
+        "3": 35,
+        "4": 21,
+        "5": 12,
+        "6": 8,
+        "7": 2,
+        "8": 1,
+        "9": 2
+      },
+      "max_routes": 9,
+      "fp32_scale_min": 0.0004253617662470788
+    },
+    {
+      "name": "L0/worst_global288",
+      "ncta": 288,
+      "padded": 2304,
+      "inactive_experts": 0,
+      "count_histogram": {
+        "1": 251,
+        "33": 1,
+        "57": 4
+      },
+      "max_routes": 57,
+      "fp32_scale_min": 0.0004878649488091469
+    }
+  ],
+  "error": "AssertionError('synthetic_zero/eager/fp32_scales')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-expanded/probe.py\", line 136, in <module>\n    try:prepare() if mode=='prepare' else run()\n                                          ^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-expanded/probe.py\", line 128, in run\n    fn(*_launch_arg_tuple(io,cuda_drv.CUstream(torch.cuda.current_stream().cuda_stream)));torch.cuda.synchronize();expected_check('synthetic_zero/eager',x,native)\n                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-expanded/probe.py\", line 70, in expected_check\n    chk(name+'/fp32_scales',scale.T[mapping],expected['fc1_scale'].to('cuda'))\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-expanded/probe.py\", line 27, in chk\n    raise AssertionError(name)\nAssertionError: synthetic_zero/eager/fp32_scales\n"
+}

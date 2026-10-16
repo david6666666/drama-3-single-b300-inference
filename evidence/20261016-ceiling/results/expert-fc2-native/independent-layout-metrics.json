@@ -1,0 +1,37 @@
+{
+  "status": "POST_FAILURE_LAYOUT_DIAGNOSTIC",
+  "original_status": "NATIVE_MATH_FAIL",
+  "driver_sha256": "ca7756371033af16e0149f0a9eec47b23d73b004cb1e0c4e54a651237e8bbe5d",
+  "input_sha256": "d96580143d87ac96464c6c9baeb44a704ff9101c57e9bcfe57c0a213955bf57b",
+  "actual_reference_sha256": "d9a62fc9594108038c9e5d874f0024a90ce3e209ff0bf84410386c7dc83f90c5",
+  "timings_allowed": false,
+  "gpu_used": false,
+  "raw_changed_values": 14323,
+  "aligned_changed_bytes": 0,
+  "per_row_sorted_values_exact": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "raw_vs_fp64": {
+    "maxabs": 3.4125220252745514,
+    "rrms": 1.3210333565465986,
+    "bf16_rounded_changed_bytes": 25966
+  },
+  "aligned_vs_fp64": {
+    "maxabs": 0.006574745743548327,
+    "rrms": 0.0016712661914307528,
+    "bf16_rounded_changed_bytes": 0
+  },
+  "native_vs_fp64": {
+    "maxabs": 0.006574745743548327,
+    "rrms": 0.0016712661914307528,
+    "bf16_rounded_changed_bytes": 0
+  },
+  "cuda_initialized": false
+}

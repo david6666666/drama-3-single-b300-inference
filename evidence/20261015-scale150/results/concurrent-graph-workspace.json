@@ -1,0 +1,496 @@
+[
+  {
+    "separate_capture_streams": false,
+    "comparisons": [
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      }
+    ],
+    "passed": true,
+    "torch_git": "cf30153c4c131c8164ee7798e5022d810682e2cb"
+  },
+  {
+    "separate_capture_streams": true,
+    "comparisons": [
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      },
+      {
+        "rrms": 0.0,
+        "exact": true,
+        "finite": true
+      }
+    ],
+    "passed": true,
+    "torch_git": "cf30153c4c131c8164ee7798e5022d810682e2cb"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "status": "CPU_CONFIG_REVIEW_COMPLETE_GRAPH_SCOPE_CONDITIONAL",
+  "gpu_used": false,
+  "runtime_modified": false,
+  "candidate_modified": false,
+  "date_utc": "2026-10-16T02:24:17.748090+00:00",
+  "cubin_sha256": "ea52321ec64fc9976a306b7c7aeeb0805033c2e024034e5cc6ce266e7d95b170",
+  "remaining": "Final graph/driver CPU negative tests and all GPU exact/empty gates; snapshot does not fingerprint kernel parameter contents.",
+  "sha256": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_ready_config.py": "43b0cb3a051baa70bd86a2602dcbffc9bd1f8850ee9b7f569a26cbf19f94520a",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_ready_kernel.py": "23dd6ecfedda65839d9f986d45f7781f59e730b9e0ab4eaea0ca3270ed678041",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_ready_graph.py": "ef8fa543dfdb792b493b7aff03ba255ccdbb9c6cb6684ea22b9163e3b22ad242",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/prepare_metadata_ready.py": "d8ff3b7596f82e5fa05a532cad7bd806c89c670a048cde09c964c43ff01a5642",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/prepare.json": "a6b59c3cfa16bce653a1d04e45cffd681298a9936d761d8238c18c5279c88da2",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/cpu-wait-placement.json": "c89bd0c5c24ae76fbc57ffc14adc34663f096e4d4e037df38426e49797575e28",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/CPU-CONTRACT.md": "1d3c4bba1dfb09ba05811c5166721c47e5b32d2752cd0250b3231827ad3a055b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-metadata-ready-independent-review.md": "e2720586c7fc603716c5fafb9651638a80ed792d44b685f5cfcb45bf9fcb2a9c"
+  }
+}

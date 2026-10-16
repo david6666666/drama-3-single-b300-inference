@@ -1,0 +1,1360 @@
+{
+  "status": "CPU_LIVE_NATIVE_MAPPING_PASS",
+  "passed": true,
+  "checks": [
+    {
+      "name": "oracle-layer0-left_only/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-left_only/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-left_only/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-left_only/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer0-left_only/original/mn_count",
+      "exact": true,
+      "shape": [
+        127
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-left_only/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-left_only/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-left_only/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-left_only/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer0-left_only/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        127
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-real/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-real/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-real/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-real/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer0-real/original/mn_count",
+      "exact": true,
+      "shape": [
+        208
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-real/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-real/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-real/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-real/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer0-real/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        208
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-right_only/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-right_only/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-right_only/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-right_only/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer0-right_only/original/mn_count",
+      "exact": true,
+      "shape": [
+        130
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-right_only/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-right_only/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-right_only/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-right_only/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer0-right_only/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        130
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/original/mn_count",
+      "exact": true,
+      "shape": [
+        208
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        208
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-worst_global288/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-worst_global288/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-worst_global288/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-worst_global288/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer0-worst_global288/original/mn_count",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-worst_global288/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer0-worst_global288/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-worst_global288/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer0-worst_global288/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer0-worst_global288/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-left_only/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-left_only/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-left_only/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-left_only/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer19-left_only/original/mn_count",
+      "exact": true,
+      "shape": [
+        109
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-left_only/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-left_only/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-left_only/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-left_only/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer19-left_only/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        109
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-real/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-real/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-real/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-real/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer19-real/original/mn_count",
+      "exact": true,
+      "shape": [
+        168
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-real/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-real/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-real/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-real/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer19-real/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        168
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-right_only/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-right_only/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-right_only/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-right_only/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer19-right_only/original/mn_count",
+      "exact": true,
+      "shape": [
+        114
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-right_only/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-right_only/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-right_only/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-right_only/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer19-right_only/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        114
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/original/mn_count",
+      "exact": true,
+      "shape": [
+        168
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        168
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-worst_global288/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-worst_global288/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-worst_global288/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-worst_global288/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer19-worst_global288/original/mn_count",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-worst_global288/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer19-worst_global288/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-worst_global288/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer19-worst_global288/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer19-worst_global288/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-left_only/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-left_only/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-left_only/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-left_only/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer39-left_only/original/mn_count",
+      "exact": true,
+      "shape": [
+        109
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-left_only/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-left_only/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-left_only/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-left_only/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer39-left_only/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        109
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-real/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-real/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-real/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-real/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer39-real/original/mn_count",
+      "exact": true,
+      "shape": [
+        146
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-real/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-real/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-real/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-real/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer39-real/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        146
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-right_only/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-right_only/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-right_only/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-right_only/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer39-right_only/original/mn_count",
+      "exact": true,
+      "shape": [
+        112
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-right_only/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-right_only/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-right_only/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-right_only/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer39-right_only/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        112
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/original/mn_count",
+      "exact": true,
+      "shape": [
+        146
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        146
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-worst_global288/original/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-worst_global288/original/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-worst_global288/original/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-worst_global288/original/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer39-worst_global288/original/mn_count",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-worst_global288/within_expert_reverse/bounds_bijection",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "oracle-layer39-worst_global288/within_expert_reverse/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-worst_global288/within_expert_reverse/original_token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "oracle-layer39-worst_global288/within_expert_reverse/absolute_mn_prefix",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "oracle-layer39-worst_global288/within_expert_reverse/mn_count",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int64"
+    }
+  ],
+  "timings_allowed": false,
+  "cases": [],
+  "metadata_provenance": [
+    {
+      "name": "oracle-layer0-left_only/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer0-left_only_original.pt",
+      "sha256": "b892931dcbb32f31698239c7a1dcba32ba4f6807c27ba1bc0e68fc710fba069e",
+      "different_from_archived_mapping": 0,
+      "ncta": 127,
+      "padded": 1016
+    },
+    {
+      "name": "oracle-layer0-left_only/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer0-left_only_within_expert_reverse.pt",
+      "sha256": "aa9b10e2b5170e3ef8898c516e8c22d2899822874e1dc5a9b93761be444d0eac",
+      "different_from_archived_mapping": 452,
+      "ncta": 127,
+      "padded": 1016
+    },
+    {
+      "name": "oracle-layer0-real/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer0-real_original.pt",
+      "sha256": "c8e389b954928a64bbf8d7a583a277bd6de263cc27739898c9e47f4df9ace3d5",
+      "different_from_archived_mapping": 0,
+      "ncta": 208,
+      "padded": 1664
+    },
+    {
+      "name": "oracle-layer0-real/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer0-real_within_expert_reverse.pt",
+      "sha256": "31b0e9ee9c41d4e794d8b56cc6f0bd4d82298832cb88cb71da6af5273a007839",
+      "different_from_archived_mapping": 386,
+      "ncta": 208,
+      "padded": 1664
+    },
+    {
+      "name": "oracle-layer0-right_only/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer0-right_only_original.pt",
+      "sha256": "d7f0156b8f35b994e7d188102a6b2456154ea355c9065a9090be2baec2ba0baf",
+      "different_from_archived_mapping": 0,
+      "ncta": 130,
+      "padded": 1040
+    },
+    {
+      "name": "oracle-layer0-right_only/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer0-right_only_within_expert_reverse.pt",
+      "sha256": "be282ec2566a71087654e120132c9e617d1a98af55f85a1fba700d1f6b278beb",
+      "different_from_archived_mapping": 452,
+      "ncta": 130,
+      "padded": 1040
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer0-rows_reversed_original.pt",
+      "sha256": "7a168e517448fdadd483ea0a10ae228eb41b2090b35d367a8919bcd961743c54",
+      "different_from_archived_mapping": 0,
+      "ncta": 208,
+      "padded": 1664
+    },
+    {
+      "name": "oracle-layer0-rows_reversed/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer0-rows_reversed_within_expert_reverse.pt",
+      "sha256": "6a34448618c54777e8aec3aa776ee15101049e86529edc47d5038f178be17874",
+      "different_from_archived_mapping": 386,
+      "ncta": 208,
+      "padded": 1664
+    },
+    {
+      "name": "oracle-layer0-worst_global288/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer0-worst_global288_original.pt",
+      "sha256": "5cbbdb3283d0244e527d4516b22f73bd0e5772ec9d5ba2b86b4490691a1c28ee",
+      "different_from_archived_mapping": 0,
+      "ncta": 288,
+      "padded": 2304
+    },
+    {
+      "name": "oracle-layer0-worst_global288/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer0-worst_global288_within_expert_reverse.pt",
+      "sha256": "8ea8d7c7c2e757c373f7ec6b25b11b60cda09602bb9fbe822ce79fa3b5de6c2f",
+      "different_from_archived_mapping": 256,
+      "ncta": 288,
+      "padded": 2304
+    },
+    {
+      "name": "oracle-layer19-left_only/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer19-left_only_original.pt",
+      "sha256": "8c38e71ceb0921d164c6af5a5f2d98161e6e5de104b16af2eba686ca99caea1a",
+      "different_from_archived_mapping": 0,
+      "ncta": 109,
+      "padded": 872
+    },
+    {
+      "name": "oracle-layer19-left_only/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer19-left_only_within_expert_reverse.pt",
+      "sha256": "01431ec1c8c17d05e9b325c052144ce3bec78e76c185ab9364d6c9dab1c959ef",
+      "different_from_archived_mapping": 470,
+      "ncta": 109,
+      "padded": 872
+    },
+    {
+      "name": "oracle-layer19-real/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer19-real_original.pt",
+      "sha256": "13758877b56c34b5a508bf8bbec5effae4651b44ee9e11b4d50065b3ecdea711",
+      "different_from_archived_mapping": 0,
+      "ncta": 168,
+      "padded": 1344
+    },
+    {
+      "name": "oracle-layer19-real/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer19-real_within_expert_reverse.pt",
+      "sha256": "135d36290135f91edaccbc38a7f791d262647d367ad725eec4ce756c762a8518",
+      "different_from_archived_mapping": 422,
+      "ncta": 168,
+      "padded": 1344
+    },
+    {
+      "name": "oracle-layer19-right_only/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer19-right_only_original.pt",
+      "sha256": "85e2c203569d188e23860a374bc1a00b2ddec4e8107fc430d792f8c91411ebb6",
+      "different_from_archived_mapping": 0,
+      "ncta": 114,
+      "padded": 912
+    },
+    {
+      "name": "oracle-layer19-right_only/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer19-right_only_within_expert_reverse.pt",
+      "sha256": "01456663269880f1bc894cc9b09b6b33ac6072290d5bf27086d6c8e64ca8df78",
+      "different_from_archived_mapping": 458,
+      "ncta": 114,
+      "padded": 912
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer19-rows_reversed_original.pt",
+      "sha256": "7f17b718aa16f0af70d10a1c8254581c826ca4d449d782e430b4c83208a1fd8e",
+      "different_from_archived_mapping": 0,
+      "ncta": 168,
+      "padded": 1344
+    },
+    {
+      "name": "oracle-layer19-rows_reversed/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer19-rows_reversed_within_expert_reverse.pt",
+      "sha256": "7d1e4a48ff1851fd17c9b92c54adf915c4155b7e9def2392b42b25b337a22006",
+      "different_from_archived_mapping": 422,
+      "ncta": 168,
+      "padded": 1344
+    },
+    {
+      "name": "oracle-layer19-worst_global288/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer19-worst_global288_original.pt",
+      "sha256": "7442a2f3017cc2b7e3a18b6cb0f36e636d6638ee055d4367e750a64d1e76a879",
+      "different_from_archived_mapping": 0,
+      "ncta": 288,
+      "padded": 2304
+    },
+    {
+      "name": "oracle-layer19-worst_global288/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer19-worst_global288_within_expert_reverse.pt",
+      "sha256": "f4362a44a7d4ec1831465bd272aaeb09817ece1501fa0383fd51cee9461f00c3",
+      "different_from_archived_mapping": 256,
+      "ncta": 288,
+      "padded": 2304
+    },
+    {
+      "name": "oracle-layer39-left_only/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer39-left_only_original.pt",
+      "sha256": "a64ad87ff71959e476d32e3bc692eb1861b6b8a7fff07730d972b7b06d93bb68",
+      "different_from_archived_mapping": 0,
+      "ncta": 109,
+      "padded": 872
+    },
+    {
+      "name": "oracle-layer39-left_only/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer39-left_only_within_expert_reverse.pt",
+      "sha256": "7b1bc80baa73ad37ca53e92c559a2505ef0a526eb0b33a46ea89013f51ebae4b",
+      "different_from_archived_mapping": 470,
+      "ncta": 109,
+      "padded": 872
+    },
+    {
+      "name": "oracle-layer39-real/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer39-real_original.pt",
+      "sha256": "f7ac5445c2d0c4e37ffc014dc03ff08ab435847f5a3780ed6f2f4b52f3be2f90",
+      "different_from_archived_mapping": 0,
+      "ncta": 146,
+      "padded": 1168
+    },
+    {
+      "name": "oracle-layer39-real/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer39-real_within_expert_reverse.pt",
+      "sha256": "62e997a5cfab5fe499656dbec037ca0ef05f241e0d235e4bdc7ef609df3b7f5d",
+      "different_from_archived_mapping": 430,
+      "ncta": 146,
+      "padded": 1168
+    },
+    {
+      "name": "oracle-layer39-right_only/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer39-right_only_original.pt",
+      "sha256": "c3c15bb7cc10ef7fa14a37982d8266e0af39564a9637efe0d4de2dca4d3419e3",
+      "different_from_archived_mapping": 0,
+      "ncta": 112,
+      "padded": 896
+    },
+    {
+      "name": "oracle-layer39-right_only/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer39-right_only_within_expert_reverse.pt",
+      "sha256": "6bf3d79e819bcf6d5f3685211f8996194189b5b9e67e86bd07cbe81fd763ec45",
+      "different_from_archived_mapping": 464,
+      "ncta": 112,
+      "padded": 896
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer39-rows_reversed_original.pt",
+      "sha256": "ccfef26a4f13a2f872aa21175da6631a7d62ee94d26895f9f62145a5d4b9dbc9",
+      "different_from_archived_mapping": 0,
+      "ncta": 146,
+      "padded": 1168
+    },
+    {
+      "name": "oracle-layer39-rows_reversed/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer39-rows_reversed_within_expert_reverse.pt",
+      "sha256": "cd2e9ac513988a68afd6cd30ff21b99b1e26cf001f75350d8608f49499f4d5c7",
+      "different_from_archived_mapping": 430,
+      "ncta": 146,
+      "padded": 1168
+    },
+    {
+      "name": "oracle-layer39-worst_global288/original",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer39-worst_global288_original.pt",
+      "sha256": "0a0def22c7cf26568324090d661ece16cfb3907c2d7af90779128668b0a94904",
+      "different_from_archived_mapping": 0,
+      "ncta": 288,
+      "padded": 2304
+    },
+    {
+      "name": "oracle-layer39-worst_global288/within_expert_reverse",
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/cpu-live-metadata/timing-gate/metadata-provenance/oracle-layer39-worst_global288_within_expert_reverse.pt",
+      "sha256": "cad5bb95caacc60f07805ce3f5823d13b4a2b9362fc428834f48c84f8e9024ae",
+      "different_from_archived_mapping": 256,
+      "ncta": 288,
+      "padded": 2304
+    }
+  ]
+}

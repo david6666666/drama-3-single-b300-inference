@@ -1,0 +1,792 @@
+{
+  "status": "INDEPENDENT_CPU_RECOMPUTATION_PASS_CANDIDATE_CONTINUATION_FAIL",
+  "generated_at_utc": "2026-10-16T02:00:13.940370+00:00",
+  "gpu_used": false,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "inputs": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/timing-gate/result.json": "8dc8b1a00f7dec2bd294f2e5c6e1beb3e8d249550f1335009483b4eaf9241769",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/timing-protocol.json": "b413289c093c33fb13a273ffafe1dfdcbcb7321bdc447807d3a3bf6f3f48aa77"
+  },
+  "checks": 1262,
+  "all_recorded_exact": true,
+  "raw_timing_rows": 45,
+  "case_medians": [
+    {
+      "case": "L0/left_only",
+      "primary": false,
+      "median_ms": {
+        "native": 0.08327391624450683,
+        "resident": 0.09384063720703124
+      },
+      "latency_change_percent": 12.68911255656413,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L0/left_only",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.08333184242248536,
+            "resident": 0.09374784469604493
+          }
+        },
+        {
+          "case": "L0/left_only",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.09387552261352539,
+            "native": 0.08327391624450683
+          }
+        },
+        {
+          "case": "L0/left_only",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.08321503639221191,
+            "resident": 0.09384063720703124
+          }
+        }
+      ]
+    },
+    {
+      "case": "L0/real",
+      "primary": true,
+      "median_ms": {
+        "native": 0.12129887580871582,
+        "resident": 0.13847359657287597
+      },
+      "latency_change_percent": 14.159010666549054,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L0/real",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.12130816459655762,
+            "resident": 0.13847359657287597
+          }
+        },
+        {
+          "case": "L0/real",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.13835295677185058,
+            "native": 0.12128704071044921
+          }
+        },
+        {
+          "case": "L0/real",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.12129887580871582,
+            "resident": 0.13874303817749023
+          }
+        }
+      ]
+    },
+    {
+      "case": "L0/right_only",
+      "primary": false,
+      "median_ms": {
+        "native": 0.08246047973632813,
+        "resident": 0.09414496421813964
+      },
+      "latency_change_percent": 14.169799301645213,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L0/right_only",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.08243552207946778,
+            "resident": 0.0941641616821289
+          }
+        },
+        {
+          "case": "L0/right_only",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.0940726375579834,
+            "native": 0.08248127937316894
+          }
+        },
+        {
+          "case": "L0/right_only",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.08246047973632813,
+            "resident": 0.09414496421813964
+          }
+        }
+      ]
+    },
+    {
+      "case": "L0/rows_reversed",
+      "primary": false,
+      "median_ms": {
+        "native": 0.12126144409179687,
+        "resident": 0.13853535652160645
+      },
+      "latency_change_percent": 14.245181194389334,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L0/rows_reversed",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.12126144409179687,
+            "resident": 0.13848031997680665
+          }
+        },
+        {
+          "case": "L0/rows_reversed",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.13853535652160645,
+            "native": 0.12126463890075684
+          }
+        },
+        {
+          "case": "L0/rows_reversed",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.12125951766967774,
+            "resident": 0.13866496086120605
+          }
+        }
+      ]
+    },
+    {
+      "case": "L0/worst_global288",
+      "primary": false,
+      "median_ms": {
+        "native": 0.14996607780456542,
+        "resident": 0.18675935745239258
+      },
+      "latency_change_percent": 24.534401503635948,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L0/worst_global288",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.14996607780456542,
+            "resident": 0.18675935745239258
+          }
+        },
+        {
+          "case": "L0/worst_global288",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.1864204788208008,
+            "native": 0.1500217628479004
+          }
+        },
+        {
+          "case": "L0/worst_global288",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.14989248275756836,
+            "resident": 0.18697504043579102
+          }
+        }
+      ]
+    },
+    {
+      "case": "L19/left_only",
+      "primary": false,
+      "median_ms": {
+        "native": 0.06580639839172363,
+        "resident": 0.07387680053710938
+      },
+      "latency_change_percent": 12.263856315833198,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L19/left_only",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.06580639839172363,
+            "resident": 0.07391647815704346
+          }
+        },
+        {
+          "case": "L19/left_only",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.07383679866790771,
+            "native": 0.06574336051940918
+          }
+        },
+        {
+          "case": "L19/left_only",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.06590112209320069,
+            "resident": 0.07387680053710938
+          }
+        }
+      ]
+    },
+    {
+      "case": "L19/real",
+      "primary": true,
+      "median_ms": {
+        "native": 0.1005072021484375,
+        "resident": 0.122128324508667
+      },
+      "latency_change_percent": 21.5120129682822,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L19/real",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.10050559997558593,
+            "resident": 0.122128324508667
+          }
+        },
+        {
+          "case": "L19/real",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.12226240158081055,
+            "native": 0.10053152084350586
+          }
+        },
+        {
+          "case": "L19/real",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.1005072021484375,
+            "resident": 0.1220809555053711
+          }
+        }
+      ]
+    },
+    {
+      "case": "L19/right_only",
+      "primary": false,
+      "median_ms": {
+        "native": 0.07079840183258057,
+        "resident": 0.07688352108001709
+      },
+      "latency_change_percent": 8.594995211652101,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L19/right_only",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.07096384048461914,
+            "resident": 0.07694431781768798
+          }
+        },
+        {
+          "case": "L19/right_only",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.07688352108001709,
+            "native": 0.07075712203979492
+          }
+        },
+        {
+          "case": "L19/right_only",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.07079840183258057,
+            "resident": 0.0768713617324829
+          }
+        }
+      ]
+    },
+    {
+      "case": "L19/rows_reversed",
+      "primary": false,
+      "median_ms": {
+        "native": 0.10052512168884277,
+        "resident": 0.12229567527770996
+      },
+      "latency_change_percent": 21.656828883285485,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L19/rows_reversed",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.10047103881835938,
+            "resident": 0.12241984367370605
+          }
+        },
+        {
+          "case": "L19/rows_reversed",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.12229567527770996,
+            "native": 0.10054911613464355
+          }
+        },
+        {
+          "case": "L19/rows_reversed",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.10052512168884277,
+            "resident": 0.12223808288574219
+          }
+        }
+      ]
+    },
+    {
+      "case": "L19/worst_global288",
+      "primary": false,
+      "median_ms": {
+        "native": 0.15057600021362305,
+        "resident": 0.18465663909912108
+      },
+      "latency_change_percent": 22.633513200740918,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L19/worst_global288",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.15057600021362305,
+            "resident": 0.18465663909912108
+          }
+        },
+        {
+          "case": "L19/worst_global288",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.18458431243896484,
+            "native": 0.1505190372467041
+          }
+        },
+        {
+          "case": "L19/worst_global288",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.15063072204589845,
+            "resident": 0.1848873519897461
+          }
+        }
+      ]
+    },
+    {
+      "case": "L39/left_only",
+      "primary": false,
+      "median_ms": {
+        "native": 0.06427616119384766,
+        "resident": 0.0764355182647705
+      },
+      "latency_change_percent": 18.91736663341168,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L39/left_only",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.06412511825561523,
+            "resident": 0.0765008020401001
+          }
+        },
+        {
+          "case": "L39/left_only",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.07636000156402588,
+            "native": 0.06427616119384766
+          }
+        },
+        {
+          "case": "L39/left_only",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.06443583965301514,
+            "resident": 0.0764355182647705
+          }
+        }
+      ]
+    },
+    {
+      "case": "L39/real",
+      "primary": true,
+      "median_ms": {
+        "native": 0.08140735626220703,
+        "resident": 0.11161855697631835
+      },
+      "latency_change_percent": 37.11114339200905,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L39/real",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.08126367568969727,
+            "resident": 0.11176383972167969
+          }
+        },
+        {
+          "case": "L39/real",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.11136384010314941,
+            "native": 0.081428804397583
+          }
+        },
+        {
+          "case": "L39/real",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.08140735626220703,
+            "resident": 0.11161855697631835
+          }
+        }
+      ]
+    },
+    {
+      "case": "L39/right_only",
+      "primary": false,
+      "median_ms": {
+        "native": 0.06716671943664551,
+        "resident": 0.07986080169677734
+      },
+      "latency_change_percent": 18.89936320636505,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L39/right_only",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.06723167896270751,
+            "resident": 0.07986080169677734
+          }
+        },
+        {
+          "case": "L39/right_only",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.07971936225891113,
+            "native": 0.06716671943664551
+          }
+        },
+        {
+          "case": "L39/right_only",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.06698495864868165,
+            "resident": 0.08009440422058106
+          }
+        }
+      ]
+    },
+    {
+      "case": "L39/rows_reversed",
+      "primary": false,
+      "median_ms": {
+        "native": 0.08127008438110352,
+        "resident": 0.11133695602416992
+      },
+      "latency_change_percent": 36.99623529621607,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L39/rows_reversed",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.08114560127258301,
+            "resident": 0.11133695602416992
+          }
+        },
+        {
+          "case": "L39/rows_reversed",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.11132479667663574,
+            "native": 0.08127008438110352
+          }
+        },
+        {
+          "case": "L39/rows_reversed",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.08135807991027832,
+            "resident": 0.1115436840057373
+          }
+        }
+      ]
+    },
+    {
+      "case": "L39/worst_global288",
+      "primary": false,
+      "median_ms": {
+        "native": 0.1503593635559082,
+        "resident": 0.18523967742919922
+      },
+      "latency_change_percent": 23.19796589210852,
+      "continuation_pass": false,
+      "raw": [
+        {
+          "case": "L39/worst_global288",
+          "repetition": 0,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.1504582405090332,
+            "resident": 0.18521440505981446
+          }
+        },
+        {
+          "case": "L39/worst_global288",
+          "repetition": 1,
+          "order": [
+            "resident",
+            "native"
+          ],
+          "replays": 100,
+          "ms": {
+            "resident": 0.18536832809448242,
+            "native": 0.15029279708862306
+          }
+        },
+        {
+          "case": "L39/worst_global288",
+          "repetition": 2,
+          "order": [
+            "native",
+            "resident"
+          ],
+          "replays": 100,
+          "ms": {
+            "native": 0.1503593635559082,
+            "resident": 0.18523967742919922
+          }
+        }
+      ]
+    }
+  ],
+  "original_failure_preserved": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing/timing-gate/result.json",
+  "metadata_artifact_hashes_checked": 90,
+  "metadata_archive_difference_min": 65,
+  "metadata_archive_difference_max": 434,
+  "runtime_promoted": false,
+  "limits": [
+    "Three real B64 fixtures are 63 live plus one native padding row; no extrapolation to all40 layers or service.",
+    "Input quantization/logits routing excluded in both arms.",
+    "Native PDL=True; resident PDL=False; complete implementation A/B.",
+    "Source PTX register hints are not physical allocation; compiled SASS is authoritative.",
+    "This independent pass recomputes saved evidence and reads checker implementation; it does not rerun CUDA."
+  ]
+}

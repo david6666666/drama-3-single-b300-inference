@@ -1,0 +1,104 @@
+{
+  "status": "CPU_SASS_AUDIT",
+  "gpu_used": false,
+  "entries": [
+    {
+      "artifact": "expert-fc1-native-v3",
+      "cubin": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native-v3/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.cubin",
+      "cubin_sha256": "476495717a31847f92b368bd263d26855b4d9cdec71451466653ced2e4fe3ee8",
+      "ptx_setmaxnreg_count": 7,
+      "sass_setmaxnreg_count": 0,
+      "max_sass_general_register_index": 29,
+      "reqntid": [
+        ".reqntid 512, 1, 1"
+      ],
+      "usage": "\nResource usage:\n Common:\n  GLOBAL:0\n Function kernel_cutlass_batched_gemm_kernel_bf16_TensorMapswizzleTensorMapSwizzles128b_3_dtypeclass_cutlassbase_dsltypingFloat8E4M3FN_tma_formatTensorMapDataFormatBYTE_2_box_dims128_128_1_TensorMa_0:\n  REG:32 STACK:0 SHARED:2048 LOCAL:0 CONSTANT[0]:1872 TEXTURE:0 SURFACE:0 SAMPLER:0\n",
+      "sass_register_reconfiguration": [],
+      "sass_register_reconfiguration_count": 0,
+      "cuda_elf_reconfiguration": "Attribute:\tEIATTR_MAXREG_COUNT\nAttribute:\tEIATTR_VRC_CTA_INIT_COUNT"
+    },
+    {
+      "artifact": "expert-fc2-native-v2",
+      "cubin": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc2-native-v2/compile-artifacts/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048851.sm_103a.cubin",
+      "cubin_sha256": "127abe920626d6db37294b3f902e539028de62bb37747a86947622f0a3660358",
+      "ptx_setmaxnreg_count": 7,
+      "sass_setmaxnreg_count": 0,
+      "max_sass_general_register_index": 27,
+      "reqntid": [
+        ".reqntid 512, 1, 1"
+      ],
+      "usage": "\nResource usage:\n Common:\n  GLOBAL:0\n Function kernel_cutlass_batched_gemm_kernel_bf16_TensorMapswizzleTensorMapSwizzles128b_3_dtypeclass_cutlassbase_dsltypingFloat8E4M3FN_tma_formatTensorMapDataFormatBYTE_2_box_dims128_128_1_TensorMa_0:\n  REG:30 STACK:0 SHARED:2048 LOCAL:0 CONSTANT[0]:1856 TEXTURE:0 SURFACE:0 SAMPLER:0\n",
+      "sass_register_reconfiguration": [],
+      "sass_register_reconfiguration_count": 0,
+      "cuda_elf_reconfiguration": "Attribute:\tEIATTR_MAXREG_COUNT\nAttribute:\tEIATTR_VRC_CTA_INIT_COUNT"
+    },
+    {
+      "artifact": "expert-m128-native-v2",
+      "cubin": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-native-v2/aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024820.sm_103a.cubin",
+      "cubin_sha256": "591e474af703bb3883f3769a3b59ffe49f3ace647740b6288aafe3343ef98907",
+      "ptx_setmaxnreg_count": 7,
+      "sass_setmaxnreg_count": 0,
+      "max_sass_general_register_index": 29,
+      "reqntid": [
+        ".reqntid 384, 1, 1"
+      ],
+      "usage": "\nResource usage:\n Common:\n  GLOBAL:0\n Function kernel_cutlass_batched_gemm_kernel_bf16_TensorMapswizzleTensorMapSwizzles128b_3_dtypeclass_cutlassbase_dsltypingFloat8E4M3FN_tma_formatTensorMapDataFormatBYTE_2_box_dims128_128_1_TensorMa_0:\n  REG:32 STACK:0 SHARED:2048 LOCAL:0 CONSTANT[0]:1872 TEXTURE:0 SURFACE:0 SAMPLER:0\n",
+      "sass_register_reconfiguration": [],
+      "sass_register_reconfiguration_count": 0,
+      "cuda_elf_reconfiguration": "Attribute:\tEIATTR_MAXREG_COUNT\nAttribute:\tEIATTR_VRC_CTA_INIT_COUNT"
+    },
+    {
+      "artifact": "expert-m128-fc2",
+      "cubin": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-fc2/aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048851.sm_103a.cubin",
+      "cubin_sha256": "0fd40161ae41dbb849cd493122874be3d12446d7c101bde71750efdddfe95cd1",
+      "ptx_setmaxnreg_count": 7,
+      "sass_setmaxnreg_count": 0,
+      "max_sass_general_register_index": 28,
+      "reqntid": [
+        ".reqntid 384, 1, 1"
+      ],
+      "usage": "\nResource usage:\n Common:\n  GLOBAL:0\n Function kernel_cutlass_batched_gemm_kernel_bf16_TensorMapswizzleTensorMapSwizzles128b_3_dtypeclass_cutlassbase_dsltypingFloat8E4M3FN_tma_formatTensorMapDataFormatBYTE_2_box_dims128_128_1_TensorMa_0:\n  REG:31 STACK:0 SHARED:2048 LOCAL:0 CONSTANT[0]:1856 TEXTURE:0 SURFACE:0 SAMPLER:0\n",
+      "sass_register_reconfiguration": [],
+      "sass_register_reconfiguration_count": 0,
+      "cuda_elf_reconfiguration": "Attribute:\tEIATTR_MAXREG_COUNT\nAttribute:\tEIATTR_VRC_CTA_INIT_COUNT"
+    },
+    {
+      "artifact": "expert-resident-full",
+      "cubin": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-full/full-cpu-compile/cutlass_resident_chain_host_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_.sm_103a.cubin",
+      "cubin_sha256": "09423f0fc6d503e71d781e1d76e6dfb07522ee1c6a8d97292e81aba6b41f57f0",
+      "ptx_setmaxnreg_count": 32,
+      "sass_setmaxnreg_count": 0,
+      "max_sass_general_register_index": 29,
+      "reqntid": [
+        ".reqntid 512, 1, 1"
+      ],
+      "usage": "\nResource usage:\n Common:\n  GLOBAL:0\n Function kernel_cutlass_resident_chain_kernel_TensorMapswizzleTensorMapSwizzles128b_3_dtypeclass_cutlassbase_dsltypingFloat8E4M3FN_tma_formatTensorMapDataFormatBYTE_2_box_dims128_128_1_TensorMapsw_0:\n  REG:32 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[2]:96 CONSTANT[0]:2944 TEXTURE:0 SURFACE:0 SAMPLER:0\n",
+      "sass_register_reconfiguration": [],
+      "sass_register_reconfiguration_count": 0,
+      "cuda_elf_reconfiguration": "Attribute:\tEIATTR_MAXREG_COUNT\nAttribute:\tEIATTR_VRC_CTA_INIT_COUNT"
+    },
+    {
+      "artifact": "vendor-native-fc1",
+      "cubin": "/home/zjy/.cache/flashinfer/cubins/1d145b82ac60add55ea213863523f12d63005651/batched_gemm-09795a1-31ee4e5/Bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100f.cubin",
+      "cubin_sha256": "f9562335760b5d98fbac45a85bed51247e02eac09e9e5a38713b0c0b6e7917fe",
+      "sass_setmaxnreg_count": 0,
+      "max_sass_general_register_index": 40,
+      "usage": "\nResource usage:\n Common:\n  GLOBAL:11 CONSTANT[4]:88\n Function bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100fGetSmemSize:\n  REG:8 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:904 TEXTURE:0 SURFACE:0 SAMPLER:0\n Function bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100f:\n  REG:128 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:18368 TEXTURE:0 SURFACE:0 SAMPLER:0\n",
+      "sass_register_reconfiguration": [
+        "USETMAXREG.DEALLOC.CTAPOOL 0x30 ",
+        "USETMAXREG.DEALLOC.CTAPOOL 0x30 ",
+        "USETMAXREG.DEALLOC.CTAPOOL 0x30 ",
+        "USETMAXREG.TRY_ALLOC.CTAPOOL UP0, 0xa0 ",
+        "USETMAXREG.TRY_ALLOC.CTAPOOL UP0, 0xa0 ",
+        "USETMAXREG.DEALLOC.CTAPOOL 0x30 ",
+        "USETMAXREG.DEALLOC.CTAPOOL 0x30 ",
+        "USETMAXREG.DEALLOC.CTAPOOL 0x30 "
+      ],
+      "sass_register_reconfiguration_count": 8,
+      "cuda_elf_reconfiguration": "Attribute:\tEIATTR_MAXREG_COUNT\nAttribute:\tEIATTR_VRC_CTA_INIT_COUNT\nAttribute:\tEIATTR_MAXREG_COUNT\nAttribute:\tEIATTR_REG_RECONFIG\nAttribute:\tEIATTR_VRC_CTA_INIT_COUNT"
+    }
+  ],
+  "official_contract": "https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#miscellaneous-instructions-setmaxnreg",
+  "finding": "The tested Prims TS and resident CUBINs contain no SASS register-reconfiguration instructions, unlike the vendor native FC1 CUBIN with USETMAXREG. PTX hint sums alone do not describe actual allocation. Vendor and prototype register/SMEM resource policies differ and require separate runtime occupancy/performance evidence.",
+  "no_new_register_cap_experiment": true
+}

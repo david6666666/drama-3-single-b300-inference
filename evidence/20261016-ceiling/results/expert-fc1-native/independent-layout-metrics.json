@@ -1,0 +1,67 @@
+{
+  "status": "CPU_LAYOUT_ATTRIBUTION_ONLY_ORIGINAL_EXACT_FAIL_RETAINED",
+  "driver_sha256": "5d4ee4b054a13ad93af9a0e4e4e34ed0891c3f8542b64a57a273815703e6327d",
+  "inputs": {
+    "actual-reference.pt": "907a14a8b0a9e61c3c80664f8d6849725ad9b92454ddde88a2b5159385b2e487",
+    "inputs.pt": "7c5e0570c8c3df63bb5636c645b5bf3e71c000f6ef17f25f72710991e8d338f7",
+    "result.json": "4b1fbcb36eb56ed72862039e8ab7981e8ade1a2375fead891062c738e79b2299"
+  },
+  "original_byte_mismatches": 4230,
+  "fixed_16byte_inverse_permutation": "a.reshape(8,64,8,2).transpose(-1,-2).reshape(8,1024)",
+  "aligned_byte_mismatches": 0,
+  "aligned_uint8_exact": true,
+  "signed_zero_mismatches": 0,
+  "nan_count_actual": 0,
+  "nan_count_reference": 0,
+  "zero_count_actual": 5184,
+  "zero_count_reference": 5184,
+  "each_row_byte_multiset_exact": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "scale_changed": 35,
+  "scale_signed_ulp_histogram": {
+    "-1": 4,
+    "0": 29,
+    "1": 30,
+    "2": 1
+  },
+  "scale_difference": {
+    "max_abs": 9.313225746154785e-10,
+    "relative_rms": 6.760766535200483e-08,
+    "different_values": 35
+  },
+  "aligned_dequantized_difference": {
+    "max_abs": 4.76837158203125e-07,
+    "relative_rms": 7.06392637075825e-08,
+    "different_values": 1489
+  },
+  "independent_float64_block_gemm": {
+    "purpose": "Distinguish logical row layout/gate order. Does not reproduce native FP32 rounding or justify threshold changes.",
+    "native_bytes_vs_fp64_quant": 0,
+    "candidate_raw_bytes_vs_fp64_quant": 4230,
+    "candidate_aligned_bytes_vs_fp64_quant": 0,
+    "reference_dequant_error": {
+      "max_abs": 0.14356728070526392,
+      "relative_rms": 0.024031635598394628,
+      "different_values": 3008
+    },
+    "candidate_aligned_dequant_error": {
+      "max_abs": 0.14356775754242213,
+      "relative_rms": 0.024031634294196007,
+      "different_values": 3008
+    },
+    "gate_up_swap_error": {
+      "max_abs": 5.993143464565621,
+      "relative_rms": 1.4053444057231106,
+      "different_values": 3008
+    }
+  },
+  "cuda_initialized": false
+}

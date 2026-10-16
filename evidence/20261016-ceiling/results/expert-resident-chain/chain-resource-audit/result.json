@@ -1,0 +1,39 @@
+{
+  "status": "CPU_RESOURCE_PASS",
+  "cubin_sha256": "9eb4c4f83850b3743118c50628631dfdcf2707fb607306c377ad9a743ceab0b1",
+  "ptx_sha256": "5f5d0f478aa0b7a099c8ee9a69826f53a1373bf8df6d97fc1762523d48483ce0",
+  "host_ir_sha256": "0e730af2380d7ba71f3232a91b7a7d41df6916cf95d93ef213647170b569fe17",
+  "dynamic_shared_bytes": 78464,
+  "static_shared_bytes": 1024,
+  "total_shared_bytes_per_cta": 79488,
+  "limit_bytes_per_cta": 81920,
+  "dynamic_shared_evidence": [
+    {
+      "constant": "%20",
+      "config_pointer": "%488",
+      "dynamic_shared_bytes": 78464
+    }
+  ],
+  "stack_bytes": 0,
+  "local_bytes": 0,
+  "ptx_local_ops": 0,
+  "sass_spill_ops": 0,
+  "base_registers": 32,
+  "setmaxnreg_limits": [
+    "160",
+    "48"
+  ],
+  "cluster_size": 4,
+  "cluster_evidence": {
+    "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/resident_chain_host.py",
+    "sha256": "e53966a08a0cb7b301a334089f16025adeb4397e78330a1427337117d77e8bc4",
+    "literal": "grid=[4,1,1], block=[512,1,1], cluster=[4,1,1]"
+  },
+  "limitations": [
+    "Resource fit does not prove occupancy or concurrent residency.",
+    "Dynamic SETMAXNREG limits require complete warp-role resource accounting.",
+    "Independent FC1/FC2 resource counts cannot be added to infer composite buffer lifetime."
+  ],
+  "gpu_used": false,
+  "timing_allowed": false
+}

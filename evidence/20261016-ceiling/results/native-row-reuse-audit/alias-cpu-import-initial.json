@@ -1,0 +1,6 @@
+{
+  "status": "FAIL",
+  "stage": "Initial CPU import verification",
+  "reason": "Legacy top-level runtime/Fish imports initialized CUDA; assertion not torch.cuda.is_initialized failed. No model load or validation kernel was executed. Driver changed before freeze to import runtime inside GPU-only main.",
+  "preserved": true
+}

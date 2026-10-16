@@ -1,0 +1,115 @@
+{
+  "status": "CPU_FINAL_SOURCE_PASS",
+  "checks": [
+    {
+      "name": "CPU_AOT_PASS",
+      "passed": true
+    },
+    {
+      "name": "CPU_address_PASS",
+      "passed": true
+    },
+    {
+      "name": "CPU_compile_contract_PASS",
+      "passed": true
+    },
+    {
+      "name": "native_source_frozen",
+      "passed": true
+    },
+    {
+      "name": "CPU_compiled_helper_unchanged",
+      "passed": true
+    },
+    {
+      "name": "CPU_driver_snapshot_retained",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/configs",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/compile_candidate",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/io_for",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/allocate",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/update",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/reset",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/native_body",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/candidate_stages",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/candidate_eager",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/capture_candidate",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/check_native",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/check_outputs",
+      "passed": true
+    },
+    {
+      "name": "unchanged_execution_contract/check_metadata",
+      "passed": true
+    },
+    {
+      "name": "fc1/no_spill",
+      "passed": true
+    },
+    {
+      "name": "fc1/PDL_preserved",
+      "passed": true
+    },
+    {
+      "name": "fc1/CUBIN_hash",
+      "passed": true
+    },
+    {
+      "name": "fc2/no_spill",
+      "passed": true
+    },
+    {
+      "name": "fc2/PDL_preserved",
+      "passed": true
+    },
+    {
+      "name": "fc2/CUBIN_hash",
+      "passed": true
+    },
+    {
+      "name": "graph_guard_CPU",
+      "passed": true
+    },
+    {
+      "name": "cuda_uninitialized",
+      "passed": true
+    }
+  ],
+  "gpu_used": false,
+  "cuda_initialized": false
+}

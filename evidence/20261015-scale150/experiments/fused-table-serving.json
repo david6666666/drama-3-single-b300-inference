@@ -1,0 +1,22 @@
+{
+  "source_sha": "b8221f9",
+  "hypothesis": "Fewer native tower projection launches improve C4 service throughput.",
+  "isolated_variable": "DRAMA3_BATCHED_TABLE_PROJECTION=1",
+  "controls": "GPU0 capacity64, original corrected formal flags including tuned native prefill, OMP8, same1088corpus and C4 warmup; one repetition feasibility",
+  "success": "All requests succeed, lower service elapsed time, full quality before promotion",
+  "stop": "Request failure, nonfinite output, quality failure; no formal speedup claim from one repetition",
+  "followups": [
+    {
+      "type": "fresh control",
+      "reason": "Fused C4 feasible run lower than historical formal candidate; check unchanged source/flags in same session."
+    },
+    {
+      "type": "real decode diagnostic",
+      "source_sha": "b8221f9",
+      "gpu": 1,
+      "batch": 4,
+      "variable": "DRAMA3_BATCHED_TABLE_PROJECTION 0/1",
+      "reason": "Distinguish operator microbench gains from actual decoder graph time."
+    }
+  ]
+}

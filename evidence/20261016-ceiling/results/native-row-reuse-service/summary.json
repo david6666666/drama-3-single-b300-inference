@@ -1,0 +1,189 @@
+{
+  "source_sha": "345c6a18f200853489a9ac8a86bbe0682ebe484d",
+  "concurrency": 64,
+  "requests_per_arm": 1088,
+  "repeats": 1,
+  "arms": {
+    "control": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 21.87594600301236,
+        "valid": true,
+        "throughput_frames_s": 4674.814976500572,
+        "ttfa_p50_ms": 148.56294594937935,
+        "ttfa_p95_ms": 274.7044634073923,
+        "rtf_mean": 0.2908903989859991
+      },
+      "server_pid": 1149556,
+      "startup_to_readiness_s": 56.03989781998098,
+      "warmup_requests": 64,
+      "row_reuse_counts": null,
+      "memory": {
+        "overall_observed_peak_mib": 105788,
+        "before_readiness_observed_peak_mib": 105756,
+        "after_readiness_observed_peak_mib": 105788,
+        "qualification": "One-second observed process-memory peaks; phase boundary is controller first observation of launch.json readiness, not exact GPU capture boundary."
+      },
+      "output": {
+        "frames": 102266.0,
+        "audio_samples": 209440768,
+        "audio_duration_s": 4749.223764172336,
+        "frames_at_least_500": 3,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "client_schedule": {
+        "first_dispatch_to_final_completion_s": 21.87529983604327,
+        "intake_duration_s": 20.829232897027396,
+        "last_dispatch_to_final_completion_s": 1.0460669390158728,
+        "requests_finishing_after_last_dispatch": 64,
+        "transport_frames_received_after_last_dispatch": 4011.0,
+        "mean_active_requests_all": 62.383346279258475,
+        "mean_active_requests_intake": 63.971463546417716,
+        "qualification": "Client lifecycle/PCM arrival accounting; includes initial ramp and tail. Does not identify GPU compute, model frames at generation time, or codec causality."
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.014652934773507494,
+          "wer_per_sample_mean": 0.013989313933078444,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.06420544554315999,
+          "wer_per_sample_p95": 0.09090909090909091,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.011097099621689786,
+          "wer_below_50_per_sample_mean": 0.010796777576127936,
+          "n_above_50_pct_wer": 4,
+          "pct_above_50_pct_wer": 0.3676470588235294,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 64.18842814473764,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true,
+        "gate_passed": true
+      }
+    },
+    "candidate": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 22.636531644966453,
+        "valid": true,
+        "throughput_frames_s": 4534.131006011372,
+        "ttfa_p50_ms": 151.26512746792287,
+        "ttfa_p95_ms": 273.3536993386174,
+        "rtf_mean": 0.2906181863883858
+      },
+      "server_pid": 1152819,
+      "startup_to_readiness_s": 52.040232826024294,
+      "warmup_requests": 64,
+      "row_reuse_counts": {
+        "opportunities": 200,
+        "unsupported_shape": 28,
+        "no_fitting_bucket": 42,
+        "used": 130,
+        "removed_rows": 36096,
+        "mapping_cpu_ms": 29.439189936965704,
+        "mapping_cpu_ms_max": 1.4854109613224864
+      },
+      "memory": {
+        "overall_observed_peak_mib": 106488,
+        "before_readiness_observed_peak_mib": 106462,
+        "after_readiness_observed_peak_mib": 106488,
+        "qualification": "One-second observed process-memory peaks; phase boundary is controller first observation of launch.json readiness, not exact GPU capture boundary."
+      },
+      "output": {
+        "frames": 102637.0,
+        "audio_samples": 210200576,
+        "audio_duration_s": 4766.452970521542,
+        "frames_at_least_500": 3,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "client_schedule": {
+        "first_dispatch_to_final_completion_s": 22.634486382943578,
+        "intake_duration_s": 20.790434291935526,
+        "last_dispatch_to_final_completion_s": 1.8440520910080522,
+        "requests_finishing_after_last_dispatch": 64,
+        "transport_frames_received_after_last_dispatch": 4568.0,
+        "mean_active_requests_all": 60.29012512575782,
+        "mean_active_requests_intake": 63.97145544473381,
+        "qualification": "Client lifecycle/PCM arrival accounting; includes initial ramp and tail. Does not identify GPU compute, model frames at generation time, or codec causality."
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.016829942225571465,
+          "wer_per_sample_mean": 0.016698340251939323,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.0763674272598864,
+          "wer_per_sample_p95": 0.09681818181818058,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.011627906976744186,
+          "wer_below_50_per_sample_mean": 0.011431086941092298,
+          "n_above_50_pct_wer": 7,
+          "pct_above_50_pct_wer": 0.6433823529411764,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 64.20202142876737,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true,
+        "gate_passed": true
+      }
+    }
+  },
+  "target_status": "INCONCLUSIVE",
+  "qualification": "One feasibility AB pair with potentially different outputs; not a replicated or fixed-output speedup claim. The all-concurrency 1.5x target remains unproven.",
+  "status": "SINGLE_FEASIBILITY_FAIL_STOP",
+  "continuation_passed": false,
+  "actual_candidate_activation": true,
+  "comparison": {
+    "fps_ratio": 0.9699059810502892,
+    "makespan_ratio": 1.0347681257692518,
+    "output_frames_ratio": 1.0036277941837952,
+    "ttfa_p50_delta_ms": 2.7021815185435116,
+    "ttfa_p95_delta_ms": -1.3507640687749358,
+    "rtf_mean_delta": -0.0002722125976132861,
+    "wer_delta_percentage_points": 0.21770074520639712,
+    "sim_delta": 0.013593284029724373,
+    "same_audio_hash_requests": 106,
+    "same_frame_count_requests": 149
+  },
+  "c64_target": {
+    "frames_s": 6765.407263214912,
+    "candidate_to_vllm_ratio": 1.005290035678523,
+    "observed_fps_threshold_met": false,
+    "formal_success": false
+  }
+}

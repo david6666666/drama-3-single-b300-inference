@@ -1,0 +1,23 @@
+{
+  "status": "CPU_PASS",
+  "cuda_initialized": false,
+  "cases": [
+    {
+      "case": "proxy190",
+      "unique": 939,
+      "capacity": 1088
+    },
+    {
+      "case": "proxy190_reversed_reused_graph",
+      "unique": 939,
+      "capacity": 1088
+    },
+    {
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "unique": 1069,
+      "capacity": 1088
+    }
+  ],
+  "full_rows": 1600,
+  "compact_rows": 1088
+}

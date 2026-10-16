@@ -1,0 +1,58 @@
+{
+  "source_sha": "fd07d7471d0be13ef98870dd1e34ec760daf33fd",
+  "source_script_sha256": "61a6852eebd515285600c54909bac0c1833ed583b9592746920ffce1c25320ba",
+  "upstream_sha": "e9e016b83e1a5d92b4232f90427a44afac8d84b6",
+  "upstream_status": "",
+  "assets_sha256": "6d9d3026a131e4760f9e2a6e74d34a96d5bae6a02f47c1bcb0e2204af5c59e12",
+  "gpu": 7,
+  "gpu_uuid": "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442",
+  "batch_size": 8,
+  "labels": [
+    "c64-r0"
+  ],
+  "all_samples": 1088,
+  "before_gpu": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d, 227368, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python, 103718 MiB\nGPU-adecbd14-4768-00f8-a2fa-697ced804a8d, 2104876, VLLM::Worker_PCP0, 260154 MiB\nGPU-90fb226c-3937-2448-1052-2e12282a61b9, 2104878, VLLM::Worker_PCP1, 260154 MiB\nGPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed, 2104879, VLLM::Worker_PCP2, 260154 MiB\nGPU-fd75ec1b-92a4-ca93-a3ad-976565948d0e, 2104880, VLLM::Worker_PCP3, 260154 MiB\n",
+  "quality_limits": {
+    "wer_corpus_max": 0.02950933601272712,
+    "sim_min": 61.88158934120563
+  },
+  "stop": "Preserve every sample. Any missing score or failure remains incomplete; no filtering or threshold adjustment.",
+  "commands": [
+    [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/drama3-deferred-codec-frozen-20261016/scripts/evaluate_audio.py",
+      "--upstream",
+      "/home/zjy/code/hsliu/drama3-sources/sglang-omni",
+      "--assets",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-models.json",
+      "--corpus",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+      "--benchmark",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/deferred-control-gpu6/benchmark",
+      "--labels",
+      "c64-r0",
+      "--output",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/deferred-control-quality.json",
+      "--batch-size",
+      "8"
+    ],
+    [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/drama3-deferred-codec-frozen-20261016/scripts/evaluate_audio.py",
+      "--upstream",
+      "/home/zjy/code/hsliu/drama3-sources/sglang-omni",
+      "--assets",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-models.json",
+      "--corpus",
+      "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+      "--benchmark",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/deferred-candidate-gpu6/benchmark",
+      "--labels",
+      "c64-r0",
+      "--output",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/deferred-candidate-quality.json",
+      "--batch-size",
+      "8"
+    ]
+  ]
+}

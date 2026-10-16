@@ -1,0 +1,23 @@
+{
+  "status": "CPU_AOT_FAIL",
+  "gpu_launched": false,
+  "source_sha256": "37346817142c81cc6763d9ba303425c6f307a6cc6e7357e23dc0ce157c88a8eb",
+  "scope": "Component staging-body AOT + CPU layout/config contract; full task-pipeline composite not executed.",
+  "resolved_contract": {
+    "tile_n": 8,
+    "tile_k": 128,
+    "num_bytes_b_smem_per_stage": 1024,
+    "num_load_b_warps": 1,
+    "load_b_warp_idx": 8,
+    "num_load_sfab_warps": 1,
+    "load_sfab_warp_idx": 12,
+    "num_epilogue_warps": 4,
+    "cluster_m": 1
+  },
+  "new_pipeline_types": {
+    "smem_b": "PipelineType.AsyncUmma",
+    "smem_dsfp8_sfab": "PipelineType.AsyncAsync"
+  },
+  "cpu_geometry_cases": 36,
+  "error": "Traceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-chain/resident_shared_b_aot.py\", line 77, in <module>\n    p=subprocess.run(['/usr/local/cuda/bin/cuobjdump',flag,str(folder/'kernel.fatbin')],capture_output=True,text=True);(folder/name).write_text(p.stdout+p.stderr);assert p.returncode==0\n                                                                                                                                                                          ^^^^^^^^^^^^^^^\nAssertionError\n"
+}

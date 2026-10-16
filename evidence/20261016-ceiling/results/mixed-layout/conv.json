@@ -1,0 +1,1811 @@
+{
+  "metadata": {
+    "source_sha": "eedb6e0d736ea3a2c1c9a796b2ccc52c0e6aa7e9",
+    "source_status": "",
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+    "gpu_uuid": "53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+    "environment": {
+      "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+      "DRAMA3_PACKED_MOE_PROJECTION": "1",
+      "DRAMA3_PREFILL_CONV": "triton",
+      "DRAMA3_PREFILL_MOE_TUNED": "0",
+      "DRAMA3_PREFILL_MOE": "flashinfer",
+      "DRAMA3_FUSED_MOE_INPUT": "1"
+    },
+    "hypothesis": "Native mixed graph variant; identical rows, inputs, RNG and state.",
+    "variant": "conv",
+    "gate": "All outputs and mutable state exact; timing is diagnostic only.",
+    "stop": "Any mismatch rejects the candidate; preserve all cases and raw timings."
+  },
+  "cases": [
+    {
+      "case": "d58-p6",
+      "active": 58,
+      "arriving": 6,
+      "capacity": 1280,
+      "control_span": 256,
+      "trimmed_span": 256,
+      "prompt_lengths": [
+        184,
+        190,
+        152,
+        243,
+        175,
+        177
+      ],
+      "timings": {
+        "control_ms": [
+          28.338176727294922,
+          28.329984664916992,
+          28.30556869506836,
+          28.32793617248535,
+          28.321887969970703
+        ],
+        "candidate_ms": [
+          27.918336868286133,
+          27.91219139099121,
+          27.889631271362305,
+          27.902015686035156,
+          27.91423988342285
+        ]
+      },
+      "passed": true
+    },
+    {
+      "case": "d40-p3",
+      "active": 40,
+      "arriving": 3,
+      "capacity": 512,
+      "control_span": 192,
+      "trimmed_span": 192,
+      "prompt_lengths": [
+        167,
+        130,
+        169
+      ],
+      "timings": {
+        "control_ms": [
+          19.769344329833984,
+          19.767135620117188,
+          19.761152267456055,
+          19.767295837402344,
+          19.769344329833984
+        ],
+        "candidate_ms": [
+          19.348480224609375,
+          19.35875129699707,
+          19.336223602294922,
+          19.354656219482422,
+          19.348543167114258
+        ]
+      },
+      "passed": true
+    },
+    {
+      "case": "d12-p1",
+      "active": 12,
+      "arriving": 1,
+      "capacity": 256,
+      "control_span": 192,
+      "trimmed_span": 192,
+      "prompt_lengths": [
+        158
+      ],
+      "timings": {
+        "control_ms": [
+          16.83251190185547,
+          16.82841682434082,
+          16.83660888671875,
+          16.83660888671875,
+          16.82022476196289
+        ],
+        "candidate_ms": [
+          16.291839599609375,
+          16.283552169799805,
+          16.285696029663086,
+          16.277503967285156,
+          16.287647247314453
+        ]
+      },
+      "passed": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "d58-p6/decode",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/prefill",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/conv/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/gdn/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/key/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/value/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/request_last",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/request_history",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/request_metadata",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/request_codes",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d58-p6/sampling_step",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/decode",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/prefill",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/conv/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/gdn/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/key/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/value/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/request_last",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/request_history",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/request_metadata",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/request_codes",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d40-p3/sampling_step",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/decode",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/prefill",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/0",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/1",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/2",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/4",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/5",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/6",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/8",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/9",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/10",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/12",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/13",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/14",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/16",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/17",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/18",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/20",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/21",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/22",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/24",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/25",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/26",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/28",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/29",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/30",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/32",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/33",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/34",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/36",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/37",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/conv/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/gdn/38",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/3",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/7",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/11",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/15",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/19",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/23",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/27",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/31",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/35",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/39",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/40",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/41",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/42",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/43",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/44",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/45",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/46",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/47",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/48",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/49",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/50",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/51",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/key/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/value/52",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/request_last",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/request_history",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/request_metadata",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/request_codes",
+      "exact": true,
+      "passed": true
+    },
+    {
+      "name": "d12-p1/sampling_step",
+      "exact": true,
+      "passed": true
+    }
+  ],
+  "status": "PASS"
+}

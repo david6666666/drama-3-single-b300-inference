@@ -1,0 +1,18 @@
+{
+  "source_sha": "66dd6fc555ede8224f1cf035f76ff593dfb7836a",
+  "hypothesis": "After exact real decode/codec replay validation, overlap the existing BF16 codec with the validated packed prefill serving configuration.",
+  "isolated_variable": "DRAMA3_ASYNC_CODEC=1 and its PCM delivery thread vs synchronous codec; same packed prefill and native full top8 model in both arms.",
+  "controls": "GPU6 same UUID, capacity64, C64,1088requests, OMP8, full saved audio, matched warmup max(8,C), checkpoint/corpus and current baseline parameters, no cache flush; fresh server per configuration. GPU0 is occupied, so these are feasibility results only and cannot satisfy the frozen GPU0 formal plan.",
+  "success": "Complete1088 and WER<=0.02950933601272712, SIM>=61.88158934120563 compared to frozen C64 baseline; record throughput/TTFA/RTF without promotion from one repetition.",
+  "stop": "Any missing request, invalid output, quality failure, or device interference. Do not retry a failed configuration to select a lucky sample; retain earlier async quality failures.",
+  "gpu_uuid": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf",
+  "runtime_environment": {
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_ADMISSION_MIN_BATCH": "6",
+    "DRAMA3_PREFILL_BUCKET_192": "1",
+    "DRAMA3_PACKED_PREFILL": "1"
+  }
+}

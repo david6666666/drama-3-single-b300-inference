@@ -1,0 +1,24 @@
+{
+  "status": "PRESERVED_HARNESS_FAIL",
+  "failure": {
+    "type": "RuntimeError",
+    "message": "self.dim() cannot be 0 to view Long as Byte (different element sizes)"
+  },
+  "successful_checks": 5500,
+  "all_recorded_checks_exact": true,
+  "fully_tested_layers": 40,
+  "cause": "Tensor.view(uint8) with dtype size change rejects zero-dimensional int64 sampling_step. Comparator only; no reported numerical mismatch.",
+  "last_success": {
+    "name": "failure_readonly_state/request_codes",
+    "byte_exact": true,
+    "shape": [
+      144,
+      500,
+      10
+    ],
+    "dtype": "torch.int64"
+  },
+  "old_driver_sha256": "e6bd39d2ef16d5322d29d8da47f5f0c1d70d1d49b90f1ff1a1c73337203fa967",
+  "old_result_sha256": "2e1eef87f59978f467c401de9469d5dc3653718f02ee6d24c7016bc431e4401e",
+  "authorized_fix": "New v2 comparator flattens before byte view; same native calls/mapping/gates, complete rerun required."
+}

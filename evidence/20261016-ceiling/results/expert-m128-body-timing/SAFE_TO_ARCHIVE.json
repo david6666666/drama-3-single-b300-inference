@@ -1,0 +1,27 @@
+{
+  "safe_to_archive": true,
+  "files": {
+    "body_common.py": "fe6642d1d5ec154236674e4f8a8c875fea720507d4716ecb235cc05809deb331",
+    "exit.json": "37e5352d43e3e250f5c47e4eeeffef04fa5796657f05caba64600d9bd49a883c",
+    "timing.py": "081bc9f499df6e31313a9473f24b4d2f044a71aeca58024721ca956d401215bd",
+    "protocol.json": "5c9ebd815995cd3ee42f73d31574210cad2c86ea6bac4ac1c0c01d9c2670a02e",
+    "launch.py": "50f27a10bcd326ae8720f0d1e667e1057f82fbf329a08d725a4bbc100ee199fe",
+    "pid.json": "be2bd74aa53d87391aa60522b5eb93bea491ca7c34942148c986dc88a5386fa3",
+    "process-audit.jsonl": "b7c588826dca6b358afe23263e5a7e9acbe75414b2c5ecc85dbc565d3823dd9e",
+    "gpu.log": "0312b4f7a5559704fa86ce4afb9415e67ad14de3a3014f6c1d912e00a3bba421",
+    "summary.json": "ae1a1a29681ab3d4f7eaa2ece51846b7093206e249597744fd9447850578bc13",
+    "launch.log": "28d3b9e880a77975493dc7e359144c0295a4f694cfe0af4f928c22307bc5c320",
+    "report.md": "c817aacd1b147e3a2a414c73da2921aa3226ed23fafb70693c061034f963607f",
+    "gmem_c_resources_m128_body.py": "4b8fc3fe4483977105bd197caef5afbfaec938aef1f736b449ecd5eeca6da4d5",
+    "frozen-inputs.json": "88fc166d4e847d9aec2b25fa0c35bdc87dec121805f9d057f9d40f1c1fe47502",
+    "result.json": "665b15802f4ef627de8226d1bac86c47d3faf41f1f96e3a7004c27205f489bcc",
+    "gpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.cubin": "591e474af703bb3883f3769a3b59ffe49f3ace647740b6288aafe3343ef98907",
+    "gpu-compile/fc1-host.mlir": "6526d2c2645d292229376ef3e94b86c6488e905480f5a6bf13b45821ac5e0417",
+    "gpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx": "9be6dcbf1246368d029067ee92fb23558ad0a4729e7ffe91ac3c756ba0493671",
+    "gpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.cubin": "0fd40161ae41dbb849cd493122874be3d12446d7c101bde71750efdddfe95cd1",
+    "gpu-compile/fc2-host.mlir": "2d1b9053a43a95deab25f5a76e69feb883cc1465e3ce54797cac6d9957b398e9",
+    "gpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx": "0df2b2b9ba87b5380cfc321c5b46339c46425f59cf35405e3494232d5307a37d"
+  },
+  "gpu_running": false,
+  "runtime_modified": false
+}

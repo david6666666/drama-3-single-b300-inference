@@ -1,0 +1,7 @@
+{
+  "source_sha": "697a6a3",
+  "hypothesis": "The installed Torch flash-attention operator accepts packed variable-length GQA under CUDA graphs, enabling removal of sequence padding without changing attention semantics.",
+  "plane": "model",
+  "controls": "GPU2 OMP4 fixed random BF16 tensors, compare against causal SDPA/GQA at each true sequence boundary; mutate lengths and include empty sequences",
+  "stop": "Nonfinite output, capture failure, or RRMS >= 0.003; no service claim from this feasibility probe"
+}

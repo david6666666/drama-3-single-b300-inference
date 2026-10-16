@@ -1,0 +1,20 @@
+{
+  "status": "SAFE_TO_ARCHIVE_NO_RUNTIME_PROMOTION",
+  "gpu_released": true,
+  "formal_repetitions": false,
+  "performance_claim": false,
+  "files": {
+    "abi_probe.cpp": "5ef33a8f5e02c9976ba63f690731c29706d367a245638ffded7dd3296554fcf4",
+    "check_cpu.py": "ff8bbaac4cb6a375dd9d5dd576988ffe4fd5711e2224d7e18a35405335b2c08d",
+    "launch-result.json": "aaa45aaa0f5e0557e0fe9cf83a238d9398b2ebb4379228d3095188c8da0c424d",
+    "driver.py": "bdd026f11d59ba346292f96e578ac315123108aa0c8f7c008d8f4257e7cbbb09",
+    "lt_binding.py": "35771e66cab7110a32743c48118665ae0fafe6548cf10a3f4ef989cc46b4871b",
+    "protocol.json": "9743c85376ab464597e7602f868f5313b1b86216252fba2ac3f72c23c35d4553",
+    "launch.py": "6a5b688e3148738537a761e163a4f60e18423046f7e611f54022533b6d93937b",
+    "kernel-table.txt": "d11ba2cc8a68b7fcfe606ca7f110e9cb1c965f3bb04bb60bf9db33a523baab40",
+    "stdout.log": "f7ae7f157e84df5208ced74918498c056b084cf8ea102fcc4ae7fa63ded1e1fd",
+    "cpu-check.json": "62a02cc11b3763ec32bfb72d74040fe7a6ebe9f90f887e6783bbcc8f784e4642",
+    "result.json": "32608fc9b6d3cf498f59940b2061b50093930c86461bb34c3532f9b5f172d02c",
+    "summary.md": "4e68c9bc7455f07f3b78f477798723ec70aefcd683718bf5968007f6cb2cb7a7"
+  }
+}

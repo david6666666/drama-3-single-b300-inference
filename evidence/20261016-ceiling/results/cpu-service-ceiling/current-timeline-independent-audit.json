@@ -1,0 +1,127 @@
+{
+  "passed": true,
+  "input_sha256": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/current-pipeline-service-ledger.json": "dd75b703e752bfc804e914b68202c4e16d0c95d8cad5bda006dddde65a563f44",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/current-pipeline-timeline.json": "2d0828417bb445cacde1c9da8db691a0b66cd6888e711d3ecdcd73b6d284776a"
+  },
+  "checks": [
+    {
+      "name": "model_event_union_ms",
+      "independent": 21289.383056640625,
+      "ledger": 21289.383056640625,
+      "passed": true
+    },
+    {
+      "name": "codec_event_union_ms",
+      "independent": 6679.04296875,
+      "ledger": 6679.04296875,
+      "passed": true
+    },
+    {
+      "name": "model_codec_overlap_ms",
+      "independent": 5709.033447265625,
+      "ledger": 5709.033447265625,
+      "passed": true
+    },
+    {
+      "name": "codec_only_ms",
+      "independent": 970.009521484375,
+      "ledger": 970.009521484375,
+      "passed": true
+    },
+    {
+      "name": "neither_model_nor_codec_in_envelope_ms",
+      "independent": 613.250732421875,
+      "ledger": 613.250732421875,
+      "passed": true
+    },
+    {
+      "name": "all_recorded_union_ms",
+      "independent": 22570.495361328125,
+      "ledger": 22570.495361328125,
+      "passed": true
+    },
+    {
+      "name": "gpu_event_envelope_ms",
+      "independent": 22872.643310546875,
+      "ledger": 22872.643310546875,
+      "passed": true
+    },
+    {
+      "name": "recorded events",
+      "independent": 4811,
+      "ledger": 4811,
+      "passed": true
+    },
+    {
+      "name": "actual steps",
+      "independent": 1850,
+      "ledger": 1850,
+      "passed": true
+    },
+    {
+      "name": "pure request rows",
+      "independent": 94559,
+      "ledger": 94559,
+      "passed": true
+    },
+    {
+      "name": "mixed old rows",
+      "independent": 10988,
+      "ledger": 10988,
+      "passed": true
+    },
+    {
+      "name": "codec valid frames",
+      "independent": 105160,
+      "ledger": 105160.0,
+      "passed": true
+    },
+    {
+      "name": "all admitted prompts",
+      "independent": 1088,
+      "ledger": 1088,
+      "passed": true
+    },
+    {
+      "name": "model stage union additive",
+      "independent": 21289.383056640625,
+      "ledger": 21289.383056640625,
+      "passed": true
+    },
+    {
+      "name": "decomposition closes",
+      "independent": 9.300370382974858,
+      "ledger": 9.300370382974856,
+      "passed": true
+    }
+  ],
+  "counts": {
+    "pure_decode_calls": 1035,
+    "actual_steps": 1850,
+    "extra_graph_steps": 815,
+    "call_actual_rows": 54667,
+    "actual_request_rows": 94559,
+    "padded_request_rows": 100058,
+    "mixed_old_rows": 10988,
+    "mixed_prompt_count": 1079,
+    "initial_prefill_requests": 9,
+    "codec_valid_frames": 105160,
+    "steps_histogram": {
+      "1": 310,
+      "2": 680,
+      "4": 45
+    },
+    "additional_multistep_request_rows": 39892
+  },
+  "intake_time_weighted_active": 60.2523401401011,
+  "notes": [
+    "The 815 field additional_single_request_multistep_rows is a legacy name: its value is extra graph steps across all batch sizes, not request rows. The actual extra request-row count is 39892. Steps/active formulas are correct.",
+    "prefill scope calls prefill_many and contains first tower and first-token CPU readback. It is not backbone-only.",
+    "Mixed CPU wait included in finish_prefill cannot be added to GPU spans. codec_submit is nested scope and excluded from compute unions.",
+    "Cross-stream intervals correctly share the TimelineProfiler origin; pipeline main-stream end follows its captured auxiliary join, covering both steps.",
+    "CPU submission-window selection is not exact GPU phase clipping. Event union is stage occupancy, not kernel busy time.",
+    "Raw PCM cannot verify EOS reason; 396 executed excess rows remain conditional on normal EOS/max-frame completion.",
+    "The 1393.788 ms same-active/steps overlap association is not a counterfactual saving; context and resource history are uncontrolled."
+  ]
+}

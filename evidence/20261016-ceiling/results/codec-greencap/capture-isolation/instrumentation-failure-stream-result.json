@@ -1,0 +1,37 @@
+{
+  "status": "CAPTURE_FAIL",
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "driver_sha256": "f48681a1cafae702f8d1a3e302ac3261e261ff976705cfb04942d079ec91aee0",
+  "torch": "2.13.0+cu130",
+  "cudnn": 92000,
+  "gpu_uuid": "bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "requested_sms": 32,
+  "current_green": false,
+  "precision": "Same native BF16 autocast as existing codec",
+  "controls": {
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "cudnn_allow_tf32": true,
+    "matmul_allow_tf32": false
+  },
+  "limits": "Codec-only reproduction; no model, MPS daemon, clock or algorithm changes; no service timing claim.",
+  "normal_capture_complete": true,
+  "normal_context": {
+    "current_context": 596652864,
+    "current_stream": 0,
+    "stream_green_context": null,
+    "capturing": false
+  },
+  "actual_sms": 32,
+  "green_stream": 1904021792,
+  "green_handle": 1056047280,
+  "before_capture_context": {
+    "current_context": 596652864,
+    "current_stream": 0,
+    "stream_green_context": null,
+    "capturing": false
+  },
+  "exception": "AcceleratorError(\"CUDA error: operation failed due to a previous error during capture\\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\\nFor more detailed error information, run with CUDA_LOG_FILE=stderr\\n\")",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 1147, in capture\n    out = self.decoder(static, trim)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 1002, in __call__\n    return self._run(self.codec.decoder.model, self.latent(indices, trim)).transpose(1, 2)\n                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 1038, in latent\n    hidden = self._convnext(block, hidden)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 891, in _convnext\n    y = self._causal_conv(block.dwconv, x).to(dtype)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 546, in _causal_conv\n    out = F.conv2d(\n          ^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-greencap/capture-isolation/driver.py\", line 33, in observed_conv\n    meta=dict(call=calls,input_shape=list(x.shape),input_stride=list(x.stride()),input_dtype=str(x.dtype),input_storage_offset=x.storage_offset(),weight_shape=list(w.shape),weight_stride=list(w.stride()),weight_dtype=str(w.dtype),weight_storage_offset=w.storage_offset(),groups=kw.get('groups',1),args=str(a),kwargs=str(kw),context=context())\n                                                                                                                                                                                                                                                                                                              ^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/_tensor.py\", line 564, in __repr__\n    return torch._tensor_str._str(self, tensor_contents=tensor_contents)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/_tensor_str.py\", line 715, in _str\n    return _str_intern(self, tensor_contents=tensor_contents)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/_tensor_str.py\", line 635, in _str_intern\n    tensor_str = _tensor_str(self, indent)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/_tensor_str.py\", line 367, in _tensor_str\n    formatter = _Formatter(get_summarized_data(self) if summarize else self)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/_tensor_str.py\", line 154, in __init__\n    nonzero_finite_vals = torch.masked_select(\n                          ^^^^^^^^^^^^^^^^^^^^\ntorch.AcceleratorError: CUDA error: operation not permitted when stream is capturing\nSearch for `cudaErrorStreamCaptureUnsupported' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nFor more detailed error information, run with CUDA_LOG_FILE=stderr\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-greencap/capture-isolation/driver.py\", line 42, in main\n    with torch.autocast('cuda',dtype=codec.decoder.dtype):cap.capture(torch.device('cuda'),capture_stream=stream)\n                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-rich-timeline/src/drama3/ops/dac_channels_last.py\", line 1146, in capture\n    with torch.cuda.graph(graph, pool=pool, stream=capture_stream):\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 477, in __exit__\n    self.cuda_graph.capture_end()\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/cuda/graphs.py\", line 169, in capture_end\n    super().capture_end()\ntorch.AcceleratorError: CUDA error: operation failed due to a previous error during capture\nSearch for `cudaErrorStreamCaptureInvalidated' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.\nFor more detailed error information, run with CUDA_LOG_FILE=stderr\n\n",
+  "observed_conv_calls": 33
+}

@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-15T23:30:20.455525+00:00",
+  "hypothesis": "Production code1 callback and two-frame graph retain exact native steps=2 outputs and full state while overlapping next backbone with current tower tail.",
+  "source_sha": "a2516896d535b31403acc0518caa3061e6a08977",
+  "driver_sha256": "f26ea29e8497c9a725bf18c710f0fe04c352c639552323b7d2cc46bd44a1fe71",
+  "isolated_variable": "Serial DecodeGraph(steps=2) versus production FramePipelineGraph, same frozen source, roster, native math and fully restored input/model/request/RNG state.",
+  "controls": "GPU6; native fulltop8/checkpoint FP8 expert scales; BF16 dense/GDN; reserved router=1 plus fused residual/compact/layout/conv guard/short padding=1 in both arms; existing FI major_k and FLA; same warm caches, no flush/clock control.",
+  "real_gate": "Full B64, partial58, reversed reused slots, max_frames boundary, B32 and all additional production capacities16/24/40/48/56. Exact full frames, all conv/GDN/KV/request/RNG state, untouched slots, eager/capture hidden2 and full states. Capture precedes real initialization.",
+  "synthetic_eos_gate": "Separate explicitly synthetic captures: native semantic sampler still runs, then row0 stream0 result replaced by EOS candidate only at initial sampling_step+1. Second step unforced; all native model operators and codebook samples run. Require first EOS, sticky done, unchanged request row last/history/codes/count/position and exact serial-vs-production frames/fullstates/RNG. Not a quality trajectory or timing graph.",
+  "timing": "Only after every exact case passes; normal unmodified real B64/partial58/B32 captures; one warmup and five alternating CUDA-event samples with fullstate restore outside events. Report two-frame latencies only.",
+  "stop": "Preserve first exact/state/ownership/capture failure and stop before timing. No service or quality claim. Source remains unchanged."
+}

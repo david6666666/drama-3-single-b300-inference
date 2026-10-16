@@ -1,0 +1,8 @@
+{
+  "status": "CPU_IMPLEMENTED_PENDING_RECHECK",
+  "original_failure": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing/timing-gate/result.json",
+  "kernel_changes": false,
+  "native_arithmetic_changes": false,
+  "gate_tolerance_changes": false,
+  "change": "Use each arm live native metadata permutation; validate ownership and preserve actual mappings per case"
+}

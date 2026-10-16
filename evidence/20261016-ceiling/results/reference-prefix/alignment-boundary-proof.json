@@ -1,0 +1,2578 @@
+{
+  "status": "CPU_INTEGER_BOUNDARY_PROOF_ONLY",
+  "not_new_corpus_simulation": "Derives128alignment from existing per-request records and existing FIFO proxy groups; no tokenizer/prompt/GPU rerun. Reuses prior repeat-distance1 proof.",
+  "source_hashes": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/reference-prefix/per-request.json": "e0db1901ff67296d5a26e9fa471d75ca6448075534b3ed9d38583c58dfd0a34d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/reference-prefix/admission-proxy.json": "d5fa83115dd2fe7d5aa58d9d9c88a8fa0f5848768cace8f41c619e6d3f69ebe5",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/reference-prefix/counts.json": "2054d0c78c91be4321d579cfd97f97dcf10a5a963c8dcbdac6aebadb9f6cb075"
+  },
+  "rule": "C=floor((P-1)/128)*128; disableC0. Conservative full-prefix hash key unchanged.",
+  "domain_cases": 3645,
+  "range_prefix": [
+    106,
+    240
+  ],
+  "range_suffix": [
+    11,
+    37
+  ],
+  "coverage": "C<P teacherlookahead; C64aligned; original/suffix chunk ordinal alignment; correctcausaloffset. No floatingpoint or CUDA correctness claim.",
+  "aligned_proxy": {
+    "ready_proxy": {
+      "hits": 82,
+      "aligned_hits": 71,
+      "saved_rows": 9088
+    },
+    "same_group": {
+      "hits": 340,
+      "aligned_hits": 290,
+      "saved_rows": 37120
+    }
+  },
+  "all_saved_rows": 46208,
+  "all_fraction": 0.24976487249062193,
+  "full_prefix_optimistic_linear_seconds": 1.702586574441027,
+  "aligned_optimistic_linear_seconds": 1.2354253298750173,
+  "ready_aligned_optimistic_linear_seconds": 0.242978388978189,
+  "window_s_diagnostic": 22.895,
+  "aligned_window_fraction": 0.05396048612688435,
+  "source_scope_warning": "Times are from a profiled22.895s diagnostic, bestfps is another unprofiled run. Normalized counterfactual below is illustrative, not combined measured result.",
+  "target_required_reduction_from_best": 0.30133276946019705,
+  "normalized_fullprefix_counterfactual_fps": 5106.51426697747,
+  "normalized_aligned_counterfactual_fps": 4996.375190070955,
+  "FP32_C128_snapshot_bytes": 70418432,
+  "cases": [
+    {
+      "index": 1,
+      "prefix_rows": 134,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 3,
+      "prefix_rows": 202,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 5,
+      "prefix_rows": 221,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 7,
+      "prefix_rows": 177,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 9,
+      "prefix_rows": 127,
+      "boundary": 0,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 11,
+      "prefix_rows": 153,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 13,
+      "prefix_rows": 135,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 17,
+      "prefix_rows": 147,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 19,
+      "prefix_rows": 191,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 21,
+      "prefix_rows": 117,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 26,
+      "prefix_rows": 168,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 29,
+      "prefix_rows": 154,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 32,
+      "prefix_rows": 142,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 38,
+      "prefix_rows": 131,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 40,
+      "prefix_rows": 144,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 44,
+      "prefix_rows": 141,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 46,
+      "prefix_rows": 204,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 49,
+      "prefix_rows": 131,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 51,
+      "prefix_rows": 177,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 53,
+      "prefix_rows": 184,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 55,
+      "prefix_rows": 138,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 57,
+      "prefix_rows": 140,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 59,
+      "prefix_rows": 165,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 63,
+      "prefix_rows": 154,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 70,
+      "prefix_rows": 144,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 73,
+      "prefix_rows": 137,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 75,
+      "prefix_rows": 116,
+      "boundary": 0,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 77,
+      "prefix_rows": 159,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 80,
+      "prefix_rows": 124,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 84,
+      "prefix_rows": 139,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 86,
+      "prefix_rows": 137,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 88,
+      "prefix_rows": 128,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 90,
+      "prefix_rows": 208,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 93,
+      "prefix_rows": 197,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 95,
+      "prefix_rows": 130,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 98,
+      "prefix_rows": 155,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 101,
+      "prefix_rows": 144,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 103,
+      "prefix_rows": 121,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 105,
+      "prefix_rows": 146,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 107,
+      "prefix_rows": 131,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 110,
+      "prefix_rows": 113,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 112,
+      "prefix_rows": 199,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 116,
+      "prefix_rows": 148,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 119,
+      "prefix_rows": 160,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 123,
+      "prefix_rows": 142,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 128,
+      "prefix_rows": 204,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 132,
+      "prefix_rows": 147,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 134,
+      "prefix_rows": 149,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 137,
+      "prefix_rows": 153,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 140,
+      "prefix_rows": 113,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 144,
+      "prefix_rows": 114,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 146,
+      "prefix_rows": 125,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 150,
+      "prefix_rows": 126,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 155,
+      "prefix_rows": 116,
+      "boundary": 0,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 160,
+      "prefix_rows": 191,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 162,
+      "prefix_rows": 119,
+      "boundary": 0,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 164,
+      "prefix_rows": 141,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 169,
+      "prefix_rows": 184,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 173,
+      "prefix_rows": 124,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 175,
+      "prefix_rows": 158,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 177,
+      "prefix_rows": 130,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 180,
+      "prefix_rows": 137,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 183,
+      "prefix_rows": 185,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 185,
+      "prefix_rows": 146,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 188,
+      "prefix_rows": 179,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 190,
+      "prefix_rows": 183,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 193,
+      "prefix_rows": 167,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 195,
+      "prefix_rows": 154,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 198,
+      "prefix_rows": 164,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 200,
+      "prefix_rows": 130,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 203,
+      "prefix_rows": 153,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 205,
+      "prefix_rows": 155,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 209,
+      "prefix_rows": 131,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 211,
+      "prefix_rows": 150,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 213,
+      "prefix_rows": 163,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 215,
+      "prefix_rows": 152,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 220,
+      "prefix_rows": 118,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 222,
+      "prefix_rows": 148,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 225,
+      "prefix_rows": 115,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 228,
+      "prefix_rows": 120,
+      "boundary": 0,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 231,
+      "prefix_rows": 144,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 233,
+      "prefix_rows": 143,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 235,
+      "prefix_rows": 157,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 237,
+      "prefix_rows": 130,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 240,
+      "prefix_rows": 121,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 242,
+      "prefix_rows": 156,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 244,
+      "prefix_rows": 177,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 246,
+      "prefix_rows": 157,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 248,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 250,
+      "prefix_rows": 151,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 252,
+      "prefix_rows": 131,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 255,
+      "prefix_rows": 117,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 259,
+      "prefix_rows": 182,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 261,
+      "prefix_rows": 149,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 266,
+      "prefix_rows": 188,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 269,
+      "prefix_rows": 133,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 271,
+      "prefix_rows": 188,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 273,
+      "prefix_rows": 117,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 275,
+      "prefix_rows": 193,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 278,
+      "prefix_rows": 172,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 281,
+      "prefix_rows": 157,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 283,
+      "prefix_rows": 138,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 285,
+      "prefix_rows": 137,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 287,
+      "prefix_rows": 166,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 289,
+      "prefix_rows": 147,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 292,
+      "prefix_rows": 162,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 294,
+      "prefix_rows": 164,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 297,
+      "prefix_rows": 117,
+      "boundary": 0,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 299,
+      "prefix_rows": 157,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 302,
+      "prefix_rows": 138,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 306,
+      "prefix_rows": 113,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 308,
+      "prefix_rows": 117,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 313,
+      "prefix_rows": 169,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 315,
+      "prefix_rows": 154,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 317,
+      "prefix_rows": 150,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 320,
+      "prefix_rows": 140,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 322,
+      "prefix_rows": 163,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 324,
+      "prefix_rows": 183,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 326,
+      "prefix_rows": 135,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 328,
+      "prefix_rows": 161,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 331,
+      "prefix_rows": 173,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 333,
+      "prefix_rows": 176,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 335,
+      "prefix_rows": 117,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 338,
+      "prefix_rows": 151,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 340,
+      "prefix_rows": 140,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 342,
+      "prefix_rows": 202,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 344,
+      "prefix_rows": 179,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 346,
+      "prefix_rows": 113,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 349,
+      "prefix_rows": 152,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 352,
+      "prefix_rows": 130,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 354,
+      "prefix_rows": 129,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 356,
+      "prefix_rows": 112,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 360,
+      "prefix_rows": 156,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 362,
+      "prefix_rows": 161,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 368,
+      "prefix_rows": 169,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 370,
+      "prefix_rows": 159,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 372,
+      "prefix_rows": 135,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 374,
+      "prefix_rows": 156,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 377,
+      "prefix_rows": 127,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 381,
+      "prefix_rows": 152,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 384,
+      "prefix_rows": 192,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 386,
+      "prefix_rows": 131,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 389,
+      "prefix_rows": 165,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 392,
+      "prefix_rows": 146,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 394,
+      "prefix_rows": 139,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 396,
+      "prefix_rows": 176,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 398,
+      "prefix_rows": 193,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 400,
+      "prefix_rows": 143,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 402,
+      "prefix_rows": 190,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 404,
+      "prefix_rows": 179,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 407,
+      "prefix_rows": 141,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 409,
+      "prefix_rows": 194,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 413,
+      "prefix_rows": 125,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 415,
+      "prefix_rows": 150,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 417,
+      "prefix_rows": 191,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 419,
+      "prefix_rows": 168,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 421,
+      "prefix_rows": 147,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 424,
+      "prefix_rows": 202,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 427,
+      "prefix_rows": 152,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 429,
+      "prefix_rows": 182,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 431,
+      "prefix_rows": 176,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 435,
+      "prefix_rows": 179,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 437,
+      "prefix_rows": 143,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 442,
+      "prefix_rows": 149,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 444,
+      "prefix_rows": 140,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 446,
+      "prefix_rows": 135,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 448,
+      "prefix_rows": 176,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 452,
+      "prefix_rows": 121,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 455,
+      "prefix_rows": 142,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 457,
+      "prefix_rows": 155,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 463,
+      "prefix_rows": 192,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 465,
+      "prefix_rows": 175,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 468,
+      "prefix_rows": 148,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 470,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 472,
+      "prefix_rows": 125,
+      "boundary": 0,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 474,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 476,
+      "prefix_rows": 173,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 478,
+      "prefix_rows": 138,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 480,
+      "prefix_rows": 182,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 483,
+      "prefix_rows": 135,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 485,
+      "prefix_rows": 142,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 487,
+      "prefix_rows": 149,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 489,
+      "prefix_rows": 137,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 491,
+      "prefix_rows": 150,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 495,
+      "prefix_rows": 143,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 498,
+      "prefix_rows": 154,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 500,
+      "prefix_rows": 111,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 502,
+      "prefix_rows": 122,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 504,
+      "prefix_rows": 138,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 506,
+      "prefix_rows": 168,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 509,
+      "prefix_rows": 174,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 511,
+      "prefix_rows": 159,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 513,
+      "prefix_rows": 177,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 515,
+      "prefix_rows": 133,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 517,
+      "prefix_rows": 151,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 520,
+      "prefix_rows": 139,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 523,
+      "prefix_rows": 142,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 529,
+      "prefix_rows": 124,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 533,
+      "prefix_rows": 130,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 535,
+      "prefix_rows": 180,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 537,
+      "prefix_rows": 143,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 540,
+      "prefix_rows": 117,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 543,
+      "prefix_rows": 157,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 545,
+      "prefix_rows": 177,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 547,
+      "prefix_rows": 144,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 549,
+      "prefix_rows": 127,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 551,
+      "prefix_rows": 167,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 553,
+      "prefix_rows": 134,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 555,
+      "prefix_rows": 156,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 557,
+      "prefix_rows": 168,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 560,
+      "prefix_rows": 147,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 562,
+      "prefix_rows": 152,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 565,
+      "prefix_rows": 124,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 567,
+      "prefix_rows": 179,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 569,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 571,
+      "prefix_rows": 156,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 573,
+      "prefix_rows": 119,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 575,
+      "prefix_rows": 150,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 577,
+      "prefix_rows": 160,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 580,
+      "prefix_rows": 158,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 583,
+      "prefix_rows": 150,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 587,
+      "prefix_rows": 172,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 589,
+      "prefix_rows": 144,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 591,
+      "prefix_rows": 176,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 593,
+      "prefix_rows": 196,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 595,
+      "prefix_rows": 153,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 598,
+      "prefix_rows": 228,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 601,
+      "prefix_rows": 116,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 603,
+      "prefix_rows": 166,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 606,
+      "prefix_rows": 152,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 609,
+      "prefix_rows": 153,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 611,
+      "prefix_rows": 182,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 614,
+      "prefix_rows": 158,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 617,
+      "prefix_rows": 180,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 619,
+      "prefix_rows": 166,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 622,
+      "prefix_rows": 170,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 628,
+      "prefix_rows": 166,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 632,
+      "prefix_rows": 117,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 634,
+      "prefix_rows": 133,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 637,
+      "prefix_rows": 185,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 639,
+      "prefix_rows": 190,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 642,
+      "prefix_rows": 144,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 644,
+      "prefix_rows": 163,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 646,
+      "prefix_rows": 173,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 648,
+      "prefix_rows": 174,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 650,
+      "prefix_rows": 147,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 654,
+      "prefix_rows": 189,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 656,
+      "prefix_rows": 177,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 663,
+      "prefix_rows": 153,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 665,
+      "prefix_rows": 156,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 668,
+      "prefix_rows": 166,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 670,
+      "prefix_rows": 115,
+      "boundary": 0,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 672,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 674,
+      "prefix_rows": 181,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 676,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 678,
+      "prefix_rows": 146,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 680,
+      "prefix_rows": 141,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 682,
+      "prefix_rows": 140,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 684,
+      "prefix_rows": 181,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 686,
+      "prefix_rows": 175,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 688,
+      "prefix_rows": 128,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 690,
+      "prefix_rows": 142,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 695,
+      "prefix_rows": 186,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 697,
+      "prefix_rows": 172,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 699,
+      "prefix_rows": 132,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 701,
+      "prefix_rows": 151,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 703,
+      "prefix_rows": 131,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 705,
+      "prefix_rows": 123,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 707,
+      "prefix_rows": 184,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 710,
+      "prefix_rows": 151,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 712,
+      "prefix_rows": 144,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 715,
+      "prefix_rows": 132,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 718,
+      "prefix_rows": 149,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 720,
+      "prefix_rows": 140,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 723,
+      "prefix_rows": 185,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 725,
+      "prefix_rows": 177,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 728,
+      "prefix_rows": 159,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 730,
+      "prefix_rows": 134,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 732,
+      "prefix_rows": 133,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 734,
+      "prefix_rows": 123,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 738,
+      "prefix_rows": 132,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 740,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 742,
+      "prefix_rows": 152,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 747,
+      "prefix_rows": 154,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 749,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 751,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 754,
+      "prefix_rows": 133,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 756,
+      "prefix_rows": 155,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 761,
+      "prefix_rows": 112,
+      "boundary": 0,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 764,
+      "prefix_rows": 166,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 766,
+      "prefix_rows": 142,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 768,
+      "prefix_rows": 168,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 771,
+      "prefix_rows": 134,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 773,
+      "prefix_rows": 130,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 775,
+      "prefix_rows": 140,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 777,
+      "prefix_rows": 174,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 780,
+      "prefix_rows": 181,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 782,
+      "prefix_rows": 115,
+      "boundary": 0,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 786,
+      "prefix_rows": 123,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 790,
+      "prefix_rows": 167,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 792,
+      "prefix_rows": 139,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 795,
+      "prefix_rows": 149,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 797,
+      "prefix_rows": 167,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 799,
+      "prefix_rows": 142,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 804,
+      "prefix_rows": 125,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 807,
+      "prefix_rows": 143,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 809,
+      "prefix_rows": 147,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 811,
+      "prefix_rows": 154,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 813,
+      "prefix_rows": 127,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 816,
+      "prefix_rows": 127,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 819,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 824,
+      "prefix_rows": 118,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 826,
+      "prefix_rows": 171,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 829,
+      "prefix_rows": 141,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 831,
+      "prefix_rows": 163,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 833,
+      "prefix_rows": 164,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 837,
+      "prefix_rows": 184,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 840,
+      "prefix_rows": 122,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 842,
+      "prefix_rows": 147,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 846,
+      "prefix_rows": 143,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 848,
+      "prefix_rows": 154,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 850,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 852,
+      "prefix_rows": 141,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 854,
+      "prefix_rows": 200,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 856,
+      "prefix_rows": 126,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 858,
+      "prefix_rows": 135,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 862,
+      "prefix_rows": 141,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 864,
+      "prefix_rows": 163,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 867,
+      "prefix_rows": 145,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 869,
+      "prefix_rows": 150,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 871,
+      "prefix_rows": 177,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 873,
+      "prefix_rows": 173,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 876,
+      "prefix_rows": 145,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 880,
+      "prefix_rows": 162,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 882,
+      "prefix_rows": 108,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 885,
+      "prefix_rows": 137,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 887,
+      "prefix_rows": 156,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 889,
+      "prefix_rows": 148,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 892,
+      "prefix_rows": 132,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 894,
+      "prefix_rows": 117,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 896,
+      "prefix_rows": 144,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 898,
+      "prefix_rows": 167,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 901,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 905,
+      "prefix_rows": 130,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 907,
+      "prefix_rows": 174,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 909,
+      "prefix_rows": 178,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 911,
+      "prefix_rows": 181,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 913,
+      "prefix_rows": 178,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 915,
+      "prefix_rows": 220,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 917,
+      "prefix_rows": 133,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 919,
+      "prefix_rows": 202,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 922,
+      "prefix_rows": 127,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 925,
+      "prefix_rows": 125,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 927,
+      "prefix_rows": 150,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 929,
+      "prefix_rows": 136,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 931,
+      "prefix_rows": 173,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 934,
+      "prefix_rows": 152,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 936,
+      "prefix_rows": 140,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 938,
+      "prefix_rows": 139,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 940,
+      "prefix_rows": 200,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 943,
+      "prefix_rows": 149,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 945,
+      "prefix_rows": 146,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 949,
+      "prefix_rows": 147,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 951,
+      "prefix_rows": 161,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 953,
+      "prefix_rows": 152,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 955,
+      "prefix_rows": 139,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 957,
+      "prefix_rows": 172,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 964,
+      "prefix_rows": 146,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 966,
+      "prefix_rows": 159,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 968,
+      "prefix_rows": 172,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 970,
+      "prefix_rows": 142,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 973,
+      "prefix_rows": 152,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 976,
+      "prefix_rows": 129,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 979,
+      "prefix_rows": 141,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 982,
+      "prefix_rows": 146,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 984,
+      "prefix_rows": 169,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 987,
+      "prefix_rows": 139,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 989,
+      "prefix_rows": 123,
+      "boundary": 0,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 991,
+      "prefix_rows": 151,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 993,
+      "prefix_rows": 158,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 995,
+      "prefix_rows": 161,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 998,
+      "prefix_rows": 131,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1000,
+      "prefix_rows": 159,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 1002,
+      "prefix_rows": 141,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1005,
+      "prefix_rows": 130,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1007,
+      "prefix_rows": 159,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1009,
+      "prefix_rows": 158,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1011,
+      "prefix_rows": 131,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1013,
+      "prefix_rows": 142,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 1015,
+      "prefix_rows": 144,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1017,
+      "prefix_rows": 130,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1019,
+      "prefix_rows": 163,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1021,
+      "prefix_rows": 132,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1023,
+      "prefix_rows": 133,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1025,
+      "prefix_rows": 118,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 1027,
+      "prefix_rows": 154,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1029,
+      "prefix_rows": 141,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1032,
+      "prefix_rows": 126,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 1035,
+      "prefix_rows": 109,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 1037,
+      "prefix_rows": 143,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1039,
+      "prefix_rows": 134,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1041,
+      "prefix_rows": 156,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1043,
+      "prefix_rows": 140,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1045,
+      "prefix_rows": 140,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1047,
+      "prefix_rows": 150,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1049,
+      "prefix_rows": 137,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1053,
+      "prefix_rows": 149,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 1055,
+      "prefix_rows": 137,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1057,
+      "prefix_rows": 143,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1059,
+      "prefix_rows": 151,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1061,
+      "prefix_rows": 155,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 1063,
+      "prefix_rows": 133,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1065,
+      "prefix_rows": 159,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1067,
+      "prefix_rows": 141,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1070,
+      "prefix_rows": 120,
+      "boundary": 0,
+      "kind": "same_group"
+    },
+    {
+      "index": 1072,
+      "prefix_rows": 230,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1074,
+      "prefix_rows": 172,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    },
+    {
+      "index": 1076,
+      "prefix_rows": 130,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1079,
+      "prefix_rows": 176,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1081,
+      "prefix_rows": 148,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1084,
+      "prefix_rows": 142,
+      "boundary": 128,
+      "kind": "same_group"
+    },
+    {
+      "index": 1086,
+      "prefix_rows": 138,
+      "boundary": 128,
+      "kind": "ready_proxy"
+    }
+  ]
+}

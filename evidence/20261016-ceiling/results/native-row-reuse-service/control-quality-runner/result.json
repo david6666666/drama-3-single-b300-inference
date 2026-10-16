@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "start_utc": "2026-10-16T04:46:37.956316+00:00",
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/scripts/evaluate_audio.py",
+    "--upstream",
+    "/home/zjy/code/hsliu/drama3-sources/sglang-omni",
+    "--assets",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-models.json",
+    "--corpus",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+    "--benchmark",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-service/control-gpu6/benchmark",
+    "--labels",
+    "c64-r0",
+    "--output",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-service/control-quality.json",
+    "--batch-size",
+    "8"
+  ],
+  "known_owned_gpu_pids": {
+    "1156896": 85455830
+  },
+  "sampling_interval_s": 1,
+  "sampling_limitation": "One-second polling cannot exclude shorter unobserved interference or capture true transient allocator peak.",
+  "runner_pid": 1156896,
+  "error": null,
+  "end_utc": "2026-10-16T04:48:05.169750+00:00",
+  "elapsed_s": 87.21336810698267,
+  "post_gpu": [],
+  "exit_code": 0
+}

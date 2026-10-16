@@ -1,0 +1,114 @@
+{
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "status": "PASS",
+  "graph_flags": 1,
+  "rows": [
+    {
+      "batch": 1,
+      "arm": "serial",
+      "model_ms": 33.325408935546875,
+      "codec_ms": 2.9163200855255127,
+      "pair_ms": 36.26224136352539
+    },
+    {
+      "batch": 1,
+      "arm": "model_only",
+      "model_ms": 33.33785629272461,
+      "codec_ms": null,
+      "pair_ms": 33.353919982910156
+    },
+    {
+      "batch": 1,
+      "arm": "codec_only",
+      "model_ms": null,
+      "codec_ms": 2.947808027267456,
+      "pair_ms": 2.983583927154541
+    },
+    {
+      "batch": 1,
+      "arm": "concurrent",
+      "model_ms": 34.65436935424805,
+      "codec_ms": 8.457728385925293,
+      "pair_ms": 34.670654296875
+    },
+    {
+      "batch": 1,
+      "arm": "model_priority",
+      "model_ms": 34.69260787963867,
+      "codec_ms": 8.436448097229004,
+      "pair_ms": 34.71100616455078
+    },
+    {
+      "batch": 4,
+      "arm": "serial",
+      "model_ms": 33.322303771972656,
+      "codec_ms": 3.807231903076172,
+      "pair_ms": 37.15513610839844
+    },
+    {
+      "batch": 4,
+      "arm": "model_only",
+      "model_ms": 33.331329345703125,
+      "codec_ms": null,
+      "pair_ms": 33.34860610961914
+    },
+    {
+      "batch": 4,
+      "arm": "codec_only",
+      "model_ms": null,
+      "codec_ms": 3.840991973876953,
+      "pair_ms": 3.871583938598633
+    },
+    {
+      "batch": 4,
+      "arm": "concurrent",
+      "model_ms": 35.57331085205078,
+      "codec_ms": 9.575743675231934,
+      "pair_ms": 35.58937454223633
+    },
+    {
+      "batch": 4,
+      "arm": "model_priority",
+      "model_ms": 35.55254364013672,
+      "codec_ms": 9.540127754211426,
+      "pair_ms": 35.57503890991211
+    },
+    {
+      "batch": 8,
+      "arm": "serial",
+      "model_ms": 33.32611083984375,
+      "codec_ms": 5.157855987548828,
+      "pair_ms": 38.508544921875
+    },
+    {
+      "batch": 8,
+      "arm": "model_only",
+      "model_ms": 33.33283233642578,
+      "codec_ms": null,
+      "pair_ms": 33.35059356689453
+    },
+    {
+      "batch": 8,
+      "arm": "codec_only",
+      "model_ms": null,
+      "codec_ms": 5.192863941192627,
+      "pair_ms": 5.226816177368164
+    },
+    {
+      "batch": 8,
+      "arm": "concurrent",
+      "model_ms": 36.924800872802734,
+      "codec_ms": 10.932543754577637,
+      "pair_ms": 36.94220733642578
+    },
+    {
+      "batch": 8,
+      "arm": "model_priority",
+      "model_ms": 36.93718338012695,
+      "codec_ms": 10.963775634765625,
+      "pair_ms": 36.95481491088867
+    }
+  ],
+  "diagnostic_only": true,
+  "native_exact_trials": 60
+}

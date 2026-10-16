@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "safe_to_archive": true,
+  "cases": 137,
+  "checks": 2066,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "helper_sha256": "f73a86fbfde68be1592f4d0bbfc52756081a3c78be6583b2f4090a3ccb49542d",
+  "gpu_released": true,
+  "timing_allowed": false,
+  "previous_cpp_result": "../expert-activation-native/result-v2.json",
+  "scope": "New CuTe DSL shared-device helper only; no resident composition, timings, or service claims."
+}

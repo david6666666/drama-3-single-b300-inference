@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-16T00:04:59.332436+00:00",
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/run_codec_cache_service_and_quality.py"
+  ],
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "drivers": {
+    "run_codec_cache_pair.py": "587e65013340fc13be5dddf9b128aeea3fda153b6f8adaaa9251a66794c7fdfa",
+    "run_codec_cache_quality.py": "46ba9fc7a4cc54e4ff87054fadd376008c2b16cd93e5f031bdd6e09a34faf7d3",
+    "run_codec_cache_service_and_quality.py": "e04c06593a7e7af2642af1d4ac49494df6823b1b2ebd55ba8524c907e7a3ffc6"
+  }
+}

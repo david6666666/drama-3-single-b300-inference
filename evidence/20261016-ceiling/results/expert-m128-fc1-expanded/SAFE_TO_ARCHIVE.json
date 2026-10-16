@@ -1,0 +1,30 @@
+{
+  "safe_to_archive": true,
+  "files": {
+    "common.py": "fa99d42fa3fa8d2590ac6172b88c5b32848ef8be72a975960162d80ceaa2372f",
+    "prepare.json": "ddf7cb6e378cbb096824fbf5ee44094002646bdb0df46bde917f40f9e6307c21",
+    "exit.json": "37e5352d43e3e250f5c47e4eeeffef04fa5796657f05caba64600d9bd49a883c",
+    "resource-usage.txt": "66529fea5eed281efdace8babb84248816c2871a8697cb7812ac28f27062fe99",
+    "gmem_c_resources_m128_v2.py": "102ba180350c0bb2d336e7a6e2658ce7410cfd366c38caf0542084d91c142d58",
+    "protocol.json": "0943bc3336a50c743e1cbef47c22d87631634cd9c5cb89d466748cc2991500b0",
+    "epilogue.patch": "8c502581ed09748b398733d98d76d5a2ef3eed5f39e9ff86f3f910b894c3a5c2",
+    "launch.py": "0153f58b689d59e40d8251886239a91431e91bb33118de60d4cf4cadddb6ffe2",
+    "pid.json": "19de85cc1331cbc26db5953430f39a61ba5d51fef15a177791ad0e077ebe8d73",
+    "process-audit.jsonl": "03a9e01905180edd65f735c1cfb5cb2595d8b3bbe8dba86e028fe3bf881f3fa7",
+    "gpu.log": "085f0090dc6d683e8ae1ea7a35a6d881f9f012528503de8f77de4763939267e6",
+    "summary.json": "da809bf59c1887420895b344083bdb96152f9ef51139097b0ca1af39fb44e645",
+    "probe.py": "66aae4069baddbbefcf6e851b20ac38bcefcf95dad42731075ed427cb13af463",
+    "launch.log": "28d3b9e880a77975493dc7e359144c0295a4f694cfe0af4f928c22307bc5c320",
+    "frozen-inputs.json": "40b08ac6520b4c4fc91175d47bd622372984089a08d5530438a8999ba0c6d0cb",
+    "aot.log": "df29cc0fefb3cb3a051a23d9c7d5fe47aa42ebbfb249f9e31600e8ed9622c632",
+    "result.json": "06942a8b14cd71402f1440446dfa13b024967e2832f596c943cae19cd14418ea",
+    "gpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.cubin": "591e474af703bb3883f3769a3b59ffe49f3ace647740b6288aafe3343ef98907",
+    "gpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx": "0df2b2b9ba87b5380cfc321c5b46339c46425f59cf35405e3494232d5307a37d",
+    "cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.cubin": "591e474af703bb3883f3769a3b59ffe49f3ace647740b6288aafe3343ef98907",
+    "cpu-compile/host-module.mlir": "6526d2c2645d292229376ef3e94b86c6488e905480f5a6bf13b45821ac5e0417",
+    "cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx": "0df2b2b9ba87b5380cfc321c5b46339c46425f59cf35405e3494232d5307a37d",
+    "resource-audit/resource-usage.txt": "66529fea5eed281efdace8babb84248816c2871a8697cb7812ac28f27062fe99",
+    "resource-audit/kernel.sass": "062e11cdabe067422fd565dd16e3242ab20ee712b81efcbb0ed55705536e20b3",
+    "resource-audit/result.json": "11c6b5fab5233c3009ccdbb96a3880d92aca7f6b5bdadd26091092e846d11f25"
+  }
+}

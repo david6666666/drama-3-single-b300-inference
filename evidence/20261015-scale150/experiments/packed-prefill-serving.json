@@ -1,0 +1,9 @@
+{
+  "source_sha": "c32db24844d143a3a15caf2a4cee793d3f5ab22a",
+  "hypothesis": "Packed prompt rows and shared temporary graph storage reduce prefill stalls at C64.",
+  "isolated_variable": "DRAMA3_PACKED_PREFILL=1 versus absent",
+  "controls": "GPU0, capacity64, OMP8, complete1088 corpus, one feasibility repetition; native precision BF16 state, packed MoE projection, Triton convolution, tuned atomic prefill disabled for BOTH arms, admission minimum6 and span192",
+  "prerequisite": "Expanded batch8/capacity-step256 isolated-layer numerical validation must pass before packed serving",
+  "success": "1088 successful outputs, lower end-to-end elapsed time; full WER/SIM before promotion. Formal target remains6765.407fps with three repetitions.",
+  "stop": "Any numerical/ownership failure, failed request or missing quality; no claim based on single run"
+}

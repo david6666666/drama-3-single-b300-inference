@@ -1,0 +1,1131 @@
+{
+  "status": "CPU_ACCOUNTING_ONLY",
+  "source": "rich-timeline.json inside measured client window",
+  "actual_codec_calls": 2265,
+  "actual_padded_bucket_frames": 119072,
+  "policies": [
+    {
+      "max_bucket_ratio": 1,
+      "launches": 2122,
+      "padded_bucket_frames": 127360,
+      "frame_padded_frames": 105530,
+      "combined_padding_fraction": 0.25353096918337426,
+      "collapsed_frame_groups": 0,
+      "merge_histogram": {},
+      "examples": []
+    },
+    {
+      "max_bucket_ratio": 1.3333333333333333,
+      "launches": 1894,
+      "padded_bucket_frames": 129756,
+      "frame_padded_frames": 108896,
+      "combined_padding_fraction": 0.2771134142380489,
+      "collapsed_frame_groups": 228,
+      "merge_histogram": {
+        "[6, 8]": 91,
+        "[12, 16]": 45,
+        "[10, 12]": 12,
+        "[24, 32]": 74,
+        "[8, 10]": 6
+      },
+      "examples": [
+        {
+          "emit": 93,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            8
+          ],
+          "padded_batches": [
+            12
+          ]
+        },
+        {
+          "emit": 94,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "padded_batches": [
+            16
+          ]
+        },
+        {
+          "emit": 119,
+          "buckets": [
+            12,
+            16
+          ],
+          "valid_frames": [
+            11,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          "padded_batches": [
+            12
+          ]
+        },
+        {
+          "emit": 140,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            3,
+            3,
+            7
+          ],
+          "padded_batches": [
+            4
+          ]
+        },
+        {
+          "emit": 141,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            4,
+            3,
+            7
+          ],
+          "padded_batches": [
+            4
+          ]
+        },
+        {
+          "emit": 144,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 148,
+          "buckets": [
+            10,
+            12
+          ],
+          "valid_frames": [
+            9,
+            11
+          ],
+          "padded_batches": [
+            2
+          ]
+        },
+        {
+          "emit": 150,
+          "buckets": [
+            12,
+            16
+          ],
+          "valid_frames": [
+            11,
+            16
+          ],
+          "padded_batches": [
+            2
+          ]
+        },
+        {
+          "emit": 156,
+          "buckets": [
+            24,
+            32
+          ],
+          "valid_frames": [
+            24,
+            26
+          ],
+          "padded_batches": [
+            2
+          ]
+        },
+        {
+          "emit": 159,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "padded_batches": [
+            12
+          ]
+        },
+        {
+          "emit": 159,
+          "buckets": [
+            24,
+            32
+          ],
+          "valid_frames": [
+            23,
+            32,
+            32,
+            26
+          ],
+          "padded_batches": [
+            4
+          ]
+        },
+        {
+          "emit": 166,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            4,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "padded_batches": [
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "max_bucket_ratio": 1.5,
+      "launches": 1820,
+      "padded_bucket_frames": 130968,
+      "frame_padded_frames": 111002,
+      "combined_padding_fraction": 0.28904243068473745,
+      "collapsed_frame_groups": 302,
+      "merge_histogram": {
+        "[6, 8]": 91,
+        "[12, 16]": 38,
+        "[16, 24]": 58,
+        "[10, 12]": 12,
+        "[8, 12]": 31,
+        "[24, 32]": 65,
+        "[8, 10]": 5,
+        "[8, 10, 12]": 1
+      },
+      "examples": [
+        {
+          "emit": 93,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            8
+          ],
+          "padded_batches": [
+            12
+          ]
+        },
+        {
+          "emit": 94,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "padded_batches": [
+            16
+          ]
+        },
+        {
+          "emit": 119,
+          "buckets": [
+            12,
+            16
+          ],
+          "valid_frames": [
+            11,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          "padded_batches": [
+            12
+          ]
+        },
+        {
+          "emit": 133,
+          "buckets": [
+            16,
+            24
+          ],
+          "valid_frames": [
+            16,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 140,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            3,
+            3,
+            7
+          ],
+          "padded_batches": [
+            4
+          ]
+        },
+        {
+          "emit": 141,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            4,
+            3,
+            7
+          ],
+          "padded_batches": [
+            4
+          ]
+        },
+        {
+          "emit": 144,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 148,
+          "buckets": [
+            10,
+            12
+          ],
+          "valid_frames": [
+            9,
+            11
+          ],
+          "padded_batches": [
+            2
+          ]
+        },
+        {
+          "emit": 150,
+          "buckets": [
+            12,
+            16
+          ],
+          "valid_frames": [
+            11,
+            16
+          ],
+          "padded_batches": [
+            2
+          ]
+        },
+        {
+          "emit": 153,
+          "buckets": [
+            8,
+            12
+          ],
+          "valid_frames": [
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          "padded_batches": [
+            16
+          ]
+        },
+        {
+          "emit": 156,
+          "buckets": [
+            24,
+            32
+          ],
+          "valid_frames": [
+            24,
+            26
+          ],
+          "padded_batches": [
+            2
+          ]
+        },
+        {
+          "emit": 159,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "padded_batches": [
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "max_bucket_ratio": 2,
+      "launches": 1640,
+      "padded_bucket_frames": 138972,
+      "frame_padded_frames": 118662,
+      "combined_padding_fraction": 0.3678211828623734,
+      "collapsed_frame_groups": 484,
+      "merge_histogram": {
+        "[6, 8]": 82,
+        "[12, 16]": 19,
+        "[16, 24]": 46,
+        "[6, 8, 12]": 6,
+        "[10, 12, 16]": 2,
+        "[6, 10]": 5,
+        "[8, 12]": 24,
+        "[24, 32]": 64,
+        "[16, 32]": 47,
+        "[6, 12]": 39,
+        "[6, 10, 12]": 4,
+        "[8, 10]": 5,
+        "[32, 64]": 18,
+        "[10, 16]": 9,
+        "[6, 8, 10, 12]": 1,
+        "[8, 16]": 24,
+        "[12, 24]": 26,
+        "[12, 16, 24]": 8,
+        "[6, 8, 10]": 2,
+        "[8, 12, 16]": 7,
+        "[16, 24, 32]": 4,
+        "[10, 12]": 5,
+        "[8, 10, 12]": 1
+      },
+      "examples": [
+        {
+          "emit": 93,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            8
+          ],
+          "padded_batches": [
+            12
+          ]
+        },
+        {
+          "emit": 94,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "padded_batches": [
+            16
+          ]
+        },
+        {
+          "emit": 119,
+          "buckets": [
+            12,
+            16
+          ],
+          "valid_frames": [
+            11,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          "padded_batches": [
+            12
+          ]
+        },
+        {
+          "emit": 133,
+          "buckets": [
+            16,
+            24
+          ],
+          "valid_frames": [
+            16,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 140,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            3,
+            3,
+            7
+          ],
+          "padded_batches": [
+            4
+          ]
+        },
+        {
+          "emit": 141,
+          "buckets": [
+            6,
+            8,
+            12
+          ],
+          "valid_frames": [
+            4,
+            3,
+            7,
+            12,
+            12,
+            12
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 144,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 148,
+          "buckets": [
+            10,
+            12,
+            16
+          ],
+          "valid_frames": [
+            9,
+            11,
+            15,
+            14
+          ],
+          "padded_batches": [
+            4
+          ]
+        },
+        {
+          "emit": 150,
+          "buckets": [
+            12,
+            16
+          ],
+          "valid_frames": [
+            11,
+            16
+          ],
+          "padded_batches": [
+            2
+          ]
+        },
+        {
+          "emit": 152,
+          "buckets": [
+            6,
+            10
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            10
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 153,
+          "buckets": [
+            8,
+            12
+          ],
+          "valid_frames": [
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12
+          ],
+          "padded_batches": [
+            16
+          ]
+        },
+        {
+          "emit": 156,
+          "buckets": [
+            24,
+            32
+          ],
+          "valid_frames": [
+            24,
+            26
+          ],
+          "padded_batches": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "max_bucket_ratio": 100,
+      "launches": 1332,
+      "padded_bucket_frames": 186172,
+      "frame_padded_frames": 162490,
+      "combined_padding_fraction": 0.8323835395320913,
+      "collapsed_frame_groups": 833,
+      "merge_histogram": {
+        "[6, 8]": 35,
+        "[6, 16]": 20,
+        "[12, 16]": 18,
+        "[8, 24]": 26,
+        "[16, 24]": 33,
+        "[6, 24]": 37,
+        "[6, 8, 24]": 11,
+        "[6, 8, 12]": 3,
+        "[6, 8, 16]": 10,
+        "[10, 12, 16]": 2,
+        "[6, 10, 16]": 2,
+        "[8, 12, 24]": 4,
+        "[24, 32]": 43,
+        "[16, 32]": 28,
+        "[6, 8, 24, 32]": 4,
+        "[8, 32]": 12,
+        "[12, 32]": 17,
+        "[6, 32]": 22,
+        "[6, 8, 32]": 5,
+        "[8, 12]": 13,
+        "[6, 12]": 20,
+        "[6, 24, 64]": 3,
+        "[6, 12, 24]": 6,
+        "[6, 16, 64]": 2,
+        "[6, 10, 12, 24]": 1,
+        "[6, 12, 64]": 2,
+        "[8, 10]": 4,
+        "[6, 32, 64]": 3,
+        "[10, 16, 24, 32]": 1,
+        "[6, 8, 10, 12, 24]": 1,
+        "[10, 16]": 7,
+        "[8, 16]": 11,
+        "[6, 12, 16, 24]": 1,
+        "[12, 24]": 20,
+        "[24, 64]": 11,
+        "[6, 16, 32]": 6,
+        "[6, 16, 24]": 5,
+        "[8, 16, 24, 32]": 2,
+        "[16, 32, 64]": 6,
+        "[6, 12, 32]": 2,
+        "[8, 16, 32]": 5,
+        "[6, 64]": 5,
+        "[6, 8, 16, 32]": 4,
+        "[12, 16, 24]": 7,
+        "[16, 64]": 8,
+        "[8, 16, 24]": 4,
+        "[12, 24, 32]": 5,
+        "[6, 8, 16, 24]": 4,
+        "[32, 64]": 12,
+        "[6, 8, 10]": 2,
+        "[6, 10, 12, 64]": 1,
+        "[8, 12, 16]": 5,
+        "[10, 32]": 4,
+        "[8, 24, 32]": 3,
+        "[12, 64]": 6,
+        "[8, 12, 32]": 3,
+        "[8, 64]": 6,
+        "[12, 16, 24, 32]": 1,
+        "[6, 10]": 2,
+        "[10, 64]": 3,
+        "[8, 16, 24, 32, 64]": 1,
+        "[6, 8, 64]": 5,
+        "[8, 12, 64]": 1,
+        "[8, 32, 64]": 1,
+        "[10, 24]": 7,
+        "[12, 24, 64]": 1,
+        "[6, 24, 32]": 5,
+        "[6, 8, 32, 64]": 1,
+        "[6, 8, 16, 64]": 2,
+        "[6, 10, 12, 16, 24]": 1,
+        "[16, 24, 64]": 1,
+        "[8, 12, 16, 24]": 1,
+        "[8, 12, 24, 32]": 2,
+        "[16, 24, 32]": 3,
+        "[10, 16, 32]": 1,
+        "[6, 12, 16]": 4,
+        "[8, 16, 32, 64]": 1,
+        "[10, 12]": 4,
+        "[8, 12, 24, 64]": 1,
+        "[6, 8, 16, 32, 64]": 1,
+        "[24, 32, 64]": 1,
+        "[12, 16, 32]": 1,
+        "[8, 24, 64]": 1,
+        "[6, 12, 16, 32]": 1,
+        "[8, 10, 32]": 1,
+        "[8, 10, 12]": 1,
+        "[16, 24, 32, 64]": 1,
+        "[6, 8, 12, 16, 32]": 1,
+        "[6, 8, 12, 16]": 2,
+        "[6, 12, 16, 64]": 1,
+        "[6, 10, 24]": 1,
+        "[8, 12, 16, 24, 32]": 1,
+        "[6, 12, 16, 24, 64]": 1,
+        "[6, 12, 24, 32]": 1,
+        "[6, 10, 12]": 1,
+        "[10, 12, 24]": 1
+      },
+      "examples": [
+        {
+          "emit": 93,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            8
+          ],
+          "padded_batches": [
+            12
+          ]
+        },
+        {
+          "emit": 94,
+          "buckets": [
+            6,
+            8
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "padded_batches": [
+            16
+          ]
+        },
+        {
+          "emit": 118,
+          "buckets": [
+            6,
+            16
+          ],
+          "valid_frames": [
+            3,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 119,
+          "buckets": [
+            12,
+            16
+          ],
+          "valid_frames": [
+            11,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16,
+            16
+          ],
+          "padded_batches": [
+            12
+          ]
+        },
+        {
+          "emit": 126,
+          "buckets": [
+            6,
+            16
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            13
+          ],
+          "padded_batches": [
+            4
+          ]
+        },
+        {
+          "emit": 131,
+          "buckets": [
+            8,
+            24
+          ],
+          "valid_frames": [
+            8,
+            8,
+            8,
+            17
+          ],
+          "padded_batches": [
+            4
+          ]
+        },
+        {
+          "emit": 133,
+          "buckets": [
+            16,
+            24
+          ],
+          "valid_frames": [
+            16,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 136,
+          "buckets": [
+            6,
+            24
+          ],
+          "valid_frames": [
+            3,
+            24,
+            23,
+            24,
+            24,
+            24,
+            24,
+            24
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 137,
+          "buckets": [
+            6,
+            24
+          ],
+          "valid_frames": [
+            6,
+            6,
+            6,
+            6,
+            6,
+            6,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24
+          ],
+          "padded_batches": [
+            16
+          ]
+        },
+        {
+          "emit": 138,
+          "buckets": [
+            6,
+            24
+          ],
+          "valid_frames": [
+            2,
+            24,
+            24,
+            24,
+            24,
+            24,
+            24
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 140,
+          "buckets": [
+            6,
+            8,
+            24
+          ],
+          "valid_frames": [
+            3,
+            3,
+            7,
+            24,
+            24,
+            24,
+            24,
+            24
+          ],
+          "padded_batches": [
+            8
+          ]
+        },
+        {
+          "emit": 141,
+          "buckets": [
+            6,
+            8,
+            12
+          ],
+          "valid_frames": [
+            4,
+            3,
+            7,
+            12,
+            12,
+            12
+          ],
+          "padded_batches": [
+            8
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "No latency or quality measurement; fewer calls can lose to extra padded convolution work.",
+    "Same ready emit only; does not delay chunks, cross emitted boundaries, or combine jobs from different emit generations.",
+    "Native per-row valid frame/state semantics still require PCM/state and complete WER/SIM verification.",
+    "Greedy adjacent bucket clusters by minimum-to-maximum ratio; not a latency-optimal planner."
+  ]
+}

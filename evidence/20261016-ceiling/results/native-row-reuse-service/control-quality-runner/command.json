@@ -1,0 +1,18 @@
+[
+  "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-row-reuse-345c6a1/scripts/evaluate_audio.py",
+  "--upstream",
+  "/home/zjy/code/hsliu/drama3-sources/sglang-omni",
+  "--assets",
+  "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-models.json",
+  "--corpus",
+  "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+  "--benchmark",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-service/control-gpu6/benchmark",
+  "--labels",
+  "c64-r0",
+  "--output",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-service/control-quality.json",
+  "--batch-size",
+  "8"
+]

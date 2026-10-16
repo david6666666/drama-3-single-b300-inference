@@ -1,0 +1,41 @@
+{
+  "argv": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/validate_moe_residual.py",
+    "--source",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-moe-residual-da91321",
+    "--checkpoint",
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2",
+    "--corpus",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+    "--output",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/moe-residual-validation.json"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "6",
+    "OMP_NUM_THREADS": "4",
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-moe-residual-da91321/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/hf_modules",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE": "flashinfer",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_FUSED_MOE_INPUT": "1",
+    "DRAMA3_MOE_LAYOUT": "major_k",
+    "DRAMA3_PREFILL_GDN": "fla",
+    "DRAMA3_COMPACT_GDN": "0",
+    "DRAMA3_FUSED_MIXED_LAYOUT": "0",
+    "DRAMA3_PACKED_CONV_GUARD": "0",
+    "DRAMA3_SHORT_PADDING_CONTEXT": "0",
+    "DRAMA3_MOE_SHARED_OVERLAP": "0",
+    "DRAMA3_FUSED_MOE_RESIDUAL": "0"
+  },
+  "source_sha": "da9132185ed2c503a1e392754e26ff8916d163fa",
+  "source_status": "",
+  "driver_sha256": "5bf38bd5d51581e92891101c61a53e0fd03bfa2397d351bea56ed6dcac7b9d24",
+  "experiment_sha256": "a3b28fada7c85421e733306530e5803b98eddf1fa537d55b56f5f954c89f0b03"
+}

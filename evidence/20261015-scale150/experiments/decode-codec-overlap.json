@@ -1,0 +1,8 @@
+{
+  "source_sha": "66dd6fc555ede8224f1cf035f76ff593dfb7836a",
+  "hypothesis": "The existing asynchronous native BF16 codec can overlap real decode without changing codes, states or PCM; previous C64 quality drift may be admission-dependent.",
+  "isolated_variable": "Synchronous versus polled/threaded AudioQueue; all request ordering, sampling counters and starting model/codec state fixed.",
+  "controls": "GPU6 OMP4 full64 real requests, two generations reusing slots,24decode steps each, native compute, no cache flush. Compare every model and codec tensor including scratch plus all PCM chunks and EOS delivery.",
+  "success": "Bitexact complete state and delivered PCM, with ordered completion for all128requests in all modes; this cannot replace service quality and has no timing claim.",
+  "stop": "Any non-exact outputs/states, missing completion, external GPU6 process or runtime failure. Preserve any failure evidence."
+}

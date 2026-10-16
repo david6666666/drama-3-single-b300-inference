@@ -1,0 +1,9 @@
+{
+  "hypothesis": "Reusing each BF16 weight tile across 2/4/8 token rows may reduce small-batch projection overhead.",
+  "plane": "model",
+  "isolated_variable": "BF16 shared-weight GEMV kernel tile",
+  "source_sha": "29b1fc4",
+  "controls": "GPU1, OMP4, deterministic random BF16 inputs, actual projection shapes, unchanged FP32 accumulation and BF16 output",
+  "stop": "Reject any nonfinite output or RRMS >= 0.003; no serving integration without model and audio validation",
+  "result": "Only selected B2 projections improve; B4 gains are small and B8 is slower. Diagnostic retained; no default changed."
+}

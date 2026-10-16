@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "source_sha": "da9132185ed2c503a1e392754e26ff8916d163fa",
+    "source_status": "",
+    "driver_sha256": "5bf38bd5d51581e92891101c61a53e0fd03bfa2397d351bea56ed6dcac7b9d24",
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+    "gpu_uuid": "619f7fdc-5f98-8c37-fe89-0465d6130baf",
+    "environment": {
+      "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+      "DRAMA3_PACKED_MOE_PROJECTION": "1",
+      "DRAMA3_PREFILL_CONV": "triton",
+      "DRAMA3_PREFILL_MOE": "flashinfer",
+      "DRAMA3_PREFILL_MOE_TUNED": "0",
+      "DRAMA3_FUSED_MOE_INPUT": "1",
+      "DRAMA3_MOE_LAYOUT": "major_k",
+      "DRAMA3_PREFILL_GDN": "fla",
+      "DRAMA3_COMPACT_GDN": "0",
+      "DRAMA3_FUSED_MIXED_LAYOUT": "0",
+      "DRAMA3_PACKED_CONV_GUARD": "0",
+      "DRAMA3_SHORT_PADDING_CONTEXT": "0",
+      "DRAMA3_MOE_SHARED_OVERLAP": "0",
+      "DRAMA3_FUSED_MOE_RESIDUAL": "0"
+    },
+    "experiment": {
+      "hypothesis": "Combining native shared-expert gating/add with the immediately following residual RMSNorm removes 40 intermediate stores/loads and kernel launches per backbone without changing any BF16 boundary or expert computation.",
+      "isolated_variable": "DRAMA3_FUSED_MOE_RESIDUAL=False versus True on the same frozen source; moe_parts returns native outputs after the existing shared-stream join.",
+      "default": "off",
+      "budget": "Existing combine+next norm total approximately 0.164 ms B64 and 0.427 ms D64P1280. Actual savings lower. Mixed >0.1 ms is plausible; no material service speedup assumed.",
+      "fixed_controls": "Native fulltop8 FP8 expert weights/scales, BF16 dense/GDN; same GPU6, prompt corpus, model state, CUDA graphs and shapes; FLA GDN, major_k, packed MoE input, unchanged FI backend; compact/layout/conv-guard/short-padding disabled in both arms; no cache flush/clock control.",
+      "correctness": "40 norm weights x10 synthetic inputs, including rows1..1344, gate stride1/1281, saturation and residual cancellation; exact normalized output and mutated residual. Then all40 live boundaries, exact full B64 and D58+6 graph outputs, all GDN/conv/KV/request/RNG state, untouched slots, and graph-versus-eager. Additional B64 shared-stream control/candidate exactness.",
+      "timing": "After exact gates only, one warmup each and five alternating CUDA-event graph replays per arm, restoring identical initial state outside events. Diagnostic feasibility, not service acceptance.",
+      "stop": "First exactness/ownership failure is retained and stops the run. Do not relax gates. If neither mixed nor B64 offers a useful local reduction, do not request service or repeat arbitrary configurations.",
+      "gpu": "GPU6 only, UUID GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf, verified 4MiB/0% and no process before launch. Source SHA recorded in command/result after parent DCO freeze.",
+      "quality": "User WER/SIM acceptance remains independent. Bit-exact isolated checks do not claim full-corpus quality or throughput."
+    }
+  },
+  "cases": [],
+  "checks": [
+    {
+      "name": "static/norm0/input0/rows1/normalized",
+      "exact": true,
+      "passed": false
+    }
+  ],
+  "status": "FAIL",
+  "failure": {
+    "type": "AssertionError",
+    "message": "{'name': 'static/norm0/input0/rows1/normalized', 'exact': True, 'passed': False}"
+  }
+}

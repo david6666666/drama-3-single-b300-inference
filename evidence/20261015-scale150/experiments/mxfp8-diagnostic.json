@@ -1,0 +1,11 @@
+{
+  "hypothesis": "Blackwell native MXFP8 block scaling may reduce expert GEMM and activation overhead relative to checkpoint DeepSeek block128 scaling without reducing weight bit width. This is a quantization change requiring separate quality evidence.",
+  "plane": "model",
+  "isolated_variable": "MoE quantization/backend: DeepSeek FP8 to MXFP8",
+  "controls": "Same captured real B64 inputs from layers 0/19/39, same packed shared expert path, GPU1 OMP4, same checkpoint and corpus",
+  "success": "Faster exact-input full MoE with finite output; investigate numerical difference separately before any service integration",
+  "stop": "Unsupported shape, nonfinite output, independent-reference mismatch above 0.03, or full-MoE RRMS above 0.1; no claimed quality acceptance from operator metric",
+  "source_sha": "07853bd0eb16ecad0191d08261f3d006354616bc",
+  "abi_retry_sha": "9cd5367",
+  "first_attempt": "Rejected by kernel ABI before numerical execution: scales need uint8 UE8M0 storage, not FP8 dtype. Original log retained."
+}

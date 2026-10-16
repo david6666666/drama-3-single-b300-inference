@@ -1,0 +1,145 @@
+{
+  "status": "CPU_AOT_PASS",
+  "cuda_initialized": false,
+  "target": "sm103",
+  "arms": [
+    {
+      "arm": "control",
+      "constants": {
+        "STRIDE": 1408,
+        "EPS": 1e-06,
+        "WIDTH": 2048
+      },
+      "options": {
+        "num_warps": 4,
+        "enable_fp_fusion": false
+      },
+      "metadata": {
+        "allowed_dot_input_precisions": [
+          "tf32",
+          "tf32x3",
+          "ieee",
+          "bf16x3",
+          "bf16x6"
+        ],
+        "arch": "sm103",
+        "backend_name": "cuda",
+        "debug": false,
+        "default_dot_input_precision": "tf32",
+        "deprecated_fp8_dot_operand_dtypes": [
+          "fp8e4b15"
+        ],
+        "enable_fp_fusion": false,
+        "enable_reflect_ftz": true,
+        "extern_libs": [
+          [
+            "libdevice",
+            "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc"
+          ]
+        ],
+        "global_scratch_align": 1,
+        "global_scratch_size": 0,
+        "hash": "d5bf2c35f7476962bdedbf9b50cc02f5769076e09ee670199b1a1a6148cdc97e",
+        "instrumentation_mode": "",
+        "ir_override": null,
+        "launch_cooperative_grid": false,
+        "launch_pdl": false,
+        "max_num_imprecise_acc_default": 0,
+        "maxnreg": null,
+        "name": "combine_experts_add_norm_kernel",
+        "num_ctas": 1,
+        "num_stages": 3,
+        "num_warps": 4,
+        "profile_scratch_align": 1,
+        "profile_scratch_size": 0,
+        "ptx_options": null,
+        "ptx_version": null,
+        "sanitize_overflow": true,
+        "shared": 16,
+        "supported_fp8_dtypes": [
+          "fp8e4b15",
+          "fp8e4nv",
+          "fp8e5"
+        ],
+        "target": "GPUTarget(backend='cuda', arch=103, warp_size=32)",
+        "tensordesc_meta": [],
+        "tmem_size": 0,
+        "triton_version": "3.7.1",
+        "warp_size": 32
+      },
+      "cubin_sha256": "72af593f1125858bbfff18c5d0b1a8b81bdfd97d97f5e523ad7f4964bf2733aa",
+      "ptx_sha256": "b5cda359f3de8731a00cfa99971ad1db86351e4cf668f6753618d7ae50028f81"
+    },
+    {
+      "arm": "candidate",
+      "constants": {
+        "STRIDE": 1408,
+        "EPS": 1e-06,
+        "WIDTH": 2048
+      },
+      "options": {
+        "num_warps": 4,
+        "enable_fp_fusion": false
+      },
+      "metadata": {
+        "allowed_dot_input_precisions": [
+          "tf32",
+          "tf32x3",
+          "ieee",
+          "bf16x3",
+          "bf16x6"
+        ],
+        "arch": "sm103",
+        "backend_name": "cuda",
+        "debug": false,
+        "default_dot_input_precision": "tf32",
+        "deprecated_fp8_dot_operand_dtypes": [
+          "fp8e4b15"
+        ],
+        "enable_fp_fusion": false,
+        "enable_reflect_ftz": true,
+        "extern_libs": [
+          [
+            "libdevice",
+            "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc"
+          ]
+        ],
+        "global_scratch_align": 1,
+        "global_scratch_size": 0,
+        "hash": "3bc1dd4df2fa300fce63a5113aaae5ab584bc1179c5c11b53965fa7c82446d36",
+        "instrumentation_mode": "",
+        "ir_override": null,
+        "launch_cooperative_grid": false,
+        "launch_pdl": false,
+        "max_num_imprecise_acc_default": 0,
+        "maxnreg": null,
+        "name": "inverse_combine_experts_add_norm_kernel",
+        "num_ctas": 1,
+        "num_stages": 3,
+        "num_warps": 4,
+        "profile_scratch_align": 1,
+        "profile_scratch_size": 0,
+        "ptx_options": null,
+        "ptx_version": null,
+        "sanitize_overflow": true,
+        "shared": 16,
+        "supported_fp8_dtypes": [
+          "fp8e4b15",
+          "fp8e4nv",
+          "fp8e5"
+        ],
+        "target": "GPUTarget(backend='cuda', arch=103, warp_size=32)",
+        "tensordesc_meta": [],
+        "tmem_size": 0,
+        "triton_version": "3.7.1",
+        "warp_size": 32
+      },
+      "cubin_sha256": "9419bb3af41b9d155c61003a510767572d34e6824587dfdb8767f96b5373b821",
+      "ptx_sha256": "676b8b1b015cecf180b206a5680c9ec1f467bed9ac6e595f013f6bcc09580ef6"
+    }
+  ],
+  "limitations": [
+    "Offline resources do not establish byte equality. The full mixed three-case gate remains required.",
+    "No GPU or timing executed by this script."
+  ]
+}

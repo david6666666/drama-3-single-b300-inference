@@ -1,0 +1,161 @@
+{
+  "status": "READ_ONLY_SNAPSHOT",
+  "policy": "Do not rewrite frozen protocols/results; add correction/index or revise mutable summaries. Source-hint arithmetic is valid only labeled unlowered, never actual allocation.",
+  "hits": [
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/README.md",
+      "line": 297,
+      "text": "Correction: the FC1 source-role hints sum to53,248, but its compiled"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/README.md",
+      "line": 354,
+      "text": "`USETMAXREG` instructions. Thus53,248 versus32,768 source-hint sums do not"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-implementation-plan.md",
+      "line": 50,
+      "text": "These source role hints sum to a hypothetical53,248 registers/CTA, but the emitted full-chain SASS has no SETMAXNREG, highest R29, and CUBIN REG32. The hint sum is not actual allocation and does not establish a one-CTA residency constraint. Actual occupancy is unmeasured; component exactness remains an arithmetic foundation, not a performance result."
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-implementation-plan.md",
+      "line": 75,
+      "text": "Register-accounting correction: the 160/48 PTX/source role hints are not equivalent to actual SASS allocation. For the full debug and zero-debug resident CUBINs, cuobjdump reports REG32, emitted SASS has no SETMAXNREG, and the highest general register is R29. Any earlier 53,248-register/CTA or one-CTA-per-SM claim is an unproven source-budget inference and must not be used as occupancy evidence. Shared-memory totals and zero-spill checks remain valid; actual occupancy requires its own measured/compiler evidence. See resident-register-accounting-erratum.json."
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/resident-register-accounting-erratum.json",
+      "line": 3,
+      "text": "  \"corrected_claim\": \"53248 registers perCTA and oneCTA perSM inferred from PTX role hints\","
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-full/full-protocol.json",
+      "line": 100,
+      "text": "    \"Actual 53,248dynamic registers/CTA limits residency independently ofbaseREG32.\","
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-full/summary.md",
+      "line": 11,
+      "text": "The tested fixtures contain inactive clusters but do not include an entirely empty ncta0 launch. That optional exact empty-state check and a separately frozen zero-debug parity/full-MoE timing protocol remain next work. Global debug boundary exports must be removed and parity rechecked before any performance claim. The 53,248-register source-hint estimate does not establish actual register allocation or residency: this emitted CUBIN has REG32, SASS highest R29, and no SETMAXNREG. The previous one-CTA constraint inference is withdrawn."
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-full/summary.md",
+      "line": 14,
+      "text": "Register-accounting correction: the 160/48 PTX/source role hints are not equivalent to actual SASS allocation. For the full debug and zero-debug resident CUBINs, cuobjdump reports REG32, emitted SASS has no SETMAXNREG, and the highest general register is R29. Any earlier 53,248-register/CTA or one-CTA-per-SM claim is an unproven source-budget inference and must not be used as occupancy evidence. Shared-memory totals and zero-spill checks remain valid; actual occupancy requires its own measured/compiler evidence. See ../resident-register-accounting-erratum.json."
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-fc1-native-v2/summary.md",
+      "line": 9,
+      "text": "CPU AOT never initialized CUDA. Actual shared memory is71544 dynamic+2048 static=73592 bytes; no local/stack spill. The32-register CUBIN header is not the live register budget: generated PTX requests160 registers for eight epilogue warps and48 for the other eight warps, totaling53248 32-bit registers per CTA. This arithmetic prototype does not establish two CTAs/SM."
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-chain/chain-independent-review.json",
+      "line": 67,
+      "text": "  \"dynamic_register_budget\": 53248,"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-chain/chain-independent-review.md",
+      "line": 11,
+      "text": "\u5b8c\u6574 CUBIN \u7684 STACK/LOCAL \u90fd\u4e3a 0\uff1bPTX \u65e0 local load/store\uff0cSASS \u65e0 LDL/STL\u3002\u9759\u6001 REG32 \u4e0d\u80fd\u4ee3\u8868\u5b9e\u9645\u5bc4\u5b58\u5668\u9700\u6c42\u3002SETMAXNREG \u9884\u7b97\u662f epilogue \u7684 8 warps \u00d7 32 \u00d7 160\uff0c\u52a0\u5176\u4f59 8 warps \u00d7 32 \u00d7 48\uff0c\u5171 **53,248 registers/CTA**\u3002\u5355 CTA \u8d44\u6e90\u5408\u6cd5\u4e0d\u610f\u5473\u7740\u56db CTA \u5728\u540c\u4e00 SM\u3001\u4e5f\u4e0d\u662f occupancy/\u541e\u5410\u8bc1\u660e\uff1bouter \u5b9e\u9645 launch \u662f grid4\u3001block512\u3001cluster4\u3002"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-chain/chain-protocol.json",
+      "line": 98,
+      "text": "    \"Native dynamic register allocations retain the one-CTA-per-SM register-capacity limitation; shared resource fit is not occupancy evidence.\","
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-m128-fc2/summary.json",
+      "line": 19,
+      "text": "  \"dynamic_register_budget_note\": \"CORRECTION: 32768 is a sum of source hints only. The actual CUBIN has REG31 and no SASS register-reconfiguration instruction. It does not establish two-CTA occupancy or a transition from M64; see register-lowering-audit/result.json.\","
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-fc1-native-v3/summary.md",
+      "line": 14,
+      "text": "Register-accounting correction: the 160/48 PTX/source role hints are not equivalent to actual SASS allocation. For the full debug and zero-debug resident CUBINs, cuobjdump reports REG32, emitted SASS has no SETMAXNREG, and the highest general register is R29. Any earlier 53,248-register/CTA or one-CTA-per-SM claim is an unproven source-budget inference and must not be used as occupancy evidence. Shared-memory totals and zero-spill checks remain valid; actual occupancy requires its own measured/compiler evidence. See ../resident-register-accounting-erratum.json."
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-m128-fc2-expanded/summary.json",
+      "line": 19,
+      "text": "  \"dynamic_register_budget_note\": \"CORRECTION: 32768 is a sum of source hints only. The actual CUBIN has REG31 and no SASS register-reconfiguration instruction. It does not establish two-CTA occupancy or a transition from M64; see register-lowering-audit/result.json.\","
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-chain-v2/chain-independent-review.json",
+      "line": 67,
+      "text": "  \"dynamic_register_budget\": 53248,"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-chain-v2/chain-independent-review.md",
+      "line": 11,
+      "text": "\u5b8c\u6574 CUBIN \u7684 STACK/LOCAL \u90fd\u4e3a 0\uff1bPTX \u65e0 local load/store\uff0cSASS \u65e0 LDL/STL\u3002\u9759\u6001 REG32 \u4e0d\u80fd\u4ee3\u8868\u5b9e\u9645\u5bc4\u5b58\u5668\u9700\u6c42\u3002SETMAXNREG \u9884\u7b97\u662f epilogue \u7684 8 warps \u00d7 32 \u00d7 160\uff0c\u52a0\u5176\u4f59 8 warps \u00d7 32 \u00d7 48\uff0c\u5171 **53,248 registers/CTA**\u3002\u5355 CTA \u8d44\u6e90\u5408\u6cd5\u4e0d\u610f\u5473\u7740\u56db CTA \u5728\u540c\u4e00 SM\u3001\u4e5f\u4e0d\u662f occupancy/\u541e\u5410\u8bc1\u660e\uff1bouter \u5b9e\u9645 launch \u662f grid4\u3001block512\u3001cluster4\u3002"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-chain-v2/chain-protocol.json",
+      "line": 98,
+      "text": "    \"Native dynamic register allocations retain the one-CTA-per-SM register-capacity limitation; shared resource fit is not occupancy evidence.\","
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-chain-v2/summary.md",
+      "line": 7,
+      "text": "The CPU and GPU CUBIN SHA256 is9eb4c4f83850b3743118c50628631dfdcf2707fb607306c377ad9a743ceab0b1. Actual launch shared memory is78,464 dynamic plus1,024 static =79,488 bytes per CTA. Stack/local spill is zero. The 53,248-register figure is only a source-hint budget, not actual allocation: emitted SASS has no SETMAXNREG, highest R29, and CUBIN REG32. No CTA-residency conclusion is established. The four-CTA cluster retains original group1 MMA. TMEM32 is allocated and relinquished once, lent to six drained stages, and deallocated once after the final stage."
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-chain-v2/summary.md",
+      "line": 14,
+      "text": "Register-accounting correction: the 160/48 PTX/source role hints are not equivalent to actual SASS allocation. For the full debug and zero-debug resident CUBINs, cuobjdump reports REG32, emitted SASS has no SETMAXNREG, and the highest general register is R29. Any earlier 53,248-register/CTA or one-CTA-per-SM claim is an unproven source-budget inference and must not be used as occupancy evidence. Shared-memory totals and zero-spill checks remain valid; actual occupancy requires its own measured/compiler evidence. See ../resident-register-accounting-erratum.json."
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-timing-v2/summary.md",
+      "line": 43,
+      "text": "Register-accounting correction: PTX role hints of 160/48 do not establish a 53,248-register allocation. Actual emitted SASS contains no SETMAXNREG, the header is REG32, and its maximum referenced general register is R29. The earlier one-CTA-per-SM inference is withdrawn; see `../resident-register-accounting-erratum.json` and the independent register audit. Occupancy was not measured."
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-timing-v2/independent-review.md",
+      "line": 37,
+      "text": "\u5b9e\u9645 CUBIN `7e19a1b5b1fc048682abe3b8ce22e33adc535e3c0ebbcceada43b7f74ae6f1d1`\uff1bhost launch \u7684 dynamic shared 78464 + static 1024 = 79488 B/CTA\uff1bstack/local/spill=0\u3002**\u64a4\u56de\u7528 160/48 PTX hints \u76f8\u52a0\u6210 53248 \u5bc4\u5b58\u5668\u6765\u63a8\u65ad\u9a7b\u7559 CTA \u6570\u7684\u89e3\u91ca**\uff1aresident SASS \u65e0 USETMAXREG\uff0c\u5b9e\u9645 header REG32\u3002\u89c1 `../register-lowering-audit/result.json` \u4e0e `../expert-resident-timing/register-hint-independent-audit.json`\u3002shared fit\u3001\u65e0 spill\u3001source hint \u5747\u4e0d\u662f achieved occupancy \u8bc1\u636e\u3002"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-fc2-native/report.md",
+      "line": 29,
+      "text": "\u5168\u90e8 **32,768 \u8f93\u51fa\u5b57\u8282\u4e0e native \u5b8c\u5168\u4e00\u81f4**\uff1b8 \u884c\u5404\u81ea\u7684\u6392\u5e8f\u591a\u91cd\u96c6\u5408\u4e5f\u5b8c\u5168\u4e00\u81f4\u3002\u53e6\u7528\u539f\u751f activation/weight \u5b57\u8282\u89e3\u7801\u5230 FP64\uff0c\u72ec\u7acb\u8ba1\u7b97 4 \u4e2a K128 dot products \u5e76\u5e94\u7528\u539f\u59cb FP32 scale\uff1b\u5176\u6700\u7ec8 BF16 \u820d\u5165\u4e0e native \u7684 16,384 \u503c\u5168\u90e8\u4e00\u81f4\u3002\u8bca\u65ad\u9a71\u52a8\u53ca\u6570\u636e\u5728 `independent_cpu_layout.py` / `independent-layout-metrics.json`\u3002\u4e0d\u80fd\u628a\u6392\u5217\u540e\u7684\u8bca\u65ad PASS \u6539\u5199\u6210\u539f\u59cb kernel PASS\uff1a\u6d88\u8d39\u8005\u8981\u6c42 kernel \u81ea\u8eab\u5199\u51fa\u6b63\u786e\u903b\u8f91\u987a\u5e8f\u3002"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/register-lowering-audit/report.md",
+      "line": 5,
+      "text": "Therefore53,248 versus32,768 is only a sum of source-role hints. It does not establish actual allocation or an M64-one-CTA/M128-two-CTA occupancy transition. Earlier wording suggesting that implication is withdrawn; original frozen protocols and numeric results remain unchanged. M128 still changes actual thread count512\u2192384, MMA decomposition and output coordinates. Relative to the vendor, the prototype also changes pipeline staging and launch/resource policy, which must be separated before attributing a gain."
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-timing/register-hint-independent-audit.md",
+      "line": 3,
+      "text": "\u72ec\u7acb\u786e\u8ba4 resident single/full/zero-debug \u4e09\u4efd\u5b9e\u9645CUBIN\u7684SASS\u4e2d\u6ca1\u6709\u4efb\u4f55SETMAX-like opcode\uff0c\u6700\u9ad8\u666e\u901a\u5bc4\u5b58\u5668\u64cd\u4f5c\u6570\u662fR29\uff0c\u8d44\u6e90header\u5747\u4e3aREG32\u3002PTX\u867d\u7136\u8bb0\u5f5548/160\u89d2\u8272\u63d0\u793a\uff0c\u4f46\u4e0d\u80fd\u636e\u6b64\u8ba4\u5b9a\u5b9e\u9645\u6bcfCTA\u5360\u752853,248\u4e2a\u5bc4\u5b58\u5668\uff0c\u6216\u63a8\u65ad\u53ea\u80fd\u4e00\u4e2aCTA/SM\u3002"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-timing/register-hint-independent-audit.md",
+      "line": 5,
+      "text": "\u4e4b\u524d `chain-independent-review.md` \u768453,248\u662f\u6e90/PTX\u63d0\u793a\u7684\u52a0\u603b\uff0c\u5e94\u4ec5\u6309\u6b64\u7406\u89e3\uff1b\u9759\u6001REG32\u4e0e\u5b9e\u9645SASS\u8bc1\u636e\u6bd4\u8be5\u63d0\u793a\u52a0\u603b\u66f4\u76f4\u63a5\u3002\u89d2\u8272\u5206\u5de5\u548c\u9636\u6bb5\u6392\u7a7a\u7684\u68c0\u67e5\u4ecd\u6709\u610f\u4e49\uff0c\u4f46\u8be5\u63d0\u793a\u6ca1\u6709\u8bc1\u660e\u5df2\u6267\u884c\u52a8\u6001\u5bc4\u5b58\u5668\u91cd\u5206\u914d\u3002\u6ca1\u6709\u66f4\u6539regcap\u3001\u5185\u6838\u6570\u5b66\u6216\u4efb\u4f55\u5df2\u6267\u884c\u7684protocol/result\u3002\u5171\u4eab\u5185\u5b58\u5b9e\u964579,488 B/CTA\u4e0e\u96f6spill\u8d44\u6e90\u7ed3\u8bba\u4e0d\u53d8\uff1boccupancy\u4e0e\u901f\u5ea6\u4ecd\u9700\u771f\u5b9e\u6d4b\u91cf\uff0c\u4e0d\u4ece\u63d0\u793a\u9884\u7b97\u63a8\u65ad\u3002"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/drama-3-single-b300-inference/evidence/20261016-ceiling/results/expert-resident-timing/register-hint-independent-audit.json",
+      "line": 42,
+      "text": "  \"conclusion\": \"53248 is the sum of requested PTX role budgets, not an established physical allocation. Actual SASS contains no SETMAX-like instruction; do not infer one CTA per SM, occupancy, or M128 benefits from that source-level sum.\","
+    },
+    {
+      "path": "/home/zjy/code/hsliu/OmniRSI-pr9-align-20261016/evidence/drama3-b300-scale150/results/status.json",
+      "line": 265,
+      "text": "    \"fc1_source_register_hint_sum_not_allocation\": 53248,"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/OmniRSI-pr9-align-20261016/evidence/drama3-b300-scale150/results/status.json",
+      "line": 361,
+      "text": "    \"source_register_hint_sum_not_allocation\": 32768,"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/OmniRSI-pr9-align-20261016/evidence/drama3-b300-scale150/results/diagnostic-lessons.md",
+      "line": 393,
+      "text": "The32,768 versus53,248 source-hint sums originally motivated a capacity"
+    },
+    {
+      "path": "/home/zjy/code/hsliu/OmniRSI-pr9-align-20261016/evidence/drama3-b300-scale150/results/diagnostic-lessons.md",
+      "line": 429,
+      "text": "53,248\u219232,768 hint sums do not establish occupancy doubling. Actual thread and"
+    }
+  ]
+}

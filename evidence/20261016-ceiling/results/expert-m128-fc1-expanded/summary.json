@@ -1,0 +1,7 @@
+{
+  "status": "EXPANDED_NATIVE_M128_FC1_EXACT_PASS",
+  "checks": 447,
+  "scope": "FC1 only; all15 native oracles and 3 immutable native zero/tiny cases, eager and changing-metadata graph",
+  "timing_allowed": false,
+  "gpu_released": true
+}

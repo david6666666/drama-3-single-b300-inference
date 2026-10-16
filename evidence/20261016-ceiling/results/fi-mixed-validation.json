@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "source_sha": "1618ad4b2c7591465a47ca0dad8100e782820cd2",
+    "source_status": "",
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+    "driver_sha256": "7a12a8e5b0d8625fce9f65c702d7e9e65a8c84959724f2050f852506e00cf976",
+    "runtime_sha256": {
+      "src/drama3/__init__.py": "f35f1e76e413a38a7ffcc5d143cdcc8514410e0303bbbbd27aa9d2374cba1dbf",
+      "src/drama3/audio_queue.py": "2bd7962494f532943bcfb144d703591d6e5dbe7c55c0402632c1f5615c0f0c28",
+      "src/drama3/benchmark.py": "e55ecbd38375a8057cf757e2c0d0844ec2e965ec9bc5b6d5014d6624ea31d734",
+      "src/drama3/bf16_projection.py": "2df5c17984db572e15539be3f86d24621507352c7c6a387a34da7dcd3b15de4c",
+      "src/drama3/codec.py": "8db579a69f50511d1f5a3d630e1156c3965cdb0be4d0e49c2bc9997a04e8f477",
+      "src/drama3/engine.py": "c132a0e8250cdcd95de40cd8841cecd73763264b278d6ee595ed9fe9ddef16dc",
+      "src/drama3/experimental_fp8.py": "0a551d25ead70642a8d47e128611bc69d5762f0655c3b29a7b03edce1c031e6c",
+      "src/drama3/fused_projection.py": "7069f25bdaf54c34a77f6dab6c0d3f77555e5acf4c2cd45d4c5fa55dfd233314",
+      "src/drama3/gdn.py": "a1a937473a6be9bff9a992427a48e01647bc4ca221aa81729cd7c64ab2f7b371",
+      "src/drama3/gdn_compact.py": "59a8ba9ab69869ca50a96d2cea87723cd4226fbbec833c8c34b99caadd48837e",
+      "src/drama3/int8_gemv.py": "0637c919eaeddfcd3bd4da6bbdc376492544665ccaf7f39567f4b5c21e23c036",
+      "src/drama3/kernels.py": "810773e8ffeb0c60da13beb31c8a855be922c6633b39589058223e488ba64bad",
+      "src/drama3/mixed_graph.py": "093cfa8998310000f118d2bc8b016381376df5156d69cb4011fcb779edf64b6a",
+      "src/drama3/mixed_model.py": "63122ed7bb1fe73f91520b197d040dbafc5fc6a61555206a52c3692cc934c394",
+      "src/drama3/model.py": "2890cf88b120bfe8aebc13e6259f0b8621f2e4c98d1102470f821b3a08d8fd60",
+      "src/drama3/moe_atomic.py": "20de41bbdb5e552f26c22da6385fb8052869d83ebffd0b845b7ceace9c0420cc",
+      "src/drama3/moe_input.py": "7e96bbbc8c72858f124bbc1766c43ee4ce0571f819e80d646ab44cf2f52d14c2",
+      "src/drama3/packed_prefill.py": "00bee4c5bf79de210bd32ec9963bab7d8a0d6dc34c314e3afe4718c00bb5aeb9",
+      "src/drama3/prefill_conv.py": "5f84306b99b9daa9cda14745386b68fdf1c81fd57ed31120769245e37a7f847d",
+      "src/drama3/profiling.py": "6d4a70c8eadc7d31d0074311db629dddc79c320dd80d15ac2c0777e652974573",
+      "src/drama3/runtime_state.py": "ea25293345bcdfccc47fcb63f775aab87ab8fe492e84b9832ff4c12e3efabc06",
+      "src/drama3/server.py": "2f54ca32b62511974dd4bb215bc619e56a81a5e9e35b2eb3d749d3039d81477a",
+      "src/drama3/table_projection_batched.py": "4dc67bdc34fdb5dddd3a86a104c37b906513745ea9ded9b94e16dd4d5b0b62be"
+    },
+    "gpu_uuid": "bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+    "environment": {
+      "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+      "DRAMA3_PACKED_MOE_PROJECTION": "1",
+      "DRAMA3_PREFILL_CONV": "triton",
+      "DRAMA3_PREFILL_MOE": "flashinfer",
+      "DRAMA3_PREFILL_MOE_TUNED": "0",
+      "DRAMA3_FUSED_MOE_INPUT": "1",
+      "DRAMA3_MOE_LAYOUT": "major_k",
+      "DRAMA3_PREFILL_GDN": "fla",
+      "DRAMA3_COMPACT_GDN": "0"
+    },
+    "experiment": {
+      "source_sha": "1618ad4b2c7591465a47ca0dad8100e782820cd2",
+      "hypothesis": "Current packed mixed FLA materializes cumulative gates, A, w/u and per-chunk h, with 3.116ms in chunk_o/h/kkt/recompute at D64P1280. Existing native FlashInfer SM100 non-CP GDN consumes the same packed state pool directly; measure whether fused recurrence reduces this current mixed cost. Prior padded synchronous service result is not reused as a current mixed prediction.",
+      "isolated_variable": "Existing model.prefill_gdn fla vs flashinfer. DRAMA3_COMPACT_GDN=0; no layout/conv/normalization/MoE/scheduling changes.",
+      "native_boundaries": "Identical caller L2-normalized Q/K BF16, V BF16, beta FP32, BF16 persistent state, full native top8. FI consumes exp(decay) FP32; FLA uses chunk-local cumulative log-decay FP32. Arithmetic ordering differs; equality is not expected.",
+      "numerical_gate": "All 30 identical-input GDN layer outputs and each owned sequence state RRMS <0.01; finite results; every untouched state slot exact. This predeclared diagnostic threshold reflects prior independent FP32 qualification at ~0.003-0.005 backend discrepancy; it is not an audio-quality threshold. Stop on first gate failure, retain it, do not loosen.",
+      "graph_gate": "FI eager and captured replay outputs/all mutable states exact from same initial real state; graph slot ownership exact. FLA-vs-FI complete-trajectory final hidden and layer states are reported as drift, not substituted for same-input layer checks or WER/SIM.",
+      "timing": "Five alternating event samples after one warmup each, identical initial state restored outside events, three real mixed shapes. A >=2% D64P1280 graph latency decrease motivates proposing one full1088 quality-gated service run; smaller gains do not justify promotion.",
+      "quality_gate": "Only complete service WER <= matching vLLM WER+1pp and SIM >= matching vLLM SIM-2 can establish audio acceptance; no service run authorized by this artifact alone.",
+      "gpu": "GPU2 only after idle check; same frozen source. No profiler cache flush or clock changes.",
+      "references": [
+        "mixed-profile/table.txt",
+        "source-compact-1618ad4/docs/full-corpus-results.md"
+      ]
+    }
+  },
+  "cases": [],
+  "checks": [
+    {
+      "name": "d58-p6/layer0/same_input",
+      "layer": 0,
+      "output": {
+        "finite": true,
+        "rrms": 0.0035182680003345013
+      },
+      "output_sequences": [
+        {
+          "finite": true,
+          "rrms": 0.0029589945916086435
+        },
+        {
+          "finite": true,
+          "rrms": 0.0030331332236528397
+        },
+        {
+          "finite": true,
+          "rrms": 0.0026393805164843798
+        },
+        {
+          "finite": true,
+          "rrms": 0.002292102901265025
+        },
+        {
+          "finite": true,
+          "rrms": 0.00275019952096045
+        },
+        {
+          "finite": true,
+          "rrms": 0.0027461175341159105
+        },
+        {
+          "finite": true,
+          "rrms": 0.03581380471587181
+        }
+      ],
+      "state_sequences": [
+        {
+          "finite": true,
+          "rrms": 0.004042474087327719
+        },
+        {
+          "finite": true,
+          "rrms": 0.004773051477968693
+        },
+        {
+          "finite": true,
+          "rrms": 0.0037762869615107775
+        },
+        {
+          "finite": true,
+          "rrms": 0.003962135408073664
+        },
+        {
+          "finite": true,
+          "rrms": 0.003599421354010701
+        },
+        {
+          "finite": true,
+          "rrms": 0.004094752017408609
+        },
+        {
+          "finite": true,
+          "rrms": 0.0
+        },
+        {
+          "finite": true,
+          "rrms": 0.0
+        },
+        {
+          "finite": true,
+          "rrms": 0.004266971256583929
+        }
+      ],
+      "passed": false
+    }
+  ],
+  "status": "FAIL",
+  "failure": {
+    "type": "AssertionError",
+    "message": "{'name': 'd58-p6/layer0/same_input', 'layer': 0, 'output': {'finite': True, 'rrms': 0.0035182680003345013}, 'output_sequences': [{'finite': True, 'rrms': 0.0029589945916086435}, {'finite': True, 'rrms': 0.0030331332236528397}, {'finite': True, 'rrms': 0.0026393805164843798}, {'finite': True, 'rrms': 0.002292102901265025}, {'finite': True, 'rrms': 0.00275019952096045}, {'finite': True, 'rrms': 0.0027461175341159105}, {'finite': True, 'rrms': 0.03581380471587181}], 'state_sequences': [{'finite': True, 'rrms': 0.004042474087327719}, {'finite': True, 'rrms': 0.004773051477968693}, {'finite': True, 'rrms': 0.0037762869615107775}, {'finite': True, 'rrms': 0.003962135408073664}, {'finite': True, 'rrms': 0.003599421354010701}, {'finite': True, 'rrms': 0.004094752017408609}, {'finite': True, 'rrms': 0.0}, {'finite': True, 'rrms': 0.0}, {'finite': True, 'rrms': 0.004266971256583929}], 'passed': False}"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/diagnose_moe_residual.py"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "6",
+    "OMP_NUM_THREADS": "4",
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-moe-residual-da91321/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/hf_modules",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE": "flashinfer",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_FUSED_MOE_INPUT": "1",
+    "DRAMA3_MOE_LAYOUT": "major_k",
+    "DRAMA3_PREFILL_GDN": "fla",
+    "DRAMA3_COMPACT_GDN": "0",
+    "DRAMA3_FUSED_MIXED_LAYOUT": "0",
+    "DRAMA3_PACKED_CONV_GUARD": "0",
+    "DRAMA3_SHORT_PADDING_CONTEXT": "0",
+    "DRAMA3_MOE_SHARED_OVERLAP": "0",
+    "DRAMA3_FUSED_MOE_RESIDUAL": "0"
+  }
+}

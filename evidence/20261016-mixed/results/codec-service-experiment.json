@@ -1,0 +1,9 @@
+{
+  "hypothesis": "Separate codec capture workspace prevents reproduced cross-stream output corruption, enabling native audio overlap.",
+  "source_sha": "7618212e15e7506bb20d57372d6700fe837988a5",
+  "isolated_variable": "DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM=0/1; both asynchronous codec + deliverythread + mixed span256.",
+  "controls": "GPU0 source frozen, same1088corpus C64 fulloutputs, all8experts nativeFP8 scales/BF16dense/GDN/codec, OMP8, cache unchanged.",
+  "preceding_evidence": "Default dynamic fixed schedule diverges at trace207; private capture has disjoint actualATen32MiBworkspaces,414traceentries exact sync/poll/thread,80requests. Serial traces crosscapture configurations equal.",
+  "gate": "All1088WER/SIM perarm, frozen C64 limits; onlysinglefeasibility notformal3repallC.",
+  "stop": "Preserve failedsharedcontrol; rejectprivate ifquality fails. Nooutlierfiltering. Do not callallconcurrency targetcomplete."
+}

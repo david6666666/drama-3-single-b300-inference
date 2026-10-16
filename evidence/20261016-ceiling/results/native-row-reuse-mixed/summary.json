@@ -1,0 +1,42 @@
+{
+  "status": "EXACT_PASS_CONTINUATION_FAIL",
+  "checks": 957,
+  "all_checks_byte_exact": true,
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "candidate_fixed_buffer_bytes": 704027456,
+  "peak_allocated_bytes": 159398111744,
+  "timings": [
+    {
+      "case": "proxy190",
+      "control_median_ms": 29.130736351013184,
+      "candidate_median_ms": 27.997727394104004,
+      "saved_ms": 1.1330089569091797,
+      "reduction_percent": 3.889393468317781,
+      "continuation_pass": false
+    },
+    {
+      "case": "proxy190_reversed_reused_graph",
+      "control_median_ms": 29.136927604675293,
+      "candidate_median_ms": 27.994192123413086,
+      "saved_ms": 1.142735481262207,
+      "reduction_percent": 3.9219491387926686,
+      "continuation_pass": false
+    },
+    {
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "control_median_ms": 29.300735473632812,
+      "candidate_median_ms": 28.023807525634766,
+      "saved_ms": 1.2769279479980469,
+      "reduction_percent": 4.358006471022313,
+      "continuation_pass": false
+    }
+  ],
+  "threshold": "Every case median latency reduction >=5%",
+  "runtime_integration": false,
+  "repeated_trials": false,
+  "service_runs": false,
+  "result_sha256": "9c47d787b8a7636a6a755c7b18a2ec5950dcf2b75e5213109244ee44624a331c",
+  "gpu_after": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf, 4, 0",
+  "source_status": "",
+  "process_running": false
+}

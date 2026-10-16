@@ -1,0 +1,395 @@
+{
+  "source_sha": "da9132185ed2c503a1e392754e26ff8916d163fa",
+  "original_failure_sha256": "1f3158aa83dd89d146158225f0957fd9dc1466a28d788592f547a4f85c8f11ca",
+  "scope": "Causal stage diagnostic. Routed/shared/gate generator matches first failed trial; original global residual RNG was not saved, so new residual has explicit seed. Original FAIL is unchanged.",
+  "cases": [
+    {
+      "rows": 1,
+      "comparisons": {
+        "output": {
+          "equal": false,
+          "different": 20,
+          "max_abs": 0.0078125,
+          "rrms": 0.0002854920458048582,
+          "examples": [
+            {
+              "index": [
+                0,
+                75
+              ],
+              "actual": -0.349609375,
+              "expected": -0.3515625
+            },
+            {
+              "index": [
+                0,
+                197
+              ],
+              "actual": -0.0030670166015625,
+              "expected": -0.0030364990234375
+            },
+            {
+              "index": [
+                0,
+                549
+              ],
+              "actual": -0.00188446044921875,
+              "expected": -0.0018310546875
+            },
+            {
+              "index": [
+                0,
+                641
+              ],
+              "actual": -0.1220703125,
+              "expected": -0.12158203125
+            },
+            {
+              "index": [
+                0,
+                668
+              ],
+              "actual": -1.4765625,
+              "expected": -1.46875
+            },
+            {
+              "index": [
+                0,
+                731
+              ],
+              "actual": -0.25,
+              "expected": -0.2490234375
+            }
+          ]
+        },
+        "residual": {
+          "equal": false,
+          "different": 20,
+          "max_abs": 0.0078125,
+          "rrms": 0.0002337089244974777,
+          "examples": [
+            {
+              "index": [
+                0,
+                75
+              ],
+              "actual": -0.48046875,
+              "expected": -0.482421875
+            },
+            {
+              "index": [
+                0,
+                197
+              ],
+              "actual": -0.008544921875,
+              "expected": -0.00848388671875
+            },
+            {
+              "index": [
+                0,
+                549
+              ],
+              "actual": -0.001953125,
+              "expected": -0.00189208984375
+            },
+            {
+              "index": [
+                0,
+                641
+              ],
+              "actual": -0.197265625,
+              "expected": -0.1962890625
+            },
+            {
+              "index": [
+                0,
+                731
+              ],
+              "actual": -0.35546875,
+              "expected": -0.353515625
+            },
+            {
+              "index": [
+                0,
+                799
+              ],
+              "actual": 0.03857421875,
+              "expected": 0.038818359375
+            }
+          ]
+        },
+        "debug_vs_original_fusion": {
+          "equal": true,
+          "different": 0,
+          "max_abs": 0.0,
+          "rrms": 0.0,
+          "examples": []
+        },
+        "debug_combined_vs_baseline": {
+          "equal": false,
+          "different": 542,
+          "max_abs": 0.000244140625,
+          "rrms": 0.0020851027220487595,
+          "examples": [
+            {
+              "index": [
+                0,
+                0
+              ],
+              "actual": -0.0015869140625,
+              "expected": -0.00157928466796875
+            },
+            {
+              "index": [
+                0,
+                1
+              ],
+              "actual": -0.003875732421875,
+              "expected": -0.0038909912109375
+            },
+            {
+              "index": [
+                0,
+                3
+              ],
+              "actual": -0.000244140625,
+              "expected": -0.00024318695068359375
+            },
+            {
+              "index": [
+                0,
+                6
+              ],
+              "actual": -0.002349853515625,
+              "expected": -0.0023651123046875
+            },
+            {
+              "index": [
+                0,
+                7
+              ],
+              "actual": 0.00201416015625,
+              "expected": 0.0020751953125
+            },
+            {
+              "index": [
+                0,
+                13
+              ],
+              "actual": 0.0010223388671875,
+              "expected": 0.00102996826171875
+            }
+          ]
+        },
+        "debug_residual_vs_original": {
+          "equal": true,
+          "different": 0,
+          "max_abs": 0.0,
+          "rrms": 0.0,
+          "examples": []
+        },
+        "norm_only_vs_fused": {
+          "equal": true,
+          "different": 0,
+          "max_abs": 0.0,
+          "rrms": 0.0,
+          "examples": []
+        }
+      }
+    },
+    {
+      "rows": 64,
+      "comparisons": {
+        "output": {
+          "equal": false,
+          "different": 964,
+          "max_abs": 0.015625,
+          "rrms": 0.0002837912761606276,
+          "examples": [
+            {
+              "index": [
+                0,
+                75
+              ],
+              "actual": -0.349609375,
+              "expected": -0.3515625
+            },
+            {
+              "index": [
+                0,
+                197
+              ],
+              "actual": -0.0030670166015625,
+              "expected": -0.0030364990234375
+            },
+            {
+              "index": [
+                0,
+                549
+              ],
+              "actual": -0.00188446044921875,
+              "expected": -0.0018310546875
+            },
+            {
+              "index": [
+                0,
+                641
+              ],
+              "actual": -0.1220703125,
+              "expected": -0.12158203125
+            },
+            {
+              "index": [
+                0,
+                668
+              ],
+              "actual": -1.4765625,
+              "expected": -1.46875
+            },
+            {
+              "index": [
+                0,
+                731
+              ],
+              "actual": -0.25,
+              "expected": -0.2490234375
+            }
+          ]
+        },
+        "residual": {
+          "equal": false,
+          "different": 931,
+          "max_abs": 0.015625,
+          "rrms": 0.00020483361731749028,
+          "examples": [
+            {
+              "index": [
+                0,
+                75
+              ],
+              "actual": -0.48046875,
+              "expected": -0.482421875
+            },
+            {
+              "index": [
+                0,
+                197
+              ],
+              "actual": -0.008544921875,
+              "expected": -0.00848388671875
+            },
+            {
+              "index": [
+                0,
+                549
+              ],
+              "actual": -0.001953125,
+              "expected": -0.00189208984375
+            },
+            {
+              "index": [
+                0,
+                641
+              ],
+              "actual": -0.197265625,
+              "expected": -0.1962890625
+            },
+            {
+              "index": [
+                0,
+                731
+              ],
+              "actual": -0.35546875,
+              "expected": -0.353515625
+            },
+            {
+              "index": [
+                0,
+                799
+              ],
+              "actual": 0.03857421875,
+              "expected": 0.038818359375
+            }
+          ]
+        },
+        "debug_vs_original_fusion": {
+          "equal": true,
+          "different": 0,
+          "max_abs": 0.0,
+          "rrms": 0.0,
+          "examples": []
+        },
+        "debug_combined_vs_baseline": {
+          "equal": false,
+          "different": 28934,
+          "max_abs": 0.000244140625,
+          "rrms": 0.0020261306781321764,
+          "examples": [
+            {
+              "index": [
+                0,
+                0
+              ],
+              "actual": -0.0015869140625,
+              "expected": -0.00157928466796875
+            },
+            {
+              "index": [
+                0,
+                1
+              ],
+              "actual": -0.003875732421875,
+              "expected": -0.0038909912109375
+            },
+            {
+              "index": [
+                0,
+                3
+              ],
+              "actual": -0.000244140625,
+              "expected": -0.00024318695068359375
+            },
+            {
+              "index": [
+                0,
+                6
+              ],
+              "actual": -0.002349853515625,
+              "expected": -0.0023651123046875
+            },
+            {
+              "index": [
+                0,
+                7
+              ],
+              "actual": 0.00201416015625,
+              "expected": 0.0020751953125
+            },
+            {
+              "index": [
+                0,
+                13
+              ],
+              "actual": 0.0010223388671875,
+              "expected": 0.00102996826171875
+            }
+          ]
+        },
+        "debug_residual_vs_original": {
+          "equal": true,
+          "different": 0,
+          "max_abs": 0.0,
+          "rrms": 0.0,
+          "examples": []
+        },
+        "norm_only_vs_fused": {
+          "equal": true,
+          "different": 0,
+          "max_abs": 0.0,
+          "rrms": 0.0,
+          "examples": []
+        }
+      }
+    }
+  ]
+}

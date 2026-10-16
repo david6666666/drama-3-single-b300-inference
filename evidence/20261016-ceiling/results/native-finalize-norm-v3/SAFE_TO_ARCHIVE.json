@@ -1,0 +1,11 @@
+{
+  "status": "CLOSED_FEASIBILITY_FAIL",
+  "frozen_files": 25,
+  "checks": 1355,
+  "GPU_released": true,
+  "preserve_predecessors": [
+    "native-finalize-norm",
+    "native-finalize-norm-v2"
+  ],
+  "service_promotion": false
+}

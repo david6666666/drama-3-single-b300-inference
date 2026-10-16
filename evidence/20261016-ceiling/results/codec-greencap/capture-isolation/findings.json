@@ -1,0 +1,99 @@
+{
+  "status": "PASS_NATIVE_CAPTURE_RESOURCE_AND_FIXED_STATE_GATES",
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "gpu": "GPU2 / bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "stack": {
+    "torch": "2.13.0+cu130",
+    "torch_git": "cf30153c4c131c8164ee7798e5022d810682e2cb",
+    "cudnn": 92000
+  },
+  "failure_shape": {
+    "input": [
+      4,
+      96,
+      1,
+      16390
+    ],
+    "input_stride": [
+      1573440,
+      1,
+      1573440,
+      96
+    ],
+    "weight": [
+      96,
+      96,
+      1,
+      7
+    ],
+    "weight_stride": [
+      672,
+      1,
+      672,
+      96
+    ],
+    "groups": 1,
+    "bias": null,
+    "dtype": "bfloat16"
+  },
+  "evidence": [
+    {
+      "file": "stream-result.json",
+      "result": "Native full codec fails in cuDNN with primary current context and green capture stream."
+    },
+    {
+      "file": "exact-stream.json",
+      "result": "Exact extracted convolution fails even eager on green stream with primary current context."
+    },
+    {
+      "file": "exact-context.json",
+      "result": "Exact convolution eager and capture both bitexact when current green context is set; no layout/precision/algorithm change."
+    },
+    {
+      "file": "context-stream-result.json",
+      "result": "Full codec current-green + green-stream warmup still fails; first conv already sees primary context."
+    },
+    {
+      "file": "context-set-device.json",
+      "result": "Explicit torch.cuda.set_device(0) resets green to primary; allocation/copy/stream/sync controls preserve it."
+    },
+    {
+      "file": "guarded-context-result.json",
+      "result": "Existing compiled transformer switches green to primary 12/12 calls. Restore original CUcontext around compiled boundary only; all four B8/B4/B2/B1 F8 graph captures and 192 conv calls succeed."
+    },
+    {
+      "file": "green32-resource-summary.json",
+      "result": "All 284 native B4/F8 captured kernel nodes have launch__uses_green_context=1 and launch__sm_count=32."
+    },
+    {
+      "file": "green48-resource-summary.json",
+      "result": "All 284 native B4/F8 graph nodes attributed to the 48-SM green context."
+    },
+    {
+      "file": "../guarded-summary.json",
+      "result": "All 90 fixed-state trials exactly match model state, codec state and PCM. 48-SM pair mean gains B1/B4/B8 are 0.49/1.13/2.52%, with substantially slower codec completion."
+    }
+  ],
+  "generated_source_evidence": {
+    "file": "/tmp/torchinductor_zjy/jr/cjrspisfdzdloa57s4qnj5unt7f7y63jdrbxsooerjdawtmcfrfk.py",
+    "line": 912,
+    "code": "torch.cuda.set_device(0)",
+    "warning": "Existing compiled cache inspected only; not modified."
+  },
+  "diagnostic_errors_preserved": [
+    {
+      "file": "instrumentation-failure-stream-result.json",
+      "reason": "Initial observer used tensor repr in capture, introducing a forbidden read; replaced with metadata-only observer."
+    },
+    {
+      "file": "dispatch-context-result.json",
+      "reason": "TorchDispatchMode is incompatible with the existing fullgraph torch.compile boundary; no arithmetic fallback or eager replacement used."
+    }
+  ],
+  "limits": [
+    "No source/runtime changes, MPS daemons, clocks, new precision or altered model computation.",
+    "Resource proof is launch SM allocation, not per-SM utilization.",
+    "Only bounded fixed-state paired timings; no full-service throughput or quality success claim.",
+    "Green codec shares HBM/L2 and SM resources with full-device model; not disjoint partitioning."
+  ]
+}

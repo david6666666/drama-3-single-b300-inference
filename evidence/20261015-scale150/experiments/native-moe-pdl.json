@@ -1,0 +1,8 @@
+{
+  "source_sha": "8dc52ae4992a564d940f137df926ee29e66beb71",
+  "hypothesis": "Programmatic dependent launch may impose overhead for the small native MoE dimensions inside a captured graph; disable it without altering computation.",
+  "isolated_variable": "FlashInfer enable_pdl=False vs existing auto; all full top8 routing and operator precision unchanged; other new optimizations disabled.",
+  "controls": "GPU6 sameB300,OMP4,64realprompts,identical full initial model/request/RNG state,10autoregressive steps, no cache flush.",
+  "success": "Allcodesandstatesbitexact; compare graph events only after parity, no service claim.",
+  "stop": "Any code/state mismatch, nonfinite, runtime error or device interference."
+}

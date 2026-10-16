@@ -1,0 +1,266 @@
+{
+  "status": "CPU_AOT_PASS",
+  "gpu_allowed": false,
+  "checks": [
+    {
+      "name": "cuda_hidden",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "source_frozen",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "bounded_config_accepted",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "generic_validator_still_rejects_unsafe_raw_config",
+      "pass": true,
+      "detail": "PDL early exit requires do_pdl_wait_for_num_non_exiting_ctas=1 before reading the routing-produced active CTA count"
+    },
+    {
+      "name": "untyped_config_rejected",
+      "pass": true,
+      "detail": "restricted FC2 requires MetadataReadyFc2Config"
+    },
+    {
+      "name": "reject_metadata_ready_by_full_dependency",
+      "pass": true,
+      "detail": "explicit full metadata dependency contract is required"
+    },
+    {
+      "name": "reject_use_early_exit",
+      "pass": true,
+      "detail": "restricted FC2 use_early_exit must be 1"
+    },
+    {
+      "name": "reject_use_pdl",
+      "pass": true,
+      "detail": "restricted FC2 use_pdl must be 1"
+    },
+    {
+      "name": "reject_do_pdl_wait_for_num_non_exiting_ctas",
+      "pass": true,
+      "detail": "restricted FC2 do_pdl_wait_for_num_non_exiting_ctas must be 0"
+    },
+    {
+      "name": "reject_route_act",
+      "pass": true,
+      "detail": "restricted FC2 route_act must be 0"
+    },
+    {
+      "name": "reject_tile_scheduler",
+      "pass": true,
+      "detail": "restricted FC2 tile_scheduler must be 1"
+    },
+    {
+      "name": "reject_num_stages_a",
+      "pass": true,
+      "detail": "restricted FC2 num_stages_a must be 4"
+    },
+    {
+      "name": "reject_dtype_c",
+      "pass": true,
+      "detail": "restricted FC2 dtype_c must be 3"
+    },
+    {
+      "name": "reject_mma_m",
+      "pass": true,
+      "detail": "restricted FC2 mma_m must be 128"
+    },
+    {
+      "name": "reject_tile_n",
+      "pass": true,
+      "detail": "restricted FC2 tile_n must be 8"
+    },
+    {
+      "name": "wrong_shape_rejected",
+      "pass": true,
+      "detail": "unsupported FC2 shape: (2048, 2304, 512, 256, 32)"
+    },
+    {
+      "name": "wrong_extent_rejected",
+      "pass": true,
+      "detail": "restricted FC2 must preserve fixed 288-token-CTA extent"
+    },
+    {
+      "name": "one_cubin",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native_validator_source_unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "native_validator_function_unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "cuda_uninitialized",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "io_shape": [
+    2048,
+    2304,
+    512,
+    256,
+    64
+  ],
+  "early_exit_extent": 288,
+  "kernel": {
+    "cubin": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.cubin",
+    "sha256": "ea52321ec64fc9976a306b7c7aeeb0805033c2e024034e5cc6ce266e7d95b170",
+    "host": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/cpu-compile/fc2-host.mlir"
+  },
+  "resources": {
+    "status": "CPU_RESOURCE_PASS",
+    "cubin_sha256": "ea52321ec64fc9976a306b7c7aeeb0805033c2e024034e5cc6ce266e7d95b170",
+    "ptx_sha256": "7bd5b717c7728474163599827f7f01ee7a70e317a30e284e631b441eb46f926d",
+    "host_ir_sha256": "1ab3d79918d6b7a35d63fbb14ea8794ba42f5406b907cb69ff2f191df1999d76",
+    "dynamic_shared_bytes": 72616,
+    "static_shared_bytes": 2048,
+    "total_shared_bytes_per_cta": 74664,
+    "limit_bytes_per_cta": 81920,
+    "dynamic_shared_evidence": [
+      {
+        "constant": "%18",
+        "config_pointer": "%209",
+        "dynamic_shared_bytes": 72616
+      }
+    ],
+    "stack_bytes": 0,
+    "local_bytes": 0,
+    "ptx_local_ops": 0,
+    "sass_spill_ops": 0,
+    "base_registers": 32,
+    "setmaxnreg_limits": [
+      "160",
+      "48"
+    ],
+    "cluster_size": 1,
+    "cluster_evidence": null,
+    "limitations": [
+      "Resource fit does not prove occupancy or concurrent residency.",
+      "Dynamic SETMAXNREG limits require complete warp-role resource accounting.",
+      "Independent FC1/FC2 resource counts cannot be added to infer composite buffer lifetime."
+    ],
+    "gpu_used": false,
+    "timing_allowed": false
+  },
+  "config": {
+    "cluster_m": 1,
+    "epi_tile_m": 128,
+    "epi_tile_n": 8,
+    "mma_k": 32,
+    "mma_m": 128,
+    "mma_n": 8,
+    "tile_k": 128,
+    "tile_m": 128,
+    "tile_n": 8,
+    "dtype_a": 7,
+    "dtype_acc": 1,
+    "dtype_b": 7,
+    "dtype_c": 3,
+    "weight_layout": 0,
+    "sf_bits": 8,
+    "sf_block_size_a": 0,
+    "sf_block_size_b": 0,
+    "sf_block_size_c": 0,
+    "num_stages_a": 4,
+    "num_stages_b": 4,
+    "num_stages_c_smem": 1,
+    "num_stages_smem_sfa": 4,
+    "num_stages_smem_sfb": 4,
+    "num_stages_tmem_acc": 4,
+    "num_stages_tmem_sfa": 4,
+    "num_stages_tmem_sfb": 4,
+    "num_stages_workid": 3,
+    "cast_a_warp_idx_first": 0,
+    "copy_sfa_warp_idx": 7,
+    "copy_sfb_warp_idx": 7,
+    "epilogue_warp_idx": 0,
+    "load_a_warp_idx": 5,
+    "load_b_warp_idx": 6,
+    "load_sfa_warp_idx": 7,
+    "load_sfb_warp_idx": 7,
+    "mma_warp_idx": 4,
+    "num_cast_a_warps": 0,
+    "num_copy_sfa_warps": 0,
+    "num_copy_sfb_warps": 0,
+    "num_epilogue_warps": 4,
+    "num_load_a_warps": 1,
+    "num_load_b_warps": 1,
+    "num_load_sfa_warps": 0,
+    "num_load_sfb_warps": 0,
+    "num_mma_warps": 1,
+    "num_padding_warps": 3,
+    "num_workid_warps": 1,
+    "padding_warp_idx": 9,
+    "workid_warp_idx": 7,
+    "cast_a_regs": 160,
+    "copy_sf_regs": 48,
+    "epilogue_regs": 160,
+    "load_a_regs": 48,
+    "load_b_regs": 48,
+    "load_regs": 48,
+    "load_sf_regs": 48,
+    "load_sfa_regs": 48,
+    "load_sfb_regs": 48,
+    "mma_regs": 48,
+    "padding_regs": 48,
+    "workid_regs": 48,
+    "threads_per_cta": 384,
+    "act_kind": 0,
+    "batch_mode": 0,
+    "do_pdl_wait_for_num_non_exiting_ctas": 0,
+    "per_token_sf_dtype": 1,
+    "route_act": 0,
+    "route_sfs_act": 0,
+    "sf_layout_a": 3,
+    "sf_layout_b": 3,
+    "sf_layout_c": 1,
+    "tile_scheduler": 1,
+    "transpose_mma_output": 1,
+    "use_clc_fast_drain": 0,
+    "use_early_exit": 1,
+    "use_full_tmem_dealloc_barrier": 0,
+    "use_global_scales": 1,
+    "fuse_sf_copy_to_mma": 0,
+    "fuse_operand_sf_loads": 0,
+    "use_max_tmem_overlap": 0,
+    "use_pdl": 1,
+    "use_per_token_sf_a": 0,
+    "use_per_token_sf_b": 0,
+    "has_gemm1_alpha": 0,
+    "has_gemm1_beta": 0,
+    "has_gemm1_clamp_limit": 0,
+    "use_deepseek_fp8": 1,
+    "load_sfab_warp_idx": 8,
+    "num_load_sfab_warps": 1,
+    "load_sfab_regs": 48,
+    "use_tma_oob_opt": 1,
+    "use_tma_store": 1,
+    "use_two_tma_load_warps": 1,
+    "use_unroll_loop_2x_for_mma": 0,
+    "use_work_throttle": 1,
+    "gather_regs": 48,
+    "gather_warp_idx": 7,
+    "num_gather_warps": 0,
+    "num_sync_warps": 0,
+    "sync_regs": 48,
+    "sync_warp_idx": 7,
+    "ldgsts_sfb_producer_commit_prefetch_depth": 0,
+    "bias_type": 0,
+    "metadata_ready_by_full_dependency": 1
+  }
+}

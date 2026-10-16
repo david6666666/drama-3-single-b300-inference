@@ -2,8 +2,11 @@
 
 First performance repetition at each concurrency. WER is corpus WER in percent;
 SIM is the upstream WavLM speaker-similarity score. Every row includes the full
-corpus; high-WER outliers are retained. These are measurements, not user-approved
-quality thresholds.
+corpus; high-WER outliers are retained. This historical table covers the first
+repetition. The user has since confirmed WER increase ≤1 percentage point and
+SIM decrease ≤2 relative to the same-concurrency vLLM baseline. The current
+campaign requires all three repetitions and retains every outlier; see
+[the complete baseline quality](scale150-progress.md).
 
 These are the saved outputs from the same frozen `d6ed4f4` vLLM and `dcd20d3`
 standalone runs in [the performance comparison](full-comparison.md).

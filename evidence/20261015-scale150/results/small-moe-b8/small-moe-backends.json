@@ -1,0 +1,43 @@
+[
+  {
+    "layer": 0,
+    "backend": "gemv",
+    "rrms": 0.0,
+    "passed": true,
+    "us": 71.03568258739652
+  },
+  {
+    "layer": 0,
+    "backend": "flashinfer",
+    "rrms": 0.029253333806991577,
+    "passed": true,
+    "us": 65.4949467356612
+  },
+  {
+    "layer": 19,
+    "backend": "gemv",
+    "rrms": 0.0,
+    "passed": true,
+    "us": 70.93336618863619
+  },
+  {
+    "layer": 19,
+    "backend": "flashinfer",
+    "rrms": 0.03475722298026085,
+    "passed": false
+  },
+  {
+    "layer": 39,
+    "backend": "gemv",
+    "rrms": 0.0,
+    "passed": true,
+    "us": 68.68662902287075
+  },
+  {
+    "layer": 39,
+    "backend": "flashinfer",
+    "rrms": 0.0069783334620296955,
+    "passed": true,
+    "us": 53.50123589689081
+  }
+]

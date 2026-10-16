@@ -1,0 +1,67 @@
+{
+  "identity": [
+    1366215536,
+    1
+  ],
+  "nodes": [
+    {
+      "identity": 1366218592,
+      "kind": "memcpy",
+      "kernel": "",
+      "function": 0,
+      "grid": [],
+      "block": [],
+      "shared_bytes": 0
+    },
+    {
+      "identity": 1366220648,
+      "kind": "kernel",
+      "kernel": "_ZN3moe3dev8finalize14finalizeKernelINS1_12KernelParamsIN7cutlass10bfloat16_tES5_Li4ELb1EEEEEvT_",
+      "function": 1283039840,
+      "grid": [
+        8,
+        64,
+        1
+      ],
+      "block": [
+        256,
+        1,
+        1
+      ],
+      "shared_bytes": 0
+    },
+    {
+      "identity": 1366222704,
+      "kind": "kernel",
+      "kernel": "combine_experts_add_norm_kernel",
+      "function": 1287945008,
+      "grid": [
+        64,
+        1,
+        1
+      ],
+      "block": [
+        128,
+        1,
+        1
+      ],
+      "shared_bytes": 16
+    }
+  ],
+  "edges": [
+    {
+      "source": 1366218592,
+      "target": 1366220648,
+      "kind": 0,
+      "source_port": 0,
+      "target_port": 0
+    },
+    {
+      "source": 1366220648,
+      "target": 1366222704,
+      "kind": 0,
+      "source_port": 0,
+      "target_port": 0
+    }
+  ]
+}

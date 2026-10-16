@@ -1,0 +1,50 @@
+{
+  "source": "/home/zjy/code/hsliu/artifacts/drama3-mixed-20261016/vllm-continuous-profile/traces/20261015-164759_stage1_rank0_1792082879/trace_rank0.json.gz",
+  "sha256": "af3befd5430ae13b84caa93be798060acad4e03cefcacc820133308605e09473",
+  "context_steps": 4871,
+  "empty_context_steps": 4463,
+  "nonempty_context_steps": 408,
+  "scheduled_jobs": 1557,
+  "scheduled_jobs_per_nonempty_context": 3.8161764705882355,
+  "actual_cuda_graph_launches": 569,
+  "scheduled_jobs_per_graph_launch": 2.736379613356766,
+  "jobs_histogram": {
+    "1": 151,
+    "2": 47,
+    "3": 35,
+    "4": 35,
+    "5": 32,
+    "6": 33,
+    "7": 27,
+    "8": 12,
+    "9": 7,
+    "10": 8,
+    "11": 9,
+    "12": 2,
+    "13": 3,
+    "14": 1,
+    "15": 1,
+    "16": 2,
+    "17": 2,
+    "24": 1
+  },
+  "graph_calls_per_nonempty_context": {
+    "1": 281,
+    "2": 97,
+    "3": 26,
+    "4": 4
+  },
+  "correlated_graph_gpu_spans": {
+    "n": 569,
+    "mean_ms": 2.4155872727647187,
+    "sum_ms": 1374.469158203125
+  },
+  "diagnostic_trace_cpu_span_s": 7.21790825390625,
+  "caveats": [
+    "Archived256request C64 profile, not matched1088 work or noninstrumentedperformance.",
+    "Context annotation counts scheduled codec jobs; actual graph input batches/frame buckets are not exposed by the trace and are NOT inferred.",
+    "GraphGPUspan from all kernels sharing runtime launch correlation; includes intervening waits/contention and is not the sum of kernel durations.",
+    "Do not count empty polling contexts or graph/kernel events as extra scheduler steps.",
+    "Simple average scheduled jobs/graphlaunch assumes normal valid nonempty streamed jobs; do not interpret it as capacity, padding, or same-workcomparison."
+  ]
+}

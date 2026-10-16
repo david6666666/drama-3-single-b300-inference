@@ -1,0 +1,25 @@
+{
+  "status": "SAFE_TO_ARCHIVE_FEASIBILITY_FAIL",
+  "exact_checks": 1516,
+  "all_exact": true,
+  "screening_checks": 146,
+  "real_performance_repetitions": 1,
+  "stress_performance": "NOT_RUN",
+  "stress_gate": null,
+  "three_round_timing_executed": false,
+  "runtime_promoted": false,
+  "gpu_released": true,
+  "frozen_files_still_match": 130,
+  "goal_status": "INCONCLUSIVE_UNMET",
+  "files": {
+    "summary.md": "dd4430e20a8e58421ed9eeb44bb35584ec0cfbc444b86ae297f5532ccebe4a7d",
+    "protocol.json": "bb381d304e70cdb79a8c7388716675da92c4d563e5e24e4e4e1b50961e0ddde8",
+    "frozen-inputs.json": "2618d28307eae0bd9f5df8d2ba9477d9346bb6bc005063be28a14422f75b1071",
+    "cpu-integration-audit.json": "51f3b705810da61ba954ac03f8c64130f70a84753888e7dce2ab1ba9c32c5a7d",
+    "cpu-graph-guard.json": "43045a0816202e0b276353097212cfe337c99df5873c27d239213d3daf13ea67",
+    "cpu-wait-placement.json": "c89bd0c5c24ae76fbc57ffc14adc34663f096e4d4e037df38426e49797575e28",
+    "gate-result.json": "043f10a11c80e61a48d6de3d7be4220ac497af29ea712a9bfc1799750b032edb",
+    "feasibility-result.json": "c75c2fc41b34568464ff671121bab6b9e66ddd5f7df7e52676dec683c3d725e7",
+    "launch-result.json": "f9c34aee7aaebb9f0e8f1d89bf5b14d06fd8a49d7f1727fc7ed56730177d2d14"
+  }
+}

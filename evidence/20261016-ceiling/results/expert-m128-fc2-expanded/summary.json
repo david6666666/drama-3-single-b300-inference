@@ -1,0 +1,24 @@
+{
+  "status": "EXPANDED_NATIVE_FC2_EXACT_PASS",
+  "checks": 306,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "native_model_arithmetic_preserved": true,
+  "mma": [
+    128,
+    8,
+    32
+  ],
+  "native_mma": [
+    64,
+    8,
+    32
+  ],
+  "scale_block_k": 128,
+  "total_shared_bytes": 74664,
+  "actual_threads_from_ptx": 384,
+  "dynamic_register_budget_note": "CORRECTION: 32768 is a sum of source hints only. The actual CUBIN has REG31 and no SASS register-reconfiguration instruction. It does not establish two-CTA occupancy or a transition from M64; see register-lowering-audit/result.json.",
+  "timing_allowed": false,
+  "service_target_achieved": false,
+  "scope": "All256expert weights at layers0/19/39,15originalmetadata scenarios,31,457,280BF16 comparisons across eager+graph plus padding/input/weights/RNG, samegraph dynamic metadata",
+  "resource_interpretation_corrected": true
+}

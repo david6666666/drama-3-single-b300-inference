@@ -1,0 +1,75 @@
+{
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "scope": "complete isolated MixedGraph, not service",
+  "synthetic_exact_checks": 57,
+  "real_exact_checks": 522,
+  "timed_trajectory_exact_checks": 1026,
+  "all_exact": true,
+  "real_layer_cases": 90,
+  "real_graph_cases": 3,
+  "repetitions": 3,
+  "replays_per_measurement": 20,
+  "registers_per_thread": 206,
+  "dynamic_shared_bytes": 132884,
+  "static_shared_bytes": 1024,
+  "tmem_columns": 512,
+  "spill_bytes": 0,
+  "runtime_promoted": false,
+  "all_concurrency_target_met": false,
+  "cases": [
+    {
+      "case": "d58p6",
+      "native_median_ms": 26.355218505859376,
+      "fused_median_ms": 26.420693969726564,
+      "time_increase_fraction": 0.0024843453243474922,
+      "native_ms": [
+        26.356683349609376,
+        26.355218505859376,
+        26.35498962402344
+      ],
+      "fused_ms": [
+        26.419906616210938,
+        26.422882080078125,
+        26.420693969726564
+      ]
+    },
+    {
+      "case": "d40p3",
+      "native_median_ms": 18.25745849609375,
+      "fused_median_ms": 18.25554504394531,
+      "time_increase_fraction": -0.00010480386132871722,
+      "native_ms": [
+        18.258229064941407,
+        18.257276916503905,
+        18.25745849609375
+      ],
+      "fused_ms": [
+        18.257078552246092,
+        18.25554504394531,
+        18.253448486328125
+      ]
+    },
+    {
+      "case": "d12p1",
+      "native_median_ms": 15.431130981445312,
+      "fused_median_ms": 15.42998809814453,
+      "time_increase_fraction": -7.406348258953699e-05,
+      "native_ms": [
+        15.427108764648438,
+        15.431130981445312,
+        15.435206604003906
+      ],
+      "fused_ms": [
+        15.42998809814453,
+        15.433937072753906,
+        15.41900177001953
+      ]
+    }
+  ],
+  "hashes": {
+    "result.json": "bba470e443a7a85b401746f11e085eb0deb6370e018b1d5c5cf55497f56821c3",
+    "real-result.json": "ad4d1ee21e07e0cf798f7a2e71985917df435c2fcdf7b0d7c69ccb9b9f08f490",
+    "timing-result.json": "0ee36e14f6ea7016133c8fde770b025fe2169b718a102212d09ae30b901ae911"
+  },
+  "local_performance_pass": false
+}

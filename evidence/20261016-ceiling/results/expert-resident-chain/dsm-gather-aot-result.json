@@ -1,0 +1,58 @@
+{
+  "status": "CPU_AOT_PASS",
+  "gpu_launched": false,
+  "source_sha256": "e93d8ade40fa468c633e4ed124ed1357ba49f715d9a01717fbae24b5f6a97d42",
+  "scope": "Actual DSM helper at full outer78080-byte allocation/alignment; no GEMM stage or GPU execution.",
+  "ranges": {
+    "stage": [
+      0,
+      72704
+    ],
+    "fc1": [
+      72704,
+      74752
+    ],
+    "fc1_sf": [
+      74752,
+      74816
+    ],
+    "full": [
+      72704,
+      76800
+    ],
+    "full_sf": [
+      76800,
+      76928
+    ],
+    "local": [
+      76928,
+      77952
+    ],
+    "local_sf": [
+      77952,
+      77984
+    ],
+    "tmem_ptr": [
+      78016,
+      78020
+    ],
+    "outer": [
+      0,
+      78080
+    ]
+  },
+  "cpu_geometry_cases": 9,
+  "cuda_initialized": false,
+  "resource_output": "\nFatbin elf code:\n================\narch = sm_103a\ncode version = [1,8]\nhost = linux\ncompile_size = 64bit\nidentifier = kernels\n\nResource usage:\n Common:\n  GLOBAL:0\n Function kernel_cutlass_kernel___main__Probe_object_at__tensorptri8gmemalign16o4102410241_tensorptrf32gmemalign16o4881_tensorptri32gmemo11_tensorptri8gmemalign16o4409640961_tensorptrf32gmemalign16_0:\n  REG:24 STACK:0 SHARED:1024 LOCAL:0 CONSTANT[0]:936 TEXTURE:0 SURFACE:0 SAMPLER:0\n",
+  "budget_bytes": 81920,
+  "artifacts": {
+    "dsm-gather-aot/kernel.fatbin": "e824038cb77a594df50a406a1aa4a0494cb2ade2ba4f312c41dca69cf00535e0",
+    "dsm-gather-aot/host.mlir": "110acd77d9df51ac604806a2138006f000a3e7799d519bd6f1c0b55d00225c31",
+    "dsm-gather-aot/resources.txt": "5f2a4099378634f345af49345314427e970aa35c6de03bdeee45251f0c0f43e7",
+    "dsm-gather-aot/kernel.sass": "97b926420de8faf780295cede9f7fff495e11d40f9f700344bfcaf59ad77147b",
+    "dsm-gather-aot/kernel.ptx": "f4965f8544757e4157f8b498b9493475364ff02379ea86cd71c0c0a231306e89"
+  },
+  "static_smem_bytes": 1024,
+  "dynamic_outer_smem_bytes": 78080,
+  "total_smem_bytes": 79104
+}

@@ -446,6 +446,117 @@ def combine_experts(routed, shared, gate):
 
 
 @triton.jit
+def combine_experts_add_norm_kernel(
+    ROUTED,
+    SHARED,
+    GATE,
+    RESIDUAL,
+    W,
+    OUT,
+    STRIDE: tl.constexpr,
+    EPS: tl.constexpr,
+    WIDTH: tl.constexpr,
+):
+    row = tl.program_id(0)
+    col = tl.arange(0, WIDTH)
+    routed = tl.load(ROUTED + row * WIDTH + col)
+    shared = tl.load(SHARED + row * WIDTH + col)
+    gate = tl.sigmoid(tl.load(GATE + row * STRIDE).to(tl.float32)).to(SHARED.dtype.element_ty)
+    # The existing combine kernel contracts its BF16 multiply/add to this
+    # instruction. Keep that native result while disabling fusion for RMSNorm.
+    combined = tl.inline_asm_elementwise(
+        "fma.rn.bf16 $0, $1, $2, $3;",
+        constraints="=h,h,h,h",
+        args=[shared, gate, routed],
+        dtype=tl.bfloat16,
+        is_pure=True,
+        pack=1,
+    ).to(tl.float32)
+    value = combined + tl.load(RESIDUAL + row * WIDTH + col).to(tl.float32)
+    value = value.to(ROUTED.dtype.element_ty).to(tl.float32)
+    tl.store(RESIDUAL + row * WIDTH + col, value)
+    value *= tl.rsqrt(tl.sum(value * value, 0) / WIDTH + EPS)
+    value *= 1.0 + tl.load(W + col).to(tl.float32)
+    tl.store(OUT + row * WIDTH + col, value)
+
+
+def combine_experts_add_norm(routed, shared, gate, residual, weight, epsilon):
+    """Combine native MoE outputs and update/normalize the existing residual."""
+    output = torch.empty_like(routed)
+    combine_experts_add_norm_kernel[(len(routed),)](
+        routed,
+        shared,
+        gate,
+        residual,
+        weight,
+        output,
+        gate.stride(0),
+        epsilon,
+        routed.shape[-1],
+        num_warps=4,
+        enable_fp_fusion=False,
+    )
+    return output
+
+
+@triton.jit
+def combine_experts_add_norm_inverse_kernel(
+    ROUTED,
+    SHARED,
+    GATE,
+    INVERSE,
+    RESIDUAL,
+    W,
+    OUT,
+    STRIDE: tl.constexpr,
+    EPS: tl.constexpr,
+    WIDTH: tl.constexpr,
+):
+    row = tl.program_id(0)
+    source_row = tl.load(INVERSE + row)
+    col = tl.arange(0, WIDTH)
+    routed = tl.load(ROUTED + source_row * WIDTH + col)
+    shared = tl.load(SHARED + source_row * WIDTH + col)
+    gate = tl.sigmoid(tl.load(GATE + source_row * STRIDE).to(tl.float32)).to(
+        SHARED.dtype.element_ty
+    )
+    combined = tl.inline_asm_elementwise(
+        "fma.rn.bf16 $0, $1, $2, $3;",
+        constraints="=h,h,h,h",
+        args=[shared, gate, routed],
+        dtype=tl.bfloat16,
+        is_pure=True,
+        pack=1,
+    ).to(tl.float32)
+    value = combined + tl.load(RESIDUAL + row * WIDTH + col).to(tl.float32)
+    value = value.to(ROUTED.dtype.element_ty).to(tl.float32)
+    tl.store(RESIDUAL + row * WIDTH + col, value)
+    value *= tl.rsqrt(tl.sum(value * value, 0) / WIDTH + EPS)
+    value *= 1.0 + tl.load(W + col).to(tl.float32)
+    tl.store(OUT + row * WIDTH + col, value)
+
+
+def combine_experts_add_norm_inverse(routed, shared, gate, inverse, residual, weight, epsilon):
+    """Read compact MoE rows while preserving the full residual and native rounding."""
+    output = torch.empty_like(residual)
+    combine_experts_add_norm_inverse_kernel[(len(residual),)](
+        routed,
+        shared,
+        gate,
+        inverse,
+        residual,
+        weight,
+        output,
+        gate.stride(0),
+        epsilon,
+        residual.shape[-1],
+        num_warps=4,
+        enable_fp_fusion=False,
+    )
+    return output
+
+
+@triton.jit
 def sample_partition_kernel(
     L, KEYS, MAXIMUM, SUM, STRIDE: tl.constexpr, WIDTH: tl.constexpr, PARTS: tl.constexpr
 ):

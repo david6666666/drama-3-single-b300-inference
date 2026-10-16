@@ -4,6 +4,7 @@ import asyncio
 import base64
 import hashlib
 import io
+import json
 import math
 import os
 import queue
@@ -23,7 +24,9 @@ from fish_speech.models.text2semantic.fish_omni.generate import build_drama3_pro
 from drama3.audio_queue import AudioQueue
 from drama3.codec import load_codec, streaming_codec
 from drama3.model import AttentionBatch, DramaModel
-from drama3.profiling import StageProfiler
+from drama3.packed_prefill import PackedPrefillGraph
+from drama3.profiling import StageProfiler, TimelineProfiler
+from drama3.row_reuse import MIXED_ROW_REUSE_BUCKETS, plan_row_reuse
 from drama3.runtime_state import DeviceRequests
 
 
@@ -90,7 +93,13 @@ class DecodeGraph:
 
     def forward(self) -> torch.Tensor:
         if self.requests is not None:
-            self.requests.load(self.slots, self.frames, self.history, self.positions)
+            self.requests.load(
+                self.slots,
+                self.frames,
+                self.history,
+                self.positions,
+                padding_start=self.model.slots // 2,
+            )
         self.batch.refresh()
         if self.first_frame:
             output = self.model.tower_forward(
@@ -230,6 +239,66 @@ class Engine:
         if self.codec_precision not in ("float16", "bfloat16"):
             raise ValueError("DRAMA3_CODEC_DTYPE must be float16 or bfloat16")
         self.prefill_max_batch = int(os.environ.get("DRAMA3_PREFILL_MAX_BATCH", "8"))
+        self.packed_prefill = os.environ.get("DRAMA3_PACKED_PREFILL") == "1"
+        self.batched_multistep = os.environ.get("DRAMA3_BATCHED_MULTISTEP") == "1"
+        self.frame_pipeline = os.environ.get("DRAMA3_FRAME_PIPELINE") == "1"
+        self.frame_pipeline_deferred_waiting = (
+            os.environ.get("DRAMA3_FRAME_PIPELINE_DEFERRED_WAITING") == "1"
+        )
+        self.frame_pipeline_counts = dict(
+            eligible=0,
+            capacity=0,
+            pending=0,
+            waiting_runnable=0,
+            waiting_deferred=0,
+            audio_boundary=0,
+        )
+        # These context counters overlap; keep them outside the decision denominator.
+        self.frame_pipeline_waiting_counts = dict(
+            waiting_only=0,
+            pending_only=0,
+            both=0,
+            neither=0,
+            runnable_active_threshold=0,
+            runnable_batch_threshold=0,
+            runnable_deadline=0,
+            eligible_with_deferred_waiting=0,
+            eligible_without_waiting=0,
+            deferred_waiting_size={},
+            deferred_waiting_age_ms_sum=0.0,
+            deferred_waiting_age_ms_max=0.0,
+        )
+        self.mixed_backbone = os.environ.get("DRAMA3_MIXED_BACKBONE") == "1"
+        self.mixed_span256 = os.environ.get("DRAMA3_MIXED_SPAN256") == "1"
+        self.mixed_row_reuse = os.environ.get("DRAMA3_MIXED_ROW_REUSE") == "1"
+        self.row_reuse_counts = dict(
+            opportunities=0,
+            unsupported_shape=0,
+            no_fitting_bucket=0,
+            used=0,
+            removed_rows=0,
+            mapping_cpu_ms=0.0,
+            mapping_cpu_ms_max=0.0,
+        )
+        if self.mixed_row_reuse and (
+            not self.mixed_backbone
+            or not self.mixed_span256
+            or os.environ.get("DRAMA3_FUSED_MOE_RESIDUAL") != "1"
+        ):
+            raise ValueError("Mixed row reuse requires mixed backbone, span256 and fused residual")
+        if self.mixed_backbone and (not self.packed_prefill or self.prefill_max_batch != 8):
+            raise ValueError("Mixed backbone currently requires packed prefill and batch limit 8")
+        if self.mixed_backbone and os.environ.get("DRAMA3_PREFILL_MOE") != "flashinfer":
+            raise ValueError("Mixed backbone requires explicit DRAMA3_PREFILL_MOE=flashinfer")
+        if self.packed_prefill and self.max_length < 512:
+            raise ValueError("Packed prefill currently requires a context of at least 512")
+        if self.packed_prefill and os.environ.get("DRAMA3_PREFILL_MOE_TUNED") == "1":
+            raise ValueError("Packed prefill currently requires DRAMA3_PREFILL_MOE_TUNED=0")
+        self.prefill_batch_sizes = (
+            (1, 2, 4, 6, 8, 16)
+            if os.environ.get("DRAMA3_PREFILL_BATCH_6") == "1"
+            else (1, 2, 4, 8, 16)
+        )
         self.prefill_spans = (
             (128, 192, 256, 512)
             if os.environ.get("DRAMA3_PREFILL_BUCKET_192") == "1"
@@ -254,14 +323,35 @@ class Engine:
         self.ready = threading.Event()
         self.failure = None
         profile_path = os.environ.get("DRAMA3_PROFILE_PATH")
+        timeline_path = os.environ.get("DRAMA3_TIMELINE_PATH")
+        if profile_path and timeline_path:
+            raise ValueError("Select either synchronized stage profiling or event timeline")
         self.async_codec = os.environ.get("DRAMA3_ASYNC_CODEC") == "1"
+        if self.async_codec and os.environ.get("DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM") != "1":
+            raise ValueError(
+                "Async codec requires DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM=1 "
+                "to isolate model and codec BLAS workspaces"
+            )
+        self.defer_codec_submit = os.environ.get("DRAMA3_DEFER_CODEC_SUBMIT") == "1"
+        self.coalesce_codec = os.environ.get("DRAMA3_CODEC_COALESCE") == "1"
+        if self.defer_codec_submit and not self.async_codec:
+            raise ValueError("Deferred codec submission requires DRAMA3_ASYNC_CODEC=1")
+        self.codec_submissions = []
         self.audio_delivery_thread = os.environ.get("DRAMA3_AUDIO_DELIVERY_THREAD") == "1"
         if self.audio_delivery_thread and not self.async_codec:
             raise ValueError("A PCM delivery thread requires DRAMA3_ASYNC_CODEC=1")
         self.audio_queue = None
         if self.async_codec and profile_path:
             raise ValueError("StageProfiler is synchronous; use a CUDA trace for codec overlap")
-        self.profiler = StageProfiler(profile_path) if profile_path else None
+        self.profiler = (
+            TimelineProfiler(timeline_path)
+            if timeline_path
+            else StageProfiler(profile_path)
+            if profile_path
+            else None
+        )
+        self.codec_trace_sequence = 0
+        self.codec_trace_submissions = {} if isinstance(self.profiler, TimelineProfiler) else None
         self.thread = threading.Thread(target=self.run, name="drama3-gpu", daemon=False)
         self.thread.start()
 
@@ -287,13 +377,30 @@ class Engine:
             for size in (1, 2, 4, 8, 12, 16, 24, 32, 40, 48, 56, 64):
                 if size <= self.slots:
                     self.graphs[size] = DecodeGraph(self.model, size, requests=self.device_requests)
+            self.pipeline_graphs = {}
+            if self.frame_pipeline:
+                from drama3.frame_pipeline import FramePipelineGraph
+
+                self.pipeline_graphs = {
+                    size: FramePipelineGraph(self.model, size, self.device_requests)
+                    for size in self.graphs
+                    if size >= 16
+                }
             self.first_graphs = {
                 size: DecodeGraph(self.model, size, first_frame=True, requests=self.device_requests)
-                for size in (1, 2, 4, 8, 16)
+                for size in self.prefill_batch_sizes
                 if size <= min(self.slots, self.prefill_max_batch)
             }
             self.serial_graphs = {
                 steps: DecodeGraph(self.model, 1, steps=steps, requests=self.device_requests)
+                for steps in (2, 4)
+            }
+            self.multistep_graphs = {
+                (size, steps): DecodeGraph(
+                    self.model, size, steps=steps, requests=self.device_requests
+                )
+                for size in (2, 4, 8)
+                if self.batched_multistep and size <= self.slots
                 for steps in (2, 4)
             }
             self.prefill_graphs = {
@@ -303,24 +410,85 @@ class Engine:
             }
             self.batched_prefill_graphs = {
                 (batch, span): BatchedPrefillGraph(self.model, batch, span)
-                for batch in (2, 4, 8, 16)
-                if batch <= min(self.slots, self.prefill_max_batch)
+                for batch in self.prefill_batch_sizes
+                if not self.packed_prefill and 1 < batch <= min(self.slots, self.prefill_max_batch)
                 for span in self.prefill_spans
                 if span <= self.max_length and (batch <= 8 or span <= 256)
             }
+            self.packed_prefill_graphs = {}
+            if self.packed_prefill and self.slots > 1:
+                batch = min(self.slots, self.prefill_max_batch)
+                # Replay is serial and run() clones its output before another
+                # graph can reuse these temporary allocations.
+                pool = torch.cuda.graph_pool_handle()
+                for capacity in (128, *range(256, batch * 512 + 1, 256)):
+                    self.packed_prefill_graphs[capacity] = PackedPrefillGraph(
+                        self.model, batch, capacity, pool=pool
+                    )
+            self.mixed_graphs = {}
+            self.row_reuse_graphs = {}
+            self.mixed_tower_graphs = {}
+            if self.mixed_backbone:
+                from drama3.mixed_graph import MixedGraph
+
+                pool = torch.cuda.graph_pool_handle()
+                for size in (16, 32, 48, 64):
+                    if size > self.slots:
+                        continue
+                    self.mixed_tower_graphs[size] = DecodeGraph(
+                        self.model, size, first_frame=True, requests=self.device_requests
+                    )
+                    # Larger prompts/capacities use the established serial path.
+                    for capacity in range(256, 2049, 256):
+                        for span in (256, 512) if self.mixed_span256 else (512,):
+                            self.mixed_graphs[(size, capacity, span)] = MixedGraph(
+                                self.model,
+                                self.device_requests,
+                                size,
+                                8,
+                                capacity,
+                                pool=pool,
+                                max_length=span,
+                            )
+                if self.mixed_row_reuse:
+                    for size, capacity, span, compact in MIXED_ROW_REUSE_BUCKETS:
+                        if (size, capacity, span) in self.mixed_graphs:
+                            self.row_reuse_graphs[(size, capacity, span, compact)] = MixedGraph(
+                                self.model,
+                                self.device_requests,
+                                size,
+                                8,
+                                capacity,
+                                pool=pool,
+                                max_length=span,
+                                compact_rows=compact,
+                            )
             self.codec_graphs = streaming_codec(
                 self.codec, self.slots, dtype=getattr(torch, self.codec_precision)
             )
             if self.async_codec:
                 self.audio_queue = AudioQueue(
-                    self.codec_graphs, threaded=self.audio_delivery_thread
+                    self.codec_graphs,
+                    threaded=self.audio_delivery_thread,
+                    profiler=self.profiler if isinstance(self.profiler, TimelineProfiler) else None,
                 )
             torch.cuda.synchronize()
             self.ready.set()
             free = list(range(self.slots))
             while not self.stopping.is_set():
                 if self.audio_queue is not None:
+                    if not active:
+                        self.flush_codec_submissions()
                     self.audio_queue.drain(block=not active)
+                mixed_hidden = None
+                if self.mixed_backbone:
+                    live = []
+                    for request in active:
+                        if request.cancelled.is_set():
+                            free.append(request.slot)
+                        else:
+                            live.append(request)
+                    active = live
                 if free:
                     while len(waiting) < min(self.prefill_max_batch, len(free)):
                         try:
@@ -353,8 +521,100 @@ class Engine:
                         waiting = []
                     if arriving:
                         try:
-                            with self.measure("prefill", len(arriving)):
-                                self.prefill_many(arriving, prompts)
+                            total = sum(map(len, prompts))
+                            mixed_size = next(
+                                (size for size in self.mixed_tower_graphs if size >= len(active)),
+                                None,
+                            )
+                            capacity = ((total + 255) // 256) * 256
+                            span = (
+                                256
+                                if self.mixed_span256
+                                and max([*map(len, prompts), capacity - total]) <= 256
+                                else 512
+                            )
+                            mixed_graph = self.mixed_graphs.get((mixed_size, capacity, span))
+                            if (
+                                len(active) > 8
+                                and mixed_graph is not None
+                                and all(3 <= len(prompt) <= 512 for prompt in prompts)
+                            ):
+                                row_plan = None
+                                mapping_cpu_ms = 0.0
+                                if self.mixed_row_reuse:
+                                    self.row_reuse_counts["opportunities"] += 1
+                                    compact_capacities = [
+                                        key[3]
+                                        for key in self.row_reuse_graphs
+                                        if key[:3] == (mixed_size, capacity, span)
+                                    ]
+                                    if compact_capacities:
+                                        # This counter covers planning/snapshots only. Prepare
+                                        # Prepare also checks bytes and uploads; both remain
+                                        # included in the measured service latency.
+                                        started = time.perf_counter()
+                                        row_plan = plan_row_reuse(
+                                            prompts, mixed_size, capacity, compact_capacities
+                                        )
+                                        mapping_cpu_ms = (time.perf_counter() - started) * 1000
+                                        self.row_reuse_counts["mapping_cpu_ms"] += mapping_cpu_ms
+                                        self.row_reuse_counts["mapping_cpu_ms_max"] = max(
+                                            self.row_reuse_counts["mapping_cpu_ms_max"],
+                                            mapping_cpu_ms,
+                                        )
+                                        if row_plan is None:
+                                            self.row_reuse_counts["no_fitting_bucket"] += 1
+                                        else:
+                                            self.row_reuse_counts["used"] += 1
+                                            self.row_reuse_counts["removed_rows"] += (
+                                                row_plan.removed_rows
+                                            )
+                                            mixed_graph = self.row_reuse_graphs[
+                                                (mixed_size, capacity, span, row_plan.compact_rows)
+                                            ]
+                                    else:
+                                        self.row_reuse_counts["unsupported_shape"] += 1
+                                mixed_metadata = (
+                                    dict(
+                                        prompt_tokens=total,
+                                        prompt_count=len(arriving),
+                                        prefill_capacity=capacity,
+                                        prompt_span=span,
+                                        decode_padded_batch=mixed_size,
+                                        steps=1,
+                                        moe_compact_rows=(
+                                            row_plan.compact_rows if row_plan else None
+                                        ),
+                                        moe_unique_rows=(
+                                            row_plan.unique_rows if row_plan else None
+                                        ),
+                                        moe_row_mapping_cpu_ms=mapping_cpu_ms,
+                                    )
+                                    if isinstance(self.profiler, TimelineProfiler)
+                                    else None
+                                )
+                                with self.measure("mixed_backbone", len(active), mixed_metadata):
+                                    mixed_hidden, hidden = mixed_graph.run(
+                                        active,
+                                        prompts,
+                                        [r.slot for r in arriving],
+                                        row_reuse_plan=row_plan,
+                                    )
+                                self.flush_codec_submissions()
+                                batch = next(
+                                    size for size in self.first_graphs if size >= len(arriving)
+                                )
+                                with self.measure("first_frame", len(arriving)):
+                                    self.finish_prefill(arriving, hidden[:batch], batch)
+                                # Advance old requests once, then admit the new ones.
+                                with self.measure("mixed_decode_tower", len(active)):
+                                    frames = self.mixed_tower_graphs[mixed_size].run(
+                                        active, mixed_hidden
+                                    )
+                                active = self.complete_decode(active, frames, free)
+                            else:
+                                with self.measure("prefill", len(arriving)):
+                                    self.prefill_many(arriving, prompts)
                         except Exception as error:
                             for request in arriving:
                                 request.emit(error)
@@ -370,7 +630,9 @@ class Engine:
                                 free.append(request.slot)
                             else:
                                 active.append(request)
-                if not active:
+                if mixed_hidden is not None or not active:
+                    if not active:
+                        self.flush_codec_submissions()
                     continue
                 live = []
                 for request in active:
@@ -380,6 +642,7 @@ class Engine:
                         live.append(request)
                 active = live
                 if not active:
+                    self.flush_codec_submissions()
                     continue
                 size = next(size for size in self.graphs if size >= len(active))
                 graph = self.graphs[size]
@@ -388,36 +651,26 @@ class Engine:
                     available = min(request.next_emit, request.max_frames) - request.frame_count
                     steps = 4 if available >= 4 else 2 if available >= 2 else 1
                     graph = self.serial_graphs.get(steps, graph)
-                with self.measure("decode", len(active)):
+                elif self.batched_multistep and size <= 8 and not waiting and self.pending.empty():
+                    available = min(
+                        min(request.next_emit, request.max_frames) - request.frame_count
+                        for request in active
+                    )
+                    steps = 4 if available >= 4 else 2 if available >= 2 else 1
+                    graph = self.multistep_graphs.get((size, steps), graph)
+                if self.frame_pipeline:
+                    pipeline = self.select_frame_pipeline(active, waiting, free, size)
+                    if pipeline is not None:
+                        graph = pipeline
+                decode_metadata = (
+                    dict(steps=graph.steps, padded_batch=graph.size)
+                    if isinstance(self.profiler, TimelineProfiler)
+                    else None
+                )
+                with self.measure("decode", len(active), decode_metadata):
                     frames = graph.run(active)
-                if frames.ndim == 2:
-                    frames = frames.unsqueeze(0)
-                main_tokens = frames[:, :, 0].T.cpu().tolist()
-                survivors = []
-                emit = []
-                finished = []
-                for index, request in enumerate(active):
-                    done = False
-                    for main in main_tokens[index]:
-                        done = main == self.model.config.eos_token_id
-                        if not done:
-                            request.frame_count += 1
-                            request.position += 1
-                        done = done or request.frame_count >= request.max_frames
-                        if done:
-                            break
-                    if request.frame_count >= request.next_emit or done:
-                        emit.append(request)
-                    if done:
-                        finished.append(request)
-                        free.append(request.slot)
-                    else:
-                        survivors.append(request)
-                with self.measure("codec", len(emit)):
-                    self.emit_audio_batch(emit)
-                for request in finished:
-                    self.finish_audio(request)
-                active = survivors
+                self.flush_codec_submissions()
+                active = self.complete_decode(active, frames, free)
         except Exception as error:
             self.failure = error
             self.ready.set()
@@ -425,14 +678,36 @@ class Engine:
             if self.audio_queue is not None:
                 try:
                     if self.failure is None:
+                        self.flush_codec_submissions()
                         self.audio_queue.close()
                     else:
                         self.audio_queue.abort(self.failure)
                 except Exception as error:
                     self.failure = self.failure or error
                     self.audio_queue.abort(self.failure)
+                finally:
+                    # Submitted batches are failed above before their deferred
+                    # successors. Keep callbacks and input ownership until then.
+                    for _, _, callbacks, _ in self.codec_submissions:
+                        for callback, _ in callbacks:
+                            callback(self.failure or RuntimeError("Engine stopped"))
+                    self.codec_submissions.clear()
+                    if self.codec_trace_submissions is not None:
+                        self.codec_trace_submissions.clear()
             if self.profiler is not None:
                 self.profiler.save()
+            if self.mixed_row_reuse:
+                print(json.dumps(dict(row_reuse_counts=self.row_reuse_counts)), flush=True)
+            if self.frame_pipeline:
+                print(
+                    json.dumps(
+                        dict(
+                            frame_pipeline_counts=self.frame_pipeline_counts,
+                            frame_pipeline_waiting_counts=self.frame_pipeline_waiting_counts,
+                        )
+                    ),
+                    flush=True,
+                )
             for request in active:
                 request.emit(self.failure or RuntimeError("Engine stopped"))
             for request in waiting:
@@ -440,7 +715,94 @@ class Engine:
             while not self.pending.empty():
                 self.pending.get_nowait().emit(self.failure or RuntimeError("Engine stopped"))
 
-    def measure(self, stage, batch):
+    def select_frame_pipeline(self, active, waiting, free, size):
+        from drama3.frame_pipeline import pair_blocker
+
+        pending = not self.pending.empty()
+        supported = size in self.pipeline_graphs
+        waiting_age = time.monotonic() - waiting[0].queued_at if waiting else 0.0
+        # Recheck after cancellation cleanup: the earlier admission decision may
+        # have become runnable as time passed or the active roster shrank.
+        can_admit = bool(waiting and free)
+        active_ready = can_admit and len(active) < self.admission_min_running
+        batch_ready = can_admit and len(waiting) >= self.admission_min_batch
+        deadline_ready = can_admit and waiting_age >= self.admission_max_wait
+        runnable = active_ready or batch_ready or deadline_ready
+        blocker = pair_blocker(
+            active,
+            waiting=bool(waiting) and (not self.frame_pipeline_deferred_waiting or runnable),
+            pending=pending,
+            supported=supported,
+        )
+        if blocker == "admission":
+            blocker = (
+                "pending" if pending else "waiting_runnable" if runnable else "waiting_deferred"
+            )
+        self.frame_pipeline_counts[blocker or "eligible"] += 1
+        if supported:
+            context = self.frame_pipeline_waiting_counts
+            presence = (
+                "both"
+                if waiting and pending
+                else "waiting_only"
+                if waiting
+                else "pending_only"
+                if pending
+                else "neither"
+            )
+            context[presence] += 1
+            context["runnable_active_threshold"] += int(active_ready)
+            context["runnable_batch_threshold"] += int(batch_ready)
+            context["runnable_deadline"] += int(deadline_ready)
+            if blocker is None:
+                if waiting:
+                    context["eligible_with_deferred_waiting"] += 1
+                    sizes = context["deferred_waiting_size"]
+                    sizes[len(waiting)] = sizes.get(len(waiting), 0) + 1
+                    age_ms = waiting_age * 1000
+                    context["deferred_waiting_age_ms_sum"] += age_ms
+                    context["deferred_waiting_age_ms_max"] = max(
+                        context["deferred_waiting_age_ms_max"], age_ms
+                    )
+                else:
+                    context["eligible_without_waiting"] += 1
+        # If a deadline expires or a request arrives during this bounded pair,
+        # admission is checked after one additional model step, not at a fixed ms bound.
+        return self.pipeline_graphs[size] if blocker is None else None
+
+    def complete_decode(self, active, frames, free):
+        if frames.ndim == 2:
+            frames = frames.unsqueeze(0)
+        main_tokens = frames[:, :, 0].T.cpu().tolist()
+        emit = []
+        finished = []
+        survivors = []
+        for index, request in enumerate(active):
+            done = False
+            for main in main_tokens[index]:
+                done = main == self.model.config.eos_token_id
+                if not done:
+                    request.frame_count += 1
+                    request.position += 1
+                done = done or request.frame_count >= request.max_frames
+                if done:
+                    break
+            if request.frame_count >= request.next_emit or done:
+                emit.append(request)
+            if done:
+                finished.append(request)
+                free.append(request.slot)
+            else:
+                survivors.append(request)
+        with self.measure("codec_submit" if self.async_codec else "codec", len(emit)):
+            self.emit_audio_batch(emit)
+        for request in finished:
+            self.finish_audio(request)
+        return survivors
+
+    def measure(self, stage, batch, metadata=None):
+        if isinstance(self.profiler, TimelineProfiler) and batch:
+            return self.profiler.measure(stage, batch, **(metadata or {}))
         return (
             self.profiler.measure(stage, batch)
             if self.profiler is not None and batch
@@ -487,6 +849,23 @@ class Engine:
         return frames
 
     def prefill_many(self, requests, prompts):
+        if self.packed_prefill_graphs and len(requests) > 1:
+            packed = [(r, p) for r, p in zip(requests, prompts, strict=True) if 3 <= len(p) <= 512]
+            if len(packed) > 1:
+                packed_requests, packed_prompts = map(list, zip(*packed, strict=True))
+                total = sum(map(len, packed_prompts))
+                capacity = next(size for size in self.packed_prefill_graphs if size >= total)
+                hidden = self.packed_prefill_graphs[capacity].run(
+                    packed_prompts, [r.slot for r in packed_requests]
+                )
+                batch = next(size for size in self.first_graphs if size >= len(packed))
+                self.finish_prefill(packed_requests, hidden[:batch], batch)
+                remaining = [
+                    (r, p) for r, p in zip(requests, prompts, strict=True) if not 3 <= len(p) <= 512
+                ]
+                if not remaining:
+                    return
+                requests, prompts = map(list, zip(*remaining, strict=True))
         groups = {}
         for request, frames in zip(requests, prompts, strict=True):
             bucket = next((size for size in self.prefill_graphs if 3 <= len(frames) <= size), None)
@@ -501,7 +880,7 @@ class Engine:
             )
         for key, jobs in chunks:
             requests, frames = map(list, zip(*jobs, strict=True))
-            batch = 1 << (len(jobs) - 1).bit_length()
+            batch = next(size for size in self.first_graphs if size >= len(jobs))
             if batch > 1:
                 hidden = self.batched_prefill_graphs[(batch, key)].run(
                     frames, [request.slot for request in requests]
@@ -510,11 +889,16 @@ class Engine:
                 hidden = self.prefill_graphs[key].run(frames[0], requests[0].slot)
             else:
                 hidden = self.model.prefill(frames[0], requests[0].slot)
-            first = self.first_graphs[batch].run(requests, hidden)[:, 0].cpu().tolist()
-            for request, main in zip(requests, first, strict=True):
-                if main != self.model.config.eos_token_id:
-                    request.frame_count = 1
-                    request.position += 1
+            self.finish_prefill(requests, hidden, batch)
+
+    def finish_prefill(self, requests, hidden, batch):
+        output = self.first_graphs[batch].run(requests, hidden)
+        self.flush_codec_submissions()
+        first = output[:, 0].cpu().tolist()
+        for request, main in zip(requests, first, strict=True):
+            if main != self.model.config.eos_token_id:
+                request.frame_count = 1
+                request.position += 1
 
     def decode_audio(self, codes: torch.Tensor) -> torch.Tensor:
         with torch.autocast("cuda", dtype=torch.bfloat16):
@@ -548,6 +932,9 @@ class Engine:
                     request.emit(None)
 
     def emit_audio_batch(self, requests: list[Request]) -> None:
+        tracing = isinstance(getattr(self, "profiler", None), TimelineProfiler)
+        if tracing and requests:
+            self.codec_trace_sequence += 1
         groups = {}
         for request in requests:
             count = request.frame_count
@@ -556,9 +943,15 @@ class Engine:
             length = count - request.emitted
             bucket = self.codec_graphs.frame_bucket(length)
             groups.setdefault(bucket, []).append((request, request.emitted, count))
-        for length, jobs in groups.items():
+        planned_groups = groups.items()
+        if getattr(self, "coalesce_codec", False):
+            from drama3.codec_grouping import coalesce_codec_groups
+
+            planned_groups = coalesce_codec_groups(groups, self.codec_graphs)
+        for group_index, (length, jobs) in enumerate(planned_groups):
             start = 0
-            for batch in self.codec_graphs.split(length, len(jobs)):
+            selected_batches = self.codec_graphs.split(length, len(jobs))
+            for split_index, batch in enumerate(selected_batches):
                 chunk = jobs[start : start + batch]
                 start += batch
                 rows = torch.tensor(
@@ -572,6 +965,35 @@ class Engine:
                     device="cuda",
                 )
                 codes = self.device_requests.gather_codes(rows, length)
+                metadata = None
+                if tracing:
+                    # split() returns planned chunk sizes. The graph executor
+                    # chooses its actual padded batch from len(chunk), which
+                    # can differ from an oversized final planned chunk.
+                    padded = next(
+                        size
+                        for size in self.codec_graphs.batch_buckets[length]
+                        if size >= len(chunk)
+                    )
+                    metadata = dict(
+                        emit_id=self.codec_trace_sequence,
+                        frame_group_id=group_index,
+                        frame_bucket=length,
+                        source_frame_buckets=[
+                            self.codec_graphs.frame_bucket(count - left) for _, left, count in chunk
+                        ],
+                        requested_jobs=len(jobs),
+                        selected_batches=list(selected_batches),
+                        split_index=split_index,
+                        planned_batch=batch,
+                        actual_batch=len(chunk),
+                        padded_batch=padded,
+                        split_policy=self.codec_graphs.split_policy,
+                        slot_ids=[request.slot for request, _, _ in chunk],
+                        request_ids=[request.request_id for request, _, _ in chunk],
+                        left_frames=[left for _, left, _ in chunk],
+                        valid_frames=[count - left for _, left, count in chunk],
+                    )
                 if self.audio_queue is not None:
                     callbacks = []
                     for request, left, count in chunk:
@@ -580,7 +1002,16 @@ class Engine:
                         callbacks.append(
                             (partial(self.audio_ready, request), (count - left) * 2048)
                         )
-                    self.audio_queue.submit(codes, rows, callbacks)
+                    if getattr(self, "defer_codec_submit", False):
+                        ready = torch.cuda.Event()
+                        ready.record()
+                        self.codec_submissions.append((codes, rows, callbacks, ready))
+                        if metadata is not None:
+                            self.codec_trace_submissions[id(ready)] = metadata
+                    elif metadata is not None:
+                        self.audio_queue.submit(codes, rows, callbacks, metadata=metadata)
+                    else:
+                        self.audio_queue.submit(codes, rows, callbacks)
                 else:
                     with torch.autocast("cuda", dtype=self.codec_graphs.decoder.dtype):
                         waveform = self.codec_graphs(codes, rows=rows)
@@ -595,6 +1026,20 @@ class Engine:
                     request.next_emit = count + (
                         ramp[request.chunk_index] if request.chunk_index < len(ramp) else 64
                     )
+
+    def flush_codec_submissions(self):
+        """Enqueue prior audio after a real model launch, using its original dependency."""
+        submissions = getattr(self, "codec_submissions", None)
+        while submissions:
+            codes, rows, callbacks, ready = submissions[0]
+            trace = getattr(self, "codec_trace_submissions", None)
+            metadata = trace.get(id(ready)) if trace is not None else None
+            if metadata is None:
+                self.audio_queue.submit(codes, rows, callbacks, ready=ready)
+            else:
+                self.audio_queue.submit(codes, rows, callbacks, ready=ready, metadata=metadata)
+                del trace[id(ready)]
+            submissions.pop(0)
 
     def submit(self, request: Request) -> None:
         if not self.ready.is_set() or self.failure is not None or self.stopping.is_set():

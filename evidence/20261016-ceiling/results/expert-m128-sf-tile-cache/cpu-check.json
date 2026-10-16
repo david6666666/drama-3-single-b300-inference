@@ -1,0 +1,282 @@
+{
+  "status": "CPU_ADDRESS_AND_BIT_COPY_PASS",
+  "checks": 1113949,
+  "tile_output_transactions": 41753,
+  "cases": [
+    {
+      "fixture": "oracle-layer0-left_only.pt",
+      "fixture_sha256": "bfc990562d36158dc1344ebea3b47f2f07fbbe96639f513fd14c026171e39252",
+      "map": "archived",
+      "ncta": 127,
+      "padded": 1016,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer0-left_only.pt",
+      "fixture_sha256": "bfc990562d36158dc1344ebea3b47f2f07fbbe96639f513fd14c026171e39252",
+      "map": "within_tile_reversed",
+      "ncta": 127,
+      "padded": 1016,
+      "changed_mapping_entries": 452
+    },
+    {
+      "fixture": "oracle-layer0-real.pt",
+      "fixture_sha256": "68699d4a96078075bd881a3d966b1943aabb3cd25194942af47a1ba161d0f588",
+      "map": "archived",
+      "ncta": 208,
+      "padded": 1664,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer0-real.pt",
+      "fixture_sha256": "68699d4a96078075bd881a3d966b1943aabb3cd25194942af47a1ba161d0f588",
+      "map": "within_tile_reversed",
+      "ncta": 208,
+      "padded": 1664,
+      "changed_mapping_entries": 386
+    },
+    {
+      "fixture": "oracle-layer0-right_only.pt",
+      "fixture_sha256": "88fbb1dbbfa8b9d4393406059a26400a5827db9fd0a368aea0fcfc62e7dc086d",
+      "map": "archived",
+      "ncta": 130,
+      "padded": 1040,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer0-right_only.pt",
+      "fixture_sha256": "88fbb1dbbfa8b9d4393406059a26400a5827db9fd0a368aea0fcfc62e7dc086d",
+      "map": "within_tile_reversed",
+      "ncta": 130,
+      "padded": 1040,
+      "changed_mapping_entries": 452
+    },
+    {
+      "fixture": "oracle-layer0-rows_reversed.pt",
+      "fixture_sha256": "1b18e68a13060a7e1901be011f3cdaf51ec6f1d55d3fd319f3fe45e31861da9f",
+      "map": "archived",
+      "ncta": 208,
+      "padded": 1664,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer0-rows_reversed.pt",
+      "fixture_sha256": "1b18e68a13060a7e1901be011f3cdaf51ec6f1d55d3fd319f3fe45e31861da9f",
+      "map": "within_tile_reversed",
+      "ncta": 208,
+      "padded": 1664,
+      "changed_mapping_entries": 386
+    },
+    {
+      "fixture": "oracle-layer0-worst_global288.pt",
+      "fixture_sha256": "53c6f42c5d0c0d7e031e4b56103e52b9ce95400a79961ff38e72ee452ea483d6",
+      "map": "archived",
+      "ncta": 288,
+      "padded": 2304,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer0-worst_global288.pt",
+      "fixture_sha256": "53c6f42c5d0c0d7e031e4b56103e52b9ce95400a79961ff38e72ee452ea483d6",
+      "map": "within_tile_reversed",
+      "ncta": 288,
+      "padded": 2304,
+      "changed_mapping_entries": 256
+    },
+    {
+      "fixture": "oracle-layer19-left_only.pt",
+      "fixture_sha256": "a09b74a5dbfb6587378f64507eb5263fd3b307719b335c86a0f32c387122f032",
+      "map": "archived",
+      "ncta": 109,
+      "padded": 872,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer19-left_only.pt",
+      "fixture_sha256": "a09b74a5dbfb6587378f64507eb5263fd3b307719b335c86a0f32c387122f032",
+      "map": "within_tile_reversed",
+      "ncta": 109,
+      "padded": 872,
+      "changed_mapping_entries": 470
+    },
+    {
+      "fixture": "oracle-layer19-real.pt",
+      "fixture_sha256": "a0c7a5e703f16909f540d639e7a3278424fcf849e759923e92512c207bc65a45",
+      "map": "archived",
+      "ncta": 168,
+      "padded": 1344,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer19-real.pt",
+      "fixture_sha256": "a0c7a5e703f16909f540d639e7a3278424fcf849e759923e92512c207bc65a45",
+      "map": "within_tile_reversed",
+      "ncta": 168,
+      "padded": 1344,
+      "changed_mapping_entries": 422
+    },
+    {
+      "fixture": "oracle-layer19-right_only.pt",
+      "fixture_sha256": "942259a044a11a6e5de487a1286a1f09732175f954a7a58c8199d1e0ecbef086",
+      "map": "archived",
+      "ncta": 114,
+      "padded": 912,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer19-right_only.pt",
+      "fixture_sha256": "942259a044a11a6e5de487a1286a1f09732175f954a7a58c8199d1e0ecbef086",
+      "map": "within_tile_reversed",
+      "ncta": 114,
+      "padded": 912,
+      "changed_mapping_entries": 458
+    },
+    {
+      "fixture": "oracle-layer19-rows_reversed.pt",
+      "fixture_sha256": "23bb8f5752a385dfec65f153eb0de8ba197459207d2ffc85052c0a8570f92971",
+      "map": "archived",
+      "ncta": 168,
+      "padded": 1344,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer19-rows_reversed.pt",
+      "fixture_sha256": "23bb8f5752a385dfec65f153eb0de8ba197459207d2ffc85052c0a8570f92971",
+      "map": "within_tile_reversed",
+      "ncta": 168,
+      "padded": 1344,
+      "changed_mapping_entries": 422
+    },
+    {
+      "fixture": "oracle-layer19-worst_global288.pt",
+      "fixture_sha256": "ffdb73836c1e4e865b773bd354a25d8114b34cc15043932b9bd6755c70be193d",
+      "map": "archived",
+      "ncta": 288,
+      "padded": 2304,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer19-worst_global288.pt",
+      "fixture_sha256": "ffdb73836c1e4e865b773bd354a25d8114b34cc15043932b9bd6755c70be193d",
+      "map": "within_tile_reversed",
+      "ncta": 288,
+      "padded": 2304,
+      "changed_mapping_entries": 256
+    },
+    {
+      "fixture": "oracle-layer39-left_only.pt",
+      "fixture_sha256": "f6befcd7ba064e2a358992cc6d73faa8a6bb0854fbcd124f34ef40d547990cc9",
+      "map": "archived",
+      "ncta": 109,
+      "padded": 872,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer39-left_only.pt",
+      "fixture_sha256": "f6befcd7ba064e2a358992cc6d73faa8a6bb0854fbcd124f34ef40d547990cc9",
+      "map": "within_tile_reversed",
+      "ncta": 109,
+      "padded": 872,
+      "changed_mapping_entries": 470
+    },
+    {
+      "fixture": "oracle-layer39-real.pt",
+      "fixture_sha256": "000b490cbced0e7d48e78118710a4bb551a295d339db5e6fcdc4d0fb9e6d2b80",
+      "map": "archived",
+      "ncta": 146,
+      "padded": 1168,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer39-real.pt",
+      "fixture_sha256": "000b490cbced0e7d48e78118710a4bb551a295d339db5e6fcdc4d0fb9e6d2b80",
+      "map": "within_tile_reversed",
+      "ncta": 146,
+      "padded": 1168,
+      "changed_mapping_entries": 430
+    },
+    {
+      "fixture": "oracle-layer39-right_only.pt",
+      "fixture_sha256": "13fa7d7b1f9a946bd827e76b0295622c2ea876e4e5f52e031c0778f82dcbb700",
+      "map": "archived",
+      "ncta": 112,
+      "padded": 896,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer39-right_only.pt",
+      "fixture_sha256": "13fa7d7b1f9a946bd827e76b0295622c2ea876e4e5f52e031c0778f82dcbb700",
+      "map": "within_tile_reversed",
+      "ncta": 112,
+      "padded": 896,
+      "changed_mapping_entries": 464
+    },
+    {
+      "fixture": "oracle-layer39-rows_reversed.pt",
+      "fixture_sha256": "9bb6c4c70ccd69510c718af242a66a3506cd5d84c3eef4218b54e47909daa580",
+      "map": "archived",
+      "ncta": 146,
+      "padded": 1168,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer39-rows_reversed.pt",
+      "fixture_sha256": "9bb6c4c70ccd69510c718af242a66a3506cd5d84c3eef4218b54e47909daa580",
+      "map": "within_tile_reversed",
+      "ncta": 146,
+      "padded": 1168,
+      "changed_mapping_entries": 430
+    },
+    {
+      "fixture": "oracle-layer39-worst_global288.pt",
+      "fixture_sha256": "90fda394c2cb4fa6b81ff9032d0d9f1e794bffc60b886d60d24f53fb8a126951",
+      "map": "archived",
+      "ncta": 288,
+      "padded": 2304,
+      "changed_mapping_entries": 0
+    },
+    {
+      "fixture": "oracle-layer39-worst_global288.pt",
+      "fixture_sha256": "90fda394c2cb4fa6b81ff9032d0d9f1e794bffc60b886d60d24f53fb8a126951",
+      "map": "within_tile_reversed",
+      "ncta": 288,
+      "padded": 2304,
+      "changed_mapping_entries": 256
+    }
+  ],
+  "synthetic_valid_rows": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "config_negative_cases": [
+    "has_deepseek_fp8",
+    "is_fp8_mma",
+    "is_swap_ab",
+    "has_routed_act",
+    "cluster_m",
+    "tile_m",
+    "tile_n",
+    "tile_k",
+    "num_dsfp8_act_sfs_per_stage",
+    "num_load_sfab_warps"
+  ],
+  "cuda_initialized": false,
+  "gpu_used": false,
+  "limits": [
+    "CPU simulation does not execute candidate machine code.",
+    "Native floating arithmetic and full graph/empty gates remain unrun.",
+    "Alternate physical maps are metadata-defined, never value-sorted."
+  ],
+  "sources": {
+    "check_cpu.py": "78c6c61a5770c2d3175ffa9c6f897c553d1225608aba7d548c523744e2c13699",
+    "sf_tile_cached_resources.py": "ccabd03ce263bdea35feae92c2ce3d08ddc915ad12ff6c5ee59297741ba0613b",
+    "metadata_driver.py": "64d01d1e5b838effb13651407a10a9487b2c6971f94d1230cfefbfa023e606eb"
+  }
+}

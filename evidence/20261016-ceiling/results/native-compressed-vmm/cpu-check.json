@@ -1,0 +1,10 @@
+{
+  "status": "CPU_PASS",
+  "negative_cases": 5,
+  "cuda_initialized": false,
+  "stats": {
+    "live": 0,
+    "destroyed": 0,
+    "cleanup_errors": 0
+  }
+}

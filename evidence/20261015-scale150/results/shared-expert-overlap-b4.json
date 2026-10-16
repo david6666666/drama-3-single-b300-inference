@@ -1,0 +1,20 @@
+[
+  {
+    "overlap": false,
+    "batch": 4,
+    "gpu_ms_per_step": 4.194729614257812,
+    "frames_exact": true,
+    "state_differences": [],
+    "passed": true,
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac"
+  },
+  {
+    "overlap": true,
+    "batch": 4,
+    "gpu_ms_per_step": 4.133603286743164,
+    "frames_exact": true,
+    "state_differences": [],
+    "passed": true,
+    "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac"
+  }
+]

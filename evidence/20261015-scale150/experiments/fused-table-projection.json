@@ -1,0 +1,8 @@
+{
+  "source_sha": "63ca2116b2708e156ad2f2654c6680af4f5cc9dd",
+  "hypothesis": "Fuse the existing BF16 normalization, FP32 projection, embedding lookup and addition to remove small-batch tower launch overhead.",
+  "isolated_variable": "Fused Triton table projection; BF16 weights/activation boundary and FP32 accumulation unchanged",
+  "controls": "GPU1 OMP4, twelve real model tower projection weights, B2/B4/B8, semantic and nonsemantic rows, fixed seed42",
+  "success": "All comparisons RRMS < 0.003 and lower latency than native formula before real decode/service experiment",
+  "stop": "Any nonfinite result or numeric mismatch; kernel timings do not imply end-to-end throughput"
+}

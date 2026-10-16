@@ -1,0 +1,243 @@
+{
+  "status": "PASS",
+  "source_sha": "463d837cd51fb62196378835a33731cb659a66c8",
+  "source_status": "",
+  "driver_sha256": "4d2763649fa0e9a18c22d5544622897416d59de031dadfdc9b19268c454e4043",
+  "exact_checks": 2574,
+  "all_checks_pass": true,
+  "fused_residual": "1",
+  "cases": [
+    {
+      "real_rows": 58,
+      "batch_rows": 64,
+      "padding_slots": [
+        130,
+        131,
+        132,
+        133,
+        134,
+        135
+      ],
+      "completed_real_slots": [],
+      "quantization_checks": 40,
+      "timings": {
+        "control": {
+          "raw_ms": [
+            8.376319885253906,
+            8.372223854064941,
+            8.368127822875977,
+            8.374272346496582,
+            8.376319885253906,
+            8.376480102539062,
+            8.392671585083008,
+            8.384544372558594
+          ],
+          "mean_ms": 8.377619981765747,
+          "median_ms": 8.376319885253906,
+          "min_ms": 8.368127822875977,
+          "max_ms": 8.392671585083008
+        },
+        "candidate": {
+          "raw_ms": [
+            8.169631958007812,
+            8.165375709533691,
+            8.161279678344727,
+            8.163328170776367,
+            8.165247917175293,
+            8.173567771911621,
+            8.169471740722656,
+            8.161279678344727
+          ],
+          "mean_ms": 8.166147828102112,
+          "median_ms": 8.165311813354492,
+          "min_ms": 8.161279678344727,
+          "max_ms": 8.173567771911621
+        }
+      },
+      "latency_gain_fraction": 0.02524250970131292,
+      "dummy_state_difference_count": 109
+    },
+    {
+      "real_rows": 63,
+      "batch_rows": 64,
+      "padding_slots": [
+        135
+      ],
+      "completed_real_slots": [],
+      "quantization_checks": 40,
+      "timings": {
+        "control": {
+          "raw_ms": [
+            8.333312034606934,
+            8.331263542175293,
+            8.32307243347168,
+            8.331328392028809,
+            8.329216003417969,
+            8.327168464660645,
+            8.337408065795898,
+            8.329216003417969
+          ],
+          "mean_ms": 8.3302481174469,
+          "median_ms": 8.33023977279663,
+          "min_ms": 8.32307243347168,
+          "max_ms": 8.337408065795898
+        },
+        "candidate": {
+          "raw_ms": [
+            8.28223991394043,
+            8.261631965637207,
+            8.263680458068848,
+            8.269824028015137,
+            8.263680458068848,
+            8.26147174835205,
+            8.259615898132324,
+            8.26364803314209
+          ],
+          "mean_ms": 8.265724062919617,
+          "median_ms": 8.263664245605469,
+          "min_ms": 8.259615898132324,
+          "max_ms": 8.28223991394043
+        }
+      },
+      "latency_gain_fraction": 0.007745754222151402,
+      "dummy_state_difference_count": 104
+    },
+    {
+      "real_rows": 64,
+      "batch_rows": 64,
+      "padding_slots": [],
+      "completed_real_slots": [],
+      "quantization_checks": 0,
+      "timings": {
+        "control": {
+          "raw_ms": [
+            8.32307243347168,
+            8.318976402282715,
+            8.329216003417969,
+            8.318976402282715,
+            8.321023941040039,
+            8.316927909851074,
+            8.318976402282715,
+            8.335295677185059
+          ],
+          "mean_ms": 8.322808146476746,
+          "median_ms": 8.320000171661377,
+          "min_ms": 8.316927909851074,
+          "max_ms": 8.335295677185059
+        },
+        "candidate": {
+          "raw_ms": [
+            8.312864303588867,
+            8.316927909851074,
+            8.31488037109375,
+            8.32307243347168,
+            8.316927909851074,
+            8.32323169708252,
+            8.31283187866211,
+            8.32307243347168
+          ],
+          "mean_ms": 8.317976117134094,
+          "median_ms": 8.316927909851074,
+          "min_ms": 8.31283187866211,
+          "max_ms": 8.32323169708252
+        }
+      },
+      "latency_gain_fraction": 0.0005805768026380109,
+      "dummy_state_difference_count": 0
+    },
+    {
+      "real_rows": 5,
+      "batch_rows": 8,
+      "padding_slots": [
+        77,
+        78,
+        79
+      ],
+      "completed_real_slots": [],
+      "quantization_checks": 0,
+      "timings": {
+        "control": {
+          "raw_ms": [
+            5.229568004608154,
+            5.223423957824707,
+            5.229568004608154,
+            5.223423957824707,
+            5.231616020202637,
+            5.2254719734191895,
+            5.223455905914307,
+            5.227519989013672
+          ],
+          "mean_ms": 5.226755976676941,
+          "median_ms": 5.226495981216431,
+          "min_ms": 5.223423957824707,
+          "max_ms": 5.231616020202637
+        },
+        "candidate": {
+          "raw_ms": [
+            5.213183879852295,
+            5.21727991104126,
+            5.215231895446777,
+            5.219327926635742,
+            5.215231895446777,
+            5.2112321853637695,
+            5.2111358642578125,
+            5.2111358642578125
+          ],
+          "mean_ms": 5.214219927787781,
+          "median_ms": 5.214207887649536,
+          "min_ms": 5.2111358642578125,
+          "max_ms": 5.219327926635742
+        }
+      },
+      "latency_gain_fraction": 0.002398437758544536,
+      "dummy_state_difference_count": 0
+    },
+    {
+      "case": "mixed-d58-p6-d64p1280-span256",
+      "reserved_slots": [
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        141,
+        142,
+        143
+      ],
+      "timings": {
+        "control": {
+          "raw_ms": [
+            27.98796844482422,
+            27.98796844482422,
+            27.97977638244629,
+            27.975679397583008,
+            27.96339225769043,
+            27.994112014770508
+          ],
+          "mean_ms": 27.981482823689777,
+          "median_ms": 27.983872413635254
+        },
+        "candidate": {
+          "raw_ms": [
+            28.028928756713867,
+            28.018688201904297,
+            28.059680938720703,
+            28.037120819091797,
+            28.028928756713867,
+            28.006303787231445
+          ],
+          "mean_ms": 28.02994187672933,
+          "median_ms": 28.028928756713867
+        }
+      },
+      "dummy_state_difference_count": 104
+    }
+  ],
+  "limits": [
+    "Frozen production flag only; no kernel/model-method monkeypatch. Native real-row router/top8/FP8 exact. Fused residual compatibility enabled by recorded environment.",
+    "Fixed partial/full B64 inputs and eight-step exact trajectories, not service/full quality acceptance.",
+    "Participating dummy state/output differences are intentional and logged; every real and nonparticipating slot must match.",
+    "Small batch and mixed contexts are correctness compatibility gates, not full-service gains. Eight fixed-state timing pairs for pure cases and six for mixed are diagnostics."
+  ]
+}

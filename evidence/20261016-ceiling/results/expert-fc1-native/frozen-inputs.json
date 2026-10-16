@@ -1,0 +1,12 @@
+{
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/common.py": "2ab3a1ec3920eae51c0088d362d26f982424341cd6208092cab73cead175fcc7",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/run.py": "c72ed6e3467b99952c8996bcbca3e430ab1e805c50c38a453de06bb3ff61df7d",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/launch.py": "fd5273e9d9e2f2b219d0754aab95260bef64e1bb78ebbbab78f1d655e5b6ffd6",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/prepare_v2.py": "54d879bff691ab6dd92c27fee22b4792095d5838b8a5340b61f9e2896e57d93c",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/prepare-v2-result.json": "05d3ef71d524d27e36b2f19c33ae9d8b086237dfda5737113a13cc14dc137cf9",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/inputs.pt": "7c5e0570c8c3df63bb5636c645b5bf3e71c000f6ef17f25f72710991e8d338f7",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/protocol.json": "bbed3df1727d5de3da4df5b0348db76af31fb4b68938df7f78289997c439bf0f",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/compile-artifacts-v2/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024820.sm_103a.cubin": "f574adcc5b7ec689992750b46dda5ba4f730fe8aa2c4cdedfb2ace690f6ff361",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/compile-artifacts-v2/host-module.mlir": "0a07e3ccbd5fcd82374a8fbead01c1854b69bd7a0da3ed3723b89566af9bac48",
+  "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-fc1-native/compile-artifacts-v2/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024820.sm_103a.ptx": "2cc9bd0b1113c6639e2f9ff2bb6be16ddba0f3cbbb19dd9454c7bde09d4e237c"
+}

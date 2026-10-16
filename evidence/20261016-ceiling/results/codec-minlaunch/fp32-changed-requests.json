@@ -1,0 +1,264 @@
+{
+  "status": "DIAGNOSTIC_PASS",
+  "source_sha": "a607dff26c3ca5423746f7eebec4f5f5a88cd4c0",
+  "source": "/home/zjy/code/hsliu/drama3-short-padding-frozen-20261016",
+  "saved_model_trace_sha": "8ccefd063a90991cc45b31caa6457fae256720d0",
+  "prefix_replay": "prefix-replay.json",
+  "prefix_replay_matches_original": true,
+  "script_sha256": "02e4fb7f1496c42685e679c737046f707d5ceb0e0ee7fa7fc7ad595d196a804f",
+  "hypothesis": "Both original BF16 codec partitions have bounded error relative to native FP32 full-prefix eager decoding on each of the five actual PCM mismatches.",
+  "controls": "Immutable original PCM, exactly replayed full codes, original FP32 checkpoint, each request decoded in batch1. TF32/autocast off, SDPA math, indices cloned before native in-place clamp.",
+  "gate": "Diagnostic bound: equal lengths, finite values and full-output RRMS<0.03 for both partitions on every request. Not an exactness or WER/SIM promotion gate.",
+  "stop": "Retain any mismatch or bound failure; original exact FAIL unchanged.",
+  "gpu": 7,
+  "before_gpu": "",
+  "requests": [
+    {
+      "request_id": "1",
+      "frames": 57,
+      "first_different_sample": 86019,
+      "last_different_sample": 116735,
+      "first_changed_frame": 42,
+      "policies": {
+        "dp": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0009745517654926004,
+            "reference_rms": 0.07631426166830711,
+            "rrms": 0.012770244305427466,
+            "snr_db": 37.876015884827005,
+            "max_abs": 0.01417383608533701,
+            "different_samples": 116736
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.0007373994059069686,
+            "reference_rms": 0.060366990090545844,
+            "rrms": 0.01221527534834727,
+            "snr_db": 38.26193478024554,
+            "max_abs": 0.008578614212662844,
+            "different_samples": 30720
+          }
+        },
+        "min_launches": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0009762301567017021,
+            "reference_rms": 0.07631426166830711,
+            "rrms": 0.012792237458114922,
+            "snr_db": 37.86106975041493,
+            "max_abs": 0.01417383608533701,
+            "different_samples": 116736
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 30720,
+            "rms": 0.0007457880058719603,
+            "reference_rms": 0.060366990090545844,
+            "rrms": 0.012354235398407899,
+            "snr_db": 38.16368255688147,
+            "max_abs": 0.0077139891737035005,
+            "different_samples": 30720
+          }
+        }
+      }
+    },
+    {
+      "request_id": "32",
+      "frames": 106,
+      "first_different_sample": 86016,
+      "last_different_sample": 146718,
+      "first_changed_frame": 42,
+      "policies": {
+        "dp": {
+          "full_vs_fp32": {
+            "samples": 217088,
+            "rms": 0.0011929454548874772,
+            "reference_rms": 0.06429371419028947,
+            "rrms": 0.01855462030637596,
+            "snr_db": 34.63095856872695,
+            "max_abs": 0.04333756541720501,
+            "different_samples": 217088
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 131072,
+            "rms": 0.0012028522664752899,
+            "reference_rms": 0.05122895360673567,
+            "rrms": 0.02347993042585076,
+            "snr_db": 32.58606388589379,
+            "max_abs": 0.04333756541720501,
+            "different_samples": 131072
+          }
+        },
+        "min_launches": {
+          "full_vs_fp32": {
+            "samples": 217088,
+            "rms": 0.0011888437995997403,
+            "reference_rms": 0.06429371419028947,
+            "rrms": 0.018490824718589614,
+            "snr_db": 34.66087436443688,
+            "max_abs": 0.04333756541720501,
+            "different_samples": 217088
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 131072,
+            "rms": 0.0011961075233714463,
+            "reference_rms": 0.05122895360673567,
+            "rrms": 0.02334827161517857,
+            "snr_db": 32.634905261934215,
+            "max_abs": 0.04333756541720501,
+            "different_samples": 131072
+          }
+        }
+      }
+    },
+    {
+      "request_id": "33",
+      "frames": 122,
+      "first_different_sample": 86208,
+      "last_different_sample": 146709,
+      "first_changed_frame": 42,
+      "policies": {
+        "dp": {
+          "full_vs_fp32": {
+            "samples": 249856,
+            "rms": 0.001894926898179762,
+            "reference_rms": 0.18333755759990733,
+            "rrms": 0.010335726748989481,
+            "snr_db": 39.71317961734886,
+            "max_abs": 0.022113160023786188,
+            "different_samples": 249856
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 163840,
+            "rms": 0.001721399932007646,
+            "reference_rms": 0.1653099041584982,
+            "rrms": 0.010413168773948217,
+            "snr_db": 39.648341852383254,
+            "max_abs": 0.020493458954945205,
+            "different_samples": 163840
+          }
+        },
+        "min_launches": {
+          "full_vs_fp32": {
+            "samples": 249856,
+            "rms": 0.0018847468611878611,
+            "reference_rms": 0.18333755759990733,
+            "rrms": 0.010280200553892477,
+            "snr_db": 39.759968254287195,
+            "max_abs": 0.022438003738871587,
+            "different_samples": 249856
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 163840,
+            "rms": 0.001704271095635086,
+            "reference_rms": 0.1653099041584982,
+            "rrms": 0.010309552257685907,
+            "snr_db": 39.73520391302758,
+            "max_abs": 0.022438003738871587,
+            "different_samples": 163840
+          }
+        }
+      }
+    },
+    {
+      "request_id": "48",
+      "frames": 69,
+      "first_different_sample": 53256,
+      "last_different_sample": 98082,
+      "first_changed_frame": 26,
+      "policies": {
+        "dp": {
+          "full_vs_fp32": {
+            "samples": 141312,
+            "rms": 0.0014789405370878757,
+            "reference_rms": 0.12822940908591227,
+            "rrms": 0.011533551839866953,
+            "snr_db": 38.76073856024369,
+            "max_abs": 0.02833818729825789,
+            "different_samples": 141312
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 88064,
+            "rms": 0.0011958699716005424,
+            "reference_rms": 0.10712862411679751,
+            "rrms": 0.011162935970285023,
+            "snr_db": 39.04443132660695,
+            "max_abs": 0.013492108214930007,
+            "different_samples": 88064
+          }
+        },
+        "min_launches": {
+          "full_vs_fp32": {
+            "samples": 141312,
+            "rms": 0.0014777019018438677,
+            "reference_rms": 0.12822940908591227,
+            "rrms": 0.011523892314389626,
+            "snr_db": 38.7680161732002,
+            "max_abs": 0.02833818729825789,
+            "different_samples": 141312
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 88064,
+            "rms": 0.0011934104210347479,
+            "reference_rms": 0.10712862411679751,
+            "rrms": 0.011139977115113756,
+            "snr_db": 39.062314026674926,
+            "max_abs": 0.013492108214930007,
+            "different_samples": 88064
+          }
+        }
+      }
+    },
+    {
+      "request_id": "49",
+      "frames": 57,
+      "first_different_sample": 53255,
+      "last_different_sample": 97576,
+      "first_changed_frame": 26,
+      "policies": {
+        "dp": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0025218954425093613,
+            "reference_rms": 0.1437539653776032,
+            "rrms": 0.017543136538077517,
+            "snr_db": 35.11785513000404,
+            "max_abs": 0.058521358340358556,
+            "different_samples": 116736
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 63488,
+            "rms": 0.002630444052579205,
+            "reference_rms": 0.09981107001810076,
+            "rrms": 0.02635423157072831,
+            "snr_db": 31.582992846015348,
+            "max_abs": 0.058521358340358556,
+            "different_samples": 63488
+          }
+        },
+        "min_launches": {
+          "full_vs_fp32": {
+            "samples": 116736,
+            "rms": 0.0025271386877879338,
+            "reference_rms": 0.1437539653776032,
+            "rrms": 0.017579610281704693,
+            "snr_db": 35.09981513857963,
+            "max_abs": 0.058521358340358556,
+            "different_samples": 116736
+          },
+          "changed_suffix_vs_fp32": {
+            "samples": 63488,
+            "rms": 0.0026396804108552155,
+            "reference_rms": 0.09981107001810076,
+            "rrms": 0.026446769986300207,
+            "snr_db": 31.552547238387053,
+            "max_abs": 0.058521358340358556,
+            "different_samples": 63488
+          }
+        }
+      }
+    }
+  ],
+  "diagnostic_bound_pass": true,
+  "original_exact_gate": "FAIL remains unchanged."
+}

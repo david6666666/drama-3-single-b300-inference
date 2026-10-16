@@ -1,0 +1,10 @@
+{
+  "created_utc": "2026-10-15T23:32:33.011462+00:00",
+  "source_sha": "a2516896d535b31403acc0518caa3061e6a08977",
+  "driver_sha256": "1908d3d920affee25a90cb941173b58158249d88e0b8f6ce971a7b0f61dc5bc2",
+  "hypothesis": "Callback-local partial_frame is allocated on main capture stream and released when callback returns before auxiliary use completes, unlike the passing original artifact forward-local. Retaining it prevents main-stream graph-pool reuse while auxiliary embedding gather reads it.",
+  "isolated_variable": "Artifact subclass changes only one assignment retaining partial_frame as a graph attribute before auxiliary launch. Production source untouched; native serial arm synchronized for error attribution. Same first real B64 data/flags/fullstate gates as failing production driver.",
+  "evidence_before": "frame-pipeline-production-validation.json/log retain device ScatterGather index-out-of-bounds FAIL, zero successful checks/timing.",
+  "gate": "Real B64 full two-frame output, all conv/GDN/KV/request/RNG states, nonparticipating slots, capture/eager hidden2/fullstates exact. No timing. Stop and retain any failure.",
+  "limits": "A pass supports this lifetime mechanism on this failing input; it does not substitute for the full production rerun or prove every possible race absent."
+}

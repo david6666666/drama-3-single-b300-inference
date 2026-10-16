@@ -1,0 +1,29 @@
+{
+  "source": "9247e4bf87d6865a53315bc398b4933284d7660c",
+  "hypothesis": "The actual D64/P1280 mixed MoE row distribution may select more GEMM row tiles per expert and cause excess HBM weight traffic or low bandwidth efficiency, which the prior B64-only counters cannot rule out. This diagnostic only measures the existing native MajorK kernel; no layout, tactic, expert-count or quantization change.",
+  "case": {
+    "old_active": 58,
+    "decode_rows": 64,
+    "arriving": 6,
+    "prefill_capacity": 1280,
+    "max_span": 256,
+    "total_moe_rows": 1344,
+    "selected_layers": [
+      0,
+      19,
+      39
+    ]
+  },
+  "controls": {
+    "gpu_physical_index": 2,
+    "expected_uuid": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+    "source_snapshot": "/home/zjy/code/hsliu/artifacts/drama3-mixed-20261016/source-span-service",
+    "native_computation": "BF16 dense and GDN; native 128-block FP8 expert scales; full top-8",
+    "cache_control": "none",
+    "clock_control": "none",
+    "kernel_launch_count": 6,
+    "profiling_only_after": "model load, graph capture, all64 real prompt first frames, 8 autoregressive steps; last6 slots reinitialized as arrivals before mixed graph"
+  },
+  "decision": "Do not rerun blocked/autotune solely because vLLM uses BlockMajorK; prior B64 layout tests are recorded. Stop after counters if no excess traffic; any further experiment needs a new observed reason.",
+  "scope": "Isolated actual-input GEMM counters, not service timing or quality acceptance."
+}

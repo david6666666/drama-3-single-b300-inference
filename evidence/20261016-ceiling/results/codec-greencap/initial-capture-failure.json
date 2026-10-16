@@ -1,0 +1,10 @@
+{
+  "status": "INIT_FAIL_CUDNN_NOT_SUPPORTED",
+  "trials": 0,
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "driver_sha256": "83eaffe8eae8d6e95680f0f657f0b29d50accf121578672daff56298806d5736",
+  "stage": "32SM first DAC graph capture, primary current context; warmups used original capture method",
+  "error": "CUDNN_STATUS_NOT_SUPPORTED at dac_channels_last.py501 F.conv2d",
+  "raw_log": "stdout.log",
+  "scope": "No performance trial or quality comparison completed; does not imply native model quality failure."
+}

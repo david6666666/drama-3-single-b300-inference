@@ -1,0 +1,35 @@
+{
+  "status": "CPU_RESOURCE_PASS",
+  "cubin_sha256": "06974be36c9213567e0f77dd382ef6128caf806cb601f83d97dc4b8fe69f3475",
+  "ptx_sha256": "f32c4ba2a7a01dc03cabeae2040d57393ee0efdfcbd43701718728e80c6934ca",
+  "host_ir_sha256": "87594522adb328b72ddd0ba008352eab3d3033e805d0f27cc99a3f3381d2f41a",
+  "dynamic_shared_bytes": 72568,
+  "static_shared_bytes": 2048,
+  "total_shared_bytes_per_cta": 74616,
+  "limit_bytes_per_cta": 81920,
+  "dynamic_shared_evidence": [
+    {
+      "constant": "%17",
+      "config_pointer": "%201",
+      "dynamic_shared_bytes": 72568
+    }
+  ],
+  "stack_bytes": 0,
+  "local_bytes": 0,
+  "ptx_local_ops": 0,
+  "sass_spill_ops": 0,
+  "base_registers": 32,
+  "setmaxnreg_limits": [
+    "160",
+    "48"
+  ],
+  "cluster_size": 1,
+  "cluster_evidence": null,
+  "limitations": [
+    "Resource fit does not prove occupancy or concurrent residency.",
+    "Dynamic SETMAXNREG limits require complete warp-role resource accounting.",
+    "Independent FC1/FC2 resource counts cannot be added to infer composite buffer lifetime."
+  ],
+  "gpu_used": false,
+  "timing_allowed": false
+}

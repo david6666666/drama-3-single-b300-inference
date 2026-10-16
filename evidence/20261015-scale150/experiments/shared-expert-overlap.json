@@ -1,0 +1,9 @@
+{
+  "source_sha": "1dca8f62e23396b0cd2085530714ead22233ed52",
+  "hypothesis": "The unchanged BF16 shared expert can overlap native full top-8 FP8 routed experts inside each decode graph.",
+  "isolated_variable": "Only CUDA stream fork/join of the shared expert SiLU and down projection; default stays serial.",
+  "controls": "One GPU6 B300 for both arms, real identical prompts and saved all-layer KV/GDN/conv/request/RNG state, same native FP8/BF16 boundaries, OMP4, maxcontext2048, no caches flushed.",
+  "success": "Ten autoregressive steps have bitexact acoustic codes and all mutable state; only then consider GPU graph time. No service gain is claimed.",
+  "stop": "Any non-exact code/state, failure, or external process on GPU6. Frozen formal campaign still requires GPU0 and all21groups.",
+  "gpu_uuid": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf"
+}

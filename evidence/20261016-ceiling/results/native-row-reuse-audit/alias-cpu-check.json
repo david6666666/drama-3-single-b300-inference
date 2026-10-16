@@ -1,0 +1,116 @@
+{
+  "status": "CPU_PASS",
+  "cuda_initialized": false,
+  "import_check": {
+    "import_without_cuda": true,
+    "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+    "cases": [
+      [
+        "proxy190",
+        [
+          1040,
+          1041,
+          1042,
+          1043,
+          1044,
+          1045,
+          1046,
+          1047
+        ],
+        [
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ]
+      ],
+      [
+        "proxy190_reversed_reused_graph",
+        [
+          1047,
+          1046,
+          1045,
+          1044,
+          1043,
+          1042,
+          1041,
+          1040
+        ],
+        [
+          63,
+          62,
+          61,
+          60,
+          59,
+          58,
+          57,
+          56
+        ]
+      ],
+      [
+        "proxy192_changed_conditioning_reused_graph",
+        [
+          1053,
+          1054,
+          1055,
+          1056,
+          1057,
+          1058,
+          1059,
+          1060
+        ],
+        [
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63
+        ]
+      ]
+    ],
+    "shape": [
+      40,
+      1600,
+      2048
+    ]
+  },
+  "cases": [
+    {
+      "case": "proxy190",
+      "aliases": 661,
+      "negative_pairs": 28,
+      "prompt_rows": 1354,
+      "padding_rows": 182,
+      "max_prompt_rows": 191
+    },
+    {
+      "case": "proxy190_reversed_reused_graph",
+      "aliases": 661,
+      "negative_pairs": 28,
+      "prompt_rows": 1354,
+      "padding_rows": 182,
+      "max_prompt_rows": 191
+    },
+    {
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "aliases": 531,
+      "negative_pairs": 28,
+      "prompt_rows": 1335,
+      "padding_rows": 201,
+      "max_prompt_rows": 177
+    }
+  ],
+  "hashes": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/check_alias_cpu.py": "a4fbfe96c1528c5189383fe1077046446114dec6eb1f0ed3e50ecb6c38192343",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/observe_alias.py": "902a989ac420b2a31596b3685e33683f1362956eee5e3d9bcdf4501c9cdc2087",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/reference-prefix/audit_prefix_cpu.py": "bf89ebd8829684fbd1455bacf1cc1461d89eb9efe48e3eb8010bced7f53a431d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/reference-prefix/per-request.json": "e0db1901ff67296d5a26e9fa471d75ca6448075534b3ed9d38583c58dfd0a34d"
+  }
+}

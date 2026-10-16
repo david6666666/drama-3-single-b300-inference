@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-10-16T03:02:49.158617+00:00",
+  "source_sha": "22403f7589a1c9ca6264b003199d078c636196ed",
+  "source_status": "",
+  "scope": "CPU-only independent audit; no model/GPU run or runtime changes",
+  "files": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/derive.py": "45f95f3b761eb3fcdbc60fcf3694f4265d905e634182d9f54d764026705f5a91",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/counts.json": "82fdc94b4f4083959d51bc416ceb7d5617e702336fe4bad98ec47ae98d7add63",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/proposal.md": "1fa2b756e10348308f5dde63d779437a65745ba5ce2ccf876ff84864562c0e1b",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/model.py": "2716709ec035b80c08341acf9ec26134bb16567afbbc4823e0904026908842fd",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/mixed_model.py": "b43902f6f438f8eabdfa50c256a6378969da0eac08ecdaeed84037e45abf0dba",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/mixed_graph.py": "f01ecfd906329a7e92e864753ec564de26a06805eac7ea9a06792a201973cc89"
+  },
+  "safe_to_archive": true
+}

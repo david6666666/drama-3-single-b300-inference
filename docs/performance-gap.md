@@ -1,8 +1,8 @@
-# Why the 2× target remains open
+# Why the throughput target remains open
 
 The new vLLM-Omni baseline reaches 4510.27 frames/s at C64. The target is
-9020.54 frames/s. The corrected standalone feasibility runs are around
-3500 frames/s; they need about 2.6× their present throughput. Small codec or
+6765.41 frames/s under the latest 1.5× requirement. The corrected standalone feasibility runs are around
+3500 frames/s; they need about 1.93× their present throughput. Small codec or
 tile changes do not bridge this gap.
 
 The heterogeneous B64 decode diagnostic at `52bec78` measures 8.59 ms for one
@@ -11,7 +11,7 @@ generated frames. Even an ideal stream consisting entirely of those full-batch
 decode steps would provide only about 7452 frames/s, before prefill, codec,
 scheduling, transport or partially occupied batches. This is an extrapolation
 from the diagnostic, not a measured serving throughput or a universal hardware
-limit. At C64 the target allows only 7.095 ms per full-batch step including all
+limit. At C64 the target allows only 9.460 ms per full-batch step including all
 amortized work.
 
 The profiler attributes about 42% of decode GPU time to the two expert GEMMs,
@@ -33,6 +33,13 @@ Measured experiments constrain the next implementation choices:
 | Small FP8 expert tile changes | Roughly 1.4% in one B1 decode diagnostic | Diagnostic only |
 | MXFP4 experts | Faster selected MoE layers, large difference from checkpoint FP8 math | Rejected for serving |
 | Async codec | Higher C64 WER in the full-corpus feasibility run | Not selected; cause not isolated |
+
+An updated upstream trace measures a median 9.458 ms GPU span for pure B64
+decode graphs. The standalone 8.59 ms diagnostic is already shorter, while its
+serving throughput is lower. The sum of upstream kernel durations exceeds the
+graph span because kernels overlap; it must not be used as elapsed time.
+This points toward prefill, batch occupancy and codec overlap as important
+additional causes. See the [current campaign](scale150-progress.md).
 
 The next substantial experiment should address expert weight traffic and
 prefill/decode GPU work together. Candidate directions are grouped expert

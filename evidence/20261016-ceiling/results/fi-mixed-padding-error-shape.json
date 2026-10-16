@@ -1,0 +1,80 @@
+{
+  "padding_length": 159,
+  "source": "fi-mixed-layer0-reference-inputs.pt",
+  "constant_after_conv_warmup": {
+    "q": true,
+    "k": true,
+    "v": true,
+    "decay": true,
+    "beta": true
+  },
+  "per_chunk": [
+    {
+      "tokens": [
+        0,
+        64
+      ],
+      "ref_rms": 0.0440344512462616,
+      "fi_output": {
+        "error_rms": 0.0015235240571200848,
+        "rrms": 0.034598458558321,
+        "max_abs": 0.14690303802490234
+      },
+      "fla_output": {
+        "error_rms": 0.0009943469194695354,
+        "rrms": 0.02258111536502838,
+        "max_abs": 0.10700321197509766
+      }
+    },
+    {
+      "tokens": [
+        64,
+        128
+      ],
+      "ref_rms": 0.04478822275996208,
+      "fi_output": {
+        "error_rms": 0.0003568697429727763,
+        "rrms": 0.007967936806380749,
+        "max_abs": 0.022248804569244385
+      },
+      "fla_output": {
+        "error_rms": 0.00015234797319862992,
+        "rrms": 0.003401518566533923,
+        "max_abs": 0.014436304569244385
+      }
+    },
+    {
+      "tokens": [
+        128,
+        159
+      ],
+      "ref_rms": 0.044790901243686676,
+      "fi_output": {
+        "error_rms": 0.0002470488252583891,
+        "rrms": 0.005515602882951498,
+        "max_abs": 0.01915895938873291
+      },
+      "fla_output": {
+        "error_rms": 0.0001110746743506752,
+        "rrms": 0.002479849150404334,
+        "max_abs": 0.01209104061126709
+      }
+    }
+  ],
+  "fi_output_max_location": {
+    "token": 63,
+    "head": 7,
+    "channel": 79,
+    "actual": 1.0859375,
+    "reference": 0.9390344619750977,
+    "abs_error": 0.14690303802490234
+  },
+  "fla_output_max_location": {
+    "token": 63,
+    "head": 7,
+    "channel": 79,
+    "actual": 0.83203125,
+    "reference": 0.9390344619750977,
+    "abs_error": 0.10700321197509766
+  }
+}

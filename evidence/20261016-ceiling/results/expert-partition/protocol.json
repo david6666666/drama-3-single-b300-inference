@@ -1,0 +1,39 @@
+{
+  "hypothesis": "Native 2x128 expert pipeline reduces stage waits enough to outweigh duplicated metadata/activation/static-grid work",
+  "variable": "one fixed contiguous expert split; native / serial partition / parallel partition",
+  "fixed": {
+    "source_sha": "171acc82460f479b56372a57d9f7de7a154795aa",
+    "layers": [
+      0,
+      19,
+      39
+    ],
+    "gpu_uuid": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+    "native_topk": 8,
+    "experts": 256,
+    "FP8": "original E4M3/FP32 scales at every native boundary",
+    "finalize": "ordered top8 FP32 then one BF16 cast",
+    "pdl": true,
+    "tile": 8,
+    "cache": "warm, no global cache changes",
+    "inputs": "actual native layer capture:63 real+1 reserved padding",
+    "no_sweep": true
+  },
+  "success": "All staged exact gates before timing; at least 5% complete local MoE time reduction to propose wider validation",
+  "stop": "Any native semantic mismatch stops timing and promotion; archive failure",
+  "commands": {
+    "argv": [
+      "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+      "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-partition/driver.py"
+    ],
+    "environment": {
+      "CUDA_VISIBLE_DEVICES": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+      "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-expert-partition-171acc8/src",
+      "OMP_NUM_THREADS": "4",
+      "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/hf_modules",
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1"
+    }
+  },
+  "driver_sha256": "5402d3fe333e8f8a8845f9e4031bdc896c52c6d409e53e24cc04bf1588643481"
+}

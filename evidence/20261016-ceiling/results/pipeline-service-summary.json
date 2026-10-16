@@ -1,0 +1,199 @@
+{
+  "source_sha": "a7118fb7eb748d08c3b774fa6c9189b6eab0d9cc",
+  "concurrency": 64,
+  "requests_per_arm": 1088,
+  "repeats_per_arm": 1,
+  "profile_enabled": false,
+  "limits": {
+    "wer_corpus_max": 0.02950933601272712,
+    "sim_min": 61.88158934120563
+  },
+  "arms": {
+    "control": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 22.488464811001904,
+        "valid": true,
+        "throughput_frames_s": 4576.835318240403,
+        "ttfa_p50_ms": 137.8519720165059,
+        "ttfa_p95_ms": 266.7906409304043,
+        "rtf_mean": 0.29211125309242736
+      },
+      "output": {
+        "acoustic_frames": 102926.0,
+        "audio_samples": 210792448,
+        "audio_duration_s": 4779.87410430839,
+        "at_or_above_500_frames": 4,
+        "rms_below_1e_3": 3,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.021183957129699404,
+          "wer_per_sample_mean": 0.019840963304948406,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.09336947374959144,
+          "wer_per_sample_p95": 0.1,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.011685012701100762,
+          "wer_below_50_per_sample_mean": 0.0112445516821708,
+          "n_above_50_pct_wer": 11,
+          "pct_above_50_pct_wer": 1.0110294117647058,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 64.35942941230914,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true
+      },
+      "quality_gate_pass": true,
+      "server_pid": 425076,
+      "startup_to_readiness_s": 70.03376225696411,
+      "warmup_requests": 64,
+      "warmup_success": true,
+      "clean_shutdown": true,
+      "pipeline_decisions": null
+    },
+    "candidate": {
+      "metrics": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 22.755093262996525,
+        "valid": true,
+        "throughput_frames_s": 4580.029569444877,
+        "ttfa_p50_ms": 136.53031102148816,
+        "ttfa_p95_ms": 264.62476871092025,
+        "rtf_mean": 0.29169096229963826
+      },
+      "output": {
+        "acoustic_frames": 104219.0,
+        "audio_samples": 213440512,
+        "audio_duration_s": 4839.920907029478,
+        "at_or_above_500_frames": 6,
+        "rms_below_1e_3": 1,
+        "finish_reasons": {
+          "unavailable_in_raw_pcm": 1088
+        }
+      },
+      "quality": {
+        "wer": {
+          "lang": "en",
+          "total_samples": 1088,
+          "evaluated": 1088,
+          "skipped": 0,
+          "wer_corpus": 0.022774847190823077,
+          "wer_per_sample_mean": 0.021930500055500055,
+          "wer_per_sample_median": 0.0,
+          "wer_per_sample_std": 0.09772033358615398,
+          "wer_per_sample_p95": 0.1,
+          "wer_per_sample_max": 1.0,
+          "wer_below_50_corpus": 0.012550881953867029,
+          "wer_below_50_per_sample_mean": 0.0123641345734369,
+          "n_above_50_pct_wer": 13,
+          "pct_above_50_pct_wer": 1.1948529411764706,
+          "latency_mean_s": 0.0,
+          "latency_median_s": 0.0,
+          "latency_p95_s": 0.0,
+          "rtf_mean": 0.0,
+          "audio_duration_mean_s": 0
+        },
+        "similarity": {
+          "mean": 63.90760645840098,
+          "evaluated": 1088,
+          "total": 1088,
+          "skipped": 0
+        },
+        "complete": true
+      },
+      "quality_gate_pass": true,
+      "server_pid": 429443,
+      "startup_to_readiness_s": 52.0439480189234,
+      "warmup_requests": 64,
+      "warmup_success": true,
+      "clean_shutdown": true,
+      "pipeline_decisions": {
+        "eligible": 159,
+        "capacity": 193,
+        "admission": 1216,
+        "audio_boundary": 142
+      },
+      "pipeline_fraction_of_ordinary_decode_launches": 0.09298245614035087,
+      "pipeline_counter_scope": "Entire server lifetime:64 warmup +1088 measured requests; excludes mixed/prefill branches. Not benchmark-only pair coverage."
+    }
+  },
+  "qualification": "One feasibility pair, no replicated or fixed-output speedup claim. Production pipeline3689 exact checks passed before service, including separately synthetic first-EOS. Only FRAME_PIPELINE changes; both router1/five native flags. DP partitions are not held fixed. Both arms require complete unfiltered1088 WER/SIM.",
+  "artifacts": {
+    "service_protocol": "pipeline-service-experiment.json",
+    "quality_protocol": "pipeline-quality-experiment.json",
+    "native_gate": "frame-pipeline-production-v2-validation.json",
+    "native_micro": "frame-pipeline-production-results.md"
+  },
+  "sampler_limitation": "Global sampling_step is not reset after graph capture; extra candidate captures can change its initial value, and later pairing/admission changes step/row scheduling. Outputs are deliberately scored unfiltered; no fixed-seed or fixed-output speedup claim.",
+  "comparison": {
+    "throughput_relative_change": 0.0006979170064835838,
+    "makespan_relative_change": 0.011856231816419038,
+    "output_frames_relative_change": 0.012562423488720054,
+    "ttfa_p50_delta_ms": -1.3216609950177372,
+    "ttfa_p95_delta_ms": -2.165872219484072,
+    "wer_delta_percentage_points": 0.15908900611236731,
+    "sim_delta": -0.45182295390816307,
+    "same_audio_sha256": 0,
+    "same_output_frame_count": 37
+  },
+  "service_process_audit": {
+    "path": "pipeline-service-process-audit.jsonl",
+    "samples": 156,
+    "sampling_interval_s": 1,
+    "observed_gpu6_pids": [
+      425076,
+      429443
+    ],
+    "maximum_simultaneous_gpu6_processes": 1,
+    "sampling_limitation": "One-second polling cannot exclude shorter unobserved interference.",
+    "expected_server_pids": [
+      425076,
+      429443
+    ],
+    "foreign_process_observed": false
+  },
+  "quality_process_audit": {
+    "path": "pipeline-quality-process-audit.jsonl",
+    "samples": 142,
+    "sampling_interval_s": 1,
+    "observed_gpu6_pids": [
+      432268,
+      435610
+    ],
+    "maximum_simultaneous_gpu6_processes": 1,
+    "sampling_limitation": "One-second polling cannot exclude shorter unobserved interference."
+  },
+  "target": {
+    "vllm_c64_baseline_frames_s": 4510.271508809941,
+    "required_ratio": 1.5,
+    "target_frames_s": 6765.407263214912,
+    "observed_candidate_vs_vllm": 1.0154664881035824,
+    "achieved": false
+  },
+  "post_run_gpu6_empty": true,
+  "interpretation": "Same-source bounded native two-frame feasibility with only FRAME_PIPELINE0->1. Output lengths, initial sampling_step and later scheduling can differ. One pair is not a repeated or fixed-work speedup claim. Actual shutdown eligibility is recorded including warmup; source remains default off. Full unfiltered quality and all failures retained; no1.5x goal claim."
+}

@@ -1,0 +1,29 @@
+{
+  "hypothesis": "The NEW shared-input/output activation body with one warp per token preserves native FC1->activation bytes/scales despite changed reduction ownership.",
+  "isolated_variable": "Original activation scalar arithmetic/converter, FP8 boundaries and source inputs held; input/output move through shared memory and max reduction maps128 channels to32lanes.",
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "gpu_uuid": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf",
+  "scope": "Single untimed arithmetic/layout feasibility. No runtime edits, service or performance claims. Original native host helper is used only to create additional synthetic zero/NaN oracles.",
+  "controls": "15 archived native oracles / all4rank fragments;512threadCTA with8active epiloguewarps; compiledsm103a -use_fast_math; original FP8bytes/FP32scales, nativefulltop8 provenance. No weight/model loading, no cacheflush, no clock control.",
+  "gate": "Every activation byte and FP32scale bit exact;partialvalid0..8,globalandsharedcanaries,input/scales/counts/RNG unchanged;capturedgraph with changedinputs; separate signedzero/FLT_MIN/NaN diagnostics.",
+  "stop": "First mismatch preserves failed tensors/result; no timing or service continuation.",
+  "before_gpu": "",
+  "hashes": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/run.py": "40c4ee02782112d69e38f436260228f4808b2fe058874cb5a7dd164050f6a8f1",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/shared_activation.cu": "84fbc06ed358c794dceb59e7c0197873a798fe132fd8bf52b0ef4f2d07f9a46d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/shared_activation.so": "97693503ca30470033a1833461e60aacc14d77e8e9c9711ec090029a1b2db0e2",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/inputs.pt": "a1631ff7a6b04a89d3e30b449e55e9fad2b033167f1df008a2f541f98e8bac2b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/cpu-contract.json": "e3487e09e7a03c1591d1f3a238d88f1862b4e1b4ff48ef690e114b5c434b7cda",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/compile-command.json": "537192b326fb03de608bf7e3caf3ececbe6629224434680e7cdb099a3f8728fc",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/extension/drama3_metadata_rebase_native.so": "43c14f43b679107ea591f4fc73c95faaa84c1f6d4b1e9c5a171fc56079a016b3"
+  },
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native/run.py"
+  ],
+  "storage": {
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python": "/dev/vda4 ext4   /",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-activation-native": "/dev/vda4 ext4   /",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase": "/dev/vda4 ext4   /"
+  }
+}

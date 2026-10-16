@@ -1,0 +1,7 @@
+{
+  "status": "CPU_IMPORT_PASS",
+  "cuda_initialized": false,
+  "byte_comparator_distinguishes_signed_zero": true,
+  "scalar_int64_equal_and_unequal": true,
+  "empty_bf16": true
+}

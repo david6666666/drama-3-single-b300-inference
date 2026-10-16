@@ -1,0 +1,9 @@
+{
+  "status": "COMPILED_UNAUDITED",
+  "kernel_hash": "d05272428d375a64ba15a15878887f5f0f1893593cf9eae411e9a35a6128594c",
+  "metadata": "KernelMetadata(allowed_dot_input_precisions=['tf32', 'tf32x3', 'ieee', 'bf16x3', 'bf16x6'], arch='sm103', backend_name='cuda', debug=False, default_dot_input_precision='tf32', deprecated_fp8_dot_operand_dtypes=['fp8e4b15'], enable_fp_fusion=True, enable_reflect_ftz=True, extern_libs=[['libdevice', '/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc']], global_scratch_align=1, global_scratch_size=0, hash='d05272428d375a64ba15a15878887f5f0f1893593cf9eae411e9a35a6128594c', instrumentation_mode='', ir_override=None, launch_cooperative_grid=False, launch_pdl=False, max_num_imprecise_acc_default=0, maxnreg=None, name='fused_kernel', num_ctas=1, num_stages=3, num_warps=4, profile_scratch_align=1, profile_scratch_size=0, ptx_options=None, ptx_version=None, sanitize_overflow=True, shared=512, supported_fp8_dtypes=['fp8e4b15', 'fp8e4nv', 'fp8e5'], target=GPUTarget(backend='cuda', arch=103, warp_size=32), tensordesc_meta=[], tmem_size=0, triton_version='3.7.1', warp_size=32)",
+  "driver_sha256": "b7fea5a794d7b624d32924c2fea249cfe5ed3ce9537d6062cdb9148da8092d71",
+  "kernel_source_sha256": "4b761b6da5d5f220d06a8ff88cd0fbd83bbeb8769706d545203f37517e194612",
+  "cuda_initialized": false,
+  "gpu_run": false
+}

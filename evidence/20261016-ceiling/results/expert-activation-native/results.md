@@ -1,0 +1,17 @@
+# Shared native activation: exact gate passed
+
+The **new shared-memory device body passes 2,063 checks across137 cases**, with no arithmetic, output-scale, input, RNG or canary mismatch. Source is frozen95fcb0e oracle provenance; CUDA source, compiled binary and input archive match their prelaunch hashes. GPU6 driver564898 exits0 and leaves the GPU free. No timings, model/service runs or production edits were made.
+
+The successful record is [result-v2.json](result-v2.json), with [protocol-v2.json](protocol-v2.json), [run-v2.py](run-v2.py), [log](run-v2.log), [ownership audit](process-audit-v2.jsonl) and [exit](exit-v2.json). The original attempt stopped **before any candidate kernel** because PyTorch reports UUID without the `GPU-` prefix. Its [FAIL](result.json), driver, protocol and log remain intact. V2 only normalizes that prefix; the CUDA source, binary and input archive are identical.
+
+Coverage includes all15 native oracles×4rank fragments, eager and reused captured graph with changed inputs, four partial cases cycling valid rows0..8, shared and global sentinels, input bytes/scales/counts and CUDA RNG. The separate synthetic extension checks all-zero, every up/gate signed-zero combination, FLT_MIN-scaled subnormals, one/all-block gate NaNs, negative up NaNs, and opposite saturated E4M3 signs. Those additional expected tensors come from the original native activation helper, retained as [synthetic-native-oracle.pt](synthetic-native-oracle.pt); the old15 native host bodies were not redundantly rerun. This boundary coverage is not an exhaustive proof over every FP32/NaN payload.
+
+## Interface delivered to FC1 and FC2 owners
+
+`activation_shared_8x128(x, sf, y, sy, valid_rows)` in [shared_activation.cu](shared_activation.cu) consumes shared FC1 bytes `[8,256]` (up128 followed by gate128 per token), FP32 scales `[2,8]` (up,gate then token), and produces shared E4M3 `[8,128]` plus FP32 `[8]`. It uses warps0..7 of the512-thread CTA: one complete warp/token, four channels/lane. Other warps remain in the enclosing kernel and participate in its barriers. The helper has no CTA barrier.
+
+The caller must complete native FC1 MMA/epilogue and publish the original quantized bytes/scales before calling it. After activation it publishes the rank output before cluster readers start. Four fragments assemble row-major `[8,512]` and block-major FP32 scales `[4,8]`. All remote readers must complete before producer storage is reused. Each rank output is1056B; complete local gathered activation is4224B. Input FC1 fragment is2112B. No FP8 boundary is bypassed.
+
+The standalone offline result is32 registers/thread, zero stack/spills,3296B ptxas user shared memory /4320B cuobjdump shared resource. The diagnostic canaries contribute128B. Full-chain combined resources, DSM publication/reader-completion synchronization, native FC1 epilogue scatter and FC2 swizzle still require their own implementation and validation. This successful local gate does not establish cluster correctness or speed.
+
+The detailed arithmetic/SASS/layout contract is in [contract.md](contract.md) and [cpu-contract.json](cpu-contract.json). The next interface gap is translating the helper into the CuTe/Prims DSL used by FC1/FC2; a C++ `__device__` function cannot simply be called from that DSL kernel. That translation belongs to a new artifact and must not be treated as validated merely because this C++ helper passed.

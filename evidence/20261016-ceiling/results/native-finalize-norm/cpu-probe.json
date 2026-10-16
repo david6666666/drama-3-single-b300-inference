@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "checks": [
+    "valid_rows1",
+    "invalid_rows1_arg1",
+    "invalid_rows1_arg2",
+    "invalid_rows1_arg4",
+    "invalid_rows1_arg5",
+    "valid_rows64",
+    "invalid_rows64_arg1",
+    "invalid_rows64_arg2",
+    "invalid_rows64_arg4",
+    "invalid_rows64_arg5",
+    "valid_rows1344",
+    "invalid_rows1344_arg1",
+    "invalid_rows1344_arg2",
+    "invalid_rows1344_arg4",
+    "invalid_rows1344_arg5"
+  ],
+  "cuda_initialized": false,
+  "metadata": {
+    "allowed_dot_input_precisions": [
+      "tf32",
+      "tf32x3",
+      "ieee",
+      "bf16x3",
+      "bf16x6"
+    ],
+    "arch": "sm103",
+    "backend_name": "cuda",
+    "debug": false,
+    "default_dot_input_precision": "tf32",
+    "deprecated_fp8_dot_operand_dtypes": [
+      "fp8e4b15"
+    ],
+    "enable_fp_fusion": false,
+    "enable_reflect_ftz": true,
+    "extern_libs": [
+      [
+        "libdevice",
+        "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc"
+      ]
+    ],
+    "global_scratch_align": 1,
+    "global_scratch_size": 0,
+    "hash": "8e40851cecc33fc67c994687063af4d2cc1634b126bd273d7cee66cd8c1c3189",
+    "instrumentation_mode": "",
+    "ir_override": null,
+    "launch_cooperative_grid": false,
+    "launch_pdl": true,
+    "max_num_imprecise_acc_default": 0,
+    "maxnreg": null,
+    "name": "fused_kernel",
+    "num_ctas": 1,
+    "num_stages": 3,
+    "num_warps": 4,
+    "profile_scratch_align": 1,
+    "profile_scratch_size": 0,
+    "ptx_options": null,
+    "ptx_version": null,
+    "sanitize_overflow": true,
+    "shared": 16,
+    "supported_fp8_dtypes": [
+      "fp8e4b15",
+      "fp8e4nv",
+      "fp8e5"
+    ],
+    "target": "GPUTarget(backend='cuda', arch=103, warp_size=32)",
+    "tensordesc_meta": [],
+    "tmem_size": 0,
+    "triton_version": "3.7.1",
+    "warp_size": 32
+  },
+  "kernel_sha256": "93303781ce4f63b580f3a921b1bcec0d4c76ed5f2807d938389b386bb747031d",
+  "source_sha256": "677b7d5d62cd3fde858625d4e3b7ef62952638090aca5444f46ef738717e60b7"
+}

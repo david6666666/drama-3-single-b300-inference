@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-cudnn-select/driver.py"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+    "OMP_NUM_THREADS": "8",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-sm-69d636e/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/quality-hf-modules"
+  },
+  "driver_sha256": "7b5d0d129ec1bca8c917983faec56ce785c938108b30609b38846436cdc3c93b",
+  "before_processes": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf, 485471, /home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python\n",
+  "pid": 487150
+}

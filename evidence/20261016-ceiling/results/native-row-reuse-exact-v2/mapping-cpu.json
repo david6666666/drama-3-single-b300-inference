@@ -1,0 +1,35 @@
+{
+  "status": "CPU_PASS",
+  "cuda_initialized": false,
+  "cases": [
+    {
+      "case": "proxy190",
+      "unique_rows": 939,
+      "compact_rows": 1088,
+      "appended_row0_copies": 149,
+      "aliases": 661,
+      "all_decode_and_original_padding_kept": true,
+      "bidirectional_mapping_exact": true
+    },
+    {
+      "case": "proxy190_reversed_reused_graph",
+      "unique_rows": 939,
+      "compact_rows": 1088,
+      "appended_row0_copies": 149,
+      "aliases": 661,
+      "all_decode_and_original_padding_kept": true,
+      "bidirectional_mapping_exact": true
+    },
+    {
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "unique_rows": 1069,
+      "compact_rows": 1088,
+      "appended_row0_copies": 19,
+      "aliases": 531,
+      "all_decode_and_original_padding_kept": true,
+      "bidirectional_mapping_exact": true
+    }
+  ],
+  "negative_controls_excluded": true,
+  "capacity": "Fixed1088, 64aligned, same graph supports all cases"
+}

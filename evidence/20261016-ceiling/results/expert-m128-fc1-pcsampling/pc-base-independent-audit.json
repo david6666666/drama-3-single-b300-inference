@@ -1,0 +1,181 @@
+{
+  "status": "CPU_EXPLICIT_BASE_FOUND_ORIGINAL_INCONCLUSIVE_UNCHANGED",
+  "gpu_used": false,
+  "raw_report_sha256": "8004f2f2bec6de511e276cf2fdf7d7accaad80d0d70a6e4a336d2a6380b0bab8",
+  "kernel": "bmm_E4m3_E4m3E4m3_Fp32_t128x8x128u2_s8_et64x8_m64x8x32_c1x1x1_rM_TN_transOut_noShfl_dsFp8_schPd4x2x2x3_bN_tma_tmaSf_rgTma_clmp_lbW2_dynB_sm100f",
+  "function_pc": 1099601699328,
+  "function_pc_hex": "0x100055e6200",
+  "provenance": "launch__function_pcs[0] and launch__kernel_name[0] share correlation ID 0; no sampled-minimum or text-match base search",
+  "sampled_pc_count": 445,
+  "strict_text_counts_after_explicit_base": {
+    "blank": 21,
+    "exact_text": 13,
+    "different_text": 411
+  },
+  "blank_pcs": [
+    {
+      "pc": "0x100055e6000",
+      "offset": -512,
+      "samples": 20,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055e6030",
+      "offset": -464,
+      "samples": 1,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055e6050",
+      "offset": -432,
+      "samples": 1,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055e6080",
+      "offset": -384,
+      "samples": 1,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055e6130",
+      "offset": -208,
+      "samples": 1,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055e6160",
+      "offset": -160,
+      "samples": 5,
+      "long_samples": 5
+    },
+    {
+      "pc": "0x100055e6180",
+      "offset": -128,
+      "samples": 5,
+      "long_samples": 5
+    },
+    {
+      "pc": "0x100055e61a0",
+      "offset": -96,
+      "samples": 2,
+      "long_samples": 2
+    },
+    {
+      "pc": "0x100055e61c0",
+      "offset": -64,
+      "samples": 2,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055e61d0",
+      "offset": -48,
+      "samples": 3,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055e61e0",
+      "offset": -32,
+      "samples": 1,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055e61f0",
+      "offset": -16,
+      "samples": 2,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055edc80",
+      "offset": 31360,
+      "samples": 93,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055edc90",
+      "offset": 31376,
+      "samples": 3,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055edd10",
+      "offset": 31504,
+      "samples": 1,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055edd20",
+      "offset": 31520,
+      "samples": 123,
+      "long_samples": 123
+    },
+    {
+      "pc": "0x100055edf80",
+      "offset": 32128,
+      "samples": 1,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055edf90",
+      "offset": 32144,
+      "samples": 2,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055edff0",
+      "offset": 32240,
+      "samples": 1,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055ee000",
+      "offset": 32256,
+      "samples": 1,
+      "long_samples": 0
+    },
+    {
+      "pc": "0x100055ee010",
+      "offset": 32272,
+      "samples": 7,
+      "long_samples": 0
+    }
+  ],
+  "formatting_examples": [
+    {
+      "offset": "0x0",
+      "report": "      LDC R1, c[0x0][0x37c]",
+      "frozen": "LDC R1, c[0x0][0x37c]"
+    },
+    {
+      "offset": "0x160",
+      "report": "@P0   BRA 0x100055e6560",
+      "frozen": "@P0 BRA 0x360"
+    },
+    {
+      "offset": "0x180",
+      "report": "      LOP3.LUT R2, R12, 0x1f, RZ, 0xc0, !PT",
+      "frozen": "LOP3.LUT R2, R12.reuse, 0x1f, RZ, 0xc0, !PT"
+    },
+    {
+      "offset": "0x1d0",
+      "report": "      ISETP.GE.U32.AND P0, PT, R2, 0xb, PT",
+      "frozen": "ISETP.GE.U32.AND P0, PT, R2.reuse, 0xb, PT"
+    }
+  ],
+  "statistics": {
+    "profiler__replayer_passes": 1.0,
+    "profiler__replayer_passes_type_warmup": 0.0,
+    "smsp__pcsamp_aggregated_passes": 2,
+    "smsp__pcsamp_buffer_overflow": 0,
+    "smsp__pcsamp_dropped_bytes": 0,
+    "smsp__pcsamp_interval_cycles": 4096.0
+  },
+  "source_files": [],
+  "limitations": [
+    "No metrics or original results modified.",
+    "Absolute branch targets and omitted .reuse are observed formatting differences; no relaxed matcher was used to promote the original result.",
+    "21 sampled PCs have no SASS from the report API and remain unclassified; do not discard.",
+    "Installed official docs define aggregated passes but do not explain the observed value 2 versus total replay passes 1/max-passes 1.",
+    "No candidate sampling or rerun was performed."
+  ]
+}

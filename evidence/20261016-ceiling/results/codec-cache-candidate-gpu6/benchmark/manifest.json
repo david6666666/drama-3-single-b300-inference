@@ -1,0 +1,21 @@
+{
+  "url": "http://127.0.0.1:18139",
+  "backend": "standalone",
+  "corpus": "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl",
+  "output": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-cache-candidate-gpu6/benchmark",
+  "concurrency": [
+    64
+  ],
+  "requests": 1088,
+  "repeats": 1,
+  "warmup": 8,
+  "max_frames": 500,
+  "timeout": 300,
+  "save_audio": true,
+  "warm_references": false,
+  "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+  "frame_measure": "returned_waveform_samples / 2048; excludes EOS",
+  "rtf_boundary": "dispatch_to_last_audio",
+  "finish_reason_coverage": false,
+  "connection_policy": "fresh TCP connection per request; no automatic retries"
+}

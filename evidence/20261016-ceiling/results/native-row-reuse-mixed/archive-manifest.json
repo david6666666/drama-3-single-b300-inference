@@ -1,0 +1,45 @@
+{
+  "status": "SAFE_TO_ARCHIVE",
+  "files": {
+    "command.json": {
+      "sha256": "87b63a26c90c5f3dc9d880c5f2544e38681c971dc155ad932530ed015b8e48e3",
+      "bytes": 2142
+    },
+    "cpu-check.json": {
+      "sha256": "f309897c27af67df02a548101dd10acbdc50dbfc862962311a0e8fc3c0ec036a",
+      "bytes": 424
+    },
+    "driver.py": {
+      "sha256": "210df7fe9ab9d2044dcc7211ed43975135852fe3d7493716b5d1b75d7e27000b",
+      "bytes": 11406
+    },
+    "gate.log": {
+      "sha256": "a7e7a85eaf3b44d2eb12facd949dfcab63a0785bdb35fd95a0fb5e2af80ae850",
+      "bytes": 1687
+    },
+    "gate.pid": {
+      "sha256": "641039f566c2e0184610f4e12f86b8720e5b5db252ad77868af68eb2bd07208c",
+      "bytes": 7
+    },
+    "launch.py": {
+      "sha256": "35f6d9af3460694cd5a2cd3cf0710a6199c13d92d66c53941de935db9d3ee59e",
+      "bytes": 1708
+    },
+    "protocol.json": {
+      "sha256": "e948b428e10b726bed94c0390be3e386fcbf86c54b323eac4eee7e8e00f59f35",
+      "bytes": 13434
+    },
+    "result.json": {
+      "sha256": "9c47d787b8a7636a6a755c7b18a2ec5950dcf2b75e5213109244ee44624a331c",
+      "bytes": 200226
+    },
+    "results.md": {
+      "sha256": "67f9db89504c11fa80e68280a31af877d97ce366bc8589a28aa422f2feb49d20",
+      "bytes": 3997
+    },
+    "summary.json": {
+      "sha256": "5f8b1261992d92a65f27d31c63755a7292e095231f2e26ea0fdd13ac776e7177",
+      "bytes": 1420
+    }
+  }
+}

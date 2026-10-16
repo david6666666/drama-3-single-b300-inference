@@ -1,0 +1,489 @@
+{
+  "status": "CPU_PASS",
+  "source_sha": "345c6a18f200853489a9ac8a86bbe0682ebe484d",
+  "cuda_initialized": false,
+  "cases": [
+    {
+      "name": "real_P768_K576_variant0",
+      "key": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "corpus_ids": [
+        679,
+        680,
+        681,
+        682
+      ],
+      "lengths": [
+        163,
+        163,
+        159,
+        163
+      ],
+      "active": 58,
+      "slots": [
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 524,
+      "synthetic": false
+    },
+    {
+      "name": "real_P768_K576_variant1",
+      "key": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "corpus_ids": [
+        705,
+        704,
+        703,
+        702,
+        701
+      ],
+      "lengths": [
+        149,
+        140,
+        156,
+        149,
+        172
+      ],
+      "active": 49,
+      "slots": [
+        63,
+        62,
+        61,
+        60,
+        59
+      ],
+      "unique_rows": 525,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1024_K832_variant0",
+      "key": [
+        64,
+        1024,
+        256,
+        832
+      ],
+      "corpus_ids": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "lengths": [
+        168,
+        169,
+        181,
+        164,
+        164,
+        140
+      ],
+      "active": 58,
+      "slots": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 729,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1024_K832_variant1",
+      "key": [
+        64,
+        1024,
+        256,
+        832
+      ],
+      "corpus_ids": [
+        80,
+        79,
+        78,
+        77,
+        76,
+        75
+      ],
+      "lengths": [
+        146,
+        158,
+        137,
+        178,
+        171,
+        143
+      ],
+      "active": 49,
+      "slots": [
+        63,
+        62,
+        61,
+        60,
+        59,
+        58
+      ],
+      "unique_rows": 728,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1280_K1088_variant0",
+      "key": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "corpus_ids": [
+        192,
+        193,
+        194,
+        195,
+        196,
+        197
+      ],
+      "lengths": [
+        182,
+        190,
+        180,
+        176,
+        166,
+        188
+      ],
+      "active": 58,
+      "slots": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 945,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1280_K1088_variant1",
+      "key": [
+        64,
+        1280,
+        256,
+        1088
+      ],
+      "corpus_ids": [
+        282,
+        281,
+        280,
+        279,
+        278,
+        277
+      ],
+      "lengths": [
+        154,
+        173,
+        179,
+        186,
+        192,
+        195
+      ],
+      "active": 49,
+      "slots": [
+        63,
+        62,
+        61,
+        60,
+        59,
+        58
+      ],
+      "unique_rows": 938,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1536_K1088_variant0",
+      "key": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "corpus_ids": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "lengths": [
+        150,
+        195,
+        195,
+        202,
+        203,
+        165,
+        159,
+        153
+      ],
+      "active": 56,
+      "slots": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 997,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1536_K1088_variant1",
+      "key": [
+        64,
+        1536,
+        256,
+        1088
+      ],
+      "corpus_ids": [
+        95,
+        94,
+        93,
+        92,
+        91,
+        90,
+        89
+      ],
+      "lengths": [
+        146,
+        150,
+        211,
+        215,
+        144,
+        231,
+        229
+      ],
+      "active": 49,
+      "slots": [
+        63,
+        62,
+        61,
+        60,
+        59,
+        58,
+        57
+      ],
+      "unique_rows": 987,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1536_K1344_variant0",
+      "key": [
+        64,
+        1536,
+        256,
+        1344
+      ],
+      "corpus_ids": [
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176
+      ],
+      "lengths": [
+        207,
+        162,
+        201,
+        142,
+        145,
+        177,
+        181,
+        152
+      ],
+      "active": 56,
+      "slots": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 1188,
+      "synthetic": false
+    },
+    {
+      "name": "real_P1536_K1344_variant1",
+      "key": [
+        64,
+        1536,
+        256,
+        1344
+      ],
+      "corpus_ids": [
+        269,
+        268,
+        267,
+        266,
+        265,
+        264,
+        263
+      ],
+      "lengths": [
+        157,
+        153,
+        223,
+        207,
+        203,
+        181,
+        159
+      ],
+      "active": 49,
+      "slots": [
+        63,
+        62,
+        61,
+        60,
+        59,
+        58,
+        57
+      ],
+      "unique_rows": 1176,
+      "synthetic": false
+    },
+    {
+      "name": "synthetic_min3_max256_partial3",
+      "key": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "corpus_ids": [],
+      "lengths": [
+        256,
+        256,
+        3
+      ],
+      "active": 49,
+      "slots": [
+        61,
+        62,
+        63
+      ],
+      "unique_rows": 573,
+      "synthetic": true
+    },
+    {
+      "name": "synthetic_cancel_before_admission",
+      "key": [
+        64,
+        768,
+        256,
+        576
+      ],
+      "corpus_ids": [],
+      "lengths": [
+        192,
+        192,
+        192
+      ],
+      "active": 58,
+      "slots": [
+        60,
+        62,
+        63
+      ],
+      "unique_rows": 448,
+      "synthetic": true
+    },
+    {
+      "name": "noalias_original_fallback",
+      "key": [
+        64,
+        768,
+        256,
+        null
+      ],
+      "corpus_ids": [],
+      "lengths": [
+        128,
+        128,
+        128,
+        128
+      ],
+      "active": 58,
+      "slots": [
+        60,
+        61,
+        62,
+        63
+      ],
+      "unique_rows": null,
+      "synthetic": true
+    },
+    {
+      "name": "capacity_original_fallback",
+      "key": [
+        64,
+        768,
+        256,
+        null
+      ],
+      "corpus_ids": [],
+      "lengths": [
+        192,
+        192,
+        192
+      ],
+      "active": 58,
+      "slots": [
+        60,
+        62,
+        63
+      ],
+      "unique_rows": null,
+      "synthetic": true
+    },
+    {
+      "name": "unsupported_P256_active63",
+      "key": [
+        64,
+        256,
+        256,
+        null
+      ],
+      "corpus_ids": [],
+      "lengths": [
+        256
+      ],
+      "active": 63,
+      "slots": [
+        63
+      ],
+      "unique_rows": null,
+      "synthetic": true
+    }
+  ]
+}

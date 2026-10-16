@@ -1,0 +1,23 @@
+{
+  "source_sha": "cf641724ae511da132ee3911a2f7786dc74e27ac",
+  "hypothesis": "Reuse existing multi-step graph execution at B2/B4/B8 to amortize host round trips without passing the next audio boundary.",
+  "isolated_variable": "Two or four autoregressive steps per CUDA Graph, versus sequential one-step graphs",
+  "controls": "GPU1 OMP4, native precision BF16 GDN, full request metadata, fixed sampling counter and identical inputs; heterogeneous output limits and context boundary510",
+  "success": "Bit-exact emitted frames, resident metadata, output codes, history and live recurrent states for all cases; separate full quality/performance required",
+  "stop": "Any difference in valid output or request state; do not integrate failed graph",
+  "partial_validation": {
+    "source_sha": "0451de3",
+    "result": "batched-multistep-partial-validation-v2.json",
+    "all_12_cases_pass": true,
+    "prior_test_failure": "84eb7b3 validation reused live-count variable for generated count; invalid test setup preserved."
+  },
+  "service_trial": {
+    "source_sha": "84eb7b3",
+    "gpu": 0,
+    "C": 4,
+    "requests": 1088,
+    "repetitions": 1,
+    "isolated_variable": "DRAMA3_BATCHED_MULTISTEP=1",
+    "controls": "Native formal flags, fresh source/flags control756.048fps; no table projection or packed prefill flag."
+  }
+}

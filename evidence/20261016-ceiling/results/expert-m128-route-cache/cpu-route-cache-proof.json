@@ -1,0 +1,337 @@
+{
+  "status": "CPU_ROUTE_CACHE_RESOURCE_ADDRESS_PASS",
+  "gpu_used": false,
+  "checks": [
+    {
+      "name": "CPU_AOT_PASS",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_native_source",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/same_compiled_residency_resources",
+      "passed": true,
+      "detail": {
+        "total_shared_bytes_per_cta": 74616,
+        "base_registers": 32
+      }
+    },
+    {
+      "name": "fc1/no_spill",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/actual_SASS_no_register_reconfiguration",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/same_PDL",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/host_launch_unchanged_except_embedded_CUBIN",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/same_compiled_residency_resources",
+      "passed": true,
+      "detail": {
+        "total_shared_bytes_per_cta": 74664,
+        "base_registers": 32
+      }
+    },
+    {
+      "name": "fc2/no_spill",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/actual_SASS_no_register_reconfiguration",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/same_PDL",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/host_launch_unchanged_except_embedded_CUBIN",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC2_CUBIN_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC1_CUBIN_changed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "old_K_body_contains_route_reads",
+      "passed": true,
+      "detail": {
+        "static_K_body_count": 7,
+        "K_body_ldglobal_count": 7,
+        "auxiliary_ldglobal_count": 2,
+        "total_SASS_LDG_count": 20
+      }
+    },
+    {
+      "name": "new_K_body_no_global_reads",
+      "passed": true,
+      "detail": {
+        "static_K_body_count": 7,
+        "K_body_ldglobal_count": 0,
+        "auxiliary_ldglobal_count": 3,
+        "total_SASS_LDG_count": 14
+      }
+    },
+    {
+      "name": "route_read_moves_to_prepare",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "SASS_removes_repeated_LDG",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L0/left_only/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L0/left_only/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L0/real/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L0/real/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L0/right_only/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L0/right_only/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L0/rows_reversed/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L0/rows_reversed/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L0/worst_global288/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L0/worst_global288/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L19/left_only/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L19/left_only/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L19/real/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L19/real/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L19/right_only/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L19/right_only/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L19/rows_reversed/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L19/rows_reversed/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L19/worst_global288/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L19/worst_global288/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L39/left_only/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L39/left_only/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L39/real/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L39/real/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L39/right_only/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L39/right_only/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L39/rows_reversed/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L39/rows_reversed/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L39/worst_global288/original/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "L39/worst_global288/within_expert_reverse/scale_addresses_exact",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial0/masked_read_domain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial1/masked_read_domain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial2/masked_read_domain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial3/masked_read_domain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial4/masked_read_domain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial5/masked_read_domain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial6/masked_read_domain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial7/masked_read_domain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "partial8/masked_read_domain",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cuda_uninitialized",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "graph_guard_CPU",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "ldg_static_counts": {
+    "before": {
+      "static_K_body_count": 7,
+      "K_body_ldglobal_count": 7,
+      "auxiliary_ldglobal_count": 2,
+      "total_SASS_LDG_count": 20
+    },
+    "after": {
+      "static_K_body_count": 7,
+      "K_body_ldglobal_count": 0,
+      "auxiliary_ldglobal_count": 3,
+      "total_SASS_LDG_count": 14
+    }
+  },
+  "dynamic_route_contract": "16\u21921 loads per valid scale lane per work tile; no reuse across work tiles",
+  "limitations": [
+    "Source/IR dependency removal is not proof of performance cause.",
+    "Same compiled resources do not prove measured occupancy.",
+    "CPU address equality is not the GPU exact numerical gate."
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "tasks": [
+    {
+      "task": "LoadATask",
+      "side": "src",
+      "resource": "GmemA",
+      "class": "GmemAResource",
+      "has_pipeline_group_attr": true,
+      "group_mode": null,
+      "stride": null,
+      "advance_on_acquire": null
+    },
+    {
+      "task": "LoadATask",
+      "side": "dst",
+      "resource": "SmemA",
+      "class": "SmemAResource",
+      "has_pipeline_group_attr": true,
+      "group_mode": null,
+      "stride": 1,
+      "advance_on_acquire": false
+    },
+    {
+      "task": "LoadBTask",
+      "side": "src",
+      "resource": "GmemB",
+      "class": "GmemBResource",
+      "has_pipeline_group_attr": true,
+      "group_mode": null,
+      "stride": null,
+      "advance_on_acquire": null
+    },
+    {
+      "task": "LoadBTask",
+      "side": "dst",
+      "resource": "SmemTmaGather",
+      "class": "SmemTmaGatherResource",
+      "has_pipeline_group_attr": true,
+      "group_mode": null,
+      "stride": 1,
+      "advance_on_acquire": false
+    },
+    {
+      "task": "MmaTask0",
+      "side": "src",
+      "resource": "SmemA",
+      "class": "SmemAResource",
+      "has_pipeline_group_attr": true,
+      "group_mode": null,
+      "stride": 1,
+      "advance_on_acquire": false
+    },
+    {
+      "task": "MmaTask0",
+      "side": "src",
+      "resource": "SmemTmaGather",
+      "class": "SmemTmaGatherResource",
+      "has_pipeline_group_attr": true,
+      "group_mode": null,
+      "stride": 1,
+      "advance_on_acquire": false
+    },
+    {
+      "task": "MmaTask0",
+      "side": "dst",
+      "resource": "TmemC",
+      "class": "TmemCResource",
+      "has_pipeline_group_attr": true,
+      "group_mode": null,
+      "stride": 1,
+      "advance_on_acquire": false
+    },
+    {
+      "task": "LoadSfAbTask",
+      "side": "dst",
+      "resource": "SmemDeepSeekSfAb",
+      "class": "SmemDeepSeekSfAbResource",
+      "has_pipeline_group_attr": true,
+      "group_mode": null,
+      "stride": 1,
+      "advance_on_acquire": false
+    },
+    {
+      "task": "EpilogueTask0DsFp8",
+      "side": "src",
+      "resource": "TmemC",
+      "class": "TmemCResource",
+      "has_pipeline_group_attr": true,
+      "group_mode": null,
+      "stride": 1,
+      "advance_on_acquire": false
+    },
+    {
+      "task": "EpilogueTask0DsFp8",
+      "side": "src",
+      "resource": "SmemDeepSeekSfAb",
+      "class": "SmemDeepSeekSfAbResource",
+      "has_pipeline_group_attr": true,
+      "group_mode": null,
+      "stride": 1,
+      "advance_on_acquire": false
+    },
+    {
+      "task": "EpilogueTask0DsFp8",
+      "side": "dst",
+      "resource": "GmemC",
+      "class": "GmemCResource",
+      "has_pipeline_group_attr": true,
+      "group_mode": null,
+      "stride": null,
+      "advance_on_acquire": null
+    }
+  ],
+  "cuda_initialized": false
+}

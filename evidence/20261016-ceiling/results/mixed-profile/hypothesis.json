@@ -1,0 +1,8 @@
+{
+  "hypothesis": "Find actual mixed refill cost by operator to replace obsolete padded-span512 FP32 prefill estimates",
+  "source_sha": "dfdd598a9810cf6e7b8aa6a102f6ab9270ff9cc6",
+  "controls": "GPU0; real58decode+6arrival; capacity1280span256; BF16 dense/GDN, top8 nativeFP8 experts; cache/clocks untouched",
+  "isolated_variable": "Profiler enabled after five unprofiled mixedgraph replays",
+  "success": "Trace accounts for current mixed GPU costs, no service/quality/speedup claim",
+  "stop": "one diagnostic; abort on initialization or native contract failure"
+}

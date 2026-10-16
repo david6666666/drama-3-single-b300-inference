@@ -1,0 +1,26 @@
+{
+  "status": "CPU_ONLY_IMPLEMENTATION_PROPOSAL",
+  "runtime_sha_read": "02aa9198d8c1d0e0ef5ba28b1cc64d2c0776fb8b",
+  "runtime_status_read": " M docs/scale150-progress.md\n M evidence/20261016-ceiling/README.md\n",
+  "input_code_sha256": {
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/model.py": "2716709ec035b80c08341acf9ec26134bb16567afbbc4823e0904026908842fd",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/mixed_model.py": "b43902f6f438f8eabdfa50c256a6378969da0eac08ecdaeed84037e45abf0dba",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/mixed_graph.py": "f01ecfd906329a7e92e864753ec564de26a06805eac7ea9a06792a201973cc89",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/packed_prefill.py": "a49f416c83b51a0c15196353860a7d9718a24526f676a3280f439de6feac4031",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/gdn.py": "a1a937473a6be9bff9a992427a48e01647bc4ca221aa81729cd7c64ab2f7b371",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/engine.py": "f582912ae1102a1584e1fc634628975458408f112224d1a1b4d30d8283a487e1",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/sglang/kernels/ops/attention/fla/chunk_delta_h.py": "c78a670b0240dac410e9f045ccc39cd8a2791f9fb2d98936ac1deb478b7dfebd"
+  },
+  "new_artifacts": {
+    "implementation-proposal.md": "64190b86e48baeb1c0544c5f401f395897fad0bb31e593905b4a1f098ee38842",
+    "alignment-boundary-proof.json": "63d32d4e8f0ef3c8e0439654a4b3834c97cdfb79fe60d27c3ba71f664f18d7cf",
+    "verify_alignment_boundary.py": "564092f66ec7b8dfa96e95fe6baf5b3953cc549922602a5fcfd98e8fe22d0153"
+  },
+  "gpu_used": false,
+  "runtime_modified": false,
+  "existing_statistics_rerun": false,
+  "report_editorial_revision": {
+    "previous_sha256": "14dc3237526a9efb24ea32f46e32730d233c9dad9e2af8797a40936196417e06",
+    "change": "Clarify that this CPU proposal did not launch GPU experiments; no numerical or source change."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "status": "CPU_DIFF_PASS",
+  "function_AST_unchanged": {
+    "exact": true,
+    "cpu_check": true,
+    "candidate_parts": true,
+    "candidate_combine": true
+  },
+  "helper_byte_identical": true,
+  "driver_sha256": "38959c53dc34317c0d13fcaa7ce1a1e96c950b6920476d62da3ca6fdc6d9705c"
+}

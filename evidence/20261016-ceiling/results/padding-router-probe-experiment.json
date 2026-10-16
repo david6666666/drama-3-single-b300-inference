@@ -1,0 +1,9 @@
+{
+  "hypothesis": "Reserved dummy rows may activate additional experts and increase native FP8 weight traffic; copying a real row router could remove only dummy-exclusive experts without altering real routing.",
+  "phase": "Quantification only, before any modified-router experiment.",
+  "source_sha": "6ff8d8067fb6e96804f49fd4f0c9020fd315e1fc",
+  "fixed_controls": "GPU6, native BF16 dense/state + fulltop8 FP8 scales; partial B64 active58/63, real corpus initial states, short-padding-context1; eight native decode steps; unchanged source.",
+  "measurement": "All40 actual FlashInfer top8 routing_replay_out, capture-output exact to original; exclusive dummy expert counts and logical weight bytes.",
+  "stop": "Stop on route-capture mismatch; no production edit or performance claim. Decide subsequent artifact-only comparison after observing footprint.",
+  "driver_sha256": "ac3504734e60088085dfec9ec1b111607435ff1809991130a567df24ff2232f2"
+}

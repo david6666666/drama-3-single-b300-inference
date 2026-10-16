@@ -1,0 +1,31 @@
+{
+  "status": "SAFE_TO_ARCHIVE",
+  "sampling_completed": true,
+  "records": 8,
+  "exact_checks": 404,
+  "each_profiler_passes": 4,
+  "foreign_gpu_context_observed": false,
+  "scope": "Four finite process-group audit sequences, not continuous exclusive-ownership proof.",
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "original_failure_preserved": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-ncu-node/launch-result.json",
+  "continuation_status": "COMPLETE_REMAINING_6_NODE_RECORDS",
+  "kernel_source_changed": false,
+  "native_runtime_promoted": false,
+  "performance_claim": false,
+  "whole_graph_run": false,
+  "pc_sampling_run": false,
+  "gpu2_post_audits_empty": true,
+  "raw_locations": [
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-ncu-node",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-ncu-node-v2"
+  ],
+  "summary_sha256": {
+    "analyze.py": "b8142b820a9b8fb907be5f8fdfc10adb4df353e1818241017b547e6146b4d4b9",
+    "summary.md": "66cdda3bbd7ea2de1438e9c1b47329235715898763dfa9db87f72bb77ef40de1",
+    "summary.json": "dcd5cec111f81771642d3f7a246895e7dc6e28c3d052b49b51756eb258429f25",
+    "summary.csv": "1d958ef7c7f1fd5d9f81aa1a7305cdc8d9a81c2f2dd3657db99e9a8dbb31dee9",
+    "cpu-checks.json": "f79ab77066949c5097d425f367ade3ac50dddfbe3eed752be413e34949fc46b9",
+    "launch-result.json": "14d447440e82e64683e0985959756caa43dbb7f5307287581f1469a34ebf6c9c"
+  },
+  "root_plan": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/ncu-metadata-ready-plan.md"
+}

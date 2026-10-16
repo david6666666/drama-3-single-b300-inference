@@ -1,0 +1,1168 @@
+{
+  "status": "NCU_SINGLE_GRAPH_REPLAY_EXACT_PASS",
+  "mode": "profile",
+  "checks": [
+    {
+      "name": "source_frozen",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_CPU_AOT_PASS",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/original_cubin_hash",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/original_cubin_hash",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/one_new_cubin",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/one_new_cubin",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/CPU_GPU_cubin_identical",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/CPU_GPU_cubin_identical",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "setup/candidate_metadata/map_bijection_bounds",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "setup/candidate_metadata/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "setup/candidate_metadata/token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "setup/candidate_metadata/padded_count",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "setup/candidate_metadata/active_row_prefix",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "setup/candidate_metadata/local_valid_count",
+      "exact": true,
+      "shape": [
+        146
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "setup/candidate/fc1",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "setup/candidate/fc1_padding",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "setup/candidate/act",
+      "exact": true,
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "setup/candidate/act_padding",
+      "exact": true,
+      "shape": [
+        1792,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "setup/candidate/fc2",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "setup/candidate/fc2_padding",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "setup/candidate/fc1scale",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "setup/candidate/fc1scale_padding",
+      "exact": true,
+      "shape": [
+        8,
+        656
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "setup/candidate/fc1scale_tail",
+      "exact": true,
+      "shape": [
+        9088
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "setup/candidate/actscale",
+      "exact": true,
+      "shape": [
+        512,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "setup/candidate/actscale_padding",
+      "exact": true,
+      "shape": [
+        4,
+        656
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "setup/candidate/actscale_tail",
+      "exact": true,
+      "shape": [
+        4544
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "setup/candidate/fc1_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "setup/candidate/fc1scale_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "setup/candidate/act_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "setup/candidate/actscale_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "setup/candidate/fc2_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "setup/candidate/out_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "setup/candidate_routed",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "pre_profile/metadata/map_bijection_bounds",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "pre_profile/metadata/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "pre_profile/metadata/token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "pre_profile/metadata/padded_count",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "pre_profile/metadata/active_row_prefix",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "pre_profile/metadata/local_valid_count",
+      "exact": true,
+      "shape": [
+        146
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "pre_profile/candidate/fc1",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "pre_profile/candidate/fc1_padding",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "pre_profile/candidate/act",
+      "exact": true,
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "pre_profile/candidate/act_padding",
+      "exact": true,
+      "shape": [
+        1792,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "pre_profile/candidate/fc2",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "pre_profile/candidate/fc2_padding",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "pre_profile/candidate/fc1scale",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "pre_profile/candidate/fc1scale_padding",
+      "exact": true,
+      "shape": [
+        8,
+        656
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "pre_profile/candidate/fc1scale_tail",
+      "exact": true,
+      "shape": [
+        9088
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "pre_profile/candidate/actscale",
+      "exact": true,
+      "shape": [
+        512,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "pre_profile/candidate/actscale_padding",
+      "exact": true,
+      "shape": [
+        4,
+        656
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "pre_profile/candidate/actscale_tail",
+      "exact": true,
+      "shape": [
+        4544
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "pre_profile/candidate/fc1_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "pre_profile/candidate/fc1scale_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "pre_profile/candidate/act_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "pre_profile/candidate/actscale_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "pre_profile/candidate/fc2_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "pre_profile/candidate/out_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "pre_profile/routed",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "pre_profile/readonly_tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "pre_profile/readonly_mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "pre_profile/readonly_route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "pre_profile/readonly_ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "pre_profile/readonly_padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "pre_profile/readonly_valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "pre_profile/readonly_mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "pre_profile/readonly_expanded",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "pre_profile/readonly_q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "pre_profile/readonly_s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "pre_profile/readonly_ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "pre_profile/readonly_weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "pre_profile/weight_0",
+      "exact": true,
+      "shape": [
+        256,
+        1024,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "pre_profile/weight_1",
+      "exact": true,
+      "shape": [
+        256,
+        8,
+        16
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "pre_profile/weight_2",
+      "exact": true,
+      "shape": [
+        256,
+        2048,
+        512
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "pre_profile/weight_3",
+      "exact": true,
+      "shape": [
+        256,
+        16,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "pre_profile/RNG",
+      "exact": true,
+      "shape": [
+        16
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "graph_unchanged_since_capture",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "post_profile/metadata/map_bijection_bounds",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "post_profile/metadata/expert_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "post_profile/metadata/token_ownership",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "post_profile/metadata/padded_count",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "post_profile/metadata/active_row_prefix",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "post_profile/metadata/local_valid_count",
+      "exact": true,
+      "shape": [
+        146
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "post_profile/candidate/fc1",
+      "exact": true,
+      "shape": [
+        512,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "post_profile/candidate/fc1_padding",
+      "exact": true,
+      "shape": [
+        1792,
+        1024
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "post_profile/candidate/act",
+      "exact": true,
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "post_profile/candidate/act_padding",
+      "exact": true,
+      "shape": [
+        1792,
+        512
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "post_profile/candidate/fc2",
+      "exact": true,
+      "shape": [
+        512,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "post_profile/candidate/fc2_padding",
+      "exact": true,
+      "shape": [
+        1792,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "post_profile/candidate/fc1scale",
+      "exact": true,
+      "shape": [
+        512,
+        8
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "post_profile/candidate/fc1scale_padding",
+      "exact": true,
+      "shape": [
+        8,
+        656
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "post_profile/candidate/fc1scale_tail",
+      "exact": true,
+      "shape": [
+        9088
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "post_profile/candidate/actscale",
+      "exact": true,
+      "shape": [
+        512,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "post_profile/candidate/actscale_padding",
+      "exact": true,
+      "shape": [
+        4,
+        656
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "post_profile/candidate/actscale_tail",
+      "exact": true,
+      "shape": [
+        4544
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "post_profile/candidate/fc1_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "post_profile/candidate/fc1scale_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "post_profile/candidate/act_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "post_profile/candidate/actscale_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "post_profile/candidate/fc2_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "post_profile/candidate/out_guards",
+      "exact": true,
+      "shape": [
+        128
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "post_profile/routed",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "post_profile/readonly_tile",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "post_profile/readonly_mn",
+      "exact": true,
+      "shape": [
+        288
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "post_profile/readonly_route",
+      "exact": true,
+      "shape": [
+        2305
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "post_profile/readonly_ncta",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "post_profile/readonly_padded",
+      "exact": true,
+      "shape": [
+        1
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "post_profile/readonly_valid",
+      "exact": true,
+      "shape": [
+        2304
+      ],
+      "dtype": "torch.bool"
+    },
+    {
+      "name": "post_profile/readonly_mapping",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int64"
+    },
+    {
+      "name": "post_profile/readonly_expanded",
+      "exact": true,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "post_profile/readonly_q",
+      "exact": true,
+      "shape": [
+        64,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "post_profile/readonly_s",
+      "exact": true,
+      "shape": [
+        16,
+        64
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "post_profile/readonly_ids",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.int32"
+    },
+    {
+      "name": "post_profile/readonly_weights",
+      "exact": true,
+      "shape": [
+        64,
+        8
+      ],
+      "dtype": "torch.bfloat16"
+    },
+    {
+      "name": "post_profile/weight_0",
+      "exact": true,
+      "shape": [
+        256,
+        1024,
+        2048
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "post_profile/weight_1",
+      "exact": true,
+      "shape": [
+        256,
+        8,
+        16
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "post_profile/weight_2",
+      "exact": true,
+      "shape": [
+        256,
+        2048,
+        512
+      ],
+      "dtype": "torch.float8_e4m3fn"
+    },
+    {
+      "name": "post_profile/weight_3",
+      "exact": true,
+      "shape": [
+        256,
+        16,
+        4
+      ],
+      "dtype": "torch.float32"
+    },
+    {
+      "name": "post_profile/RNG",
+      "exact": true,
+      "shape": [
+        16
+      ],
+      "dtype": "torch.uint8"
+    },
+    {
+      "name": "graph_nodes_edges_launch_attributes_unchanged",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "captured_tensor_bindings_unchanged",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_directory_no_new_entries",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "reused_source_and_fixture_hashes_unchanged",
+      "exact": true,
+      "detail": null
+    }
+  ],
+  "timing_allowed": false,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "source_status": "",
+  "pid": 884580,
+  "layer": 39,
+  "arm": "candidate",
+  "source_fixture": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-real.pt",
+  "fixture_sha256": "000b490cbced0e7d48e78118710a4bb551a295d339db5e6fcdc4d0fb9e6d2b80",
+  "profile_replays": 1,
+  "graph_warmup_replays": 5,
+  "timing_claim": false,
+  "runtime_promoted": false,
+  "baseline_pdl": true,
+  "candidate_pdl": true,
+  "copied_source_hashes": {
+    "metadata_driver.py": "fec83b2e9f69865b17ef8a263921d9b2d5a47839f6e304c152cf2dbea2664d14",
+    "metadata_ready_kernel.py": "23dd6ecfedda65839d9f986d45f7781f59e730b9e0ab4eaea0ca3270ed678041"
+  },
+  "candidate_kernels": {
+    "fc1": {
+      "cubin": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-ncu-node-v2/L39-candidate/gpu-profile-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.cubin",
+      "sha256": "7c9bea320d547429ee935f7f43834afd931c0457dd2853cd277af1559984c4aa",
+      "host": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-ncu-node-v2/L39-candidate/gpu-profile-compile/fc1-host.mlir"
+    },
+    "fc2": {
+      "cubin": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-ncu-node-v2/L39-candidate/gpu-profile-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.cubin",
+      "sha256": "ea52321ec64fc9976a306b7c7aeeb0805033c2e024034e5cc6ce266e7d95b170",
+      "host": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-ncu-node-v2/L39-candidate/gpu-profile-compile/fc2-host.mlir"
+    }
+  },
+  "metadata_ready_graphs": [
+    {
+      "mode": "full_body",
+      "identity": [
+        1438717792,
+        1
+      ],
+      "recorded_nodes": {
+        "metadata": [
+          1438767840
+        ],
+        "fc1": [
+          1438769896
+        ],
+        "activation": [
+          1438771952
+        ],
+        "fc2": [
+          1438774008
+        ],
+        "finalize": [
+          1438776064
+        ]
+      },
+      "nodes": [
+        {
+          "identity": 1438767840,
+          "kind": "kernel",
+          "kernel": "_ZN3moe3dev7routing18routingPrecomputed67_GLOBAL__N__951651f7_34_trtllm_fused_moe_routing_common_cu_65d5346e36routingIndicesMultiTileClusterKernelINS2_12KernelParamsI13__nv_bfloat16Li256ELi8EEEiEEvNS3_19MultiTileKernelArgsIT_T0_Li8EEE",
+          "function": 809994432,
+          "grid": [
+            8,
+            1,
+            1
+          ],
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "shared_bytes": 0
+        },
+        {
+          "identity": 1438769896,
+          "kind": "kernel",
+          "kernel": "kernel_cutlass_batched_gemm_kernel_bf16_TensorMapswizzleTensorMapSwizzles128b_3_dtypeclass_cutlassbase_dsltypingFloat8E4M3FN_tma_formatTensorMapDataFormatBYTE_2_box_dims128_128_1_TensorMa_0",
+          "function": 819043552,
+          "grid": [
+            8,
+            288,
+            1
+          ],
+          "block": [
+            384,
+            1,
+            1
+          ],
+          "shared_bytes": 72568
+        },
+        {
+          "identity": 1438771952,
+          "kind": "kernel",
+          "kernel": "_ZN3moe3dev10activation24activationDeepSeekKernelINS1_12KernelParamsIN7cutlass12float_e4m3_tELi2ELb1EEEEEvT_",
+          "function": 823439632,
+          "grid": [
+            4,
+            32,
+            8
+          ],
+          "block": [
+            128,
+            1,
+            1
+          ],
+          "shared_bytes": 0
+        },
+        {
+          "identity": 1438774008,
+          "kind": "kernel",
+          "kernel": "kernel_cutlass_metadata_ready_fc2_kernel_TensorMapswizzleTensorMapSwizzles128b_3_dtypeclass_cutlassbase_dsltypingFloat8E4M3FN_tma_formatTensorMapDataFormatBYTE_2_box_dims128_128_1_TensorM_0",
+          "function": 818397712,
+          "grid": [
+            16,
+            288,
+            1
+          ],
+          "block": [
+            384,
+            1,
+            1
+          ],
+          "shared_bytes": 72616
+        },
+        {
+          "identity": 1438776064,
+          "kind": "kernel",
+          "kernel": "_ZN3moe3dev8finalize14finalizeKernelINS1_12KernelParamsIN7cutlass10bfloat16_tES5_Li4ELb1EEEEEvT_",
+          "function": 828118160,
+          "grid": [
+            8,
+            64,
+            1
+          ],
+          "block": [
+            256,
+            1,
+            1
+          ],
+          "shared_bytes": 0
+        }
+      ],
+      "edges": [
+        {
+          "source": 1438767840,
+          "target": 1438769896,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        },
+        {
+          "source": 1438767840,
+          "target": 1438774008,
+          "kind": 0,
+          "source_port": 0,
+          "target_port": 0
+        },
+        {
+          "source": 1438769896,
+          "target": 1438771952,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        },
+        {
+          "source": 1438771952,
+          "target": 1438774008,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        },
+        {
+          "source": 1438774008,
+          "target": 1438776064,
+          "kind": 1,
+          "source_port": 1,
+          "target_port": 0
+        }
+      ],
+      "full_moe_timing_allowed": true,
+      "retained_owners": 126,
+      "label": "L39/NCU-exact-graph"
+    }
+  ],
+  "retained_owner_groups": 12,
+  "graph_json": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-ncu-node-v2/L39-candidate/graph.json",
+  "counters_are_not_service_benchmark": true
+}

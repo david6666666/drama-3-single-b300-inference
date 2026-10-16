@@ -1,0 +1,24 @@
+{
+  "status": "CPU_AUDIT_NO_CURRENT_CONFIRMED_0_3MS_GAIN",
+  "gpu_used": false,
+  "current_runtime_sha": "02aa9198d8c1d0e0ef5ba28b1cc64d2c0776fb8b",
+  "native_linear_b64": "torch.nn.functional.linear",
+  "native_dense_autotuner_in_runtime": false,
+  "explicit_cublaslt_algo_override_found": false,
+  "prior_real_triton_configs": 144,
+  "prior_selected": [],
+  "prior_baseline_projection_ms": 1.6442032051086426,
+  "prior_candidate_projection_ms": 1.6483672777811686,
+  "historical_splitk_reduce_ms_per_decode": 0.22189033333333333,
+  "reduction_to_save_0_3ms_of_historical_projection_fraction": 0.18245919912324776,
+  "scope_limit": "No current whole-model kernel profile isolates BF16 projection cost; old percentages cannot be transplanted into current service.",
+  "conditional_direction": "One recorded real-shape cuBLASLt FP32-accumulating algorithm-family comparison with explicit split-K/reduction metadata and immutable graph workspace, not another generic backend/tile sweep.",
+  "source_hashes": {
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/kernels.py": "953e4077d9130db8caab943f677e2d8e44a667e6054f190164f7bc1797fee137",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/scripts/diagnostic_bf16_projections.py": "89c9c3e545845cce6529dee2fb7179e5fee430f4a6b8c90ed136fceac15d9149",
+    "/home/zjy/code/hsliu/drama-3-single-b300-inference/src/drama3/bf16_projection.py": "2df5c17984db572e15539be3f86d24621507352c7c6a387a34da7dcd3b15de4c",
+    "/home/zjy/code/hsliu/artifacts/drama3-scale150-20261015/native-bf16-projections-b64/projections.json": "636e92ff1334e7ea90facfb0f0db2f9d8f983c7ffefbc5f117c1a4454049a3cd",
+    "/home/zjy/code/hsliu/artifacts/drama3-scale150-20261015/native-bf16-projections-b64/table.txt": "96f6b142f7181f1e450476da1858c442acce6a005e4d34f8bec7fe6a22a8f265",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia/cu13/include/cublasLt.h": "8be43fbf48625b98b8562d7df394e6af0d7ee1c05beeb5333577d5e33182fa3e"
+  }
+}

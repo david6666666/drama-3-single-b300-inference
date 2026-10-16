@@ -1,0 +1,8 @@
+{
+  "source_sha": "eedb6e0d736ea3a2c1c9a796b2ccc52c0e6aa7e9",
+  "hypothesis": "A fused mixed GDN gated norm consumes decode/prefill buffers and strided gates directly, avoiding intermediate cat+contiguous. A separate conv guard skips empty time tiles.",
+  "variables": "Separate layout and conv arms with exact original arithmetic; third combined only after both exact checks pass",
+  "control": "GPU0; nativeBF16states+dense, fulltop8FP8MoE; real58:6/40:3/12:1 fromcorpus; same source andallstates restored",
+  "criterion": "Allmixed output andfullmutablemodel/device states exact, otherwise stop. Eventtiming diagnostics only; onefullservice aftercorrectness.",
+  "cache": "No cacheflush or clock changes; existingfinalvenv/checkpoint"
+}

@@ -1,0 +1,357 @@
+{
+  "1": {
+    "kernel_count": 282,
+    "kernel_sum_us": 998.577,
+    "groups": {
+      "other": {
+        "us": 195.24500000000003,
+        "count": 102,
+        "fraction_of_kernel_sum": 0.19552322955565773
+      },
+      "parameter_cast": {
+        "us": 140.87600000000003,
+        "count": 40,
+        "fraction_of_kernel_sum": 0.14107675221840682
+      },
+      "dense": {
+        "us": 255.01400000000007,
+        "count": 60,
+        "fraction_of_kernel_sum": 0.2553774020431074
+      },
+      "attention": {
+        "us": 52.539,
+        "count": 8,
+        "fraction_of_kernel_sum": 0.05261386953635023
+      },
+      "history": {
+        "us": 31.741000000000003,
+        "count": 23,
+        "fraction_of_kernel_sum": 0.031786231807862594
+      },
+      "convolution": {
+        "us": 220.00399999999996,
+        "count": 20,
+        "fraction_of_kernel_sum": 0.22031751181931886
+      },
+      "snake": {
+        "us": 103.15799999999997,
+        "count": 29,
+        "fraction_of_kernel_sum": 0.10330500301929643
+      }
+    },
+    "top_kernels": [
+      {
+        "name": "triton_poi_fused__to_copy_1",
+        "us": 121.74300000000001,
+        "count": 32
+      },
+      {
+        "name": "nvjet_sm103_tst_24x64_64x16_4x1_v_bz_TNN",
+        "us": 106.07,
+        "count": 24
+      },
+      {
+        "name": "_snake_kernel",
+        "us": 103.15799999999997,
+        "count": 29
+      },
+      {
+        "name": "_write_attend",
+        "us": 52.539,
+        "count": 8
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s64x64x16implicit_gemm_fprop_bf16_bf16_f32_void_bf16_f32_64x64x64_dyn_cga_ndhwc_ndhwc_ndhwc_align8_1sm_relu_valpha",
+        "us": 49.913,
+        "count": 4
+      },
+      {
+        "name": "nvjet_sm103_tst_32x64_64x16_4x1_v_bz_TNN",
+        "us": 45.98,
+        "count": 8
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s128x64x16implicit_gemm_fprop_bf16_bf16_f32_void_bf16_f32_128x64x64_dyn_cga_ndhwc_ndhwc_ndhwc_align8_2sm_relu_valpha",
+        "us": 43.708000000000006,
+        "count": 3
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<8, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+        "us": 40.989,
+        "count": 19
+      },
+      {
+        "name": "nvjet_sm103_tst_8x64_64x16_4x1_v_bz_TNN",
+        "us": 31.647,
+        "count": 8
+      },
+      {
+        "name": "_history_save_kernel",
+        "us": 26.750000000000004,
+        "count": 20
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s128x256x16implicit_gemm_fprop_bf16_bf16_f32_void_bf16_f32_128x256x64_dyn_cga_ndhwc_ndhwc_ndhwc_align8_2sm_relu_valpha",
+        "us": 23.965000000000003,
+        "count": 3
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>)",
+        "us": 22.909000000000002,
+        "count": 14
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s256x64x16implicit_gemm_strided_dgrad_bf16_bf16_f32_void_bf16_f32_256x64x64_32w8h1d1n_dyn_cga_ndhwc_ndhwc_ndhwc_align8_2sm",
+        "us": 22.013,
+        "count": 1
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s128x128x16implicit_gemm_fprop_bf16_bf16_f32_void_bf16_f32_128x128x64_dyn_cga_ndhwc_ndhwc_ndhwc_align8_2sm_relu_valpha",
+        "us": 21.628999999999998,
+        "count": 2
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s64x128x16implicit_gemm_strided_dgrad_bf16_bf16_f32_void_bf16_f32_64x128x64_64w1h1d1n_dyn_cga_ndhwc_ndhwc_ndhwc_align8_1sm",
+        "us": 21.213,
+        "count": 2
+      }
+    ]
+  },
+  "4": {
+    "kernel_count": 285,
+    "kernel_sum_us": 1297.276,
+    "groups": {
+      "other": {
+        "us": 240.88199999999992,
+        "count": 106,
+        "fraction_of_kernel_sum": 0.18568292329465735
+      },
+      "parameter_cast": {
+        "us": 141.27500000000003,
+        "count": 40,
+        "fraction_of_kernel_sum": 0.10890126696246599
+      },
+      "dense": {
+        "us": 253.86699999999993,
+        "count": 59,
+        "fraction_of_kernel_sum": 0.19569235844955116
+      },
+      "attention": {
+        "us": 54.526,
+        "count": 8,
+        "fraction_of_kernel_sum": 0.042031148344685326
+      },
+      "history": {
+        "us": 34.144000000000005,
+        "count": 23,
+        "fraction_of_kernel_sum": 0.02631976541614892
+      },
+      "convolution": {
+        "us": 383.56299999999993,
+        "count": 20,
+        "fraction_of_kernel_sum": 0.2956679997163286
+      },
+      "snake": {
+        "us": 189.01900000000003,
+        "count": 29,
+        "fraction_of_kernel_sum": 0.1457045378161625
+      }
+    },
+    "top_kernels": [
+      {
+        "name": "_snake_kernel",
+        "us": 189.01900000000003,
+        "count": 29
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s128x64x16implicit_gemm_fprop_bf16_bf16_f32_void_bf16_f32_128x64x64_dyn_cga_ndhwc_ndhwc_ndhwc_align8_2sm_relu_valpha",
+        "us": 137.272,
+        "count": 4
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s128x256x16implicit_gemm_fprop_bf16_bf16_f32_void_bf16_f32_128x256x64_dyn_cga_ndhwc_ndhwc_ndhwc_align8_2sm_relu_valpha",
+        "us": 127.769,
+        "count": 7
+      },
+      {
+        "name": "triton_poi_fused__to_copy_1",
+        "us": 122.301,
+        "count": 32
+      },
+      {
+        "name": "nvjet_sm103_tst_64x16_64x16_2x2_2cta_h_bz_TNT",
+        "us": 76.986,
+        "count": 24
+      },
+      {
+        "name": "_write_attend",
+        "us": 54.526,
+        "count": 8
+      },
+      {
+        "name": "nvjet_sm103_tst_32x64_64x16_4x1_v_bz_TNN",
+        "us": 45.596,
+        "count": 8
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<8, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+        "us": 41.24700000000001,
+        "count": 19
+      },
+      {
+        "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+        "us": 41.215,
+        "count": 7
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s64x128x16implicit_gemm_strided_dgrad_bf16_bf16_f32_void_bf16_f32_64x128x64_64w1h1d1n_dyn_cga_ndhwc_ndhwc_ndhwc_align8_1sm",
+        "us": 40.414,
+        "count": 2
+      },
+      {
+        "name": "nvjet_sm103_tst_8x64_64x16_4x1_v_bz_TNN",
+        "us": 29.086,
+        "count": 8
+      },
+      {
+        "name": "_history_save_kernel",
+        "us": 29.024000000000008,
+        "count": 20
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>)",
+        "us": 22.462000000000003,
+        "count": 14
+      },
+      {
+        "name": "nvjet_sm103_tst_96x64_64x13_1x2_2cta_h_badd_NNN",
+        "us": 22.205,
+        "count": 3
+      },
+      {
+        "name": "nvjet_sm103_tst_192x256_64x3_1x4_h_badd_NNT",
+        "us": 20.445999999999998,
+        "count": 3
+      }
+    ]
+  },
+  "8": {
+    "kernel_count": 292,
+    "kernel_sum_us": 1774.6200000000001,
+    "groups": {
+      "other": {
+        "us": 304.33500000000004,
+        "count": 114,
+        "fraction_of_kernel_sum": 0.17149305203367482
+      },
+      "parameter_cast": {
+        "us": 142.344,
+        "count": 40,
+        "fraction_of_kernel_sum": 0.08021097474388883
+      },
+      "dense": {
+        "us": 295.82500000000005,
+        "count": 58,
+        "fraction_of_kernel_sum": 0.16669765921718455
+      },
+      "attention": {
+        "us": 55.458000000000006,
+        "count": 8,
+        "fraction_of_kernel_sum": 0.03125063393853332
+      },
+      "history": {
+        "us": 37.153000000000006,
+        "count": 23,
+        "fraction_of_kernel_sum": 0.02093574962527189
+      },
+      "convolution": {
+        "us": 640.1270000000001,
+        "count": 20,
+        "fraction_of_kernel_sum": 0.3607121524608085
+      },
+      "snake": {
+        "us": 299.37800000000004,
+        "count": 29,
+        "fraction_of_kernel_sum": 0.16869977798063812
+      }
+    },
+    "top_kernels": [
+      {
+        "name": "_snake_kernel",
+        "us": 299.37800000000004,
+        "count": 29
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s128x64x16implicit_gemm_fprop_bf16_bf16_f32_void_bf16_f32_128x64x64_dyn_cga_ndhwc_ndhwc_ndhwc_align8_2sm_relu_valpha",
+        "us": 256.397,
+        "count": 4
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s128x256x16implicit_gemm_fprop_bf16_bf16_f32_void_bf16_f32_128x256x64_dyn_cga_ndhwc_ndhwc_ndhwc_align8_2sm_relu_valpha",
+        "us": 141.927,
+        "count": 5
+      },
+      {
+        "name": "triton_poi_fused__to_copy_1",
+        "us": 123.20800000000001,
+        "count": 32
+      },
+      {
+        "name": "nvjet_sm103_tst_24x64_64x16_4x1_v_bz_TNN",
+        "us": 83.87700000000001,
+        "count": 24
+      },
+      {
+        "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#12}::operator()() const::{lambda(c10::BFloat16)#1} const&)::{lambda(int)#1})",
+        "us": 79.748,
+        "count": 7
+      },
+      {
+        "name": "nvjet_sm103_tst_96x128_64x9_1x2_2cta_h_badd_NNN",
+        "us": 73.155,
+        "count": 6
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s256x256x16implicit_gemm_fprop_bf16_bf16_f32_void_bf16_f32_256x256x64_dyn_cga_ndhwc_ndhwc_ndhwc_align8_2sm_relu_valpha",
+        "us": 59.745999999999995,
+        "count": 2
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s64x128x16implicit_gemm_strided_dgrad_bf16_bf16_f32_void_bf16_f32_64x128x64_64w1h1d1n_dyn_cga_ndhwc_ndhwc_ndhwc_align8_1sm",
+        "us": 58.627,
+        "count": 2
+      },
+      {
+        "name": "_write_attend",
+        "us": 55.458000000000006,
+        "count": 8
+      },
+      {
+        "name": "nvjet_sm103_tst_64x32_64x16_2x2_2cta_h_bz_TNT",
+        "us": 43.714,
+        "count": 8
+      },
+      {
+        "name": "void at::native::vectorized_elementwise_kernel<8, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul> >(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+        "us": 41.826,
+        "count": 19
+      },
+      {
+        "name": "_history_save_kernel",
+        "us": 31.840000000000007,
+        "count": 20
+      },
+      {
+        "name": "nvjet_sm103_tst_64x8_64x16_1x4_h_bz_TNT",
+        "us": 28.994,
+        "count": 8
+      },
+      {
+        "name": "cutlass3x_sm100_tensorop_s128x128x16implicit_gemm_fprop_bf16_bf16_f32_void_bf16_f32_128x128x64_dyn_cga_ndhwc_ndhwc_ndhwc_align8_1sm_relu_valpha",
+        "us": 28.193,
+        "count": 1
+      }
+    ]
+  },
+  "scope": "One native graph profile per batchF8, valid corpus reference codes, not simultaneous model interference or fullservice; kernel names classified manually. Castkernel40launches correspond32large+8outputprojection casts, five weights per8layers; no gain claim."
+}

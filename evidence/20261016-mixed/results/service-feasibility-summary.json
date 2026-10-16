@@ -1,0 +1,158 @@
+{
+  "control": {
+    "performance": {
+      "concurrency": 64,
+      "repeat": 0,
+      "requests": 1088,
+      "completed": 1088,
+      "failed": 0,
+      "makespan_s": 26.974169214023277,
+      "valid": true,
+      "throughput_frames_s": 3816.46601173098,
+      "ttfa_p50_ms": 140.67420351784676,
+      "ttfa_p95_ms": 291.2339327449383,
+      "rtf_mean": 0.3460504807469899
+    },
+    "quality": {
+      "complete": true,
+      "wer_corpus": 0.016076362722933935,
+      "sim": 64.48894208669662,
+      "wer_samples": 1088,
+      "sim_samples": 1088
+    }
+  },
+  "candidate": {
+    "performance": {
+      "concurrency": 64,
+      "repeat": 0,
+      "requests": 1088,
+      "completed": 1088,
+      "failed": 0,
+      "makespan_s": 24.70875159406569,
+      "valid": true,
+      "throughput_frames_s": 4094.176899827514,
+      "ttfa_p50_ms": 147.56492496235296,
+      "ttfa_p95_ms": 267.44384132907726,
+      "rtf_mean": 0.3314167339596155
+    },
+    "quality": {
+      "complete": true,
+      "wer_corpus": 0.015825169555388093,
+      "sim": 64.28628234740566,
+      "wer_samples": 1088,
+      "sim_samples": 1088
+    }
+  },
+  "verdict": "FEASIBILITY_ONLY",
+  "source_sha": "a25c68da0b501374a0f457f4f912543f9cbd821d",
+  "gpu": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf",
+  "native_top8": true,
+  "quality_wer_limit": 0.02950933601272712,
+  "quality_sim_min": 61.88158934120563,
+  "baseline_fps": 4510.271508809941,
+  "target_fps": 6765.407263214912,
+  "formal_acceptance": false,
+  "span_gpu0_pair": {
+    "control": {
+      "performance": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 25.77823715505656,
+        "valid": true,
+        "throughput_frames_s": 3997.014977410465,
+        "ttfa_p50_ms": 146.18156297365203,
+        "ttfa_p95_ms": 263.72545998892747,
+        "rtf_mean": 0.32985042463101244
+      },
+      "quality": {
+        "complete": true,
+        "wer_corpus": 0.01950933601272712,
+        "sim": 63.752011872170605,
+        "wer_samples": 1088,
+        "sim_samples": 1088
+      }
+    },
+    "candidate": {
+      "performance": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 25.426697825081646,
+        "valid": true,
+        "throughput_frames_s": 4082.755877863061,
+        "ttfa_p50_ms": 147.93248753994703,
+        "ttfa_p95_ms": 276.42353193367796,
+        "rtf_mean": 0.323508115302164
+      },
+      "quality": {
+        "complete": true,
+        "wer_corpus": 0.01833710123084652,
+        "sim": 63.624318927526474,
+        "wer_samples": 1088,
+        "sim_samples": 1088
+      }
+    },
+    "source_sha": "9247e4b",
+    "gpu": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+    "formal_acceptance": false,
+    "quality_passes_single_group": true,
+    "throughput_ratio": 1.0214512332170806
+  },
+  "codec_workspace_gpu0_pair": {
+    "shared": {
+      "performance": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 23.55895202595275,
+        "valid": true,
+        "throughput_frames_s": 4307.661898042168,
+        "ttfa_p50_ms": 146.68585249455646,
+        "ttfa_p95_ms": 285.6639780336924,
+        "rtf_mean": 0.30929257835990914
+      },
+      "quality": {
+        "complete": true,
+        "wer_corpus": 0.061626057104580086,
+        "sim": 63.12440277855186,
+        "wer_samples": 1088,
+        "sim_samples": 1088
+      },
+      "quality_passes_single_group": false
+    },
+    "private": {
+      "performance": {
+        "concurrency": 64,
+        "repeat": 0,
+        "requests": 1088,
+        "completed": 1088,
+        "failed": 0,
+        "makespan_s": 23.444842316908762,
+        "valid": true,
+        "throughput_frames_s": 4360.916512808546,
+        "ttfa_p50_ms": 143.3508149930276,
+        "ttfa_p95_ms": 278.6984447738991,
+        "rtf_mean": 0.3078432221420484
+      },
+      "quality": {
+        "complete": true,
+        "wer_corpus": 0.015908900611236707,
+        "sim": 64.19134978818543,
+        "wer_samples": 1088,
+        "sim_samples": 1088
+      },
+      "quality_passes_single_group": true
+    },
+    "source_sha": "7618212e15e7506bb20d57372d6700fe837988a5",
+    "gpu": "GPU-53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+    "formal_acceptance": false,
+    "three_repetitions_complete": false
+  }
+}

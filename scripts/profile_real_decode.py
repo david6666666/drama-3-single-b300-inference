@@ -27,7 +27,12 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--batch", type=int, default=64)
     parser.add_argument("--mxfp4-diagnostic", action="store_true")
+    parser.add_argument("--mxfp8-diagnostic", action="store_true")
     parser.add_argument("--small-moe-diagnostic", action="store_true")
+    parser.add_argument("--small-moe-backends", action="store_true")
+    parser.add_argument("--routing-distribution", action="store_true")
+    parser.add_argument("--projection-diagnostic", action="store_true")
+    parser.add_argument("--native-moe-tile-diagnostic", action="store_true")
     parser.add_argument("--small-moe-tiles", choices=("default", "hot", "cold"), default="default")
     args = parser.parse_args()
     if args.batch not in (1, 2, 4) and (args.batch < 8 or args.batch % 8):
@@ -61,15 +66,27 @@ def main():
     original = model.moe
     indices = {id(layer.mlp): i for i, layer in enumerate(model.backbone.layers)}
     activations = {}
+    projections = {}
+    if args.projection_diagnostic:
+        import drama3.model as model_module
+
+        def capture_projection(x, weight):
+            if torch.cuda.is_current_stream_capturing():
+                projections[id(weight)] = (x, weight)
+            return linear(x, weight)
+
+        model_module.linear = capture_projection
 
     def capture(x, layer, decode=False):
-        if decode and indices[id(layer)] in (0, 19, 39):
+        if decode and (args.routing_distribution or indices[id(layer)] in (0, 19, 39)):
             activations[indices[id(layer)]] = x
         return original(x, layer, decode)
 
     model.moe = capture
     graph = DecodeGraph(model, args.batch, requests=device)
     model.moe = original
+    if args.projection_diagnostic:
+        model_module.linear = linear
     first = DecodeGraph(model, prefill_batch, first_frame=True, requests=device)
     span = max(128, triton.next_power_of_2(max(map(len, prompts))))
     prefill = BatchedPrefillGraph(model, prefill_batch, span)
@@ -117,9 +134,14 @@ def main():
         prof.key_averages().table(sort_by="self_device_time_total", row_limit=40) + "\n"
     )
     rows = []
+    routing_rows = []
     for index, x in activations.items():
         layer = model.backbone.layers[index].mlp
-        router = linear(x, layer.gate.weight)
+        router = (
+            linear(x, layer.packed_input_projection)[:, 1024:1280]
+            if model.packed_moe_projection
+            else linear(x, layer.gate.weight)
+        )
         ids = router.float().topk(8, dim=-1).indices
         counts = torch.bincount(ids.flatten(), minlength=256)
         row = dict(
@@ -130,7 +152,62 @@ def main():
         )
         rows.append(row)
         print(json.dumps(row), flush=True)
+        if args.routing_distribution:
+            probabilities = router.float().softmax(-1)
+            weights = probabilities.gather(1, ids)
+            normalized = weights / weights.sum(-1, keepdim=True)
+            cumulative = normalized.cumsum(-1)
+            routing_rows.append(
+                dict(
+                    layer=index,
+                    unique_experts=row["unique_experts"],
+                    top8_total_probability_mean=float(weights.sum(-1).mean()),
+                    retained_mass_mean={
+                        str(k): float(cumulative[:, k - 1].mean()) for k in (1, 2, 4, 6, 8)
+                    },
+                    experts_for_99pct_mean=float(((cumulative < 0.99).sum(-1) + 1).float().mean()),
+                    ids=ids.cpu().tolist(),
+                    normalized_weights=normalized.cpu().tolist(),
+                )
+            )
     (args.output / "moe.json").write_text(json.dumps(rows, indent=2) + "\n")
+    if args.routing_distribution:
+        (args.output / "routing.json").write_text(json.dumps(routing_rows, indent=2) + "\n")
+    if args.projection_diagnostic:
+        from diagnostic_bf16_projections import benchmark
+
+        benchmark(projections, args.output / "projections.json")
+    if args.native_moe_tile_diagnostic:
+        from diagnostic_native_moe_tiles import benchmark
+
+        benchmark(model, activations, args.output / "native-moe-tiles.json")
+    if args.small_moe_backends:
+        rows = []
+        original_threshold = model.small_moe_max_batch
+        for index, x in activations.items():
+            layer = model.backbone.layers[index].mlp
+            model.small_moe_max_batch = 8
+            expected = original(x, layer, True)
+            for name, threshold in (("gemv", 8), ("flashinfer", 0)):
+                model.small_moe_max_batch = threshold
+                fn = partial(original, x, layer, True)
+                actual = fn()
+                error = float(
+                    (
+                        (actual.float() - expected.float()).square().mean()
+                        / expected.float().square().mean()
+                    ).sqrt()
+                )
+                passed = bool(actual.isfinite().all()) and error < 0.03
+                row = dict(layer=index, backend=name, rrms=error, passed=passed)
+                if passed:
+                    row["us"] = triton.testing.do_bench_cudagraph(fn) * 1000
+                rows.append(row)
+                (args.output / "small-moe-backends.json").write_text(
+                    json.dumps(rows, indent=2) + "\n"
+                )
+                print(json.dumps(row), flush=True)
+        model.small_moe_max_batch = original_threshold
     if args.mxfp4_diagnostic:
         from diagnostic_mxfp4_moe import benchmark
 
@@ -140,6 +217,17 @@ def main():
             rows.append(row)
             (args.output / "mxfp4.json").write_text(json.dumps(rows, indent=2) + "\n")
             print(json.dumps(row), flush=True)
+    if args.mxfp8_diagnostic:
+        from diagnostic_mxfp8_moe import benchmark
+
+        rows = []
+        for index, x in activations.items():
+            row = dict(layer=index, **benchmark(model, model.backbone.layers[index].mlp, x))
+            rows.append(row)
+            (args.output / "mxfp8.json").write_text(json.dumps(rows, indent=2) + "\n")
+            print(json.dumps(row), flush=True)
+            if not row["passed"]:
+                break
     if args.small_moe_diagnostic:
         from diagnostic_small_moe import benchmark
 

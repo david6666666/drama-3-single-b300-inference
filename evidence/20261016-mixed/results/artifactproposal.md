@@ -1,0 +1,13 @@
+# Deferred joint-tower design and measured bound
+
+This is a design proposal, not an implementation or a performance claim. Native full top-8 experts, existing FP8 scales, BF16 dense computation, and the accepted WER +1 percentage point / SIM -2 quality gate remain unchanged.
+
+The smallest fusion would combine old decode rows and new teacher-forced prompt rows in the audio tower, reusing dense projections and FFNs while splitting attention with existing mixed_attention (supports tower indices >=40). New-request first-frame generation would retain its current graph. Prompt teacher labels and every tower layer remain unchanged.
+
+For sampling-counter s at entry, old decode sampling can use local s+2 without mutating the global counter, preserving old-row indices, RAS/history and head stream numbers. The existing new-request first-frame graph then increments the global counter to s+1 and samples as before; one subsequent increment commits s+2. The old tower can execute earlier while preserving deterministic random draws. Engine output handling retains finish_prefill before complete_decode. This requires disjoint real, decode-padding, first-frame-padding and prompt-padding slots, and same-input checks of all states/request buffers. Different dense GEMM row shapes can alter rounding and sampled outcomes, so RNG preservation alone is not a quality proof.
+
+Controlling measurement: mixed-timeline-phase-analysis.json, source a25c68da0b501374a0f457f4f912543f9cbd821d. The 384-request diagnostic interval is 9.998439846 s; 69 mixed_decode_tower calls total 100.931968 ms. Even deleting that entire contribution at zero replacement cost saves only 1.0095% of this interval (ideal speedup approximately 1.0102x). A shared tower still pays for added decode rows. The separately measured new first-frame graph totals 82.230496 ms; additionally deleting all of it saves only another 0.8224% of this interval. Event durations are diagnostic spans, not an additive causal profile or formal service speedup.
+
+A larger design would inject sampled codes into final prompt rows and decode rows and execute the full tower once, using separate gather/sample/scatter operations to retain each group's original step/row counters. That adds attention-backend differences for new final-row queries, padding ownership issues and more state validation. The measured bound does not justify this complexity now.
+
+Decision: defer both designs. Prioritize measured mixed-span waste, codec work and native MoE hardware limits. Whole-decode tower's approximately 15% share is not the service opportunity of this admission-only fusion.

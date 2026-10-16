@@ -1,0 +1,9 @@
+{
+  "source_sha": "e2d5d61c7b9e6cb5524c954605f331b3860e7eca",
+  "hypothesis": "Native BF16 split-K Triton tiles may reduce projection overhead in high-batch decode.",
+  "isolated_variable": "Projection tile and split-K scheduling only; unchanged BF16 inputs/weights/output and FP32 accumulation; no lossy quantization.",
+  "controls": "GPU6, OMP4, B64 actual prompt-prefilled all-layer inputs, native FP8 experts and BF16 GDN, same reference and candidate weights, no cache flush; all-weight projection sequence complements hot shape tuning.",
+  "success": "Finite output and RRMS<0.003 versus existing projection on every captured input before all-weight timings; eventual full decode/state and service checks required.",
+  "stop": "Any selected real-input check failure, compile/runtime error or GPU6 interference; no change to frozen service acceptance gates.",
+  "gpu_uuid": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf"
+}

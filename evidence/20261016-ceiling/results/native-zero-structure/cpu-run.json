@@ -1,0 +1,228 @@
+{
+  "status": "CPU_FIXED_SAMPLE_BYTE_STRUCTURE_COMPLETE",
+  "scope": {
+    "layers": [
+      0,
+      1,
+      2,
+      19,
+      39
+    ],
+    "experts": [
+      0,
+      127,
+      255
+    ],
+    "projections": [
+      "gate",
+      "up",
+      "down"
+    ],
+    "tensors": 45,
+    "source_bytes_read": 47185920
+  },
+  "groups": {
+    "L0-E0": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 1640640,
+      "numeric_zero_channels": {
+        "gate": 280,
+        "up": 280,
+        "down": 280
+      },
+      "zero_bytes_outside_channels": 11
+    },
+    "L0-E127": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 2758848,
+      "numeric_zero_channels": {
+        "gate": 72,
+        "up": 72,
+        "down": 72
+      },
+      "zero_bytes_outside_channels": 37
+    },
+    "L0-E255": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 1511616,
+      "numeric_zero_channels": {
+        "gate": 304,
+        "up": 304,
+        "down": 304
+      },
+      "zero_bytes_outside_channels": 9
+    },
+    "L1-E0": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3135168,
+      "numeric_zero_channels": {
+        "gate": 2,
+        "up": 2,
+        "down": 2
+      },
+      "zero_bytes_outside_channels": 17
+    },
+    "L1-E127": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3129792,
+      "numeric_zero_channels": {
+        "gate": 3,
+        "up": 3,
+        "down": 3
+      },
+      "zero_bytes_outside_channels": 21
+    },
+    "L1-E255": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3135168,
+      "numeric_zero_channels": {
+        "gate": 2,
+        "up": 2,
+        "down": 2
+      },
+      "zero_bytes_outside_channels": 21
+    },
+    "L2-E0": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3145920,
+      "numeric_zero_channels": {
+        "gate": 0,
+        "up": 0,
+        "down": 0
+      },
+      "zero_bytes_outside_channels": 20
+    },
+    "L2-E127": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3145920,
+      "numeric_zero_channels": {
+        "gate": 0,
+        "up": 0,
+        "down": 0
+      },
+      "zero_bytes_outside_channels": 33
+    },
+    "L2-E255": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3145920,
+      "numeric_zero_channels": {
+        "gate": 0,
+        "up": 0,
+        "down": 0
+      },
+      "zero_bytes_outside_channels": 21
+    },
+    "L19-E0": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3145920,
+      "numeric_zero_channels": {
+        "gate": 0,
+        "up": 0,
+        "down": 0
+      },
+      "zero_bytes_outside_channels": 18
+    },
+    "L19-E127": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3145920,
+      "numeric_zero_channels": {
+        "gate": 0,
+        "up": 0,
+        "down": 0
+      },
+      "zero_bytes_outside_channels": 29
+    },
+    "L19-E255": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3145920,
+      "numeric_zero_channels": {
+        "gate": 0,
+        "up": 0,
+        "down": 0
+      },
+      "zero_bytes_outside_channels": 16
+    },
+    "L39-E0": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3145920,
+      "numeric_zero_channels": {
+        "gate": 0,
+        "up": 0,
+        "down": 0
+      },
+      "zero_bytes_outside_channels": 63
+    },
+    "L39-E127": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3145920,
+      "numeric_zero_channels": {
+        "gate": 0,
+        "up": 0,
+        "down": 0
+      },
+      "zero_bytes_outside_channels": 32
+    },
+    "L39-E255": {
+      "same_hidden_zero_indices_in_all_three": true,
+      "original_bytes": 3145728,
+      "diagnostic_channel_storage_bytes": 3145920,
+      "numeric_zero_channels": {
+        "gate": 0,
+        "up": 0,
+        "down": 0
+      },
+      "zero_bytes_outside_channels": 53
+    }
+  },
+  "per_layer": {
+    "0": {
+      "tensors": 9,
+      "bytes": 9437184,
+      "numeric_zero_bytes": 4030521,
+      "structured_channel_zero_bytes": 4030464,
+      "diagnostic_channel_storage_bytes": 5911104
+    },
+    "1": {
+      "tensors": 9,
+      "bytes": 9437184,
+      "numeric_zero_bytes": 43067,
+      "structured_channel_zero_bytes": 43008,
+      "diagnostic_channel_storage_bytes": 9400128
+    },
+    "2": {
+      "tensors": 9,
+      "bytes": 9437184,
+      "numeric_zero_bytes": 74,
+      "structured_channel_zero_bytes": 0,
+      "diagnostic_channel_storage_bytes": 9437760
+    },
+    "19": {
+      "tensors": 9,
+      "bytes": 9437184,
+      "numeric_zero_bytes": 63,
+      "structured_channel_zero_bytes": 0,
+      "diagnostic_channel_storage_bytes": 9437760
+    },
+    "39": {
+      "tensors": 9,
+      "bytes": 9437184,
+      "numeric_zero_bytes": 148,
+      "structured_channel_zero_bytes": 0,
+      "diagnostic_channel_storage_bytes": 9437760
+    }
+  }
+}

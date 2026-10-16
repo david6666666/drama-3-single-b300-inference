@@ -1,0 +1,10 @@
+{
+  "status": "CPU_LOCAL_ROW_CONTRACT_PASS",
+  "cases": 2592,
+  "gpu_launched": false,
+  "source_sha256": "040cf4ed5f138b27b876167e42ea7241caf2d11050c8d4de45aee80bda14340f",
+  "changed": "Only full-fork B rows: clamp already-local mn_limit, do not subtract global coord_b_mn again.",
+  "sf_findings": "Native prepare_sfab_tile localizes mn_abs exactly once. Adapter uses dsfp8_token_limit directly and shared_sf[kblock*8+local_tid]. Correct when explicit shared_sf is current token tile. Global weight expert/output-tile/Kblock index unchanged.",
+  "old_single_unchanged": "37346817142c81cc6763d9ba303425c6f307a6cc6e7357e23dc0ce157c88a8eb",
+  "limitations": "CPU scalar metadata/layout audit only; full routing exact GPU gate remains required."
+}

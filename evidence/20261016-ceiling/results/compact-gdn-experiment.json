@@ -1,0 +1,15 @@
+{
+  "base_sha": "dfdd598a9810cf6e7b8aa6a102f6ab9270ff9cc6",
+  "hypothesis": "Packed FLA uses N*ceil(max_span/64) chunk descriptors; real per-sequence chunks need fewer entries. Tight capacity-bounded compact descriptors plus no-op guards in output/recompute kernels can remove wasted launch/matmul work without changing valid chunk arithmetic.",
+  "isolated_variable": "DRAMA3_COMPACT_GDN=1; graph-owned descriptor buffers and invalid chunk guards only; no convolution/backend/precision/expert change.",
+  "default": "off",
+  "fixed_controls": "same real inputs, native fulltop8 FP8 scales, BF16 dense/GDN, same graph shapes/span and hardware; no cache/clock changes; initialization after captures.",
+  "correctness": "same-input complete outputs and all GDN/conv/KV/request states exact; untouched slots exact; empty sequences, partial chunks, changed layouts, reused slots, span512 fallback; parent padded/packed behavior preserved.",
+  "timing": "one short diagnostic, alternate serial-control/candidate CUDA events after exact validation; not a serving speedup claim.",
+  "stop": "Retain first numerical/ownership failure; do not relax equality. If full mixed median has no useful gain, do not promote or run service.",
+  "gpu": "GPU2 only after source frozen and verified idle; root owns GPU0",
+  "sources": [
+    "../drama3-mixed-20261016/mixed-span.json",
+    "../drama3-b300-20261014/real-prefill-triton-conv/trace.json.gz"
+  ]
+}

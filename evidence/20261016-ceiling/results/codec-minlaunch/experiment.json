@@ -1,0 +1,21 @@
+{
+  "source_sha": "8ccefd063a90991cc45b31caa6457fae256720d0",
+  "gpu": 6,
+  "gpu_uuid": "GPU-619f7fdc-5f98-8c37-fe89-0465d6130baf",
+  "driver_sha256": "88baf2d527aacdd0e9ecdd01cf1ed008e72a73c5a0eaf006799c24bb90b381e7",
+  "hypothesis": "Compare default DP with min_launches using one captured graph/cost set and identical dynamic arrivals; no service claim.",
+  "arms": [
+    "dp/sync",
+    "min_launches/sync",
+    "min_launches/poll",
+    "min_launches/thread"
+  ],
+  "controls": "Native top8, BF16 codec, dedicated capture, same initial all model/codec states, request metadata and sampling RNG; reset before every arm. Default-off mixed layout/conv/defer flags remain off.",
+  "gate": "Exact per-step roster/codes/metadata, all final mutable tensors including scratch, PCM bytes and completion ordering against DP/sync; no dropped requests.",
+  "stop": "Any divergence ends this experiment with raw failure evidence; no favorable retry or full-service run.",
+  "scope": "80 scripted requests/slot reuse; this does not establish full1088 quality or a timing gain.",
+  "inputs": {
+    "src/drama3/ops/dac_channels_last.py": "030438bf46d8d30922c695944a1a99229fbb818a24aae8231648270fc801b2c3",
+    "scripts/validate_dynamic_codec_overlap.py": "0fd02a161d9ce18ac2ce7c29bb21460d39087248974376f79adb6c530ab2fadb"
+  }
+}

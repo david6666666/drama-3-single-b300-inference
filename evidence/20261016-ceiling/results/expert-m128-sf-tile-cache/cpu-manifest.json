@@ -1,0 +1,141 @@
+{
+  "scope": "CPU-only artifact prototype; GPU acceptance and timing NOT_RUN",
+  "files": {
+    ".ruff_cache/.gitignore": {
+      "sha256": "9e3a60f1e6ec4ae60215c11d54b171392745ec25e9dded433d5bd921363af316",
+      "bytes": 35
+    },
+    ".ruff_cache/0.17.0/4106512812408781461": {
+      "sha256": "0bafaef8760ba04eb1e53b543fc54da4dd5cabb2f27690ad6171ccf935dabeb7",
+      "bytes": 316
+    },
+    ".ruff_cache/0.17.0/9313813339898166139": {
+      "sha256": "c9a6b4a94bd42c5fbae603f1767eb09443d857af8f90a365513fec2cce81d797",
+      "bytes": 228
+    },
+    ".ruff_cache/CACHEDIR.TAG": {
+      "sha256": "5953156d7e0c564a427251316eaf26f8870e6483ae2197f916b630e4f93e31ae",
+      "bytes": 43
+    },
+    "CPU-CONTRACT.md": {
+      "sha256": "58dd892d62c5ae6f98881bd7abb130c19db977f8ffd70c4efb81018dadb61dd4",
+      "bytes": 1874
+    },
+    "audit_compile.py": {
+      "sha256": "d7f312dc906d47109c8fe39f34bb84045c022adca3e937050c70f3f0347ba1f3",
+      "bytes": 4996
+    },
+    "body_common.py": {
+      "sha256": "fe6642d1d5ec154236674e4f8a8c875fea720507d4716ecb235cc05809deb331",
+      "bytes": 4126
+    },
+    "check_cpu.py": {
+      "sha256": "78c6c61a5770c2d3175ffa9c6f897c553d1225608aba7d548c523744e2c13699",
+      "bytes": 8984
+    },
+    "compile-audit.json": {
+      "sha256": "f23e9c7f7e8c1567ae957e9c6e5967191f04203d62cdd4db172cf545c37b9782",
+      "bytes": 12302
+    },
+    "cpu-aot.log": {
+      "sha256": "e8df12bc8a1ece6a75e9d20540ab040bf6632ff12c0f24d125382795a26a682c",
+      "bytes": 2800
+    },
+    "cpu-check.json": {
+      "sha256": "8787c1330d7fbf0364ca81c09790af39e91e7ea63320b79999fce71a00cd48f3",
+      "bytes": 8885
+    },
+    "driver-cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.cubin": {
+      "sha256": "311a2b1d147155ecebbad21e522cfeeba3c75ebe4b30ada8bb5eca98308d8d33",
+      "bytes": 64344
+    },
+    "driver-cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx": {
+      "sha256": "7c595b9ba4133a0525d5444100377993111f5b4cf085da83d4c9f4f226c4f30e",
+      "bytes": 102982
+    },
+    "driver-cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.cubin": {
+      "sha256": "ea52321ec64fc9976a306b7c7aeeb0805033c2e024034e5cc6ce266e7d95b170",
+      "bytes": 68264
+    },
+    "driver-cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx": {
+      "sha256": "7bd5b717c7728474163599827f7f01ee7a70e317a30e284e631b441eb46f926d",
+      "bytes": 101147
+    },
+    "driver-cpu-compile/fc1-host.mlir": {
+      "sha256": "4ba489dde7070792e843ac9a34b44383e9476f457c7abf8082f7451359a06db5",
+      "bytes": 222448
+    },
+    "driver-cpu-compile/fc2-host.mlir": {
+      "sha256": "1ab3d79918d6b7a35d63fbb14ea8794ba42f5406b907cb69ff2f191df1999d76",
+      "bytes": 234457
+    },
+    "driver-prepare.json": {
+      "sha256": "7642c1995b453ea518f9b77451e3c8cbd7308b46090c53ddcb913e27b0acfd9b",
+      "bytes": 11744
+    },
+    "driver-resource-fc1/kernel.sass": {
+      "sha256": "8a94961a9b7671986f32b4e6a63bf55b53db86ea08abcf033a2e0c809c78c65a",
+      "bytes": 580805
+    },
+    "driver-resource-fc1/resource-usage.txt": {
+      "sha256": "66529fea5eed281efdace8babb84248816c2871a8697cb7812ac28f27062fe99",
+      "bytes": 322
+    },
+    "driver-resource-fc1/result.json": {
+      "sha256": "61379668ba00f45b7df770cb040584cee2dcb492fd259c4bccaa84b3e39e2be8",
+      "bytes": 1095
+    },
+    "driver-resource-fc2/kernel.sass": {
+      "sha256": "39d796508dc2bfb786b843dc19b3679068d29dd5db0ab10b025a3ef5968b9cb1",
+      "bytes": 616389
+    },
+    "driver-resource-fc2/resource-usage.txt": {
+      "sha256": "d7347e13b2652f1d7102c3ef9e0cb275fe44f85be24988623cb3503daaaf05af",
+      "bytes": 322
+    },
+    "driver-resource-fc2/result.json": {
+      "sha256": "28c5513a450e74cb07baad1157124bef84b567ed203c86b6de96e38a9dbcc29d",
+      "bytes": 1095
+    },
+    "gmem_c_resources_m128_body.py": {
+      "sha256": "4b8fc3fe4483977105bd197caef5afbfaec938aef1f736b449ecd5eeca6da4d5",
+      "bytes": 158438
+    },
+    "large-budget-assessment.md": {
+      "sha256": "8f1e75bcd1d46acd664583449c8b10b76040a7b5fcf3a2c7308eb297faf448a6",
+      "bytes": 6369
+    },
+    "metadata_driver.py": {
+      "sha256": "64d01d1e5b838effb13651407a10a9487b2c6971f94d1230cfefbfa023e606eb",
+      "bytes": 32355
+    },
+    "metadata_gate.py": {
+      "sha256": "e5e87746a853bcbcf418552d8821f6b5303dd266ed316b2c2c74af006dc0f6e4",
+      "bytes": 8306
+    },
+    "metadata_ready_config.py": {
+      "sha256": "43b0cb3a051baa70bd86a2602dcbffc9bd1f8850ee9b7f569a26cbf19f94520a",
+      "bytes": 5080
+    },
+    "metadata_ready_graph.py": {
+      "sha256": "4107f0e0ad89dde8ef6be6f8c07c65220adcd2e0136aad9d639db1bb9e03a38b",
+      "bytes": 27940
+    },
+    "metadata_ready_kernel.py": {
+      "sha256": "23dd6ecfedda65839d9f986d45f7781f59e730b9e0ab4eaea0ca3270ed678041",
+      "bytes": 134901
+    },
+    "sf_tile_cached_resources.py": {
+      "sha256": "ccabd03ce263bdea35feae92c2ce3d08ddc915ad12ff6c5ee59297741ba0613b",
+      "bytes": 5129
+    },
+    "source-fork.json": {
+      "sha256": "d99e7fd94f2e1180a3b503310e94445aae44951918656bf8d1786122e3f568dc",
+      "bytes": 1622
+    },
+    "summary.md": {
+      "sha256": "8f71f0a0feb62302581c13db06a883143ecdbad2cb50f80758295b9b8c77b9da",
+      "bytes": 4188
+    }
+  }
+}

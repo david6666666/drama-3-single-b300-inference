@@ -1,0 +1,8 @@
+{
+  "hypothesis": "Matchedinputcodecconcurrency slowsB64decode; launch-stream priority may improve model pacing without increasing pair makespan",
+  "source_sha": "ab6da532083854670348583d9ec9f2a16d184dfb",
+  "controls": "GPU6;nativeBF16/top8; identicalfullmodel/codec state pertrial; no clocks/cache changes;existingprivatecaptureworkspace",
+  "arms": "serial,modelonly,codeconly,concurrentdefault,modelhigh;B1/4/8F8 threejobs vs4B64decode steps",
+  "gate": "Exactcodes/PCM/allstates againstserial, graphflags noUseNodePriority, otherwise stop; timingsdiagnosticonly",
+  "stop": "any divergence, initializationfailure or nodepriorityflagunexpected"
+}

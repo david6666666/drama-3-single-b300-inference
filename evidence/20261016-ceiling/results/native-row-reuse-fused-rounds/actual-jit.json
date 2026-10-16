@@ -1,0 +1,155 @@
+[
+  {
+    "arm": "control",
+    "device": 0,
+    "binary": "actual-control-device0-specialization0.cubin",
+    "ptx": "actual-control-device0-specialization0.ptx",
+    "cubin_sha256": "4d18a0d3e5ca96306253a753c5437ea054d04babed93e7a8d4150a9e74839468",
+    "loaded": true,
+    "registers": 32,
+    "spills": 0,
+    "metadata": {
+      "allowed_dot_input_precisions": [
+        "tf32",
+        "tf32x3",
+        "ieee",
+        "bf16x3",
+        "bf16x6"
+      ],
+      "arch": "sm103",
+      "backend_name": "cuda",
+      "debug": false,
+      "default_dot_input_precision": "tf32",
+      "deprecated_fp8_dot_operand_dtypes": [
+        "fp8e4b15"
+      ],
+      "enable_fp_fusion": false,
+      "enable_reflect_ftz": true,
+      "extern_libs": [
+        [
+          "libdevice",
+          "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc"
+        ]
+      ],
+      "global_scratch_align": 1,
+      "global_scratch_size": 0,
+      "hash": "c8cd9308f08d5bdb39aded07886239322f998a9b74c08ddcdd29188018c7904a",
+      "instrumentation_mode": "",
+      "ir_override": null,
+      "launch_cooperative_grid": false,
+      "launch_pdl": false,
+      "max_num_imprecise_acc_default": 0,
+      "maxnreg": null,
+      "name": "combine_experts_add_norm_kernel",
+      "num_ctas": 1,
+      "num_stages": 3,
+      "num_warps": 4,
+      "profile_scratch_align": 1,
+      "profile_scratch_size": 0,
+      "ptx_options": null,
+      "ptx_version": null,
+      "sanitize_overflow": true,
+      "shared": 16,
+      "supported_fp8_dtypes": [
+        "fp8e4b15",
+        "fp8e4nv",
+        "fp8e5"
+      ],
+      "target": "GPUTarget(backend='cuda', arch=103, warp_size=32)",
+      "tensordesc_meta": [],
+      "tmem_size": 0,
+      "triton_version": "3.7.1",
+      "warp_size": 32
+    },
+    "signature": {
+      "ROUTED": "*bf16",
+      "SHARED": "*bf16",
+      "GATE": "*bf16",
+      "RESIDUAL": "*bf16",
+      "W": "*bf16",
+      "OUT": "*bf16",
+      "STRIDE": "constexpr",
+      "EPS": "constexpr",
+      "WIDTH": "constexpr"
+    },
+    "constexprs": "{(6,): 1408, (7,): 1e-06, (8,): 2048}",
+    "attributes": "{(0,): [['tt.divisibility', 16]], (1,): [['tt.divisibility', 16]], (2,): [['tt.divisibility', 16]], (3,): [['tt.divisibility', 16]], (4,): [['tt.divisibility', 16]], (5,): [['tt.divisibility', 16]], (6,): [], (7,): [], (8,): []}"
+  },
+  {
+    "arm": "candidate",
+    "device": 0,
+    "binary": "actual-candidate-device0-specialization0.cubin",
+    "ptx": "actual-candidate-device0-specialization0.ptx",
+    "cubin_sha256": "64ce7a4665229385b33d925683863ccd3c891fe01d32121d4b2e8a5879358808",
+    "loaded": true,
+    "registers": 32,
+    "spills": 0,
+    "metadata": {
+      "allowed_dot_input_precisions": [
+        "tf32",
+        "tf32x3",
+        "ieee",
+        "bf16x3",
+        "bf16x6"
+      ],
+      "arch": "sm103",
+      "backend_name": "cuda",
+      "debug": false,
+      "default_dot_input_precision": "tf32",
+      "deprecated_fp8_dot_operand_dtypes": [
+        "fp8e4b15"
+      ],
+      "enable_fp_fusion": false,
+      "enable_reflect_ftz": true,
+      "extern_libs": [
+        [
+          "libdevice",
+          "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc"
+        ]
+      ],
+      "global_scratch_align": 1,
+      "global_scratch_size": 0,
+      "hash": "440ee3405b1168acdc86d02d1a5d3e057bb5a54f0d6d417966ff6aa5d4266866",
+      "instrumentation_mode": "",
+      "ir_override": null,
+      "launch_cooperative_grid": false,
+      "launch_pdl": false,
+      "max_num_imprecise_acc_default": 0,
+      "maxnreg": null,
+      "name": "inverse_combine_experts_add_norm_kernel",
+      "num_ctas": 1,
+      "num_stages": 3,
+      "num_warps": 4,
+      "profile_scratch_align": 1,
+      "profile_scratch_size": 0,
+      "ptx_options": null,
+      "ptx_version": null,
+      "sanitize_overflow": true,
+      "shared": 16,
+      "supported_fp8_dtypes": [
+        "fp8e4b15",
+        "fp8e4nv",
+        "fp8e5"
+      ],
+      "target": "GPUTarget(backend='cuda', arch=103, warp_size=32)",
+      "tensordesc_meta": [],
+      "tmem_size": 0,
+      "triton_version": "3.7.1",
+      "warp_size": 32
+    },
+    "signature": {
+      "ROUTED": "*bf16",
+      "SHARED": "*bf16",
+      "GATE": "*bf16",
+      "INVERSE": "*i64",
+      "RESIDUAL": "*bf16",
+      "W": "*bf16",
+      "OUT": "*bf16",
+      "STRIDE": "constexpr",
+      "EPS": "constexpr",
+      "WIDTH": "constexpr"
+    },
+    "constexprs": "{(7,): 1408, (8,): 1e-06, (9,): 2048}",
+    "attributes": "{(0,): [['tt.divisibility', 16]], (1,): [['tt.divisibility', 16]], (2,): [['tt.divisibility', 16]], (3,): [], (4,): [['tt.divisibility', 16]], (5,): [['tt.divisibility', 16]], (6,): [['tt.divisibility', 16]], (7,): [], (8,): [], (9,): []}"
+  }
+]

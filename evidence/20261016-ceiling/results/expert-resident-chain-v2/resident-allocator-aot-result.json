@@ -1,0 +1,7 @@
+{
+  "status": "CPU_AOT_PASS",
+  "gpu_launched": false,
+  "source_sha256": "252a0b7f5e2e3d300f6a57bdfdb5ca9a99cabfaf83c70dd6fa8296be6f921413",
+  "cuda_initialized": false,
+  "kernel_info": "OrderedDict({'kernel_cutlass_kernel___main__Probe_object_at__tensorptri32gmemalign16o321_0': {}})"
+}

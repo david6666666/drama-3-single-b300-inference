@@ -1,0 +1,57 @@
+{
+  "status": "STOPPED_FEASIBILITY_FAIL",
+  "gpu_uuid": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "watchdog_seconds_per_stage": 600,
+  "stages": [
+    {
+      "name": "gate",
+      "command": [
+        "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+        "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-route-cache/metadata_gate.py"
+      ],
+      "status": "CHILD_EXITED",
+      "pre": {
+        "returncode": 0,
+        "matching_lines": [],
+        "pids": [],
+        "stderr": ""
+      },
+      "pid": 910281,
+      "returncode": 0,
+      "elapsed_seconds": 41.5086314129876,
+      "post": {
+        "returncode": 0,
+        "matching_lines": [],
+        "pids": [],
+        "stderr": ""
+      },
+      "result_status": "M128_METADATA_READY_FULL_AND_EMPTY_EXACT_PASS"
+    },
+    {
+      "name": "feasibility",
+      "command": [
+        "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/bin/python",
+        "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-route-cache/metadata_driver.py",
+        "feasibility"
+      ],
+      "status": "CHILD_EXITED",
+      "pre": {
+        "returncode": 0,
+        "matching_lines": [],
+        "pids": [],
+        "stderr": ""
+      },
+      "pid": 911977,
+      "returncode": 0,
+      "elapsed_seconds": 31.50336850900203,
+      "post": {
+        "returncode": 0,
+        "matching_lines": [],
+        "pids": [],
+        "stderr": ""
+      },
+      "result_status": "FEASIBILITY_FAIL"
+    }
+  ],
+  "process_audit_scope": "Sampled every 2 seconds; not continuous exclusivity proof"
+}

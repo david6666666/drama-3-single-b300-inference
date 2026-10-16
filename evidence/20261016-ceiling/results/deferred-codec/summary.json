@@ -1,0 +1,61 @@
+{
+  "source_sha": "fd07d7471d0be13ef98870dd1e34ec760daf33fd",
+  "flag": "DRAMA3_DEFER_CODEC_SUBMIT=1",
+  "passed": true,
+  "gpu_uuid": "619f7fdc-5f98-8c37-fe89-0465d6130baf",
+  "corpus_sha256": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+  "requests_per_mode": 80,
+  "trace_length": 414,
+  "all_mode_trace_sha256": [
+    "2f59327b44b4903129e670c27a24cdd60724ecd04274478f44ba603bd50dc23d",
+    "2f59327b44b4903129e670c27a24cdd60724ecd04274478f44ba603bd50dc23d",
+    "2f59327b44b4903129e670c27a24cdd60724ecd04274478f44ba603bd50dc23d"
+  ],
+  "prior_reference_trace_exact": true,
+  "prior_reference_pcm_exact": true,
+  "checks": [
+    {
+      "mode": "sync",
+      "passed": true,
+      "state_differences": [],
+      "pcm_mismatches": [],
+      "codec_calls": 99
+    },
+    {
+      "mode": "poll",
+      "passed": true,
+      "state_differences": [],
+      "pcm_mismatches": [],
+      "codec_calls": 99
+    },
+    {
+      "mode": "thread",
+      "passed": true,
+      "state_differences": [],
+      "pcm_mismatches": [],
+      "codec_calls": 99
+    }
+  ],
+  "deferred_modes": {
+    "poll": {
+      "flushes": 71,
+      "batches": 99,
+      "batches_after_model_launch": 98,
+      "batches_final_drain": 1
+    },
+    "thread": {
+      "flushes": 71,
+      "batches": 99,
+      "batches_after_model_launch": 98,
+      "batches_final_drain": 1
+    }
+  },
+  "raw": {
+    "dynamic.json": "bb7c989c372e44047df8cab303fca9f2d39c4ddbd45a7b7ccaa18dd917edc7b4",
+    "dynamic.log": "d0a6fb7cc32e3c426f40de43bf01ca92351e26c2005d55b240514f8ac3e8b81d",
+    "experiment.json": "ebb2a7e3e36dd676371137eea4b08db831f0c2c5c4157e50e45103d5bd674cbf"
+  },
+  "after_gpu": "",
+  "status": "CORRECTNESS_FEASIBILITY_ONLY",
+  "limitation": "No serving throughput, latency or WER/SIM claim; await full same-source workload evaluation."
+}

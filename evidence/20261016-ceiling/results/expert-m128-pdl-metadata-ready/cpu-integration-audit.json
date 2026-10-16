@@ -1,0 +1,35 @@
+{
+  "status": "CPU_INTEGRATION_PASS",
+  "gpu_used": false,
+  "kernels": {
+    "fc1": {
+      "cubin_sha256": "7c9bea320d547429ee935f7f43834afd931c0457dd2853cd277af1559984c4aa",
+      "ptx_sha256": "4796b8b0c5e1fcaf6413925321b88d58b7984189fa1508e270b9fe30c28511db",
+      "sass_sha256": "461e643847a5e541b2eff0dae75f6c83af5d8bd7302fd4afe78942b391c06623",
+      "host_sha256": "66517544cfd8420e480c78789fda1a5ec2a9e7c124181e73dfeaba55aa179dd3",
+      "waits": 1,
+      "launch_dependents": 2,
+      "wait_scope": "global metadata",
+      "launch_pdl_attribute": {
+        "id": 6,
+        "value": 1
+      },
+      "shared_bytes": 74616
+    },
+    "fc2": {
+      "cubin_sha256": "ea52321ec64fc9976a306b7c7aeeb0805033c2e024034e5cc6ce266e7d95b170",
+      "ptx_sha256": "7bd5b717c7728474163599827f7f01ee7a70e317a30e284e631b441eb46f926d",
+      "sass_sha256": "39d796508dc2bfb786b843dc19b3679068d29dd5db0ab10b025a3ef5968b9cb1",
+      "host_sha256": "1ab3d79918d6b7a35d63fbb14ea8794ba42f5406b907cb69ff2f191df1999d76",
+      "waits": 2,
+      "launch_dependents": 2,
+      "wait_scope": "activation B and combined scales tasks",
+      "launch_pdl_attribute": {
+        "id": 6,
+        "value": 1
+      },
+      "shared_bytes": 74664
+    }
+  },
+  "graph_checks": 44
+}
