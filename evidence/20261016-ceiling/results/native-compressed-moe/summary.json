@@ -1,0 +1,79 @@
+{
+  "status": "SAFE_TO_ARCHIVE_FEASIBILITY_FAIL",
+  "exact_checks": 3417,
+  "exact_passed": true,
+  "gate": {
+    "sequence_at_least_5pct": false,
+    "each_layer_no_more1pct_regression": true,
+    "passed": false,
+    "three_paired_rounds": "NOT_RUN",
+    "stress_performance": "NOT_RUN"
+  },
+  "timing": [
+    {
+      "scope": "single_layer",
+      "layer": 0,
+      "control_ms": 0.12087455749511719,
+      "compressed_ms": 0.12009920120239258,
+      "latency_reduction": 0.006414553308755067
+    },
+    {
+      "scope": "single_layer",
+      "layer": 19,
+      "control_ms": 0.10047327995300293,
+      "compressed_ms": 0.10069631576538086,
+      "latency_reduction": -0.0022198520092333585
+    },
+    {
+      "scope": "single_layer",
+      "layer": 39,
+      "control_ms": 0.08034432411193848,
+      "compressed_ms": 0.0800937557220459,
+      "latency_reduction": 0.003118681906434162
+    },
+    {
+      "scope": "three_layer_sequence",
+      "control_ms": 0.2954083251953125,
+      "compressed_ms": 0.29511520385742185,
+      "latency_reduction": 0.000992258216476638
+    }
+  ],
+  "allocator_post": {
+    "live": 0,
+    "destroyed": 12,
+    "cleanup_errors": 0
+  },
+  "custom_requested_bytes": 4831838208,
+  "custom_mapped_bytes": 4831838208,
+  "actual_flags": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1
+  ],
+  "graph_count": 8,
+  "launch_status": "CHILD_COMPLETE",
+  "elapsed_seconds_including_loading_validation": 85.91738317604177,
+  "process_audits": 70,
+  "post": {
+    "time": 1792123959.1866956,
+    "processes": [],
+    "memory_mib": 4
+  },
+  "gpu_execution_complete": true,
+  "three_rounds": "NOT_RUN",
+  "service": "NOT_RUN",
+  "quality": "NOT_RUN",
+  "compression_ratio": "NOT_MEASURED",
+  "dram_bytes": "NOT_MEASURED",
+  "protocol_sha256": "fbf8720fc224939a923f3ae2a49f032ca98ff4fb173b29dc1740d65c0fdb877f",
+  "source_manifest_sha256": "a913a6ae9604ba4648b73491bcf02b4704e8c17f08e6b120bc5a462cdfd2a83c"
+}

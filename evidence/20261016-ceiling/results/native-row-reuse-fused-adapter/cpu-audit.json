@@ -1,0 +1,41 @@
+{
+  "status": "CPU_AST_PASS_NO_GPU_OR_AOT",
+  "native_kernel_sha256": "953e4077d9130db8caab943f677e2d8e44a667e6054f190164f7bc1797fee137",
+  "helper_sha256": "b391ffa063152915e82415bff03604e1adcd74a0a8956ea7f2a69ac26882d6a1",
+  "arithmetic_AST_identical_after_removing_only_address_indirection": true,
+  "arithmetic": [
+    "same BF16 sigmoid rounding",
+    "same fma.rn.bf16(shared,gate,routed)",
+    "same FP32 residual sum then BF16 round/store",
+    "same per-row WIDTH2048 sum/rsqrt and FP32 weight1+ expression",
+    "same BF16 output store, num_warps4, enable_fp_fusionFalse"
+  ],
+  "proposed_schedule": {
+    "old_index_selects": 200,
+    "new_index_selects": 41,
+    "removed_launches": 159,
+    "unchanged_norm_kernels": 40,
+    "slots_gather": "Only at first layer after MixedGraph row metadata; remaining layers use same immutable row_slots"
+  },
+  "removed_logical_expand_read_write_bytes": 1048832000,
+  "extra_inverse_read_logical_bytes": 512000,
+  "budget_to_threshold": [
+    {
+      "case": "proxy190",
+      "additional_saved_ms_to_5pct": 0.3235278606414802
+    },
+    {
+      "case": "proxy190_reversed_reused_graph",
+      "additional_saved_ms_to_5pct": 0.31411089897155975
+    },
+    {
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "additional_saved_ms_to_5pct": 0.18810882568359588
+    }
+  ],
+  "limitations": [
+    "Logical traffic is not measured DRAM traffic and cannot directly be converted into latency.",
+    "No new latency prediction;159launches plus1.049GB adapter traffic provide a concrete candidate, not guarantee5%.",
+    "Native full mixed exact gate must pass after integration; CPU AST proof does not establish compiled equivalence."
+  ]
+}

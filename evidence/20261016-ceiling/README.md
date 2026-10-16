@@ -623,3 +623,82 @@ a common25-row prefix ends inside the native64-row GDN chunk, and the teacher's
 next-row labels shorten its safe common prefix. A full per-layer fork remains a
 new implementation. Its optimistic row-linear estimates are not measured gains;
 the entire current mixed-plus-prefill interval is smaller than the service gap.
+
+## Fused prefix adapter passes complete mixed graph continuation
+
+A new adapter keeps the native compact MoE parts, but lets the existing
+combination/residual/RMSNorm kernel read them through the inverse row map. The
+residual and normalized output retain all1600 original rows; its arithmetic and
+rounding are unchanged. One slot gather per replay replaces40 repeated gathers,
+and direct inverse reads remove120 component-expansion launches. This reduces
+adapter launches from200 to41 and retained candidate buffers from704027456 to
+441087536 bytes. Logical eliminated copy bytes are not measured DRAM savings.
+
+After603 exact checks, its single AB100 screen passes the5% gate on all three
+real cases. A separate frozen AB/BA/AB repetition protocol then passes2430 checks,
+including complete outputs,111 states, RNG and guards after every timing pair.
+Every replay starts from the same restored initial state in both arms.
+
+| Real proxy case | Three-round median latency reduction |
+|---|---:|
+|190|6.2555%|
+|190, reversed order and reused slots|6.2599%|
+|192, changed conditioning|6.7568%|
+
+All nine pairs exceed5%, ranging6.2256–6.7673%. These are same-process, same-capture
+complete mixed-graph repetitions, including the teacher tower, but excluding
+postgraph sampling towers, codec, host admission preparation and state restores.
+They do not establish service throughput or arbitrary-shape correctness. Actual
+JIT binaries are recorded separately from AOT; both deployed specializations
+have32 registers and zero spills, while their actual CUBINs differ from offline
+binaries. Preparation costs are recorded separately. Runtime integration and
+expanded real scheduling validation are subsequent work.
+
+See the [single screen](results/native-row-reuse-fused-adapter/results.md) and
+[three-round full results](results/native-row-reuse-fused-rounds/results.md).
+The original expanded-adapter continuation failure remains unchanged.
+
+## Transparent lossless allocation is exact but misses its performance gate
+
+A context-free driver query confirms generic memory compression support on the
+designated B300. A bounded CPU survey reads27 original FP8 matrices and preserves
+all raw hashes; CPU entropy and zlib results motivate investigation but do not
+predict hardware compression or performance. A subsequent GPU4 allocation gate
+passes47 assertions: actual allocation flags0/1, all original FP8 bytes,
+captured reads with changing masks, Tensor-view lifetimes and cleanup. Five
+allocations are released with zero cleanup errors and no remaining process.
+This first gate establishes allocation correctness only. A separately frozen
+complete native MoE screen subsequently passes3417 checks over15 fixtures,
+including live routing, all intermediate boundaries, top8 finalization, guards,
+read-only weights and RNG. All12 allocations report their requested actual
+compression flag and are destroyed with zero cleanup errors.
+
+The candidate changes only backing allocation; it must preserve original FP8
+bytes, scale tensors, layouts and native kernels. See the
+[CPU scope](results/native-lossless-weight-audit/summary.md) and
+[allocation/lifetime gate](results/native-compressed-vmm/micro-summary.md).
+
+
+| Fixed native MoE scope | VMM NONE µs | VMM GENERIC µs | Latency reduction |
+|---|---:|---:|---:|
+|L0|120.874557|120.099201|0.6415%|
+|L19|100.473280|100.696316|−0.2220%|
+|L39|80.344324|80.093756|0.3119%|
+|Three-call sequence|295.408325|295.115204|0.0992%|
+
+These are one AB100 observation, not a repeated speedup claim. The sequence
+misses its predeclared5% threshold; no further timing rounds or integration
+follow. Both arms execute the original native body with tactic(8,5), PDL and
+unchanged FP8 weights/scales. Timing includes native metadata, FC1, activation,
+FC2 and finalization; common quantization/logits routing are excluded equally.
+The sequence uses three fixed layer inputs, not a three-layer backbone dataflow.
+Allocation capacity and CPU entropy are not hardware compression ratios. No
+traffic counters identify why the allocation change fails to help. See the
+[complete native result](results/native-compressed-moe/summary.md).
+
+A separate [CPU zero-structure audit](results/native-zero-structure/summary.md)
+finds most complete zero channels in its L0 samples, with very few in L1 and none
+in L2/L19/L39. It preserves both positive and negative zero bytes and all45
+roundtrips. Fixed samples do not establish a model-wide compression ratio or
+support channel pruning. Neither this diagnostic nor local graph improvements
+change the best complete-quality C64 observation of4726.771frames/s.

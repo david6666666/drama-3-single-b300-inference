@@ -1,0 +1,260 @@
+{
+  "status": "PASS",
+  "pid": 1025699,
+  "scope": "Allocation/bytes/graph/lifetime gate only; no timing",
+  "checks": [
+    {
+      "name": "preflight device empty",
+      "pass": true
+    },
+    {
+      "name": "device UUID",
+      "pass": true
+    },
+    {
+      "name": "initial no VMM owners",
+      "pass": true
+    },
+    {
+      "name": "sampled process owner",
+      "pass": true
+    },
+    {
+      "name": "actual input hash model.language_model.layers.0.mlp.experts.0.gate_proj.weight",
+      "pass": true
+    },
+    {
+      "name": "actual uncompressed flag",
+      "pass": true
+    },
+    {
+      "name": "actual compressed flag",
+      "pass": true
+    },
+    {
+      "name": "different live storage",
+      "pass": true
+    },
+    {
+      "name": "same tensor contracts",
+      "pass": true
+    },
+    {
+      "name": "control original bytes",
+      "pass": true
+    },
+    {
+      "name": "candidate original bytes",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 0 arm0",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 0 arm1",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 63 arm0",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 63 arm1",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 255 arm0",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 255 arm1",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 0 arm0",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 0 arm1",
+      "pass": true
+    },
+    {
+      "name": "both readonly weights",
+      "pass": true
+    },
+    {
+      "name": "view retains allocation",
+      "pass": true
+    },
+    {
+      "name": "retained view byte exact",
+      "pass": true
+    },
+    {
+      "name": "full owners released",
+      "pass": true
+    },
+    {
+      "name": "sampled process owner",
+      "pass": true
+    },
+    {
+      "name": "actual input hash model.language_model.layers.39.mlp.experts.0.down_proj.weight",
+      "pass": true
+    },
+    {
+      "name": "actual uncompressed flag",
+      "pass": true
+    },
+    {
+      "name": "actual compressed flag",
+      "pass": true
+    },
+    {
+      "name": "different live storage",
+      "pass": true
+    },
+    {
+      "name": "same tensor contracts",
+      "pass": true
+    },
+    {
+      "name": "control original bytes",
+      "pass": true
+    },
+    {
+      "name": "candidate original bytes",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 0 arm0",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 0 arm1",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 63 arm0",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 63 arm1",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 255 arm0",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 255 arm1",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 0 arm0",
+      "pass": true
+    },
+    {
+      "name": "graph changing mask 0 arm1",
+      "pass": true
+    },
+    {
+      "name": "both readonly weights",
+      "pass": true
+    },
+    {
+      "name": "view retains allocation",
+      "pass": true
+    },
+    {
+      "name": "retained view byte exact",
+      "pass": true
+    },
+    {
+      "name": "full owners released",
+      "pass": true
+    },
+    {
+      "name": "unused capsule actual flag",
+      "pass": true
+    },
+    {
+      "name": "unused capsule live",
+      "pass": true
+    },
+    {
+      "name": "unused capsule released",
+      "pass": true
+    },
+    {
+      "name": "sampled process owner",
+      "pass": true
+    }
+  ],
+  "allocations": [
+    {
+      "tensor": "model.language_model.layers.0.mlp.experts.0.gate_proj.weight",
+      "control": {
+        "pointer": 136665274253312,
+        "requested_bytes": 1048576,
+        "mapped_bytes": 2097152,
+        "compression_requested": 0,
+        "compression_actual": 0,
+        "device": 0
+      },
+      "candidate": {
+        "pointer": 136665276350464,
+        "requested_bytes": 1048576,
+        "mapped_bytes": 2097152,
+        "compression_requested": 1,
+        "compression_actual": 1,
+        "device": 0
+      }
+    },
+    {
+      "tensor": "model.language_model.layers.39.mlp.experts.0.down_proj.weight",
+      "control": {
+        "pointer": 136663856578560,
+        "requested_bytes": 1048576,
+        "mapped_bytes": 2097152,
+        "compression_requested": 0,
+        "compression_actual": 0,
+        "device": 0
+      },
+      "candidate": {
+        "pointer": 136663858675712,
+        "requested_bytes": 1048576,
+        "mapped_bytes": 2097152,
+        "compression_requested": 1,
+        "compression_actual": 1,
+        "device": 0
+      }
+    }
+  ],
+  "process_audits": [
+    [
+      {
+        "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+        "pid": 1025699
+      }
+    ],
+    [
+      {
+        "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+        "pid": 1025699
+      }
+    ],
+    [
+      {
+        "uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+        "pid": 1025699
+      }
+    ]
+  ],
+  "stats": {
+    "live": 0,
+    "destroyed": 5,
+    "cleanup_errors": 0
+  }
+}

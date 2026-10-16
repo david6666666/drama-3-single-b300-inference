@@ -1,0 +1,11 @@
+{
+  "status": "CPU_INTERFACE_AND_METADATA_CHECK_PASS",
+  "checks": 5628,
+  "cuda_imported_or_initialized": false,
+  "numerical_validation": "NOT_RUN",
+  "runtime_or_kernel_changed": false,
+  "check_script_sha256": "68fd9a3bbc3ac5d9ad0cca829eb1ee3273d1bc783e5c822fb2eda06ad52e6a02",
+  "design_sha256": "1226d2c2820876c0d129cb141dd5a1d1c0d55a70552a9a2a59d54771d4e43973",
+  "result_sha256": "2566a6c50cbcb90dddac56f0e23dae80d9f4c4164bdbea8d871951d5e6794bc3",
+  "native_h_source_sha256": "c78a670b0240dac410e9f045ccc39cd8a2791f9fb2d98936ac1deb478b7dfebd"
+}

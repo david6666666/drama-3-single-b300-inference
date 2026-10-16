@@ -1,0 +1,123 @@
+{
+  "status": "CPU_SOURCE_AUDIT_ONLY",
+  "target_frames_s": 6765.407263214912,
+  "diagnostic": {
+    "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+    "frames": 105160.0,
+    "wall_s": 22.897229757974856,
+    "target_fixed_work_s": 15.543779688146685,
+    "required_saving_s": 7.35345006982817,
+    "required_time_fraction": 0.3211502067086104,
+    "pure_decode_s": 15.803838134765625,
+    "mixed_s": 4.94635693359375,
+    "model_union_s": 21.289383056640624,
+    "codec_only_s": 0.970009521484375,
+    "neither_s": 0.613250732421875,
+    "codec_union_s": 6.67904296875,
+    "overlap_s": 5.709033447265625
+  },
+  "conditional_screening_not_predictions": {
+    "delete_codec_only_plus_neither_s": 1.58326025390625,
+    "delete_all_mixed_fps": 5858.210964381093,
+    "intake_decode_time_weighted_active": 60.2523401401011,
+    "fill_to64_fixed_step_throughput_fraction": 0.06219940754474762,
+    "fill_to64_fixed_cost_decode_time_s": 0.8332330779857856,
+    "delete_entire_drain_s": 1.669578275992535,
+    "executed_excess_row_fraction": 0.003751883047362786,
+    "mixed_prompt_padding_fraction": 0.14427925862859392,
+    "mixed_actual_prompt_rows": 183228,
+    "mixed_current_capacity_rows": 209664,
+    "teacher_historical_proxy_gross_s": 0.8920919902343751,
+    "old_tower_only_delete_s": 0.261232666015625,
+    "codec_fraction_25pct_event_s": 1.6697607421875,
+    "codec_fraction_25pct_exclusive_proportional_s": 0.24250238037109376,
+    "no_additivity": "Row utilization, prefix reuse, teacher overlap and codec effects can overlap or change the trajectory. Never sum as achieved savings."
+  },
+  "historical_teacher_suffix": [
+    {
+      "repeat": 0,
+      "boundary_kernel_index": 2116,
+      "suffix_kernel_count": 657,
+      "suffix_span_ms": 4.5625830078125,
+      "suffix_summed_ms": 4.588887
+    },
+    {
+      "repeat": 1,
+      "boundary_kernel_index": 2116,
+      "suffix_kernel_count": 657,
+      "suffix_span_ms": 4.546967041015625,
+      "suffix_summed_ms": 4.575413999999999
+    },
+    {
+      "repeat": 2,
+      "boundary_kernel_index": 2116,
+      "suffix_kernel_count": 657,
+      "suffix_span_ms": 4.544919189453125,
+      "suffix_summed_ms": 4.5724089999999995
+    }
+  ],
+  "archived_unique_weight_examples": [
+    {
+      "real_rows": 58,
+      "layers": 40,
+      "real_unique_expert_layer_pairs": 6064,
+      "one_read_real_expert_weight_bytes": 19075694592,
+      "scope": "One archived fixed step, not service aggregate; FP8 weights only."
+    },
+    {
+      "real_rows": 63,
+      "layers": 40,
+      "real_unique_expert_layer_pairs": 6206,
+      "one_read_real_expert_weight_bytes": 19522387968,
+      "scope": "One archived fixed step, not service aggregate; FP8 weights only."
+    }
+  ],
+  "upstream_continuous_trace": {
+    "requests": 256,
+    "scheduled_mean": 60.58255451713396,
+    "pure_decode_mean": 60.71830985915493,
+    "mixed_requests_median": 6.0,
+    "mixed_tokens_median": 976.5,
+    "scope": "Different profiled workload, counts only, not matched timing."
+  },
+  "unprofiled_single_runs": {
+    "pipeline-admission-control-gpu6": {
+      "fps": 4481.280462849354,
+      "frames": 104329.0,
+      "wall_s": 23.281069074990228,
+      "required_saving_s": 7.860120129719636
+    },
+    "pipeline-admission-candidate-gpu6": {
+      "fps": 4583.673173280921,
+      "frames": 101800.0,
+      "wall_s": 22.20926234300714,
+      "required_saving_s": 7.162126813781841
+    },
+    "codec-cache-control-gpu6": {
+      "fps": 4726.77149517109,
+      "frames": 101529.0,
+      "wall_s": 21.47956593707204,
+      "required_saving_s": 6.4724871242359345
+    },
+    "codec-cache-candidate-gpu6": {
+      "fps": 4585.126355696841,
+      "frames": 104115.0,
+      "wall_s": 22.7071168650873,
+      "required_saving_s": 7.3177994227956304
+    }
+  },
+  "inputs_sha256": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/current-pipeline-service-ledger.json": "dd75b703e752bfc804e914b68202c4e16d0c95d8cad5bda006dddde65a563f44",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/cpu-service-ceiling/current-delivery-ledgers.json": "1f49fbcc8eb59c3b5191ce4ef86db5b07b74905608e643ea9b7daed3c66bf0ea",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/cpu-service-ceiling/current-timeline-independent-audit.json": "d4e1ac53f444ea1a451eecb5e911e98c25f1ba2e470eb741fa91a6fe91143d6c",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/padding-router-probe.json": "74e5898fdeb31ae7f8aa1c44a144d522115158961dfcf09f98c562e224ea2a77",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/mixed-profile/trace.json.gz": "d2dcf5e37a2f4892020ae6fe05497d31ceb9687f986d37702cc6f9840352e4d0",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/counts.json": "82fdc94b4f4083959d51bc416ceb7d5617e702336fe4bad98ec47ae98d7add63",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/alias-result.json": "cd4e991ffa336c13d8ab450acb19feaf40bc063e424ca28269a9c35d8379975f",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/codec-kernel-profile/summary.json": "3e8d9b0b01319d9ead45ffbedf735253a55b4c71caef4c881b02127e3a4c2bd8",
+    "/home/zjy/code/hsliu/artifacts/drama3-mixed-20261016/vllm-continuous-schedule.json": "56bbf7bd0816891c2f94ca3b1eb4bab46c1f4a7532e9634b5e2d4b515d698e24"
+  },
+  "hardware_lower_bound": "Not established: current fullservice per-layer route sets, actual DRAM bytes/cache reuse, non-expert bytes, mixed/codec resource concurrency and sustainable combined bandwidth not measured.",
+  "isolated_decode_used_as_upper_bound": false,
+  "gpu_initialized": false
+}

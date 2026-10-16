@@ -1,3 +1,12 @@
+A separately qualified inverse-row adapter now removes redundant expansion and
+slot copies. Its complete mixed graph passes2430 exact checks and three paired
+rounds: all nine comparisons reduce latency6.23–6.77%. This is a local graph
+result, not service throughput; general-shape scheduling integration and full
+quality validation remain pending. The earlier expanded adapter failure is
+preserved. Transparent compressed allocation passes3417 native MoE checks, but its fixed
+three-body sequence observes only0.099% lower latency and fails the predeclared5%
+continuation gate. It is not integrated.
+
 Eight current NCU node records now confirm nearly2× actual CTA residency for
 M128, but FC1 has fewer eligible warps and lower instruction issue activity;
 DRAM/L2 traffic barely changes. Caching one repeated scale-route address passes

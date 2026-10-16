@@ -1,0 +1,47 @@
+{
+  "hypothesis": "Hardware transparent lossless compression of original native expert weights reduces complete native MoE latency; no arithmetic/kernel change.",
+  "runtime_source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "gpu_uuid": "GPU-4ae7e013-1aac-31d8-8b8e-c27530f1c6ed",
+  "native_binary": "/home/zjy/.cache/flashinfer/0.7.0.post1/103a/cached_ops/fused_moe_trtllm_sm100/fused_moe_trtllm_sm100.so",
+  "watchdog_seconds": 600,
+  "stages": [
+    "all15_exact",
+    "single_AB_screen"
+  ],
+  "replays": 100,
+  "layers": [
+    0,
+    19,
+    39
+  ],
+  "fixtures_per_layer": 5,
+  "control": "VMM compression NONE with actual flag0; native tactic(8,5), PDL True",
+  "candidate": "VMM compression GENERIC with actual flag1; same native tactic(8,5), PDL True",
+  "changed": "Only backing allocations of original contiguous w1/w2 FP8 bytes; scales remain same original shared read-only tensors.",
+  "gate": "Every full weight byte hash, allocation actual flag, shape/stride; all15 native FC1 bytes/scales, activation bytes/scales, logical FC2, ordered top8 final; own live metadata proof; eager+3 reused graph replay; guards/inputs/weights/RNG/graph ownership; clean custom allocator shutdown.",
+  "performance_boundary": "Live native routing metadata populate + native FC1/activation/FC2/finalizer; common quantization and logits routing excluded. Same boundary in both arms.",
+  "sequence": "One graph calls the original complete native bodies for real L0,L19,L39 in order with their fixed captured inputs. Not an actual three-layer backbone dependency chain. Includes actual between-body PDL/stream effects.",
+  "performance_gate": {
+    "three_layer_sequence_minimum_latency_reduction": 0.05,
+    "each_real_layer_maximum_regression": 0.01,
+    "rounds": 1,
+    "order": "AB",
+    "next_stage": "Only if both gates pass, report to root for separate 3-paired-round authorization."
+  },
+  "not_run": [
+    "service",
+    "40-layer decode",
+    "quality",
+    "stress timing",
+    "counter profiling",
+    "additional repetitions"
+  ],
+  "stop": "First correctness, allocation, owner, process, graph or timeout failure; no further performance. Single AB gate failure stops with no sweep.",
+  "empty_scope": "No ncta0 full-MoE fixture: all15 preserve64x8 routes. Allocator rejects empty tensors in prior micro. No invented empty finalize semantics.",
+  "memory": "Both arm weights retained for all3layers; fixed addresses and scales. Graphs destroyed/reset before VMM tensors; expect12 custom allocations destroyed, live0/errors0.",
+  "cache_clock": "No flush, no clock changes; ordinary repeated graph execution. CPU entropy and actual allocation flag do not measure hardware compression ratio.",
+  "environment": {
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-metadata-rebase-95fcb0e/src",
+    "CUDA_MODULE_LOADING": "LAZY"
+  }
+}

@@ -1,0 +1,350 @@
+{
+  "scope": "One GPU6 full mixed native exact gate then conditional single fixed-state AB100; inverse-aware existing norm plus per-graph slot-gather hoist; no runtime/service claim.",
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "environment": {
+    "DRAMA3_GDN_STATE_DTYPE": "bfloat16",
+    "DRAMA3_PREFILL_GDN": "fla",
+    "DRAMA3_PACKED_MOE_PROJECTION": "1",
+    "DRAMA3_PREFILL_CONV": "triton",
+    "DRAMA3_PREFILL_MOE_TUNED": "0",
+    "DRAMA3_PREFILL_MOE": "flashinfer",
+    "DRAMA3_ADMISSION_MIN_BATCH": "6",
+    "DRAMA3_PREFILL_BUCKET_192": "1",
+    "DRAMA3_PACKED_PREFILL": "1",
+    "DRAMA3_ASYNC_CODEC": "1",
+    "DRAMA3_AUDIO_DELIVERY_THREAD": "1",
+    "DRAMA3_FUSED_MOE_INPUT": "1",
+    "DRAMA3_MIXED_BACKBONE": "1",
+    "DRAMA3_MIXED_SPAN256": "1",
+    "DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM": "1",
+    "DRAMA3_COMPACT_GDN": "1",
+    "DRAMA3_FUSED_MIXED_LAYOUT": "1",
+    "DRAMA3_PACKED_CONV_GUARD": "1",
+    "DRAMA3_DEFER_CODEC_SUBMIT": "0",
+    "DRAMA3_CODEC_SPLIT_POLICY": "dp",
+    "DRAMA3_SHORT_PADDING_CONTEXT": "1",
+    "DRAMA3_FUSED_MOE_RESIDUAL": "1",
+    "DRAMA3_CODEC_SMS": "0",
+    "DRAMA3_RESERVED_PADDING_ROUTER": "1",
+    "DRAMA3_FRAME_PIPELINE": "1",
+    "DRAMA3_FRAME_PIPELINE_DEFERRED_WAITING": "1",
+    "DRAMA3_CODEC_CACHED_LINEAR": "0",
+    "DRAMA3_CODEC_COALESCE": "0",
+    "CUDA_VISIBLE_DEVICES": "6",
+    "OMP_NUM_THREADS": "8",
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONPATH": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src:/home/zjy/code/hsliu/drama3-sources/fish-speech",
+    "HF_MODULES_CACHE": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/hf_modules",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "DRAMA3_MOE_LAYOUT": "major_k",
+    "DRAMA3_MOE_SHARED_OVERLAP": "0"
+  },
+  "frozen_files": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/observe_alias.py": "902a989ac420b2a31596b3685e33683f1362956eee5e3d9bcdf4501c9cdc2087",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/check_alias_cpu.py": "a4fbfe96c1528c5189383fe1077046446114dec6eb1f0ed3e50ecb6c38192343",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/launch_alias.py": "734b762683896a3c57793c1bad456d6470c1d0b551abb9201852debe0b49b70f",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/alias-cpu-check.json": "86d1175f065b1e7a86e2042a756a1f79227d9c6f25cb372d7ba13c9110a1ce03",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/reference-prefix/per-request.json": "e0db1901ff67296d5a26e9fa471d75ca6448075534b3ed9d38583c58dfd0a34d",
+    "/home/zjy/code/hsliu/drama3-sources/fish-speech/fish_speech/models/text2semantic/fish_omni/generate.py": "a8c259951fc550af59dc9921b491ff4dea4c29c26be0a350204986371596e298",
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/config.json": "4b13a31b504cf54181f52df5bbb27604f5cc4b77b6e90a12ab85d62e0d70b693",
+    "/home/zjy/.cache/huggingface/hub/models--fishaudio--drama-3/snapshots/e0a9218aa48888270f06ef1ed9ea67622c0e17d2/tokenizer.json": "0e9b9db76b2f0389b04b6ef057a2ac3b89100b7e96f2dd7034d19580a09654d6",
+    "/home/zjy/code/hsliu/artifacts/drama3-b300-20261014/seedtts-en1088-codes/requests.jsonl": "08612ee05ab0dd8a762109978b5f230e5b0311a1dfde87f03a4572434dff2dac",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/__init__.py": "f35f1e76e413a38a7ffcc5d143cdcc8514410e0303bbbbd27aa9d2374cba1dbf",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/audio_queue.py": "e133fbcbd5c838b098c7a6454319fd2c189069a56bb912701a41441e10e7b157",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/benchmark.py": "e55ecbd38375a8057cf757e2c0d0844ec2e965ec9bc5b6d5014d6624ea31d734",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/bf16_projection.py": "2df5c17984db572e15539be3f86d24621507352c7c6a387a34da7dcd3b15de4c",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/codec.py": "3fb1e3412d96801d1d704ee2a412f7ecc0e1788239464b1104bf4d1503ddf2bd",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/codec_context.py": "1772c802dd58516b4e4b359e5d9dc6967fac55269de6480d27048c14db0e5997",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/codec_grouping.py": "f18350abf636ba3a3e98e01282bf3fa24152995e8cede9ffb0edf64ae04053c7",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/engine.py": "f582912ae1102a1584e1fc634628975458408f112224d1a1b4d30d8283a487e1",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/experimental_fp8.py": "0a551d25ead70642a8d47e128611bc69d5762f0655c3b29a7b03edce1c031e6c",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/frame_pipeline.py": "1c81f21ff338845a1f74c06a1e4384bb48e66db46a750dd71aab2b577f750d35",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/fused_projection.py": "7069f25bdaf54c34a77f6dab6c0d3f77555e5acf4c2cd45d4c5fa55dfd233314",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/gdn.py": "a1a937473a6be9bff9a992427a48e01647bc4ca221aa81729cd7c64ab2f7b371",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/gdn_compact.py": "59a8ba9ab69869ca50a96d2cea87723cd4226fbbec833c8c34b99caadd48837e",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/int8_gemv.py": "0637c919eaeddfcd3bd4da6bbdc376492544665ccaf7f39567f4b5c21e23c036",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/kernels.py": "953e4077d9130db8caab943f677e2d8e44a667e6054f190164f7bc1797fee137",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/mixed_graph.py": "f01ecfd906329a7e92e864753ec564de26a06805eac7ea9a06792a201973cc89",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/mixed_model.py": "b43902f6f438f8eabdfa50c256a6378969da0eac08ecdaeed84037e45abf0dba",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/mixed_ops.py": "aaf5dc0fe7634d821532c6a93082a4cf865222fc82d8998b1465a978570cc27d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/model.py": "2716709ec035b80c08341acf9ec26134bb16567afbbc4823e0904026908842fd",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/moe_atomic.py": "20de41bbdb5e552f26c22da6385fb8052869d83ebffd0b845b7ceace9c0420cc",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/moe_input.py": "aee91738bcbeba8224ec27cf6fa1cbdfbb42d0af3291d6f5f210c45dcf37cb65",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/packed_prefill.py": "a49f416c83b51a0c15196353860a7d9718a24526f676a3280f439de6feac4031",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/prefill_conv.py": "5f84306b99b9daa9cda14745386b68fdf1c81fd57ed31120769245e37a7f847d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/profiling.py": "c4d92225b9fc1bdd64ce5becd5da2d8fdbebecfee3635c0896b560cc03040306",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/runtime_state.py": "2e522458d0f02524e148f5ab53a34d3209ddf7abaa51a1e39ea5a04e0e8bf19e",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/server.py": "2f54ca32b62511974dd4bb215bc619e56a81a5e9e35b2eb3d749d3039d81477a",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/src/drama3/table_projection_batched.py": "4dc67bdc34fdb5dddd3a86a104c37b906513745ea9ded9b94e16dd4d5b0b62be",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-exact-v2/capture_inputs.py": "e2f80f22a39855ffaa09d22dd335164e7ef7849692710bc0f66d9a0aecc668c0",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-exact-v2/exact_gate.py": "0c90488314c1f2c331fe7a9ade8326735d492c32f7bc3424715176f18e287887",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-exact-v2/check_mapping.py": "c9ba0a066bb951f67fc1ee0c31b0f49c59707bdd1371873e844f55810b81e610",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-exact-v2/launch.py": "dbde3b1abed73c798498012eb571e8016ebc0b6503710e94e3a7513332ddbca4",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-exact-v2/mapping-cpu.json": "029dde0582dc56c7463ae64e9ab9d214db23c7973a2aeddcd2bd2b26c1b79388",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-audit/alias-result.json": "cd4e991ffa336c13d8ab450acb19feaf40bc063e424ca28269a9c35d8379975f",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/fused_moe/core.py": "c929dbfc28eaab218b349a32f94c3fc0fe85a18fae1ab10362f22a8fc0fb3a63",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-exact-v2/import-cpu.json": "9db34e1bd5058e5199f355e4307b57aeae987086396b8a906ff2776ffd6adf72",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-mixed/driver.py": "210df7fe9ab9d2044dcc7211ed43975135852fe3d7493716b5d1b75d7e27000b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-mixed/launch.py": "35f6d9af3460694cd5a2cd3cf0710a6199c13d92d66c53941de935db9d3ee59e",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-mixed/cpu-check.json": "f309897c27af67df02a548101dd10acbdc50dbfc862962311a0e8fc3c0ec036a",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-exact-v2/capture-result.json": "78ab897a713eb9293cc347bf9ca1fa6781a82946c8125e0af4d73aedbfec39ce",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-exact-v2/result.json": "0657dcd4571c6fa4da37d660aaa5535a1ad316a4219a9f65a6c964aea3441d0b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/candidate.cubin": "9419bb3af41b9d155c61003a510767572d34e6824587dfdb8767f96b5373b821",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/candidate.ptx": "676b8b1b015cecf180b206a5680c9ec1f467bed9ac6e595f013f6bcc09580ef6",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/check_aot.py": "abe0f22cfa0d4a682469fdf8c3f14662d62f85483fa3f4b4fac81dfeb3488a50",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/control.cubin": "72af593f1125858bbfff18c5d0b1a8b81bdfd97d97f5e523ad7f4964bf2733aa",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/control.ptx": "b5cda359f3de8731a00cfa99971ad1db86351e4cf668f6753618d7ae50028f81",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/cpu-aot.json": "7f42d446f68a5a54de3cbc1d0c57bdbdccad6e760826e0f7296c40007f53b846",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/cpu-audit.json": "03c1f5a496fec2951106bf2eb5125b92941fc08fbd54338f2b3002b4b687bc3c",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/cpu-driver-check.json": "f309897c27af67df02a548101dd10acbdc50dbfc862962311a0e8fc3c0ec036a",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/driver.py": "8a94ff47deb178bd870738b7c7b73be312cfd57e441fb58b399d5af5ba519a53",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/inverse_norm.py": "b391ffa063152915e82415bff03604e1adcd74a0a8956ea7f2a69ac26882d6a1",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/launch.py": "35f6d9af3460694cd5a2cd3cf0710a6199c13d92d66c53941de935db9d3ee59e",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/prepare_cpu.py": "d1af39ac93bc2ea85b8b587516335191e4c740b468fa79528df75c444494fbdd",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/proposal.md": "6119159f072561e089bd8d458f363d3d20b3eca77ce57eee5d1241bf5558a5e5",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-mixed/result.json": "9c47d787b8a7636a6a755c7b18a2ec5950dcf2b75e5213109244ee44624a331c",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-mixed/summary.json": "5f8b1261992d92a65f27d31c63755a7292e095231f2e26ea0fdd13ac776e7177",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-mixed/results.md": "67f9db89504c11fa80e68280a31af877d97ce366bc8589a28aa422f2feb49d20",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/source-codec-cache/scripts/validate_mixed_layers.py": "74e03d511d2b150d8d53417059769a4ff00260bf3120c88ee224cb1206260adc",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-row-reuse-fused-adapter/independent-review.md": "35ef2c562d1c7c852b8f586ef613b45c5a82f07aeaf1b443a57587f823acccfd"
+  },
+  "parent_authorization": "Root approved CPU/AOT and independent engine review followed by GPU6 exact\u2192one AB100; eachcase>=5% unchanged; no auto repetitions or runtime.",
+  "source": "Clean e7cda1e; original MixedGraph fullbackbone, attention/GDN state updates, teacher tower and output gathering unchanged.",
+  "candidate": "Artifact-only model.moe_parts callback gathers original1600 rows into1088 and executes unchanged native fulltop8 three-parts. First layer only gathers compact slots after row_metadata. Imported mixed_model combine callback reads all three compact parts through inverse, updating residual/output at original1600 rows; original BF16/FMA/FP32 norm arithmetic and launchflags unchanged. Both callbacks restored after candidate graph capture.",
+  "shapes": {
+    "decode": 64,
+    "real_decode": 56,
+    "prefill_capacity": 1536,
+    "real_arrivals": 8,
+    "span": 256,
+    "compact_capacity": 1088
+  },
+  "cases": [
+    {
+      "case": "proxy190",
+      "unique": 939,
+      "capacity": 1088
+    },
+    {
+      "case": "proxy190_reversed_reused_graph",
+      "unique": 939,
+      "capacity": 1088
+    },
+    {
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "unique": 1069,
+      "capacity": 1088
+    }
+  ],
+  "gates": [
+    "Every original decode and padding row is retained; CPU inverse/alias checks; actual causal conditioning reconstructed from real prompts.",
+    "All3cases complete full outputs and every111model/request state tensor byte exact versus native graph, plus CPU/CUDA RNG and all protected buffer boundaries.",
+    "Same captured graphs update keep/inverse, reverse request/slot order and change reference group; full initial native state reset and authentic firstframes initialized after captures.",
+    "Any wholegraph exact failure preserves first tensors/error and prohibits timing."
+  ],
+  "timing": {
+    "order": "A100 then B100 for eachcase; one AB screen only",
+    "replays_per_arm": 100,
+    "warmups_per_arm": 3,
+    "fixed_work": "Every warmup and every measured replay first copies the same saved full111state tensors to the model/device on the same stream. All restoration copies precede that replay start event.",
+    "events": "100 distinct start/end event pairs perarm, end after graphreplay; resolve after both arms complete. Restore outside start events equally; full MixedGraph including gather, nativeMoE, inverse-aware norm, backbone, teacher and output clone included.",
+    "threshold": "Every case median event latency reduction>=5%; otherwise stop thisroute, no3round/runtime.",
+    "no_clock_or_cache_controls": true
+  },
+  "independent_cpu_review": "engine_audit final source+driver+AOT review found no blocker; details independent-review.md. Offline CUBIN not asserted to equal runtime specialization.",
+  "limitations": [
+    "Single AB screening is not repeated stability/service evidence.",
+    "Exact checks precede timing; no claim of full state validation after each100timedreplay.",
+    "This native MixedGraph includes teacher tower, not separate postgraph olddecode/newfirst sampling towers or codec. No serving preparation or restoration time included.",
+    "FIFO proxy membership remains unverified against request-ID server logs.",
+    "Candidate uses retained per-layer guarded buffers and reports their memory; no extra observercopy in the timed path.",
+    "Prior expanded-adapter 3.89\u20134.36% FAIL preserved; this candidate removes159 launches/1.049GB logical adapter traffic, not measured DRAMbytes or a guaranteed latency saving."
+  ],
+  "adapter_budget": {
+    "status": "CPU_AST_PASS_NO_GPU_OR_AOT",
+    "native_kernel_sha256": "953e4077d9130db8caab943f677e2d8e44a667e6054f190164f7bc1797fee137",
+    "helper_sha256": "b391ffa063152915e82415bff03604e1adcd74a0a8956ea7f2a69ac26882d6a1",
+    "arithmetic_AST_identical_after_removing_only_address_indirection": true,
+    "arithmetic": [
+      "same BF16 sigmoid rounding",
+      "same fma.rn.bf16(shared,gate,routed)",
+      "same FP32 residual sum then BF16 round/store",
+      "same per-row WIDTH2048 sum/rsqrt and FP32 weight1+ expression",
+      "same BF16 output store, num_warps4, enable_fp_fusionFalse"
+    ],
+    "proposed_schedule": {
+      "old_index_selects": 200,
+      "new_index_selects": 41,
+      "removed_launches": 159,
+      "unchanged_norm_kernels": 40,
+      "slots_gather": "Only at first layer after MixedGraph row metadata; remaining layers use same immutable row_slots"
+    },
+    "removed_logical_expand_read_write_bytes": 1048832000,
+    "extra_inverse_read_logical_bytes": 512000,
+    "budget_to_threshold": [
+      {
+        "case": "proxy190",
+        "additional_saved_ms_to_5pct": 0.3235278606414802
+      },
+      {
+        "case": "proxy190_reversed_reused_graph",
+        "additional_saved_ms_to_5pct": 0.31411089897155975
+      },
+      {
+        "case": "proxy192_changed_conditioning_reused_graph",
+        "additional_saved_ms_to_5pct": 0.18810882568359588
+      }
+    ],
+    "limitations": [
+      "Logical traffic is not measured DRAM traffic and cannot directly be converted into latency.",
+      "No new latency prediction;159launches plus1.049GB adapter traffic provide a concrete candidate, not guarantee5%.",
+      "Native full mixed exact gate must pass after integration; CPU AST proof does not establish compiled equivalence."
+    ]
+  },
+  "aot": {
+    "status": "CPU_AOT_PASS",
+    "cuda_initialized": false,
+    "target": "sm103",
+    "arms": [
+      {
+        "arm": "control",
+        "constants": {
+          "STRIDE": 1408,
+          "EPS": 1e-06,
+          "WIDTH": 2048
+        },
+        "options": {
+          "num_warps": 4,
+          "enable_fp_fusion": false
+        },
+        "metadata": {
+          "allowed_dot_input_precisions": [
+            "tf32",
+            "tf32x3",
+            "ieee",
+            "bf16x3",
+            "bf16x6"
+          ],
+          "arch": "sm103",
+          "backend_name": "cuda",
+          "debug": false,
+          "default_dot_input_precision": "tf32",
+          "deprecated_fp8_dot_operand_dtypes": [
+            "fp8e4b15"
+          ],
+          "enable_fp_fusion": false,
+          "enable_reflect_ftz": true,
+          "extern_libs": [
+            [
+              "libdevice",
+              "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc"
+            ]
+          ],
+          "global_scratch_align": 1,
+          "global_scratch_size": 0,
+          "hash": "d5bf2c35f7476962bdedbf9b50cc02f5769076e09ee670199b1a1a6148cdc97e",
+          "instrumentation_mode": "",
+          "ir_override": null,
+          "launch_cooperative_grid": false,
+          "launch_pdl": false,
+          "max_num_imprecise_acc_default": 0,
+          "maxnreg": null,
+          "name": "combine_experts_add_norm_kernel",
+          "num_ctas": 1,
+          "num_stages": 3,
+          "num_warps": 4,
+          "profile_scratch_align": 1,
+          "profile_scratch_size": 0,
+          "ptx_options": null,
+          "ptx_version": null,
+          "sanitize_overflow": true,
+          "shared": 16,
+          "supported_fp8_dtypes": [
+            "fp8e4b15",
+            "fp8e4nv",
+            "fp8e5"
+          ],
+          "target": "GPUTarget(backend='cuda', arch=103, warp_size=32)",
+          "tensordesc_meta": [],
+          "tmem_size": 0,
+          "triton_version": "3.7.1",
+          "warp_size": 32
+        },
+        "cubin_sha256": "72af593f1125858bbfff18c5d0b1a8b81bdfd97d97f5e523ad7f4964bf2733aa",
+        "ptx_sha256": "b5cda359f3de8731a00cfa99971ad1db86351e4cf668f6753618d7ae50028f81"
+      },
+      {
+        "arm": "candidate",
+        "constants": {
+          "STRIDE": 1408,
+          "EPS": 1e-06,
+          "WIDTH": 2048
+        },
+        "options": {
+          "num_warps": 4,
+          "enable_fp_fusion": false
+        },
+        "metadata": {
+          "allowed_dot_input_precisions": [
+            "tf32",
+            "tf32x3",
+            "ieee",
+            "bf16x3",
+            "bf16x6"
+          ],
+          "arch": "sm103",
+          "backend_name": "cuda",
+          "debug": false,
+          "default_dot_input_precision": "tf32",
+          "deprecated_fp8_dot_operand_dtypes": [
+            "fp8e4b15"
+          ],
+          "enable_fp_fusion": false,
+          "enable_reflect_ftz": true,
+          "extern_libs": [
+            [
+              "libdevice",
+              "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc"
+            ]
+          ],
+          "global_scratch_align": 1,
+          "global_scratch_size": 0,
+          "hash": "3bc1dd4df2fa300fce63a5113aaae5ab584bc1179c5c11b53965fa7c82446d36",
+          "instrumentation_mode": "",
+          "ir_override": null,
+          "launch_cooperative_grid": false,
+          "launch_pdl": false,
+          "max_num_imprecise_acc_default": 0,
+          "maxnreg": null,
+          "name": "inverse_combine_experts_add_norm_kernel",
+          "num_ctas": 1,
+          "num_stages": 3,
+          "num_warps": 4,
+          "profile_scratch_align": 1,
+          "profile_scratch_size": 0,
+          "ptx_options": null,
+          "ptx_version": null,
+          "sanitize_overflow": true,
+          "shared": 16,
+          "supported_fp8_dtypes": [
+            "fp8e4b15",
+            "fp8e4nv",
+            "fp8e5"
+          ],
+          "target": "GPUTarget(backend='cuda', arch=103, warp_size=32)",
+          "tensordesc_meta": [],
+          "tmem_size": 0,
+          "triton_version": "3.7.1",
+          "warp_size": 32
+        },
+        "cubin_sha256": "9419bb3af41b9d155c61003a510767572d34e6824587dfdb8767f96b5373b821",
+        "ptx_sha256": "676b8b1b015cecf180b206a5680c9ec1f467bed9ac6e595f013f6bcc09580ef6"
+      }
+    ],
+    "limitations": [
+      "Offline resources do not establish byte equality. The full mixed three-case gate remains required.",
+      "No GPU or timing executed by this script."
+    ]
+  }
+}

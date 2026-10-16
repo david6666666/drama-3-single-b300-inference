@@ -1,0 +1,317 @@
+{
+  "status": "EXACT_AND_THREE_ROUND_CONTINUATION_PASS",
+  "checks_passed": 2430,
+  "failed_checks": 0,
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "source_clean": true,
+  "protocol_sha256": "f8ad8e55b9f0f8f3a6c829536e2060ab9f92f6da43a75d0b5845a64b8eb5dd25",
+  "result_sha256": "3812a4c6a5cdf59cc12e3e64a215a60e68b6153bbb4335791f22db0e51201118",
+  "rounds": [
+    {
+      "round": 1,
+      "case": "proxy190",
+      "order": [
+        "control",
+        "candidate"
+      ],
+      "control_ms": 29.087679862976074,
+      "candidate_ms": 27.268112182617188,
+      "saved_ms": 1.8195676803588867,
+      "reduction_percent": 6.255458286567928,
+      "post_exact": true
+    },
+    {
+      "round": 1,
+      "case": "proxy190_reversed_reused_graph",
+      "order": [
+        "control",
+        "candidate"
+      ],
+      "control_ms": 29.089712142944336,
+      "candidate_ms": 27.27224063873291,
+      "saved_ms": 1.8174715042114258,
+      "reduction_percent": 6.247815362628984,
+      "post_exact": true
+    },
+    {
+      "round": 1,
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "order": [
+        "control",
+        "candidate"
+      ],
+      "control_ms": 29.253456115722656,
+      "candidate_ms": 27.27731227874756,
+      "saved_ms": 1.9761438369750977,
+      "reduction_percent": 6.755249120506457,
+      "post_exact": true
+    },
+    {
+      "round": 2,
+      "case": "proxy190",
+      "order": [
+        "candidate",
+        "control"
+      ],
+      "control_ms": 29.08174419403076,
+      "candidate_ms": 27.271231651306152,
+      "saved_ms": 1.8105125427246094,
+      "reduction_percent": 6.225598198804838,
+      "post_exact": true
+    },
+    {
+      "round": 2,
+      "case": "proxy190_reversed_reused_graph",
+      "order": [
+        "candidate",
+        "control"
+      ],
+      "control_ms": 29.082719802856445,
+      "candidate_ms": 27.261951446533203,
+      "saved_ms": 1.8207683563232422,
+      "reduction_percent": 6.260653641288427,
+      "post_exact": true
+    },
+    {
+      "round": 2,
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "order": [
+        "candidate",
+        "control"
+      ],
+      "control_ms": 29.247455596923828,
+      "candidate_ms": 27.268192291259766,
+      "saved_ms": 1.9792633056640625,
+      "reduction_percent": 6.767300831024203,
+      "post_exact": true
+    },
+    {
+      "round": 3,
+      "case": "proxy190",
+      "order": [
+        "control",
+        "candidate"
+      ],
+      "control_ms": 29.08358383178711,
+      "candidate_ms": 27.264047622680664,
+      "saved_ms": 1.8195362091064453,
+      "reduction_percent": 6.256231073963347,
+      "post_exact": true
+    },
+    {
+      "round": 3,
+      "case": "proxy190_reversed_reused_graph",
+      "order": [
+        "control",
+        "candidate"
+      ],
+      "control_ms": 29.08582305908203,
+      "candidate_ms": 27.265088081359863,
+      "saved_ms": 1.820734977722168,
+      "reduction_percent": 6.259870913825294,
+      "post_exact": true
+    },
+    {
+      "round": 3,
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "order": [
+        "control",
+        "candidate"
+      ],
+      "control_ms": 29.24844741821289,
+      "candidate_ms": 27.272175788879395,
+      "saved_ms": 1.976271629333496,
+      "reduction_percent": 6.756842854171053,
+      "post_exact": true
+    }
+  ],
+  "case_medians": [
+    {
+      "case": "proxy190",
+      "median_latency_reduction": 0.06255458286567928
+    },
+    {
+      "case": "proxy190_reversed_reused_graph",
+      "median_latency_reduction": 0.06259870913825294
+    },
+    {
+      "case": "proxy192_changed_conditioning_reused_graph",
+      "median_latency_reduction": 0.06756842854171052
+    }
+  ],
+  "preparation": {
+    "model_load_wall_seconds": 8.695191513048485,
+    "initial_graphs_capture_wall_seconds": 3.569310726947151,
+    "control_graph_capture_wall_seconds": 0.12218485004268587,
+    "candidate_graph_capture_wall_seconds": 0.10604369803331792,
+    "proxy190_initialize_and_snapshot_wall_seconds": 0.29444256296847016,
+    "proxy190_reversed_reused_graph_initialize_and_snapshot_wall_seconds": 0.28876030805986375,
+    "proxy192_changed_conditioning_reused_graph_initialize_and_snapshot_wall_seconds": 0.2888062869897112
+  },
+  "candidate_fixed_buffer_bytes": 441087536,
+  "peak_allocated_bytes": 159135928320,
+  "actual_jit": [
+    {
+      "arm": "control",
+      "device": 0,
+      "binary": "actual-control-device0-specialization0.cubin",
+      "ptx": "actual-control-device0-specialization0.ptx",
+      "cubin_sha256": "4d18a0d3e5ca96306253a753c5437ea054d04babed93e7a8d4150a9e74839468",
+      "loaded": true,
+      "registers": 32,
+      "spills": 0,
+      "metadata": {
+        "allowed_dot_input_precisions": [
+          "tf32",
+          "tf32x3",
+          "ieee",
+          "bf16x3",
+          "bf16x6"
+        ],
+        "arch": "sm103",
+        "backend_name": "cuda",
+        "debug": false,
+        "default_dot_input_precision": "tf32",
+        "deprecated_fp8_dot_operand_dtypes": [
+          "fp8e4b15"
+        ],
+        "enable_fp_fusion": false,
+        "enable_reflect_ftz": true,
+        "extern_libs": [
+          [
+            "libdevice",
+            "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc"
+          ]
+        ],
+        "global_scratch_align": 1,
+        "global_scratch_size": 0,
+        "hash": "c8cd9308f08d5bdb39aded07886239322f998a9b74c08ddcdd29188018c7904a",
+        "instrumentation_mode": "",
+        "ir_override": null,
+        "launch_cooperative_grid": false,
+        "launch_pdl": false,
+        "max_num_imprecise_acc_default": 0,
+        "maxnreg": null,
+        "name": "combine_experts_add_norm_kernel",
+        "num_ctas": 1,
+        "num_stages": 3,
+        "num_warps": 4,
+        "profile_scratch_align": 1,
+        "profile_scratch_size": 0,
+        "ptx_options": null,
+        "ptx_version": null,
+        "sanitize_overflow": true,
+        "shared": 16,
+        "supported_fp8_dtypes": [
+          "fp8e4b15",
+          "fp8e4nv",
+          "fp8e5"
+        ],
+        "target": "GPUTarget(backend='cuda', arch=103, warp_size=32)",
+        "tensordesc_meta": [],
+        "tmem_size": 0,
+        "triton_version": "3.7.1",
+        "warp_size": 32
+      },
+      "signature": {
+        "ROUTED": "*bf16",
+        "SHARED": "*bf16",
+        "GATE": "*bf16",
+        "RESIDUAL": "*bf16",
+        "W": "*bf16",
+        "OUT": "*bf16",
+        "STRIDE": "constexpr",
+        "EPS": "constexpr",
+        "WIDTH": "constexpr"
+      },
+      "constexprs": "{(6,): 1408, (7,): 1e-06, (8,): 2048}",
+      "attributes": "{(0,): [['tt.divisibility', 16]], (1,): [['tt.divisibility', 16]], (2,): [['tt.divisibility', 16]], (3,): [['tt.divisibility', 16]], (4,): [['tt.divisibility', 16]], (5,): [['tt.divisibility', 16]], (6,): [], (7,): [], (8,): []}"
+    },
+    {
+      "arm": "candidate",
+      "device": 0,
+      "binary": "actual-candidate-device0-specialization0.cubin",
+      "ptx": "actual-candidate-device0-specialization0.ptx",
+      "cubin_sha256": "64ce7a4665229385b33d925683863ccd3c891fe01d32121d4b2e8a5879358808",
+      "loaded": true,
+      "registers": 32,
+      "spills": 0,
+      "metadata": {
+        "allowed_dot_input_precisions": [
+          "tf32",
+          "tf32x3",
+          "ieee",
+          "bf16x3",
+          "bf16x6"
+        ],
+        "arch": "sm103",
+        "backend_name": "cuda",
+        "debug": false,
+        "default_dot_input_precision": "tf32",
+        "deprecated_fp8_dot_operand_dtypes": [
+          "fp8e4b15"
+        ],
+        "enable_fp_fusion": false,
+        "enable_reflect_ftz": true,
+        "extern_libs": [
+          [
+            "libdevice",
+            "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/triton/backends/nvidia/lib/libdevice.10.bc"
+          ]
+        ],
+        "global_scratch_align": 1,
+        "global_scratch_size": 0,
+        "hash": "440ee3405b1168acdc86d02d1a5d3e057bb5a54f0d6d417966ff6aa5d4266866",
+        "instrumentation_mode": "",
+        "ir_override": null,
+        "launch_cooperative_grid": false,
+        "launch_pdl": false,
+        "max_num_imprecise_acc_default": 0,
+        "maxnreg": null,
+        "name": "inverse_combine_experts_add_norm_kernel",
+        "num_ctas": 1,
+        "num_stages": 3,
+        "num_warps": 4,
+        "profile_scratch_align": 1,
+        "profile_scratch_size": 0,
+        "ptx_options": null,
+        "ptx_version": null,
+        "sanitize_overflow": true,
+        "shared": 16,
+        "supported_fp8_dtypes": [
+          "fp8e4b15",
+          "fp8e4nv",
+          "fp8e5"
+        ],
+        "target": "GPUTarget(backend='cuda', arch=103, warp_size=32)",
+        "tensordesc_meta": [],
+        "tmem_size": 0,
+        "triton_version": "3.7.1",
+        "warp_size": 32
+      },
+      "signature": {
+        "ROUTED": "*bf16",
+        "SHARED": "*bf16",
+        "GATE": "*bf16",
+        "INVERSE": "*i64",
+        "RESIDUAL": "*bf16",
+        "W": "*bf16",
+        "OUT": "*bf16",
+        "STRIDE": "constexpr",
+        "EPS": "constexpr",
+        "WIDTH": "constexpr"
+      },
+      "constexprs": "{(7,): 1408, (8,): 1e-06, (9,): 2048}",
+      "attributes": "{(0,): [['tt.divisibility', 16]], (1,): [['tt.divisibility', 16]], (2,): [['tt.divisibility', 16]], (3,): [], (4,): [['tt.divisibility', 16]], (5,): [['tt.divisibility', 16]], (6,): [['tt.divisibility', 16]], (7,): [], (8,): [], (9,): []}"
+    }
+  ],
+  "limitations": [
+    "Three paired local rounds test fixed-work event latency; still not service/quality evidence.",
+    "Full exact gates run beforetiming andaftereveryround/case pair; no claim of fullstatevalidation aftereach100timedreplay.",
+    "This native MixedGraph includes teacher tower, not separate postgraph olddecode/newfirst sampling towers or codec. No serving preparation or restoration time included.",
+    "FIFO proxy membership remains unverified against request-ID server logs.",
+    "Candidate uses retained per-layer guarded buffers and reports their memory; no extra observercopy in the timed path.",
+    "Prior expanded-adapter 3.89\u20134.36% FAIL preserved; this candidate removes159 launches/1.049GB logical adapter traffic, not measured DRAMbytes or a guaranteed latency saving.",
+    "AB/BA/AB rounds share one process and capturedgraphpair. GPU process audit is launch preflight only; continuous exclusion is not claimed."
+  ]
+}

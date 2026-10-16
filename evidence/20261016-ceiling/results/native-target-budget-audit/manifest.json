@@ -1,0 +1,11 @@
+{
+  "status": "CPU_SOURCE_AUDIT_ONLY",
+  "files": {
+    "derive.py": "343a01db4a1da1c5e3d1988fa436f7055daa1f125de9b91b2bcfd8cce45fcf6c",
+    "budget.json": "f990b614f3a4f9271c891a47696e77846adbf24641b0cf2c8dd9ac4243488109",
+    "audit.md": "ee868abcd782eac6ab9eab186db4f854fb1e1e2cfdc8cb3465103e2fb582e7d7",
+    "fc1-full-activation-staging.md": "31211e370923316004c735be2c9e95896fa3c3e8419e2a89e07f8c334463b48a"
+  },
+  "gpu_execution": false,
+  "runtime_changes": false
+}
