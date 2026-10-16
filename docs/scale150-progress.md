@@ -8,6 +8,11 @@ The best complete-quality C64 observation remains4726.771 frames/s and the targe
 remains6765.407. Full results and preserved failures are in the
 [evidence](../evidence/20261016-ceiling/README.md).
 
+A subsequent PDL-enabled M128 candidate passes1498 exact checks but misses
+the continuation threshold in two of three real cases in its first timing round.
+Pressure-case timing, three repetitions and service integration are not run.
+The next metadata/consumer-wait schedule remains under separate validation.
+
 # Current concurrency optimization campaign
 
 Status: **INCONCLUSIVE; the all-concurrency target has not been achieved.**

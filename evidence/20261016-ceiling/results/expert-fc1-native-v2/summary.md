@@ -6,7 +6,7 @@ The native 16x256b TMEM output pair contains rows separated by8, not adjacent ro
 
 `result.json`: **42/42 exact checks PASS**, including all8192 FC1 E4M3 bytes,64 FP32 scales, eager execution, CUDA Graph replay after output poisoning, read-only inputs/weights, other stage storage and CUDA RNG. Dequantized difference is exactly zero. CPU and GPU generated identical CUBIN `d9790e399abfd5b90889ed1b0f402740d3d284b929c5416874eefd2ea7191566`.
 
-CPU AOT never initialized CUDA. Actual shared memory is71544 dynamic+2048 static=73592 bytes; no local/stack spill. The32-register CUBIN header is not the live register budget: generated PTX requests160 registers for eight epilogue warps and48 for the other eight warps, totaling53248 32-bit registers per CTA. This arithmetic prototype does not establish two CTAs/SM.
+CPU AOT never initialized CUDA. Actual shared memory is71544 dynamic+2048 static=73592 bytes; no local/stack spill. Correction: the generated PTX160/48 role hints sum to53248, but that sum does not establish actual register allocation or occupancy. Final-machine-code audits of the subsequent native prototypes withdraw the one-CTA inference; see ../register-lowering-audit/report.md. This arithmetic gate establishes no measured residency.
 
 There are no timing or service performance results. The subsequent broader experiment in `../expert-fc1-expanded` passed layer0's five full routing distributions but stopped on a declared synthetic zero-input scale mismatch (native0, candidate2.23214294e-15). Therefore this successful fixture does **not** establish a general native FC1 implementation; the zero/clamp branch still requires correction and the remaining layers are not yet executed.
 

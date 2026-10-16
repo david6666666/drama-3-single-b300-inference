@@ -25,5 +25,14 @@
       "highest_general_register": 29,
       "cubin_base_registers": 32
     }
+  ],
+  "machine_instruction_search": "Include Blackwell USETMAXREG as well as SETMAXNREG; see register-lowering-audit/result.json and reproduce.py for the executed multi-spelling audit.",
+  "historical_assertions_superseded": [
+    "expert-resident-chain/chain-protocol.json",
+    "expert-resident-chain-v2/chain-protocol.json",
+    "expert-resident-chain/chain-independent-review.md",
+    "expert-resident-chain/chain-independent-review.json",
+    "expert-resident-chain-v2/chain-independent-review.md",
+    "expert-resident-chain-v2/chain-independent-review.json"
   ]
 }

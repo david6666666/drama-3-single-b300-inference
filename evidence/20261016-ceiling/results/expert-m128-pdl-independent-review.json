@@ -1,0 +1,49 @@
+{
+  "status": "CPU_REVIEW_COMPLETE_NO_BLOCKING_SOURCE_FINDING",
+  "gpu_used": false,
+  "candidate_files_modified": false,
+  "runtime_modified": false,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "reviewed_at_utc": "2026-10-16T01:59:50.999519+00:00",
+  "important_correction": "Global M128 uses persistent CLC; no static outer-return claim.",
+  "ptx": {
+    "fc1": {
+      "file": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx",
+      "wait_lines": [
+        79
+      ],
+      "launch_lines": [
+        1293,
+        2155
+      ]
+    },
+    "fc2": {
+      "file": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx",
+      "wait_lines": [
+        74
+      ],
+      "launch_lines": [
+        1325,
+        2135
+      ]
+    }
+  },
+  "sha256": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl/pdl_driver.py": "72fd84da77b20d0814cc76c6ac3251c61f561b1a82e46d81fc7db81fa4100bae",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl/pdl_gate.py": "d3a9da5efb9d1d368f997b7f6ca90a817f543c48c4fb25aca8ac57dbe4ef453f",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl/launch.py": "1dcff8e3ea5a75920b2bd23ac04f974278995775bb07571baa28df0a8b37e90d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl/body_common.py": "fe6642d1d5ec154236674e4f8a8c875fea720507d4716ecb235cc05809deb331",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl/gmem_c_resources_m128_body.py": "4b8fc3fe4483977105bd197caef5afbfaec938aef1f736b449ecd5eeca6da4d5",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl/prepare_protocol.py": "5370ec299c6789642ac4d1401eef040c29707fe79699e14f3bfd3d02382c6dad",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl/prepare.json": "ea439c6bd24da60028e9bf7abd578094a864ca5a43f47b7cea149ce68ca503b0",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/batched_gemm_kernel.py": "8963ccf24821db00f9ab405f3e9ccbbea96734211929acdd8962ae817800a556",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/batched_gemm_tasks.py": "83644ccc63e4b43f6799523dd1851b261898d98d443ee86670a5fad8ed0a825b",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/smem_misc_resources.py": "897e37b2487870dec9cbc8282ff2ef5e0164e6481abe99281eb1a778e4ffc46d",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/batched_gemm_config.py": "1af91a4a3fabece710b4c79502bfea502e75861ffd40ad2b2821ce8ca663d235",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/data/csrc/fused_moe/trtllm_backend/trtllm_fused_moe_dev_kernel.cu": "4fec8e6380aaab32cb073b70f943cbc9e3c16cc0171c7c3aabcdcae478ab9e69",
+    "/usr/local/cuda/include/cuda_device_runtime_api.h": "0a159d4210c02213df336c8582700b617d6d298a7d74d9eb16c561bc5f4e9b7c",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx": "4796b8b0c5e1fcaf6413925321b88d58b7984189fa1508e270b9fe30c28511db",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx": "8d26e480c2f33a8aa3bc9e2897de2dcf69ebd4f7beb4bfafd34ba1cc28453f0d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-independent-review.md": "56ead320aeac5395b7f5296564aba4102e095bf61132d3a8e3ae5394566f837f"
+  }
+}

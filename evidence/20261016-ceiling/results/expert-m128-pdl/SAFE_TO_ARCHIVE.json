@@ -1,0 +1,21 @@
+{
+  "status": "SAFE_TO_ARCHIVE_FEASIBILITY_FAIL",
+  "exact_checks": 1498,
+  "all_exact": true,
+  "three_round_timing_executed": false,
+  "runtime_promoted": false,
+  "gpu_released": true,
+  "files": {
+    "summary.md": "88d9a94e55dc679177350fdb1d9e0d038825b98895fd1aa349d5c9b189c8dcef",
+    "protocol.json": "dd167d3ee6a0b77ce87af54b69ff16755a379738450a6f8189888e3a77704f49",
+    "frozen-inputs.json": "e0331ad4251067d4a6f19276e11d4790b4db5c8d4ca8621a3f5638d1b3985103",
+    "cpu-pdl-audit.json": "d6ad7c42ee3f07abc38f0c63ced82d0b5ab5570dfe7a6a58655d777c58389ad7",
+    "gate-result.json": "07982f411e47e4c52ee84489e7483d14d3c63886b62a545d9be8dc9b07978a68",
+    "feasibility-result.json": "5377b635e382192390deb23ccc4e4f0bda9a3c89f7a73a1f8975864d5233f62f",
+    "launch-result.json": "128038013956351173fe77fe21cdd50203b0d4a37af62317ff4b3b7d4b87ea59"
+  },
+  "stress_performance": "NOT_RUN",
+  "real_performance_repetitions": 1,
+  "raw_stress_gate_field_interpretation": "Placeholder true during feasibility; no stress performance conclusion. Raw preserved.",
+  "comparison_with_earlier_pdl_false_is_causal": false
+}

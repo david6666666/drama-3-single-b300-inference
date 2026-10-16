@@ -25,7 +25,10 @@
           4.680879185938355,
           4.726324614928049
         ]
-      }
+      },
+      "oracle": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer0-real.pt",
+      "oracle_sha256": "68699d4a96078075bd881a3d966b1943aabb3cd25194942af47a1ba161d0f588",
+      "max_routes": 9
     },
     {
       "layer": 19,
@@ -44,7 +47,10 @@
           4.0964523669076955,
           4.328327029185489
         ]
-      }
+      },
+      "oracle": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer19-real.pt",
+      "oracle_sha256": "a0c7a5e703f16909f540d639e7a3278424fcf849e759923e92512c207bc65a45",
+      "max_routes": 19
     },
     {
       "layer": 39,
@@ -63,7 +69,10 @@
           3.241817936033446,
           4.115699292703332
         ]
-      }
+      },
+      "oracle": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-metadata-rebase/oracle-layer39-real.pt",
+      "oracle_sha256": "000b490cbced0e7d48e78118710a4bb551a295d339db5e6fcdc4d0fb9e6d2b80",
+      "max_routes": 28
     }
   ],
   "limits": [
@@ -71,5 +80,6 @@
     "Three sampled layers must not be multiplied by40 as a measured model total.",
     "All timings exclude common input quantization and logits routing.",
     "Resident six phase synchronization and lower staging depth are structural differences, not measured stall attribution."
-  ]
+  ],
+  "cuda_initialized": false
 }

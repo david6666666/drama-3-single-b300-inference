@@ -8,8 +8,8 @@
   {
     "source": "archive_ceiling.py",
     "artifact": "archive_ceiling.py.gz",
-    "uncompressed_sha256": "81878ced7755e6865ea177a7e40667faf52c5c7f24217d6cf258029b7c67766e",
-    "bytes": 3226
+    "uncompressed_sha256": "5484c07d82c489d7d46c1f06103d4a730b019e7b02ab8b5bbd3ee8940139e76f",
+    "bytes": 3255
   },
   {
     "source": "archived-codec-fragmentation.json",
@@ -2864,8 +2864,8 @@
   {
     "source": "expert-fc1-native-v2/summary.md",
     "artifact": "expert-fc1-native-v2/summary.md",
-    "uncompressed_sha256": "b420d587685c8a05bcc9ae3d23450baf8b2b2870530f1d3d0d9dd83315bf5f15",
-    "bytes": 2310
+    "uncompressed_sha256": "8a05cc64b5b34b1b3f5cf6f3af462b33ef4ee4416dc0b05bb294e93d96309d3d",
+    "bytes": 2382
   },
   {
     "source": "expert-fc1-native-v3/common.py",
@@ -4606,6 +4606,282 @@
     "artifact": "expert-m128-native-v2/summary.md",
     "uncompressed_sha256": "1e16967f5dc24dadf7b29c6c9de36e896716b875435d81a6b698ddbb543965b5",
     "bytes": 478
+  },
+  {
+    "source": "expert-m128-pdl/SAFE_TO_ARCHIVE.json",
+    "artifact": "expert-m128-pdl/SAFE_TO_ARCHIVE.json",
+    "uncompressed_sha256": "d87f58aee953e73804f597a2bd1b91e13f633e216feaf4d9f2e1a96cedec1292",
+    "bytes": 1113
+  },
+  {
+    "source": "expert-m128-pdl/body_common.py",
+    "artifact": "expert-m128-pdl/body_common.py.gz",
+    "uncompressed_sha256": "fe6642d1d5ec154236674e4f8a8c875fea720507d4716ecb235cc05809deb331",
+    "bytes": 4126
+  },
+  {
+    "source": "expert-m128-pdl/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx",
+    "artifact": "expert-m128-pdl/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "4796b8b0c5e1fcaf6413925321b88d58b7984189fa1508e270b9fe30c28511db",
+    "bytes": 102289
+  },
+  {
+    "source": "expert-m128-pdl/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx",
+    "artifact": "expert-m128-pdl/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "8d26e480c2f33a8aa3bc9e2897de2dcf69ebd4f7beb4bfafd34ba1cc28453f0d",
+    "bytes": 100744
+  },
+  {
+    "source": "expert-m128-pdl/cpu-compile/fc1-host.mlir",
+    "artifact": "expert-m128-pdl/cpu-compile/fc1-host.mlir.gz",
+    "uncompressed_sha256": "66517544cfd8420e480c78789fda1a5ec2a9e7c124181e73dfeaba55aa179dd3",
+    "bytes": 229601
+  },
+  {
+    "source": "expert-m128-pdl/cpu-compile/fc2-host.mlir",
+    "artifact": "expert-m128-pdl/cpu-compile/fc2-host.mlir.gz",
+    "uncompressed_sha256": "db3ca42b750c9457e9c9bfe3f5d277a255535edc85b315d3ec90a517deb1c21f",
+    "bytes": 230814
+  },
+  {
+    "source": "expert-m128-pdl/cpu-host-parser-initial/prepare_protocol.py",
+    "artifact": "expert-m128-pdl/cpu-host-parser-initial/prepare_protocol.py.gz",
+    "uncompressed_sha256": "5370ec299c6789642ac4d1401eef040c29707fe79699e14f3bfd3d02382c6dad",
+    "bytes": 8015
+  },
+  {
+    "source": "expert-m128-pdl/cpu-host-parser-initial/protocol-prepare.log",
+    "artifact": "expert-m128-pdl/cpu-host-parser-initial/protocol-prepare.log.gz",
+    "uncompressed_sha256": "ded9f97e06610a385f9f6bc3d0ec5a13fc96fac3bf8463045a43b7a0f374f2ed",
+    "bytes": 324
+  },
+  {
+    "source": "expert-m128-pdl/cpu-pdl-audit.json",
+    "artifact": "expert-m128-pdl/cpu-pdl-audit.json",
+    "uncompressed_sha256": "d6ad7c42ee3f07abc38f0c63ced82d0b5ab5570dfe7a6a58655d777c58389ad7",
+    "bytes": 6156
+  },
+  {
+    "source": "expert-m128-pdl/cpu-prepare.log",
+    "artifact": "expert-m128-pdl/cpu-prepare.log.gz",
+    "uncompressed_sha256": "e8df12bc8a1ece6a75e9d20540ab040bf6632ff12c0f24d125382795a26a682c",
+    "bytes": 2800
+  },
+  {
+    "source": "expert-m128-pdl/feasibility-process-audit.jsonl",
+    "artifact": "expert-m128-pdl/feasibility-process-audit.jsonl.gz",
+    "uncompressed_sha256": "c1d0c462b7ba2f357b6921341a68b98859561b0146af7e9f3a2d6c93a784bced",
+    "bytes": 2265
+  },
+  {
+    "source": "expert-m128-pdl/feasibility-result.json",
+    "artifact": "expert-m128-pdl/feasibility-result.json",
+    "uncompressed_sha256": "5377b635e382192390deb23ccc4e4f0bda9a3c89f7a73a1f8975864d5233f62f",
+    "bytes": 31557
+  },
+  {
+    "source": "expert-m128-pdl/feasibility.log",
+    "artifact": "expert-m128-pdl/feasibility.log.gz",
+    "uncompressed_sha256": "19b68abe161d61ae701a36bccc767fb5e68c76c79edffdef652e6e4595b93527",
+    "bytes": 3287
+  },
+  {
+    "source": "expert-m128-pdl/frozen-inputs.json",
+    "artifact": "expert-m128-pdl/frozen-inputs.json",
+    "uncompressed_sha256": "e0331ad4251067d4a6f19276e11d4790b4db5c8d4ca8621a3f5638d1b3985103",
+    "bytes": 20455
+  },
+  {
+    "source": "expert-m128-pdl/gate-cpu-checks.json",
+    "artifact": "expert-m128-pdl/gate-cpu-checks.json",
+    "uncompressed_sha256": "ba2e6569aa722e48058ddd6221d7d30de46d7213b5ba56e9a153dbe252e6154d",
+    "bytes": 421
+  },
+  {
+    "source": "expert-m128-pdl/gate-process-audit.jsonl",
+    "artifact": "expert-m128-pdl/gate-process-audit.jsonl.gz",
+    "uncompressed_sha256": "01f15bd954d270126628e04d7a675d34ca0b74793ef98287f4eb471f28b5ee0a",
+    "bytes": 2550
+  },
+  {
+    "source": "expert-m128-pdl/gate-result.json",
+    "artifact": "expert-m128-pdl/gate-result.json.gz",
+    "uncompressed_sha256": "07982f411e47e4c52ee84489e7483d14d3c63886b62a545d9be8dc9b07978a68",
+    "bytes": 247021
+  },
+  {
+    "source": "expert-m128-pdl/gate.log",
+    "artifact": "expert-m128-pdl/gate.log.gz",
+    "uncompressed_sha256": "c6a1f0ff06d20ecb9634f314770afb3c104db67bf966e35326f00de9426abb62",
+    "bytes": 3163
+  },
+  {
+    "source": "expert-m128-pdl/gmem_c_resources_m128_body.py",
+    "artifact": "expert-m128-pdl/gmem_c_resources_m128_body.py.gz",
+    "uncompressed_sha256": "4b8fc3fe4483977105bd197caef5afbfaec938aef1f736b449ecd5eeca6da4d5",
+    "bytes": 158438
+  },
+  {
+    "source": "expert-m128-pdl/gpu-feasibility-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx",
+    "artifact": "expert-m128-pdl/gpu-feasibility-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "4796b8b0c5e1fcaf6413925321b88d58b7984189fa1508e270b9fe30c28511db",
+    "bytes": 102289
+  },
+  {
+    "source": "expert-m128-pdl/gpu-feasibility-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx",
+    "artifact": "expert-m128-pdl/gpu-feasibility-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "8d26e480c2f33a8aa3bc9e2897de2dcf69ebd4f7beb4bfafd34ba1cc28453f0d",
+    "bytes": 100744
+  },
+  {
+    "source": "expert-m128-pdl/gpu-feasibility-compile/fc1-host.mlir",
+    "artifact": "expert-m128-pdl/gpu-feasibility-compile/fc1-host.mlir.gz",
+    "uncompressed_sha256": "66517544cfd8420e480c78789fda1a5ec2a9e7c124181e73dfeaba55aa179dd3",
+    "bytes": 229601
+  },
+  {
+    "source": "expert-m128-pdl/gpu-feasibility-compile/fc2-host.mlir",
+    "artifact": "expert-m128-pdl/gpu-feasibility-compile/fc2-host.mlir.gz",
+    "uncompressed_sha256": "db3ca42b750c9457e9c9bfe3f5d277a255535edc85b315d3ec90a517deb1c21f",
+    "bytes": 230814
+  },
+  {
+    "source": "expert-m128-pdl/gpu-gate-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx",
+    "artifact": "expert-m128-pdl/gpu-gate-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "4796b8b0c5e1fcaf6413925321b88d58b7984189fa1508e270b9fe30c28511db",
+    "bytes": 102289
+  },
+  {
+    "source": "expert-m128-pdl/gpu-gate-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx",
+    "artifact": "expert-m128-pdl/gpu-gate-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx.gz",
+    "uncompressed_sha256": "8d26e480c2f33a8aa3bc9e2897de2dcf69ebd4f7beb4bfafd34ba1cc28453f0d",
+    "bytes": 100744
+  },
+  {
+    "source": "expert-m128-pdl/gpu-gate-compile/fc1-host.mlir",
+    "artifact": "expert-m128-pdl/gpu-gate-compile/fc1-host.mlir.gz",
+    "uncompressed_sha256": "66517544cfd8420e480c78789fda1a5ec2a9e7c124181e73dfeaba55aa179dd3",
+    "bytes": 229601
+  },
+  {
+    "source": "expert-m128-pdl/gpu-gate-compile/fc2-host.mlir",
+    "artifact": "expert-m128-pdl/gpu-gate-compile/fc2-host.mlir.gz",
+    "uncompressed_sha256": "db3ca42b750c9457e9c9bfe3f5d277a255535edc85b315d3ec90a517deb1c21f",
+    "bytes": 230814
+  },
+  {
+    "source": "expert-m128-pdl/initial-source.patch",
+    "artifact": "expert-m128-pdl/initial-source.patch.gz",
+    "uncompressed_sha256": "7028b33af9db329c4c6303ed3ae722e41a0ab1bf325e47193adc3189fb7e62b3",
+    "bytes": 9159
+  },
+  {
+    "source": "expert-m128-pdl/launch-result.json",
+    "artifact": "expert-m128-pdl/launch-result.json",
+    "uncompressed_sha256": "128038013956351173fe77fe21cdd50203b0d4a37af62317ff4b3b7d4b87ea59",
+    "bytes": 1557
+  },
+  {
+    "source": "expert-m128-pdl/launch.log",
+    "artifact": "expert-m128-pdl/launch.log.gz",
+    "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "expert-m128-pdl/launch.py",
+    "artifact": "expert-m128-pdl/launch.py.gz",
+    "uncompressed_sha256": "1dcff8e3ea5a75920b2bd23ac04f974278995775bb07571baa28df0a8b37e90d",
+    "bytes": 5594
+  },
+  {
+    "source": "expert-m128-pdl/pdl_driver.py",
+    "artifact": "expert-m128-pdl/pdl_driver.py.gz",
+    "uncompressed_sha256": "72fd84da77b20d0814cc76c6ac3251c61f561b1a82e46d81fc7db81fa4100bae",
+    "bytes": 20292
+  },
+  {
+    "source": "expert-m128-pdl/pdl_gate.py",
+    "artifact": "expert-m128-pdl/pdl_gate.py.gz",
+    "uncompressed_sha256": "d3a9da5efb9d1d368f997b7f6ca90a817f543c48c4fb25aca8ac57dbe4ef453f",
+    "bytes": 8675
+  },
+  {
+    "source": "expert-m128-pdl/prepare.json",
+    "artifact": "expert-m128-pdl/prepare.json",
+    "uncompressed_sha256": "ea439c6bd24da60028e9bf7abd578094a864ca5a43f47b7cea149ce68ca503b0",
+    "bytes": 11679
+  },
+  {
+    "source": "expert-m128-pdl/prepare_protocol.py",
+    "artifact": "expert-m128-pdl/prepare_protocol.py.gz",
+    "uncompressed_sha256": "770558f47b469dacb12739712fcd6d5045ee27bb7b47c0608a2e0a11e9909bbd",
+    "bytes": 8154
+  },
+  {
+    "source": "expert-m128-pdl/protocol-prepare.log",
+    "artifact": "expert-m128-pdl/protocol-prepare.log.gz",
+    "uncompressed_sha256": "92215496e9757950c3ddab5931d3b69bed74c13cd5062020b8456517ec064975",
+    "bytes": 28
+  },
+  {
+    "source": "expert-m128-pdl/protocol.json",
+    "artifact": "expert-m128-pdl/protocol.json",
+    "uncompressed_sha256": "dd167d3ee6a0b77ce87af54b69ff16755a379738450a6f8189888e3a77704f49",
+    "bytes": 5982
+  },
+  {
+    "source": "expert-m128-pdl/resource-fc1/kernel.sass",
+    "artifact": "expert-m128-pdl/resource-fc1/kernel.sass.gz",
+    "uncompressed_sha256": "461e643847a5e541b2eff0dae75f6c83af5d8bd7302fd4afe78942b391c06623",
+    "bytes": 603045
+  },
+  {
+    "source": "expert-m128-pdl/resource-fc1/resource-usage.txt",
+    "artifact": "expert-m128-pdl/resource-fc1/resource-usage.txt.gz",
+    "uncompressed_sha256": "66529fea5eed281efdace8babb84248816c2871a8697cb7812ac28f27062fe99",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-pdl/resource-fc1/result.json",
+    "artifact": "expert-m128-pdl/resource-fc1/result.json",
+    "uncompressed_sha256": "dc9672c29448b819ecc61561c7fdae8a480a22699f725843dc73c44f26091045",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-m128-pdl/resource-fc2/kernel.sass",
+    "artifact": "expert-m128-pdl/resource-fc2/kernel.sass.gz",
+    "uncompressed_sha256": "878660875c7f51b46f4efd02872fc2c36442bbcf23586b16645f346641906863",
+    "bytes": 614165
+  },
+  {
+    "source": "expert-m128-pdl/resource-fc2/resource-usage.txt",
+    "artifact": "expert-m128-pdl/resource-fc2/resource-usage.txt.gz",
+    "uncompressed_sha256": "88ab4b01b1495f7a516604968109b1c2ab7c0d51cbb203d48f406972859edf74",
+    "bytes": 322
+  },
+  {
+    "source": "expert-m128-pdl/resource-fc2/result.json",
+    "artifact": "expert-m128-pdl/resource-fc2/result.json",
+    "uncompressed_sha256": "51265eccea06d6792e7defe9b34be156878adc72c48bb222ed54441a2c9f0510",
+    "bytes": 1095
+  },
+  {
+    "source": "expert-m128-pdl/summary.md",
+    "artifact": "expert-m128-pdl/summary.md",
+    "uncompressed_sha256": "88d9a94e55dc679177350fdb1d9e0d038825b98895fd1aa349d5c9b189c8dcef",
+    "bytes": 4847
+  },
+  {
+    "source": "expert-m128-pdl-independent-review.json",
+    "artifact": "expert-m128-pdl-independent-review.json",
+    "uncompressed_sha256": "f6eca7cb61f2bc4fd06d83bbb0ae28c9aee117be7f323efb2c0ec15f5426b322",
+    "bytes": 4428
+  },
+  {
+    "source": "expert-m128-pdl-independent-review.md",
+    "artifact": "expert-m128-pdl-independent-review.md",
+    "uncompressed_sha256": "56ead320aeac5395b7f5296564aba4102e095bf61132d3a8e3ae5394566f837f",
+    "bytes": 5573
   },
   {
     "source": "expert-m128-resource/aot/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024820.sm_103a.ptx",
@@ -6482,8 +6758,8 @@
   {
     "source": "expert-resident-implementation-plan.md",
     "artifact": "expert-resident-implementation-plan.md",
-    "uncompressed_sha256": "054a1338632420d779da785178888b35a5e47ac2076d34699f3af0071bdfadb4",
-    "bytes": 11675
+    "uncompressed_sha256": "5cea835405e8ed56c03bd2f11d3d012977a0c7bad92a67f87ef70321c096e6ef",
+    "bytes": 11730
   },
   {
     "source": "expert-resident-timing/activation_helper_aot.py",
@@ -6908,8 +7184,8 @@
   {
     "source": "expert-resident-timing-v2/independent-next-diagnostic-budget.json",
     "artifact": "expert-resident-timing-v2/independent-next-diagnostic-budget.json",
-    "uncompressed_sha256": "6efca1d9d43cc666eff6bc5e5b317892ab2a30e34be5e13142df218cff06f464",
-    "bytes": 2201
+    "uncompressed_sha256": "8a05d008d2fd19c5484c660dbc0976e700ff54d55c70b759cea545ce94117240",
+    "bytes": 2933
   },
   {
     "source": "expert-resident-timing-v2/independent-next-diagnostic-budget.md",
@@ -6920,7 +7196,7 @@
   {
     "source": "expert-resident-timing-v2/independent-review.json",
     "artifact": "expert-resident-timing-v2/independent-review.json",
-    "uncompressed_sha256": "c60ca7990a2a9710e5446eb1047b7421d71f624658cebab8aae814bdb1fa54c7",
+    "uncompressed_sha256": "fb68e5721adc0266b3ce70995bad7f016fb1b0f858afca697d1c0948f71bfaba",
     "bytes": 19479
   },
   {
@@ -6932,8 +7208,8 @@
   {
     "source": "expert-resident-timing-v2/independent_recompute.py",
     "artifact": "expert-resident-timing-v2/independent_recompute.py.gz",
-    "uncompressed_sha256": "aa865bec8e819bab98d3df78dc7b6a3b79f1a9bb84ac84d57ff01dfafb770e0d",
-    "bytes": 6327
+    "uncompressed_sha256": "2bc6f6570d1c98a63376a4815b57770766a09404ae4d340cc00b57f8740a283a",
+    "bytes": 7063
   },
   {
     "source": "expert-resident-timing-v2/launch_chain_gate.py",
@@ -9036,10 +9312,28 @@
     "bytes": 1566
   },
   {
+    "source": "native-dense-cpu-audit.json",
+    "artifact": "native-dense-cpu-audit.json",
+    "uncompressed_sha256": "855fc2dfabe574bd2ca76a919ca6ff2329b856eed729bc61c7bf36680d482e37",
+    "bytes": 2013
+  },
+  {
+    "source": "native-dense-cpu-audit.md",
+    "artifact": "native-dense-cpu-audit.md",
+    "uncompressed_sha256": "814cfba8753c5254cf47d8860a52e1a847e23b88bd5b1ac8ae572c15b2898575",
+    "bytes": 5455
+  },
+  {
     "source": "native-frame-pipeline-review.md",
     "artifact": "native-frame-pipeline-review.md",
     "uncompressed_sha256": "8c677f26dfbf2a371f2f6991de0d35704946d8edf6b87c1445f62c99642e5ff3",
     "bytes": 4993
+  },
+  {
+    "source": "native-moe-next-schedule-audit.md",
+    "artifact": "native-moe-next-schedule-audit.md",
+    "uncompressed_sha256": "cb53db2f422ab95ee2a8468b1909c7ed3afd7935ded6880561f1d3a9fa55a4b1",
+    "bytes": 8044
   },
   {
     "source": "native-moe-source-opportunities.md",
@@ -9190,6 +9484,12 @@
     "artifact": "pair-eligibility-ledger.json",
     "uncompressed_sha256": "2b824f08a88269da222dc73dd42021f359c41a9ccc995b4c66e858725c79b5c6",
     "bytes": 1758
+  },
+  {
+    "source": "pdl-memory-contract.md",
+    "artifact": "pdl-memory-contract.md",
+    "uncompressed_sha256": "ed5d201d63a7d2b701d1010808b3d09577a96981f134fd9dff7c8c77d1890fbf",
+    "bytes": 1492
   },
   {
     "source": "pipeline-admission-audit.md",
@@ -9840,10 +10140,16 @@
     "bytes": 549848
   },
   {
+    "source": "register-lowering-audit/vendor-native-fc2.sass",
+    "artifact": "register-lowering-audit/vendor-native-fc2.sass.gz",
+    "uncompressed_sha256": "f9b3038c7e88c8a3a4bf73b71d35a47aa84d0eefc8dc9656bb101aa30245e473",
+    "bytes": 516466
+  },
+  {
     "source": "resident-register-accounting-erratum.json",
     "artifact": "resident-register-accounting-erratum.json",
-    "uncompressed_sha256": "1dc945491e1f6ac4d42115841183b37174645d341954ac636be354734018ce4f",
-    "bytes": 1321
+    "uncompressed_sha256": "d656e7ed4b5ea6c765af1f9a49195c39aea79603e2b5eca67b775387c04ac711",
+    "bytes": 1887
   },
   {
     "source": "review-latest-native-changes.md",

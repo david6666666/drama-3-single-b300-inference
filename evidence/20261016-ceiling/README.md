@@ -406,3 +406,26 @@ boundaries and native BF16/FP32 arithmetic. They add no complete1088-request
 quality group or C64 throughput result. The best complete-quality observation
 remains4726.771 frames/s;6765.407 and the all-concurrency quality gates remain
 unmet. Register source-hint occupancy claims are corrected explicitly above.
+
+
+## M128 PDL enabled: exact pass, feasibility gate fails
+
+Enabling PDL for the candidate GEMMs, activation and finalizer passes1498 exact
+checks, including all15 fixtures, changing live metadata, empty work and recovery
+with the same graphs. Captured graphs have actual programmatic dependency edges;
+a kernel-node attribute query returns `CUDA_ERROR_INVALID_VALUE` and is recorded,
+not treated as successful attribute evidence. Native baseline PDL remains enabled.
+
+One preliminary AB measurement per real layer gives120.781→118.380µs,
+100.754→96.892µs and81.966→76.790µs:1.988%,3.832%,6.315% latency reductions.
+Not all real cases reach5%, so the run stops before three-repetition timing or
+runtime integration. The12 pressure cases pass arithmetic checks but their
+performance is **NOT RUN**; a vacuous raw stress flag is not a measured pass.
+These single-round observations must not be causally compared with the earlier
+separate PDL-off experiment. See [PDL report](results/expert-m128-pdl/summary.md).
+
+CPU inspection identifies a narrower follow-up: the native FC2 weight producer
+can precede a consumer dependency wait, while this prototype waits at entry.
+An explicit metadata-completion dependency and retained consumer waits would be
+required to exploit independent weight prefetch safely. The next specialization
+is not yet validated. See [synchronization contract](results/pdl-memory-contract.md).
