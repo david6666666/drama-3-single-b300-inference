@@ -48,8 +48,10 @@ Throughput-only 1.5× gate across all concurrency levels: **FAIL**. Quality is a
 
 ![Four requested metrics and repetition ranges](figures/full-comparison.png)
 
-The figure shows three-run medians and minimum-to-maximum shading; it is not a
-confidence interval. Throughput uses a logarithmic vertical axis. Download the
+The figure retains the **earlier 2× target** as its dashed reference line; that
+line is historical and is not the current 1.5× acceptance threshold. The measured
+curves are unchanged. It shows three-run medians and minimum-to-maximum shading,
+not a confidence interval. Throughput uses a logarithmic vertical axis. Download the
 [PDF figure](figures/full-comparison.pdf) or [exact plot data](figures/full-comparison.json).
 
 Full-corpus reference preparation encoded 666 unique references in 25.29 s.
