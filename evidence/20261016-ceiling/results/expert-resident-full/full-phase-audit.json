@@ -1,0 +1,347 @@
+{
+  "status": "CPU_EMITTED_PHASE_COORDINATES_PASS",
+  "gpu_used": false,
+  "ptx_sha256": "ecdaae2719d5f29aa2793e48213ae9c059b2c8253d1920f71fa59ae28488dab1",
+  "weight_load_coordinates": [
+    {
+      "phase": 0,
+      "load_line": 345,
+      "coordinate_register": "%r19",
+      "coordinate": {
+        "ctaid.x": 128,
+        "constant": 0
+      },
+      "ptx": "cp.async.bulk.tensor.3d.shared::cta.global.tile.mbarrier::complete_tx::bytes [%r1], [%rd2, {%r455, %r19, %r18}], [%r12];"
+    },
+    {
+      "phase": 1,
+      "load_line": 2505,
+      "coordinate_register": "%r88",
+      "coordinate": {
+        "ctaid.x": 128,
+        "constant": 512
+      },
+      "ptx": "cp.async.bulk.tensor.3d.shared::cta.global.tile.mbarrier::complete_tx::bytes [%r1], [%rd2, {%r996, %r88, %r87}], [%r83];"
+    },
+    {
+      "phase": 2,
+      "load_line": 5059,
+      "coordinate_register": "%r184",
+      "coordinate": {
+        "ctaid.x": 128,
+        "constant": 0
+      },
+      "ptx": "cp.async.bulk.tensor.3d.shared::cta.global.tile.mbarrier::complete_tx::bytes [%r1], [%rd45, {%r1837, %r184, %r183}], [%r176];"
+    },
+    {
+      "phase": 3,
+      "load_line": 7121,
+      "coordinate_register": "%r242",
+      "coordinate": {
+        "ctaid.x": 128,
+        "constant": 512
+      },
+      "ptx": "cp.async.bulk.tensor.3d.shared::cta.global.tile.mbarrier::complete_tx::bytes [%r1], [%rd45, {%r2344, %r242, %r241}], [%r234];"
+    },
+    {
+      "phase": 4,
+      "load_line": 9188,
+      "coordinate_register": "%r300",
+      "coordinate": {
+        "ctaid.x": 128,
+        "constant": 1024
+      },
+      "ptx": "cp.async.bulk.tensor.3d.shared::cta.global.tile.mbarrier::complete_tx::bytes [%r1], [%rd45, {%r2852, %r300, %r299}], [%r292];"
+    },
+    {
+      "phase": 5,
+      "load_line": 11255,
+      "coordinate_register": "%r358",
+      "coordinate": {
+        "ctaid.x": 128,
+        "constant": 1536
+      },
+      "ptx": "cp.async.bulk.tensor.3d.shared::cta.global.tile.mbarrier::complete_tx::bytes [%r1], [%rd45, {%r3358, %r358, %r357}], [%r350];"
+    }
+  ],
+  "fc2_tma_output_stores": [
+    {
+      "store_line": 6932,
+      "phase_column_offset": 0,
+      "evidence": [
+        {
+          "line": 6896,
+          "text": "shl.b32 \t%r2096, %r2095, 4;"
+        },
+        {
+          "line": 6899,
+          "text": "add.s32 \t%r2099, %r233, %r2088;"
+        },
+        {
+          "line": 6900,
+          "text": "shl.b32 \t%r2100, %r2099, 1;"
+        },
+        {
+          "line": 6901,
+          "text": "add.s32 \t%r2101, %r1, %r2100;"
+        },
+        {
+          "line": 6903,
+          "text": "add.s32 \t%r2102, %r233, %r2098;"
+        },
+        {
+          "line": 6904,
+          "text": "shl.b32 \t%r2103, %r2102, 1;"
+        },
+        {
+          "line": 6905,
+          "text": "add.s32 \t%r2104, %r1, %r2103;"
+        },
+        {
+          "line": 6918,
+          "text": "shl.b32 \t%r2107, %r233, 1;"
+        },
+        {
+          "line": 6919,
+          "text": "add.s32 \t%r2108, %r1, %r2107;"
+        },
+        {
+          "line": 6920,
+          "text": "mov.u32 \t%r2109, %ctaid.x;"
+        },
+        {
+          "line": 6921,
+          "text": "shl.b32 \t%r2110, %r2109, 7;"
+        },
+        {
+          "line": 6922,
+          "text": "shl.b32 \t%r2111, %r232, 6;"
+        },
+        {
+          "line": 6923,
+          "text": "add.s32 \t%r2112, %r2110, %r2111;"
+        },
+        {
+          "line": 6929,
+          "text": "add.s32 \t%r2118, %r2117, 1073741824;"
+        },
+        {
+          "line": 6932,
+          "text": "cp.async.bulk.tensor.4d.global.shared::cta.tile.bulk_group [%rd47, {%r2112, %r2116, %r2119, %r2118}], [%r2108];"
+        }
+      ]
+    },
+    {
+      "store_line": 8999,
+      "phase_column_offset": 512,
+      "evidence": [
+        {
+          "line": 8962,
+          "text": "shl.b32 \t%r2603, %r2602, 4;"
+        },
+        {
+          "line": 8965,
+          "text": "add.s32 \t%r2606, %r291, %r2595;"
+        },
+        {
+          "line": 8966,
+          "text": "shl.b32 \t%r2607, %r2606, 1;"
+        },
+        {
+          "line": 8967,
+          "text": "add.s32 \t%r2608, %r1, %r2607;"
+        },
+        {
+          "line": 8969,
+          "text": "add.s32 \t%r2609, %r291, %r2605;"
+        },
+        {
+          "line": 8970,
+          "text": "shl.b32 \t%r2610, %r2609, 1;"
+        },
+        {
+          "line": 8971,
+          "text": "add.s32 \t%r2611, %r1, %r2610;"
+        },
+        {
+          "line": 8984,
+          "text": "shl.b32 \t%r2614, %r291, 1;"
+        },
+        {
+          "line": 8985,
+          "text": "add.s32 \t%r2615, %r1, %r2614;"
+        },
+        {
+          "line": 8986,
+          "text": "mov.u32 \t%r2616, %ctaid.x;"
+        },
+        {
+          "line": 8987,
+          "text": "shl.b32 \t%r2617, %r2616, 7;"
+        },
+        {
+          "line": 8988,
+          "text": "shl.b32 \t%r2618, %r290, 6;"
+        },
+        {
+          "line": 8989,
+          "text": "add.s32 \t%r2619, %r2617, %r2618;"
+        },
+        {
+          "line": 8990,
+          "text": "add.s32 \t%r2620, %r2619, 512;"
+        },
+        {
+          "line": 8996,
+          "text": "add.s32 \t%r2626, %r2625, 1073741824;"
+        },
+        {
+          "line": 8999,
+          "text": "cp.async.bulk.tensor.4d.global.shared::cta.tile.bulk_group [%rd47, {%r2620, %r2624, %r2627, %r2626}], [%r2615];"
+        }
+      ]
+    },
+    {
+      "store_line": 11066,
+      "phase_column_offset": 1024,
+      "evidence": [
+        {
+          "line": 11029,
+          "text": "shl.b32 \t%r3111, %r3110, 4;"
+        },
+        {
+          "line": 11032,
+          "text": "add.s32 \t%r3114, %r349, %r3103;"
+        },
+        {
+          "line": 11033,
+          "text": "shl.b32 \t%r3115, %r3114, 1;"
+        },
+        {
+          "line": 11034,
+          "text": "add.s32 \t%r3116, %r1, %r3115;"
+        },
+        {
+          "line": 11036,
+          "text": "add.s32 \t%r3117, %r349, %r3113;"
+        },
+        {
+          "line": 11037,
+          "text": "shl.b32 \t%r3118, %r3117, 1;"
+        },
+        {
+          "line": 11038,
+          "text": "add.s32 \t%r3119, %r1, %r3118;"
+        },
+        {
+          "line": 11051,
+          "text": "shl.b32 \t%r3122, %r349, 1;"
+        },
+        {
+          "line": 11052,
+          "text": "add.s32 \t%r3123, %r1, %r3122;"
+        },
+        {
+          "line": 11053,
+          "text": "mov.u32 \t%r3124, %ctaid.x;"
+        },
+        {
+          "line": 11054,
+          "text": "shl.b32 \t%r3125, %r3124, 7;"
+        },
+        {
+          "line": 11055,
+          "text": "shl.b32 \t%r3126, %r348, 6;"
+        },
+        {
+          "line": 11056,
+          "text": "add.s32 \t%r3127, %r3125, %r3126;"
+        },
+        {
+          "line": 11057,
+          "text": "add.s32 \t%r3128, %r3127, 1024;"
+        },
+        {
+          "line": 11063,
+          "text": "add.s32 \t%r3134, %r3133, 1073741824;"
+        },
+        {
+          "line": 11066,
+          "text": "cp.async.bulk.tensor.4d.global.shared::cta.tile.bulk_group [%rd47, {%r3128, %r3132, %r3135, %r3134}], [%r3123];"
+        }
+      ]
+    },
+    {
+      "store_line": 13144,
+      "phase_column_offset": 1536,
+      "evidence": [
+        {
+          "line": 13108,
+          "text": "shl.b32 \t%r3617, %r3616, 4;"
+        },
+        {
+          "line": 13111,
+          "text": "add.s32 \t%r3620, %r409, %r3609;"
+        },
+        {
+          "line": 13112,
+          "text": "shl.b32 \t%r3621, %r3620, 1;"
+        },
+        {
+          "line": 13113,
+          "text": "add.s32 \t%r3622, %r1, %r3621;"
+        },
+        {
+          "line": 13115,
+          "text": "add.s32 \t%r3623, %r409, %r3619;"
+        },
+        {
+          "line": 13116,
+          "text": "shl.b32 \t%r3624, %r3623, 1;"
+        },
+        {
+          "line": 13117,
+          "text": "add.s32 \t%r3625, %r1, %r3624;"
+        },
+        {
+          "line": 13130,
+          "text": "shl.b32 \t%r3628, %r409, 1;"
+        },
+        {
+          "line": 13131,
+          "text": "add.s32 \t%r3629, %r1, %r3628;"
+        },
+        {
+          "line": 13132,
+          "text": "mov.u32 \t%r3630, %ctaid.x;"
+        },
+        {
+          "line": 13133,
+          "text": "shl.b32 \t%r3631, %r3630, 7;"
+        },
+        {
+          "line": 13134,
+          "text": "shl.b32 \t%r3632, %r408, 6;"
+        },
+        {
+          "line": 13135,
+          "text": "add.s32 \t%r3633, %r3631, %r3632;"
+        },
+        {
+          "line": 13136,
+          "text": "add.s32 \t%r3634, %r3633, 1536;"
+        },
+        {
+          "line": 13141,
+          "text": "add.s32 \t%r3639, %r3638, 1073741824;"
+        },
+        {
+          "line": 13144,
+          "text": "cp.async.bulk.tensor.4d.global.shared::cta.tile.bulk_group [%rd47, {%r3634, %r3637, %r3640, %r3639}], [%r3629];"
+        }
+      ]
+    }
+  ],
+  "warning": "PHASE_AUTO_PROMOTED_TO_STAGED preserved; actual emitted offsets checked, no source edit to suppress warning",
+  "limitations": "CPU PTX coordinate audit only; native boundary GPU gate still required"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checks": 542,
+  "scope": "Layer0 expert205, original 8 real rows plus valid rows0..8, eager and graph; not fullrouting or speed evidence",
+  "original_failure": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-resource/gpu-result.json",
+  "original_mismatch": "TMEM row store interleave only; checker unchanged; M128-specific source fix preserves arithmetic",
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "gpu_exit": {
+    "exit_code": 0,
+    "post_processes": []
+  },
+  "timings_allowed": false
+}

@@ -1,0 +1,15 @@
+{
+  "source_sha256": "05b2a93eef04a12be71a79b47da63e30705e2b619d5fad8d112bbc77413365bd",
+  "candidate_sha256": "7adc39a8d4a97a5df03bf60e0218f850132874c355579581fbffa3b370b295ad",
+  "changes": [
+    "Remove globalFC1 bytes/scales debug exports",
+    "Remove globalactivation bytes/scales debug exports"
+  ],
+  "unchanged": [
+    "Native sharedFC1/activation arithmetic and quantization boundaries",
+    "All CTA/clusterbarriers",
+    "All sixstage calls andTMEM lifecycle",
+    "FC2 globaloutput andoriginalorderedfinalizer"
+  ],
+  "status": "CPU_PARSE_PASS_NOT_GPU_VALIDATED"
+}

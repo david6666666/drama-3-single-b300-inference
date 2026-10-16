@@ -1,0 +1,131 @@
+{
+  "status": "CPU_LIVE_NATIVE_MAPPING_PASS",
+  "gpu_used": false,
+  "cuda_initialized": false,
+  "positive_cases": [
+    {
+      "case": "oracle-layer0-left_only/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer0-left_only/within_expert_reverse",
+      "mapping_changed": 452
+    },
+    {
+      "case": "oracle-layer0-real/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer0-real/within_expert_reverse",
+      "mapping_changed": 386
+    },
+    {
+      "case": "oracle-layer0-right_only/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer0-right_only/within_expert_reverse",
+      "mapping_changed": 452
+    },
+    {
+      "case": "oracle-layer0-rows_reversed/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer0-rows_reversed/within_expert_reverse",
+      "mapping_changed": 386
+    },
+    {
+      "case": "oracle-layer0-worst_global288/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer0-worst_global288/within_expert_reverse",
+      "mapping_changed": 256
+    },
+    {
+      "case": "oracle-layer19-left_only/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer19-left_only/within_expert_reverse",
+      "mapping_changed": 470
+    },
+    {
+      "case": "oracle-layer19-real/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer19-real/within_expert_reverse",
+      "mapping_changed": 422
+    },
+    {
+      "case": "oracle-layer19-right_only/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer19-right_only/within_expert_reverse",
+      "mapping_changed": 458
+    },
+    {
+      "case": "oracle-layer19-rows_reversed/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer19-rows_reversed/within_expert_reverse",
+      "mapping_changed": 422
+    },
+    {
+      "case": "oracle-layer19-worst_global288/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer19-worst_global288/within_expert_reverse",
+      "mapping_changed": 256
+    },
+    {
+      "case": "oracle-layer39-left_only/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer39-left_only/within_expert_reverse",
+      "mapping_changed": 470
+    },
+    {
+      "case": "oracle-layer39-real/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer39-real/within_expert_reverse",
+      "mapping_changed": 430
+    },
+    {
+      "case": "oracle-layer39-right_only/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer39-right_only/within_expert_reverse",
+      "mapping_changed": 464
+    },
+    {
+      "case": "oracle-layer39-rows_reversed/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer39-rows_reversed/within_expert_reverse",
+      "mapping_changed": 430
+    },
+    {
+      "case": "oracle-layer39-worst_global288/original",
+      "mapping_changed": 0
+    },
+    {
+      "case": "oracle-layer39-worst_global288/within_expert_reverse",
+      "mapping_changed": 256
+    }
+  ],
+  "checks": 150,
+  "deliberate_invalid_token_rejected": "invalid_token/original_token_ownership",
+  "driver_sha256": "adb6672c85178e2b4066ebcd9c573605018f0d3caa37bac3bcd12be9d59c3b72",
+  "kernel_and_helper_hashes_unchanged": true
+}

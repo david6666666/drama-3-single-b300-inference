@@ -1,0 +1,61 @@
+{
+  "status": "EXACT_FAIL",
+  "mode": "run",
+  "checks": [
+    {
+      "name": "CPU_AOT_PASS",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_hashes",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "source_frozen",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "GPU0_selected",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/one_new_cubin",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/one_new_cubin",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/CPU_GPU_cubin_identical",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/CPU_GPU_cubin_identical",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "L0/left_only/eager/native_mapping",
+      "exact": false,
+      "shape": [
+        512
+      ],
+      "dtype": "torch.int32"
+    }
+  ],
+  "timing_allowed": false,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "source_status": "",
+  "pid": 658462,
+  "gpu_uuid": "53ed8fd9-9f5a-9c77-430d-095ad4fc860d",
+  "error": "AssertionError('L0/left_only/eager/native_mapping')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body-v2/probe.py\", line 161, in <module>\n    try:prepare() if MODE=='prepare' else run()\n                                          ^^^^^\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body-v2/probe.py\", line 153, in run\n    native['call']();call();torch.cuda.synchronize();check_native(name+'/eager',native,x,d);check_outputs(name+'/eager',x,d['intermediates']);chk(name+'/eager/routed',x['out'],native['output'])\n                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body-v2/probe.py\", line 102, in check_native\n    chk(name+'/native_mapping',slot.expanded_idx_to_permuted_idx,x['expanded']);chk(name+'/native_padded',slot.total_num_padded_tokens,x['padded'])\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body-v2/probe.py\", line 30, in chk\n    torch.save(dict(actual=a.cpu(),expected=b.cpu()),OUT/(name.replace('/','_')+'-mismatch.pt'));raise AssertionError(name)\n                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: L0/left_only/eager/native_mapping\n"
+}

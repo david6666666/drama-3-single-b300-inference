@@ -1,0 +1,29 @@
+{
+  "status": "CORRECTION",
+  "corrected_claim": "53248 registers perCTA and oneCTA perSM inferred from PTX role hints",
+  "finding": "PTX hints are not actual emitted register allocation. These CUBINs have no SASS SETMAXNREG, REG32, highestR29. No residency conclusion is established.",
+  "preserved": "Earlier frozen protocols and exact-gate manifests remain unchanged as historical records; this correction supersedes their occupancy assertions, without changing numerical results.",
+  "evidence": [
+    {
+      "artifact": "expert-resident-chain/chain-resource-audit",
+      "sass_sha256": "896446ed8892b9924722a365d358b264615af07b8f4733ae369ddc5bdf41ed69",
+      "sass_setmaxnreg_count": 0,
+      "highest_general_register": 29,
+      "cubin_base_registers": 32
+    },
+    {
+      "artifact": "expert-resident-full/full-resource-audit",
+      "sass_sha256": "3fde4be6d3f9cf4a48299e4d7e1db0c9717fa2a0995cf0fce1c3c135a82b057c",
+      "sass_setmaxnreg_count": 0,
+      "highest_general_register": 29,
+      "cubin_base_registers": 32
+    },
+    {
+      "artifact": "expert-resident-timing/timing-resource-audit",
+      "sass_sha256": "806747e78c0b69e4f256a62ddd179046efc6a88d3da732c6a1672360c11238b5",
+      "sass_setmaxnreg_count": 0,
+      "highest_general_register": 29,
+      "cubin_base_registers": 32
+    }
+  ]
+}

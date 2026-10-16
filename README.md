@@ -102,6 +102,20 @@ CUDA_VISIBLE_DEVICES=0 OMP_NUM_THREADS=8 python -m drama3.server \
   --fish-source /path/to/pinned-fish-speech --slots 64 --port 18082
 ```
 
+`--fish-source` is the root of a local **Fish Speech source checkout**, such as
+`/opt/fish-speech`; `/path/to/pinned-fish-speech` is a placeholder. It must contain
+`fish_speech/configs/modded_dac_vq.yaml`, which the server reads to construct the
+audio codec. `--checkpoint` separately points to the Drama 3 model snapshot,
+including model weights and `codec.pth`.
+
+“Pinned” means checked out at the tested commit
+`541566932abbaebcb0a40e562a1f846738383f38`. Fish Speech also supplies the imported
+model loader, prompt builder and codec classes. Install that same checkout into
+the serving environment with the installer below: the server argument itself
+does not install Python packages or change their import path. No Fish Speech
+server is launched; admission, batching, model execution and streaming are
+managed by this repository.
+
 `/health` becomes ready only after checkpoint loading, CUDA Graph capture and
 codec warmup. Use `--backend standalone` with the same benchmark command.
 The runtime keeps generated codes and repetition history on the GPU, and
@@ -110,6 +124,8 @@ its streaming codec retains convolution and attention history between chunks.
 Install the complete measured runtime stack with:
 
 ```bash
+git clone https://github.com/fishaudio/fish-speech.git /path/to/pinned-fish-speech
+git -C /path/to/pinned-fish-speech checkout 541566932abbaebcb0a40e562a1f846738383f38
 python scripts/install_runtime.py --venv /path/to/runtime-venv \
   --fish-source /path/to/pinned-fish-speech
 ```

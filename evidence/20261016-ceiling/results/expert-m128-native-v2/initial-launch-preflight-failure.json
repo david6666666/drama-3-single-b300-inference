@@ -1,0 +1,6 @@
+{
+  "status": "PRE_GPU_CHILD_PREFLIGHT_FAIL",
+  "candidate_executed": false,
+  "cause": "Launcher imported FlashInfer with all GPUs visible; import initialized CUDA so CPU-only preparation assertion rejected. No candidate child PID or kernel was launched. Launcher now hides GPUs before imports; child explicitly selects authorized GPU0.",
+  "after_compute_apps": []
+}

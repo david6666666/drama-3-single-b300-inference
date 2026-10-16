@@ -47,7 +47,7 @@ Current compiled FC1 uses512 threads; dynamic register roles are:
 |13|persistent work ID|48|
 |14–15|padding tasks|48|
 
-The sum is53248 32-bit registers/CTA. Two such CTAs require106496 registers, exceeding65536 registers/SM. Static CUBIN `REG:32` and zero spill **do not** prove two CTA residency; the current implementation is constrained to a one-CTA live-register budget. The completed FC1 and FC2 probes are arithmetic foundations, not an occupancy-tuned resident kernel.
+These source role hints sum to a hypothetical53,248 registers/CTA, but the emitted full-chain SASS has no SETMAXNREG, highest R29, and CUBIN REG32. The hint sum is not actual allocation and does not establish a one-CTA residency constraint. Actual occupancy is unmeasured; component exactness remains an arithmetic foundation, not a performance result.
 
 Only two of eight non-epilogue warps are padding; deleting those alone leaves50176 registers. The source forces eight epilogue warps for the two `m64` halves and256-thread max reduction. Reducing to four epilogue warps therefore requires explicit serial consumption of the two TMEM halves plus a changed max-reduction schedule; simply overriding the warp count is incorrect. It is also not justified to lower `setmaxnreg` based on the static header: each task's live ranges and generated code need inspection. Combining persistent scheduling with an existing producer warp requires changing the producer/work-queue handshake, not only an index assignment.
 
@@ -70,3 +70,6 @@ The current actual outer uses four physical CTAs, with original group-1 MMA in e
 The outer allocates TMEM32 once, relinquishes allocation permission once, and lends the same base to all six fully drained native stage invocations. No intermediate stage may allocate or deallocate TMEM. The outer deallocates once after the final stage and full-CTA convergence. This avoids illegal allocation after relinquishment. Each stage asserts its required TMEM capacity is at most 32 columns. Native dynamic role-register changes are retained at every stage boundary.
 
 The explicit outer shared allocation is 78,080 bytes aligned to 1024, including native scratch [0:72704), FC1 [72704:74816), local activation [76928:77984), and outer TMEM-pointer storage at78016. Full activation [72704:76928) aliases FC1 only after every activation consumer has finished. Full-chain actual AOT resource and exact results must replace component-only estimates before any promotion.
+
+
+Register-accounting correction: the 160/48 PTX/source role hints are not equivalent to actual SASS allocation. For the full debug and zero-debug resident CUBINs, cuobjdump reports REG32, emitted SASS has no SETMAXNREG, and the highest general register is R29. Any earlier 53,248-register/CTA or one-CTA-per-SM claim is an unproven source-budget inference and must not be used as occupancy evidence. Shared-memory totals and zero-spill checks remain valid; actual occupancy requires its own measured/compiler evidence. See resident-register-accounting-erratum.json.

@@ -1,0 +1,503 @@
+{
+  "status": "CPU_AOT_PASS",
+  "mode": "prepare",
+  "checks": [
+    {
+      "name": "cuda_hidden",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "source_frozen",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/expanded_pass",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/expanded_pass",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "CPU_real_weight_loader",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/one_new_cubin",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/one_new_cubin",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/merged_cubin_identical_to_component",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/merged_cubin_identical_to_component",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fifteen_oracles",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "cuda_uninitialized",
+      "exact": true,
+      "detail": null
+    }
+  ],
+  "timing_allowed": false,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "source_status": "",
+  "pid": 662584,
+  "kernels": {
+    "fc1": {
+      "cubin": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body-v3/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_1024230.sm_103a.cubin",
+      "sha256": "591e474af703bb3883f3769a3b59ffe49f3ace647740b6288aafe3343ef98907",
+      "host": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body-v3/cpu-compile/fc1-host.mlir"
+    },
+    "fc2": {
+      "cubin": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body-v3/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.cubin",
+      "sha256": "0fd40161ae41dbb849cd493122874be3d12446d7c101bde71750efdddfe95cd1",
+      "host": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body-v3/cpu-compile/fc2-host.mlir"
+    }
+  },
+  "resources": {
+    "fc1": {
+      "status": "CPU_RESOURCE_PASS",
+      "cubin_sha256": "591e474af703bb3883f3769a3b59ffe49f3ace647740b6288aafe3343ef98907",
+      "ptx_sha256": "0df2b2b9ba87b5380cfc321c5b46339c46425f59cf35405e3494232d5307a37d",
+      "host_ir_sha256": "6526d2c2645d292229376ef3e94b86c6488e905480f5a6bf13b45821ac5e0417",
+      "dynamic_shared_bytes": 72568,
+      "static_shared_bytes": 2048,
+      "total_shared_bytes_per_cta": 74616,
+      "limit_bytes_per_cta": 81920,
+      "dynamic_shared_evidence": [
+        {
+          "constant": "%17",
+          "config_pointer": "%201",
+          "dynamic_shared_bytes": 72568
+        }
+      ],
+      "stack_bytes": 0,
+      "local_bytes": 0,
+      "ptx_local_ops": 0,
+      "sass_spill_ops": 0,
+      "base_registers": 32,
+      "setmaxnreg_limits": [
+        "160",
+        "48"
+      ],
+      "cluster_size": 1,
+      "cluster_evidence": null,
+      "limitations": [
+        "Resource fit does not prove occupancy or concurrent residency.",
+        "Dynamic SETMAXNREG limits require complete warp-role resource accounting.",
+        "Independent FC1/FC2 resource counts cannot be added to infer composite buffer lifetime."
+      ],
+      "gpu_used": false,
+      "timing_allowed": false
+    },
+    "fc2": {
+      "status": "CPU_RESOURCE_PASS",
+      "cubin_sha256": "0fd40161ae41dbb849cd493122874be3d12446d7c101bde71750efdddfe95cd1",
+      "ptx_sha256": "9be6dcbf1246368d029067ee92fb23558ad0a4729e7ffe91ac3c756ba0493671",
+      "host_ir_sha256": "2d1b9053a43a95deab25f5a76e69feb883cc1465e3ce54797cac6d9957b398e9",
+      "dynamic_shared_bytes": 72616,
+      "static_shared_bytes": 2048,
+      "total_shared_bytes_per_cta": 74664,
+      "limit_bytes_per_cta": 81920,
+      "dynamic_shared_evidence": [
+        {
+          "constant": "%18",
+          "config_pointer": "%209",
+          "dynamic_shared_bytes": 72616
+        }
+      ],
+      "stack_bytes": 0,
+      "local_bytes": 0,
+      "ptx_local_ops": 0,
+      "sass_spill_ops": 0,
+      "base_registers": 31,
+      "setmaxnreg_limits": [
+        "160",
+        "48"
+      ],
+      "cluster_size": 1,
+      "cluster_evidence": null,
+      "limitations": [
+        "Resource fit does not prove occupancy or concurrent residency.",
+        "Dynamic SETMAXNREG limits require complete warp-role resource accounting.",
+        "Independent FC1/FC2 resource counts cannot be added to infer composite buffer lifetime."
+      ],
+      "gpu_used": false,
+      "timing_allowed": false
+    }
+  },
+  "coverage": [
+    {
+      "name": "L0/left_only",
+      "ncta": 127,
+      "padded": 1016,
+      "inactive_experts": 138,
+      "count_histogram": {
+        "0": 138,
+        "1": 16,
+        "2": 21,
+        "3": 20,
+        "4": 18,
+        "5": 10,
+        "6": 8,
+        "7": 7,
+        "8": 9,
+        "9": 2,
+        "11": 4,
+        "12": 1,
+        "14": 1,
+        "15": 1
+      },
+      "max_routes": 15,
+      "fp32_scale_min": 0.0004253617662470788
+    },
+    {
+      "name": "L0/real",
+      "ncta": 208,
+      "padded": 1664,
+      "inactive_experts": 50,
+      "count_histogram": {
+        "0": 50,
+        "1": 75,
+        "2": 50,
+        "3": 35,
+        "4": 21,
+        "5": 12,
+        "6": 8,
+        "7": 2,
+        "8": 1,
+        "9": 2
+      },
+      "max_routes": 9,
+      "fp32_scale_min": 0.00039806668064557016
+    },
+    {
+      "name": "L0/right_only",
+      "ncta": 130,
+      "padded": 1040,
+      "inactive_experts": 137,
+      "count_histogram": {
+        "0": 137,
+        "1": 14,
+        "2": 19,
+        "3": 20,
+        "4": 21,
+        "5": 13,
+        "6": 10,
+        "7": 8,
+        "8": 3,
+        "9": 3,
+        "10": 5,
+        "11": 2,
+        "12": 1
+      },
+      "max_routes": 12,
+      "fp32_scale_min": 0.00039806668064557016
+    },
+    {
+      "name": "L0/rows_reversed",
+      "ncta": 208,
+      "padded": 1664,
+      "inactive_experts": 50,
+      "count_histogram": {
+        "0": 50,
+        "1": 75,
+        "2": 50,
+        "3": 35,
+        "4": 21,
+        "5": 12,
+        "6": 8,
+        "7": 2,
+        "8": 1,
+        "9": 2
+      },
+      "max_routes": 9,
+      "fp32_scale_min": 0.0004253617662470788
+    },
+    {
+      "name": "L0/worst_global288",
+      "ncta": 288,
+      "padded": 2304,
+      "inactive_experts": 0,
+      "count_histogram": {
+        "1": 251,
+        "33": 1,
+        "57": 4
+      },
+      "max_routes": 57,
+      "fp32_scale_min": 0.0004878649488091469
+    },
+    {
+      "name": "L19/left_only",
+      "ncta": 109,
+      "padded": 872,
+      "inactive_experts": 191,
+      "count_histogram": {
+        "0": 191,
+        "1": 25,
+        "2": 15,
+        "3": 5,
+        "4": 2,
+        "5": 4,
+        "6": 2,
+        "7": 1,
+        "9": 1,
+        "11": 3,
+        "25": 1,
+        "35": 1,
+        "52": 1,
+        "56": 1,
+        "60": 1,
+        "61": 1,
+        "64": 1
+      },
+      "max_routes": 64,
+      "fp32_scale_min": 0.0007686032331548631
+    },
+    {
+      "name": "L19/real",
+      "ncta": 168,
+      "padded": 1344,
+      "inactive_experts": 97,
+      "count_histogram": {
+        "0": 97,
+        "1": 46,
+        "2": 36,
+        "3": 25,
+        "4": 22,
+        "5": 9,
+        "6": 3,
+        "7": 3,
+        "8": 7,
+        "9": 3,
+        "10": 1,
+        "11": 2,
+        "13": 1,
+        "19": 1
+      },
+      "max_routes": 19,
+      "fp32_scale_min": 0.0008530252962373197
+    },
+    {
+      "name": "L19/right_only",
+      "ncta": 114,
+      "padded": 912,
+      "inactive_experts": 179,
+      "count_histogram": {
+        "0": 179,
+        "1": 30,
+        "2": 10,
+        "3": 12,
+        "4": 2,
+        "5": 2,
+        "6": 4,
+        "7": 4,
+        "8": 3,
+        "11": 1,
+        "12": 1,
+        "17": 1,
+        "21": 1,
+        "28": 1,
+        "38": 1,
+        "45": 1,
+        "51": 1,
+        "52": 1,
+        "57": 1
+      },
+      "max_routes": 57,
+      "fp32_scale_min": 0.00078820891212672
+    },
+    {
+      "name": "L19/rows_reversed",
+      "ncta": 168,
+      "padded": 1344,
+      "inactive_experts": 97,
+      "count_histogram": {
+        "0": 97,
+        "1": 46,
+        "2": 36,
+        "3": 25,
+        "4": 22,
+        "5": 9,
+        "6": 3,
+        "7": 3,
+        "8": 7,
+        "9": 3,
+        "10": 1,
+        "11": 2,
+        "13": 1,
+        "19": 1
+      },
+      "max_routes": 19,
+      "fp32_scale_min": 0.0008282831986434758
+    },
+    {
+      "name": "L19/worst_global288",
+      "ncta": 288,
+      "padded": 2304,
+      "inactive_experts": 0,
+      "count_histogram": {
+        "1": 251,
+        "33": 1,
+        "57": 4
+      },
+      "max_routes": 57,
+      "fp32_scale_min": 0.0007686032331548631
+    },
+    {
+      "name": "L39/left_only",
+      "ncta": 109,
+      "padded": 872,
+      "inactive_experts": 189,
+      "count_histogram": {
+        "0": 189,
+        "1": 20,
+        "2": 11,
+        "3": 6,
+        "4": 4,
+        "5": 3,
+        "6": 2,
+        "7": 3,
+        "8": 1,
+        "9": 4,
+        "12": 1,
+        "15": 1,
+        "17": 2,
+        "18": 2,
+        "19": 2,
+        "20": 1,
+        "38": 1,
+        "42": 1,
+        "49": 1,
+        "60": 1
+      },
+      "max_routes": 60,
+      "fp32_scale_min": 0.004789488390088081
+    },
+    {
+      "name": "L39/real",
+      "ncta": 146,
+      "padded": 1168,
+      "inactive_experts": 141,
+      "count_histogram": {
+        "0": 141,
+        "1": 58,
+        "2": 17,
+        "3": 10,
+        "4": 4,
+        "6": 1,
+        "7": 4,
+        "8": 1,
+        "9": 1,
+        "12": 3,
+        "13": 2,
+        "14": 2,
+        "15": 3,
+        "17": 2,
+        "18": 2,
+        "19": 1,
+        "22": 1,
+        "24": 1,
+        "25": 1,
+        "28": 1
+      },
+      "max_routes": 28,
+      "fp32_scale_min": 0.005030003841966391
+    },
+    {
+      "name": "L39/right_only",
+      "ncta": 112,
+      "padded": 896,
+      "inactive_experts": 178,
+      "count_histogram": {
+        "0": 178,
+        "1": 25,
+        "2": 8,
+        "3": 11,
+        "4": 8,
+        "5": 3,
+        "6": 1,
+        "7": 3,
+        "10": 1,
+        "11": 2,
+        "12": 3,
+        "13": 1,
+        "14": 1,
+        "15": 1,
+        "16": 2,
+        "18": 1,
+        "22": 2,
+        "26": 1,
+        "28": 1,
+        "30": 1,
+        "31": 1,
+        "45": 1
+      },
+      "max_routes": 45,
+      "fp32_scale_min": 0.004689013585448265
+    },
+    {
+      "name": "L39/rows_reversed",
+      "ncta": 146,
+      "padded": 1168,
+      "inactive_experts": 141,
+      "count_histogram": {
+        "0": 141,
+        "1": 58,
+        "2": 17,
+        "3": 10,
+        "4": 4,
+        "6": 1,
+        "7": 4,
+        "8": 1,
+        "9": 1,
+        "12": 3,
+        "13": 2,
+        "14": 2,
+        "15": 3,
+        "17": 2,
+        "18": 2,
+        "19": 1,
+        "22": 1,
+        "24": 1,
+        "25": 1,
+        "28": 1
+      },
+      "max_routes": 28,
+      "fp32_scale_min": 0.005137348547577858
+    },
+    {
+      "name": "L39/worst_global288",
+      "ncta": 288,
+      "padded": 2304,
+      "inactive_experts": 0,
+      "count_histogram": {
+        "1": 251,
+        "33": 1,
+        "57": 4
+      },
+      "max_routes": 57,
+      "fp32_scale_min": 0.004947309382259846
+    }
+  ]
+}

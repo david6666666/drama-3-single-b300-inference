@@ -1,0 +1,107 @@
+{
+  "status": "FROZEN_ZERO_DEBUG_PARITY_AND_MATCHED_BOUNDARY_LOCAL_TIMING_V2",
+  "original_failure_preserved": "expert-resident-timing/timing-gate/result.json: archive physical mapping used for live candidate outputs; both routed outputs were exact",
+  "metadata_contract": "Each arm owns independent native metadata. Use its current expanded-to-permuted map, validate bijection/expert/original-token/absolute-mn prefix ownership, and compare archived logical outputs byte-for-byte. No output-value matching; exact gates unchanged.",
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "gpu_uuid": "GPU-bc643dc2-a0d1-5ed6-5ecb-0605ca9f340a",
+  "watchdog_seconds": 600,
+  "hypothesis": "Removing FC1/activation global roundtrips may reduce complete prepared-MoE latency; exact debug chain alone established no speed gain.",
+  "boundary": {
+    "input": "same original q E4M3 bytes/input scale FP32 + top8 ids + route weights BF16",
+    "included_per_call": [
+      "live original native routing metadata population",
+      "FC1",
+      "original native activation/FP8 scale boundary",
+      "FC2",
+      "original ordered-top8 native finalizer"
+    ],
+    "excluded_common": [
+      "input quantization",
+      "logits-to-top8 routing"
+    ],
+    "real_fixture_limit": "Three archived physical B64 layers from63 live +1 original padding row, not a whole-model or service benchmark"
+  },
+  "pdl": {
+    "native": true,
+    "resident": false,
+    "interpretation": "Complete implementation A/B. Preserve optimized native baseline; candidate PDL=False is its current limitation, not a single-variable MMA comparison."
+  },
+  "exact_gate_before_timing": [
+    "all15 eager and reused-graph FC2/native-finalized outputs exact",
+    "four removed global debug buffers remain full sentinels",
+    "FC2 inactive/padding/tail sentinel",
+    "inputs/weights/RNG unchanged",
+    "independent arm metadata/workspaces",
+    "candidate-only whole-launch ncta0 eager+same-body-graph, no finalizer, no hang",
+    "CPU/GPU candidate CUBIN identity"
+  ],
+  "timing_order": [
+    [
+      "native",
+      "resident"
+    ],
+    [
+      "resident",
+      "native"
+    ],
+    [
+      "native",
+      "resident"
+    ]
+  ],
+  "replays": 100,
+  "warmups": 5,
+  "continuation": {
+    "primary": "L0/real, L19/real, L39/real; each median complete-call latency reduction >=5%",
+    "secondary": "all12 stress cases reported separately; each regression <=5%; near-zero changes are not gains",
+    "all_exact_required": true,
+    "whole_model_and_service": "Allowed only after this local continuation passes; no promotion from averages"
+  },
+  "resource": {
+    "status": "CPU_RESOURCE_PASS",
+    "cubin_sha256": "7e19a1b5b1fc048682abe3b8ce22e33adc535e3c0ebbcceada43b7f74ae6f1d1",
+    "ptx_sha256": "4f75b17d01619039c7244b899e34e46ab7700b2bb56e97b0370c09ab9ecd16ab",
+    "host_ir_sha256": "df5d053760856a53c7f5e67cc30e5624a462f6eab0ccaddb6b759d531707b726",
+    "dynamic_shared_bytes": 78464,
+    "static_shared_bytes": 1024,
+    "total_shared_bytes_per_cta": 79488,
+    "limit_bytes_per_cta": 81920,
+    "dynamic_shared_evidence": [
+      {
+        "constant": "%20",
+        "config_pointer": "%489",
+        "dynamic_shared_bytes": 78464
+      }
+    ],
+    "stack_bytes": 0,
+    "local_bytes": 0,
+    "ptx_local_ops": 0,
+    "sass_spill_ops": 0,
+    "base_registers": 32,
+    "setmaxnreg_limits": [
+      "160",
+      "48"
+    ],
+    "cluster_size": 4,
+    "cluster_evidence": {
+      "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-timing-v2/resident_chain_host.py",
+      "sha256": "588f8ea7ac0cc42c68622d90d8803099e23a70b3b26a258481cb7e91e3f56cde",
+      "literal": "cluster=[4,1,1]"
+    },
+    "limitations": [
+      "Resource fit does not prove occupancy or concurrent residency.",
+      "Dynamic SETMAXNREG limits require complete warp-role resource accounting.",
+      "Independent FC1/FC2 resource counts cannot be added to infer composite buffer lifetime."
+    ],
+    "gpu_used": false,
+    "timing_allowed": false
+  },
+  "cpu_cubin_sha256": "7e19a1b5b1fc048682abe3b8ce22e33adc535e3c0ebbcceada43b7f74ae6f1d1",
+  "full_debug_exact_evidence": {
+    "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-resident-full/full-gate/result.json",
+    "sha256": "cc2e6c329a00558aa0b25f412c57d0873f9ff42f6d528bfc34a2e763365d03d9",
+    "checks": 1371
+  },
+  "runtime_modified": false,
+  "timing_is_service_performance": false
+}

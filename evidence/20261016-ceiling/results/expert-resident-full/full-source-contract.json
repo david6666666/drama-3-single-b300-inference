@@ -1,0 +1,21 @@
+{
+  "status": "CPU_SOURCE_CONTRACT_PASS",
+  "checks": {
+    "full_grid": true,
+    "uniform_cluster_guard": true,
+    "runtime_scale_stride": true,
+    "fc1_shared_local_rows": true,
+    "fc1_shared_scale_local_rows": true,
+    "shared_b_native_local_limit": true,
+    "stage_offset_phase4": true
+  },
+  "file_sha256": {
+    "resident_chain_host.py": "588f8ea7ac0cc42c68622d90d8803099e23a70b3b26a258481cb7e91e3f56cde",
+    "resident_chain_kernel.py": "05b2a93eef04a12be71a79b47da63e30705e2b619d5fad8d112bbc77413365bd",
+    "resident_gmem_c.py": "80600076fe0bce681ca9ab51393560bdd83ac5ae65adb97236f23add45976d01",
+    "resident_stage.py": "127e4fe93305c6fd5f1c0fbd7cacd0e7e0d6b92631c572dc090ce66bc0e96442",
+    "resident_fc2_stage.py": "9dd684d82fa2363808f5a6692f66baaf9a9d546178e7dd051fe5b4d8cab6b4a6",
+    "resident_shared_b.py": "040cf4ed5f138b27b876167e42ea7241caf2d11050c8d4de45aee80bda14340f"
+  },
+  "scope": "Source invariants only; not GPU correctness or performance."
+}

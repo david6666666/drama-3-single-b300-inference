@@ -294,8 +294,10 @@ passes2063 checks, including partial0–8 rows, capture, guards and independentl
 generated native exceptional-value references. The component checks cover
 routing counts0–64 and changing graph metadata, but do not establish a complete
 resident chain or a speedup. Current FC1/FC2 shared usage is73592/74664B;
-FC1's dynamic register roles consume53248 registers/CTA despite a smaller
-static header, precluding a two-CTA register budget. See
+Correction: the FC1 source-role hints sum to53,248, but its compiled
+CUBIN has REG32 and no SASS register-reconfiguration instruction. The former
+claim that this hint sum precludes two CTAs is withdrawn. See
+[the final-machine-code audit](results/register-lowering-audit/report.md). See
 [FC2 expansion](results/expert-fc2-expanded/report.md),
 [shared activation](results/expert-activation-native/results.md) and
 [resident implementation contract](results/expert-resident-implementation-plan.md).
@@ -345,15 +347,62 @@ and306 expanded checks across all256 experts at layers0/19/39 and15 original
 routing distributions, including graph reuse with changing metadata.
 See [FC2 expanded evidence](results/expert-m128-fc2-expanded/report.md).
 
-M128's actual384-thread kernels request four160-register epilogue warps plus
-eight48-register roles, a32,768-register budget perCTA versus53,248 for the M64
-512-thread organization. The FC2 launch uses74,664bytes shared, with zero spills.
-This leaves theoretical register capacity for two CTAs perSM; it is not measured
-occupancy, an arithmetic upper bound or a performance result. Complete MoE-body
-comparison and full service evaluation are still required.
+M128 uses384 threads versus512 for the M64 prototype. Its FC1/FC2 CUBINs
+report REG32/REG31, shared totals74,616/74,664 bytes and zero stack/local spills.
+The source48/160 register hints do not survive as register-reconfiguration SASS
+in either prototype. The vendor native FC1 differs: REG128 and eight
+`USETMAXREG` instructions. Thus53,248 versus32,768 source-hint sums do not
+establish an occupancy transition. That earlier interpretation is withdrawn;
+[raw disassembly and hashes](results/register-lowering-audit/result.json)
+separate source hints, actual code and unmeasured occupancy.
 
 The GDN H/O negative results were independently recomputed from raw evidence.
 The reports now correctly describe pre/post GPU process checks; no continuous
 process audit establishes full-interval exclusivity for those two runs. This
 correction does not turn either failed continuation gate into a performance win.
 See [independent review](results/gdn-fused-prefill/independent-review.md).
+
+## Complete resident and M128 calls: local performance gates fail
+
+The full256-expert resident chain subsequently passes1,371 native-boundary
+checks across15 fixtures. A separate build removes global debug exports and
+passes1,262 correctness/ownership checks, including an empty launch. Three
+complete-call repetitions per fixture then fail the declared performance gate:
+
+| Real fixture | Vendor µs | Resident µs | Resident latency increase |
+| --- | ---: | ---: | ---: |
+| Layer0 |121.299|138.474|14.16%|
+| Layer19 |100.507|122.128|21.51%|
+| Layer39 |81.407|111.619|37.11%|
+
+All12 pressure cases also regress. Calls include live original native routing
+metadata, both projections, activation and ordered finalizer. Common input
+quantization and logits-to-top8 routing are excluded. The vendor retains PDL;
+the candidate currently disables it. This is an implementation comparison, not
+an isolated measurement of fusion, MMA shape, or synchronization. The remaining
+shared-buffer canary initialization is included in candidate time. Removing
+intermediate global traffic did not outweigh the complete implementation cost;
+no measured hardware-stall attribution or service gain follows.
+See [full chain](results/expert-resident-full/summary.md) and
+[complete-call timing](results/expert-resident-timing-v2/summary.md).
+
+M128's corrected FC1 passes542 selected-expert and447 expanded checks. Its
+combined global-buffer body passes1,253 checks and another626 during timing.
+The three real cases reduce vendor latency by1.304%,0.569%,2.871%; each needed
+at least5%. The12 pressure cases do not regress, but neither an average nor the
+largest synthetic gain substitutes for the frozen real-case gate. The full
+call therefore also stops before runtime/service integration. See
+[M128 complete-call report](results/expert-m128-body-timing/report.md).
+
+Both harnesses preserve initial failures caused by using archived physical
+metadata for newly populated native metadata. Native atomic routing may legally
+reorder rows within an expert. Corrected checks first prove the live map's
+bijection, original-token/expert ownership and counts, then compare logical
+values byte-for-byte. They do not infer permutations from output values or
+relax precision tolerances. Frozen kernels are unchanged by these checker fixes.
+
+These tests preserve original FP8 bytes/scales, all top8 experts, K128 scale
+boundaries and native BF16/FP32 arithmetic. They add no complete1088-request
+quality group or C64 throughput result. The best complete-quality observation
+remains4726.771 frames/s;6765.407 and the all-concurrency quality gates remain
+unmet. Register source-hint occupancy claims are corrected explicitly above.

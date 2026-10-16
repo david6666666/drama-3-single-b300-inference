@@ -16,8 +16,9 @@
   "scale_block_k": 128,
   "total_shared_bytes": 74664,
   "actual_threads_from_ptx": 384,
-  "dynamic_register_budget_note": "Four epilogue warps request160, eight other warps48:32768registers/CTA; possible two-CTA register capacity, not measured residency or throughput.",
+  "dynamic_register_budget_note": "CORRECTION: 32768 is a sum of source hints only. The actual CUBIN has REG31 and no SASS register-reconfiguration instruction. It does not establish two-CTA occupancy or a transition from M64; see register-lowering-audit/result.json.",
   "timing_allowed": false,
   "service_target_achieved": false,
-  "scope": "One expert205 at layer0, changing valid0..8, eager andgraph"
+  "scope": "One expert205 at layer0, changing valid0..8, eager andgraph",
+  "resource_interpretation_corrected": true
 }

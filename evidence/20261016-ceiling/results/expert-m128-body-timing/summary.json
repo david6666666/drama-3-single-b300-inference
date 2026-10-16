@@ -1,0 +1,54 @@
+{
+  "status": "LOCAL_CONTINUATION_REJECTED",
+  "numeric_checks_passed": 626,
+  "timing_status": "TIMING_COMPLETE",
+  "continuation_gate": {
+    "real_each_at_least5pct": false,
+    "stress_none_worse5pct": true,
+    "passed": false
+  },
+  "real_cases": [
+    {
+      "layer": 0,
+      "native_median_ms": 0.1207868766784668,
+      "candidate_median_ms": 0.11921183586120605,
+      "latency_reduction_pct": 1.303983396684294,
+      "speedup": 1.013212117789164
+    },
+    {
+      "layer": 19,
+      "native_median_ms": 0.0995529556274414,
+      "candidate_median_ms": 0.09898688316345215,
+      "latency_reduction_pct": 0.5686144227677881,
+      "speedup": 1.0057186613609657
+    },
+    {
+      "layer": 39,
+      "native_median_ms": 0.08068191528320312,
+      "candidate_median_ms": 0.07836575984954834,
+      "latency_reduction_pct": 2.870724406485392,
+      "speedup": 1.0295557069580068
+    }
+  ],
+  "stress_cases": 12,
+  "stress_reduction_range_pct": [
+    0.6947870609072981,
+    7.519009206100624
+  ],
+  "body_exact_gate": {
+    "path": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-body-v3/result.json",
+    "checks": 1253,
+    "all15_cases": true
+  },
+  "implementation_scope": "Global intermediates, native full top8, original FP8 weights/scales/BF16 output; independently exact M128 FC1+FC2, native activation/finalizer. Native live metadata from original precomputed IDs/weights included in both measured calls.",
+  "baseline": "Vendor production tactic(8,5), enable_pdl=True",
+  "candidate": "M128 TS4stage implementation, enable_pdl=False; full implementation A/B, not shape-only attribution",
+  "excluded": "Router logits/topk and input quantization before oracle; full model/service/TTFA/audio quality not measured. No service or final1.5x claim.",
+  "decision": "Stop local route at predeclared gate, no runtime edits, no model/service promotion, no extra M64 timing sweep.",
+  "gpu_exit": {
+    "exit_code": 0,
+    "post_processes": []
+  },
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "source_status": ""
+}

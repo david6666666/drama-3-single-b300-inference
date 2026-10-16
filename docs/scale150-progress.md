@@ -1,18 +1,12 @@
-Latest integration update: the complete resident chain passes489 exact checks
-for one selected expert, including partial tiles and graph replay. A separate
-M128 FC2 passes306 expanded native checks while reducing the declared consumer
-register footprint. Full routing/body timing and service gains remain unproved;
-the C64 target and best complete-quality observation are unchanged. Initial host
-and layout failures, resource limits and the GDN process-audit correction are
-preserved in the [evidence](../evidence/20261016-ceiling/README.md).
-
-Latest component update: corrected native FC1/FC2 and shared activation now
-pass expanded arithmetic/ownership gates; the complete resident MoE chain is
-still under implementation. Two exact native GDN H/O fusion variants fail their
-local performance continuation gate and are not promoted. These experiments do
-not change the best complete-quality C64 observation4726.771frames/s or the
-6765.407 target. Details and all failures are retained in the
-[component evidence](../evidence/20261016-ceiling/README.md).
+Latest update: full resident MoE and M128 global-buffer implementations pass
+native arithmetic checks, but both fail their declared local performance gate.
+Resident fusion is14–37% slower in the three real routing cases; M128 reduces
+latency by only0.57–2.87%, below the required5% per real case. Neither is promoted
+to the runtime. The previous occupancy inference from source register hints is
+withdrawn after disassembly; actual machine code has different resource policies.
+The best complete-quality C64 observation remains4726.771 frames/s and the target
+remains6765.407. Full results and preserved failures are in the
+[evidence](../evidence/20261016-ceiling/README.md).
 
 # Current concurrency optimization campaign
 
@@ -281,3 +275,15 @@ qualification of every historical async failure. New service startup rejects
 async codec without `DRAMA3_CODEC_DEDICATED_CAPTURE_STREAM=1`; synchronous defaults
 are unchanged. C64 remains below both the 4510.27 baseline and 6765.41 target.
 [Full pair and raw quality](../evidence/20261016-mixed/results/service-feasibility-summary.json).
+
+
+## Documentation after acceptance
+
+After the full target and quality matrix pass, update the main README with a
+source-accurate architecture diagram, the retained runtime optimizations and
+standalone/vLLM-Omni/SGLang-Omni results at every tested concurrency. Report
+throughput, TTFA p50/p95 and mean RTF together with exact revisions, precision,
+workload and complete quality coverage. Historical or single-run observations
+must stay distinguished from the final repeated comparison. The architecture
+must show the actual Python engine and direct GPU operators; Rust is not yet an
+implemented component. This requested publication remains pending acceptance.
