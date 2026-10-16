@@ -1,0 +1,243 @@
+{
+  "status": "CPU_ABI_LAYOUT_FAMILY_PASS",
+  "gpu_initialized": false,
+  "abi": {
+    "algo_size": 64,
+    "heuristic_size": 96,
+    "workspace_offset": 64,
+    "state_offset": 72,
+    "waves_offset": 76,
+    "compute32": 68,
+    "bf16": 14,
+    "reduction_mask_attr": 3,
+    "compute_reduction": 2,
+    "numerical_flags_attr": 15
+  },
+  "layout_checks": [
+    {
+      "shape": [
+        64,
+        12352,
+        2048,
+        2048
+      ],
+      "address_pass": true
+    },
+    {
+      "shape": [
+        64,
+        2048,
+        4096,
+        4096
+      ],
+      "address_pass": true
+    },
+    {
+      "shape": [
+        64,
+        1408,
+        2048,
+        2064
+      ],
+      "address_pass": true
+    },
+    {
+      "shape": [
+        1,
+        8,
+        8,
+        16
+      ],
+      "address_pass": true
+    }
+  ],
+  "invalid_shapes_rejected": 3,
+  "family_checks": [
+    {
+      "numerical_flags": 131586,
+      "split_k": 1,
+      "reduction": 0,
+      "result": "non_split"
+    },
+    {
+      "numerical_flags": 131586,
+      "split_k": 4,
+      "reduction": 2,
+      "result": "fp32_split"
+    },
+    {
+      "numerical_flags": 131586,
+      "split_k": 4,
+      "reduction": 1,
+      "result": null
+    },
+    {
+      "numerical_flags": 131586,
+      "split_k": 4,
+      "reduction": 4,
+      "result": null
+    },
+    {
+      "numerical_flags": 131586,
+      "split_k": 1,
+      "reduction": 2,
+      "result": null
+    },
+    {
+      "numerical_flags": 131586,
+      "split_k": 4,
+      "reduction": 0,
+      "result": null
+    },
+    {
+      "numerical_flags": 66050,
+      "split_k": 1,
+      "reduction": 0,
+      "result": null
+    },
+    {
+      "numerical_flags": 66050,
+      "split_k": 4,
+      "reduction": 2,
+      "result": null
+    },
+    {
+      "numerical_flags": 66050,
+      "split_k": 4,
+      "reduction": 1,
+      "result": null
+    },
+    {
+      "numerical_flags": 66050,
+      "split_k": 4,
+      "reduction": 4,
+      "result": null
+    },
+    {
+      "numerical_flags": 66050,
+      "split_k": 1,
+      "reduction": 2,
+      "result": null
+    },
+    {
+      "numerical_flags": 66050,
+      "split_k": 4,
+      "reduction": 0,
+      "result": null
+    },
+    {
+      "numerical_flags": 262658,
+      "split_k": 1,
+      "reduction": 0,
+      "result": null
+    },
+    {
+      "numerical_flags": 262658,
+      "split_k": 4,
+      "reduction": 2,
+      "result": null
+    },
+    {
+      "numerical_flags": 262658,
+      "split_k": 4,
+      "reduction": 1,
+      "result": null
+    },
+    {
+      "numerical_flags": 262658,
+      "split_k": 4,
+      "reduction": 4,
+      "result": null
+    },
+    {
+      "numerical_flags": 262658,
+      "split_k": 1,
+      "reduction": 2,
+      "result": null
+    },
+    {
+      "numerical_flags": 262658,
+      "split_k": 4,
+      "reduction": 0,
+      "result": null
+    },
+    {
+      "numerical_flags": 131330,
+      "split_k": 1,
+      "reduction": 0,
+      "result": null
+    },
+    {
+      "numerical_flags": 131330,
+      "split_k": 4,
+      "reduction": 2,
+      "result": null
+    },
+    {
+      "numerical_flags": 131330,
+      "split_k": 4,
+      "reduction": 1,
+      "result": null
+    },
+    {
+      "numerical_flags": 131330,
+      "split_k": 4,
+      "reduction": 4,
+      "result": null
+    },
+    {
+      "numerical_flags": 131330,
+      "split_k": 1,
+      "reduction": 2,
+      "result": null
+    },
+    {
+      "numerical_flags": 131330,
+      "split_k": 4,
+      "reduction": 0,
+      "result": null
+    },
+    {
+      "numerical_flags": 4194818,
+      "split_k": 1,
+      "reduction": 0,
+      "result": null
+    },
+    {
+      "numerical_flags": 4194818,
+      "split_k": 4,
+      "reduction": 2,
+      "result": null
+    },
+    {
+      "numerical_flags": 4194818,
+      "split_k": 4,
+      "reduction": 1,
+      "result": null
+    },
+    {
+      "numerical_flags": 4194818,
+      "split_k": 4,
+      "reduction": 4,
+      "result": null
+    },
+    {
+      "numerical_flags": 4194818,
+      "split_k": 1,
+      "reduction": 2,
+      "result": null
+    },
+    {
+      "numerical_flags": 4194818,
+      "split_k": 4,
+      "reduction": 0,
+      "result": null
+    }
+  ],
+  "source_hashes": {
+    "check_cpu.py": "ff8bbaac4cb6a375dd9d5dd576988ffe4fd5711e2224d7e18a35405335b2c08d",
+    "driver.py": "bdd026f11d59ba346292f96e578ac315123108aa0c8f7c008d8f4257e7cbbb09",
+    "lt_binding.py": "35771e66cab7110a32743c48118665ae0fafe6548cf10a3f4ef989cc46b4871b",
+    "launch.py": "6a5b688e3148738537a761e163a4f60e18423046f7e611f54022533b6d93937b"
+  }
+}

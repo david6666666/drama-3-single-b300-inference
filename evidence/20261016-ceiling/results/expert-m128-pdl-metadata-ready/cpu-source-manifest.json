@@ -1,0 +1,15 @@
+{
+  "scope": "CPU AOT source only, runtime graph guard not frozen yet",
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "files": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_ready_config.py": "43b0cb3a051baa70bd86a2602dcbffc9bd1f8850ee9b7f569a26cbf19f94520a",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_ready_kernel.py": "23dd6ecfedda65839d9f986d45f7781f59e730b9e0ab4eaea0ca3270ed678041",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/prepare_metadata_ready.py": "d8ff3b7596f82e5fa05a532cad7bd806c89c670a048cde09c964c43ff01a5642",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/body_common.py": "fe6642d1d5ec154236674e4f8a8c875fea720507d4716ecb235cc05809deb331",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/gmem_c_resources_m128_body.py": "4b8fc3fe4483977105bd197caef5afbfaec938aef1f736b449ecd5eeca6da4d5",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/batched_gemm_kernel.py": "8963ccf24821db00f9ab405f3e9ccbbea96734211929acdd8962ae817800a556",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/batched_gemm_config.py": "1af91a4a3fabece710b4c79502bfea502e75861ffd40ad2b2821ce8ca663d235",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/batched_gemm_tasks.py": "83644ccc63e4b43f6799523dd1851b261898d98d443ee86670a5fad8ed0a825b",
+    "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/flashinfer/prims_ts/batched_gemm/smem_misc_resources.py": "897e37b2487870dec9cbc8282ff2ef5e0164e6481abe99281eb1a778e4ffc46d"
+  }
+}

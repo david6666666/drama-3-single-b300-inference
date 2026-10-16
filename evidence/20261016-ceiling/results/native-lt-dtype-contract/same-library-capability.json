@@ -1,0 +1,32 @@
+{
+  "status": "INDEPENDENT_SAME_LIBRARY_CAPABILITY_CONFIRMED",
+  "rows": [
+    {
+      "shape": [
+        64,
+        12352,
+        2048,
+        2048
+      ],
+      "returncode": 0,
+      "stdout": "{\"status\":0,\"bytes\":8,\"flags\":66050,\"id\":66,\"library_version\":130101}\n",
+      "stderr": "",
+      "descriptor_sha256": "5e9a2416e55ec1f1a18096a26d229e49f5d3043ce2754f5809d62344ac91e2ad"
+    },
+    {
+      "shape": [
+        64,
+        2048,
+        4096,
+        4096
+      ],
+      "returncode": 0,
+      "stdout": "{\"status\":0,\"bytes\":8,\"flags\":66050,\"id\":66,\"library_version\":130101}\n",
+      "stderr": "",
+      "descriptor_sha256": "6aea9e115469d8ab2f038579d464c201d231acbb5fb15ae4866dfb08346aaf97"
+    }
+  ],
+  "child_LD_LIBRARY_PATH": "/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/nvidia/cu13/lib",
+  "correction": "Original C++ RUNPATH yielded to inherited /usr/local/cuda/lib64 and loaded13.7; Python Torch and ctypes used venv13.1.1 all along. Initial C++ cross-version results preserved; this child-only path pins the matching13.1.1 binary. No Python numerical result or original strict candidate gate reclassified.",
+  "post_gpu": "GPU-40e00845-d89c-1393-2c32-a2dca3ee9442, 804486\n"
+}

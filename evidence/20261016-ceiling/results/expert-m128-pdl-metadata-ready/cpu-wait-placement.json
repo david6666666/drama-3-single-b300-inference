@@ -1,0 +1,65 @@
+{
+  "status": "CPU_WAIT_PLACEMENT_PASS",
+  "gpu_used": false,
+  "timing_claim": false,
+  "cubin_sha256": "ea52321ec64fc9976a306b7c7aeeb0805033c2e024034e5cc6ce266e7d95b170",
+  "ptx": "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/cpu-compile/cutlass_gemm_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_Ptrgmem_2048230.sm_103a.ptx",
+  "ptx_sha256": "7bd5b717c7728474163599827f7f01ee7a70e317a30e284e631b441eb46f926d",
+  "global_entry_wait": false,
+  "task_waits": [
+    {
+      "line": 857,
+      "text": "griddepcontrol.wait;"
+    },
+    {
+      "line": 1671,
+      "text": "griddepcontrol.wait;"
+    }
+  ],
+  "release_sites": [
+    {
+      "line": 1326,
+      "text": "griddepcontrol.launch_dependents;"
+    },
+    {
+      "line": 2146,
+      "text": "griddepcontrol.launch_dependents;"
+    }
+  ],
+  "first_weight_tma": {
+    "line": 353,
+    "text": "cp.async.bulk.tensor.3d.shared::cta.global.tile.mbarrier::complete_tx::bytes [%r14], [%rd3, {%r11, %r8, %r1000}], [%r13];"
+  },
+  "first_activation_tma": {
+    "line": 938,
+    "text": "cp.async.bulk.tensor.4d.shared::cta.global.tile.mbarrier::complete_tx::bytes [%r40], [%rd4, {%r37, %r33, %r294, %r34}], [%r39];"
+  },
+  "sass_waits": [
+    {
+      "line": 931,
+      "text": "/*1ce0*/                   ACQBULK ;                                                                      /* 0x000000000000782e */"
+    },
+    {
+      "line": 1755,
+      "text": "/*36a0*/                   ACQBULK ;                                                                      /* 0x000000000000782e */"
+    }
+  ],
+  "sass_releases": [
+    {
+      "line": 1393,
+      "text": "/*2b50*/                   PREEXIT ;                                                                      /* 0x000000000000782d */"
+    },
+    {
+      "line": 2331,
+      "text": "/*48a0*/                   PREEXIT ;                                                                      /* 0x000000000000782d */"
+    }
+  ],
+  "first_weight_sass_tma": {
+    "line": 497,
+    "text": "/*0f50*/                   UTMALDG.3D [UR16], [UR26] ;                                                    /* 0x000000101a0075b4 */"
+  },
+  "sass_setmaxnreg_count": 0,
+  "base_registers": 32,
+  "shared_total_bytes": 74664,
+  "control_flow_note": "PTX comments identify LoadA warp5, LoadB warp6, LoadSfAb warp8. Weight producer has no dependency wait; B and combined scale producers wait before consuming activation. Metadata loads in all tasks are protected only by the new explicit external full edge, not by PDL trigger."
+}

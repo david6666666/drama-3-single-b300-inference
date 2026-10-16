@@ -11,7 +11,11 @@ remains6765.407. Full results and preserved failures are in the
 A subsequent PDL-enabled M128 candidate passes1498 exact checks but misses
 the continuation threshold in two of three real cases in its first timing round.
 Pressure-case timing, three repetitions and service integration are not run.
-The next metadata/consumer-wait schedule remains under separate validation.
+The metadata-ready follow-up now passes1516 exact checks but reduces complete
+MoE latency by only2.73–4.15% in its three-real-case screen; it also stops.
+Two bounded cuBLASLt projection algorithms pass84 eager and84 graph byte/ownership
+checks but are essentially equal to F.linear, so neither replaces it. No service
+result is added and the6765.407 target remains unchanged.
 
 # Current concurrency optimization campaign
 

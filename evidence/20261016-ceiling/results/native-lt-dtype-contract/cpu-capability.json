@@ -1,0 +1,7 @@
+{
+  "returncode": 7,
+  "stdout": "{\"status\":7,\"bytes\":0,\"flags\":0,\"id\":66,\"library_version\":130101}\n",
+  "stderr": "",
+  "explicit_cuda_calls": false,
+  "executed_kernels": false
+}

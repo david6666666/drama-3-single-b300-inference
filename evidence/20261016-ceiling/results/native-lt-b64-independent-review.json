@@ -1,0 +1,18 @@
+{
+  "status": "CPU_REVIEW_COMPLETE_NO_BLOCKING_SOURCE_FINDING",
+  "gpu_used_by_reviewer": false,
+  "runtime_or_experiment_modified": false,
+  "reviewed_at_utc": "2026-10-16T02:28:23.448938+00:00",
+  "source_sha": "e7cda1eba083603b88e1f2e89688e1ff2ced7fc2",
+  "remaining_gate": "Graph replay numerical/ownership and full-model quality not established by eager projection checks.",
+  "sha256": {
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-b64/lt_binding.py": "35771e66cab7110a32743c48118665ae0fafe6548cf10a3f4ef989cc46b4871b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-b64/driver.py": "bdd026f11d59ba346292f96e578ac315123108aa0c8f7c008d8f4257e7cbbb09",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-b64/check_cpu.py": "ff8bbaac4cb6a375dd9d5dd576988ffe4fd5711e2224d7e18a35405335b2c08d",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-b64/abi_probe.cpp": "5ef33a8f5e02c9976ba63f690731c29706d367a245638ffded7dd3296554fcf4",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-b64/protocol.json": "9743c85376ab464597e7602f868f5313b1b86216252fba2ac3f72c23c35d4553",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-b64/cpu-check.json": "62a02cc11b3763ec32bfb72d74040fe7a6ebe9f90f887e6783bbcc8f784e4642",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-b64/launch.py": "6a5b688e3148738537a761e163a4f60e18423046f7e611f54022533b6d93937b",
+    "/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/native-lt-b64-independent-review.md": "b37da505cabec3f5fa73185b4d5e94b3e795977b9ac9ca79b048b385d7fe1f13"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "status": "METADATA_READY_PREPARE_FAIL",
+  "mode": "prepare",
+  "checks": [
+    {
+      "name": "cuda_hidden",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "source_frozen",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/expanded_pass",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc2/expanded_pass",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "CPU_real_weight_loader",
+      "exact": true,
+      "detail": null
+    },
+    {
+      "name": "fc1/one_new_cubin",
+      "exact": false,
+      "detail": null
+    }
+  ],
+  "timing_allowed": false,
+  "source_sha": "95fcb0ef2662f2caf9bfb7fe6863dc3ad7805b1b",
+  "source_status": "",
+  "pid": 808215,
+  "error": "AssertionError('fc1/one_new_cubin')",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_driver.py\", line 929, in <module>\n    prepare()\n  File \"/home/zjy/code/hsliu/venvs/codex-drama3-standalone/lib/python3.12/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_driver.py\", line 530, in prepare\n    _ios, _fns, records = compile_pair(x)\n                          ^^^^^^^^^^^^^^^\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_driver.py\", line 242, in compile_pair\n    req(fc + \"/one_new_cubin\", len(new) == 1)\n  File \"/home/zjy/code/hsliu/artifacts/drama3-ceiling-20261016/expert-m128-pdl-metadata-ready/metadata_driver.py\", line 72, in req\n    raise AssertionError(name)\nAssertionError: fc1/one_new_cubin\n"
+}

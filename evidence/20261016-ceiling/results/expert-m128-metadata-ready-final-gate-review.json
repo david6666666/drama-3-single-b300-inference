@@ -1,0 +1,11 @@
+{
+  "reviewed_utc": "2026-10-16T02:37:36.000885+00:00",
+  "scope": "Final independent CPU source review; no GPU and no modification of author-owned source",
+  "status": "NO_BLOCKING_SOURCE_FINDINGS_HARDWARE_GATE_STILL_REQUIRED",
+  "evidence": {
+    "expert-m128-pdl-metadata-ready/metadata_ready_config.py": "43b0cb3a051baa70bd86a2602dcbffc9bd1f8850ee9b7f569a26cbf19f94520a",
+    "expert-m128-pdl-metadata-ready/metadata_ready_graph.py": "4107f0e0ad89dde8ef6be6f8c07c65220adcd2e0136aad9d639db1bb9e03a38b",
+    "expert-m128-pdl-metadata-ready/metadata_gate.py": "e5e87746a853bcbcf418552d8821f6b5303dd266ed316b2c2c74af006dc0f6e4"
+  },
+  "safe_to_archive": true
+}

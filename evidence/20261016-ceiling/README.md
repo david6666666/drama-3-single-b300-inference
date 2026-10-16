@@ -427,5 +427,58 @@ separate PDL-off experiment. See [PDL report](results/expert-m128-pdl/summary.md
 CPU inspection identifies a narrower follow-up: the native FC2 weight producer
 can precede a consumer dependency wait, while this prototype waits at entry.
 An explicit metadata-completion dependency and retained consumer waits would be
-required to exploit independent weight prefetch safely. The next specialization
-is not yet validated. See [synchronization contract](results/pdl-memory-contract.md).
+required to exploit independent weight prefetch safely. That motivated the separately validated specialization below. See [synchronization contract](results/pdl-memory-contract.md).
+
+
+## Metadata-ready FC2: safe earlier loads, insufficient improvement
+
+The restricted FC2 removes only its global metadata wait. Every actual metadata
+producer receives a DEFAULT full-memory graph edge to FC2; the original activation
+PROGRAMMATIC edge and B/SF consumer waits remain. CPU checks cover26 configuration
+and44 graph cases. Final PTX/SASS places weight TMA before activation-consuming
+waits. These facts establish the intended dependency separation, not a speedup.
+
+The full GPU gate passes1516 byte/ownership checks across15 fixtures, including
+same-graph0→positive→0 metadata restoration. One complete-call screening gives:
+
+| Real layer | Native µs | Candidate µs | Reduction |
+|---|---:|---:|---:|
+|0|120.748|117.452|2.729%|
+|19|99.425|96.260|3.183%|
+|39|79.944|76.630|4.145%|
+
+All miss the predeclared5% gate. No three-repeat timing, pressure-case timing or
+runtime promotion follows; pressure performance is explicitly NOT_RUN/null.
+The130 frozen files still match after execution. Trusted/private graph ownership
+is part of the contract; topology snapshots do not inspect kernel argument bytes.
+See [the complete report](results/expert-m128-pdl-metadata-ready/summary.md) and
+[conditional outer-graph integration design](results/metadata-ready-runtime-integration-design.md).
+
+## Bounded native-dtype Lt investigation: no selected replacement
+
+The first strict BF16 capability filter selects no candidate. Its apparent whole
+sequence timing difference is A/A variation. Both tested descriptors request
+BF16 A/B/D and FP32 compute, but cuBLAS13.1.1 reports INPUT_16F. Independent C++
+and actual descriptor getters reproduce the discrepancy. Eight full-output range
+probes match rounded FP64 exactly, including values beyond FP16 range. This does
+not resolve the documented capability semantics or permit a generic filter waiver.
+
+A separate investigation binds the exact two algorithm blobs, shapes, library
+and descriptor settings. All84 real calls pass full eager byte equality and84
+captured-graph output/input/weight/guard/RNG checks. The30-call non-split sequence
+is0.331940→0.331992ms; the54-call FP32 split-K sequence0.412405→0.412599ms.
+Neither is selected. The later223-call sequence uses F.linear on both arms, so
+its0.0265ms difference is also A/A variation. No0.3ms budget, repeated gain,
+native runtime qualification or service improvement is established.
+
+The223 calls are intercepted `drama3.model.linear` operations, excluding direct
+matrix operations elsewhere. An initial C++ probe accidentally resolved system
+cuBLAS13.7 through LD_LIBRARY_PATH; the corrected child-only library path pins
+13.1.1, matching Python's actual mappings throughout. Both probes remain recorded.
+Package metadata or RUNPATH alone does not prove the loaded library identity.
+See [dtype provenance](results/native-lt-dtype-contract/summary.md) and
+[bounded real-input result](results/native-lt-real-contract/summary.md).
+
+The best complete-quality C64 observation remains4726.771frames/s. These local
+negative results do not prove6765.407 impossible, and they do not satisfy the
+all-concurrency1.5× performance and WER/SIM acceptance requirements.
