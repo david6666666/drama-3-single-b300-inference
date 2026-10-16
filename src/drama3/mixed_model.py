@@ -19,6 +19,7 @@ from drama3.gdn import prefill as gdn_prefill
 from drama3.kernels import (
     add_norm,
     combine_experts_add_norm,
+    combine_experts_add_norm_inverse,
     conv_update,
     gated_norm,
     linear,
@@ -168,6 +169,7 @@ def mixed_backbone(
     batch: AttentionBatch,
     layout: PackedLayout,
     decode_rows: int,
+    moe_row_reuse=None,
 ) -> torch.Tensor:
     """Execute decode rows first and packed prefill rows second in one backbone.
 
@@ -188,15 +190,25 @@ def mixed_backbone(
     if model.moe_shared_stream is not None:
         raise ValueError("Mixed backbone requires DRAMA3_MOE_SHARED_OVERLAP=0")
 
+    if moe_row_reuse is not None:
+        if not model.fused_moe_residual:
+            raise ValueError("Mixed row reuse requires the native fused MoE residual")
+        keep, inverse, compact_slots = moe_row_reuse
+        # Row metadata is already populated, and slots stay fixed throughout all 40 layers.
+        torch.index_select(slots, 0, keep, out=compact_slots)
+
+    def combine(parts, residual, norm):
+        if moe_row_reuse is None:
+            return combine_experts_add_norm(*parts, residual, norm.weight, norm.eps)
+        return combine_experts_add_norm_inverse(*parts, inverse, residual, norm.weight, norm.eps)
+
     hidden = model.tower.embed_backbone(frames, model.backbone.embed_tokens(frames[:, 0]))
     pending = None
     for index, layer in enumerate(model.backbone.layers):
         normalized = (
             model.norm(hidden, layer.input_layernorm)
             if pending is None
-            else combine_experts_add_norm(
-                *pending, hidden, layer.input_layernorm.weight, layer.input_layernorm.eps
-            )
+            else combine(pending, hidden, layer.input_layernorm)
             if model.fused_moe_residual
             else add_norm(pending, hidden, layer.input_layernorm.weight, layer.input_layernorm.eps)
         )
@@ -223,12 +235,15 @@ def mixed_backbone(
             layer.post_attention_layernorm.eps,
         )
         pending = (
-            model.moe_parts(normalized, layer.mlp, decode=True, row_slots=slots)
+            model.moe_parts(
+                normalized if moe_row_reuse is None else normalized.index_select(0, keep),
+                layer.mlp,
+                decode=True,
+                row_slots=slots if moe_row_reuse is None else compact_slots,
+            )
             if model.fused_moe_residual
             else model.moe(normalized, layer.mlp, decode=True, row_slots=slots)
         )
     if model.fused_moe_residual:
-        return combine_experts_add_norm(
-            *pending, hidden, model.backbone.norm.weight, model.backbone.norm.eps
-        )
+        return combine(pending, hidden, model.backbone.norm)
     return add_norm(pending, hidden, model.backbone.norm.weight, model.backbone.norm.eps)

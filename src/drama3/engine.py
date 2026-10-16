@@ -26,6 +26,7 @@ from drama3.codec import load_codec, streaming_codec
 from drama3.model import AttentionBatch, DramaModel
 from drama3.packed_prefill import PackedPrefillGraph
 from drama3.profiling import StageProfiler, TimelineProfiler
+from drama3.row_reuse import MIXED_ROW_REUSE_BUCKETS, plan_row_reuse
 from drama3.runtime_state import DeviceRequests
 
 
@@ -269,6 +270,22 @@ class Engine:
         )
         self.mixed_backbone = os.environ.get("DRAMA3_MIXED_BACKBONE") == "1"
         self.mixed_span256 = os.environ.get("DRAMA3_MIXED_SPAN256") == "1"
+        self.mixed_row_reuse = os.environ.get("DRAMA3_MIXED_ROW_REUSE") == "1"
+        self.row_reuse_counts = dict(
+            opportunities=0,
+            unsupported_shape=0,
+            no_fitting_bucket=0,
+            used=0,
+            removed_rows=0,
+            mapping_cpu_ms=0.0,
+            mapping_cpu_ms_max=0.0,
+        )
+        if self.mixed_row_reuse and (
+            not self.mixed_backbone
+            or not self.mixed_span256
+            or os.environ.get("DRAMA3_FUSED_MOE_RESIDUAL") != "1"
+        ):
+            raise ValueError("Mixed row reuse requires mixed backbone, span256 and fused residual")
         if self.mixed_backbone and (not self.packed_prefill or self.prefill_max_batch != 8):
             raise ValueError("Mixed backbone currently requires packed prefill and batch limit 8")
         if self.mixed_backbone and os.environ.get("DRAMA3_PREFILL_MOE") != "flashinfer":
@@ -409,6 +426,7 @@ class Engine:
                         self.model, batch, capacity, pool=pool
                     )
             self.mixed_graphs = {}
+            self.row_reuse_graphs = {}
             self.mixed_tower_graphs = {}
             if self.mixed_backbone:
                 from drama3.mixed_graph import MixedGraph
@@ -431,6 +449,19 @@ class Engine:
                                 capacity,
                                 pool=pool,
                                 max_length=span,
+                            )
+                if self.mixed_row_reuse:
+                    for size, capacity, span, compact in MIXED_ROW_REUSE_BUCKETS:
+                        if (size, capacity, span) in self.mixed_graphs:
+                            self.row_reuse_graphs[(size, capacity, span, compact)] = MixedGraph(
+                                self.model,
+                                self.device_requests,
+                                size,
+                                8,
+                                capacity,
+                                pool=pool,
+                                max_length=span,
+                                compact_rows=compact,
                             )
             self.codec_graphs = streaming_codec(
                 self.codec, self.slots, dtype=getattr(torch, self.codec_precision)
@@ -508,6 +539,41 @@ class Engine:
                                 and mixed_graph is not None
                                 and all(3 <= len(prompt) <= 512 for prompt in prompts)
                             ):
+                                row_plan = None
+                                mapping_cpu_ms = 0.0
+                                if self.mixed_row_reuse:
+                                    self.row_reuse_counts["opportunities"] += 1
+                                    compact_capacities = [
+                                        key[3]
+                                        for key in self.row_reuse_graphs
+                                        if key[:3] == (mixed_size, capacity, span)
+                                    ]
+                                    if compact_capacities:
+                                        # This counter covers planning/snapshots only. Prepare
+                                        # Prepare also checks bytes and uploads; both remain
+                                        # included in the measured service latency.
+                                        started = time.perf_counter()
+                                        row_plan = plan_row_reuse(
+                                            prompts, mixed_size, capacity, compact_capacities
+                                        )
+                                        mapping_cpu_ms = (time.perf_counter() - started) * 1000
+                                        self.row_reuse_counts["mapping_cpu_ms"] += mapping_cpu_ms
+                                        self.row_reuse_counts["mapping_cpu_ms_max"] = max(
+                                            self.row_reuse_counts["mapping_cpu_ms_max"],
+                                            mapping_cpu_ms,
+                                        )
+                                        if row_plan is None:
+                                            self.row_reuse_counts["no_fitting_bucket"] += 1
+                                        else:
+                                            self.row_reuse_counts["used"] += 1
+                                            self.row_reuse_counts["removed_rows"] += (
+                                                row_plan.removed_rows
+                                            )
+                                            mixed_graph = self.row_reuse_graphs[
+                                                (mixed_size, capacity, span, row_plan.compact_rows)
+                                            ]
+                                    else:
+                                        self.row_reuse_counts["unsupported_shape"] += 1
                                 mixed_metadata = (
                                     dict(
                                         prompt_tokens=total,
@@ -516,13 +582,23 @@ class Engine:
                                         prompt_span=span,
                                         decode_padded_batch=mixed_size,
                                         steps=1,
+                                        moe_compact_rows=(
+                                            row_plan.compact_rows if row_plan else None
+                                        ),
+                                        moe_unique_rows=(
+                                            row_plan.unique_rows if row_plan else None
+                                        ),
+                                        moe_row_mapping_cpu_ms=mapping_cpu_ms,
                                     )
                                     if isinstance(self.profiler, TimelineProfiler)
                                     else None
                                 )
                                 with self.measure("mixed_backbone", len(active), mixed_metadata):
                                     mixed_hidden, hidden = mixed_graph.run(
-                                        active, prompts, [r.slot for r in arriving]
+                                        active,
+                                        prompts,
+                                        [r.slot for r in arriving],
+                                        row_reuse_plan=row_plan,
                                     )
                                 self.flush_codec_submissions()
                                 batch = next(
@@ -620,6 +696,8 @@ class Engine:
                         self.codec_trace_submissions.clear()
             if self.profiler is not None:
                 self.profiler.save()
+            if self.mixed_row_reuse:
+                print(json.dumps(dict(row_reuse_counts=self.row_reuse_counts)), flush=True)
             if self.frame_pipeline:
                 print(
                     json.dumps(

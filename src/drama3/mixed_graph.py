@@ -6,6 +6,7 @@ import triton
 from drama3.mixed_model import mixed_backbone
 from drama3.model import AttentionBatch
 from drama3.packed_prefill import PackedLayout, row_metadata
+from drama3.row_reuse import plan_row_reuse
 
 
 class MixedGraph:
@@ -19,9 +20,14 @@ class MixedGraph:
         pool=None,
         joint_backbone=True,
         max_length=512,
+        compact_rows=None,
     ):
         if not 3 <= max_length <= 512:
             raise ValueError("Mixed prompt span must be between 3 and 512")
+        if compact_rows is not None and (not joint_backbone or not model.fused_moe_residual):
+            raise ValueError("Mixed row reuse requires the joint backbone and fused residual")
+        self.compact_rows = compact_rows
+        self.moe_row_reuse = None
         self.model, self.requests = model, requests
         self.joint_backbone = joint_backbone
         self.decode_size, self.batch, self.capacity = decode_size, batch, capacity
@@ -48,6 +54,21 @@ class MixedGraph:
         self.attention = AttentionBatch(
             self.slots[:decode_size], self.positions[:decode_size], model.max_length
         )
+        if compact_rows is not None:
+            # Capture with legal identical fresh causal sequences; original padding
+            # and all decode rows remain distinct. No unproved identity map truncation.
+            prompts = [torch.zeros((length, 11), dtype=torch.int64) for length in sizes[:-1]]
+            for prompt in prompts:
+                prompt[:, 0] = model.config.eos_token_id
+            plan = plan_row_reuse(prompts, decode_size, capacity, (compact_rows,))
+            if plan is None:
+                raise ValueError("Capture prefixes do not fit the compact bucket")
+            self.row_indices = plan.packed_indices.to(device="cuda")
+            self.moe_row_reuse = (
+                self.row_indices[:compact_rows],
+                self.row_indices[compact_rows:],
+                torch.empty(compact_rows, device="cuda", dtype=torch.int64),
+            )
         self.graph = torch.cuda.CUDAGraph()
         stream = torch.cuda.Stream()
         stream.wait_stream(torch.cuda.current_stream())
@@ -85,7 +106,14 @@ class MixedGraph:
             state.index_fill_(0, self.layout.sequence_slots, 0)
         if self.joint_backbone:
             hidden = mixed_backbone(
-                self.model, self.frames, self.positions, self.slots, self.attention, self.layout, d
+                self.model,
+                self.frames,
+                self.positions,
+                self.slots,
+                self.attention,
+                self.layout,
+                d,
+                moe_row_reuse=self.moe_row_reuse,
             )
         else:
             prefill = self.model.backbone_forward(
@@ -108,7 +136,7 @@ class MixedGraph:
         ends = self.layout.boundaries[1:-1].to(torch.int64) - 1
         return hidden[:d].clone(), hidden[d:].index_select(0, ends.clamp_min(0))
 
-    def prepare(self, active, prompts, slots):
+    def prepare(self, active, prompts, slots, row_reuse_plan=None):
         count, d = len(active), self.decode_size
         if not 1 <= count <= d or not 1 <= len(prompts) <= self.batch or len(prompts) != len(slots):
             raise ValueError("Invalid mixed request count")
@@ -126,6 +154,21 @@ class MixedGraph:
             or max(slots) >= self.model.slots // 2
         ):
             raise ValueError("Mixed decode, prompt and padding state slots must be disjoint")
+        if self.compact_rows is not None:
+            plan = row_reuse_plan
+            if plan is None:
+                plan = plan_row_reuse(prompts, d, self.capacity, (self.compact_rows,))
+            if (
+                plan is None
+                or plan.decode_rows != d
+                or plan.prefill_capacity != self.capacity
+                or plan.compact_rows != self.compact_rows
+                or not plan.matches_prompts(prompts)
+            ):
+                raise ValueError("Prompts do not match this compact mixed graph")
+            self.row_indices.copy_(plan.packed_indices)
+        elif row_reuse_plan is not None:
+            raise ValueError("A row reuse plan requires a compact mixed graph")
         lengths += [0] * (self.batch - len(lengths)) + [padding]
         boundaries = [0, *torch.tensor(lengths).cumsum(0).tolist()]
         self.slots[:d].copy_(torch.tensor(decode_slots, dtype=torch.int64))
@@ -135,8 +178,8 @@ class MixedGraph:
         for i, prompt in enumerate(prompts):
             self.frames[d + boundaries[i] : d + boundaries[i + 1]].copy_(prompt)
 
-    def run(self, active, prompts, slots):
-        self.prepare(active, prompts, slots)
+    def run(self, active, prompts, slots, row_reuse_plan=None):
+        self.prepare(active, prompts, slots, row_reuse_plan)
         self.graph.replay()
         # Shared graph-pool storage cannot escape to a subsequent replay.
         return tuple(value.clone() for value in self.output)
